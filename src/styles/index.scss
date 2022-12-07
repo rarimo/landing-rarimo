@@ -1,1 +1,12 @@
-@import './components/example';
+@import 'reset';
+@import 'variables';
+@import 'helpers';
+@import 'app';
+
+// Themes
+@import './themes/light-variables';
+@import './themes/dark-variables';
+
+// Components
+@import './components/scrollbar';
+@import './components/theme-switcher';

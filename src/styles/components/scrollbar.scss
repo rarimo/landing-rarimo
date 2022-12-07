@@ -1,0 +1,19 @@
+html,
+.scrollbar {
+  scrollbar-color: var(--scrollbar-color) transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: to-rem(6);
+  height: to-rem(6);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: to-rem(2);
+}

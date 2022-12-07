@@ -1,0 +1,53 @@
+@import 'colors';
+
+:root,
+:before,
+:after {
+  // Colors
+  --white-color: #{$col-total-white};
+  --black-color: #{$col-total-black};
+  // --primary-color: #{$col-blurple};
+  // --secondary-color: #{$col-purple-illusionist};
+
+  // Text variables
+  --primary-font: 'Inter', -apple-system, 'BlinkMacSystemFont', 'Segoe UI',
+    'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+
+  --h1-size: #{to-rem(64)};
+  --h1-weight: 900;
+  --h2-size: #{to-rem(36)};
+  --h2-weight: 600;
+  --h3-size: #{to-rem(22)};
+  --h3-weight: 600;
+  --h4-size: #{to-rem(20)};
+  --h4-weight: 600;
+  --h5-size: #{to-rem(16)};
+  --h5-weight: 600;
+  --h6-size: #{to-rem(14)};
+  --h6-weight: 600;
+  --p-size: #{to-rem(16)};
+  --p-weight: 400;
+
+  // Transitions
+  --fast-transition-duration: 0.3s;
+  --medium-transition-duration: 0.4s;
+  --hover-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --slide-transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+  --fade-transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --hover-transition: var(--fast-transition-duration)
+    var(--hover-transition-timing-function);
+  --slide-transition: var(--fast-transition-duration)
+    var(--slide-transition-timing-function);
+
+  // Base
+  --primary-title-color: var(--white-color);
+  --primary-btn-color: var(--white-color);
+  --primary-divider-color: #var(--black-color);
+  --container-side-padding: #{to-rem(16)};
+
+  // Common
+  --scrollbar-color: var(--primary-divider-color);
+
+  // App bar
+  --app-bar-height: #{to-rem(64)};
+}

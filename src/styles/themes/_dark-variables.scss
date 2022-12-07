@@ -1,0 +1,16 @@
+[data-theme='dark'] {
+  --primary-bg-color: var(--black-color);
+  --primary-text-color: var(--white-color);
+
+  .switcher__radio {
+    filter: invert(1);
+  }
+
+  .switcher__radio:checked {
+    filter: invert(0);
+  }
+
+  .switcher__status {
+    filter: invert(1);
+  }
+}

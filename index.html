@@ -4,10 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
     <title>Rarimo</title>
   </head>
   <body>
-    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. Находятся в папке src/partials -->
-    {{> example }}
+    <!-- {{> example }} -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum veritatis
+      magni officia sint enim, facere doloribus nostrum sequi dolor hic?
+    </p>
+
+    <fieldset class="switcher">
+      <legend class="switcher__legend">Cxema</legend>
+      <input
+        class="switcher__radio switcher__radio--light"
+        type="radio"
+        name="color-scheme"
+        value="light"
+        aria-Label="Light"
+      />
+      <input
+        class="switcher__radio switcher__radio--auto"
+        type="radio"
+        name="color-scheme"
+        value="auto"
+        aria-Label="System"
+        checked
+      />
+      <input
+        class="switcher__radio switcher__radio--dark"
+        type="radio"
+        name="color-scheme"
+        value="dark"
+        aria-Label="Dark"
+      />
+      <div class="switcher__status"></div>
+    </fieldset>
   </body>
 </html>
