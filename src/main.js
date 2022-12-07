@@ -1,3 +1,3 @@
-import './styles/index.scss';
-
-import './js/theme-switcher';
+import '@/styles/index.scss';
+import '@/localization';
+import '@/js/theme-switcher';

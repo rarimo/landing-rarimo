@@ -6,7 +6,7 @@
   margin-left: -50px;
   padding: 2px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   border: none;
 }
 
@@ -58,10 +58,6 @@
 
 .switcher__radio--light:checked ~ .switcher__status {
   background-position: left 2px center;
-}
-
-.switcher__radio--auto:checked ~ .switcher__status {
-  background-position: center center;
 }
 
 .switcher__radio--dark:checked ~ .switcher__status {
