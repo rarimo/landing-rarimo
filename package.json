@@ -8,11 +8,10 @@
     "lending"
   ],
   "author": "Oleksandr Kropivnyi <kropivnyy@gmail.com>",
-  "homepage": "https://Kropivnyy.github.io/vite-project-template",
   "license": "ISC",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/vite-project-template/",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
