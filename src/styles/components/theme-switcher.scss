@@ -1,6 +1,7 @@
 .switcher {
   position: absolute;
-  bottom: 36px;
+  z-index: 4;
+  bottom: 0;
   left: 50%;
   margin: 0;
   margin-left: -50px;

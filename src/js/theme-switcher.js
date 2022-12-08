@@ -19,13 +19,15 @@ function setupSwitcher() {
 
 function setupScheme() {
   const savedScheme = getSavedScheme();
-  const systemScheme = getSystemScheme();
+  setScheme(savedScheme ?? 'light');
+  // const savedScheme = getSavedScheme();
+  // const systemScheme = getSystemScheme();
 
-  if (savedScheme === null) return;
+  // if (savedScheme === null) return;
 
-  if (savedScheme !== systemScheme) {
-    setScheme(savedScheme);
-  }
+  // if (savedScheme !== systemScheme) {
+  //   setScheme(savedScheme);
+  // }
 }
 
 function setScheme(scheme) {

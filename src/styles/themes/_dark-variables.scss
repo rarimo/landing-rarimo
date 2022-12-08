@@ -1,6 +1,15 @@
 [data-theme='dark'] {
-  --primary-bg-color: var(--black-color);
-  --primary-text-color: var(--white-color);
+  --primary-bg-color: var(--col-total-black);
+  --primary-title-color: var(--col-total-white);
+  --primary-text-color: rgba(#{$col-total-white-rgb}, 64%);
+
+  --primary-btn-color: var(--col-total-white);
+  --primary-divider-color: var(--col-total-black);
+
+  // Experience section
+  --experience-card-bg: #{$col-gluon-grey};
+  --experience-card-shadow-color: rgba(#{$col-ancient-ice-rgb}, 20%);
+  --experience-card-icon-color: #{$col-tropical-green};
 
   .switcher__radio {
     filter: invert(1);

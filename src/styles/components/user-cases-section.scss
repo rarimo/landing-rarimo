@@ -1,0 +1,49 @@
+.user-cases-section {
+  padding-top: to-rem(64);
+}
+
+.user-cases-section__title {
+  margin-bottom: to-rem(16);
+}
+
+.user-cases-section__subtitle {
+  margin-bottom: to-rem(40);
+  font-size: to-rem(16);
+}
+
+.user-cases-section__card-list {
+  display: flex;
+  align-items: stretch;
+  scroll-snap-type: x mandatory;
+  scroll-padding: calc(var(--container-side-padding) * 1.5);
+  overflow-x: auto;
+}
+
+.user-cases-section__card {
+  min-width: to-rem(315);
+  margin-right: to-rem(16);
+  padding: to-rem(32) to-rem(24);
+  scroll-snap-align: start;
+  text-align: center;
+
+  &:first-child {
+    margin-left: var(--container-side-padding);
+  }
+
+  &:last-child {
+    margin-right: var(--container-side-padding);
+  }
+}
+
+.user-cases-section__card-img {
+  width: to-rem(220);
+  margin-bottom: to-rem(40);
+}
+
+.user-cases-section__card-title {
+  margin-bottom: to-rem(16);
+}
+
+.user-cases-section__card-text {
+  letter-spacing: 0.02em;
+}

@@ -1,0 +1,61 @@
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: to-rem(1);
+  height: to-rem(1);
+  padding: 0;
+  border: 0;
+  margin: calc(#{to-rem(1)} * -1);
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  white-space: nowrap;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%accent-bg-plh {
+  --primary-title-color: var(--col-total-black);
+  --primary-text-color: rgba(#{$col-total-black-rgb}, 64%);
+
+  color: var(--primary-text-color);
+}
+
+.primary-bg {
+  @extend %accent-bg-plh;
+
+  background-image: var(--primary-gradient);
+}
+
+.honeydew-peel-bg {
+  @extend %accent-bg-plh;
+
+  background-color: var(--col-honeydew-peel);
+}
+
+.apocyan-bg {
+  @extend %accent-bg-plh;
+
+  background-color: var(--col-apocyan);
+}
+
+.pink-elephants-bg {
+  @extend %accent-bg-plh;
+
+  background-color: var(--col-pink-elephants);
+}
+
+.melon-sprinkle-bg {
+  @extend %accent-bg-plh;
+
+  background-color: var(--col-melon-sprinkle);
+}
+
+.california-lilac-bg {
+  @extend %accent-bg-plh;
+
+  background-color: var(--col-california-lilac);
+}

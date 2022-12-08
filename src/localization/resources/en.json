@@ -1,5 +1,31 @@
 {
   "app": {
-    "title": "Rarimo"
+    "title": "Rarimo Lending"
+  },
+  "experience-section": {
+    "title": "Experience what Rarimo can do",
+    "subtitle": "Empowering the multichain universe to realize its full potential",
+    "access-title": "Access",
+    "access-text": "Access cross-chain network data and allow dynamic interactions",
+    "interoperability-title": "Interoperability",
+    "interoperability-text": "Moving Digital assets or in-game items across different ecosystems",
+    "liquidity-title": "Liquidity",
+    "liquidity-text": "Easily access liquidity across chains, reducing the gas requirements."
+  },
+  "user-cases-section": {
+    "title": "User Cases",
+    "subtitle": "Enable seamless user experience with a single click interactions",
+    "nft-settlement-title": "NFT Settlement",
+    "nft-settlement-text": "Users can buy NFTs using their token of choice from any supported blockchain in a single transaction — with the lowest fees.",
+    "nft-settlement-btn": "Learn more",
+    "borrowing-title": "Lending & Borrowing",
+    "borrowing-text": "Rarimo integrates with lending platforms, enabling collateralized or uncollateralized lending across different blockchain.",
+    "asset-verification-title": "Asset Verification",
+    "asset-verification-text": "Allowing to retrieve and publish timestamped proofs about an NFT’s state and activities.",
+    "airdrop-title": "Multichain Airdrop",
+    "airdrop-text": "The collection owner sends only one transaction to lock tokens and users can redeem tokens in any chain.",
+    "staking-title": "Staking aggregator",
+    "staking-text": "Create investment strategy and publish it as a smart contract, to be executed automatically across chains.",
+    "share-title": "Share what you’re building"
   }
 }

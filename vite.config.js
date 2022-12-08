@@ -35,10 +35,10 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-          @import "src/styles/_functions.scss";
-          @import "src/styles/_mixins.scss";
-          @import "src/styles/_placeholders.scss";
-          @import "src/styles/_media.scss";
+          @import "src/styles/base/_functions.scss";
+          @import "src/styles/base/_mixins.scss";
+          @import "src/styles/base/_placeholders.scss";
+          @import "src/styles/base/_media.scss";
         `,
       },
     },

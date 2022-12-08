@@ -8,30 +8,16 @@
     <title>Rarimo</title>
   </head>
   <body>
-    <!-- {{> example }} -->
-    <h1 data-i18n="app.title"></h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum veritatis
-      magni officia sint enim, facere doloribus nostrum sequi dolor hic?
-    </p>
+    <div class="application-wrapper">
+      {{> app-bar }}
 
-    <fieldset class="switcher">
-      <legend class="switcher__legend">Cxema</legend>
-      <input
-        class="switcher__radio switcher__radio--light"
-        type="radio"
-        name="color-scheme"
-        value="light"
-        aria-Label="Light"
-      />
-      <input
-        class="switcher__radio switcher__radio--dark"
-        type="radio"
-        name="color-scheme"
-        value="dark"
-        aria-Label="Dark"
-      />
-      <div class="switcher__status"></div>
-    </fieldset>
+      <main class="application">
+        <h1 class="visually-hidden" data-i18n="app.title"></h1>
+        <!-- {{> hero-section }}  -->
+        {{> experience-section }} {{> user-cases-section }}
+      </main>
+    </div>
+
+    {{> theme-switcher}}
   </body>
 </html>

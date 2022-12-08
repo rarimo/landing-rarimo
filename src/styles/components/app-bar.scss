@@ -1,0 +1,34 @@
+.app-bar {
+  position: fixed;
+  z-index: var(--z-app-bar);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--app-bar-height);
+  background: var(--app-bar-bg);
+}
+
+.app-bar__container {
+  height: 100%;
+}
+
+.app-bar__content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  border-bottom: to-rem(1) solid var(--primary-divider-color);
+}
+
+.app-bar__logo {
+  display: inline-flex;
+  height: to-rem(28);
+  flex-shrink: 0;
+}
+
+.app-bar__logo-img {
+  height: 100%;
+}
+
+// .app-bar__navigation {
+//   flex-shrink: 0;
+// }
