@@ -1,5 +1,5 @@
-import experienceSectionCtx from '@/template-context/experience-section-ctx';
-import partnersCtx from '@/template-context/partners-ctx';
+import experienceSectionCtx from './experience-section-ctx';
+import partnersCtx from './partners-ctx';
 
 export const TEMPLATE_CONTEXT = {
   experienceSectionCtx,
