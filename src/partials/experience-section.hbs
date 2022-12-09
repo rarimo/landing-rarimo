@@ -1,0 +1,24 @@
+<section class='experience-section container'>
+  <h3
+    class='experience-section__title'
+    data-i18n='experience-section.title'
+  ></h3>
+  <p
+    class='experience-section__subtitle'
+    data-i18n='experience-section.subtitle'
+  ></p>
+  <ul class='experience-section__card-list'>
+    {{#each list}}
+      <li class='experience-section__card'>
+        <svg class='experience-section__card-icon' height='32' width='32'>
+          <use href={{this.icon}}></use>
+        </svg>
+        <h5
+          class='experience-section__card-title'
+          data-i18n={{this.title}}
+        ></h5>
+        <p class='experience-section__card-text' data-i18n={{this.text}}></p>
+      </li>
+    {{/each}}
+  </ul>
+</section>

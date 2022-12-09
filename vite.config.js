@@ -4,6 +4,7 @@ import handlebars from 'vite-plugin-handlebars';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import * as fs from 'fs';
 import * as path from 'path';
+import { TEMPLATE_CONTEXT } from './src/template-context';
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relative => path.resolve(appDirectory, relative);
@@ -17,7 +18,17 @@ export default defineConfig({
   },
   plugins: [
     handlebars({
-      partialDirectory: resolve(__dirname, 'src/partials'),
+      partialDirectory: resolve(root, 'partials'),
+      helpers: {
+        setVariable(varName, varValue, options) {
+          const root = {
+            ...(Boolean(options.data.root) && options.data.root),
+            [varName]: varValue,
+          };
+          options.data.root = root;
+        },
+      },
+      context: TEMPLATE_CONTEXT,
     }),
     createHtmlPlugin({
       minify: true,
