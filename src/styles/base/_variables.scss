@@ -7,6 +7,7 @@
   --col-total-white: #{$col-total-white};
   --col-total-black: #{$col-total-black};
 
+  --col-turquoise-pearl: #{$col-turquoise-pearl};
   --col-honeydew-peel: #{$col-honeydew-peel};
   --col-apocyan: #{$col-apocyan};
   --col-pink-elephants: #{$col-pink-elephants};
@@ -49,7 +50,7 @@
   --container-side-padding: #{to-rem(24)};
 
   // Common
-  --scrollbar-color: var(--primary-divider-color);
+  --scrollbar-color: var(--primary-text-color);
 
   // App bar
   --app-bar-height: #{to-rem(80)};

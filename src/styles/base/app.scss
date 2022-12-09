@@ -4,9 +4,14 @@ html {
   box-sizing: border-box;
   flex-direction: column;
   font-family: var(--primary-font);
+  word-spacing: to-rem(1);
+  text-rendering: optimizeLegibility;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch !important;
+  -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
   overflow-y: auto !important;
 }

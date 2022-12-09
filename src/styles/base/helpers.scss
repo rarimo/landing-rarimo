@@ -27,7 +27,9 @@
 .primary-bg {
   @extend %accent-bg-plh;
 
-  background-image: var(--primary-gradient);
+  background-image: url('/img/primary-bg-mobile.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .honeydew-peel-bg {

@@ -2,9 +2,13 @@
   --primary-bg-color: var(--col-total-black);
   --primary-title-color: var(--col-total-white);
   --primary-text-color: rgba(#{$col-total-white-rgb}, 64%);
-
-  --primary-btn-color: var(--col-total-white);
   --primary-divider-color: var(--col-total-black);
+
+  // App link
+  --app-link-border-color: var(--col-total-white);
+  --app-link-border-color-hover: #{var(--col-turquoise-pearl)};
+  --app-link-text: var(--col-total-white);
+  --app-link-text-hover: var(--col-total-black);
 
   // Experience section
   --experience-card-bg: #{$col-gluon-grey};

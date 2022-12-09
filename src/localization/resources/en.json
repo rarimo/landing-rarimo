@@ -30,5 +30,16 @@
   },
   "partners": {
     "title": "Partners"
+  },
+  "features-section": {
+    "title": "Key features",
+    "join-testnet-link": "Join Testnet",
+    "white-paper-link": "White Paper",
+    "security-title": "Security",
+    "security-text": "Using a threshold signature mechanism for creating proofs for asset unlocking, Rarimo offers a greater number of validators — while maintaining speed and keeping gas costs low.",
+    "transaction-bundling-title": "Transaction Bundling",
+    "transaction-bundling-text": "Users can seamlessly transfer digital assets and identities across chains with a minimum number of actions. Executing cross-chain interactions with a single click.",
+    "on-chain-verification-title": "On-Chain verification and provenance",
+    "on-chain-verification-text": "Allowing to retrieve and publish timestamped proofs about the state and activities, removing the need for additional chain or smart contract integrations."
   }
 }
