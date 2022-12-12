@@ -1,1 +1,18 @@
-<section class="hero-section">hero</section>
+<section class="hero-section primary-bg">
+  <div class="hero-section__titles-wrapper container">
+    <h2 class="hero-section__title" data-i18n="hero-section.title"></h2>
+    <h4 class="hero-section__subtitle" data-i18n="hero-section.subtitle"></h4>
+    <p
+      class="hero-section__description"
+      data-i18n="hero-section.description_html"
+    ></p>
+  </div>
+  <div class="hero-section__links-wrapper container">
+    {{> app-link class="features-section__link" href="#"
+    text="features-section.join-testnet-link" }} {{> app-link
+    class="features-section__link" href="#"
+    text="features-section.white-paper-link" }}
+  </div>
+
+  {{> blockchains-list supportedBlockchainsCtx }}
+</section>

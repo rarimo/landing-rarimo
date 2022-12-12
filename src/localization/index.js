@@ -16,7 +16,7 @@ i18n.init(
   function (err, t) {
     const refs = document.querySelectorAll('[data-i18n]');
     [...refs].forEach(ref => {
-      ref.innerText = t(ref.dataset.i18n);
+      ref.innerHTML = t(ref.dataset.i18n);
     });
   },
 );

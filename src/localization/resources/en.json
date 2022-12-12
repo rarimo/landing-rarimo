@@ -2,6 +2,12 @@
   "app": {
     "title": "Rarimo Lending"
   },
+  "hero-section": {
+    "title": "Unlocked & Untethered",
+    "subtitle": "Decentralized world",
+    "description_html": "Rarimo is a protocol unlocking <b>liquidity</b> and <b>interoperability</b> across chains in a <b>seamless way</b>",
+    "blockchains-title": "Supported blockchains"
+  },
   "experience-section": {
     "title": "Experience what Rarimo can do",
     "subtitle": "Empowering the multichain universe to realize its full potential",
@@ -26,10 +32,8 @@
     "airdrop-text": "The collection owner sends only one transaction to lock tokens and users can redeem tokens in any chain.",
     "staking-title": "Staking aggregator",
     "staking-text": "Create investment strategy and publish it as a smart contract, to be executed automatically across chains.",
-    "share-title": "Share what you’re building"
-  },
-  "partners": {
-    "title": "Partners"
+    "share-title": "Share what you’re building",
+    "partners-title": "Partners"
   },
   "features-section": {
     "title": "Key features",

@@ -1,5 +1,5 @@
-const partnersCtx = {
-  title: 'user-cases-section.partners-title',
+const supportedBlockchainsCtx = {
+  title: 'hero-section.blockchains-title',
   list: [
     {
       icon: '/sprite.svg#icon-binance',
@@ -52,4 +52,4 @@ const partnersCtx = {
   ],
 };
 
-export default partnersCtx;
+export default supportedBlockchainsCtx;
