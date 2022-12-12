@@ -11,10 +11,14 @@
   --app-link-text-hover: var(--col-total-black);
 
   // Base card
-  --base-card-bg: #{$col-gluon-grey};
+  --base-card-bg: var(--col-gluon-grey);
   --base-card-shadow-color: rgba(#{$col-ancient-ice-rgb}, 20%);
   --base-card-primary-icon-color: #{$col-turquoise-panic};
   --base-card-secondary-icon-color: #{$col-tropical-green};
+
+  // App footer
+  --app-footer-border-color: rgba(#{$col-total-white-rgb}, 10%);
+  --app-footer-link-bg: var(--col-gluon-grey);
 
   .switcher__radio {
     filter: invert(1);

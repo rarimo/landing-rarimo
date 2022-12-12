@@ -23,6 +23,11 @@
   display: inline-flex;
   height: to-rem(28);
   flex-shrink: 0;
+  color: var(--app-bar-logo-color);
+
+  &:hover {
+    color: var(--app-footer-logo-color);
+  }
 }
 
 .app-bar__logo-img {

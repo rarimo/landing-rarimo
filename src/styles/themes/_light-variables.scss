@@ -16,6 +16,10 @@
   --base-card-primary-icon-color: #{$col-turquoise-panic};
   --base-card-secondary-icon-color: rgba(#{$col-turquoise-panic-rgb}, 30%);
 
+  // App footer
+  --app-footer-border-color: rgba(#{$col-total-black-rgb}, 10%);
+  --app-footer-link-bg: var(--col-total-white);
+
   .switcher__radio {
     filter: invert(0);
   }

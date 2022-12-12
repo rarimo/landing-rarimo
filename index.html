@@ -8,15 +8,17 @@
     <title>Rarimo</title>
   </head>
   <body>
-    <div class="application-wrapper">
+    <div class="application">
       {{> app-bar }}
 
-      <main class="application">
+      <main>
         <h1 class="visually-hidden" data-i18n="app.title"></h1>
-        <!-- {{> hero-section }} {{> experience-section experienceSectionCtx }} {{>
-        user-cases-section }} {{> features-section featuresCtx }} -->
-        {{> community-section communitySectionCtx}}
+        {{> hero-section }} {{> experience-section experienceSectionCtx }} {{>
+        user-cases-section }} {{> features-section featuresSectionCtx }} {{>
+        community-section communitySectionCtx}}
       </main>
+
+      {{> app-footer }}
     </div>
 
     {{> theme-switcher}}
