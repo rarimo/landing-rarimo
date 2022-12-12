@@ -2,9 +2,20 @@
   margin-bottom: to-rem(40);
 }
 
+.blockchains-list__list-wrapper {
+  @extend .container;
+
+  display: contents;
+
+  @include respond-above(md) {
+    display: block;
+  }
+}
+
 .blockchains-list__list {
   display: flex;
   align-items: center;
+  padding-bottom: to-rem(16);
   scroll-snap-type: x mandatory;
   scroll-padding: calc(var(--container-side-padding) * 1.5);
   overflow-x: auto;
@@ -20,10 +31,18 @@
 
   &:first-child {
     margin-left: var(--container-side-padding);
+
+    @include respond-above(md) {
+      margin-left: 0;
+    }
   }
 
   &:last-child {
     margin-right: var(--container-side-padding);
+
+    @include respond-above(md) {
+      margin-right: 0;
+    }
   }
 }
 

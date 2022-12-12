@@ -1,6 +1,11 @@
 .user-cases-section {
   padding-top: to-rem(64);
   padding-bottom: to-rem(64);
+
+  @include respond-above(xm) {
+    padding-top: to-rem(100);
+    padding-bottom: to-rem(180);
+  }
 }
 
 .user-cases-section__title {
@@ -10,15 +15,35 @@
 .user-cases-section__subtitle {
   margin-bottom: to-rem(40);
   font-size: to-rem(16);
+
+  @include respond-above(xm) {
+    margin-bottom: to-rem(80);
+    font-size: to-rem(24);
+  }
+}
+
+.user-cases-section__card-list-wrapper {
+  @extend .container;
+
+  display: contents;
+
+  @include respond-above(md) {
+    display: block;
+  }
 }
 
 .user-cases-section__card-list {
-  margin-bottom: to-rem(64);
+  margin-bottom: to-rem(48);
+  padding-bottom: to-rem(16);
   display: flex;
   align-items: stretch;
   scroll-snap-type: x mandatory;
   scroll-padding: calc(var(--container-side-padding) * 1.5);
   overflow-x: auto;
+
+  @include respond-above(md) {
+    margin-bottom: to-rem(180);
+  }
 }
 
 .user-cases-section__card {
@@ -28,18 +53,36 @@
   scroll-snap-align: start;
   text-align: center;
 
+  @include respond-above(xm) {
+    min-width: max(calc(100% / 3 - #{to-rem(16)}), to-rem(315));
+    margin-right: to-rem(24);
+    padding: to-rem(60) to-rem(40);
+  }
+
   &:first-child {
     margin-left: var(--container-side-padding);
+
+    @include respond-above(md) {
+      margin-left: 0;
+    }
   }
 
   &:last-child {
     margin-right: var(--container-side-padding);
+
+    @include respond-above(md) {
+      margin-right: 0;
+    }
   }
 }
 
 .user-cases-section__card-img {
   width: to-rem(220);
   margin-bottom: to-rem(40);
+
+  @include respond-above(xm) {
+    width: to-rem(300);
+  }
 }
 
 .user-cases-section__card-title {

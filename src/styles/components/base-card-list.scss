@@ -1,7 +1,12 @@
 .base-card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(to-rem(300), 1fr));
+  grid-template-columns: 1fr;
   grid-gap: to-rem(16);
+
+  @include respond-above(md) {
+    grid-template-columns: repeat(auto-fit, minmax(to-rem(300), 1fr));
+    grid-gap: to-rem(24);
+  }
 }
 
 .base-card-list__card {
@@ -12,4 +17,8 @@
   transition-property: background-color, box-shadow;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+
+  @include respond-above(xm) {
+    padding: to-rem(40);
+  }
 }

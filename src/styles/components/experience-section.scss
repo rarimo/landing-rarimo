@@ -1,14 +1,29 @@
 .experience-section {
   padding-top: to-rem(64);
+
+  @include respond-above(xm) {
+    padding-top: to-rem(200);
+    padding-bottom: to-rem(100);
+  }
 }
 
 .experience-section__title {
+  max-width: to-rem(280);
   margin-bottom: to-rem(16);
+
+  @include respond-above(sm) {
+    max-width: unset;
+  }
 }
 
 .experience-section__subtitle {
   margin-bottom: to-rem(40);
   font-size: to-rem(16);
+
+  @include respond-above(xm) {
+    margin-bottom: to-rem(80);
+    font-size: to-rem(24);
+  }
 }
 
 .experience-section__card-icon {

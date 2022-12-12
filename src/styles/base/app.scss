@@ -68,10 +68,6 @@ select {
   }
 }
 
-// ::placeholder {
-//   color: var(--primary-text-color) !important;
-// }
-
 p {
   margin: 0;
   font-size: var(--p-size);
@@ -122,13 +118,9 @@ img {
 
 .container {
   width: 100%;
-  max-width: to-rem(1440);
+  max-width: var(--container-max-width);
   padding-right: var(--container-side-padding);
   padding-left: var(--container-side-padding);
   margin-right: auto;
   margin-left: auto;
-
-  @media (max-width: #{to-rem(1199)}) {
-    max-width: 100%;
-  }
 }
