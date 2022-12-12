@@ -1,0 +1,42 @@
+<section class="community-section container">
+  <div class="community-section__titles-wrapper">
+    <h2
+      class="community-section__title"
+      data-i18n="community-section.title"
+    ></h2>
+    <p
+      class="community-section__description"
+      data-i18n="community-section.description"
+    ></p>
+  </div>
+  <div class="community-section__links-wrapper">
+    {{> app-link class="community-section__link" href="#"
+    text="community-section.join-testnet-link" }} {{> app-link
+    class="community-section__link" href="#"
+    text="community-section.white-paper-link" }}
+  </div>
+
+  <ul class="base-card-list">
+    {{#each list}}
+    <li class="community-section__card base-card-list__card">
+      <div class="community-section__card-icon">
+        <svg height="24" width="24">
+          <use href="{{this.icon}}"></use>
+        </svg>
+      </div>
+      <h5 data-i18n="{{this.title}}"></h5>
+      <a
+        class="community-section__card-link"
+        href="{{this.link}}"
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+      >
+      <span data-i18n="community-section.learn-more-link"></span>
+        <svg class="community-section__card-link-icon" height="11" width="9">
+          <use href="/sprite.svg#icon-chevron-down"></use>
+        </svg>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+</section>

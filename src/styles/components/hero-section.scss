@@ -9,6 +9,12 @@
   margin-bottom: to-rem(40);
 }
 
+.hero-section__link {
+  &:not(:last-child) {
+    margin-right: to-rem(24);
+  }
+}
+
 .hero-section__title {
   margin-bottom: to-rem(16);
   letter-spacing: -0.04em;

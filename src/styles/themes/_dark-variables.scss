@@ -10,10 +10,11 @@
   --app-link-text: var(--col-total-white);
   --app-link-text-hover: var(--col-total-black);
 
-  // Experience section
-  --experience-card-bg: #{$col-gluon-grey};
-  --experience-card-shadow-color: rgba(#{$col-ancient-ice-rgb}, 20%);
-  --experience-card-icon-color: #{$col-tropical-green};
+  // Base card
+  --base-card-bg: #{$col-gluon-grey};
+  --base-card-shadow-color: rgba(#{$col-ancient-ice-rgb}, 20%);
+  --base-card-primary-icon-color: #{$col-turquoise-panic};
+  --base-card-secondary-icon-color: #{$col-tropical-green};
 
   .switcher__radio {
     filter: invert(1);

@@ -1,7 +1,8 @@
 import supportedBlockchainsCtx from './supported-blockchains-ctx';
 import experienceSectionCtx from './experience-section-ctx';
 import partnersCtx from './partners-ctx';
-import featuresCtx from './features-ctx';
+import featuresSectionCtx from './features-section-ctx';
+import communitySectionCtx from './community-section-ctx';
 
 export const TEMPLATE_CONTEXT = {
   supportedBlockchainsCtx,
@@ -10,5 +11,7 @@ export const TEMPLATE_CONTEXT = {
 
   partnersCtx,
 
-  featuresCtx,
+  featuresSectionCtx,
+
+  communitySectionCtx,
 };

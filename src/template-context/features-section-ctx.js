@@ -1,4 +1,4 @@
-const featuresCtx = {
+const featuresSectionCtx = {
   list: [
     {
       icon: '/sprite.svg#icon-key',
@@ -18,4 +18,4 @@ const featuresCtx = {
   ],
 };
 
-export default featuresCtx;
+export default featuresSectionCtx;
