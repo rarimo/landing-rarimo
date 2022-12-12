@@ -16,4 +16,7 @@ html,
 ::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-color);
   border-radius: to-rem(3);
+  transition-property: background-color;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
 }

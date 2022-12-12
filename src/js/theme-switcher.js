@@ -1,70 +1,62 @@
+import { COLOR_SCHEME_KEY, SCHEMES } from '@/const/theme.const';
+
 const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
-const switcherRadios = document.querySelectorAll('.switcher__radio');
+const documentElementRef = document.documentElement;
+const themeSwitcherBtnRef = document.querySelector('.js-theme-switcher');
 
 function setupSwitcher() {
-  const savedScheme = getSavedScheme();
-
-  if (savedScheme !== null) {
-    const currentRadio = document.querySelector(
-      `.switcher__radio[value=${savedScheme}]`,
-    );
-    currentRadio.checked = true;
-  }
-  [...switcherRadios].forEach(radio => {
-    radio.addEventListener('change', event => {
-      setScheme(event.target.value);
-    });
-  });
+  themeSwitcherBtnRef.addEventListener('click', onClickSwitcher);
 }
 
 function setupScheme() {
+  const systemScheme = getSystemScheme();
   const savedScheme = getSavedScheme();
-  setScheme(savedScheme ?? 'light');
-  // const savedScheme = getSavedScheme();
-  // const systemScheme = getSystemScheme();
 
-  // if (savedScheme === null) return;
+  setScheme(getIsValidScheme(savedScheme) ? savedScheme : systemScheme);
+}
 
-  // if (savedScheme !== systemScheme) {
-  //   setScheme(savedScheme);
-  // }
+function getIsValidScheme(scheme) {
+  return Boolean(
+    scheme && Object.keys(SCHEMES).find(schemeName => schemeName === scheme),
+  );
 }
 
 function setScheme(scheme) {
-  switchMedia(scheme);
+  if (scheme === SCHEMES.light) {
+    themeSwitcherBtnRef.classList.remove('theme-switcher--dark');
+    themeSwitcherBtnRef.classList.add('theme-switcher--light');
+    documentElementRef.setAttribute(COLOR_SCHEME_KEY, SCHEMES.light);
+    return;
+  }
 
-  if (scheme === 'auto') {
-    clearScheme();
-  } else {
-    saveScheme(scheme);
+  if (scheme === SCHEMES.dark) {
+    themeSwitcherBtnRef.classList.remove('theme-switcher--light');
+    themeSwitcherBtnRef.classList.add('theme-switcher--dark');
+    documentElementRef.setAttribute(COLOR_SCHEME_KEY, SCHEMES.dark);
   }
 }
 
-function switchMedia(scheme) {
-  let lightMedia;
-  let darkMedia;
+function onClickSwitcher() {
+  const prevScheme = documentElementRef.getAttribute(COLOR_SCHEME_KEY);
+  const newScheme = prevScheme === SCHEMES.light ? SCHEMES.dark : SCHEMES.light;
 
-  if (scheme === 'auto') {
-    lightMedia = '(prefers-color-scheme: light)';
-    darkMedia = '(prefers-color-scheme: dark)';
-  } else {
-    document.documentElement.setAttribute('data-theme', scheme);
-  }
+  setScheme(newScheme);
+  saveScheme(newScheme);
 }
+
 function getSystemScheme() {
   const isDarkScheme = darkSchemeMedia.matches;
 
-  return isDarkScheme ? 'dark' : 'light';
-}
-function getSavedScheme() {
-  return localStorage.getItem('color-scheme');
-}
-function saveScheme(scheme) {
-  localStorage.setItem('color-scheme', scheme);
-}
-function clearScheme() {
-  localStorage.removeItem('color-scheme');
+  return isDarkScheme ? SCHEMES.dark : SCHEMES.light;
 }
 
-setupSwitcher();
+function getSavedScheme() {
+  return localStorage.getItem(COLOR_SCHEME_KEY);
+}
+
+function saveScheme(scheme) {
+  localStorage.setItem(COLOR_SCHEME_KEY, scheme);
+}
+
 setupScheme();
+setupSwitcher();

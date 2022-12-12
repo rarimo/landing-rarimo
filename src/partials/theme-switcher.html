@@ -1,18 +1,6 @@
-<fieldset class="switcher">
-  <legend class="switcher__legend">Scheme</legend>
-  <input
-    class="switcher__radio switcher__radio--light"
-    type="radio"
-    name="color-scheme"
-    value="light"
-    aria-Label="Light"
-  />
-  <input
-    class="switcher__radio switcher__radio--dark"
-    type="radio"
-    name="color-scheme"
-    value="dark"
-    aria-Label="Dark"
-  />
-  <div class="switcher__status"></div>
-</fieldset>
+<button class="theme-switcher js-theme-switcher" type="button">
+  <svg class="theme-switcher__icon" height="17" width="17">
+    <use class="theme-switcher__sun" href="/sprite.svg#icon-sun"></use>
+    <use class="theme-switcher__moon" href="/sprite.svg#icon-moon"></use>
+  </svg>
+</button>

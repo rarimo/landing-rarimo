@@ -1,4 +1,4 @@
-[data-theme='dark'] {
+[color-scheme='dark'] {
   --primary-bg-color: var(--col-total-black);
   --primary-title-color: var(--col-total-white);
   --primary-text-color: rgba(#{$col-total-white-rgb}, 64%);
@@ -20,15 +20,7 @@
   --app-footer-border-color: rgba(#{$col-total-white-rgb}, 10%);
   --app-footer-link-bg: var(--col-gluon-grey);
 
-  .switcher__radio {
-    filter: invert(1);
-  }
-
-  .switcher__radio:checked {
-    filter: invert(0);
-  }
-
-  .switcher__status {
-    filter: invert(1);
-  }
+  // Theme switcher
+  --theme-switcher-bg: var(--col-total-white);
+  --theme-switcher-color: var(--col-total-black);
 }

@@ -1,4 +1,4 @@
-[data-theme='light'] {
+[color-scheme='light'] {
   --primary-bg-color: #{$col-distant-horizon};
   --primary-title-color: var(--col-total-black);
   --primary-text-color: rgba(#{$col-total-black-rgb}, 64%);
@@ -20,15 +20,7 @@
   --app-footer-border-color: rgba(#{$col-total-black-rgb}, 10%);
   --app-footer-link-bg: var(--col-total-white);
 
-  .switcher__radio {
-    filter: invert(0);
-  }
-
-  .switcher__radio:checked {
-    filter: invert(1);
-  }
-
-  .switcher__status {
-    filter: invert(0);
-  }
+  // Theme switcher
+  --theme-switcher-bg: var(--col-total-black);
+  --theme-switcher-color: var(--col-total-white);
 }

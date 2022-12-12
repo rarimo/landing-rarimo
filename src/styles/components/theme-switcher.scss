@@ -1,66 +1,37 @@
-.switcher {
-  position: fixed;
-  z-index: 4;
-  bottom: 0;
-  left: 50%;
-  margin: 0;
-  margin-left: -50px;
-  padding: 2px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border: none;
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: to-rem(40);
+  height: to-rem(40);
+  background-color: var(--theme-switcher-bg);
+  border: to-rem(1) solid var(--col-total-black);
+  border-radius: 50%;
+  color: var(--theme-switcher-color);
+  cursor: pointer;
+  transition-property: color, background-color, filter;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--col-total-white);
+    filter: invert(1);
+  }
 }
 
-.switcher__legend {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+.theme-switcher__moon {
+  display: none;
+
+  .theme-switcher--light & {
+    display: block;
+  }
 }
 
-.switcher__radio {
-  -webkit-appearance: none;
-  appearance: none;
+.theme-switcher__sun {
+  display: none;
 
-  margin: 0;
-
-  width: 32px;
-
-  height: 32px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 24px;
-  transition: filter 0.1s ease-in;
-}
-
-.switcher__radio:focus {
-  outline: none;
-}
-
-.switcher__status {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  box-shadow: 0 0 0 2px rgb(0 0 0 / 0.2);
-  border-radius: 18px;
-  background-color: rgb(255 255 255 / 0.5);
-  background-repeat: no-repeat;
-  background-image: url('/img/demo.jpg');
-  background-size: 32px;
-  background-position: center;
-  transition: background-position 0.1s ease-in;
-}
-
-.switcher__radio:focus-visible ~ .switcher__status {
-  box-shadow: 0 0 0 2px black;
-}
-
-.switcher__radio--light:checked ~ .switcher__status {
-  background-position: left 2px center;
-}
-
-.switcher__radio--dark:checked ~ .switcher__status {
-  background-position: right 2px center;
+  .theme-switcher--dark & {
+    display: block;
+  }
 }
