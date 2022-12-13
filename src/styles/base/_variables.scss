@@ -15,11 +15,6 @@
   --col-melon-sprinkle: #{$col-melon-sprinkle};
   --col-california-lilac: #{$col-california-lilac};
 
-  --primary-gradient: linear-gradient(108.96deg, #86fff5 0.49%, #30d5c8 99.07%);
-
-  // --primary-color: #{$col-blurple};
-  // --secondary-color: #{$col-purple-illusionist};
-
   // Z-indexes
   --z-app-bar: 14;
 
@@ -46,6 +41,7 @@
   // Transitions
   --fast-transition-duration: 0.2s;
   --medium-transition-duration: 0.3s;
+  --slow-transition-duration: 0.4s;
   --hover-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --slide-transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
   --fade-transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -76,7 +72,8 @@
 
   // App bar
   --app-bar-height: #{to-rem(80)};
-  --app-bar-bg: var(--primary-gradient);
+  --app-bar-bg: var(--col-turquoise-pearl);
+  --app-bar-shadow: 0 0.4rem 2rem rgba(#{$col-total-black-rgb}, 10%);
   --app-bar-logo-color: var(--col-total-black);
 
   @include respond-above(xm) {

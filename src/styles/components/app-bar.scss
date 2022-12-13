@@ -5,7 +5,15 @@
   left: 0;
   width: 100%;
   height: var(--app-bar-height);
-  background: var(--app-bar-bg);
+  background-color: transparent;
+  transition-property: background-color, box-shadow;
+  transition-duration: var(--slow-transition-duration);
+  transition-timing-function: var(--fade-transition-timing-function);
+
+  &.app-bar--filled {
+    background-color: var(--app-bar-bg);
+    box-shadow: var(--app-bar-shadow);
+  }
 }
 
 .app-bar__container {
@@ -17,6 +25,13 @@
   height: 100%;
   align-items: center;
   border-bottom: to-rem(1) solid var(--primary-divider-color);
+  transition-property: border-bottom-color;
+  transition-duration: var(--slow-transition-duration);
+  transition-timing-function: var(--fade-transition-timing-function);
+
+  .app-bar--filled & {
+    border-bottom-color: transparent;
+  }
 }
 
 .app-bar__logo {
