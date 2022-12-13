@@ -54,6 +54,11 @@
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
+  @include respond-above(xm) {
+    height: to-rem(48);
+    width: to-rem(48);
+  }
+
   &:hover {
     background-color: var(--primary-title-color);
     color: var(--primary-bg-color);
@@ -61,5 +66,9 @@
 
   &:not(:last-child) {
     margin-right: to-rem(8);
+
+    @include respond-above(xm) {
+      margin-right: to-rem(16);
+    }
   }
 }

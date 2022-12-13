@@ -1,24 +1,49 @@
 .community-section {
   padding-top: to-rem(90);
   padding-bottom: to-rem(64);
+
+  @include respond-above(xm) {
+    padding-top: to-rem(200);
+    padding-bottom: to-rem(200);
+  }
+}
+
+.community-section__titles-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .community-section__title {
   margin-bottom: to-rem(16);
-  text-align: center;
   letter-spacing: -0.04em;
+
+  @include respond-above(xm) {
+    letter-spacing: -0.02em;
+  }
 }
 
 .community-section__description {
+  max-width: to-rem(530);
   margin-bottom: to-rem(40);
-  max-width: to-rem(664);
   font-size: to-rem(18);
-  text-align: center;
+
+  @include respond-above(xm) {
+    max-width: to-rem(680);
+    margin-bottom: to-rem(32);
+    font-size: to-rem(24);
+  }
 }
 
 .community-section__links-wrapper {
   display: flex;
+  justify-content: center;
   margin-bottom: to-rem(48);
+
+  @include respond-above(xm) {
+    margin-bottom: to-rem(80);
+  }
 }
 
 .community-section__link {
@@ -32,6 +57,14 @@
   align-items: center;
   grid-template-columns: min-content auto;
   grid-gap: to-rem(8) to-rem(24);
+
+  &.community-section__card {
+    padding: to-rem(40);
+  }
+
+  @include respond-above(xm) {
+    grid-gap: to-rem(8) to-rem(32);
+  }
 }
 
 .community-section__card-icon {

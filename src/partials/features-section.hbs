@@ -1,22 +1,27 @@
-<section class="features-section container primary-bg">
-  <h3 class="features-section__title" data-i18n="features-section.title"></h3>
-  <div class="features-section__links-wrapper">
-    {{> app-link class="features-section__link" href="#"
-    text="features-section.join-testnet-link" }}
-    {{> app-link class="features-section__link" href="#"
-    text="features-section.white-paper-link" }}
+<section class="features-section primary-bg">
+  <div class="container">
+    <h3 class="features-section__title" data-i18n="features-section.title"></h3>
+    <div class="features-section__links-wrapper">
+      {{> app-link class="features-section__link" href="#"
+      text="features-section.join-testnet-link" }} {{> app-link
+      class="features-section__link" href="#"
+      text="features-section.white-paper-link" }}
+    </div>
+    <ul class="features-section__list">
+      {{#each list}}
+      <li class="features-section__item">
+        <div class="features-section__item-icon">
+          <svg height="24" width="24">
+            <use href="{{this.icon}}"></use>
+          </svg>
+        </div>
+        <h5
+          class="features-section__item-title"
+          data-i18n="{{this.title}}"
+        ></h5>
+        <p class="features-section__item-text" data-i18n="{{this.text}}"></p>
+      </li>
+      {{/each}}
+    </ul>
   </div>
-  <ul class="features-section__list">
-    {{#each list}}
-    <li class="features-section__item">
-      <div class="features-section__item-icon">
-        <svg height="24" width="24">
-          <use href="{{this.icon}}"></use>
-        </svg>
-      </div>
-      <h5 data-i18n="{{this.title}}"></h5>
-      <p class="features-section__item-text" data-i18n="{{this.text}}"></p>
-    </li>
-    {{/each}}
-  </ul>
 </section>
