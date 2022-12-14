@@ -5,7 +5,7 @@
   width: to-rem(40);
   height: to-rem(40);
   background-color: var(--theme-switcher-bg);
-  border: to-rem(1) solid var(--col-total-black);
+  border: to-rem(1) solid var(--theme-switcher-color);
   border-radius: 50%;
   color: var(--theme-switcher-color);
   cursor: pointer;
@@ -15,7 +15,7 @@
 
   &:hover,
   &:focus-visible {
-    border-color: var(--col-total-white);
+    // border-color: var(--col-total-white);
     filter: invert(1);
   }
 }

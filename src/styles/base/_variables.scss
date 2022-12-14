@@ -72,9 +72,8 @@
 
   // App bar
   --app-bar-height: #{to-rem(80)};
-  --app-bar-bg: var(--col-turquoise-pearl);
+  --app-bar-bg: #{lighten($col-total-black, 7%)};
   --app-bar-shadow: 0 0.4rem 2rem rgba(#{$col-total-black-rgb}, 10%);
-  --app-bar-logo-color: var(--col-total-black);
 
   @include respond-above(xm) {
     --app-bar-height: #{to-rem(88)};

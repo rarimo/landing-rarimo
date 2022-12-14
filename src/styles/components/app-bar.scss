@@ -35,13 +35,22 @@
 }
 
 .app-bar__logo {
+  --app-bar-logo-color: var(--col-total-black);
+
   display: inline-flex;
   height: to-rem(28);
   flex-shrink: 0;
   color: var(--app-bar-logo-color);
+  transition-property: color;
+  transition-duration: var(--slow-transition-duration);
+  transition-timing-function: var(--fade-transition-timing-function);
 
   &:hover {
-    color: var(--app-footer-logo-color);
+    color: var(--app-bar-logo-color);
+  }
+
+  .app-bar--filled & {
+    --app-bar-logo-color: var(--col-total-white);
   }
 }
 
