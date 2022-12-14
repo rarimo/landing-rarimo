@@ -1,4 +1,16 @@
+.img-parallax {
+  width: 100vmax;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  pointer-events: none;
+}
+
 .hero-section {
+  height: 100vh;
+  position: relative;
   padding-top: calc(var(--app-bar-height) + #{to-rem(40)});
   padding-bottom: to-rem(84);
   display: flex;
