@@ -5,10 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#000000" />
+    <link
+      href="/favicon/favicon-light.png"
+      rel="icon"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      href="/favicon/favicon-dark.png"
+      rel="icon"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="stylesheet" href="/init-loader/style.css" />
+
     <title>Rarimo</title>
   </head>
   <body>
-    <div class="application">
+    <div class="application js-application" style="display: none">
       {{> app-bar }}
 
       <main>
@@ -20,5 +35,7 @@
 
       {{> app-footer }}
     </div>
+
+    {{> init-loader }}
   </body>
 </html>
