@@ -28,10 +28,7 @@
 
 .experience-section__card-icon {
   margin-bottom: to-rem(24);
-  color: var(--base-card-secondary-icon-color);
-  transition-property: color;
-  transition-duration: var(--medium-transition-duration);
-  transition-timing-function: var(--hover-transition-timing-function);
+  color: var(--base-card-primary-icon-color);
 }
 
 .experience-section__card-title {
