@@ -1,15 +1,17 @@
 <div class='blockchains-list'>
   <h4 class='blockchains-list__title container' data-i18n={{title}}></h4>
   <div class='blockchains-list__list-wrapper'>
-    <ul class='blockchains-list__list'>
-      {{#each list}}
-        <li class='blockchains-list__item'>
-          <svg class='blockchains-list__item-icon' height='32' width='32'>
-            <use href={{this.icon}}></use>
-          </svg>
-          <span>{{this.text}}</span>
-        </li>
-      {{/each}}
-    </ul>
+    <div class='blockchains-swiper'>
+      <ul class='blockchains-list__list swiper-wrapper'>
+        {{#each list}}
+          <li class='blockchains-list__item swiper-slide'>
+            <svg class='blockchains-list__item-icon' height='32' width='32'>
+              <use href={{this.icon}}></use>
+            </svg>
+            <span>{{this.text}}</span>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
 </div>

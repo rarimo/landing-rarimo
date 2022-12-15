@@ -22,24 +22,14 @@
   }
 }
 
-.user-cases-section__card-list-wrapper {
-  @extend .container;
-
-  display: contents;
-
-  @include respond-above(md) {
-    display: block;
-  }
-}
-
 .user-cases-section__card-list {
   margin-bottom: to-rem(48);
-  padding-bottom: to-rem(16);
+  padding-top: to-rem(30);
+  padding-bottom: to-rem(30);
+
   display: flex;
   align-items: stretch;
-  scroll-snap-type: x mandatory;
-  scroll-padding: calc(var(--container-side-padding) * 1.5);
-  overflow-x: auto;
+  user-select: none;
 
   @include respond-above(md) {
     margin-bottom: to-rem(180);
@@ -47,32 +37,38 @@
 }
 
 .user-cases-section__card {
-  min-width: to-rem(315);
-  margin-right: to-rem(16);
+  // width: 100%;
+  // min-width: to-rem(315);
   padding: to-rem(32) to-rem(24);
-  scroll-snap-align: start;
   text-align: center;
 
+  &--turquoise-pearl {
+    @include user-cases-card(var(--col-turquoise-pearl));
+  }
+
+  &--honeydew-peel {
+    @include user-cases-card(var(--col-honeydew-peel));
+  }
+
+  &--apocyan {
+    @include user-cases-card(var(--col-apocyan));
+  }
+
+  &--pink-elephants {
+    @include user-cases-card(var(--col-pink-elephants));
+  }
+
+  &--melon-sprinkle {
+    @include user-cases-card(var(--col-melon-sprinkle));
+  }
+
+  &--california-lilac {
+    @include user-cases-card(var(--col-california-lilac));
+  }
+
   @include respond-above(xm) {
-    min-width: max(calc(100% / 3 - #{to-rem(16)}), to-rem(315));
-    margin-right: to-rem(24);
+    // min-width: max(calc(100% / 3 - #{to-rem(16)}), to-rem(315));
     padding: to-rem(60) to-rem(40);
-  }
-
-  &:first-child {
-    margin-left: var(--container-side-padding);
-
-    @include respond-above(md) {
-      margin-left: 0;
-    }
-  }
-
-  &:last-child {
-    margin-right: var(--container-side-padding);
-
-    @include respond-above(md) {
-      margin-right: 0;
-    }
   }
 }
 

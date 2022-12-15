@@ -21,3 +21,10 @@
     padding-block-start: calc(100% / #{$ratio});
   }
 }
+
+@mixin user-cases-card($color) {
+  @extend %accent-bg-plh;
+
+  background-color: $color;
+  box-shadow: glow-box-shadow($color);
+}
