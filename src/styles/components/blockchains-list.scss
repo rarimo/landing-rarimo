@@ -1,21 +1,14 @@
-.blockchains-list__title {
-  margin-bottom: to-rem(40);
+.blockchains-list {
+  user-select: none;
 }
 
-.blockchains-list__list-wrapper {
-  @extend .container;
-
-  display: contents;
-
-  @include respond-above(md) {
-    display: block;
-  }
+.blockchains-list__title {
+  margin-bottom: to-rem(40);
 }
 
 .blockchains-list__list {
   display: flex;
   align-items: center;
-  padding-bottom: to-rem(16);
 }
 
 .blockchains-list__item {
