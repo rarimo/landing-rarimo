@@ -6,13 +6,17 @@
   width: 100%;
   height: var(--app-bar-height);
   background-color: transparent;
-  transition-property: background-color, box-shadow;
+  transition-property: background-color, box-shadow, transform;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);
 
   &.app-bar--filled {
     background-color: var(--app-bar-bg);
     box-shadow: var(--app-bar-shadow);
+  }
+
+  &.app-bar--hidden {
+    transform: translateY(-100%);
   }
 }
 

@@ -4,16 +4,25 @@ const appBarRef = document.getElementById('app-bar');
 
 const APP_BAR_THRESHOLD = 60;
 let prevIsAppBarFilled = false;
+let lastScrollPosition = 0;
 
 const toggleShowHeader = () => {
   const currentScrollPosition = window.pageYOffset;
-  let _isAppBarFilled = currentScrollPosition > APP_BAR_THRESHOLD;
+  const isScrollUnderThreshold = currentScrollPosition > APP_BAR_THRESHOLD;
 
-  if (_isAppBarFilled !== prevIsAppBarFilled) {
+  if (isScrollUnderThreshold !== prevIsAppBarFilled) {
     appBarRef.classList.toggle('app-bar--filled');
 
-    prevIsAppBarFilled = _isAppBarFilled;
+    prevIsAppBarFilled = isScrollUnderThreshold;
   }
+
+  if (currentScrollPosition > lastScrollPosition && isScrollUnderThreshold) {
+    appBarRef.classList.add('app-bar--hidden');
+  } else if (currentScrollPosition < lastScrollPosition) {
+    appBarRef.classList.remove('app-bar--hidden');
+  }
+
+  lastScrollPosition = currentScrollPosition;
 };
 const onScroll = throttle(400, toggleShowHeader);
 
