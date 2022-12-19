@@ -16,3 +16,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+%accent-bg-plh {
+  --primary-title-color: var(--col-total-black);
+  --primary-text-color: var(--primary-text-color-accent-bg);
+
+  color: var(--primary-text-color);
+}

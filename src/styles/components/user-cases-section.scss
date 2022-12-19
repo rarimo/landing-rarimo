@@ -3,8 +3,8 @@
   padding-bottom: to-rem(64);
 
   @include respond-above(xm) {
-    padding-top: to-rem(100);
-    padding-bottom: to-rem(180);
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 }
 
@@ -14,74 +14,83 @@
 
 .user-cases-section__subtitle {
   margin-bottom: to-rem(40);
-  font-size: to-rem(16);
+  font-size: 1.125em;
 
   @include respond-above(xm) {
-    margin-bottom: to-rem(80);
-    font-size: to-rem(24);
-  }
-}
-
-.user-cases-section__card-list-wrapper {
-  @extend .container;
-
-  display: contents;
-
-  @include respond-above(md) {
-    display: block;
+    // margin-bottom: to-rem(80);
+    margin-bottom: 6%;
+    font-size: 1.33em;
   }
 }
 
 .user-cases-section__card-list {
-  margin-bottom: to-rem(48);
-  padding-bottom: to-rem(16);
   display: flex;
   align-items: stretch;
-  scroll-snap-type: x mandatory;
-  scroll-padding: calc(var(--container-side-padding) * 1.5);
-  overflow-x: auto;
+  user-select: none;
 
-  @include respond-above(md) {
-    margin-bottom: to-rem(180);
+  // Increase specifity
+  &.user-cases-section__card-list.user-cases-section__card-list {
+    margin-bottom: to-rem(48);
+
+    @include respond-above(md) {
+      margin-bottom: 8%;
+    }
   }
 }
 
 .user-cases-section__card {
-  min-width: to-rem(315);
-  margin-right: to-rem(16);
+  // width: 100%;
+  // min-width: to-rem(315);
   padding: to-rem(32) to-rem(24);
-  scroll-snap-align: start;
   text-align: center;
 
+  &--turquoise-pearl {
+    @include user-cases-card(var(--col-turquoise-pearl));
+  }
+
+  &--honeydew-peel {
+    @include user-cases-card(var(--col-honeydew-peel));
+  }
+
+  &--apocyan {
+    @include user-cases-card(var(--col-apocyan));
+  }
+
+  &--pink-elephants {
+    @include user-cases-card(var(--col-pink-elephants));
+  }
+
+  &--melon-sprinkle {
+    @include user-cases-card(var(--col-melon-sprinkle));
+  }
+
+  &--california-lilac {
+    @include user-cases-card(var(--col-california-lilac));
+  }
+
   @include respond-above(xm) {
-    min-width: max(calc(100% / 3 - #{to-rem(16)}), to-rem(315));
-    margin-right: to-rem(24);
-    padding: to-rem(60) to-rem(40);
-  }
-
-  &:first-child {
-    margin-left: var(--container-side-padding);
-
-    @include respond-above(md) {
-      margin-left: 0;
-    }
-  }
-
-  &:last-child {
-    margin-right: var(--container-side-padding);
-
-    @include respond-above(md) {
-      margin-right: 0;
-    }
+    // min-width: max(calc(100% / 3 - 1.6%), to-rem(315));
+    // margin-right: to-rem(24);
+    // margin-right: 1.6%;
+    padding: 3.5% 2%;
   }
 }
 
 .user-cases-section__card-img {
-  width: to-rem(220);
-  margin-bottom: to-rem(40);
+  // width: to-rem(220);
+  height: to-rem(150);
+  // max-width: 75%;
+  // margin-bottom: to-rem(40);
+  margin-bottom: 10%;
+  object-fit: contain;
 
   @include respond-above(xm) {
-    width: to-rem(300);
+    height: to-rem(160);
+    // width: to-rem(300);
+  }
+
+  @include respond-above(lg) {
+    height: to-rem(180);
   }
 }
 
@@ -91,6 +100,12 @@
 
 .user-cases-section__card-text {
   letter-spacing: 0.02em;
+
+  @include respond-above(xm) {
+    @include respond-to(lg) {
+      letter-spacing: 0.01em;
+    }
+  }
 }
 
 .user-cases-section__card-link {

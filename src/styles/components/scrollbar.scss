@@ -1,6 +1,6 @@
 html,
 .scrollbar {
-  scrollbar-color: var(--scrollbar-color) transparent;
+  scrollbar-color: transparent transparent;
   scrollbar-width: thin;
 }
 
@@ -14,7 +14,7 @@ html,
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-color);
+  background-color: transparent;
   border-radius: to-rem(3);
   transition-property: background-color;
   transition-duration: var(--medium-transition-duration);

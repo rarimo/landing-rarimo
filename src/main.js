@@ -2,8 +2,7 @@ import '@/styles/index.scss';
 import { throttle } from 'throttle-debounce';
 
 import { initLocalization } from '@/localization';
-import '@/js';
-import { hideLoader } from '@/js/init-loader';
+import { defineDesktopFontSizes, hideLoader, initSwiper } from '@/js';
 
 const imgRef = document.querySelector('.img-parallax');
 
@@ -37,6 +36,8 @@ const setup = () => {
 
   setTimeout(() => {
     hideLoader();
+    initSwiper();
+    defineDesktopFontSizes();
 
     const onScroll = throttle(20, parallaxImg);
 

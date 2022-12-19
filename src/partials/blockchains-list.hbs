@@ -1,9 +1,9 @@
 <div class='blockchains-list'>
   <h4 class='blockchains-list__title container' data-i18n={{title}}></h4>
-  <div class='blockchains-list__list-wrapper'>
-    <ul class='blockchains-list__list'>
+  <div class='blockchains-swiper container'>
+    <ul class='blockchains-list__list swiper-wrapper'>
       {{#each list}}
-        <li class='blockchains-list__item'>
+        <li class='blockchains-list__item swiper-slide'>
           <svg class='blockchains-list__item-icon' height='32' width='32'>
             <use href={{this.icon}}></use>
           </svg>

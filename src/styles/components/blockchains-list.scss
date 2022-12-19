@@ -1,24 +1,14 @@
-.blockchains-list__title {
-  margin-bottom: to-rem(40);
+.blockchains-list {
+  user-select: none;
 }
 
-.blockchains-list__list-wrapper {
-  @extend .container;
-
-  display: contents;
-
-  @include respond-above(md) {
-    display: block;
-  }
+.blockchains-list__title {
+  margin-bottom: to-rem(40);
 }
 
 .blockchains-list__list {
   display: flex;
   align-items: center;
-  padding-bottom: to-rem(16);
-  scroll-snap-type: x mandatory;
-  scroll-padding: calc(var(--container-side-padding) * 1.5);
-  overflow-x: auto;
 }
 
 .blockchains-list__item {
@@ -26,24 +16,6 @@
   align-items: center;
   color: var(--primary-title-color);
   font-weight: 500;
-  margin-right: to-rem(40);
-  scroll-snap-align: start;
-
-  &:first-child {
-    margin-left: var(--container-side-padding);
-
-    @include respond-above(md) {
-      margin-left: 0;
-    }
-  }
-
-  &:last-child {
-    margin-right: var(--container-side-padding);
-
-    @include respond-above(md) {
-      margin-right: 0;
-    }
-  }
 }
 
 .blockchains-list__item-icon {

@@ -17,13 +17,6 @@
   white-space: nowrap;
 }
 
-%accent-bg-plh {
-  --primary-title-color: var(--col-total-black);
-  --primary-text-color: rgba(#{$col-total-black-rgb}, 64%);
-
-  color: var(--primary-text-color);
-}
-
 .primary-bg {
   @extend %accent-bg-plh;
 
@@ -34,34 +27,4 @@
   @include respond-above(md) {
     // background-image: url('/img/bg/primary-bg-desktop.jpg');
   }
-}
-
-.honeydew-peel-bg {
-  @extend %accent-bg-plh;
-
-  background-color: var(--col-honeydew-peel);
-}
-
-.apocyan-bg {
-  @extend %accent-bg-plh;
-
-  background-color: var(--col-apocyan);
-}
-
-.pink-elephants-bg {
-  @extend %accent-bg-plh;
-
-  background-color: var(--col-pink-elephants);
-}
-
-.melon-sprinkle-bg {
-  @extend %accent-bg-plh;
-
-  background-color: var(--col-melon-sprinkle);
-}
-
-.california-lilac-bg {
-  @extend %accent-bg-plh;
-
-  background-color: var(--col-california-lilac);
 }

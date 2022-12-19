@@ -33,7 +33,7 @@
   letter-spacing: -0.04em;
 
   @include respond-above(xm) {
-    font-size: to-rem(88);
+    font-size: 5em;
   }
 }
 
@@ -44,17 +44,17 @@
   letter-spacing: -0.02em;
 
   @include respond-above(xm) {
-    font-size: to-rem(28);
+    font-size: 1.75em;
   }
 }
 
 .hero-section__description {
   max-width: to-rem(500);
-  font-size: to-rem(16);
+  font-size: 1.125em;
 
   @include respond-above(xm) {
     max-width: to-rem(710);
-    font-size: to-rem(24);
+    font-size: 1.5em;
   }
 }
 

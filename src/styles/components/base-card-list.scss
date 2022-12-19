@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   grid-gap: to-rem(16);
 
-  @include respond-above(md) {
+  @include respond-above(sm) {
     grid-template-columns: repeat(auto-fit, minmax(to-rem(300), 1fr));
     grid-gap: to-rem(24);
   }
