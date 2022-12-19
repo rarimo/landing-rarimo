@@ -34,7 +34,7 @@ body {
 
 body,
 button {
-  font-size: to-rem(16);
+  font-size: var(--p-size, #{to-rem(16)});
   line-height: 1.5;
 }
 

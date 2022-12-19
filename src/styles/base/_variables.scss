@@ -32,10 +32,16 @@
   --title-weight: 700;
 
   @include respond-above(xm) {
+    --p-size: var(--p-size-xm); // 16px max
+    --h2-size: var(--h2-size-xm); // 70px max
+    --h3-size: var(--h3-size-xm); // 48px max
+    --h5-size: #{to-rem(20)};
+  }
+
+  @include respond-above(lg) {
     --p-size: #{to-rem(18)};
     --h2-size: #{to-rem(80)};
     --h3-size: #{to-rem(56)};
-    --h5-size: #{to-rem(20)};
   }
 
   // Transitions
@@ -55,16 +61,17 @@
   --container-side-padding: #{to-rem(24)};
 
   @include respond-above(md) {
-    --container-side-padding: #{to-rem(40)};
+    --container-side-padding: #{to-rem(36)};
   }
 
   @include respond-above(xm) {
     --container-max-width: #{to-rem(1400)};
-    --container-side-padding: #{to-rem(70)};
+    --container-side-padding: #{to-rem(50)};
   }
 
   @include respond-above(lg) {
     --container-max-width: #{to-rem(1652)};
+    --container-side-padding: #{to-rem(70)};
   }
 
   // Common

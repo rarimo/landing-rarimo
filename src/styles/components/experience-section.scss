@@ -18,11 +18,10 @@
 
 .experience-section__subtitle {
   margin-bottom: to-rem(40);
-  font-size: to-rem(16);
+  font-size: 1.33em;
 
   @include respond-above(xm) {
     margin-bottom: to-rem(80);
-    font-size: to-rem(24);
   }
 }
 

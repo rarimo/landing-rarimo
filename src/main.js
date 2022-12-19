@@ -1,7 +1,7 @@
 import '@/styles/index.scss';
 
 import { initLocalization } from '@/localization';
-import { hideLoader, initSwiper } from '@/js';
+import { defineDesktopFontSizes, hideLoader, initSwiper } from '@/js';
 
 const setup = () => {
   initLocalization();
@@ -9,6 +9,7 @@ const setup = () => {
   setTimeout(() => {
     hideLoader();
     initSwiper();
+    defineDesktopFontSizes();
   }, 500);
 };
 

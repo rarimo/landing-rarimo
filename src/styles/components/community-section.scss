@@ -27,12 +27,11 @@
 .community-section__description {
   max-width: to-rem(530);
   margin-bottom: to-rem(40);
-  font-size: to-rem(18);
+  font-size: 1.33em;
 
   @include respond-above(xm) {
     max-width: to-rem(680);
     margin-bottom: to-rem(32);
-    font-size: to-rem(24);
   }
 }
 
@@ -84,7 +83,7 @@
     right: 0;
     bottom: -#{to-rem(2)};
     width: 0;
-    height: to-rem(2);
+    height: to-rem(1);
     background-color: var(--primary-title-color);
     content: '';
     transition: width var(--medium-transition-duration)
