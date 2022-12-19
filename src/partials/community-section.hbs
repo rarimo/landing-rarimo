@@ -19,22 +19,24 @@
   <ul class="base-card-list">
     {{#each list}}
     <li class="community-section__card base-card-list__card">
-      <div class="community-section__card-icon">
-        <svg height="20" width="20">
-          <use href="{{this.icon}}"></use>
-        </svg>
-      </div>
-      <h5 data-i18n="{{this.title}}"></h5>
       <a
         class="community-section__card-link"
         href="{{this.link}}"
         target="_blank"
         rel="nofollow noopener noreferrer"
       >
+      <div class="community-section__card-icon">
+        <svg height="20" width="20">
+          <use href="{{this.icon}}"></use>
+        </svg>
+      </div>
+      <h5 class="community-section__card-title" data-i18n="{{this.title}}"></h5>
+      <div class="community-section__learn-more-wrapper">
       <span data-i18n="community-section.learn-more-link"></span>
-        <svg class="community-section__card-link-icon" height="11" width="9">
+        <svg class="community-section__learn-more-icon" height="13" width="11">
           <use href="/sprite.svg#icon-chevron-down"></use>
         </svg>
+        </div>
       </a>
     </li>
     {{/each}}
