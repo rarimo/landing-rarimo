@@ -6,14 +6,14 @@
 
   // App link
   --app-link-border-color: var(--col-total-white);
-  --app-link-border-color-hover: #{var(--col-turquoise-pearl)};
+  --app-link-border-color-hover: var(--col-tame-teal);
   --app-link-text: var(--col-total-white);
   --app-link-text-hover: var(--col-total-black);
 
   // Base card
   --base-card-bg: var(--col-gluon-grey);
-  --base-card-shadow-color: rgba(#{$col-ancient-ice-rgb}, 20%);
-  --base-card-primary-icon-color: #{$col-turquoise-panic};
+  --base-card-shadow-color: #{$col-cool-current};
+  --base-card-primary-icon-color: var(--col-tame-teal);
 
   // App footer
   --app-footer-border-color: rgba(#{$col-total-white-rgb}, 10%);
