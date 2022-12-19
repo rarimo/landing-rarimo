@@ -1,9 +1,11 @@
-<section class="features-section primary-bg">
+<section class="features-section">
+  {{> primary-video-parallax }}
+
   <div class="container">
     <h3 class="features-section__title" data-i18n="features-section.title"></h3>
     <div class="features-section__links-wrapper">
-      {{> app-link class="features-section__link" href="#"
-      text="features-section.join-testnet-link" }} {{> app-link
+      {{> app-link primary=true class="features-section__link" href="#"
+      text="features-section.join-testnet-link" }} {{> app-link primary=true
       class="features-section__link" href="#"
       text="features-section.white-paper-link" }}
     </div>

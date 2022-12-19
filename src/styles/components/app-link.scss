@@ -31,23 +31,21 @@
   }
 }
 
-.primary-bg {
+.app-link--primary {
   --app-link-border-color: var(--col-total-black);
   --app-link-border-color-hover: var(--col-total-black);
   --app-link-text: var(--col-total-black);
   --app-link-text-hover: var(--col-turquoise-pearl);
 
-  .app-link {
-    &:hover,
-    &:focus-visible {
-      color: var(--app-link-text-hover);
-      background-color: var(--app-link-border-color-hover);
-      border-top-color: var(--app-link-border-color-hover);
-      border-right-color: var(--app-link-border-color-hover);
-      border-left-color: var(--col-turquoise-pearl);
-      border-bottom-color: var(--col-turquoise-pearl);
-      box-shadow: -#{to-rem(5)} to-rem(5) 0 -#{to-rem(3)}
-        var(--app-link-border-color-hover);
-    }
+  &:hover,
+  &:focus-visible {
+    color: var(--app-link-text-hover);
+    background-color: var(--app-link-border-color-hover);
+    border-top-color: var(--app-link-border-color-hover);
+    border-right-color: var(--app-link-border-color-hover);
+    border-left-color: var(--col-turquoise-pearl);
+    border-bottom-color: var(--col-turquoise-pearl);
+    box-shadow: -#{to-rem(5)} to-rem(5) 0 -#{to-rem(3)}
+      var(--app-link-border-color-hover);
   }
 }

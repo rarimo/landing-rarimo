@@ -1,11 +1,10 @@
 .community-section {
-  padding-top: to-rem(90);
+  min-height: calc(100vh - var(--app-footer-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: to-rem(64);
   padding-bottom: to-rem(64);
-
-  @include respond-above(xm) {
-    padding-top: to-rem(200);
-    padding-bottom: to-rem(200);
-  }
 }
 
 .community-section__titles-wrapper {
@@ -16,7 +15,7 @@
 }
 
 .community-section__title {
-  margin-bottom: to-rem(16);
+  margin-bottom: max(2vw, to-rem(16));
   letter-spacing: -0.04em;
 
   @include respond-above(xm) {
@@ -26,12 +25,11 @@
 
 .community-section__description {
   max-width: to-rem(530);
-  margin-bottom: to-rem(40);
+  margin-bottom: max(3vw, to-rem(40));
   font-size: 1.33em;
 
   @include respond-above(xm) {
     max-width: to-rem(680);
-    margin-bottom: to-rem(32);
   }
 }
 
@@ -39,10 +37,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: to-rem(48);
-
-  @include respond-above(xm) {
-    margin-bottom: to-rem(80);
-  }
+  margin-bottom: max(5vw, to-rem(48));
 }
 
 .community-section__link {

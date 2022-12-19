@@ -1,9 +1,16 @@
 .experience-section {
   padding-top: to-rem(64);
 
-  @include respond-above(xm) {
-    padding-top: to-rem(200);
-    padding-bottom: to-rem(100);
+  @include respond-above(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: to-rem(80);
+    padding-bottom: to-rem(80);
+  }
+
+  @include respond-above(lg) {
+    min-height: min(100vh, to-rem(600));
   }
 }
 

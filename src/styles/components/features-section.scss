@@ -1,18 +1,16 @@
 .features-section {
-  padding-top: to-rem(48);
-  padding-bottom: to-rem(64);
+  position: relative;
+  padding-top: max(10vmin, to-rem(76));
+  padding-bottom: max(10vmin, to-rem(76));
 
-  @include respond-above(xm) {
-    padding-top: to-rem(100);
-    padding-bottom: to-rem(156);
-  }
+  @extend %accent-bg-plh;
 }
 
 .features-section__title {
   margin-bottom: to-rem(24);
 
   @include respond-above(xm) {
-    margin-bottom: to-rem(32);
+    margin-bottom: 3vw;
   }
 }
 
@@ -21,7 +19,7 @@
   margin-bottom: to-rem(48);
 
   @include respond-above(xm) {
-    margin-bottom: to-rem(80);
+    margin-bottom: 7vw;
   }
 }
 
@@ -41,7 +39,7 @@
   }
 
   @include respond-above(xm) {
-    padding-top: to-rem(80);
+    padding-top: 7vw;
     grid-gap: to-rem(80);
     border-top: to-rem(1) solid var(--primary-divider-color);
   }

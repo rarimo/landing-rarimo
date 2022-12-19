@@ -1,7 +1,3 @@
-.blockchains-list {
-  user-select: none;
-}
-
 .blockchains-list__title {
   margin-bottom: to-rem(40);
 }
@@ -9,6 +5,7 @@
 .blockchains-list__list {
   display: flex;
   align-items: center;
+  user-select: none;
 }
 
 .blockchains-list__item {

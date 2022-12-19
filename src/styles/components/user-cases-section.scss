@@ -1,10 +1,9 @@
 .user-cases-section {
   padding-top: to-rem(64);
-  padding-bottom: to-rem(64);
+  padding-bottom: min(20vmin, to-rem(100));
 
   @include respond-above(xm) {
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: min(10vmin, to-rem(90));
   }
 }
 
@@ -17,8 +16,8 @@
   font-size: 1.125em;
 
   @include respond-above(xm) {
-    // margin-bottom: to-rem(80);
     margin-bottom: 6%;
+    margin-bottom: max(4vw, to-rem(56));
     font-size: 1.33em;
   }
 }
@@ -46,6 +45,8 @@
 
   &--turquoise-pearl {
     @include user-cases-card(var(--col-turquoise-pearl));
+
+    @extend %accent-bg-plh;
   }
 
   &--honeydew-peel {

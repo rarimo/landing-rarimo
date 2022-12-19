@@ -4,3 +4,4 @@ import './app-bar';
 export * from './init-loader';
 export * from './swiper';
 export * from './typography';
+export * from './parallax';

@@ -16,15 +16,3 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-.primary-bg {
-  @extend %accent-bg-plh;
-
-  // background-image: url('/img/bg/primary-bg-mobile.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @include respond-above(md) {
-    // background-image: url('/img/bg/primary-bg-desktop.jpg');
-  }
-}

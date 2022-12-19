@@ -1,0 +1,11 @@
+.primary-video-parallax {
+  min-width: 100vmax;
+  height: 120%;
+  object-fit: cover;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  pointer-events: none;
+}

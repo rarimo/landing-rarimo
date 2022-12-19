@@ -1,8 +1,6 @@
-<section class="hero-section primary-bg">
-  <!-- <img src="/img/bg/primary-bg-desktop.jpg" class="img-parallax" /> -->
-  <video autoplay muted loop class="img-parallax">
-    <source src="/img/video.mp4" type="video/mp4" />
-  </video>
+<section class="hero-section">
+  {{> primary-video-parallax }}
+
   <div class="hero-section__titles-wrapper container">
     <h2 class="hero-section__title" data-i18n="hero-section.title"></h2>
     <h4 class="hero-section__subtitle" data-i18n="hero-section.subtitle"></h4>
@@ -12,8 +10,8 @@
     ></p>
   </div>
   <div class="hero-section__links-wrapper container">
-    {{> app-link class="hero-section__link" href="#"
-    text="hero-section.join-testnet-link" }} {{> app-link
+    {{> app-link primary=true class="hero-section__link" href="#"
+    text="hero-section.join-testnet-link" }} {{> app-link primary=true
     class="hero-section__link" href="#" text="hero-section.white-paper-link" }}
   </div>
 
