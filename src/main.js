@@ -4,6 +4,7 @@ import { initLocalization } from '@/localization';
 import {
   defineDesktopFontSizes,
   hideLoader,
+  initAOS,
   initParallax,
   initSwiper,
 } from '@/js';
@@ -14,6 +15,7 @@ const setup = () => {
   setTimeout(() => {
     hideLoader();
     defineDesktopFontSizes();
+    initAOS();
     initParallax();
     initSwiper();
   }, 500);

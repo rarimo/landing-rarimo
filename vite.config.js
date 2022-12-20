@@ -27,6 +27,9 @@ export default defineConfig({
           };
           options.data.root = root;
         },
+        getShiftedDelay(index, shiftMs) {
+          return index * shiftMs;
+        },
       },
       context: TEMPLATE_CONTEXT,
     }),

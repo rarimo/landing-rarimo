@@ -9,6 +9,7 @@
   transition-property: background-color, box-shadow, transform;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);
+  animation: first-render-slide 0.6s;
 
   &.app-bar--filled {
     background-color: var(--app-bar-bg);
@@ -17,6 +18,15 @@
 
   &.app-bar--hidden {
     transform: translateY(-100%);
+  }
+}
+
+@keyframes first-render-slide {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
