@@ -6,8 +6,10 @@ export const initAOS = () => {
     duration: 1500,
     easing: 'ease',
     offset: 0,
-    once: false,
-    mirror: true,
+    // once: false,
+    // mirror: true,
+    once: true,
+    mirror: false,
     anchorPlacement: 'bottom-bottom',
   });
 };

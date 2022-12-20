@@ -42,31 +42,33 @@
   // min-width: to-rem(315);
   padding: to-rem(32) to-rem(24);
   text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  &--turquoise-pearl {
-    @include user-cases-card(var(--col-turquoise-pearl));
+  @extend %accent-bg-plh;
 
-    @extend %accent-bg-plh;
+  &--nft-settlement {
+    background-image: url('/img/user-cases-section/nft-settlement-bg.jpg');
   }
 
-  &--honeydew-peel {
-    @include user-cases-card(var(--col-honeydew-peel));
+  &--asset-verification {
+    background-image: url('/img/user-cases-section/asset-verification-bg.jpg');
   }
 
-  &--apocyan {
-    @include user-cases-card(var(--col-apocyan));
+  &--borrowing {
+    background-image: url('/img/user-cases-section/borrowing-bg.jpg');
   }
 
-  &--pink-elephants {
-    @include user-cases-card(var(--col-pink-elephants));
+  &--airdrop {
+    background-image: url('/img/user-cases-section/airdrop-bg.jpg');
   }
 
-  &--melon-sprinkle {
-    @include user-cases-card(var(--col-melon-sprinkle));
+  &--staking {
+    background-image: url('/img/user-cases-section/staking-bg.jpg');
   }
 
-  &--california-lilac {
-    @include user-cases-card(var(--col-california-lilac));
+  &--share {
+    background-image: url('/img/user-cases-section/share-bg.jpg');
   }
 
   @include respond-above(xm) {
