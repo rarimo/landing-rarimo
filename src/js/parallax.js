@@ -35,6 +35,6 @@ export const initParallax = () => {
 
   const onScroll = throttle(20, parallax);
 
-  window.addEventListener('scroll', onScroll);
+  window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 };

@@ -26,4 +26,4 @@ const toggleShowHeader = () => {
 };
 const onScroll = throttle(400, toggleShowHeader);
 
-window.addEventListener('scroll', onScroll);
+window.addEventListener('scroll', onScroll, { passive: true });

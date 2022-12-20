@@ -1,6 +1,6 @@
 /* Image preload */
 
-body::after {
+/* body::after {
   position: absolute;
   width: 0;
   height: 0;
@@ -8,7 +8,7 @@ body::after {
   z-index: -1;
   content: url('/img/bg/primary-bg-mobile.jpg')
     url('/img/bg/primary-bg-desktop.jpg');
-}
+} */
 
 .init-loader {
   opacity: 1;
