@@ -33,8 +33,10 @@
       data-aos-anchor-placement="top-bottom"
     >
       <a
-        class="community-section__card-link"
+        class="community-section__card-link {{#if this.link}} community-section__card-link--active {{/if}}"
+        {{#if this.link}}
         href="{{this.link}}"
+        {{/if}}
         target="_blank"
         rel="nofollow noopener noreferrer"
       >
@@ -48,6 +50,7 @@
           data-i18n="{{this.title}}"
         ></h5>
         <div class="community-section__learn-more-wrapper">
+          {{#if this.link}}
           <span data-i18n="community-section.learn-more-link"></span>
           <svg
             class="community-section__learn-more-icon"
@@ -56,6 +59,9 @@
           >
             <use href="/sprite.svg#icon-chevron-down"></use>
           </svg>
+          {{else}}
+          <span data-i18n="community-section.coming-soon-text"></span>
+          {{/if}}
         </div>
       </a>
     </li>

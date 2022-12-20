@@ -8,7 +8,7 @@ const communitySectionCtx = {
     {
       icon: '/sprite.svg#icon-monetization',
       title: 'community-section.grant-programs-title',
-      link: '#',
+      link: null,
     },
     {
       icon: '/sprite.svg#icon-discord',
