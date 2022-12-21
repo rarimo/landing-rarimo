@@ -16,7 +16,7 @@ export const initSwiper = () => {
   new Swiper('.blockchains-swiper', {
     ...sharedOptions,
     slidesPerView: 'auto',
-    spaceBetween: 50,
+    spaceBetween: 60,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
