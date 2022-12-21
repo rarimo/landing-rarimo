@@ -30,6 +30,9 @@ export default defineConfig({
         getShiftedDelay(index, shiftMs) {
           return index * shiftMs;
         },
+        scaleImgDims(value) {
+          return value * 1.3;
+        },
       },
       context: TEMPLATE_CONTEXT,
     }),

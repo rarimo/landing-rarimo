@@ -29,8 +29,6 @@
 }
 
 .blockchains-list__item-image {
-  max-height: to-rem(32);
-  max-width: to-rem(112);
   object-fit: contain;
   filter: var(--blockchains-list-image-filter);
   transition-property: filter;
