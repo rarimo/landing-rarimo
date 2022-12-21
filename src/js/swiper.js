@@ -13,21 +13,20 @@ export const initSwiper = () => {
     freeMode: {
       enabled: true,
     },
-
-    rewind: true,
     speed: 1000,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
   };
 
   new Swiper('.blockchains-swiper', {
     ...sharedOptions,
     slidesPerView: 'auto',
     spaceBetween: 40,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    rewind: true,
     breakpoints: {
-      900: {
+      1150: {
         enabled: false,
         grabCursor: false,
       },
@@ -46,6 +45,10 @@ export const initSwiper = () => {
         slidesPerView: 3,
         spaceBetween: 24,
       },
+    },
+    navigation: {
+      nextEl: '.user-cases-section__list-nav-btn--next',
+      prevEl: '.user-cases-section__list-nav-btn--prev',
     },
   });
 };

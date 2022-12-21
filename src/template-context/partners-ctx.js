@@ -1,29 +1,27 @@
 const partnersCtx = {
   title: 'user-cases-section.partners-title',
+  isImageOnly: true,
   list: [
     {
-      icon: '/sprite.svg#icon-binance',
-      text: 'Binance',
+      image: '/img/partners/pantera.webp',
     },
     {
-      icon: '/sprite.svg#icon-ethereum',
-      text: 'Ethereum',
+      image: '/img/partners/pareto.webp',
     },
     {
-      icon: '/sprite.svg#icon-solana',
-      text: 'Solana',
+      image: '/img/partners/eniqa.webp',
     },
     {
-      icon: '/sprite.svg#icon-near',
-      text: 'Near',
+      image: '/img/partners/greycroft.webp',
     },
     {
-      icon: '/sprite.svg#icon-avalanche',
-      text: 'Avalanche',
+      image: '/img/partners/hyper.png',
     },
     {
-      icon: '/sprite.svg#icon-polygon',
-      text: 'Polygon',
+      image: '/img/partners/circle.webp',
+    },
+    {
+      image: '/img/partners/protocol-labs.webp',
     },
   ],
 };

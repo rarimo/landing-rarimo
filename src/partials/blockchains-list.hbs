@@ -1,28 +1,50 @@
 <div class='blockchains-list'>
   <h4
     class='blockchains-list__title container'
-    data-i18n={{title}}
+    data-i18n='{{title}}'
     data-aos='fade'
     data-aos-delay='500'
   ></h4>
-  <div class='blockchains-swiper container'>
+  <div class='blockchains-list__list-wrapper container blockchains-swiper'>
     <ul class='blockchains-list__list swiper-wrapper'>
-      {{#each list}}
-        <li class='swiper-slide'>
-          <div
-            class='blockchains-list__item'
-            data-aos='fade-up'
-            data-aos-duration='1000'
-            data-aos-delay='{{getShiftedDelay @index 150}}'
-            data-aos-anchor-placement='top-bottom'
-          >
-            <svg class='blockchains-list__item-icon' height='32' width='32'>
-              <use href={{this.icon}}></use>
-            </svg>
-            <span>{{this.text}}</span>
-          </div>
-        </li>
-      {{/each}}
+      {{#if isImageOnly}}
+        {{#each list}}
+          <li class='swiper-slide'>
+            <div
+              class='blockchains-list__item'
+              data-aos='fade-up'
+              data-aos-duration='1000'
+              data-aos-delay='{{getShiftedDelay @index 150}}'
+              data-aos-anchor-placement='top-bottom'
+            >
+              <img
+                class='blockchains-list__item-image'
+                src='{{this.image}}'
+                height='32'
+                width='112'
+                alt=''
+              />
+            </div>
+          </li>
+        {{/each}}
+      {{else}}
+        {{#each list}}
+          <li class='swiper-slide'>
+            <div
+              class='blockchains-list__item'
+              data-aos='fade-up'
+              data-aos-duration='1000'
+              data-aos-delay='{{getShiftedDelay @index 150}}'
+              data-aos-anchor-placement='top-bottom'
+            >
+              <svg class='blockchains-list__item-icon' height='32' width='32'>
+                <use href='{{this.icon}}'></use>
+              </svg>
+              <span>{{this.text}}</span>
+            </div>
+          </li>
+        {{/each}}
+      {{/if}}
     </ul>
   </div>
 </div>

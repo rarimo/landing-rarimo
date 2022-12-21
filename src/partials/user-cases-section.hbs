@@ -11,7 +11,17 @@
     data-aos-delay="400"
   ></p>
   <div class="container">
-    <div class="user-cases-swiper">
+    <div class="user-cases-section__card-list-wrapper user-cases-swiper">
+        <button class="user-cases-section__list-nav-btn user-cases-section__list-nav-btn--prev" type="button">
+          <svg  height="16" width="16">
+          <use href="/sprite.svg#icon-arrow-right"></use>
+        </svg>
+        </button>
+        <button class="user-cases-section__list-nav-btn user-cases-section__list-nav-btn--next" type="button">
+          <svg  height="16" width="16">
+          <use href="/sprite.svg#icon-arrow-right"></use>
+        </svg>
+        </button>
       <ul class="user-cases-section__card-list swiper-wrapper">
         <li
           class="user-cases-section__card user-cases-section__card--nft-settlement swiper-slide"
@@ -113,10 +123,17 @@
         <li
           class="user-cases-section__card user-cases-section__card--share swiper-slide"
         >
+        <div class="user-cases-section__card--centered">
+          <div class="user-cases-section__card-edit-icon-wrapper">
+          <svg  height="32" width="32">
+          <use href="/sprite.svg#icon-edit"></use>
+        </svg>
+          </div>
           <h4
             class="user-cases-section__card-title"
             data-i18n="user-cases-section.share-title"
           ></h4>
+        </div>
         </li>
       </ul>
     </div>

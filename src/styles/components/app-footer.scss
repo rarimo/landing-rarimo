@@ -58,9 +58,12 @@
     width: to-rem(48);
   }
 
-  &:hover {
-    background-color: var(--primary-title-color);
-    color: var(--primary-bg-color);
+  @media all and (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      background-color: var(--primary-title-color);
+      color: var(--primary-bg-color);
+    }
   }
 
   &:not(:last-child) {

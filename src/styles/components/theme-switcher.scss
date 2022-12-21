@@ -13,10 +13,12 @@
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
-  &:hover,
-  &:focus-visible {
-    // border-color: var(--col-total-white);
-    filter: invert(1);
+  @media all and (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      // border-color: var(--col-total-white);
+      filter: invert(1);
+    }
   }
 }
 

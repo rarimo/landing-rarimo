@@ -2,10 +2,18 @@
   margin-bottom: to-rem(40);
 }
 
+.blockchains-list__list-wrapper {
+  overflow: hidden;
+  user-select: none;
+
+  .swiper-slide {
+    width: auto;
+  }
+}
+
 .blockchains-list__list {
   display: flex;
   align-items: center;
-  user-select: none;
 }
 
 .blockchains-list__item {
@@ -18,4 +26,14 @@
 .blockchains-list__item-icon {
   margin-right: to-rem(16);
   width: to-rem(32);
+}
+
+.blockchains-list__item-image {
+  max-height: to-rem(32);
+  max-width: to-rem(112);
+  object-fit: contain;
+  filter: var(--blockchains-list-image-filter);
+  transition-property: filter;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
 }
