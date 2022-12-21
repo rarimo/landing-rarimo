@@ -1,14 +1,15 @@
 /* Image preload */
 
-/* body::after {
+body::after {
   position: absolute;
   width: 0;
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url('/img/bg/primary-bg-mobile.jpg')
-    url('/img/bg/primary-bg-desktop.jpg');
-} */
+  content: url('/img/bg/primary-stains-bg.jpg');
+}
+
+/* Init loader */
 
 .init-loader {
   opacity: 1;
@@ -56,4 +57,18 @@
   100% {
     transform: scale(1.3);
   }
+}
+
+/* Parallax */
+
+.primary-video-parallax {
+  min-width: 100vmax;
+  height: 120%;
+  object-fit: cover;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  pointer-events: none;
 }

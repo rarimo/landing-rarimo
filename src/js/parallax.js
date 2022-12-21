@@ -3,12 +3,15 @@ import { throttle } from 'throttle-debounce';
 const parallaxObjectRefs = document.querySelectorAll('.primary-video-parallax');
 
 export const initParallax = () => {
-  [...parallaxObjectRefs].forEach(videoRef => {
+  const refsArray = [...parallaxObjectRefs];
+
+  // Fallback autoplay for mobile Safari
+  refsArray.forEach(videoRef => {
     videoRef.play();
   });
 
   const parallax = () => {
-    [...parallaxObjectRefs].forEach(videoRef => {
+    refsArray.forEach(videoRef => {
       const parentRef = videoRef.parentElement;
       const speed = 2;
       const parentOffsetTop = parentRef.offsetTop;
