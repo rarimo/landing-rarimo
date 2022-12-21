@@ -3,6 +3,10 @@ import { throttle } from 'throttle-debounce';
 const parallaxObjectRefs = document.querySelectorAll('.primary-video-parallax');
 
 export const initParallax = () => {
+  [...parallaxObjectRefs].forEach(videoRef => {
+    videoRef.play();
+  });
+
   const parallax = () => {
     [...parallaxObjectRefs].forEach(videoRef => {
       const parentRef = videoRef.parentElement;
