@@ -48,8 +48,8 @@
   display: grid;
   place-items: center;
   top: 50%;
-  height: to-rem(44);
-  width: to-rem(44);
+  height: to-rem(34);
+  width: to-rem(34);
   background-color: var(--col-total-white);
   border: to-rem(2) solid var(--col-total-black);
   border-radius: 50%;
@@ -58,6 +58,11 @@
   transition-property: opacity, filter, border-color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+
+  @include respond-above(md) {
+    height: to-rem(44);
+    width: to-rem(44);
+  }
 
   &:disabled {
     opacity: 0;
@@ -74,7 +79,7 @@
   }
 
   &--prev {
-    left: to-rem(16);
+    left: to-rem(8);
     transform: translateY(-50%) rotate(180deg);
 
     @include respond-above(md) {
@@ -83,7 +88,7 @@
   }
 
   &--next {
-    right: to-rem(16);
+    right: to-rem(8);
     transform: translateY(-50%);
 
     @include respond-above(md) {

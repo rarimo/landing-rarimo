@@ -10,9 +10,6 @@ export const initSwiper = () => {
     grabCursor: true,
     edgeSwipeDetection: true,
 
-    freeMode: {
-      enabled: true,
-    },
     speed: 1000,
   };
 
@@ -25,6 +22,9 @@ export const initSwiper = () => {
       disableOnInteraction: false,
     },
     rewind: true,
+    freeMode: {
+      enabled: true,
+    },
     breakpoints: {
       1150: {
         enabled: false,
