@@ -1,7 +1,8 @@
-// import RouteLocationProvider from '@/providers/RouteLocationProvider';
+import RouteLocationProvider from '@/providers/RouteLocationProvider';
 import AppRoutes from '@/router/routes';
 import { useEffect } from 'react';
-import { defineDesktopFontSizes, hideLoader, initAOS, initSwiper } from '@/js';
+import { defineDesktopFontSizes, hideLoader, initAOS } from '@/js';
+import { CONFIG } from '@/config';
 
 const App = () => {
   const setup = () => {
@@ -9,8 +10,7 @@ const App = () => {
       hideLoader();
       defineDesktopFontSizes();
       initAOS();
-      initSwiper();
-    }, 500);
+    }, CONFIG.initLoaderDelay);
   };
 
   useEffect(() => {
@@ -18,10 +18,10 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      {/* <RouteLocationProvider> */}
-      <AppRoutes />
-      {/* </RouteLocationProvider> */}
+    <div className="application js-application">
+      <RouteLocationProvider>
+        <AppRoutes />
+      </RouteLocationProvider>
     </div>
   );
 };

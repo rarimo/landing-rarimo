@@ -1,0 +1,80 @@
+.fade-shift-transition {
+  height: 100%;
+  will-change: opacity, transform;
+}
+
+.fade-shift-transition--fade-in {
+  animation: var(--slow-transition-duration)
+    var(--slide-transition-timing-function) forwards;
+
+  &.fade-shift-transition--to-right {
+    animation-name: fade-in-to-right;
+  }
+
+  &.fade-shift-transition--to-left {
+    animation-name: fade-in-to-left;
+  }
+}
+
+.fade-shift-transition--fade-out {
+  animation: var(--slow-transition-duration)
+    var(--slide-transition-timing-function) forwards;
+
+  &.fade-shift-transition--to-right {
+    animation-name: fade-out-to-right;
+  }
+
+  &.fade-shift-transition--to-left {
+    animation-name: fade-out-to-left;
+  }
+}
+
+$shift: to-rem(20);
+
+@keyframes fade-in-to-right {
+  from {
+    opacity: 0;
+    transform: translateX(-$shift);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-out-to-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX($shift);
+  }
+}
+
+@keyframes fade-in-to-left {
+  from {
+    opacity: 0;
+    transform: translateX($shift);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-out-to-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-$shift);
+  }
+}

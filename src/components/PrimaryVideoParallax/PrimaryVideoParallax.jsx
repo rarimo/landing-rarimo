@@ -1,3 +1,4 @@
+import { CONFIG } from '@/config';
 import { useEffect, useRef } from 'react';
 import { throttle } from 'throttle-debounce';
 
@@ -5,12 +6,12 @@ const PrimaryVideoParallax = () => {
   const videoRef = useRef(null);
 
   const parallax = () => {
-    const parentRef = videoRef.current.parentElement;
+    const parentRef = videoRef.current?.parentElement;
     const speed = 2;
-    const parentOffsetTop = parentRef.offsetTop;
+    const parentOffsetTop = parentRef?.offsetTop;
     const windowScrollY = window.scrollY;
     const windowHeight = window.innerHeight;
-    const parentHeight = parentRef.clientHeight;
+    const parentHeight = parentRef?.clientHeight;
 
     // The next pixel to show on screen
     const windowBottom = windowScrollY + windowHeight;
@@ -35,10 +36,12 @@ const PrimaryVideoParallax = () => {
   const onScroll = useRef(throttle(20, parallax));
 
   useEffect(() => {
-    videoRef.current.play();
+    videoRef.current?.play();
 
     window.addEventListener('scroll', onScroll.current, { passive: true });
-    onScroll.current();
+    setTimeout(() => {
+      onScroll.current();
+    }, CONFIG.initLoaderDelay);
 
     return () => {
       window.removeEventListener('scroll', onScroll.current, { passive: true });
