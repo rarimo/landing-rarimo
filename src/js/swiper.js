@@ -1,6 +1,6 @@
-import Swiper from 'swiper/bundle';
-
 import 'swiper/css/bundle';
+
+import Swiper from 'swiper/bundle';
 
 export const initSwiper = () => {
   const sharedOptions = {
