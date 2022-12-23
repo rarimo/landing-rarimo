@@ -1,3 +1,4 @@
+import { CONFIG } from '@/config';
 import './AppFooter.scss';
 
 const AppFooter = () => {
@@ -13,7 +14,7 @@ const AppFooter = () => {
           <div className="app-footer__links-wrapper">
             <a
               className="app-footer__link"
-              href="#"
+              href={CONFIG.discordLink}
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
@@ -23,7 +24,7 @@ const AppFooter = () => {
             </a>
             <a
               className="app-footer__link"
-              href="#"
+              href={CONFIG.twitterLink}
               target="_blank"
               rel="nofollow noopener noreferrer"
             >

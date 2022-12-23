@@ -1,3 +1,5 @@
+import { CONFIG } from '@/config';
+
 export const communitySectionList = [
   {
     icon: '/sprite.svg#icon-messages',
@@ -12,6 +14,6 @@ export const communitySectionList = [
   {
     icon: '/sprite.svg#icon-discord',
     titleKey: 'community-section.discord-title',
-    link: '#',
+    link: CONFIG.discordLink,
   },
 ];

@@ -5,6 +5,7 @@ import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import AppLink from '@/components/AppLink';
 import PartnersList from '@/components/PartnersList';
 import { supportedBlockchainsList } from '@/template-data';
+import { CONFIG } from '@/config';
 
 const HomeHeroSection = () => {
   const { t } = useTranslation();
@@ -45,9 +46,9 @@ const HomeHeroSection = () => {
         />
         <AppLink
           className="home-hero-section__link"
-          href="#"
+          href={CONFIG.whitePaperLink}
           isPrimaryScheme
-          textKey="home-hero-section.join-testnet-link"
+          textKey="home-hero-section.white-paper-link"
         />
       </div>
 

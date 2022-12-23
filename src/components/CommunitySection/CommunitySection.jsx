@@ -6,6 +6,7 @@ import AppLink from '@/components/AppLink';
 import BaseCardList from '@/components/BaseCardList';
 import { getShiftedDelay } from '@/helpers';
 import { communitySectionList } from '@/template-data';
+import { CONFIG } from '@/config';
 
 const ComunitySection = () => {
   const { t } = useTranslation();
@@ -37,7 +38,7 @@ const ComunitySection = () => {
         />
         <AppLink
           className="community-section__link"
-          href="#"
+          href={CONFIG.whitePaperLink}
           textKey="community-section.white-paper-link"
         />
       </div>

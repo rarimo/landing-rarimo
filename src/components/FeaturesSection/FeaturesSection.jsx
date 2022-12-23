@@ -5,6 +5,7 @@ import AppLink from '@/components/AppLink';
 import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import { getShiftedDelay } from '@/helpers';
 import { featuresSectionList } from '@/template-data';
+import { CONFIG } from '@/config';
 
 const FeaturesSection = () => {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ const FeaturesSection = () => {
           />
           <AppLink
             className="features-section__link"
-            href="#"
+            href={CONFIG.whitePaperLink}
             isPrimaryScheme
             textKey="features-section.white-paper-link"
           />
