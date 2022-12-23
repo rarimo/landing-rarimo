@@ -41,7 +41,7 @@ const PrimaryVideoParallax = () => {
     window.addEventListener('scroll', onScroll.current, { passive: true });
     setTimeout(() => {
       onScroll.current();
-    }, CONFIG.initLoaderDelay);
+    }, 100);
 
     return () => {
       window.removeEventListener('scroll', onScroll.current, { passive: true });
