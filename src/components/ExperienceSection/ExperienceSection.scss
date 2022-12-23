@@ -1,0 +1,46 @@
+.experience-section {
+  padding-top: to-rem(64);
+
+  @include respond-above(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: to-rem(80);
+    padding-bottom: to-rem(80);
+  }
+
+  @include respond-above(lg) {
+    min-height: min(100vh, to-rem(600));
+  }
+}
+
+.experience-section__title {
+  max-width: to-rem(280);
+  margin-bottom: to-rem(16);
+
+  @include respond-above(sm) {
+    max-width: unset;
+  }
+}
+
+.experience-section__subtitle {
+  margin-bottom: to-rem(40);
+  font-size: 1.33em;
+
+  @include respond-above(xm) {
+    margin-bottom: to-rem(80);
+  }
+}
+
+.experience-section__card-icon {
+  margin-bottom: to-rem(24);
+  color: var(--base-card-primary-icon-color);
+}
+
+.experience-section__card-title {
+  margin-bottom: to-rem(8);
+}
+
+.experience-section__card-text {
+  letter-spacing: 0.02em;
+}

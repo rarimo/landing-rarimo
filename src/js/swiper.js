@@ -13,7 +13,7 @@ export const initSwiper = () => {
     speed: 1000,
   };
 
-  new Swiper('.blockchains-swiper', {
+  new Swiper('.partners-swiper', {
     ...sharedOptions,
     slidesPerView: 'auto',
     spaceBetween: 60,

@@ -1,0 +1,196 @@
+.user-cases-section {
+  padding-top: to-rem(64);
+  padding-bottom: min(20vmin, to-rem(100));
+
+  @include respond-above(xm) {
+    padding-top: min(10vmin, to-rem(90));
+    padding-bottom: min(20vmin, to-rem(130));
+  }
+}
+
+.user-cases-section__title {
+  margin-bottom: to-rem(16);
+}
+
+.user-cases-section__subtitle {
+  margin-bottom: to-rem(40);
+  font-size: 1.125em;
+
+  @include respond-above(xm) {
+    margin-bottom: 6%;
+    margin-bottom: max(4vw, to-rem(56));
+    font-size: 1.33em;
+  }
+}
+
+.user-cases-section__card-list-wrapper {
+  position: relative;
+  margin-bottom: to-rem(48);
+  overflow: hidden;
+  user-select: none;
+
+  @include respond-above(md) {
+    margin-bottom: 11%;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+}
+
+.user-cases-section__card-list {
+  display: flex;
+  align-items: stretch;
+}
+
+.user-cases-section__list-nav-btn {
+  position: absolute;
+  z-index: var(--z-user-cases-swiper-arrow);
+  display: grid;
+  place-items: center;
+  top: 50%;
+  height: to-rem(34);
+  width: to-rem(34);
+  background-color: var(--col-total-white);
+  border: to-rem(2) solid var(--col-total-black);
+  border-radius: 50%;
+  color: var(--col-total-black);
+  cursor: pointer;
+  transition-property: opacity, filter, border-color;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
+
+  @include respond-above(md) {
+    height: to-rem(44);
+    width: to-rem(44);
+  }
+
+  &:disabled {
+    opacity: 0;
+  }
+
+  @media all and (hover: hover) {
+    &:not(:disabled) {
+      &:hover,
+      &:focus-visible {
+        border-color: var(--col-total-white);
+        filter: invert(1);
+      }
+    }
+  }
+
+  &--prev {
+    left: to-rem(8);
+    transform: translateY(-50%) rotate(180deg);
+
+    @include respond-above(md) {
+      left: to-rem(24);
+    }
+  }
+
+  &--next {
+    right: to-rem(8);
+    transform: translateY(-50%);
+
+    @include respond-above(md) {
+      right: to-rem(24);
+    }
+  }
+}
+
+.user-cases-section__card {
+  // width: 100%;
+  // min-width: to-rem(315);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: to-rem(32) to-rem(24);
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @extend %accent-bg-plh;
+
+  &--nft-settlement {
+    background-image: url('/img/user-cases-section/nft-settlement-bg.jpg');
+  }
+
+  &--asset-verification {
+    background-image: url('/img/user-cases-section/asset-verification-bg.jpg');
+  }
+
+  &--borrowing {
+    background-image: url('/img/user-cases-section/borrowing-bg.jpg');
+  }
+
+  &--airdrop {
+    background-image: url('/img/user-cases-section/airdrop-bg.jpg');
+  }
+
+  &--staking {
+    background-image: url('/img/user-cases-section/staking-bg.jpg');
+  }
+
+  &--share {
+    background-image: url('/img/user-cases-section/share-bg.jpg');
+  }
+
+  &--centered {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: grid;
+    place-items: center;
+    grid-gap: to-rem(16);
+  }
+
+  @include respond-above(xm) {
+    // min-width: max(calc(100% / 3 - 1.6%), to-rem(315));
+    // margin-right: to-rem(24);
+    // margin-right: 1.6%;
+    padding: 3.5% 2%;
+  }
+}
+
+.user-cases-section__card-img {
+  // width: to-rem(220);
+  height: to-rem(150);
+  // max-width: 75%;
+  // margin-bottom: to-rem(40);
+  margin-bottom: 10%;
+  object-fit: contain;
+
+  @include respond-above(xm) {
+    height: to-rem(160);
+    // width: to-rem(300);
+  }
+
+  @include respond-above(lg) {
+    height: to-rem(180);
+  }
+}
+
+.user-cases-section__card-text {
+  margin-top: to-rem(16);
+  letter-spacing: 0.02em;
+
+  @include respond-above(xm) {
+    @include respond-to(lg) {
+      letter-spacing: 0.01em;
+    }
+  }
+}
+
+.user-cases-section__card-link {
+  margin-top: to-rem(32);
+}
+
+.user-cases-section__card-edit-icon-wrapper {
+  display: grid;
+  place-items: center;
+  height: to-rem(56);
+  width: to-rem(56);
+  padding: to-rem(12);
+  background-color: var(--col-total-black);
+  border-radius: 50%;
+  color: var(--col-total-white);
+}

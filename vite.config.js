@@ -1,12 +1,7 @@
-// import { resolve } from 'path';
 import { defineConfig } from 'vite';
-// import handlebars from 'vite-plugin-handlebars';
-// import { createHtmlPlugin } from 'vite-plugin-html';
 import * as fs from 'fs';
 import * as path from 'path';
 import react from '@vitejs/plugin-react';
-
-// import { TEMPLATE_CONTEXT } from './src/template-context';
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relative => path.resolve(appDirectory, relative);
@@ -18,33 +13,7 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  plugins: [
-    react(),
-    // handlebars({
-    //   partialDirectory: resolve(root, 'partials'),
-    //   helpers: {
-    //     setVariable(varName, varValue, options) {
-    //       const root = {
-    //         ...(Boolean(options.data.root) && options.data.root),
-    //         [varName]: varValue,
-    //       };
-    //       options.data.root = root;
-    //     },
-    //     getShiftedDelay(index, shiftMs) {
-    //       return index * shiftMs;
-    //     },
-    //     scaleImgDims(value) {
-    //       return value * 1.3;
-    //     },
-    //   },
-    //   context: TEMPLATE_CONTEXT,
-    // }),
-    // createHtmlPlugin({
-    //   minify: true,
-    //   entry: '/src/main.js',
-    //   template: '/index.html',
-    // }),
-  ],
+  plugins: [react()],
   resolve: {
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
     alias: {

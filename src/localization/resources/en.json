@@ -2,7 +2,7 @@
   "app": {
     "title": "Rarimo Lending"
   },
-  "hero-section": {
+  "home-hero-section": {
     "title": "Unlocked & Untethered",
     "subtitle": "Decentralized world",
     "description_html": "Rarimo is a protocol unlocking <b>liquidity</b> and <b>interoperability</b> across chains in a <b>seamless way</b>",
