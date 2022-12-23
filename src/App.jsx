@@ -6,7 +6,7 @@ import { defineDesktopFontSizes, hideLoader, initAOS, initSwiper } from '@/js';
 const App = () => {
   const setup = () => {
     setTimeout(() => {
-      // hideLoader();
+      hideLoader();
       defineDesktopFontSizes();
       initAOS();
       initSwiper();

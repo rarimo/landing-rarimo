@@ -26,7 +26,7 @@ export const initSwiper = () => {
       enabled: true,
     },
     breakpoints: {
-      1150: {
+      1250: {
         enabled: false,
         grabCursor: false,
       },

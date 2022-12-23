@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Verko Marketplace</title>
+    <title>Rarimo</title>
     <noscript>
       <style>
         #noscript {
@@ -12,39 +12,57 @@
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#151937" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#000000" />
 
     <meta
       name="viewport"
       content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
     />
-    <meta name="description" content="Verko Marketplace" />
-    <meta property="og:title" content="Verko Marketplace" />
-    <meta property="og:description" content="Verko Marketplace" />
-    <meta property="og:url" content="https://web-client-dev.verko.io" />
-    <meta property="og:image" content="/branding/logo.png" />
+    <meta name="description" content="Rarimo" />
+    <meta property="og:title" content="Rarimo" />
+    <meta property="og:description" content="Rarimo" />
+    <meta property="og:url" content="https://rarimo.com" />
+    <meta property="og:image" content="/favicon/favicon-dark.png" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="icon" href="/branding/favicon.ico" />
-    <link href="/branding/favicon.png" rel="icon" type="image/png" />
-    <link rel="apple-touch-icon" href="/branding/apple-touch-icon.png" />
+    <link href="/favicon/favicon-dark.png" rel="icon" />
+    <link href="/favicon/favicon-dark.png" rel="icon" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/favicon/favicon-dark.png" />
+    <link
+      href="/favicon/favicon-light.png"
+      rel="icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      href="/favicon/favicon-light.png"
+      rel="icon"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/favicon/favicon-light.png"
+      media="(prefers-color-scheme: light)"
+    />
 
     <link href="/noscript/style.css" type="text/css" rel="stylesheet" />
-    <link href="/init-loader/style.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="/init-loader/style.css" />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+
     <script type="module" src="/src/main.jsx"></script>
   </head>
 
   <body>
-    <div id="root">
-      <div id="noscript" class="app__init">
-        <img
-          src="/branding/logo.png"
-          alt="Verko Marketplace Logo"
-          width="220"
-        />
+    <div id="root" style="display: none"></div>
+
+    <div id="noscript" class="init-loader js-init-loader">
+      <div class="init-loader__overlay">
+        <svg class="init-loader__logo" width="108">
+          <use href="/sprite.svg#icon-app-logo"></use>
+        </svg>
       </div>
     </div>
 
@@ -112,41 +130,3 @@
     </noscript>
   </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#000000" />
-    <link href="/favicon/favicon-dark.png" rel="icon" type="image/x-icon" />
-    <link
-      href="/favicon/favicon-light.png"
-      rel="icon"
-      type="image/x-icon"
-      media="(prefers-color-scheme: light)"
-    />
-    <link rel="stylesheet" href="/init-loader/style.css" />
-    <link rel="stylesheet" href="/fonts/fonts.css" />
-
-    <title>Rarimo</title>
-  </head>
-  <body>
-    <div class="application js-application" style="display: none">
-      {{> app-bar }}
-
-      <main>
-        <h1 class="visually-hidden" data-i18n="app.title"></h1>
-        {{> hero-section }} {{> experience-section experienceSectionCtx }} {{>
-        user-cases-section }} {{> features-section featuresSectionCtx }} {{>
-        community-section communitySectionCtx}}
-      </main>
-
-      {{> app-footer }}
-    </div>
-
-    {{> init-loader }}
-  </body>
-</html> -->

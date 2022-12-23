@@ -1,8 +1,8 @@
 const loaderRef = document.querySelector('.js-init-loader');
-const appRef = document.querySelector('.js-application');
+const rootRef = document.querySelector('#root');
 
 export const hideLoader = () => {
-  appRef.style.display = '';
+  rootRef.style.display = '';
 
   const loaderStyles = getComputedStyle(loaderRef);
   const delay = Number.parseFloat(loaderStyles.transitionDuration) * 1000;

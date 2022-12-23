@@ -1,6 +1,6 @@
 import './HomeHeroSection.scss';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import AppLink from '@/components/AppLink';
 import PartnersList from '@/components/PartnersList';
@@ -29,7 +29,7 @@ const HomeHeroSection = () => {
           data-aos="fade-right"
           data-aos-delay="600"
         >
-          {t('home-hero-section.description_html')}
+          <Trans i18nKey="home-hero-section.description_html" />
         </p>
       </div>
       <div

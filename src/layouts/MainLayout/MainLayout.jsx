@@ -7,7 +7,6 @@ const MainLayout = () => {
   const { t } = useTranslation();
 
   return (
-    // <div class="application js-application" style="display: none">
     <div className="application js-application">
       <AppBar />
 
