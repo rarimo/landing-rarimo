@@ -38,6 +38,7 @@ const PrimaryVideoParallax = () => {
     videoRef.current.play();
 
     window.addEventListener('scroll', onScroll.current, { passive: true });
+    onScroll.current();
 
     return () => {
       window.removeEventListener('scroll', onScroll.current, { passive: true });

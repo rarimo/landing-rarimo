@@ -8,39 +8,57 @@ import { getShiftedDelay } from '@/helpers';
 import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
 
-const ComunitySection = () => {
+const CommunitySection = ({ isHomePage = true }) => {
   const { t } = useTranslation();
 
   return (
-    <section className="community-section container">
+    <section
+      className={cn([
+        'community-section container',
+        {
+          'community-section--testnet': !isHomePage,
+        },
+      ])}
+    >
       <div className="community-section__titles-wrapper">
         <h2 className="community-section__title" data-aos="zoom-in">
           {t('community-section.title')}
         </h2>
-        <p
-          className="community-section__description"
-          data-i18n="community-section.description"
-          data-aos="zoom-in"
-          data-aos-delay="400"
-        >
-          {t('community-section.title')}
-        </p>
+        {isHomePage && (
+          <p
+            className="community-section__description"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            {t('community-section.description')}
+          </p>
+        )}
       </div>
       <div
         className="community-section__links-wrapper"
         data-aos="zoom-in"
-        data-aos-delay="800"
+        data-aos-delay={isHomePage ? '800' : '400'}
       >
-        <AppLink
-          className="community-section__link"
-          href="#"
-          textKey="community-section.join-testnet-link"
-        />
-        <AppLink
-          className="community-section__link"
-          href={CONFIG.whitePaperLink}
-          textKey="community-section.white-paper-link"
-        />
+        {isHomePage ? (
+          <>
+            <AppLink
+              className="community-section__link"
+              href="#"
+              textKey="community-section.join-testnet-link"
+            />
+            <AppLink
+              className="community-section__link"
+              href={CONFIG.whitePaperLink}
+              textKey="community-section.white-paper-link"
+            />
+          </>
+        ) : (
+          <AppLink
+            className="community-section__link"
+            href="#"
+            textKey="community-section.sign-up-link"
+          />
+        )}
       </div>
 
       <BaseCardList>
@@ -96,4 +114,4 @@ const ComunitySection = () => {
   );
 };
 
-export default ComunitySection;
+export default CommunitySection;

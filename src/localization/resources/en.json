@@ -53,10 +53,22 @@
     "description": "Our community is here to help, get hands-on approach and tailored support to the unique needs of your project",
     "join-testnet-link": "Join Testnet",
     "white-paper-link": "White Paper",
+    "sign-up-link": "Sign up",
     "learn-more-link": "Learn More",
     "coming-soon-text": "Coming soon",
     "engineering-support-title": "Engineering support",
     "grant-programs-title": "Grant Programs",
     "discord-title": "Discord Comunity"
+  },
+  "testnet-hero-section": {
+    "title": "Join private Testnet",
+    "description_html": "Rarimo is a protocol unlocking <strong>liquidity</strong> and <strong>interoperability</strong> across chains in a <strong>seamless way</strong>",
+    "sign-up-link": "Sign up"
+  },
+  "testnet-desc-section": {
+    "title": "Rarimo will run a closed testnet that will be invite only, with participants chosen from the signups",
+    "description": "Looking for a diverse set of participants, with technical experience participating in testnets and running nodes, those who represent professional validating communities as well as developers, builders, community leaders and moderators.",
+    "feedback": "Post your questions and feedback on Rarimo’s",
+    "discord-link": "Discord channel"
   }
 }

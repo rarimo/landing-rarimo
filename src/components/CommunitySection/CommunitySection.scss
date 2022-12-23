@@ -36,8 +36,11 @@
 .community-section__links-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: to-rem(48);
   margin-bottom: max(5vw, to-rem(48));
+
+  .community-section--testnet & {
+    margin-bottom: max(15vw, to-rem(130));
+  }
 }
 
 .community-section__link {
