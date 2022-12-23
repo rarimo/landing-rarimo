@@ -1,8 +1,10 @@
 import './AppBar.scss';
 
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { throttle } from 'throttle-debounce';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
+import { ROUTES_PATHS } from '@/const';
 
 const AppBar = () => {
   const appBarRef = useRef(null);
@@ -44,11 +46,12 @@ const AppBar = () => {
     <header ref={appBarRef} className="app-bar">
       <div className="app-bar__container container">
         <div className="app-bar__content">
-          <a href="#" className="app-bar__logo">
+          <Link className="app-bar__logo" to={ROUTES_PATHS.home}>
             <svg className="app-bar__logo-img" height="28" width="108">
               <use href="/sprite.svg#icon-app-logo"></use>
             </svg>
-          </a>
+          </Link>
+
           <div className="app-bar__navigation"></div>
 
           <ThemeSwitcher />

@@ -6,6 +6,7 @@ import AppLink from '@/components/AppLink';
 import PartnersList from '@/components/PartnersList';
 import { supportedBlockchainsList } from '@/template-data';
 import { CONFIG } from '@/config';
+import { ROUTES_PATHS } from '@/const';
 
 const HomeHeroSection = () => {
   const { t } = useTranslation();
@@ -40,7 +41,7 @@ const HomeHeroSection = () => {
       >
         <AppLink
           className="home-hero-section__link"
-          href="#"
+          routePath={ROUTES_PATHS.testnet}
           isPrimaryScheme
           textKey="home-hero-section.join-testnet-link"
         />

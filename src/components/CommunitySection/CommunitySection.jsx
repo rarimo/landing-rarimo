@@ -7,6 +7,7 @@ import BaseCardList from '@/components/BaseCardList';
 import { getShiftedDelay } from '@/helpers';
 import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
+import { ROUTES_PATHS } from '@/const';
 
 const CommunitySection = ({ isHomePage = true }) => {
   const { t } = useTranslation();
@@ -43,7 +44,7 @@ const CommunitySection = ({ isHomePage = true }) => {
           <>
             <AppLink
               className="community-section__link"
-              href="#"
+              routePath={ROUTES_PATHS.testnet}
               textKey="community-section.join-testnet-link"
             />
             <AppLink

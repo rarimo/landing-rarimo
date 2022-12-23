@@ -2,9 +2,27 @@ import './AppLink.scss';
 
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
-const AppLink = ({ className, href, textKey, isPrimaryScheme }) => {
+const AppLink = ({ className, routePath, href, textKey, isPrimaryScheme }) => {
   const { t } = useTranslation();
+
+  if (routePath) {
+    return (
+      <Link
+        className={cn([
+          'app-link',
+          className,
+          {
+            'app-link--primary': isPrimaryScheme,
+          },
+        ])}
+        to={routePath}
+      >
+        {t(textKey)}
+      </Link>
+    );
+  }
 
   return (
     <a

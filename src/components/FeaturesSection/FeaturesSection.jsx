@@ -6,6 +6,7 @@ import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import { getShiftedDelay } from '@/helpers';
 import { featuresSectionList } from '@/template-data';
 import { CONFIG } from '@/config';
+import { ROUTES_PATHS } from '@/const';
 
 const FeaturesSection = () => {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ const FeaturesSection = () => {
         >
           <AppLink
             className="features-section__link"
-            href="#"
+            routePath={ROUTES_PATHS.testnet}
             isPrimaryScheme
             textKey="features-section.join-testnet-link"
           />

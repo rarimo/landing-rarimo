@@ -1,16 +1,19 @@
-import { CONFIG } from '@/config';
 import './AppFooter.scss';
+
+import { Link } from 'react-router-dom';
+import { CONFIG } from '@/config';
+import { ROUTES_PATHS } from '@/const';
 
 const AppFooter = () => {
   return (
     <footer className="app-footer">
       <div className="app-footer__container container">
         <div className="app-footer__content">
-          <a href="#" className="app-footer__logo">
+          <Link className="app-footer__logo" to={ROUTES_PATHS.home}>
             <svg className="app-footer__logo-img" height="24" width="93">
               <use href="/sprite.svg#icon-app-logo"></use>
             </svg>
-          </a>
+          </Link>
           <div className="app-footer__links-wrapper">
             <a
               className="app-footer__link"
