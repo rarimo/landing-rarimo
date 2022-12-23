@@ -29,13 +29,14 @@ const AppBar = () => {
 
     lastScrollPosition = currentScrollPosition;
   };
-  const onScroll = throttle(400, toggleShowHeader);
+
+  const onScroll = useRef(throttle(400, toggleShowHeader));
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll.current, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', onScroll, { passive: true });
+      window.removeEventListener('scroll', onScroll.current, { passive: true });
     };
   }, []);
 

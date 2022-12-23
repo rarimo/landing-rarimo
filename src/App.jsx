@@ -1,13 +1,7 @@
 // import RouteLocationProvider from '@/providers/RouteLocationProvider';
 import AppRoutes from '@/router/routes';
 import { useEffect } from 'react';
-import {
-  defineDesktopFontSizes,
-  hideLoader,
-  initAOS,
-  initParallax,
-  initSwiper,
-} from '@/js';
+import { defineDesktopFontSizes, hideLoader, initAOS, initSwiper } from '@/js';
 
 const App = () => {
   const setup = () => {
@@ -15,7 +9,6 @@ const App = () => {
       // hideLoader();
       defineDesktopFontSizes();
       initAOS();
-      initParallax();
       initSwiper();
     }, 500);
   };
