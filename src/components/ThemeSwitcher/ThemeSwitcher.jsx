@@ -1,10 +1,12 @@
 import './ThemeSwitcher.scss';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import cn from 'classnames';
 import { COLOR_SCHEME_KEY, SCHEMES } from '@/const';
 
 const ThemeSwitcher = () => {
-  const btnRef = useRef(null);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isLightTheme, setIsLightTheme] = useState(false);
 
   const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
   const documentElementRef = document.documentElement;
@@ -24,15 +26,15 @@ const ThemeSwitcher = () => {
 
   function setScheme(scheme) {
     if (scheme === SCHEMES.light) {
-      btnRef.current?.classList.remove('theme-switcher--dark');
-      btnRef.current?.classList.add('theme-switcher--light');
+      setIsLightTheme(true);
+      setIsDarkTheme(false);
       documentElementRef.setAttribute(COLOR_SCHEME_KEY, SCHEMES.light);
       return;
     }
 
     if (scheme === SCHEMES.dark) {
-      btnRef.current?.classList.remove('theme-switcher--light');
-      btnRef.current?.classList.add('theme-switcher--dark');
+      setIsDarkTheme(true);
+      setIsLightTheme(false);
       documentElementRef.setAttribute(COLOR_SCHEME_KEY, SCHEMES.dark);
     }
   }
@@ -66,8 +68,13 @@ const ThemeSwitcher = () => {
 
   return (
     <button
-      ref={btnRef}
-      className="theme-switcher js-theme-switcher"
+      className={cn([
+        'theme-switcher',
+        {
+          'theme-switcher--light': isLightTheme,
+          'theme-switcher--dark': isDarkTheme,
+        },
+      ])}
       type="button"
       onClick={onClickSwitcher}
     >

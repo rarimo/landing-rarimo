@@ -1,49 +1,56 @@
 import './AppBar.scss';
 
-import { useEffect, useRef } from 'react';
+import cn from 'classnames';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { throttle } from 'throttle-debounce';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { ROUTES_PATHS } from '@/const';
 
-const AppBar = () => {
-  const appBarRef = useRef(null);
+const APP_BAR_THRESHOLD = 60;
 
-  const APP_BAR_THRESHOLD = 60;
-  let prevIsAppBarFilled = false;
-  let lastScrollPosition = 0;
+const AppBar = () => {
+  const [isAppBarHidden, setIsAppBarHidden] = useState(false);
+  const [isAppBarFilled, setIsAppBarFilled] = useState(false);
+
+  const lastScrollPosition = useRef(0);
 
   const toggleShowHeader = () => {
     const currentScrollPosition = window.pageYOffset;
     const isScrollUnderThreshold = currentScrollPosition > APP_BAR_THRESHOLD;
 
-    if (isScrollUnderThreshold !== prevIsAppBarFilled) {
-      appBarRef.current?.classList.toggle('app-bar--filled');
+    setIsAppBarFilled(isScrollUnderThreshold);
 
-      prevIsAppBarFilled = isScrollUnderThreshold;
+    if (
+      currentScrollPosition > lastScrollPosition.current &&
+      isScrollUnderThreshold
+    ) {
+      setIsAppBarHidden(true);
+    } else if (currentScrollPosition < lastScrollPosition.current) {
+      setIsAppBarHidden(false);
     }
-
-    if (currentScrollPosition > lastScrollPosition && isScrollUnderThreshold) {
-      appBarRef.current?.classList.add('app-bar--hidden');
-    } else if (currentScrollPosition < lastScrollPosition) {
-      appBarRef.current?.classList.remove('app-bar--hidden');
-    }
-
-    lastScrollPosition = currentScrollPosition;
+    lastScrollPosition.current = currentScrollPosition;
   };
 
-  const onScroll = useRef(throttle(400, toggleShowHeader));
-
   useEffect(() => {
-    window.addEventListener('scroll', onScroll.current, { passive: true });
+    const onScroll = throttle(400, toggleShowHeader);
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', onScroll.current, { passive: true });
+      window.removeEventListener('scroll', onScroll, { passive: true });
     };
   }, []);
 
   return (
-    <header ref={appBarRef} className="app-bar">
+    <header
+      className={cn([
+        'app-bar',
+        {
+          'app-bar--hidden': isAppBarHidden,
+          'app-bar--filled': isAppBarFilled,
+        },
+      ])}
+    >
       <div className="app-bar__container container">
         <div className="app-bar__content">
           <Link className="app-bar__logo" to={ROUTES_PATHS.home}>

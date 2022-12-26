@@ -1,4 +1,3 @@
-import { CONFIG } from '@/config';
 import { useEffect, useRef } from 'react';
 import { throttle } from 'throttle-debounce';
 
