@@ -9,7 +9,7 @@ const IntegrationsSection = () => {
 
   return (
     <section className="integrations-section container">
-      <h3 className="integrations-section__title" data-aos="fade">
+      <h3 className="integrations-section__title" data-aos="fade-right">
         {t('integrations-section.title')}
       </h3>
       <ul className="integrations-section__list">
