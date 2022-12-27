@@ -3,39 +3,39 @@
     "title": "Rarimo Lending"
   },
   "home-hero-section": {
-    "title": "Unlocked & Untethered",
-    "subtitle": "Decentralized world",
-    "description_html": "Rarimo is a protocol unlocking <strong>liquidity</strong> and <strong>interoperability</strong> across chains in a <strong>seamless way</strong>",
+    "title": "Unlocked & Connected",
+    "subtitle": "Decentralized worlds",
+    "description_html": "Rarimo is a base protocol to build <strong>liquidity</strong> and <strong>interoperability</strong> across chains in a <strong>seamless way</strong>",
     "join-testnet-link": "Join Testnet",
     "white-paper-link": "White Paper",
     "blockchains-title": "Supported blockchains"
   },
   "experience-section": {
     "title": "Experience what Rarimo can do",
-    "subtitle": "Empowering the multichain universe to realize its full potential",
+    "subtitle": "Build complex logics to realize full potential in a multichain universe",
     "access-title": "Access",
     "access-text": "Access cross-chain network data and allow dynamic interactions",
     "interoperability-title": "Interoperability",
-    "interoperability-text": "Moving Digital assets or in-game items across different ecosystems",
+    "interoperability-text": "Move Digital assets or in-game items across different ecosystems",
     "liquidity-title": "Liquidity",
-    "liquidity-text": "Easily access liquidity across chains, reducing the gas requirements."
+    "liquidity-text": "Build liquidity pools across chains, with reduced gas requirements"
   },
   "user-cases-section": {
-    "title": "User Cases",
+    "title": "Start building",
     "subtitle": "Enable seamless user experience with a single click interactions",
     "nft-settlement-title": "NFT Settlement",
-    "nft-settlement-text": "Users can buy NFTs using their token of choice from any supported blockchain in a single transaction — with the lowest fees.",
+    "nft-settlement-text": "Allow buying of NFTs using any token of choice in a single transaction — with the lowest fees.",
     "nft-settlement-btn": "Learn more",
     "borrowing-title": "Lending & Borrowing",
-    "borrowing-text": "Rarimo integrates with lending platforms, enabling collateralized or uncollateralized lending across different blockchain.",
+    "borrowing-text": "Integrate protocol with lending platforms, enabling collateralized or uncollateralized lending across different chains.",
     "asset-verification-title": "Asset Verification",
-    "asset-verification-text": "Allowing to retrieve and publish timestamped proofs about an NFT’s state and activities.",
+    "asset-verification-text": "Retrieve and publish timestamped proofs about an NFT’s state and activities.",
     "airdrop-title": "Multichain Airdrop",
-    "airdrop-text": "The collection owner sends only one transaction to lock tokens and users can redeem tokens in any chain.",
+    "airdrop-text": "Allow minting and airdrops, where users can redeem NFT tokens on different chain.",
     "staking-title": "Staking aggregator",
     "staking-text": "Create investment strategy and publish it as a smart contract, to be executed automatically across chains.",
     "share-title": "Share what you’re building",
-    "backers-title": "Early Backers"
+    "backers-title": "Funds"
   },
   "features-section": {
     "title": "Key features",
@@ -101,7 +101,7 @@
     }
   },
   "implementation-section": {
-    "title_html": "<strong>Effortless</strong> Implementation",
+    "title_html": "<strong>Effortless</strong><br/>Implementation",
     "description": "The react component connects seamlessly with your Dapp or a Marketplace",
     "customizable-text": "Fully-customizable design",
     "acceptable-text": "Define acceptable chain & token for the marketplace",
