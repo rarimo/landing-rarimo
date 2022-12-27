@@ -2,8 +2,6 @@
   padding-top: 15vmin;
   padding-bottom: 15vmin;
   display: grid;
-  //   grid-template-columns: 1fr;
-  //   grid-auto-flow: dense;
   grid-gap: to-rem(40);
 
   @include respond-above(md) {

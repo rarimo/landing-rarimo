@@ -4,11 +4,25 @@ import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import { getShiftedDelay, scaleImgDims } from '@/helpers';
 
-const PartnersList = ({ titleKey, items, isImageOnly, className }) => {
+const PartnersList = ({
+  titleKey,
+  items,
+  isImageOnly,
+  className,
+  centered,
+}) => {
   const { t } = useTranslation();
 
   return (
-    <div className={cn(['partners-list', className])}>
+    <div
+      className={cn([
+        'partners-list',
+        className,
+        {
+          'partners-list--centered': centered,
+        },
+      ])}
+    >
       <h4
         className="partners-list__title container"
         data-aos="fade"

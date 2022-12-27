@@ -24,6 +24,7 @@ const AdvantagesSection = () => {
 
       <PartnersList
         className="advantages-section__partners"
+        centered
         titleKey="advantages-section.supported-ft-title"
         items={supportedFTList}
       />

@@ -1,5 +1,11 @@
 .partners-list__title {
   margin-bottom: to-rem(40);
+
+  .partners-list--centered & {
+    @include respond-above(xm) {
+      text-align: center;
+    }
+  }
 }
 
 .partners-list__list-wrapper {
@@ -14,6 +20,12 @@
 .partners-list__list {
   display: flex;
   align-items: center;
+
+  .partners-list--centered & {
+    @include respond-above(xm) {
+      justify-content: center;
+    }
+  }
 }
 
 .partners-list__item {
