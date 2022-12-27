@@ -9,7 +9,11 @@ const ImplementationSection = () => {
 
   return (
     <section className="implementation-section container">
-      <div className="implementation-section__content">
+      <div
+        className="implementation-section__content"
+        data-aos="fade-right"
+        data-aos-anchor-placement="top-bottom"
+      >
         <h3 className="implementation-section__title">
           <Trans i18nKey="implementation-section.title_html" />
         </h3>
@@ -31,7 +35,14 @@ const ImplementationSection = () => {
           ))}
         </ul>
       </div>
-      <ImplementationCode wrapperClassName="implementation-section__code-wrapper" />
+      <div
+        className="implementation-section__code-wrapper"
+        data-aos="fade-right"
+        data-aos-delay="500"
+        data-aos-anchor-placement="top-bottom"
+      >
+        <ImplementationCode />
+      </div>
     </section>
   );
 };
