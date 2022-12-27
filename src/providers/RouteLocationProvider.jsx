@@ -35,6 +35,10 @@ const RouteLocationProvider = ({ children }) => {
     }
   }, [location.pathname, displayLocation.pathname]);
 
+  useEffect(() => {
+    document.documentElement.scrollTop = document.body.scrollTop = 0;
+  }, [displayLocation]);
+
   const memoizedContextValue = useMemo(
     () => ({
       displayLocation,

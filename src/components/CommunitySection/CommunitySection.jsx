@@ -64,14 +64,7 @@ const CommunitySection = ({ isHomePage = true }) => {
 
       <BaseCardList>
         {communitySectionList.map((item, index) => (
-          <li
-            className="community-section__card"
-            key={index}
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay={getShiftedDelay(index, 300)}
-            data-aos-anchor-placement="top-bottom"
-          >
+          <div className="community-section__card" key={index}>
             <a
               className={cn([
                 'community-section__card-link',
@@ -108,7 +101,7 @@ const CommunitySection = ({ isHomePage = true }) => {
                 )}
               </div>
             </a>
-          </li>
+          </div>
         ))}
       </BaseCardList>
     </section>

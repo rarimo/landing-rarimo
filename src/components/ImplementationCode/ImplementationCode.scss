@@ -1,0 +1,36 @@
+.implementation-code {
+  display: flex;
+  align-items: flex-start;
+  padding: to-rem(24);
+  box-shadow: -#{to-rem(5)} to-rem(5) 0 -#{to-rem(3)}
+    var(--base-card-shadow-color);
+  background-color: var(--base-card-bg);
+  transition-property: background-color, box-shadow;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
+
+  @include respond-above(md) {
+    padding: to-rem(40);
+    font-size: to-rem(16);
+  }
+}
+
+.implementation-code__line {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.75;
+}
+
+.implementation-code__punctuation {
+  color: var(--primary-text-color) !important;
+  transition-property: color;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
+}
+
+.implementation-code__plain {
+  color: var(--primary-title-color) !important;
+  transition-property: color;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
+}

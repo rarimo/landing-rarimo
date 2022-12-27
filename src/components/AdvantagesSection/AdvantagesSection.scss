@@ -1,0 +1,40 @@
+.advantages-section__browser-img {
+  width: 100%;
+  display: flex;
+  margin-top: -10vh;
+  margin-right: auto;
+  margin-bottom: min(10vmin, to-rem(60));
+  margin-left: auto;
+  object-fit: contain;
+
+  @include respond-above(md) {
+    margin-top: -25vh;
+  }
+
+  @include respond-above(xm) {
+    width: auto;
+    height: 85vh;
+    margin-top: -35vh;
+  }
+}
+
+.advantages-section__partners {
+  margin-bottom: min(20vmin, to-rem(100));
+
+  @include respond-above(md) {
+    margin-bottom: min(20vmin, to-rem(150));
+  }
+}
+
+.advantages-section__card-icon {
+  margin-bottom: to-rem(24);
+  color: var(--base-card-primary-icon-color);
+}
+
+.advantages-section__card-title {
+  margin-bottom: to-rem(8);
+}
+
+.advantages-section__card-text {
+  letter-spacing: 0.02em;
+}

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import AppLink from '@/components/AppLink';
 import PartnersList from '@/components/PartnersList';
 import { backersList } from '@/template-data';
+import { ROUTES_PATHS } from '@/const';
 
 const UserCasesSection = () => {
   const { t } = useTranslation();
@@ -55,7 +56,7 @@ const UserCasesSection = () => {
               </p>
               <AppLink
                 className="user-cases-section__card-link"
-                href="#"
+                routePath={ROUTES_PATHS.nftSettlement}
                 isPrimaryScheme
                 textKey="user-cases-section.nft-settlement-btn"
               />

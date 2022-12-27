@@ -3,3 +3,7 @@ export * from './experience-section.data';
 export * from './backers.data';
 export * from './features-section.data';
 export * from './community-section.data';
+export * from './advantages-list.data';
+export * from './implementation-list.data';
+export * from './supported-ft.data';
+export * from './integrations-list.data';

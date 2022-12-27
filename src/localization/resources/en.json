@@ -70,5 +70,43 @@
     "description": "Looking for a diverse set of participants, with technical experience participating in testnets and running nodes, those who represent professional validating communities as well as developers, builders, community leaders and moderators.",
     "feedback": "Post your questions and feedback on Rarimo’s",
     "discord-link": "Discord channel"
+  },
+  "nft-settlement-hero-section": {
+    "title": "NFT purchase made",
+    "title-span": "easy",
+    "subtitle": "NFT Settlement",
+    "description_html": "Users can pay for NFTs with any token of their choice in <strong>a single</strong> transaction",
+    "try-demo-link": "Try Demo"
+  },
+  "advantages-section": {
+    "supported-ft-title": "Supported fungible tokens on",
+    "experience-title": "Simplest User Experience",
+    "experience-text": "Choose a payment token from the available balance, sign once and redeem NFT",
+    "fee-title": "Lowes gas fee",
+    "fee-text": "Execute multiple events with a bundling functionality, for lowest fees and non reversible transaction"
+  },
+  "integrations-section": {
+    "title": "Partner Integrations"
+  },
+  "how-it-works-section": {
+    "title": "How it works",
+    "chart-steps": {
+      "first": "1. List nft from chain B",
+      "second": "2. Load supported pay methods",
+      "third": "3. Choose token from chain A",
+      "fourth": "4. Swap tokens",
+      "fifth": "5. Lock tokens in Chain A",
+      "sixth": "6. Unclock native in Chain B",
+      "seventh": "7. Purchase NFT from chain B"
+    }
+  },
+  "implementation-section": {
+    "title_html": "<strong>Effortless</strong> Implementation",
+    "description": "The react component connects seamlessly with your Dapp or a Marketplace",
+    "customizable-text": "Fully-customizable design",
+    "acceptable-text": "Define acceptable chain & token for the marketplace",
+    "transaction-building-text": "Transaction building, wallet signs are handled by the component",
+    "fees-text": "Bundled transactions to decrease fees",
+    "testing-mode-text": "Testing & debugging modes for local development"
   }
 }

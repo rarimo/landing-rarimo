@@ -22,13 +22,7 @@ const ExperienceSection = () => {
       </p>
       <BaseCardList>
         {experienceSectionList.map((item, index) => (
-          <li
-            key={index}
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay={getShiftedDelay(index, 300)}
-            data-aos-anchor-placement="top-bottom"
-          >
+          <div key={index}>
             <svg
               className="experience-section__card-icon"
               height="32"
@@ -40,7 +34,7 @@ const ExperienceSection = () => {
               {t(item.titleKey)}
             </h5>
             <p className="experience-section__card-text">{t(item.textKey)}</p>
-          </li>
+          </div>
         ))}
       </BaseCardList>
     </section>

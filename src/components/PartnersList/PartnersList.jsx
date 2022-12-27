@@ -1,13 +1,14 @@
 import './PartnersList.scss';
 
 import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
 import { getShiftedDelay, scaleImgDims } from '@/helpers';
 
-const PartnersList = ({ titleKey, items, isImageOnly }) => {
+const PartnersList = ({ titleKey, items, isImageOnly, className }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="partners-list">
+    <div className={cn(['partners-list', className])}>
       <h4
         className="partners-list__title container"
         data-aos="fade"

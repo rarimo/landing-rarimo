@@ -1,0 +1,91 @@
+.nft-settlement-hero-section {
+  position: relative;
+  padding-top: calc(var(--app-bar-height) + #{to-rem(70)});
+  padding-bottom: 25vh;
+
+  @extend %accent-bg-plh;
+
+  @include respond-above(md) {
+    padding-bottom: 35vh;
+  }
+
+  @include respond-above(xm) {
+    min-height: min(100vh, to-rem(500));
+    padding-top: calc(var(--app-bar-height) + max(9vmin, #{to-rem(90)}));
+    padding-bottom: 50vh;
+  }
+}
+
+.nft-settlement-hero-section__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nft-settlement-hero-section__title {
+  margin-bottom: to-rem(16);
+  letter-spacing: -0.04em;
+
+  @include respond-above(xm) {
+    font-size: 5em;
+  }
+}
+
+.nft-settlement-hero-section__title-span {
+  font-weight: 300;
+
+  &::before {
+    content: ' ';
+
+    @include respond-above(sm) {
+      content: '';
+      display: block;
+    }
+  }
+
+  &::after {
+    content: '';
+    margin-left: 0.1em;
+    border-right: to-rem(3) solid currentColor;
+    animation: blink-caret 1s step-end infinite;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: currentColor;
+  }
+}
+
+.nft-settlement-hero-section__subtitle {
+  display: flex;
+  order: -1;
+  margin-bottom: to-rem(16);
+  letter-spacing: -0.02em;
+
+  @include respond-above(xm) {
+    font-size: 1.5em;
+  }
+}
+
+.nft-settlement-hero-section__description {
+  font-size: 1.125em;
+  margin-bottom: to-rem(40);
+
+  @include respond-above(md) {
+    margin-bottom: max(8vmin, to-rem(70));
+  }
+
+  @include respond-above(xm) {
+    font-size: 1.5em;
+  }
+}
+
+.nft-settlement-hero-section__link-wrapper {
+  width: 100%;
+}

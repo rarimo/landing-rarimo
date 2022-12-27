@@ -10,6 +10,7 @@
 }
 
 .base-card-list__card {
+  height: 100%;
   padding: to-rem(24);
   background-color: var(--base-card-bg);
   box-shadow: -#{to-rem(5)} to-rem(5) 0 -#{to-rem(3)}

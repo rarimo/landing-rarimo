@@ -12,7 +12,3 @@
 @function hex-to-rgb($color) {
   @return red($color) + ', ' + green($color) + ', ' + blue($color);
 }
-
-@function glow-box-shadow($color) {
-  @return 0 0 to-rem(10) $color, 0 0 to-rem(20) $color, 0 0 to-rem(30) $color;
-}
