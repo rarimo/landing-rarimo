@@ -4,7 +4,7 @@ import AdvantagesSection from '@/components/AdvantagesSection';
 import NftSettlementHeroSection from '@/components/NftSettlementHeroSection';
 import ImplementationSection from '@/components/ImplementationSection';
 import CommunitySection from '@/components/CommunitySection';
-import IntegrationsSection from '@/components/IntegrationsSection';
+// import IntegrationsSection from '@/components/IntegrationsSection';
 import { initSwiper } from '@/js';
 
 const NftSettlementPage = () => {
@@ -16,7 +16,7 @@ const NftSettlementPage = () => {
     <>
       <NftSettlementHeroSection />
       <AdvantagesSection />
-      <IntegrationsSection />
+      {/* <IntegrationsSection /> */}
       {/* <HowItWorksSection /> */}
       <ImplementationSection />
       <CommunitySection />

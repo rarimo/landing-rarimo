@@ -4,23 +4,35 @@ export const supportedFTList = [
     text: 'Ethereum',
   },
   {
-    icon: '/sprite.svg#icon-solana',
-    text: 'Solana',
+    icon: '/sprite.svg#icon-bnb',
+    text: 'BNB',
   },
   {
-    icon: '/sprite.svg#icon-binance',
-    text: 'Binance',
+    icon: '/sprite.svg#icon-solana',
+    text: 'Solana',
   },
   {
     icon: '/sprite.svg#icon-near',
     text: 'Near',
   },
   {
+    icon: '/sprite.svg#icon-usdt',
+    text: 'USDT',
+  },
+  {
+    icon: '/sprite.svg#icon-usdc',
+    text: 'USDC',
+  },
+  {
+    icon: '/sprite.svg#icon-sandbox',
+    text: 'SAND',
+  },
+  {
     icon: '/sprite.svg#icon-avalanche',
-    text: 'Avalanche',
+    text: 'AVAX',
   },
   {
     icon: '/sprite.svg#icon-polygon',
-    text: 'Polygon',
+    text: 'Matic',
   },
 ];

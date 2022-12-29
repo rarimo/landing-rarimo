@@ -2,7 +2,7 @@
   margin-bottom: to-rem(40);
 
   .partners-list--centered & {
-    @include respond-above(xm) {
+    @include respond-above(lg) {
       text-align: center;
     }
   }
@@ -22,7 +22,7 @@
   align-items: center;
 
   .partners-list--centered & {
-    @include respond-above(xm) {
+    @include respond-above(lg) {
       justify-content: center;
     }
   }
