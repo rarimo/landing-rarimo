@@ -3,7 +3,6 @@ import './AdvantagesSection.scss';
 import { useTranslation } from 'react-i18next';
 import BaseCardList from '@/components/BaseCardList';
 import PartnersList from '@/components/PartnersList';
-import { getShiftedDelay } from '@/helpers';
 import { advantagesList, supportedFTList } from '@/template-data';
 
 const AdvantagesSection = () => {

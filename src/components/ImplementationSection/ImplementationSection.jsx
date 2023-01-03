@@ -28,7 +28,7 @@ const ImplementationSection = () => {
                 height="24"
                 width="24"
               >
-                <use href="/sprite.svg#icon-arrow-right"></use>
+                <use href="/sprite.svg#icon-check"></use>
               </svg>
               <span> {t(item.textKey)}</span>
             </li>

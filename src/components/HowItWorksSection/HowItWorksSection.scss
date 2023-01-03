@@ -1,6 +1,6 @@
 .how-it-works-section {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: to-rem(100);
+  padding-bottom: to-rem(100);
 }
 
 .how-it-works-section__chart-wrapper {
@@ -9,14 +9,24 @@
 
 .how-it-works-section__chart {
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(5, auto);
-  grid-template-rows: repeat(5, minmax(62px, auto));
-  grid-gap: 44px 20px;
+  grid-template-rows: repeat(5, minmax(to-rem(62), to-rem(92)));
+  grid-gap: to-rem(44) to-rem(20);
+  color: var(--primary-title-color);
+  font-size: to-rem(18);
+  line-height: 1.66;
+  letter-spacing: -0.02em;
 }
 
 .how-it-works-section__chart-item {
-  border: 2px solid red;
-  background-color: rgba(255, 0, 0, 0.251);
+  min-height: to-rem(62);
+  display: grid;
+  place-items: center;
+  padding: to-rem(14) to-rem(24);
+  border: to-rem(2) solid var(--how-it-works-chart-border-color);
+  background-color: var(--how-it-works-chart-bg-color);
+  text-align: center;
 
   &:nth-child(1) {
     grid-column-start: 2;
@@ -55,4 +65,9 @@
   bottom: 0;
   left: 0;
   z-index: -1;
+}
+
+.how-it-works-section__chart-line {
+  stroke: var(--col-silverpine-cyan);
+  stroke-width: to-rem(2);
 }
