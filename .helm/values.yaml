@@ -69,7 +69,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 3000
+  port: 80
 
 ingress:
   enabled: true
