@@ -8,6 +8,7 @@ import MainLayout from '@/layouts/MainLayout';
 const HomePage = lazy(() => import('@/pages/HomePage'));
 const TestnetPage = lazy(() => import('@/pages/TestnetPage'));
 const NftSettlementPage = lazy(() => import('@/pages/NftSettlementPage'));
+const TestnetSignUpPage = lazy(() => import('@/pages/TestnetSignUpPage'));
 
 const AppRoutes = () => {
   const { displayLocation } = useRouteLocationContext();
@@ -30,6 +31,10 @@ const AppRoutes = () => {
           element: <NftSettlementPage />,
         },
       ],
+    },
+    {
+      path: ROUTES_PATHS.testnetSignUp,
+      element: <TestnetSignUpPage />,
     },
     {
       path: '*',
