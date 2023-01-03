@@ -3,6 +3,7 @@ import './NftSettlementHeroSection.scss';
 import { Trans, useTranslation } from 'react-i18next';
 import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import AppLink from '@/components/AppLink';
+import { CONFIG } from '@/config';
 
 const NftSettlementHeroSection = () => {
   const { t } = useTranslation();
@@ -42,7 +43,7 @@ const NftSettlementHeroSection = () => {
           data-aos-delay="900"
         >
           <AppLink
-            href="#"
+            href={CONFIG.nftSettlementDemoLink}
             isPrimaryScheme
             textKey="nft-settlement-hero-section.try-demo-link"
           />
