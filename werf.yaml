@@ -18,10 +18,10 @@ git:                        # Секция с директивами для до
 shell:                      # Shell сборочные инструкции.
   install:                  # Для стадии Install.
   - cd /app
-  - npm ci
+  - yarn install
   setup:                    # Для стадии Setup.
   - cd /app
-  - npm run build
+  - yarn build
 
 ---
 image: frontend
