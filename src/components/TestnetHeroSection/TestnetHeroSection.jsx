@@ -3,6 +3,7 @@ import './TestnetHeroSection.scss';
 import { useTranslation, Trans } from 'react-i18next';
 import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import AppLink from '@/components/AppLink';
+import { ROUTES_PATHS } from '@/const';
 
 const TestnetHeroSection = () => {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ const TestnetHeroSection = () => {
         <div data-aos="zoom-in" data-aos-delay="600">
           <AppLink
             className="testnet-hero-section__link"
-            href="#"
+            routePath={ROUTES_PATHS.testnetSignUp}
             isPrimaryScheme
             textKey="testnet-hero-section.sign-up-link"
           />
