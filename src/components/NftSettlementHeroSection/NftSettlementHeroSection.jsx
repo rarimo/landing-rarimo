@@ -4,13 +4,14 @@ import { Trans, useTranslation } from 'react-i18next';
 import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import AppLink from '@/components/AppLink';
 import { CONFIG } from '@/config';
+import { VIDEO_BG_COLOR } from '@/const';
 
 const NftSettlementHeroSection = () => {
   const { t } = useTranslation();
 
   return (
     <section className="nft-settlement-hero-section">
-      <PrimaryVideoParallax />
+      <PrimaryVideoParallax type={VIDEO_BG_COLOR.blue} />
 
       <div className="nft-settlement-hero-section__content container">
         <h2
