@@ -80,6 +80,12 @@ const HowItWorksSection = () => {
               </stop>
             </linearGradient>
           </defs> */}
+          <path d="M10 10 H 90 V 90 H 10 Z" fill="transparent" stroke="red" />
+          {/* x1 y1, x2 y2, x y */}
+          <path
+            className="how-it-works-section__chart-line"
+            d="M0 0 Q 95 10 180 80"
+          />
           <line
             className="how-it-works-section__chart-line"
             x1="17%"
@@ -92,7 +98,7 @@ const HowItWorksSection = () => {
             //   strokeWidth: 2,
             // }}
           />
-          <circle
+          {/* <circle
             cx="30"
             cy="40"
             r="20"
@@ -101,7 +107,7 @@ const HowItWorksSection = () => {
             stroke-width="2"
             // stroke-dasharray="314"
             // stroke-dashoffset="314"
-          />
+          /> */}
           <line
             className="how-it-works-section__chart-line"
             x1="38%"

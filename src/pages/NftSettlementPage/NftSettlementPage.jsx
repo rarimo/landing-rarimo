@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import AdvantagesSection from '@/components/AdvantagesSection';
-// import HowItWorksSection from '@/components/HowItWorksSection/HowItWorksSection';
+import HowItWorksSection from '@/components/HowItWorksSection/HowItWorksSection';
 import NftSettlementHeroSection from '@/components/NftSettlementHeroSection';
 import ImplementationSection from '@/components/ImplementationSection';
 import CommunitySection from '@/components/CommunitySection';
@@ -17,7 +17,7 @@ const NftSettlementPage = () => {
       <NftSettlementHeroSection />
       <AdvantagesSection />
       {/* <IntegrationsSection /> */}
-      {/* <HowItWorksSection /> */}
+      <HowItWorksSection />
       <ImplementationSection />
       <CommunitySection />
     </>
