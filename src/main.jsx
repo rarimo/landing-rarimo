@@ -4,8 +4,19 @@ import '@/localization';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import TagManager from 'react-gtm-module';
 
 import App from '@/App';
+import { CONFIG } from '@/config';
+
+if (import.meta.env.MODE === 'production') {
+  const tagManagerArgs = {
+    gtmId: CONFIG.googleTagManagerId,
+    dataLayer: window.dataLayer || [],
+  };
+
+  TagManager.initialize(tagManagerArgs);
+}
 
 const root = createRoot(document.getElementById('root'));
 
