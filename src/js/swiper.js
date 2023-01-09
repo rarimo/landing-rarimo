@@ -25,12 +25,12 @@ export const initSwiper = () => {
     freeMode: {
       enabled: true,
     },
-    breakpoints: {
-      1550: {
-        enabled: false,
-        grabCursor: false,
-      },
-    },
+    // breakpoints: {
+    //   1550: {
+    //     enabled: false,
+    //     grabCursor: false,
+    //   },
+    // },
   });
 
   new Swiper('.user-cases-swiper', {
