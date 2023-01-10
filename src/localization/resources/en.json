@@ -73,13 +73,15 @@
   },
   "nft-settlement-hero-section": {
     "title": "NFT purchase made",
-    "title-span": "easy",
+    "title-easy-span": "easy",
+    "title-instant-span": "instant",
+    "title-atomic-span": "atomic",
     "subtitle": "NFT Settlement",
     "description_html": "Users can pay for NFTs with any token of their choice in <strong>a single</strong> transaction",
     "try-demo-link": "Try Demo"
   },
   "advantages-section": {
-    "supported-ft-title": "Supported fungible tokens on",
+    "supported-ft-title": "Supported tokens",
     "experience-title": "Simplest User Experience",
     "experience-text": "Choose a payment token from the available balance, sign once and redeem NFT",
     "fee-title": "Lowes gas fee",

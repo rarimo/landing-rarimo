@@ -4,7 +4,7 @@ export const communitySectionList = [
   {
     icon: '/sprite.svg#icon-messages',
     titleKey: 'community-section.engineering-support-title',
-    link: '#',
+    link: 'mailto: support@rarimo.com',
   },
   {
     icon: '/sprite.svg#icon-monetization',

@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import AppLink from '@/components/AppLink';
 import BaseCardList from '@/components/BaseCardList';
-import { getShiftedDelay } from '@/helpers';
 import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
@@ -56,7 +55,7 @@ const CommunitySection = ({ isHomePage = true }) => {
         ) : (
           <AppLink
             className="community-section__link"
-            href="#"
+            routePath={ROUTES_PATHS.testnetSignUp}
             textKey="community-section.sign-up-link"
           />
         )}

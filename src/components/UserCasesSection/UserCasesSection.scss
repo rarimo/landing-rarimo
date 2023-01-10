@@ -4,7 +4,7 @@
 
   @include respond-above(xm) {
     padding-top: min(10vmin, to-rem(90));
-    padding-bottom: min(20vmin, to-rem(130));
+    padding-bottom: min(35vmin, to-rem(260));
   }
 }
 
@@ -30,7 +30,7 @@
   user-select: none;
 
   @include respond-above(md) {
-    margin-bottom: 11%;
+    margin-bottom: 20%;
   }
 
   .swiper-slide {
