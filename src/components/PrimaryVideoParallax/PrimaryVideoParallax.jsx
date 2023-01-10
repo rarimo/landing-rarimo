@@ -1,7 +1,26 @@
 import { useEffect, useRef } from 'react';
 import { throttle } from 'throttle-debounce';
+import { VIDEO_BG_COLOR } from '@/const';
 
-const PrimaryVideoParallax = () => {
+const videoData = {
+  [VIDEO_BG_COLOR.primary]: {
+    poster: '/img/bg/primary-stains-bg.jpg',
+    webm: '/video/primary-video-bg.webm',
+    mp4: '/video/primary-video-bg.mp4',
+  },
+  [VIDEO_BG_COLOR.variant]: {
+    poster: '/img/bg/primary-stains-bg.jpg',
+    webm: '/video/variant-video-bg.webm',
+    mp4: '/video/variant-video-bg.mp4',
+  },
+  [VIDEO_BG_COLOR.blue]: {
+    poster: '/img/bg/primary-stains-bg.jpg',
+    webm: '/video/blue-video-bg.webm',
+    mp4: '/video/blue-video-bg.mp4',
+  },
+};
+
+const PrimaryVideoParallax = ({ type = VIDEO_BG_COLOR.primary }) => {
   const videoRef = useRef(null);
 
   const parallax = () => {
@@ -40,12 +59,14 @@ const PrimaryVideoParallax = () => {
     window.addEventListener('scroll', onScroll.current, { passive: true });
     setTimeout(() => {
       onScroll.current();
-    }, 100);
+    }, 200);
 
     return () => {
       window.removeEventListener('scroll', onScroll.current, { passive: true });
     };
   }, []);
+
+  const currentVideoData = videoData[type];
 
   return (
     <video
@@ -54,10 +75,10 @@ const PrimaryVideoParallax = () => {
       loop
       playsInline
       className="primary-video-parallax"
-      poster="/img/bg/primary-stains-bg.jpg"
+      poster={currentVideoData.poster}
     >
-      <source src="/video/primary-video-bg.webm" type="video/webm" />
-      <source src="/video/primary-video-bg.mp4" type="video/mp4" />
+      <source src={currentVideoData.webm} type="video/webm" />
+      <source src={currentVideoData.mp4} type="video/mp4" />
     </video>
   );
 };
