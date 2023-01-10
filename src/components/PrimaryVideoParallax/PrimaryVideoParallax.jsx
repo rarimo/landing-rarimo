@@ -5,13 +5,8 @@ import { VIDEO_BG_COLOR } from '@/const';
 const videoData = {
   [VIDEO_BG_COLOR.primary]: {
     poster: '/img/bg/primary-stains-bg.jpg',
-    webm: '/video/primary1-video-bg.webm',
-    mp4: '/video/primary1-video-bg.mp4',
-  },
-  [VIDEO_BG_COLOR.variant]: {
-    poster: '/img/bg/primary-stains-bg.jpg',
-    webm: '/video/variant-video-bg.webm',
-    mp4: '/video/variant-video-bg.mp4',
+    webm: '/video/primary-video-bg.webm',
+    mp4: '/video/primary-video-bg.mp4',
   },
   [VIDEO_BG_COLOR.blue]: {
     poster: '/img/bg/primary-stains-bg.jpg',
@@ -20,7 +15,7 @@ const videoData = {
   },
 };
 
-const PrimaryVideoParallax = ({ type = VIDEO_BG_COLOR.variant }) => {
+const PrimaryVideoParallax = ({ type = VIDEO_BG_COLOR.primary }) => {
   const videoRef = useRef(null);
 
   const parallax = () => {

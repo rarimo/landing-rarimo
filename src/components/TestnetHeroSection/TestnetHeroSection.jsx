@@ -3,14 +3,14 @@ import './TestnetHeroSection.scss';
 import { useTranslation, Trans } from 'react-i18next';
 import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import AppLink from '@/components/AppLink';
-import { ROUTES_PATHS, VIDEO_BG_COLOR } from '@/const';
+import { ROUTES_PATHS } from '@/const';
 
 const TestnetHeroSection = () => {
   const { t } = useTranslation();
 
   return (
     <section className="testnet-hero-section">
-      <PrimaryVideoParallax type={VIDEO_BG_COLOR.variant} />
+      <PrimaryVideoParallax />
 
       <div className="container">
         <h2 className="testnet-hero-section__title" data-aos="zoom-in">
