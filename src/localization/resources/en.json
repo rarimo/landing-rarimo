@@ -73,8 +73,9 @@
   },
   "nft-settlement-hero-section": {
     "title": "NFT purchase made",
-    "title-from-span": "easy",
-    "title-to-span": "Instant, Atomic",
+    "title-easy-span": "easy",
+    "title-instant-span": "instant",
+    "title-atomic-span": "atomic",
     "subtitle": "NFT Settlement",
     "description_html": "Users can pay for NFTs with any token of their choice in <strong>a single</strong> transaction",
     "try-demo-link": "Try Demo"
