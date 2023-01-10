@@ -34,13 +34,13 @@ const NftSettlementHeroSection = () => {
 
       setTyping(txt);
 
-      let delta = 600 - Math.random() * 300;
+      let delta = 400 - Math.random() * 200;
 
       if (isDeleting) {
         delta /= 2;
       }
 
-      if (!isDeleting && txt === fullTxt && i !== toRotate.length - 1) {
+      if (!isDeleting && txt === fullTxt) {
         delta = period;
         isDeleting = true;
       } else if (isDeleting && !txt) {
@@ -59,8 +59,9 @@ const NftSettlementHeroSection = () => {
 
   useEffect(() => {
     const data = [
-      t('nft-settlement-hero-section.title-from-span'),
-      t('nft-settlement-hero-section.title-to-span'),
+      t('nft-settlement-hero-section.title-easy-span'),
+      t('nft-settlement-hero-section.title-instant-span'),
+      t('nft-settlement-hero-section.title-atomic-span'),
     ];
     setTimeout(() => {
       typeText(data);
