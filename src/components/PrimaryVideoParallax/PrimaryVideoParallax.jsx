@@ -8,11 +8,6 @@ const videoData = {
     webm: '/video/primary-video-bg.webm',
     mp4: '/video/primary-video-bg.mp4',
   },
-  [VIDEO_BG_COLOR.variant]: {
-    poster: '/img/bg/primary-stains-bg.jpg',
-    webm: '/video/variant-video-bg.webm',
-    mp4: '/video/variant-video-bg.mp4',
-  },
   [VIDEO_BG_COLOR.blue]: {
     poster: '/img/bg/primary-stains-bg.jpg',
     webm: '/video/blue-video-bg.webm',
