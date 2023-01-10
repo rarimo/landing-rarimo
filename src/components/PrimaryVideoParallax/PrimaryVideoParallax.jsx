@@ -20,7 +20,7 @@ const videoData = {
   },
 };
 
-const PrimaryVideoParallax = ({ type = VIDEO_BG_COLOR.primary }) => {
+const PrimaryVideoParallax = ({ type = VIDEO_BG_COLOR.variant }) => {
   const videoRef = useRef(null);
 
   const parallax = () => {
