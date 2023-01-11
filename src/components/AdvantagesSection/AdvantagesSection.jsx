@@ -10,16 +10,16 @@ const AdvantagesSection = () => {
 
   return (
     <section className="advantages-section">
-      <img
-        className="advantages-section__browser-img"
-        src="/img/nft-settlement-page/browser.png"
-        height="872"
-        width="1445"
-        loading="lazy"
-        alt=""
+      <div
+        className="advantages-section__browser-img container"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
-      />
+      >
+        <video playsInline controls width="100%">
+          <source src="/video/nft-settlement-demo.webm" type="video/webm" />
+          <source src="/video/nft-settlement-demo.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       <PartnersList
         className="advantages-section__partners"
