@@ -808,11 +808,6 @@ react-i18next@^12.1.1:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
 
-react-meta-tags@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-meta-tags/-/react-meta-tags-1.0.1.tgz#be18e88adafca280d6bd12839b530f9cfb7edbab"
-  integrity sha512-uylBI9UOI0QCGDsl6PlZaHnp+MxEpwslTlicPjnlcD68I8Kl2hdbuAZBRih+yU5StArSMB6T0jBrgst6rAuDYQ==
-
 react-refresh@^0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.13.0.tgz#cbd01a4482a177a5da8d44c9755ebb1f26d5a1c1"
