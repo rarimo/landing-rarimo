@@ -1,6 +1,6 @@
 import './AdvantagesSection.scss';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import BaseCardList from '@/components/BaseCardList';
@@ -9,17 +9,21 @@ import { advantagesList, supportedFTList } from '@/template-data';
 
 const AdvantagesSection = () => {
   const { t } = useTranslation();
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef();
 
   const togglePlay = () => {
     if (videoRef.current.paused) {
-      videoRef.current.play();
+      videoRef.current?.play();
     } else {
-      videoRef.current.pause();
+      videoRef.current?.pause();
     }
     setIsPlaying(prev => !prev);
   };
+
+  useEffect(() => {
+    videoRef.current?.play();
+  }, []);
 
   return (
     <section className="advantages-section">
@@ -56,6 +60,8 @@ const AdvantagesSection = () => {
         <video
           ref={videoRef}
           className="advantages-section__browser-video"
+          muted
+          loop
           playsInline
           width="100%"
           onClick={togglePlay}
