@@ -20,6 +20,7 @@
   // Z-indexes
   --z-app-bar: 14;
   --z-user-cases-swiper-arrow: 5;
+  --z-default: 1;
 
   // Text variables
   --primary-font: 'SpaceGrotesk', -apple-system, 'BlinkMacSystemFont',
@@ -97,4 +98,7 @@
   @include respond-above(xm) {
     --app-footer-height: #{to-rem(124)};
   }
+
+  // Nft settlement video
+  --nft-settlement-video-bg: rgba(#{$col-total-black-rgb}, 90%);
 }
