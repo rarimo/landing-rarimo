@@ -8,6 +8,7 @@
 }
 
 .how-it-works-section__chart {
+  opacity: 0;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(5, auto);
@@ -69,5 +70,90 @@
 
 .how-it-works-section__chart-line {
   stroke: var(--col-silverpine-cyan);
+  stroke-width: to-rem(2);
+}
+
+.svg-1 {
+  stroke: red;
+  fill: transparent;
+  stroke-dasharray: 951;
+  stroke-dashoffset: 0;
+
+  &--animation {
+    animation: dash1 5s linear forwards;
+  }
+}
+
+@keyframes dash1 {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 951;
+  }
+}
+
+.svg-2 {
+  stroke: red;
+  fill: transparent;
+  stroke-dasharray: 834;
+  stroke-dashoffset: 834;
+
+  &--animation {
+    animation: dash2 5s linear forwards;
+  }
+}
+
+@keyframes dash2 {
+  from {
+    stroke-dashoffset: 834;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svg-3 {
+  stroke: red;
+  fill: transparent;
+  stroke-dasharray: 224;
+  stroke-dashoffset: 224;
+
+  &--animation {
+    animation: dash3 2s linear forwards;
+  }
+}
+
+@keyframes dash3 {
+  from {
+    stroke-dashoffset: 224;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svg-4 {
+  stroke: red;
+  fill: transparent;
+  stroke-dasharray: 938;
+  stroke-dashoffset: 0;
+
+  &--animation {
+    animation: dash4 5s linear forwards;
+  }
+}
+
+@keyframes dash4 {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 938;
+  }
+}
+
+.grey {
+  stroke: grey;
   stroke-width: to-rem(2);
 }
