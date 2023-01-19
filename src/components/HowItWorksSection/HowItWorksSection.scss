@@ -3,6 +3,24 @@
   padding-bottom: to-rem(100);
 }
 
+.how-it-works-section__title {
+  margin-bottom: to-rem(40);
+  text-align: center;
+
+  @include respond-above(xm) {
+    margin-bottom: to-rem(80);
+  }
+}
+
+%grid-item {
+  min-height: to-rem(62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: to-rem(14) to-rem(24);
+  text-align: center;
+}
+
 .how-it-works-section__chart-wrapper {
   position: relative;
 }
@@ -21,15 +39,28 @@
   transition-timing-function: var(--hover-transition-timing-function);
 }
 
+.how-it-works-section__chart-group {
+  @extend %grid-item;
+
+  width: 100%;
+  margin-bottom: to-rem(36);
+  color: var(--col-total-black);
+  font-weight: 500;
+  background-image: url('/img/nft-settlement-page/chart-group-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.how-it-works-section__group-icon {
+  margin-right: to-rem(16);
+}
+
 .how-it-works-section__chart-item {
+  @extend %grid-item;
+
   max-width: to-rem(245);
-  min-height: to-rem(62);
-  display: grid;
-  place-items: center;
-  padding: to-rem(14) to-rem(24);
   border: to-rem(2) solid transparent;
   background-color: var(--how-it-works-chart-bg-color);
-  text-align: center;
   transition: background-color var(--medium-transition-duration)
     var(--hover-transition-timing-function);
 
@@ -37,46 +68,46 @@
     animation: border-color 0.8s linear forwards;
   }
 
-  &:nth-child(1) {
+  &.how-it-works-section__chart-item--first {
     grid-column-start: 2;
-    grid-row-start: 1;
+    grid-row-start: 2;
     animation-delay: 0.2s;
   }
-  &:nth-child(2) {
+  &.how-it-works-section__chart-item--second {
     grid-column-start: 3;
-    grid-row-start: 2;
+    grid-row-start: 3;
     animation-delay: 1.8s;
   }
-  &:nth-child(3) {
+  &.how-it-works-section__chart-item--third {
     grid-column-start: 1;
-    grid-row-start: 3;
+    grid-row-start: 4;
     animation-delay: 5.4s;
   }
-  &:nth-child(4) {
+  &.how-it-works-section__chart-item--fourth {
     justify-self: flex-start;
     max-width: to-rem(182);
     grid-column-start: 4;
-    grid-row-start: 3;
+    grid-row-start: 4;
     animation-delay: 10s;
   }
-  &:nth-child(5) {
-    justify-self: flex-end;
-    max-width: to-rem(198);
-    grid-column-start: 5;
-    grid-row-start: 4;
-    animation-delay: 12.7s;
-  }
-  &:nth-child(6) {
+  &.how-it-works-section__chart-item--fifth {
     justify-self: flex-end;
     max-width: to-rem(198);
     grid-column-start: 5;
     grid-row-start: 5;
-    animation-delay: 14s;
+    animation-delay: 12.8s;
   }
-  &:nth-child(7) {
+  &.how-it-works-section__chart-item--sixth {
+    justify-self: flex-end;
+    max-width: to-rem(198);
+    grid-column-start: 5;
+    grid-row-start: 6;
+    animation-delay: 14.1s;
+  }
+  &.how-it-works-section__chart-item--seventh {
     grid-column-start: 2;
-    grid-row-start: 5;
-    animation-delay: 18.3s;
+    grid-row-start: 6;
+    animation-delay: 18.4s;
   }
 }
 
