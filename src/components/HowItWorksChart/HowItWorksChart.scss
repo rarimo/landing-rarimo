@@ -1,0 +1,94 @@
+.how-it-works-chart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-hidden);
+}
+
+.how-it-works-chart__line-path {
+  fill: transparent;
+  stroke-width: to-rem(2);
+  stroke-linejoin: round;
+}
+
+.how-it-works-chart__front-line {
+  stroke: var(--col-silverpine-cyan);
+}
+
+.how-it-works-chart__back-line {
+  stroke: var(--how-it-works-chart-back-line-col);
+}
+
+.how-it-works-chart__path-1 {
+  stroke-dasharray: 995;
+  stroke-dashoffset: 0;
+
+  &--animation {
+    animation: dash1 6s linear forwards;
+  }
+}
+
+@keyframes dash1 {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 995;
+  }
+}
+
+.how-it-works-chart__path-2 {
+  stroke-dasharray: 804;
+  stroke-dashoffset: 804;
+
+  &--animation {
+    animation: dash2 5s linear forwards;
+  }
+}
+
+@keyframes dash2 {
+  from {
+    stroke-dashoffset: 804;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.how-it-works-chart__path-3 {
+  stroke-dasharray: 224;
+  stroke-dashoffset: 224;
+
+  &--animation {
+    animation: dash3 2s linear forwards;
+  }
+}
+
+@keyframes dash3 {
+  from {
+    stroke-dashoffset: 224;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.how-it-works-chart__path-4 {
+  stroke-dasharray: 938;
+  stroke-dashoffset: 0;
+
+  &--animation {
+    animation: dash4 6s linear forwards;
+  }
+}
+
+@keyframes dash4 {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 938;
+  }
+}

@@ -14,10 +14,10 @@ const NftSettlementPage = () => {
 
   return (
     <>
-      <HowItWorksSection />
       <NftSettlementHeroSection />
       <AdvantagesSection />
       {/* <IntegrationsSection /> */}
+      <HowItWorksSection />
       <ImplementationSection />
       <CommunitySection />
     </>
