@@ -29,4 +29,7 @@
   // How it works section
   --how-it-works-chart-border-color: var(--col-silverpine-cyan);
   --how-it-works-chart-bg-color: #{$col-total-white};
+
+  // How it works chart
+  --how-it-works-chart-back-line-col: #{lighten($col-silverpine-cyan, 14%)};
 }
