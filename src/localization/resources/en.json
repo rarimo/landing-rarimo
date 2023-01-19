@@ -92,6 +92,13 @@
   },
   "how-it-works-section": {
     "title": "How it works",
+    "group-titles": {
+      "user": "User",
+      "dapp": "dApp",
+      "pay-btn": "Pay Button",
+      "dex": "On-chain DEX",
+      "rarimo-protocol": "Rarimo Protocol"
+    },
     "chart-steps": {
       "first": "1. List nft from chain B",
       "second": "2. Load supported pay methods",

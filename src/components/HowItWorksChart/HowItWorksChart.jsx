@@ -33,12 +33,12 @@ const HowItWorksChart = ({ isAnimationStarted, firstBlockRef }) => {
       const path3Rect = path3FrontRef.current.getBoundingClientRect();
 
       currentY = firstBlockRect.height / 2;
-      currentX = 166;
+      currentX = 146;
       path1FrontRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
       path1BackRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
       currentY += path1Rect.height;
-      currentX += 14;
+      currentX += 20;
       path2FrontRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
       path2BackRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
@@ -46,7 +46,7 @@ const HowItWorksChart = ({ isAnimationStarted, firstBlockRef }) => {
       path3FrontRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
       path3BackRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
-      currentX += path3Rect.width - 662;
+      currentX += path3Rect.width - 652;
       currentY += path3Rect.height;
       path4FrontRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
       path4BackRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
