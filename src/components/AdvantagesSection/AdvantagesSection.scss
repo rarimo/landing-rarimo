@@ -1,5 +1,5 @@
 .advantages-section {
-  padding-bottom: 15vmin;
+  padding-bottom: min(15vmin, to-rem(100));
 }
 
 .advantages-section__video-wrapper {

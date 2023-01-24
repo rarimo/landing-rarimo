@@ -1,6 +1,7 @@
 .how-it-works-section {
   padding-top: to-rem(100);
-  padding-bottom: to-rem(100);
+  margin-bottom: to-rem(100);
+  overflow-x: visible;
 }
 
 .how-it-works-section__title {
@@ -23,6 +24,8 @@
 
 .how-it-works-section__chart-wrapper {
   position: relative;
+  width: var(--how-it-works-chart-default-width);
+  transform-origin: top left;
 }
 
 .how-it-works-section__chart {
@@ -63,9 +66,10 @@
   background-color: var(--how-it-works-chart-bg-color);
   transition: background-color var(--medium-transition-duration)
     var(--hover-transition-timing-function);
+  animation: border-color 0.8s linear forwards;
 
-  .how-it-works-section__chart--animated & {
-    animation: border-color 0.8s linear forwards;
+  .how-it-works-section__chart--paused & {
+    animation-play-state: paused;
   }
 
   &.how-it-works-section__chart-item--first {

@@ -1,25 +1,61 @@
 import './HowItWorksSection.scss';
 
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import { useInView } from 'react-intersection-observer';
+import useResizeObserver from '@react-hook/resize-observer';
 import HowItWorksChart from '@/components/HowItWorksChart';
 import { howItWorksGroupsList } from '@/template-data';
 
+const DEFAULT_CHART_WIDTH = 1256;
+const DEFAULT_CHART_HEIGHT = 747;
+
 const HowItWorksSection = () => {
   const { t } = useTranslation();
+  const isFirstRender = useRef(true);
 
-  const [isAnimationStarted, setIsAnimationStarted] = useState(false);
+  const [isVisibleOnScreen, setIsVisibleOnScreen] = useState(false);
 
   const firstBlockRef = useRef(null);
+  const chartWrapperRef = useRef(null);
+  const sectionRef = useRef(null);
 
-  const [sectionRef] = useInView({
+  const [chartRef] = useInView({
     onChange: isIntersecting => {
-      if (isIntersecting) setIsAnimationStarted(true);
+      setIsVisibleOnScreen(isIntersecting);
     },
-    threshold: 0,
-    triggerOnce: true,
+    threshold: [0.2, 0.8],
+    rootMargin: '-150px 0px',
+  });
+
+  const scaleChart = useCallback(() => {
+    if (!sectionRef.current) return;
+
+    const { width: sectionWidth } = sectionRef.current.getBoundingClientRect();
+    const rootContainerPadding =
+      Number.parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          '--container-side-padding',
+        ),
+      ) * 16; // *16 for converting in pixels
+
+    const scaleCoef =
+      (sectionWidth - rootContainerPadding * 2) / DEFAULT_CHART_WIDTH;
+
+    chartWrapperRef.current.style.transform = `scale(${scaleCoef})`;
+    sectionRef.current.style.marginBottom = `${
+      DEFAULT_CHART_HEIGHT * scaleCoef - DEFAULT_CHART_HEIGHT + 100
+    }px`;
+  }, []);
+
+  useResizeObserver(sectionRef.current, entry => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    scaleChart();
   });
 
   return (
@@ -27,12 +63,16 @@ const HowItWorksSection = () => {
       <h3 className="how-it-works-section__title" data-aos="zoom-in">
         {t('how-it-works-section.title')}
       </h3>
-      <div className="how-it-works-section__chart-wrapper">
+      <div
+        ref={chartWrapperRef}
+        className="how-it-works-section__chart-wrapper"
+      >
         <ul
+          ref={chartRef}
           className={cn([
             'how-it-works-section__chart',
             {
-              'how-it-works-section__chart--animated': isAnimationStarted,
+              'how-it-works-section__chart--paused': !isVisibleOnScreen,
             },
           ])}
         >
@@ -75,7 +115,8 @@ const HowItWorksSection = () => {
         </ul>
         <HowItWorksChart
           firstBlockRef={firstBlockRef.current}
-          isAnimationStarted={isAnimationStarted}
+          scaleContainer={scaleChart}
+          isVisibleOnScreen={isVisibleOnScreen}
         />
       </div>
     </section>
