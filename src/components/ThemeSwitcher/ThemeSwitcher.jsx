@@ -12,10 +12,11 @@ const ThemeSwitcher = () => {
   const documentElementRef = document.documentElement;
 
   function setupScheme() {
-    const systemScheme = getSystemScheme();
-    const savedScheme = getSavedScheme();
+    // const systemScheme = getSystemScheme();
+    // const savedScheme = getSavedScheme();
 
-    setScheme(getIsValidScheme(savedScheme) ? savedScheme : systemScheme);
+    // setScheme(getIsValidScheme(savedScheme) ? savedScheme : systemScheme);
+    setScheme(SCHEMES.dark);
   }
 
   function getIsValidScheme(scheme) {
@@ -67,25 +68,26 @@ const ThemeSwitcher = () => {
   }, []);
 
   return (
-    <button
-      className={cn([
-        'theme-switcher',
-        {
-          'theme-switcher--light': isLightTheme,
-          'theme-switcher--dark': isDarkTheme,
-        },
-      ])}
-      type="button"
-      onClick={onClickSwitcher}
-    >
-      <svg className="theme-switcher__icon" height="17" width="17">
-        <use className="theme-switcher__sun" href="/sprite.svg#icon-sun"></use>
-        <use
-          className="theme-switcher__moon"
-          href="/sprite.svg#icon-moon"
-        ></use>
-      </svg>
-    </button>
+    <></>
+    // <button
+    //   className={cn([
+    //     'theme-switcher',
+    //     {
+    //       'theme-switcher--light': isLightTheme,
+    //       'theme-switcher--dark': isDarkTheme,
+    //     },
+    //   ])}
+    //   type="button"
+    //   onClick={onClickSwitcher}
+    // >
+    //   <svg className="theme-switcher__icon" height="17" width="17">
+    //     <use className="theme-switcher__sun" href="/sprite.svg#icon-sun"></use>
+    //     <use
+    //       className="theme-switcher__moon"
+    //       href="/sprite.svg#icon-moon"
+    //     ></use>
+    //   </svg>
+    // </button>
   );
 };
 
