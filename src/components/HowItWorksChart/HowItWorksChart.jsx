@@ -3,8 +3,14 @@ import './HowItWorksChart.scss';
 import { useEffect, useState, useRef } from 'react';
 import cn from 'classnames';
 
-const HowItWorksChart = ({ isAnimationStarted, firstBlockRef }) => {
-  const [step, setStep] = useState(0);
+const HowItWorksChart = ({
+  isVisibleOnScreen,
+  firstBlockRef,
+  scaleContainer,
+}) => {
+  const [step, setStep] = useState(1);
+
+  const chartRef = useRef(null);
 
   const path1FrontRef = useRef(null);
   const path1BackRef = useRef(null);
@@ -14,12 +20,6 @@ const HowItWorksChart = ({ isAnimationStarted, firstBlockRef }) => {
   const path3BackRef = useRef(null);
   const path4FrontRef = useRef(null);
   const path4BackRef = useRef(null);
-
-  useEffect(() => {
-    if (isAnimationStarted) {
-      setStep(1);
-    }
-  }, [isAnimationStarted]);
 
   useEffect(() => {
     if (!firstBlockRef) return;
@@ -50,12 +50,20 @@ const HowItWorksChart = ({ isAnimationStarted, firstBlockRef }) => {
       currentY += path3Rect.height;
       path4FrontRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
       path4BackRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
+
+      scaleContainer?.();
     }, 200);
   }, [firstBlockRef]);
 
   return (
     <svg
-      className="how-it-works-chart"
+      ref={chartRef}
+      className={cn([
+        'how-it-works-chart',
+        {
+          'how-it-works-chart--paused': !isVisibleOnScreen,
+        },
+      ])}
       width="100%"
       height="100%"
       xmlns="http://www.w3.org/2000/svg"

@@ -20,6 +20,7 @@
     "vite": "2.9.8"
   },
   "dependencies": {
+    "@react-hook/resize-observer": "^1.2.6",
     "@typeform/embed-react": "^2.10.0",
     "aos": "3.0.0-beta.6",
     "classnames": "^2.3.2",

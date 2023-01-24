@@ -12,6 +12,10 @@
   fill: transparent;
   stroke-width: to-rem(2);
   stroke-linejoin: round;
+
+  .how-it-works-chart--paused & {
+    animation-play-state: paused;
+  }
 }
 
 .how-it-works-chart__front-line {
