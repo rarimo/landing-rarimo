@@ -6,5 +6,5 @@ export const CONFIG = {
     'https://rarimo.gitbook.io/rarimo-whitepaper/rarimo-whitepaper/abstract',
   nftSettlementDemoLink:
     'https://rarimo.gitlab.io/demo-settlement/?path=/story/demo-purchasewithanytoken--demo&full=true',
-  googleTagManagerId: 'G-ZF230NH0SK',
+  googleTagManagerId: 'GTM-5RH6GR6',
 };
