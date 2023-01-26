@@ -33,4 +33,8 @@
   // How it works chart
   --how-it-works-chart-back-line-col: #{lighten($col-silverpine-cyan, 14%)};
   --how-it-works-chart-group-hidden-bg: #{$col-graphite-black}; // FIXME
+  --how-it-works-chart-guide-lines-bg: rgba(
+    #{$col-turquoise-pearl-rgb},
+    15%
+  ); // FIXME
 }
