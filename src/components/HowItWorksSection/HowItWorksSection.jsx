@@ -23,6 +23,8 @@ const HowItWorksSection = () => {
   const forceUpdate = useForceUpdate();
 
   const [isVisibleOnScreen, setIsVisibleOnScreen] = useState(false);
+  const [isDesktopChartPositioned, setIsDesktopChartPositioned] =
+    useState(false);
 
   const isFirstRender = useRef(true);
 
@@ -70,10 +72,13 @@ const HowItWorksSection = () => {
     if (!isWideScreen) {
       chartWrapperRef.current.style.transform = '';
       sectionRef.current.style.marginBottom = '';
+      setIsDesktopChartPositioned(false);
       return;
     }
 
-    scaleChart();
+    if (isDesktopChartPositioned) {
+      scaleChart();
+    }
   });
 
   useEffect(() => {
@@ -284,6 +289,10 @@ const HowItWorksSection = () => {
             firstBlockRef={firstBlockRef.current}
             scaleContainer={scaleChart}
             isVisibleOnScreen={isVisibleOnScreen}
+            desktopChartPositionedState={[
+              isDesktopChartPositioned,
+              setIsDesktopChartPositioned,
+            ]}
           />
         ) : (
           <HowItWorksChartMobile isVisibleOnScreen={isVisibleOnScreen} />
