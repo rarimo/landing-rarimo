@@ -7,9 +7,13 @@ const HowItWorksChartDesktop = ({
   isVisibleOnScreen,
   firstBlockRef,
   scaleContainer,
+  desktopChartPositionedState,
 }) => {
+  const [, setIsDesktopChartPositioned] = desktopChartPositionedState;
+
   const [step, setStep] = useState(1);
 
+  const isFirstRender = useRef(true);
   const chartRef = useRef(null);
 
   const path1FrontRef = useRef(null);
@@ -24,6 +28,10 @@ const HowItWorksChartDesktop = ({
   useEffect(() => {
     if (!firstBlockRef) return;
 
+    if (!isFirstRender.current) return;
+    isFirstRender.current = false;
+
+    setIsDesktopChartPositioned(false);
     setTimeout(() => {
       let currentX = 0;
       let currentY = 0;
@@ -52,6 +60,7 @@ const HowItWorksChartDesktop = ({
       path4BackRef.current.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
       scaleContainer?.();
+      setIsDesktopChartPositioned(true);
     }, 200);
   }, [firstBlockRef]);
 
