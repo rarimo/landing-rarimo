@@ -32,4 +32,6 @@
 
   // How it works chart
   --how-it-works-chart-back-line-col: var(--col-gluon-grey);
+  --how-it-works-chart-group-hidden-bg: #{$col-graphite-black};
+  --how-it-works-chart-group-hidden-col: rgba(#{$col-total-white-rgb}, 30%);
 }
