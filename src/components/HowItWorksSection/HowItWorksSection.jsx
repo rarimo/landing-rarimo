@@ -1,21 +1,29 @@
 import './HowItWorksSection.scss';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useMedia, usePrevious } from 'react-use';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import { useInView } from 'react-intersection-observer';
 import useResizeObserver from '@react-hook/resize-observer';
-import HowItWorksChart from '@/components/HowItWorksChart';
+import HowItWorksChartDesktop from '@/components/HowItWorksChartDesktop';
+import HowItWorksChartMobile from '@/components/HowItWorksChartMobile';
+import useForceUpdate from '@/hooks/useForceUpdate';
 import { howItWorksGroupsList } from '@/template-data';
+import { HOW_IT_WORKS_GROUPS } from '@/const';
 
 const DEFAULT_CHART_WIDTH = 1256;
 const DEFAULT_CHART_HEIGHT = 747;
 
 const HowItWorksSection = () => {
   const { t } = useTranslation();
-  const isFirstRender = useRef(true);
+  const isWideScreen = useMedia('(min-width: 900px)');
+  const prevIsWideScreen = usePrevious(isWideScreen);
+  const forceUpdate = useForceUpdate();
 
   const [isVisibleOnScreen, setIsVisibleOnScreen] = useState(false);
+
+  const isFirstRender = useRef(true);
 
   const firstBlockRef = useRef(null);
   const chartWrapperRef = useRef(null);
@@ -25,8 +33,8 @@ const HowItWorksSection = () => {
     onChange: isIntersecting => {
       setIsVisibleOnScreen(isIntersecting);
     },
-    threshold: [0.2, 0.8],
-    rootMargin: '-150px 0px',
+    threshold: [0.15, 0.85],
+    rootMargin: '-120px 0px',
   });
 
   const scaleChart = useCallback(() => {
@@ -55,8 +63,30 @@ const HowItWorksSection = () => {
       return;
     }
 
+    if (!isWideScreen) {
+      chartWrapperRef.current.style.transform = '';
+      sectionRef.current.style.marginBottom = '';
+      return;
+    }
+
     scaleChart();
   });
+
+  useEffect(() => {
+    if (!chartWrapperRef.current) return;
+
+    if (isWideScreen !== prevIsWideScreen) {
+      chartWrapperRef.current.classList.remove(
+        'how-it-works-section__chart-wrapper--animated',
+      );
+      forceUpdate(); // rerender for reset animation state
+      setTimeout(() => {
+        chartWrapperRef.current.classList.add(
+          'how-it-works-section__chart-wrapper--animated',
+        );
+      }, 100);
+    }
+  }, [isWideScreen]);
 
   return (
     <section ref={sectionRef} className="how-it-works-section container">
@@ -65,7 +95,7 @@ const HowItWorksSection = () => {
       </h3>
       <div
         ref={chartWrapperRef}
-        className="how-it-works-section__chart-wrapper"
+        className="how-it-works-section__chart-wrapper how-it-works-section__chart-wrapper--animated"
       >
         <ul
           ref={chartRef}
@@ -76,48 +106,184 @@ const HowItWorksSection = () => {
             },
           ])}
         >
-          {howItWorksGroupsList.map((group, index) => (
-            <li key={index} className="how-it-works-section__chart-group">
-              <svg
-                className="how-it-works-section__group-icon"
-                height="24"
-                width="24"
-              >
-                <use href={group.icon}></use>
-              </svg>
-              <span>{t(group.textKey)}</span>
-            </li>
-          ))}
+          {isWideScreen && (
+            <>
+              {Object.values(howItWorksGroupsList).map((group, index) => (
+                <li
+                  key={index}
+                  className="how-it-works-section__chart-group-desktop"
+                >
+                  <svg
+                    className="how-it-works-section__group-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use href={group.icon}></use>
+                  </svg>
+                  <span>{t(group.textKey)}</span>
+                </li>
+              ))}
+            </>
+          )}
+
           <li
             ref={firstBlockRef}
             className="how-it-works-section__chart-item how-it-works-section__chart-item--first"
           >
-            {t('how-it-works-section.chart-steps.first')}
+            {!isWideScreen && (
+              <div className="how-it-works-section__chart-group-mobile">
+                <svg
+                  className="how-it-works-section__group-icon"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    href={howItWorksGroupsList[HOW_IT_WORKS_GROUPS.dapp].icon}
+                  ></use>
+                </svg>
+                <span>
+                  {t(howItWorksGroupsList[HOW_IT_WORKS_GROUPS.dapp].textKey)}
+                </span>
+              </div>
+            )}
+            <div>{t('how-it-works-section.chart-steps.first')}</div>
           </li>
           <li className="how-it-works-section__chart-item how-it-works-section__chart-item--second">
-            {t('how-it-works-section.chart-steps.second')}
+            {!isWideScreen && (
+              <div className="how-it-works-section__chart-group-mobile">
+                <svg
+                  className="how-it-works-section__group-icon"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    href={howItWorksGroupsList[HOW_IT_WORKS_GROUPS.payBtn].icon}
+                  ></use>
+                </svg>
+                <span>
+                  {t(howItWorksGroupsList[HOW_IT_WORKS_GROUPS.payBtn].textKey)}
+                </span>
+              </div>
+            )}
+            <div>{t('how-it-works-section.chart-steps.second')}</div>
           </li>
           <li className="how-it-works-section__chart-item how-it-works-section__chart-item--third">
-            {t('how-it-works-section.chart-steps.third')}
+            {!isWideScreen && (
+              <div className="how-it-works-section__chart-group-mobile">
+                <svg
+                  className="how-it-works-section__group-icon"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    href={howItWorksGroupsList[HOW_IT_WORKS_GROUPS.user].icon}
+                  ></use>
+                </svg>
+                <span>
+                  {t(howItWorksGroupsList[HOW_IT_WORKS_GROUPS.user].textKey)}
+                </span>
+              </div>
+            )}
+            <div>{t('how-it-works-section.chart-steps.third')}</div>
           </li>
           <li className="how-it-works-section__chart-item how-it-works-section__chart-item--fourth">
-            {t('how-it-works-section.chart-steps.fourth')}
+            {!isWideScreen && (
+              <div className="how-it-works-section__chart-group-mobile">
+                <svg
+                  className="how-it-works-section__group-icon"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    href={howItWorksGroupsList[HOW_IT_WORKS_GROUPS.dex].icon}
+                  ></use>
+                </svg>
+                <span>
+                  {t(howItWorksGroupsList[HOW_IT_WORKS_GROUPS.dex].textKey)}
+                </span>
+              </div>
+            )}
+            <div>{t('how-it-works-section.chart-steps.fourth')}</div>
           </li>
           <li className="how-it-works-section__chart-item how-it-works-section__chart-item--fifth">
-            {t('how-it-works-section.chart-steps.fifth')}
+            {!isWideScreen && (
+              <div className="how-it-works-section__chart-group-mobile">
+                <svg
+                  className="how-it-works-section__group-icon"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    href={
+                      howItWorksGroupsList[HOW_IT_WORKS_GROUPS.rarimoProtocol]
+                        .icon
+                    }
+                  ></use>
+                </svg>
+                <span>
+                  {t(
+                    howItWorksGroupsList[HOW_IT_WORKS_GROUPS.rarimoProtocol]
+                      .textKey,
+                  )}
+                </span>
+              </div>
+            )}
+            <div>{t('how-it-works-section.chart-steps.fifth')}</div>
           </li>
           <li className="how-it-works-section__chart-item how-it-works-section__chart-item--sixth">
-            {t('how-it-works-section.chart-steps.sixth')}
+            {!isWideScreen && (
+              <div className="how-it-works-section__chart-group-mobile">
+                <svg
+                  className="how-it-works-section__group-icon"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    href={
+                      howItWorksGroupsList[HOW_IT_WORKS_GROUPS.rarimoProtocol]
+                        .icon
+                    }
+                  ></use>
+                </svg>
+                <span>
+                  {t(
+                    howItWorksGroupsList[HOW_IT_WORKS_GROUPS.rarimoProtocol]
+                      .textKey,
+                  )}
+                </span>
+              </div>
+            )}
+            <div>{t('how-it-works-section.chart-steps.sixth')}</div>
           </li>
           <li className="how-it-works-section__chart-item how-it-works-section__chart-item--seventh">
-            {t('how-it-works-section.chart-steps.seventh')}
+            {!isWideScreen && (
+              <div className="how-it-works-section__chart-group-mobile">
+                <svg
+                  className="how-it-works-section__group-icon"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    href={howItWorksGroupsList[HOW_IT_WORKS_GROUPS.dapp].icon}
+                  ></use>
+                </svg>
+                <span>
+                  {t(howItWorksGroupsList[HOW_IT_WORKS_GROUPS.dapp].textKey)}
+                </span>
+              </div>
+            )}
+            <div>{t('how-it-works-section.chart-steps.seventh')}</div>
           </li>
         </ul>
-        <HowItWorksChart
-          firstBlockRef={firstBlockRef.current}
-          scaleContainer={scaleChart}
-          isVisibleOnScreen={isVisibleOnScreen}
-        />
+        {isWideScreen ? (
+          <HowItWorksChartDesktop
+            firstBlockRef={firstBlockRef.current}
+            scaleContainer={scaleChart}
+            isVisibleOnScreen={isVisibleOnScreen}
+          />
+        ) : (
+          <HowItWorksChartMobile isVisibleOnScreen={isVisibleOnScreen} />
+        )}
       </div>
     </section>
   );

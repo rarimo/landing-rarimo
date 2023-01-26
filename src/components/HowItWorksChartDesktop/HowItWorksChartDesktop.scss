@@ -1,4 +1,4 @@
-.how-it-works-chart {
+.how-it-works-chart-desktop {
   position: absolute;
   top: 0;
   right: 0;
@@ -8,25 +8,25 @@
   padding-top: to-rem(140);
 }
 
-.how-it-works-chart__line-path {
+.how-it-works-chart-desktop__line-path {
   fill: transparent;
   stroke-width: to-rem(2);
   stroke-linejoin: round;
 
-  .how-it-works-chart--paused & {
+  .how-it-works-chart-desktop--paused & {
     animation-play-state: paused;
   }
 }
 
-.how-it-works-chart__front-line {
+.how-it-works-chart-desktop__front-line {
   stroke: var(--col-silverpine-cyan);
 }
 
-.how-it-works-chart__back-line {
+.how-it-works-chart-desktop__back-line {
   stroke: var(--how-it-works-chart-back-line-col);
 }
 
-.how-it-works-chart__path-1 {
+.how-it-works-chart-desktop__path-1 {
   stroke-dasharray: 995;
   stroke-dashoffset: 0;
 
@@ -44,7 +44,7 @@
   }
 }
 
-.how-it-works-chart__path-2 {
+.how-it-works-chart-desktop__path-2 {
   stroke-dasharray: 804;
   stroke-dashoffset: 804;
 
@@ -62,7 +62,7 @@
   }
 }
 
-.how-it-works-chart__path-3 {
+.how-it-works-chart-desktop__path-3 {
   stroke-dasharray: 224;
   stroke-dashoffset: 224;
 
@@ -80,7 +80,7 @@
   }
 }
 
-.how-it-works-chart__path-4 {
+.how-it-works-chart-desktop__path-4 {
   stroke-dasharray: 938;
   stroke-dashoffset: 0;
 
