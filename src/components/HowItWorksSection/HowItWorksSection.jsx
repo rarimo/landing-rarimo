@@ -10,10 +10,11 @@ import HowItWorksChartDesktop from '@/components/HowItWorksChartDesktop';
 import HowItWorksChartMobile from '@/components/HowItWorksChartMobile';
 import useForceUpdate from '@/hooks/useForceUpdate';
 import { howItWorksGroupsList } from '@/template-data';
-import { HOW_IT_WORKS_GROUPS } from '@/const';
-
-const DEFAULT_CHART_WIDTH = 1256;
-const DEFAULT_CHART_HEIGHT = 747;
+import {
+  HOW_IT_WORKS_DEFAULT_CHART_HEIGHT,
+  HOW_IT_WORKS_DEFAULT_CHART_WIDTH,
+  HOW_IT_WORKS_GROUPS,
+} from '@/const';
 
 const HowItWorksSection = () => {
   const { t } = useTranslation();
@@ -49,11 +50,14 @@ const HowItWorksSection = () => {
       ) * 16; // *16 for converting in pixels
 
     const scaleCoef =
-      (sectionWidth - rootContainerPadding * 2) / DEFAULT_CHART_WIDTH;
+      (sectionWidth - rootContainerPadding * 2) /
+      HOW_IT_WORKS_DEFAULT_CHART_WIDTH;
 
     chartWrapperRef.current.style.transform = `scale(${scaleCoef})`;
     sectionRef.current.style.marginBottom = `${
-      DEFAULT_CHART_HEIGHT * scaleCoef - DEFAULT_CHART_HEIGHT + 100
+      HOW_IT_WORKS_DEFAULT_CHART_HEIGHT * scaleCoef -
+      HOW_IT_WORKS_DEFAULT_CHART_HEIGHT +
+      100
     }px`;
   }, []);
 
