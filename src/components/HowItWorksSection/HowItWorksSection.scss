@@ -74,6 +74,26 @@
   background-image: url('/img/nft-settlement-page/chart-group-bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: var(--z-hidden);
+    width: to-rem(2);
+    border-width: to-rem(2);
+    border-right-style: solid;
+    border-image: linear-gradient(
+      to bottom,
+      var(--how-it-works-chart-guide-lines-bg),
+      var(--how-it-works-chart-guide-lines-bg) 50%,
+      transparent 50%,
+      transparent
+    );
+    border-image-slice: 356;
+    border-image-repeat: repeat;
+  }
 }
 
 .how-it-works-section__chart-group-mobile {
