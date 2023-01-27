@@ -21,6 +21,7 @@
   --z-app-bar: 14;
   --z-user-cases-swiper-arrow: 5;
   --z-default: 1;
+  --z-hidden: -1;
 
   // Text variables
   --primary-font: 'SpaceGrotesk', -apple-system, 'BlinkMacSystemFont',
@@ -101,4 +102,8 @@
 
   // Nft settlement video
   --nft-settlement-video-bg: rgba(#{$col-total-black-rgb}, 90%);
+
+  // How it works section
+  --how-it-works-chart-default-width: #{to-rem(1256)};
+  --how-it-works-mobile-chart-max-width: #{to-rem(500)};
 }
