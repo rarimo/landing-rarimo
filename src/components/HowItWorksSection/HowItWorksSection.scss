@@ -38,8 +38,7 @@
   margin: 0 auto;
 
   @include respond-above(md) {
-    max-width: unset;
-    margin: 0;
+    max-width: var(--how-it-works-chart-default-width);
     width: var(--how-it-works-chart-default-width);
     transform-origin: top left;
   }
@@ -113,7 +112,7 @@
   background-color: var(--how-it-works-chart-group-hidden-bg);
 
   .how-it-works-section__chart-wrapper--animated & {
-    animation: chart-group-mobile-color 0.4s linear forwards;
+    animation: chart-group-mobile-color 0.3s linear forwards;
     animation-delay: var(--chart-animation-delay);
   }
 
@@ -135,7 +134,7 @@
     background-size: cover;
 
     .how-it-works-section__chart-wrapper--animated & {
-      animation: opacity 0.8s linear forwards;
+      animation: opacity 0.6s linear forwards;
       animation-delay: var(--chart-animation-delay);
     }
 
@@ -172,7 +171,7 @@
   }
 
   .how-it-works-section__chart-wrapper--animated & {
-    animation: border-color 0.8s linear forwards;
+    animation: border-color 0.6s linear forwards;
     animation-delay: var(--chart-animation-delay);
   }
 
@@ -190,63 +189,63 @@
     }
   }
   &.how-it-works-section__chart-item--second {
-    --chart-animation-delay: 1.9s;
+    --chart-animation-delay: 1.35s;
 
     @include respond-above(md) {
       grid-column-start: 3;
       grid-row-start: 3;
-      --chart-animation-delay: 1.8s;
+      --chart-animation-delay: 1.35s;
     }
   }
   &.how-it-works-section__chart-item--third {
-    --chart-animation-delay: 3.8s;
+    --chart-animation-delay: 2.75s;
 
     @include respond-above(md) {
       grid-column-start: 1;
       grid-row-start: 4;
-      --chart-animation-delay: 5.4s;
+      --chart-animation-delay: 3.95s;
     }
   }
   &.how-it-works-section__chart-item--fourth {
-    --chart-animation-delay: 5.7s;
+    --chart-animation-delay: 4.15s;
 
     @include respond-above(md) {
       justify-self: flex-start;
       max-width: to-rem(182);
       grid-column-start: 4;
       grid-row-start: 4;
-      --chart-animation-delay: 10s;
+      --chart-animation-delay: 7.4s;
     }
   }
   &.how-it-works-section__chart-item--fifth {
-    --chart-animation-delay: 7.6s;
+    --chart-animation-delay: 5.65s;
 
     @include respond-above(md) {
       justify-self: flex-end;
       max-width: to-rem(198);
       grid-column-start: 5;
       grid-row-start: 5;
-      --chart-animation-delay: 12.8s;
+      --chart-animation-delay: 9.55s;
     }
   }
   &.how-it-works-section__chart-item--sixth {
-    --chart-animation-delay: 9.5s;
+    --chart-animation-delay: 7.05s;
 
     @include respond-above(md) {
       justify-self: flex-end;
       max-width: to-rem(198);
       grid-column-start: 5;
       grid-row-start: 6;
-      --chart-animation-delay: 14.1s;
+      --chart-animation-delay: 10.45s;
     }
   }
   &.how-it-works-section__chart-item--seventh {
-    --chart-animation-delay: 11.4s;
+    --chart-animation-delay: 8.45s;
 
     @include respond-above(md) {
       grid-column-start: 2;
       grid-row-start: 6;
-      --chart-animation-delay: 18.4s;
+      --chart-animation-delay: 13.75s;
     }
   }
 }
