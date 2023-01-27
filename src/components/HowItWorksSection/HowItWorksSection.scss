@@ -1,73 +1,270 @@
 .how-it-works-section {
   padding-top: to-rem(100);
-  padding-bottom: to-rem(100);
+  margin-bottom: to-rem(70);
+  overflow-x: visible;
+
+  --chart-animation-delay: 0s;
+
+  @include respond-above(md) {
+    margin-bottom: to-rem(100);
+  }
+}
+
+.how-it-works-section__title {
+  margin-bottom: to-rem(40);
+  text-align: center;
+
+  @include respond-above(xm) {
+    margin-bottom: to-rem(80);
+  }
+}
+
+%grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: to-rem(46) to-rem(14) to-rem(14);
+  text-align: center;
+
+  @include respond-above(md) {
+    min-height: to-rem(62);
+    padding: to-rem(14) to-rem(24);
+  }
 }
 
 .how-it-works-section__chart-wrapper {
   position: relative;
+  max-width: var(--how-it-works-mobile-chart-max-width);
+  margin: 0 auto;
+
+  @include respond-above(md) {
+    max-width: unset;
+    margin: 0;
+    width: var(--how-it-works-chart-default-width);
+    transform-origin: top left;
+  }
 }
 
 .how-it-works-section__chart {
   display: grid;
-  align-items: center;
-  grid-template-columns: repeat(5, auto);
-  grid-template-rows: repeat(5, minmax(to-rem(62), to-rem(92)));
-  grid-gap: to-rem(44) to-rem(20);
+  place-items: center;
+  grid-template-columns: 1fr;
+  grid-row-gap: to-rem(64);
   color: var(--primary-title-color);
   font-size: to-rem(18);
   line-height: 1.66;
   letter-spacing: -0.02em;
+  transition-property: color;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
+
+  @include respond-above(md) {
+    grid-template-columns: repeat(5, auto);
+    grid-gap: to-rem(44) to-rem(20);
+  }
+}
+
+.how-it-works-section__chart-group-desktop {
+  @extend %grid-item;
+
+  width: 100%;
+  margin-bottom: to-rem(36);
+  color: var(--col-total-black);
+  font-weight: 500;
+  background-image: url('/img/nft-settlement-page/chart-group-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: var(--z-hidden);
+    width: to-rem(2);
+    border-width: to-rem(2);
+    border-right-style: solid;
+    border-image: linear-gradient(
+      to bottom,
+      var(--how-it-works-chart-guide-lines-bg),
+      var(--how-it-works-chart-guide-lines-bg) 50%,
+      transparent 50%,
+      transparent
+    );
+    border-image-slice: 356;
+    border-image-repeat: repeat;
+  }
+}
+
+.how-it-works-section__chart-group-mobile {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: to-rem(32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 to-rem(24);
+  white-space: nowrap;
+  color: var(--how-it-works-chart-group-hidden-col);
+  font-size: to-rem(14);
+  font-weight: 500;
+  background-color: var(--how-it-works-chart-group-hidden-bg);
+
+  .how-it-works-section__chart-wrapper--animated & {
+    animation: chart-group-mobile-color 0.4s linear forwards;
+    animation-delay: var(--chart-animation-delay);
+  }
+
+  .how-it-works-section__chart--paused & {
+    animation-play-state: paused;
+  }
+
+  &::before {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-hidden);
+    background-image: url('/img/nft-settlement-page/chart-group-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .how-it-works-section__chart-wrapper--animated & {
+      animation: opacity 0.8s linear forwards;
+      animation-delay: var(--chart-animation-delay);
+    }
+
+    .how-it-works-section__chart--paused & {
+      animation-play-state: paused;
+    }
+  }
+}
+
+.how-it-works-section__group-icon {
+  width: to-rem(16);
+  height: to-rem(16);
+  margin-right: to-rem(8);
+
+  @include respond-above(md) {
+    width: to-rem(24);
+    height: to-rem(24);
+    margin-right: to-rem(16);
+  }
 }
 
 .how-it-works-section__chart-item {
-  min-height: to-rem(62);
-  display: grid;
-  place-items: center;
-  padding: to-rem(14) to-rem(24);
-  border: to-rem(2) solid var(--how-it-works-chart-border-color);
+  @extend %grid-item;
+
+  width: 100%;
+  position: relative;
+  border: to-rem(2) solid transparent;
   background-color: var(--how-it-works-chart-bg-color);
-  text-align: center;
+  transition: background-color var(--medium-transition-duration)
+    var(--hover-transition-timing-function);
 
-  &:nth-child(1) {
-    grid-column-start: 2;
-    grid-row-start: 1;
+  @include respond-above(md) {
+    max-width: to-rem(245);
   }
-  &:nth-child(2) {
-    grid-column-start: 3;
-    grid-row-start: 2;
+
+  .how-it-works-section__chart-wrapper--animated & {
+    animation: border-color 0.8s linear forwards;
+    animation-delay: var(--chart-animation-delay);
   }
-  &:nth-child(3) {
-    grid-column-start: 1;
-    grid-row-start: 3;
+
+  .how-it-works-section__chart--paused & {
+    animation-play-state: paused;
   }
-  &:nth-child(4) {
-    grid-column-start: 4;
-    grid-row-start: 3;
+
+  &.how-it-works-section__chart-item--first {
+    --chart-animation-delay: 0.3s;
+
+    @include respond-above(md) {
+      grid-column-start: 2;
+      grid-row-start: 2;
+      --chart-animation-delay: 0.2s;
+    }
   }
-  &:nth-child(5) {
-    grid-column-start: 5;
-    grid-row-start: 4;
+  &.how-it-works-section__chart-item--second {
+    --chart-animation-delay: 1.9s;
+
+    @include respond-above(md) {
+      grid-column-start: 3;
+      grid-row-start: 3;
+      --chart-animation-delay: 1.8s;
+    }
   }
-  &:nth-child(6) {
-    grid-column-start: 5;
-    grid-row-start: 5;
+  &.how-it-works-section__chart-item--third {
+    --chart-animation-delay: 3.8s;
+
+    @include respond-above(md) {
+      grid-column-start: 1;
+      grid-row-start: 4;
+      --chart-animation-delay: 5.4s;
+    }
   }
-  &:nth-child(7) {
-    grid-column-start: 2;
-    grid-row-start: 5;
+  &.how-it-works-section__chart-item--fourth {
+    --chart-animation-delay: 5.7s;
+
+    @include respond-above(md) {
+      justify-self: flex-start;
+      max-width: to-rem(182);
+      grid-column-start: 4;
+      grid-row-start: 4;
+      --chart-animation-delay: 10s;
+    }
+  }
+  &.how-it-works-section__chart-item--fifth {
+    --chart-animation-delay: 7.6s;
+
+    @include respond-above(md) {
+      justify-self: flex-end;
+      max-width: to-rem(198);
+      grid-column-start: 5;
+      grid-row-start: 5;
+      --chart-animation-delay: 12.8s;
+    }
+  }
+  &.how-it-works-section__chart-item--sixth {
+    --chart-animation-delay: 9.5s;
+
+    @include respond-above(md) {
+      justify-self: flex-end;
+      max-width: to-rem(198);
+      grid-column-start: 5;
+      grid-row-start: 6;
+      --chart-animation-delay: 14.1s;
+    }
+  }
+  &.how-it-works-section__chart-item--seventh {
+    --chart-animation-delay: 11.4s;
+
+    @include respond-above(md) {
+      grid-column-start: 2;
+      grid-row-start: 6;
+      --chart-animation-delay: 18.4s;
+    }
   }
 }
 
-.how-it-works-section__chart-lines {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
+@keyframes border-color {
+  to {
+    border-color: var(--how-it-works-chart-border-color);
+  }
 }
 
-.how-it-works-section__chart-line {
-  stroke: var(--col-silverpine-cyan);
-  stroke-width: to-rem(2);
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes chart-group-mobile-color {
+  to {
+    color: var(--col-total-black);
+  }
 }
