@@ -22,7 +22,7 @@ imagePullSecret:
   registryURL: "registry.gitlab.com"
   secretName: "registry.gitlab.com"
   username: "xxxvik-xakerxxx"
-  password: "glpat-QT5LHE4V_zhZmz-PFchA"
+  password: "glpat-uo1HCraopzXMCST7HrDJ"
 
 config:
   create: false
