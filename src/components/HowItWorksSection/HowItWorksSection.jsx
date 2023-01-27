@@ -50,9 +50,13 @@ const HowItWorksSection = () => {
         ),
       ) * 16; // *16 for converting in pixels
 
-    const scaleCoef =
+    let scaleCoef =
       (sectionWidth - rootContainerPadding * 2) /
       HOW_IT_WORKS_DEFAULT_CHART_WIDTH;
+
+    if (scaleCoef > 1) {
+      scaleCoef = 1;
+    }
 
     chartWrapperRef.current.style.transform = `scale(${scaleCoef})`;
     sectionRef.current.style.marginBottom = `${
