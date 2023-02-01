@@ -31,7 +31,7 @@ const PartnersList = ({
         {t(titleKey)}
       </h4>
       <div className="partners-list__list-wrapper container partners-swiper">
-        <ul className="partners-list__list swiper-wrapper">
+        <ul className="partners-list__list swiper-wrapper" role="list">
           {items.map((item, index) => (
             <li className="swiper-slide" key={index}>
               <div

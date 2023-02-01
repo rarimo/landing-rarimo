@@ -11,6 +11,9 @@ export const initSwiper = () => {
     edgeSwipeDetection: true,
 
     speed: 1000,
+    a11y: {
+      slideRole: 'listitem',
+    },
   };
 
   new Swiper('.partners-swiper', {
