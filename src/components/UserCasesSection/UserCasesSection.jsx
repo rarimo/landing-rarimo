@@ -40,7 +40,10 @@ const UserCasesSection = () => {
               <use href="/sprite.svg#icon-arrow-right"></use>
             </svg>
           </button>
-          <ul className="user-cases-section__card-list swiper-wrapper">
+          <ul
+            className="user-cases-section__card-list swiper-wrapper"
+            role="list"
+          >
             <li className="user-cases-section__card user-cases-section__card--nft-settlement swiper-slide">
               <div className="user-cases-section__card-content">
                 <img
