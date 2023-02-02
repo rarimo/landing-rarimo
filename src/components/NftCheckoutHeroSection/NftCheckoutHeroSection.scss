@@ -1,4 +1,4 @@
-.nft-settlement-hero-section {
+.nft-checkout-hero-section {
   position: relative;
   padding-top: calc(var(--app-bar-height) + #{to-rem(70)});
   padding-bottom: 25vh;
@@ -16,14 +16,14 @@
   }
 }
 
-.nft-settlement-hero-section__content {
+.nft-checkout-hero-section__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.nft-settlement-hero-section__title {
+.nft-checkout-hero-section__title {
   margin-bottom: to-rem(16);
   letter-spacing: -0.04em;
 
@@ -32,7 +32,7 @@
   }
 }
 
-.nft-settlement-hero-section__title-span {
+.nft-checkout-hero-section__title-span {
   font-weight: 300;
 
   &::before {
@@ -62,7 +62,7 @@
   }
 }
 
-.nft-settlement-hero-section__subtitle {
+.nft-checkout-hero-section__subtitle {
   display: flex;
   order: -1;
   margin-bottom: to-rem(16);
@@ -73,7 +73,7 @@
   }
 }
 
-.nft-settlement-hero-section__description {
+.nft-checkout-hero-section__description {
   font-size: 1.125em;
   margin-bottom: to-rem(40);
 
@@ -86,6 +86,6 @@
   }
 }
 
-.nft-settlement-hero-section__link-wrapper {
+.nft-checkout-hero-section__link-wrapper {
   width: 100%;
 }

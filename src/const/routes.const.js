@@ -2,5 +2,6 @@ export const ROUTES_PATHS = {
   home: '/',
   testnet: '/testnet',
   testnetSignUp: '/testnet/sign-up',
-  nftSettlement: '/nft-settlement',
+  nftCheckout: '/nft-checkout',
+  nftSettlement: '/nft-settlement', // deprecated
 };

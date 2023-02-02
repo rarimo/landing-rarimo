@@ -4,7 +4,7 @@ export const CONFIG = {
   twitterLink: 'https://twitter.com/Rarimo_protocol',
   whitePaperLink:
     'https://rarimo.gitbook.io/rarimo-whitepaper/rarimo-whitepaper/abstract',
-  nftSettlementDemoLink:
+  nftCheckoutDemoLink:
     'https://rarimo.gitlab.io/demo-settlement/?path=/story/demo-purchasewithanytoken--demo&full=true',
   googleTagManagerId: 'GTM-5RH6GR6',
 };

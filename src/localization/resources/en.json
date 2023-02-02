@@ -23,9 +23,9 @@
   "user-cases-section": {
     "title": "Start building",
     "subtitle": "Enable seamless user experience with a single click interactions",
-    "nft-settlement-title": "NFT Checkout",
-    "nft-settlement-text": "Allow buying of NFTs using any token of choice in a single transaction — with the lowest fees.",
-    "nft-settlement-btn": "Learn more",
+    "nft-checkout-title": "NFT Checkout",
+    "nft-checkout-text": "Allow buying of NFTs using any token of choice in a single transaction — with the lowest fees.",
+    "nft-checkout-btn": "Learn more",
     "borrowing-title": "Lending & Borrowing",
     "borrowing-text": "Integrate protocol with lending platforms, enabling collateralized or uncollateralized lending across different chains.",
     "asset-verification-title": "Asset Verification",
@@ -71,7 +71,7 @@
     "feedback": "Post your questions and feedback on Rarimo’s",
     "discord-link": "Discord channel"
   },
-  "nft-settlement-hero-section": {
+  "nft-checkout-hero-section": {
     "title": "NFT purchase made",
     "title-easy-span": "easy",
     "title-instant-span": "instant",

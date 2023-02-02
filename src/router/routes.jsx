@@ -8,7 +8,7 @@ import RouteTransition from '@/components/RouteTransition';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));
 const TestnetPage = lazy(() => import('@/pages/TestnetPage'));
-const NftSettlementPage = lazy(() => import('@/pages/NftSettlementPage'));
+const NftCheckoutPage = lazy(() => import('@/pages/NftCheckoutPage'));
 const TestnetSignUpPage = lazy(() => import('@/pages/TestnetSignUpPage'));
 
 const AppRoutes = () => {
@@ -28,8 +28,18 @@ const AppRoutes = () => {
           element: <TestnetPage />,
         },
         {
+          path: ROUTES_PATHS.nftCheckout,
+          element: <NftCheckoutPage />,
+        },
+        {
           path: ROUTES_PATHS.nftSettlement,
-          element: <NftSettlementPage />,
+          element: (
+            <Navigate
+              replace
+              to={ROUTES_PATHS.nftCheckout}
+              state={{ isRedirect: true }}
+            />
+          ),
         },
       ],
     },

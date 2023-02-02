@@ -52,7 +52,7 @@ const AdvantagesSection = () => {
 
         <img
           className="advantages-section__browser-toolbar-img"
-          src="/img/nft-settlement-page/browser-toolbar.png"
+          src="/img/nft-checkout-page/browser-toolbar.png"
           width="100%"
           loading="lazy"
           alt=""
@@ -66,8 +66,8 @@ const AdvantagesSection = () => {
           width="100%"
           onClick={togglePlay}
         >
-          <source src="/video/nft-settlement-demo.webm" type="video/webm" />
-          <source src="/video/nft-settlement-demo.mp4" type="video/mp4" />
+          <source src="/video/nft-checkout-demo.webm" type="video/webm" />
+          <source src="/video/nft-checkout-demo.mp4" type="video/mp4" />
         </video>
       </div>
 
