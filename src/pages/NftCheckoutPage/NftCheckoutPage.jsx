@@ -1,20 +1,20 @@
 import { useEffect } from 'react';
 import AdvantagesSection from '@/components/AdvantagesSection';
 import HowItWorksSection from '@/components/HowItWorksSection/HowItWorksSection';
-import NftSettlementHeroSection from '@/components/NftSettlementHeroSection';
+import NftCheckoutHeroSection from '@/components/NftCheckoutHeroSection';
 import ImplementationSection from '@/components/ImplementationSection';
 import CommunitySection from '@/components/CommunitySection';
 // import IntegrationsSection from '@/components/IntegrationsSection';
 import { initSwiper } from '@/js';
 
-const NftSettlementPage = () => {
+const NftCheckoutPage = () => {
   useEffect(() => {
     initSwiper();
   }, []);
 
   return (
     <>
-      <NftSettlementHeroSection />
+      <NftCheckoutHeroSection />
       <AdvantagesSection />
       {/* <IntegrationsSection /> */}
       <HowItWorksSection />
@@ -24,4 +24,4 @@ const NftSettlementPage = () => {
   );
 };
 
-export default NftSettlementPage;
+export default NftCheckoutPage;

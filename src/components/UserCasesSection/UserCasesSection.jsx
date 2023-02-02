@@ -44,26 +44,26 @@ const UserCasesSection = () => {
             className="user-cases-section__card-list swiper-wrapper"
             role="list"
           >
-            <li className="user-cases-section__card user-cases-section__card--nft-settlement swiper-slide">
+            <li className="user-cases-section__card user-cases-section__card--nft-checkout swiper-slide">
               <div className="user-cases-section__card-content">
                 <img
                   className="user-cases-section__card-img"
-                  src="/img/user-cases-section/nft-settlement-img.png"
+                  src="/img/user-cases-section/nft-checkout-img.png"
                   height="150"
                   loading="lazy"
-                  alt="NFT Settlement"
+                  alt="NFT Checkout"
                 />
                 <h4 className="user-cases-section__card-title">
-                  {t('user-cases-section.nft-settlement-title')}
+                  {t('user-cases-section.nft-checkout-title')}
                 </h4>
                 <p className="user-cases-section__card-text">
-                  {t('user-cases-section.nft-settlement-text')}
+                  {t('user-cases-section.nft-checkout-text')}
                 </p>
                 <AppLink
                   className="user-cases-section__card-link"
-                  routePath={ROUTES_PATHS.nftSettlement}
+                  routePath={ROUTES_PATHS.nftCheckout}
                   isPrimaryScheme
-                  textKey="user-cases-section.nft-settlement-btn"
+                  textKey="user-cases-section.nft-checkout-btn"
                 />
               </div>
             </li>
