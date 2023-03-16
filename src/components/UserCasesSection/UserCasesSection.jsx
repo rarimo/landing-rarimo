@@ -67,7 +67,7 @@ const UserCasesSection = () => {
                 />
               </div>
             </li>
-            <li className="user-cases-section__card user-cases-section__card--asset-verification swiper-slide">
+            {/* <li className="user-cases-section__card user-cases-section__card--asset-verification swiper-slide">
               <div className="user-cases-section__card-content">
                 <img
                   className="user-cases-section__card-img"
@@ -83,8 +83,8 @@ const UserCasesSection = () => {
                   {t('user-cases-section.asset-verification-text')}
                 </p>
               </div>
-            </li>
-            <li className="user-cases-section__card user-cases-section__card--borrowing swiper-slide">
+            </li> */}
+            {/* <li className="user-cases-section__card user-cases-section__card--borrowing swiper-slide">
               <div className="user-cases-section__card-content">
                 <img
                   className="user-cases-section__card-img"
@@ -100,7 +100,7 @@ const UserCasesSection = () => {
                   {t('user-cases-section.borrowing-text')}
                 </p>
               </div>
-            </li>
+            </li> */}
             <li className="user-cases-section__card user-cases-section__card--airdrop swiper-slide">
               <div className="user-cases-section__card-content">
                 <img
