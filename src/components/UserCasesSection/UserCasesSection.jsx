@@ -62,7 +62,6 @@ const UserCasesSection = () => {
                 <AppLink
                   className="user-cases-section__card-link"
                   routePath={ROUTES_PATHS.nftCheckout}
-                  isPrimaryScheme
                   textKey="user-cases-section.nft-checkout-btn"
                 />
               </div>

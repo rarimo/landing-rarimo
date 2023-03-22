@@ -16,26 +16,6 @@ export const initSwiper = () => {
     },
   };
 
-  new Swiper('.partners-swiper', {
-    ...sharedOptions,
-    slidesPerView: 'auto',
-    spaceBetween: 60,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    rewind: true,
-    freeMode: {
-      enabled: true,
-    },
-    // breakpoints: {
-    //   1550: {
-    //     enabled: false,
-    //     grabCursor: false,
-    //   },
-    // },
-  });
-
   new Swiper('.user-cases-swiper', {
     ...sharedOptions,
     slidesPerView: 1,

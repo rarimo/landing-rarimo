@@ -5,10 +5,12 @@
   "home-hero-section": {
     "title": "Unlocked & Connected",
     "subtitle": "Decentralized worlds",
-    "description_html": "Rarimo is a base protocol to build <strong>liquidity</strong> and <strong>interoperability</strong> across chains in a <strong>seamless way</strong>",
+    "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
     "join-testnet-link": "Join Testnet",
-    "white-paper-link": "White Paper",
-    "blockchains-title": "Supported blockchains"
+    "whitepaper-link": "Whitepaper",
+    "blockchains-title": "Supported blockchains",
+    "scroll-for-more": "Scroll for more",
+    "marquee": "The next generation of multi-chain assets & identities"
   },
   "experience-section": {
     "title": "Experience what Rarimo can do",
@@ -40,7 +42,7 @@
   "features-section": {
     "title": "Key features",
     "join-testnet-link": "Join Testnet",
-    "white-paper-link": "White Paper",
+    "whitepaper-link": "Whitepaper",
     "security-title": "Security",
     "security-text": "Using a threshold signature mechanism for creating proofs for asset unlocking, Rarimo offers a greater number of validators — while maintaining speed and keeping gas costs low.",
     "transaction-bundling-title": "Transaction Bundling",
@@ -52,7 +54,7 @@
     "title": "Start building with Rarimo",
     "description": "Our community is here to help, get hands-on approach and tailored support to the unique needs of your project",
     "join-testnet-link": "Join Testnet",
-    "white-paper-link": "White Paper",
+    "whitepaper-link": "Whitepaper",
     "sign-up-link": "Sign up",
     "learn-more-link": "Learn More",
     "coming-soon-text": "Coming soon",

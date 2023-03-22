@@ -7,6 +7,13 @@
   --col-total-white: #{$col-total-white};
   --col-total-black: #{$col-total-black};
 
+  --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
+  --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
+  --col-primary-black: #{$col-cursed-black};
+  --col-primary-grey: #{$col-more-than-a-week};
+
+  --col-error: #{$col-vermilion-cinnabar};
+
   --col-gluon-grey: #{$col-gluon-grey};
   --col-tame-teal: #{$col-tame-teal};
   --col-turquoise-pearl: #{$col-turquoise-pearl};
@@ -24,17 +31,20 @@
   --z-hidden: -1;
 
   // Text variables
-  --primary-font: 'SpaceGrotesk', -apple-system, 'BlinkMacSystemFont',
+  --primary-font-family: 'Inter', -apple-system, 'BlinkMacSystemFont',
     'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue',
     sans-serif;
+  --title-font-family: 'Oswald', -apple-system, 'BlinkMacSystemFont', 'Segoe UI',
+    'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
 
   --p-size: #{to-rem(14)};
-  --p-weight: 400;
+  --h1-size: #{to-rem(56)};
   --h2-size: #{to-rem(56)};
   --h3-size: #{to-rem(32)};
   --h4-size: #{to-rem(20)};
   --h5-size: #{to-rem(18)};
-  --title-weight: 700;
+  --h6-size: #{to-rem(18)};
+  --overline-size: #{to-rem(12)};
 
   @include respond-above(xm) {
     --p-size: var(--p-size-xm); // 16px max
@@ -45,8 +55,11 @@
 
   @include respond-above(lg) {
     --p-size: #{to-rem(18)};
+    --h1-size: #{to-rem(148)};
     --h2-size: #{to-rem(80)};
     --h3-size: #{to-rem(56)};
+    --h5-size: #{to-rem(52)};
+    --h6-size: #{to-rem(32)};
   }
 
   // Transitions
@@ -64,6 +77,7 @@
   // Base
   --container-max-width: 100%;
   --container-side-padding: #{to-rem(24)};
+  --primary-bg-rect-size: #{to-rem(40)};
 
   @include respond-above(md) {
     --container-side-padding: #{to-rem(36)};
@@ -75,8 +89,8 @@
   }
 
   @include respond-above(lg) {
-    --container-max-width: #{to-rem(1652)};
-    --container-side-padding: #{to-rem(70)};
+    --container-max-width: #{to-rem(1600)};
+    --container-side-padding: #{to-rem(40)};
   }
 
   // Common
@@ -84,13 +98,9 @@
   --scrollbar-color: var(--primary-text-color);
 
   // App bar
-  --app-bar-height: #{to-rem(80)};
+  --app-bar-height: calc(var(--primary-bg-rect-size) * 2);
   --app-bar-bg: #{lighten($col-total-black, 7%)};
   --app-bar-shadow: 0 0.4rem 2rem rgba(#{$col-total-black-rgb}, 10%);
-
-  @include respond-above(xm) {
-    --app-bar-height: #{to-rem(88)};
-  }
 
   // App footer
   --app-footer-height: #{to-rem(104)};

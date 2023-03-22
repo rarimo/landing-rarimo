@@ -4,40 +4,39 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-const AppLink = ({ className, routePath, href, textKey, isPrimaryScheme }) => {
+export const APP_LINK_SCHEMES = {
+  primary: 'primary',
+  secondary: 'secondary',
+};
+
+const AppLink = ({
+  className,
+  routePath,
+  href,
+  textKey,
+  scheme = APP_LINK_SCHEMES.primary,
+}) => {
   const { t } = useTranslation();
 
   if (routePath) {
     return (
       <Link
-        className={cn([
-          'app-link',
-          className,
-          {
-            'app-link--primary': isPrimaryScheme,
-          },
-        ])}
+        className={cn(['app-link', `app-link--${scheme}`, className])}
         to={routePath}
       >
-        {t(textKey)}
+        <span className="app-link__content">{t(textKey)}</span>
       </Link>
     );
   }
 
   return (
     <a
-      className={cn([
-        'app-link',
-        className,
-        {
-          'app-link--primary': isPrimaryScheme,
-        },
-      ])}
+      className={cn(['app-link', `app-link--${scheme}`, className])}
       href={href}
       target="_blank"
       rel="nofollow noopener noreferrer"
     >
-      {t(textKey)}
+      <span className="app-link__content">{t(textKey)}</span>
     </a>
   );
 };
