@@ -54,7 +54,7 @@
   display: inline-flex;
   height: to-rem(28);
   flex-shrink: 0;
-  color: var(--app-bar-logo-color);
+  // color: var(--app-bar-logo-color);
   transition-property: color;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);

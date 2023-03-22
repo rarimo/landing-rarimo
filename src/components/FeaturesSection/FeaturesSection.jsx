@@ -27,14 +27,12 @@ const FeaturesSection = () => {
           <AppLink
             className="features-section__link"
             routePath={ROUTES_PATHS.testnet}
-            isPrimaryScheme
             textKey="features-section.join-testnet-link"
           />
           <AppLink
             className="features-section__link"
             href={CONFIG.whitePaperLink}
-            isPrimaryScheme
-            textKey="features-section.white-paper-link"
+            textKey="features-section.whitepaper-link"
           />
         </div>
         <ul className="features-section__list">

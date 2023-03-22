@@ -101,7 +101,6 @@ const NftCheckoutHeroSection = () => {
         >
           <AppLink
             href={CONFIG.nftCheckoutDemoLink}
-            isPrimaryScheme
             textKey="nft-checkout-hero-section.try-demo-link"
           />
         </div>

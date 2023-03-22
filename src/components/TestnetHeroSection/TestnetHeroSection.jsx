@@ -28,7 +28,6 @@ const TestnetHeroSection = () => {
           <AppLink
             className="testnet-hero-section__link"
             routePath={ROUTES_PATHS.testnetSignUp}
-            isPrimaryScheme
             textKey="testnet-hero-section.sign-up-link"
           />
         </div>

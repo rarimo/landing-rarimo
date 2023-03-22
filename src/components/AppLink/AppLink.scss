@@ -1,4 +1,8 @@
 .app-link {
+  --text-color: var(--col-white-alpha);
+
+  position: relative;
+  z-index: var(--z-default);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -6,50 +10,68 @@
   max-width: to-rem(184);
   flex-grow: 1;
   padding: to-rem(12) to-rem(10);
-  border: to-rem(2) solid var(--app-link-border-color);
-  color: var(--app-link-text);
+  color: var(--text-color);
   background-color: transparent;
   box-shadow: none;
   font-size: to-rem(16);
-  line-height: 1.25;
-  font-weight: 700;
+  line-height: 1.2;
+  font-weight: 600;
   user-select: none;
-  transition-property: color, background-color, border-color, box-shadow;
+  transition-property: color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+}
+
+.app-link__content {
+  position: relative;
+  z-index: var(--z-default);
+}
+
+.app-link--primary {
+  --border-color: var(--col-white-alpha);
+  --border: #{to-rem(1)} solid var(--border-color);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: var(--z-hidden);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-bg-color);
+    border: var(--border);
+    transition-property: transform, border-color;
+    transition-duration: var(--medium-transition-duration);
+    transition-timing-function: var(--hover-transition-timing-function);
+  }
+
+  &::before {
+    transform: translate(#{to-rem(5)}, #{to-rem(5)});
+  }
 
   @media all and (hover: hover) {
     &:hover,
     &:focus-visible {
-      color: var(--app-link-text-hover);
-      background-color: var(--app-link-border-color-hover);
-      border-top-color: var(--app-link-border-color-hover);
-      border-right-color: var(--app-link-border-color-hover);
-      border-left-color: var(--primary-bg-color);
-      border-bottom-color: var(--primary-bg-color);
-      box-shadow: -#{to-rem(5)} to-rem(5) 0 -#{to-rem(3)}
-        var(--app-link-border-color-hover);
+      --border-color: var(--col-primary-grey);
+
+      color: var(--text-color);
+
+      &::before {
+        transform: translate(0, 0);
+      }
     }
   }
 }
 
-.app-link--primary {
-  --app-link-border-color: var(--col-total-black);
-  --app-link-border-color-hover: var(--col-total-black);
-  --app-link-text: var(--col-total-black);
-  --app-link-text-hover: var(--col-total-white);
-
+.app-link--secondary {
   @media all and (hover: hover) {
     &:hover,
     &:focus-visible {
-      color: var(--app-link-text-hover);
-      background-color: var(--app-link-border-color-hover);
-      border-top-color: var(--app-link-border-color-hover);
-      border-right-color: var(--app-link-border-color-hover);
-      border-left-color: var(--col-total-white);
-      border-bottom-color: var(--col-total-white);
-      box-shadow: -#{to-rem(5)} to-rem(5) 0 -#{to-rem(3)}
-        var(--app-link-border-color-hover);
+      --text-color: var(--col-primary-grey);
+
+      color: var(--text-color);
     }
   }
 }

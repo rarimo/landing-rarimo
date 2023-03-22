@@ -2,7 +2,7 @@ import './CommunitySection.scss';
 
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import AppLink from '@/components/AppLink';
+import AppLink, { APP_LINK_SCHEMES } from '@/components/AppLink';
 import BaseCardList from '@/components/BaseCardList';
 import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
@@ -44,18 +44,21 @@ const CommunitySection = ({ isHomePage = true }) => {
             <AppLink
               className="community-section__link"
               routePath={ROUTES_PATHS.testnet}
+              scheme={APP_LINK_SCHEMES.secondary}
               textKey="community-section.join-testnet-link"
             />
             <AppLink
               className="community-section__link"
               href={CONFIG.whitePaperLink}
-              textKey="community-section.white-paper-link"
+              scheme={APP_LINK_SCHEMES.secondary}
+              textKey="community-section.whitepaper-link"
             />
           </>
         ) : (
           <AppLink
             className="community-section__link"
             routePath={ROUTES_PATHS.testnetSignUp}
+            scheme={APP_LINK_SCHEMES.secondary}
             textKey="community-section.sign-up-link"
           />
         )}
