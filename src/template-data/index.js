@@ -8,3 +8,4 @@ export * from './implementation-list.data';
 export * from './supported-ft.data';
 export * from './integrations-list.data';
 export * from './how-it-works-groups-list.data';
+export * from './what-rarimo-does-section.data';

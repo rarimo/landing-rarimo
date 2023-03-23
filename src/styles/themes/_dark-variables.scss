@@ -1,12 +1,15 @@
 [color-scheme='dark'] {
-  --primary-bg-color: #402929;
+  // --primary-bg-color: #402929;
+  --primary-bg-color: var(--col-primary-black);
+  --accent-bg-color: var(--col-primary-green);
   --primary-title-color: var(--col-total-white);
   --secondary-title-color: var(--col-white-alpha);
   --primary-text-color: var(--col-primary-grey);
-  --secondary-text-color: var(--col-white-alpha);
+  --secondary-text-color: var(--col-black-alpha);
   --primary-btn-color: var(--secondary-title-color);
-  --primary-divider-color: var(--col-total-black);
+  --primary-divider-color: var(--col-primary-black);
   --bg-rect-border-color: rgba(#{$col-total-white-rgb}, 5%);
+  --bg-rect-border-color-accent: rgba(#{$col-total-black-rgb}, 5%);
 
   // Base card
   --base-card-bg: var(--col-gluon-grey);

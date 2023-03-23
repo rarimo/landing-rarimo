@@ -1,0 +1,96 @@
+.what-rarimo-does-section {
+  position: relative;
+  padding-top: bg-space(2);
+  padding-bottom: bg-space(2);
+
+  background-color: var(--accent-bg-color);
+  background-image: url('/img/bg/green-rect.png');
+  background-size: var(--primary-bg-rect-size);
+  background-repeat: repeat;
+  // background-position-x: center;
+
+  @extend %accent-bg-plh;
+}
+
+.what-rarimo-does-section__subtitle {
+  height: bg-space(1);
+  width: bg-space(7);
+  display: flex;
+  align-items: center;
+  margin-bottom: bg-space(2);
+  padding: 0 bg-space(1);
+  font-size: to-rem(20);
+  text-transform: uppercase;
+
+  @include block-with-bg-border(var(--accent-bg-color));
+}
+
+.what-rarimo-does-section__title-wrapper {
+  height: bg-space(14);
+  width: bg-space(24);
+  margin-bottom: bg-space(2);
+  padding: bg-space(1);
+
+  @include block-with-bg-border(var(--accent-bg-color));
+}
+
+.what-rarimo-does-section__title {
+  max-width: to-rem(800);
+  margin-bottom: bg-space(1);
+  text-transform: uppercase;
+}
+
+.what-rarimo-does-section__description {
+  max-width: to-rem(678);
+  letter-spacing: 0.02em;
+}
+
+.what-rarimo-does-section__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: bg-space(7);
+  grid-gap: bg-space(1);
+
+  @include respond-above(md) {
+    grid-template-columns: 11fr 12fr 11fr;
+  }
+
+  @include respond-above(xm) {
+    grid-gap: bg-space(2);
+  }
+}
+
+.what-rarimo-does-section__list-item {
+  height: 100%;
+  padding: bg-space(1);
+
+  @include block-with-bg-border(var(--accent-bg-color));
+}
+
+.what-rarimo-does-section__list-item-icon {
+  height: to-rem(24);
+  width: to-rem(24);
+  display: flex;
+  margin-bottom: to-rem(16);
+}
+
+.what-rarimo-does-section__list-item-title {
+  position: relative;
+  margin-bottom: bg-space(1);
+  font-size: to-rem(20);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -#{to-rem(16)};
+    left: 0;
+    width: 100%;
+    height: to-rem(1);
+    background-color: var(--primary-divider-color);
+  }
+}
+
+.what-rarimo-does-section__list-item-text {
+  font-size: to-rem(16);
+  color: var(--secondary-text-color);
+}

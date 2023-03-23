@@ -2,8 +2,6 @@
   position: relative;
   padding-top: calc(var(--app-bar-height) + #{to-rem(40)});
   padding-bottom: max(15vmin, to-rem(64));
-  display: flex;
-  flex-direction: column;
 
   background-image: url('/img/bg/black-rect.png');
   background-size: var(--primary-bg-rect-size);
@@ -11,7 +9,7 @@
   // background-position-x: center;
 
   @include respond-above(md) {
-    padding-bottom: max(9vmin, to-rem(64));
+    // padding-bottom: max(9vmin, to-rem(64));
     // background-repeat: no-repeat;
     // background-size: 40vw;
     // background-position: right center;
@@ -30,6 +28,7 @@
 
   @include respond-above(lg) {
     padding-top: bg-space(4);
+    padding-bottom: bg-space(2);
   }
 }
 
@@ -65,7 +64,6 @@
 }
 
 .home-hero-section__description {
-  font-size: to-rem(20);
   letter-spacing: 0.01em;
 }
 
