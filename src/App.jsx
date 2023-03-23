@@ -9,7 +9,7 @@ const App = () => {
     setTimeout(() => {
       hideLoader();
       defineDesktopFontSizes();
-      initAOS();
+      // initAOS();
     }, CONFIG.initLoaderDelay);
   };
 

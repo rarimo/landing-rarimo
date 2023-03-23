@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import ExperienceSection from '@/components/ExperienceSection';
 import HomeHeroSection from '@/components/HomeHeroSection';
+import WhatRarimoDoesSection from '@/components/WhatRarimoDoesSection';
 import UserCasesSection from '@/components/UserCasesSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import CommunitySection from '@/components/CommunitySection';
@@ -14,10 +15,11 @@ const HomePage = () => {
   return (
     <>
       <HomeHeroSection />
-      <ExperienceSection />
+      <WhatRarimoDoesSection />
+      {/* <ExperienceSection />
       <UserCasesSection />
       <FeaturesSection />
-      <CommunitySection />
+      <CommunitySection /> */}
     </>
   );
 };

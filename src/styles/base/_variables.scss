@@ -11,6 +11,7 @@
   --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
   --col-primary-black: #{$col-cursed-black};
   --col-primary-grey: #{$col-more-than-a-week};
+  --col-primary-green: #{$col-le-max};
 
   --col-error: #{$col-vermilion-cinnabar};
 
@@ -54,10 +55,11 @@
   }
 
   @include respond-above(lg) {
-    --p-size: #{to-rem(18)};
-    --h1-size: #{to-rem(148)};
     --h2-size: #{to-rem(80)};
-    --h3-size: #{to-rem(56)};
+
+    --p-size: #{to-rem(20)};
+    --h1-size: #{to-rem(148)};
+    --h3-size: #{to-rem(60)};
     --h5-size: #{to-rem(52)};
     --h6-size: #{to-rem(32)};
   }
@@ -89,8 +91,8 @@
   }
 
   @include respond-above(lg) {
-    --container-max-width: #{to-rem(1600)};
-    --container-side-padding: #{to-rem(40)};
+    --container-max-width: #{bg-space(40)}; // 1600px
+    --container-side-padding: #{bg-space(1)};
   }
 
   // Common
