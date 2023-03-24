@@ -32,15 +32,15 @@ body {
   overflow-y: auto;
 }
 
-section {
-  @include respond-above(md) {
-    min-height: min(100vh, to-rem(500));
-  }
+// section {
+//   @include respond-above(md) {
+//     min-height: min(100vh, to-rem(500));
+//   }
 
-  @include respond-above(xm) {
-    min-height: min(100vh, to-rem(700));
-  }
-}
+//   @include respond-above(xm) {
+//     min-height: min(100vh, to-rem(700));
+//   }
+// }
 
 body,
 button {

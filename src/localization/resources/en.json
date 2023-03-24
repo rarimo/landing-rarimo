@@ -21,7 +21,15 @@
     "decentralized-network-title": "Decentralized network",
     "decentralized-network-text": "Blockchain core and endless number of validators, no limit on the number of blockchains that can be connected.",
     "security-title": "Security and cost efficiency",
-    "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability. "
+    "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
+  },
+  "verticals-section": {
+    "subtitle": "Verticals",
+    "docs-link": "Documentation",
+    "assets-title": "Assets",
+    "assets-text": "From Defi Lending, to NFT Checkouts, Rarimo makes multi-chain transactions possible",
+    "identites-title": "Identites",
+    "identites-text": "Cross-chain proofs for Soul-Bound Tokens, POAPs, dynamic NFTs and more. For interoperable social graphs and identities"
   },
   "experience-section": {
     "title": "Experience what Rarimo can do",
