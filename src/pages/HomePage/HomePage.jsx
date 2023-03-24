@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
-import ExperienceSection from '@/components/ExperienceSection';
 import HomeHeroSection from '@/components/HomeHeroSection';
 import WhatRarimoDoesSection from '@/components/WhatRarimoDoesSection';
-import UserCasesSection from '@/components/UserCasesSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import CommunitySection from '@/components/CommunitySection';
+import VerticalsSection from '@/components/VerticalsSection';
 import { initSwiper } from '@/js';
 
 const HomePage = () => {
@@ -16,10 +13,7 @@ const HomePage = () => {
     <>
       <HomeHeroSection />
       <WhatRarimoDoesSection />
-      {/* <ExperienceSection />
-      <UserCasesSection />
-      <FeaturesSection />
-      <CommunitySection /> */}
+      <VerticalsSection />
     </>
   );
 };
