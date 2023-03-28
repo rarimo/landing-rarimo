@@ -1,0 +1,5 @@
+.section-wrapper {
+  background-size: var(--primary-bg-rect-size);
+  background-repeat: repeat;
+  background-position-x: var(--section-wrapper-shift, 0);
+}
