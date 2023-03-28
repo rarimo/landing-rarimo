@@ -81,19 +81,20 @@
   --container-side-padding: #{to-rem(24)};
   --primary-bg-rect-size: #{to-rem(40)};
 
-  @include respond-above(md) {
-    --container-side-padding: #{to-rem(36)};
-  }
+  // @include respond-above(md) {
+  //   --container-side-padding: #{to-rem(36)};
+  // }
 
-  @include respond-above(xm) {
-    --container-max-width: #{to-rem(1400)};
-    --container-side-padding: #{to-rem(50)};
-  }
+  // @include respond-above(xm) {
+  //   --container-max-width: #{to-rem(1400)};
+  //   --container-side-padding: #{to-rem(50)};
+  // }
 
-  @include respond-above(lg) {
-    --container-max-width: #{bg-space(40)}; // 1600px
-    --container-side-padding: #{bg-space(1)};
-  }
+  // @include respond-above(lg) {
+  // --container-max-width: #{bg-space(40)}; // 1600px
+  --container-max-width: #{to-rem(1600)};
+  --container-side-padding: #{bg-space(1)};
+  // }
 
   // Common
   --primary-text-color-accent-bg: rgba(#{$col-total-black-rgb}, 64%);
