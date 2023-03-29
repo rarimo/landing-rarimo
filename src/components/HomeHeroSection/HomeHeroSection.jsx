@@ -42,8 +42,16 @@ const HomeHeroSection = () => {
               <AppLink
                 className="home-hero-section__link"
                 routePath={ROUTES_PATHS.testnet}
-                textKey="home-hero-section.join-testnet-link"
-              />
+              >
+                <span>{t('home-hero-section.join-testnet-link')}</span>
+                <svg
+                  className="home-hero-section__link-icon"
+                  height="13"
+                  width="13"
+                >
+                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                </svg>
+              </AppLink>
               <AppLink
                 className="home-hero-section__link"
                 href={CONFIG.whitePaperLink}
@@ -62,12 +70,22 @@ const HomeHeroSection = () => {
         </div>
 
         <div className="home-hero-section__scroll-for-more">
+          <svg
+            className="home-hero-section__scroll-for-more-icon"
+            height="13"
+            width="13"
+          >
+            <use href="/icons/sprite.svg#icon-arrow-right"></use>
+          </svg>
           <span>{t('home-hero-section.scroll-for-more')}</span>
         </div>
 
         <div className="home-hero-section__marquee">
           <Marquee speed={100} gradient={false}>
             <h5>{t('home-hero-section.marquee')}</h5>
+            <svg height="8" width="8">
+              <use href="/icons/sprite.svg#icon-rect"></use>t
+            </svg>
           </Marquee>
         </div>
       </section>

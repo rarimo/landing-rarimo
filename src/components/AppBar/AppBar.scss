@@ -82,6 +82,8 @@
 }
 
 .app-bar__link-icon {
+  transform: rotate(-45deg);
+
   &:not(:first-child) {
     margin-left: to-rem(8);
   }

@@ -81,6 +81,10 @@
   }
 }
 
+.home-hero-section__link-icon {
+  margin-left: to-rem(12);
+}
+
 .home-hero-section__blockchains-wrapper {
   height: bg-space(3);
   width: bg-space(11);
@@ -93,15 +97,21 @@
 
 .home-hero-section__scroll-for-more {
   height: bg-space(1);
-  width: bg-space(5);
+  width: bg-space(6);
   display: flex;
   align-items: center;
   margin-bottom: bg-space(2);
+  padding-left: bg-space(1);
   font-size: to-rem(14);
   color: var(--primary-text-color);
   text-transform: capitalize;
 
   @include block-with-bg-border;
+}
+
+.home-hero-section__scroll-for-more-icon {
+  transform: rotate(90deg);
+  margin-right: to-rem(18);
 }
 
 .home-hero-section__marquee {
@@ -112,4 +122,8 @@
   text-transform: uppercase;
 
   @include block-with-bg-border;
+
+  .marquee {
+    justify-content: space-around;
+  }
 }

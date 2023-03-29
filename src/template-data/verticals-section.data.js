@@ -1,11 +1,11 @@
 export const verticalsSectionList = [
   {
-    icon: '/sprite.svg#icon-messages',
+    icon: '/icons/sprite.svg#icon-verticals-assets',
     titleKey: 'verticals-section.assets-title',
     textKey: 'verticals-section.assets-text',
   },
   {
-    icon: '/sprite.svg#icon-monetization',
+    icon: '/icons/sprite.svg#icon-verticals-identities',
     titleKey: 'verticals-section.identites-title',
     textKey: 'verticals-section.identites-text',
   },
