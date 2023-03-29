@@ -19,7 +19,7 @@
   align-items: center;
   margin-bottom: bg-space(2);
   padding: 0 bg-space(1);
-  font-size: to-rem(20);
+  font-size: 1em;
   text-transform: uppercase;
 
   @include block-with-bg-border(var(--accent-bg-color));
@@ -77,7 +77,7 @@
 .what-rarimo-does-section__list-item-title {
   position: relative;
   margin-bottom: bg-space(1);
-  font-size: to-rem(20);
+  font-size: 1.25em;
 
   &::after {
     content: '';
@@ -91,6 +91,6 @@
 }
 
 .what-rarimo-does-section__list-item-text {
-  font-size: to-rem(16);
+  font-size: 0.8em;
   color: var(--secondary-text-color);
 }
