@@ -29,7 +29,7 @@ const UserCasesSection = () => {
             type="button"
           >
             <svg height="16" width="16">
-              <use href="/sprite.svg#icon-arrow-right"></use>
+              <use href="/icons/sprite.svg#icon-arrow-right"></use>
             </svg>
           </button>
           <button
@@ -37,7 +37,7 @@ const UserCasesSection = () => {
             type="button"
           >
             <svg height="16" width="16">
-              <use href="/sprite.svg#icon-arrow-right"></use>
+              <use href="/icons/sprite.svg#icon-arrow-right"></use>
             </svg>
           </button>
           <ul
@@ -141,7 +141,7 @@ const UserCasesSection = () => {
               >
                 <div className="user-cases-section__card-edit-icon-wrapper">
                   <svg height="32" width="32">
-                    <use href="/sprite.svg#icon-edit"></use>
+                    <use href="/icons/sprite.svg#icon-edit"></use>
                   </svg>
                 </div>
                 <h4 className="user-cases-section__card-title">

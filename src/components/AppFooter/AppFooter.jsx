@@ -11,7 +11,7 @@ const AppFooter = () => {
         <div className="app-footer__content">
           <Link className="app-footer__logo" to={ROUTES_PATHS.home}>
             <svg className="app-footer__logo-img" height="24" width="93">
-              <use href="/sprite.svg#icon-app-logo"></use>
+              <use href="/icons/sprite.svg#icon-app-logo"></use>
             </svg>
           </Link>
           <div className="app-footer__links-wrapper">
@@ -22,7 +22,7 @@ const AppFooter = () => {
               rel="nofollow noopener noreferrer"
             >
               <svg className="app-footer__link-icon" height="18" width="16">
-                <use href="/sprite.svg#icon-discord"></use>
+                <use href="/icons/sprite.svg#icon-discord"></use>
               </svg>
             </a>
             <a
@@ -32,7 +32,7 @@ const AppFooter = () => {
               rel="nofollow noopener noreferrer"
             >
               <svg className="app-footer__link-icon" height="14" width="17">
-                <use href="/sprite.svg#icon-twitter"></use>
+                <use href="/icons/sprite.svg#icon-twitter"></use>
               </svg>
             </a>
           </div>

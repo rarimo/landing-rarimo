@@ -55,7 +55,7 @@ const AppBar = () => {
         <div className="app-bar__content">
           <Link className="app-bar__logo" to={ROUTES_PATHS.home}>
             <svg className="app-bar__logo-img" height="28" width="108">
-              <use href="/sprite.svg#icon-app-logo"></use>
+              <use href="/icons/sprite.svg#icon-app-logo"></use>
             </svg>
           </Link>
 
@@ -69,8 +69,8 @@ const AppBar = () => {
               rel="nofollow noopener noreferrer"
             >
               <span>{t('app-bar.discord')}</span>
-              <svg className="app-bar__link-icon" height="18" width="16">
-                <use href="/sprite.svg#icon-discord"></use>
+              <svg className="app-bar__link-icon" height="12" width="12">
+                <use href="/icons/sprite.svg#icon-arrow-right"></use>
               </svg>
             </a>
             <a
@@ -80,8 +80,8 @@ const AppBar = () => {
               rel="nofollow noopener noreferrer"
             >
               <span>{t('app-bar.twitter')}</span>
-              <svg className="app-bar__link-icon" height="14" width="17">
-                <use href="/sprite.svg#icon-twitter"></use>
+              <svg className="app-bar__link-icon" height="12" width="12">
+                <use href="/icons/sprite.svg#icon-arrow-right"></use>
               </svg>
             </a>
           </div>

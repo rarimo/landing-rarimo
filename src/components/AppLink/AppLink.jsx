@@ -15,6 +15,7 @@ const AppLink = ({
   href,
   textKey,
   scheme = APP_LINK_SCHEMES.primary,
+  children,
 }) => {
   const { t } = useTranslation();
 
@@ -24,7 +25,7 @@ const AppLink = ({
         className={cn(['app-link', `app-link--${scheme}`, className])}
         to={routePath}
       >
-        <span className="app-link__content">{t(textKey)}</span>
+        <span className="app-link__content">{children ?? t(textKey)}</span>
       </Link>
     );
   }
@@ -36,7 +37,7 @@ const AppLink = ({
       target="_blank"
       rel="nofollow noopener noreferrer"
     >
-      <span className="app-link__content">{t(textKey)}</span>
+      <span className="app-link__content">{children ?? t(textKey)}</span>
     </a>
   );
 };

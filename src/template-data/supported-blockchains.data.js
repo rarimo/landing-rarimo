@@ -1,26 +1,26 @@
 export const supportedBlockchainsList = [
   {
-    icon: '/sprite.svg#icon-ethereum',
+    icon: '/icons/sprite.svg#icon-ethereum',
     text: 'Ethereum',
   },
   {
-    icon: '/sprite.svg#icon-solana',
+    icon: '/icons/sprite.svg#icon-solana',
     text: 'Solana',
   },
   {
-    icon: '/sprite.svg#icon-binance',
+    icon: '/icons/sprite.svg#icon-binance',
     text: 'Binance',
   },
   {
-    icon: '/sprite.svg#icon-near',
+    icon: '/icons/sprite.svg#icon-near',
     text: 'Near',
   },
   {
-    icon: '/sprite.svg#icon-avalanche',
+    icon: '/icons/sprite.svg#icon-avalanche',
     text: 'Avalanche',
   },
   {
-    icon: '/sprite.svg#icon-polygon',
+    icon: '/icons/sprite.svg#icon-polygon',
     text: 'Polygon',
   },
 ];

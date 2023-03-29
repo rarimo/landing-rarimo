@@ -46,7 +46,7 @@ const AdvantagesSection = () => {
             height="24"
             width="24"
           >
-            <use href="/sprite.svg#icon-play"></use>
+            <use href="/icons/sprite.svg#icon-play"></use>
           </svg>
         </button>
 

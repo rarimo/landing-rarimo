@@ -95,7 +95,7 @@ const CommunitySection = ({ isHomePage = true }) => {
                       height="13"
                       width="11"
                     >
-                      <use href="/sprite.svg#icon-chevron-down"></use>
+                      <use href="/icons/sprite.svg#icon-chevron-down"></use>
                     </svg>
                   </>
                 ) : (

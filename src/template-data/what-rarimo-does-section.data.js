@@ -1,16 +1,16 @@
 export const whatRarimoDoesSectionList = [
   {
-    icon: '/sprite.svg#icon-key',
+    icon: '/icons/sprite.svg#icon-click',
     titleKey: 'what-rarimo-does-section.easy-solutions-title',
     textKey: 'what-rarimo-does-section.easy-solutions-text',
   },
   {
-    icon: '/sprite.svg#icon-transaction-bundling',
+    icon: '/icons/sprite.svg#icon-decentralized',
     titleKey: 'what-rarimo-does-section.decentralized-network-title',
     textKey: 'what-rarimo-does-section.decentralized-network-text',
   },
   {
-    icon: '/sprite.svg#icon-on-chain-verification',
+    icon: '/icons/sprite.svg#icon-shield',
     titleKey: 'what-rarimo-does-section.security-title',
     textKey: 'what-rarimo-does-section.security-text',
   },
