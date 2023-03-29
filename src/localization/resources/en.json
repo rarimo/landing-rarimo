@@ -1,6 +1,10 @@
 {
   "app": {
-    "title": "Rarimo Lending"
+    "title": "Rarimo Landing"
+  },
+  "app-bar": {
+    "discord": "Discord",
+    "twitter": "Twitter"
   },
   "home-hero-section": {
     "title": "Unlocked & Connected",

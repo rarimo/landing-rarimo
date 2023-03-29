@@ -101,9 +101,8 @@
   --scrollbar-color: var(--primary-text-color);
 
   // App bar
-  --app-bar-height: calc(var(--primary-bg-rect-size) * 2);
-  --app-bar-bg: #{lighten($col-total-black, 7%)};
-  --app-bar-shadow: 0 0.4rem 2rem rgba(#{$col-total-black-rgb}, 10%);
+  --app-bar-height: #{bg-space(2)};
+  --app-bar-logo-color: var(--secondary-title-color);
 
   // App footer
   --app-footer-height: #{to-rem(104)};
