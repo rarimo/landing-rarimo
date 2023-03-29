@@ -18,7 +18,10 @@ function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
 }
 
 export const defineDesktopFontSizes = () => {
-  root.style.setProperty('--p-size-xm', clampBuilder(1200, 1512, 0.875, 1));
-  root.style.setProperty('--h2-size-xm', clampBuilder(1200, 1512, 3.5, 4.375));
-  root.style.setProperty('--h3-size-xm', clampBuilder(1200, 1512, 2, 3));
+  root.style.setProperty('--p-size-xm', clampBuilder(1200, 1600, 0.875, 1.25));
+  root.style.setProperty('--h1-size-xm', clampBuilder(1200, 1600, 6.5, 9.125));
+  root.style.setProperty('--h2-size-xm', clampBuilder(1200, 1600, 3.5, 4.375));
+  root.style.setProperty('--h3-size-xm', clampBuilder(1200, 1600, 3, 3.75));
+  root.style.setProperty('--h5-size-xm', clampBuilder(1200, 1600, 2.375, 3.25));
+  root.style.setProperty('--h6-size-xm', clampBuilder(1200, 1600, 1.375, 2));
 };
