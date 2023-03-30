@@ -35,16 +35,6 @@
     "identites-title": "Identites",
     "identites-text": "Cross-chain proofs for Soul-Bound Tokens, POAPs, dynamic NFTs and more. For interoperable social graphs and identities"
   },
-  "experience-section": {
-    "title": "Experience what Rarimo can do",
-    "subtitle": "Build complex logics to realize full potential in a multichain universe",
-    "access-title": "Access",
-    "access-text": "Access cross-chain network data and allow dynamic interactions",
-    "interoperability-title": "Interoperability",
-    "interoperability-text": "Move Digital assets or in-game items across different ecosystems",
-    "liquidity-title": "Liquidity",
-    "liquidity-text": "Build liquidity pools across chains, with reduced gas requirements"
-  },
   "user-cases-section": {
     "title": "Start building",
     "subtitle": "Enable seamless user experience with a single click interactions",
@@ -61,17 +51,6 @@
     "staking-text": "Create investment strategy and publish it as a smart contract, to be executed automatically across chains.",
     "share-title": "Share what you’re building",
     "backers-title": "Backers"
-  },
-  "features-section": {
-    "title": "Key features",
-    "join-testnet-link": "Join Testnet",
-    "whitepaper-link": "Whitepaper",
-    "security-title": "Security",
-    "security-text": "Using a threshold signature mechanism for creating proofs for asset unlocking, Rarimo offers a greater number of validators — while maintaining speed and keeping gas costs low.",
-    "transaction-bundling-title": "Transaction Bundling",
-    "transaction-bundling-text": "Users can seamlessly transfer digital assets and identities across chains with a minimum number of actions. Executing cross-chain interactions with a single click.",
-    "on-chain-verification-title": "On-Chain verification and provenance",
-    "on-chain-verification-text": "Allowing to retrieve and publish timestamped proofs about the state and activities, removing the need for additional chain or smart contract integrations."
   },
   "community-section": {
     "title": "Start building with Rarimo",
