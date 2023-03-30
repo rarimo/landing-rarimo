@@ -12,6 +12,14 @@
   @extend %accent-bg-plh;
 }
 
+.what-rarimo-does-section__main-content {
+  background-image: url('/img/what-rarimo-does-section/books.png');
+  background-size: bg-space(10);
+  background-repeat: no-repeat;
+  background-position: top bg-space(0.5) right
+    calc(#{bg-space(2)} + #{to-rem(2)});
+}
+
 .what-rarimo-does-section__subtitle {
   height: bg-space(1);
   width: bg-space(7);
