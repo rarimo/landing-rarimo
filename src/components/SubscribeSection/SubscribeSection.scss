@@ -1,0 +1,34 @@
+.subscribe-section {
+  padding-top: bg-space(2);
+  padding-bottom: bg-space(2);
+
+  background-color: var(--accent-bg-color);
+  background-image: url('/img/bg/green-rect.png');
+  background-size: var(--primary-bg-rect-size);
+  background-repeat: repeat;
+
+  @extend %accent-bg-plh;
+}
+
+.subscribe-section__content {
+  width: 100%;
+  max-width: bg-space(24);
+  height: bg-space(7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: bg-space(1);
+
+  @include block-with-bg-border(var(--accent-bg-color));
+}
+
+.subscribe-section__title {
+  text-transform: uppercase;
+}
+
+.subscribe-section__description {
+  font-size: 0.85em;
+  color: var(--secondary-text-color);
+}

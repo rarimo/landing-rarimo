@@ -3,6 +3,7 @@ import HomeHeroSection from '@/components/HomeHeroSection';
 import WhatRarimoDoesSection from '@/components/WhatRarimoDoesSection';
 import VerticalsSection from '@/components/VerticalsSection';
 import BackersSection from '@/components/BackersSection';
+import SubscribeSection from '@/components/SubscribeSection';
 import { initSwiper } from '@/js';
 
 const HomePage = () => {
@@ -16,6 +17,7 @@ const HomePage = () => {
       <WhatRarimoDoesSection />
       <VerticalsSection />
       <BackersSection />
+      <SubscribeSection />
     </>
   );
 };
