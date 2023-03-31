@@ -38,6 +38,12 @@
   "backers-section": {
     "subtitle": "Backers"
   },
+  "subscribe-section": {
+    "title": "Subscribe to our newsletter",
+    "description": "Stay up-to-date about new features and supported apps & Games",
+    "input-plh": "Enter you mail",
+    "subscribe-btn": "Subscribe"
+  },
   "user-cases-section": {
     "title": "Start building",
     "subtitle": "Enable seamless user experience with a single click interactions",
