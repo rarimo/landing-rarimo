@@ -63,15 +63,16 @@
   },
   "community-section": {
     "title": "Start building with Rarimo",
-    "description": "Our community is here to help, get hands-on approach and tailored support to the unique needs of your project",
+    "description": "Our community is here to help! Enjoy support tailored to the unique needs of your project",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
     "sign-up-link": "Sign up",
-    "learn-more-link": "Learn More",
-    "coming-soon-text": "Coming soon",
-    "engineering-support-title": "Engineering support",
+    "support-title": "Engineric Support",
+    "support-desc": "Make your engineering workflow more efficient",
     "grant-programs-title": "Grant Programs",
-    "discord-title": "Discord Comunity"
+    "grant-programs-desc": "Coming soon",
+    "discord-title": "Discord Comunity",
+    "discord-desc": "Connect with like-minded community for support and inspiration"
   },
   "testnet-hero-section": {
     "title": "Join private Testnet",

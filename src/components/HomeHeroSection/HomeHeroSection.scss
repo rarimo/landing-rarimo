@@ -7,25 +7,10 @@
   background-image: url('/img/bg/black-rect.png');
   background-size: var(--primary-bg-rect-size);
   background-repeat: repeat;
-  // background-position-x: center;
-
-  @include respond-above(md) {
-    // padding-bottom: max(9vmin, to-rem(64));
-    // background-repeat: no-repeat;
-    // background-size: 40vw;
-    // background-position: right center;
-    // background-image: url('/img/home-hero-section/decor-bg.png');
-  }
 
   @include respond-above(xm) {
     padding-top: bg-space(2);
     padding-bottom: bg-space(2);
-  }
-
-  @include respond-above(xl) {
-  }
-
-  @include respond-above(lg) {
   }
 }
 
