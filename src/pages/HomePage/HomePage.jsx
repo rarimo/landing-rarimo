@@ -4,6 +4,7 @@ import WhatRarimoDoesSection from '@/components/WhatRarimoDoesSection';
 import VerticalsSection from '@/components/VerticalsSection';
 import BackersSection from '@/components/BackersSection';
 import SubscribeSection from '@/components/SubscribeSection';
+import CommunitySection from '@/components/CommunitySection';
 import { initSwiper } from '@/js';
 
 const HomePage = () => {
@@ -18,6 +19,7 @@ const HomePage = () => {
       <VerticalsSection />
       <BackersSection />
       <SubscribeSection />
+      <CommunitySection />
     </>
   );
 };
