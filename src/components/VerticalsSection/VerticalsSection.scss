@@ -1,8 +1,8 @@
 .verticals-section {
-  position: relative;
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
 
+  background-color: var(--primary-bg-color);
   background-image: url('/img/bg/black-rect.png');
   background-size: var(--primary-bg-rect-size);
   background-repeat: repeat;
