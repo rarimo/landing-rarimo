@@ -35,6 +35,9 @@
     "identites-title": "Identites",
     "identites-text": "Cross-chain proofs for Soul-Bound Tokens, POAPs, dynamic NFTs and more. For interoperable social graphs and identities"
   },
+  "backers-section": {
+    "subtitle": "Backers"
+  },
   "user-cases-section": {
     "title": "Start building",
     "subtitle": "Enable seamless user experience with a single click interactions",
