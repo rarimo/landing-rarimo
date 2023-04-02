@@ -72,8 +72,11 @@
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
-  &:hover {
-    color: var(--secondary-title-color);
+  @media all and (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      color: var(--secondary-title-color);
+    }
   }
 
   &:not(:last-child) {

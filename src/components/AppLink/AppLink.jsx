@@ -16,6 +16,8 @@ const AppLink = ({
   textKey,
   scheme = APP_LINK_SCHEMES.primary,
   children,
+  onClick,
+  ...rest
 }) => {
   const { t } = useTranslation();
 
@@ -24,9 +26,23 @@ const AppLink = ({
       <Link
         className={cn(['app-link', `app-link--${scheme}`, className])}
         to={routePath}
+        {...rest}
       >
         <span className="app-link__content">{children ?? t(textKey)}</span>
       </Link>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <button
+        className={cn(['app-link', `app-link--${scheme}`, className])}
+        type="button"
+        onClick={onClick}
+        {...rest}
+      >
+        <span className="app-link__content">{children ?? t(textKey)}</span>
+      </button>
     );
   }
 
@@ -36,6 +52,7 @@ const AppLink = ({
       href={href}
       target="_blank"
       rel="nofollow noopener noreferrer"
+      {...rest}
     >
       <span className="app-link__content">{children ?? t(textKey)}</span>
     </a>

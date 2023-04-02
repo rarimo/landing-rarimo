@@ -1,5 +1,7 @@
 import './SectionWrapper.scss';
 
+import cn from 'classnames';
+
 export const SECTION_WRAPPER_SCHEME = {
   primary: 'primary',
   accent: 'accent',
@@ -18,11 +20,12 @@ const SCHEMES = {
 
 const SectionWrapper = ({
   children,
+  className,
   scheme = SECTION_WRAPPER_SCHEME.primary,
 }) => {
   return (
     <div
-      className="section-wrapper"
+      className={cn(['section-wrapper', className])}
       style={{
         backgroundImage: `url(${SCHEMES[scheme].image})`,
         backgroundColor: SCHEMES[scheme].color,

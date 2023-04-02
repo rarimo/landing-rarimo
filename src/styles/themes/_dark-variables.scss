@@ -7,18 +7,14 @@
   --primary-text-color: var(--col-primary-grey);
   --secondary-text-color: var(--col-black-alpha);
   --primary-btn-color: var(--secondary-title-color);
-  --primary-divider-color: var(--col-primary-black);
   --bg-rect-border-color: rgba(#{$col-total-white-rgb}, 5%);
   --bg-rect-border-color-accent: rgba(#{$col-total-black-rgb}, 5%);
+  --primary-divider-color: var(--bg-rect-border-color);
 
   // Base card
   --base-card-bg: var(--col-gluon-grey);
   --base-card-shadow-color: #{$col-cool-current};
   --base-card-primary-icon-color: var(--col-tame-teal);
-
-  // App footer
-  --app-footer-border-color: rgba(#{$col-total-white-rgb}, 10%);
-  --app-footer-link-bg: var(--col-gluon-grey);
 
   // Theme switcher
   --theme-switcher-bg: var(--col-total-white);
