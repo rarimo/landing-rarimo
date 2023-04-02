@@ -6,6 +6,10 @@
     "discord": "Discord",
     "twitter": "Twitter"
   },
+  "app-footer": {
+    "discord": "Discord",
+    "twitter": "Twitter"
+  },
   "home-hero-section": {
     "title": "Unlocked & Connected",
     "subtitle": "Decentralized worlds",

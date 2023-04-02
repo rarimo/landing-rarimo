@@ -105,12 +105,8 @@
   --app-bar-logo-color: var(--secondary-title-color);
 
   // App footer
-  --app-footer-height: #{to-rem(104)};
-  --app-footer-logo-color: var(--primary-title-color);
-
-  @include respond-above(xm) {
-    --app-footer-height: #{to-rem(124)};
-  }
+  --app-footer-height: #{bg-space(6)};
+  --app-footer-logo-color: var(--secondary-title-color);
 
   // Nft checkout video
   --nft-checkout-video-bg: rgba(#{$col-total-black-rgb}, 90%);
