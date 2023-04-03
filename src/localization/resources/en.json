@@ -46,7 +46,9 @@
     "title": "Subscribe to our newsletter",
     "description": "Stay up-to-date about new features and supported apps & Games",
     "input-plh": "Enter you mail",
-    "subscribe-btn": "Subscribe"
+    "subscribe-btn": "Subscribe",
+    "err-email-required": "Email is required",
+    "err-wrong-format": "Wrong mail format"
   },
   "user-cases-section": {
     "title": "Start building",

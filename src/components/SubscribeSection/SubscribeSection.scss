@@ -13,7 +13,7 @@
 .subscribe-section__content {
   width: 100%;
   max-width: bg-space(24);
-  height: bg-space(7);
+  height: bg-space(8);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,4 +31,23 @@
 .subscribe-section__description {
   font-size: 0.85em;
   color: var(--secondary-text-color);
+}
+
+.subscribe-section__form {
+  width: 100%;
+  max-width: 44%;
+}
+
+.subscribe-section__subscribe-btn {
+  &.subscribe-section__subscribe-btn {
+    padding: 0;
+    color: var(--secondary-text-color);
+
+    @media all and (hover: hover) {
+      &:hover,
+      &:focus-visible {
+        color: var(--primary-text-color);
+      }
+    }
+  }
 }
