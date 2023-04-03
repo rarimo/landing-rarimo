@@ -3,7 +3,7 @@ import './AppFooter.scss';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import SectionWrapper from '@/components/SectionWrapper';
-import AppLink, { APP_LINK_SCHEMES } from '@/components/AppLink';
+import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
 
@@ -63,9 +63,9 @@ const AppFooter = () => {
             </a>
           </div>
           <div className="app-footer__space" />
-          <AppLink
+          <AppButton
             className="app-footer__scroll-to-top-btn"
-            scheme={APP_LINK_SCHEMES.secondary}
+            scheme={APP_BUTTON_SCHEMES.secondary}
             onClick={onScrollToTop}
           >
             <svg
@@ -75,7 +75,7 @@ const AppFooter = () => {
             >
               <use href="/icons/sprite.svg#icon-arrow-right"></use>
             </svg>
-          </AppLink>
+          </AppButton>
         </footer>
       </div>
     </SectionWrapper>

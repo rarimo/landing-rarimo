@@ -1,7 +1,7 @@
 import './UserCasesSection.scss';
 
 import { useTranslation } from 'react-i18next';
-import AppLink from '@/components/AppLink';
+import AppButton from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
 import { backersList } from '@/template-data';
 import { ROUTES_PATHS } from '@/const';
@@ -59,7 +59,7 @@ const UserCasesSection = () => {
                 <p className="user-cases-section__card-text">
                   {t('user-cases-section.nft-checkout-text')}
                 </p>
-                <AppLink
+                <AppButton
                   className="user-cases-section__card-link"
                   routePath={ROUTES_PATHS.nftCheckout}
                   textKey="user-cases-section.nft-checkout-btn"

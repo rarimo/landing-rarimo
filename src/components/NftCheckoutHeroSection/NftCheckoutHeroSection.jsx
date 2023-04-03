@@ -3,7 +3,7 @@ import './NftCheckoutHeroSection.scss';
 import { useEffect, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
-import AppLink from '@/components/AppLink';
+import AppButton from '@/components/AppButton';
 import { CONFIG } from '@/config';
 import { VIDEO_BG_COLOR } from '@/const';
 
@@ -99,7 +99,7 @@ const NftCheckoutHeroSection = () => {
           data-aos="zoom-in"
           data-aos-delay="900"
         >
-          <AppLink
+          <AppButton
             href={CONFIG.nftCheckoutDemoLink}
             textKey="nft-checkout-hero-section.try-demo-link"
           />

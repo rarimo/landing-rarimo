@@ -2,7 +2,7 @@ import './TestnetHeroSection.scss';
 
 import { useTranslation, Trans } from 'react-i18next';
 import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
-import AppLink from '@/components/AppLink';
+import AppButton from '@/components/AppButton';
 import { ROUTES_PATHS } from '@/const';
 
 const TestnetHeroSection = () => {
@@ -25,7 +25,7 @@ const TestnetHeroSection = () => {
         </p>
 
         <div data-aos="zoom-in" data-aos-delay="600">
-          <AppLink
+          <AppButton
             className="testnet-hero-section__link"
             routePath={ROUTES_PATHS.testnetSignUp}
             textKey="testnet-hero-section.sign-up-link"

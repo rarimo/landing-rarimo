@@ -2,7 +2,7 @@ import './VerticalsSection.scss';
 
 import { useTranslation } from 'react-i18next';
 import { verticalsSectionList } from '@/template-data';
-import AppLink from '@/components/AppLink';
+import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import SectionWrapper from '@/components/SectionWrapper';
 
 const VerticalsSection = () => {
@@ -15,10 +15,11 @@ const VerticalsSection = () => {
           <h6 className="verticals-section__subtitle">
             {t('verticals-section.subtitle')}
           </h6>
-          <AppLink
+          <AppButton
             className="verticals-section__docs-link"
             routePath={null}
             textKey="verticals-section.docs-link"
+            scheme={APP_BUTTON_SCHEMES.solidBorder}
           />
         </div>
         <ul className="verticals-section__list">

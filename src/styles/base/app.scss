@@ -156,6 +156,10 @@ img {
   vertical-align: middle;
 }
 
+::placeholder {
+  color: var(--secondary-text-color) !important;
+}
+
 .container {
   width: 100%;
   max-width: var(--container-max-width);

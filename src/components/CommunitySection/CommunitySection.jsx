@@ -2,7 +2,7 @@ import './CommunitySection.scss';
 
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import AppLink, { APP_LINK_SCHEMES } from '@/components/AppLink';
+import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import SectionWrapper from '@/components/SectionWrapper';
 import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
@@ -33,7 +33,7 @@ const CommunitySection = ({ isHomePage = true }) => {
           <div className="community-section__links-wrapper">
             {isHomePage ? (
               <>
-                <AppLink
+                <AppButton
                   className="community-section__link"
                   routePath={ROUTES_PATHS.testnet}
                 >
@@ -45,19 +45,19 @@ const CommunitySection = ({ isHomePage = true }) => {
                   >
                     <use href="/icons/sprite.svg#icon-arrow-right"></use>
                   </svg>
-                </AppLink>
-                <AppLink
+                </AppButton>
+                <AppButton
                   className="community-section__link"
                   href={CONFIG.whitePaperLink}
-                  scheme={APP_LINK_SCHEMES.secondary}
+                  scheme={APP_BUTTON_SCHEMES.secondary}
                   textKey="community-section.whitepaper-link"
                 />
               </>
             ) : (
-              <AppLink
+              <AppButton
                 className="community-section__link"
                 routePath={ROUTES_PATHS.testnetSignUp}
-                scheme={APP_LINK_SCHEMES.secondary}
+                scheme={APP_BUTTON_SCHEMES.secondary}
                 textKey="community-section.sign-up-link"
               />
             )}

@@ -3,7 +3,7 @@ import './HomeHeroSection.scss';
 import { useTranslation } from 'react-i18next';
 import Marquee from 'react-fast-marquee';
 import SectionWrapper from '@/components/SectionWrapper';
-import AppLink, { APP_LINK_SCHEMES } from '@/components/AppLink';
+import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
 import { supportedBlockchainsList } from '@/template-data';
 import { CONFIG } from '@/config';
@@ -39,7 +39,7 @@ const HomeHeroSection = () => {
               data-aos="fade-right"
               data-aos-delay="900"
             >
-              <AppLink
+              <AppButton
                 className="home-hero-section__link"
                 routePath={ROUTES_PATHS.testnet}
               >
@@ -51,11 +51,11 @@ const HomeHeroSection = () => {
                 >
                   <use href="/icons/sprite.svg#icon-arrow-right"></use>
                 </svg>
-              </AppLink>
-              <AppLink
+              </AppButton>
+              <AppButton
                 className="home-hero-section__link"
                 href={CONFIG.whitePaperLink}
-                scheme={APP_LINK_SCHEMES.secondary}
+                scheme={APP_BUTTON_SCHEMES.secondary}
                 textKey="home-hero-section.whitepaper-link"
               />
             </div>
