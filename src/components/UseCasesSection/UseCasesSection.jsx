@@ -34,6 +34,32 @@ const UseCasesSection = () => {
           class="use-cases-section__cases-list use-cases-swiper"
           init="false"
         >
+          <div slot="container-start">
+            <button
+              className="use-cases-section__list-nav-btn use-cases-section__list-nav-btn--prev"
+              type="button"
+            >
+              <svg
+                className="use-cases-section__list-nav-icon"
+                height="26"
+                width="26"
+              >
+                <use href="/icons/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </button>
+            <button
+              className="use-cases-section__list-nav-btn use-cases-section__list-nav-btn--next"
+              type="button"
+            >
+              <svg
+                className="use-cases-section__list-nav-icon"
+                height="26"
+                width="26"
+              >
+                <use href="/icons/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </button>
+          </div>
           <swiper-slide class="use-cases-section__case-wrapper">
             <h2 className="use-cases-section__case-title">
               {t('use-cases-section.nft-checkout-title')}

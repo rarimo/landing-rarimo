@@ -20,6 +20,7 @@ const BackersSection = () => {
                 className="backers-section__item-image"
                 src={item.image}
                 height="20"
+                width="90"
                 alt=""
               />
             </li>
