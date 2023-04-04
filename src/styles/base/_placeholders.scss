@@ -20,7 +20,15 @@
 %accent-bg-plh {
   --primary-title-color: var(--col-primary-black);
   --primary-text-color: var(--col-primary-black);
-  --bg-rect-border-color: var(--bg-rect-border-color-accent);
+  --bg-rect-border-color: var(--col-black-min-alpha);
+
+  color: var(--primary-text-color);
+}
+
+%primary-bg-plh {
+  --primary-title-color: var(--col-total-white);
+  --primary-text-color: var(--col-primary-grey);
+  --bg-rect-border-color: var(--col-white-min-alpha);
 
   color: var(--primary-text-color);
 }

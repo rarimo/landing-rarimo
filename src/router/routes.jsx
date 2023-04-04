@@ -31,16 +31,6 @@ const AppRoutes = () => {
           path: ROUTES_PATHS.nftCheckout,
           element: <NftCheckoutPage />,
         },
-        {
-          path: ROUTES_PATHS.nftSettlement,
-          element: (
-            <Navigate
-              replace
-              to={ROUTES_PATHS.nftCheckout}
-              state={{ isRedirect: true }}
-            />
-          ),
-        },
       ],
     },
     {

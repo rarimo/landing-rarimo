@@ -1,10 +1,10 @@
 import './WhatRarimoDoesSection.scss';
 
 import { useTranslation } from 'react-i18next';
-import { whatRarimoDoesSectionList } from '@/template-data';
 import SectionWrapper, {
   SECTION_WRAPPER_SCHEME,
 } from '@/components/SectionWrapper';
+import { whatRarimoDoesSectionList } from '@/template-data';
 
 const WhatRarimoDoesSection = () => {
   const { t } = useTranslation();

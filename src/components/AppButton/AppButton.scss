@@ -14,7 +14,7 @@
   color: var(--text-color);
   background-color: transparent;
   box-shadow: none;
-  font-size: to-rem(16);
+  font-size: to-rem(14);
   line-height: 1.2;
   font-weight: 600;
   user-select: none;
@@ -22,6 +22,10 @@
   transition-property: color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+
+  @include respond-above(lg) {
+    font-size: to-rem(16);
+  }
 }
 
 .app-button__content {

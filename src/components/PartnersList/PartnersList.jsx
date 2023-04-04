@@ -9,11 +9,7 @@ const PartnersList = ({ titleKey, items, className }) => {
 
   return (
     <div className={cn(['partners-list', className])}>
-      <h6
-        className="partners-list__title overline"
-        data-aos="fade"
-        data-aos-delay="500"
-      >
+      <h6 className="overline" data-aos="fade" data-aos-delay="500">
         {t(titleKey)}
       </h6>
       <ul className="partners-list__list" role="list">
