@@ -5,6 +5,7 @@ import cn from 'classnames';
 export const SECTION_WRAPPER_SCHEME = {
   primary: 'primary',
   accent: 'accent',
+  yellowAccent: 'yellow-accent',
 };
 
 const SCHEMES = {
@@ -15,6 +16,10 @@ const SCHEMES = {
   [SECTION_WRAPPER_SCHEME.accent]: {
     image: '/img/bg/green-rect.png',
     color: 'var(--accent-bg-color)',
+  },
+  [SECTION_WRAPPER_SCHEME.yellowAccent]: {
+    image: '/img/bg/green-rect.png',
+    color: 'var(--yellow-accent-bg-color)',
   },
 };
 

@@ -1,20 +1,14 @@
 [color-scheme='dark'] {
-  // --primary-bg-color: #402929;
   --primary-bg-color: var(--col-primary-black);
   --accent-bg-color: var(--col-primary-green);
+  --yellow-accent-bg-color: var(--col-primary-yellow);
   --primary-title-color: var(--col-total-white);
   --secondary-title-color: var(--col-white-alpha);
   --primary-text-color: var(--col-primary-grey);
   --secondary-text-color: var(--col-black-alpha);
   --primary-btn-color: var(--secondary-title-color);
-  --bg-rect-border-color: rgba(#{$col-total-white-rgb}, 5%);
-  --bg-rect-border-color-accent: rgba(#{$col-total-black-rgb}, 5%);
+  --bg-rect-border-color: var(--col-white-min-alpha);
   --primary-divider-color: var(--bg-rect-border-color);
-
-  // Base card
-  --base-card-bg: var(--col-gluon-grey);
-  --base-card-shadow-color: #{$col-cool-current};
-  --base-card-primary-icon-color: var(--col-tame-teal);
 
   // Theme switcher
   --theme-switcher-bg: var(--col-total-white);

@@ -8,10 +8,13 @@
   --col-total-black: #{$col-total-black};
 
   --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
+  --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 5%);
   --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
+  --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 5%);
   --col-primary-black: #{$col-cursed-black};
   --col-primary-grey: #{$col-more-than-a-week};
   --col-primary-green: #{$col-le-max};
+  --col-primary-yellow: #{$col-sunstitch};
 
   --col-chaos-black: #{$col-chaos-black};
 
@@ -52,7 +55,7 @@
   @include respond-above(xm) {
     --p-size: var(--p-size-xm);
     --h1-size: var(--h1-size-xm); // 104px - 146px
-    --h2-size: var(--h2-size-xm);
+    --h2-size: var(--h2-size-xm); // 80px - 112px
     --h3-size: var(--h3-size-xm); // 48px - 60px
     --h4-size: var(--h4-size-xm); // 42px - 56px
     --h5-size: var(--h5-size-xm); // 38px - 52px
@@ -109,6 +112,13 @@
   // App footer
   --app-footer-height: #{bg-space(6)};
   --app-footer-logo-color: var(--secondary-title-color);
+
+  // Use cases section
+  --use-cases-section-case-bg-gradient: conic-gradient(
+    from 164.83deg at 63.38% 38.28%,
+    var(--col-primary-black) 0deg,
+    #{$col-carbon-fiber} 360deg
+  );
 
   // Nft checkout video
   --nft-checkout-video-bg: rgba(#{$col-total-black-rgb}, 90%);

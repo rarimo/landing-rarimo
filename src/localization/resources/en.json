@@ -39,6 +39,21 @@
     "identites-title": "Identites",
     "identites-text": "Cross-chain proofs for Soul-Bound Tokens, POAPs, dynamic NFTs and more. For interoperable social graphs and identities"
   },
+  "use-cases-section": {
+    "subtitle": "Featured use cases",
+    "share-text": "Are you building something?",
+    "share-link": "Share now",
+    "view-demo-link": "View Demo",
+    "view-docs-link": "View Docs",
+    "nft-checkout-title": "NFT Checkout",
+    "nft-checkout-desc": "With Rarimo, developers can build fully decentralized NFT checkouts with non-native tokens",
+    "crosschain-proofs-title": "Crosschain proofs",
+    "crosschain-proofs-desc": "Verify the NFT / SBT ownership and easily retrieve the metadata stored on Rarimo",
+    "multichain-minting-title": "Multichain minting",
+    "multichain-minting-desc": "Simplify the flow for airdropping and allow community to mint and hold tokens on their preferred chain",
+    "description-title": "Description",
+    "partners-title": "Partners"
+  },
   "backers-section": {
     "subtitle": "Backers"
   },
@@ -49,23 +64,6 @@
     "subscribe-btn": "Subscribe",
     "err-email-required": "Email is required",
     "err-wrong-format": "Wrong mail format"
-  },
-  "user-cases-section": {
-    "title": "Start building",
-    "subtitle": "Enable seamless user experience with a single click interactions",
-    "nft-checkout-title": "NFT Checkout",
-    "nft-checkout-text": "Allow buying of NFTs using any token of choice in a single transaction — with the lowest fees.",
-    "nft-checkout-btn": "Learn more",
-    "borrowing-title": "Lending & Borrowing",
-    "borrowing-text": "Integrate protocol with lending platforms, enabling collateralized or uncollateralized lending across different chains.",
-    "asset-verification-title": "Asset Verification",
-    "asset-verification-text": "Retrieve and publish timestamped proofs about an NFT’s state and activities.",
-    "airdrop-title": "Multichain Airdrop",
-    "airdrop-text": "Allow minting and airdrops, where users can redeem NFT tokens on different chain.",
-    "staking-title": "Staking aggregator",
-    "staking-text": "Create investment strategy and publish it as a smart contract, to be executed automatically across chains.",
-    "share-title": "Share what you’re building",
-    "backers-title": "Backers"
   },
   "community-section": {
     "title": "Start building with Rarimo",
