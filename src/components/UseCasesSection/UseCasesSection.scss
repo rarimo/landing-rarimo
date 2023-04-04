@@ -72,11 +72,66 @@
 }
 
 .use-cases-section__cases-list {
+  position: relative;
   height: bg-space(16);
   margin: 0 bg-space(1);
   user-select: none;
 
   @extend %primary-bg-plh;
+}
+
+.use-cases-section__list-nav-btn {
+  position: absolute;
+  z-index: var(--z-user-cases-swiper-arrow);
+  display: grid;
+  place-items: center;
+  right: 0;
+  bottom: 0;
+  height: bg-space(2);
+  width: bg-space(2);
+  background-color: transparent;
+  color: var(--secondary-title-color);
+  cursor: pointer;
+  transition: color var(--hover-transition);
+
+  &:disabled {
+    opacity: 1;
+
+    .use-cases-section__list-nav-icon {
+      opacity: 0.5;
+    }
+  }
+
+  &--prev {
+    bottom: bg-space(2);
+    transform: rotate(180deg);
+
+    @media all and (hover: hover) {
+      &:not(:disabled) {
+        &:hover,
+        &:focus-visible {
+          color: var(--primary-title-color);
+        }
+      }
+    }
+  }
+
+  &--next {
+    background-color: var(--yellow-accent-bg-color);
+    background-image: url('/img/bg/green-rect.png');
+    background-size: var(--primary-bg-rect-size);
+    background-repeat: repeat;
+    color: var(--col-black-alpha);
+
+    @media all and (hover: hover) {
+      &:not(:disabled) {
+        &:hover,
+        &:focus-visible {
+          color: var(--col-primary-black);
+        }
+      }
+    }
+  }
 }
 
 .use-cases-section__case-wrapper {

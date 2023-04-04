@@ -1,37 +1,24 @@
-import 'swiper/css/bundle';
-
-import Swiper from 'swiper/bundle';
+import { register } from 'swiper/element/bundle';
+register();
 
 export const initSwiper = () => {
-  const sharedOptions = {
-    mousewheel: {
-      forceToAxis: true,
-    },
-    grabCursor: true,
-    edgeSwipeDetection: true,
+  const swiperEl = document.querySelector('.use-cases-swiper');
 
-    speed: 1000,
+  const swiperParams = {
+    slidesPerView: 1,
+    speed: 1200,
+    allowTouchMove: false,
+    navigation: {
+      nextEl: '.use-cases-section__list-nav-btn--next',
+      prevEl: '.use-cases-section__list-nav-btn--prev',
+    },
     a11y: {
       slideRole: 'listitem',
+      containerRoleDescriptionMessage: 'Use cases list',
+      itemRoleDescriptionMessage: 'Use case',
     },
   };
 
-  new Swiper('.user-cases-swiper', {
-    ...sharedOptions,
-    slidesPerView: 1,
-    spaceBetween: 16,
-    breakpoints: {
-      800: {
-        slidesPerView: 2,
-      },
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 24,
-      },
-    },
-    navigation: {
-      nextEl: '.user-cases-section__list-nav-btn--next',
-      prevEl: '.user-cases-section__list-nav-btn--prev',
-    },
-  });
+  Object.assign(swiperEl, swiperParams);
+  swiperEl.initialize();
 };
