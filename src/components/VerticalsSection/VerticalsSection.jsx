@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { verticalsSectionList } from '@/template-data';
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import SectionWrapper from '@/components/SectionWrapper';
+import { CONFIG } from '@/config';
 
 const VerticalsSection = () => {
   const { t } = useTranslation();
@@ -17,7 +18,7 @@ const VerticalsSection = () => {
           </h6>
           <AppButton
             className="verticals-section__docs-link"
-            routePath={null}
+            href={CONFIG.docsLink}
             textKey="verticals-section.docs-link"
             scheme={APP_BUTTON_SCHEMES.solidBorder}
           />

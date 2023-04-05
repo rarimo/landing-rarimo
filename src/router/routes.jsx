@@ -7,8 +7,8 @@ import MainLayout from '@/layouts/MainLayout';
 import RouteTransition from '@/components/RouteTransition';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));
-const TestnetPage = lazy(() => import('@/pages/TestnetPage'));
-const NftCheckoutPage = lazy(() => import('@/pages/NftCheckoutPage'));
+// const TestnetPage = lazy(() => import('@/pages/TestnetPage'));
+// const NftCheckoutPage = lazy(() => import('@/pages/NftCheckoutPage'));
 const TestnetSignUpPage = lazy(() => import('@/pages/TestnetSignUpPage'));
 
 const AppRoutes = () => {
@@ -23,14 +23,14 @@ const AppRoutes = () => {
           element: <HomePage />,
           index: true,
         },
-        {
-          path: ROUTES_PATHS.testnet,
-          element: <TestnetPage />,
-        },
-        {
-          path: ROUTES_PATHS.nftCheckout,
-          element: <NftCheckoutPage />,
-        },
+        // {
+        //   path: ROUTES_PATHS.testnet,
+        //   element: <TestnetPage />,
+        // },
+        // {
+        //   path: ROUTES_PATHS.nftCheckout,
+        //   element: <NftCheckoutPage />,
+        // },
       ],
     },
     {
