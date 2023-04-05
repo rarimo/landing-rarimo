@@ -41,7 +41,7 @@ const HomeHeroSection = () => {
             >
               <AppButton
                 className="home-hero-section__link"
-                routePath={ROUTES_PATHS.testnet}
+                routePath={ROUTES_PATHS.testnetSignUp}
               >
                 <span>{t('home-hero-section.join-testnet-link')}</span>
                 <svg
@@ -54,7 +54,7 @@ const HomeHeroSection = () => {
               </AppButton>
               <AppButton
                 className="home-hero-section__link"
-                href={CONFIG.whitePaperLink}
+                href={CONFIG.whitepaperLink}
                 scheme={APP_BUTTON_SCHEMES.secondary}
                 textKey="home-hero-section.whitepaper-link"
               />

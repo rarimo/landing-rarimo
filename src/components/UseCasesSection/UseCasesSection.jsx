@@ -9,6 +9,7 @@ import AppButton from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
 import { supportedBlockchainsList } from '@/template-data';
 import { ROUTES_PATHS } from '@/const';
+import { CONFIG } from '@/config';
 
 const UseCasesSection = () => {
   const { t } = useTranslation();
@@ -66,7 +67,7 @@ const UseCasesSection = () => {
             </h2>
             <AppButton
               className="use-cases-section__case-link"
-              routePath={ROUTES_PATHS.nftCheckout}
+              href={CONFIG.nftCheckoutDocsLink}
             >
               <span>{t('use-cases-section.view-demo-link')}</span>
               <svg
@@ -97,7 +98,10 @@ const UseCasesSection = () => {
             <h2 className="use-cases-section__case-title">
               {t('use-cases-section.crosschain-proofs-title')}
             </h2>
-            <AppButton className="use-cases-section__case-link" href={null}>
+            <AppButton
+              className="use-cases-section__case-link"
+              href={CONFIG.crosschainProofsDocsLink}
+            >
               <span>{t('use-cases-section.view-docs-link')}</span>
               <svg
                 className="use-cases-section__case-link-icon"
@@ -122,7 +126,10 @@ const UseCasesSection = () => {
             <h2 className="use-cases-section__case-title">
               {t('use-cases-section.multichain-minting-title')}
             </h2>
-            <AppButton className="use-cases-section__case-link" href={null}>
+            <AppButton
+              className="use-cases-section__case-link"
+              href={CONFIG.multichainMintingDocsLink}
+            >
               <span>{t('use-cases-section.view-docs-link')}</span>
               <svg
                 className="use-cases-section__case-link-icon"
