@@ -46,11 +46,16 @@
   --p-size: #{to-rem(16)};
   --h1-size: #{to-rem(56)};
   --h2-size: #{to-rem(56)};
-  --h3-size: #{to-rem(32)};
+  --h3-size: var(--h3-size-xs, #{to-rem(32)});
   --h4-size: #{to-rem(20)};
   --h5-size: #{to-rem(20)};
-  --h6-size: #{to-rem(18)};
+  --h6-size: #{to-rem(20)};
   --overline-size: #{to-rem(12)};
+
+  @include respond-above(sm) {
+    --p-size: #{to-rem(20)};
+    --h3-size: var(--h3-size-sm, #{to-rem(56)});
+  }
 
   @include respond-above(xm) {
     --p-size: var(--p-size-xm);
