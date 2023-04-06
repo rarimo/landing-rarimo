@@ -1,7 +1,7 @@
 .home-hero-section {
   position: relative;
-  padding-top: calc(var(--app-bar-height) + #{to-rem(40)});
-  padding-bottom: max(15vmin, to-rem(64));
+  padding-top: bg-space(3);
+  padding-bottom: bg-space(2);
 
   background-color: var(--primary-bg-color);
   background-image: url('/img/bg/black-rect.png');
@@ -10,59 +10,109 @@
 
   @include respond-above(xm) {
     padding-top: bg-space(2);
-    padding-bottom: bg-space(2);
   }
 }
 
 .home-hero-section__main-content {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: bg-space(2);
-  padding-top: bg-space(2);
-  padding-right: bg-space(1);
+  margin-bottom: bg-space(1);
 
-  background-image: url('/img/home-hero-section/decor.png');
-  background-size: bg-space(5);
-  background-repeat: no-repeat;
-  background-position: top right bg-space(1);
+  @include respond-above(md) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  @include respond-above(xm) {
+    margin-bottom: bg-space(2);
+    padding-top: bg-space(2);
+    padding-right: bg-space(1);
+    background-image: url('/img/home-hero-section/decor.png');
+    background-size: bg-space(5);
+    background-repeat: no-repeat;
+    background-position: top right bg-space(1);
+  }
 }
 
 .home-hero-section__hero-wrapper {
-  width: bg-space(24);
-  height: bg-space(16);
+  height: bg-space(12);
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: bg-space(1);
   padding: bg-space(1);
+  text-align: center;
 
   @include block-with-bg-border;
+
+  @include respond-above(md) {
+    margin-bottom: 0;
+  }
+
+  @include respond-above(xm) {
+    width: bg-space(24);
+    height: bg-space(16);
+    align-items: stretch;
+    text-align: left;
+  }
 }
 
 .home-hero-section__title {
+  max-width: to-rem(300);
   color: var(--secondary-title-color);
   text-transform: uppercase;
+
+  @include respond-above(sm) {
+    max-width: unset;
+  }
 }
 
 .home-hero-section__subtitle {
-  display: flex;
-  order: -1;
-  color: var(--secondary-title-color);
-  text-transform: uppercase;
+  display: none;
+
+  @include respond-above(sm) {
+    display: flex;
+    order: -1;
+    color: var(--secondary-title-color);
+    text-transform: uppercase;
+  }
 }
 
 .home-hero-section__description {
+  max-width: to-rem(300);
   letter-spacing: 0.01em;
+
+  @include respond-above(sm) {
+    max-width: unset;
+  }
 }
 
 .home-hero-section__links-wrapper {
-  min-height: bg-space(1.2);
-  display: flex;
+  width: 100%;
+
+  @include respond-above(sm) {
+    width: auto;
+    display: flex;
+  }
 }
 
 .home-hero-section__link {
+  min-height: bg-space(1.2);
+  width: 100%;
+  max-width: to-rem(300);
+
   &:not(:last-child) {
-    margin-right: to-rem(24);
+    margin-bottom: to-rem(18);
+  }
+
+  @include respond-above(sm) {
+    width: auto;
+    max-width: to-rem(184);
+
+    &:not(:last-child) {
+      margin-right: to-rem(24);
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -72,26 +122,33 @@
 
 .home-hero-section__blockchains-wrapper {
   height: bg-space(3);
-  width: bg-space(11);
   display: flex;
   align-items: center;
   padding: 0 to-rem(24);
 
   @include block-with-bg-border;
+
+  @include respond-above(sm) {
+    width: bg-space(11);
+  }
 }
 
 .home-hero-section__scroll-for-more {
-  height: bg-space(1);
-  width: bg-space(6);
-  display: flex;
-  align-items: center;
-  margin-bottom: bg-space(2);
-  padding-left: bg-space(1);
-  font-size: to-rem(14);
-  color: var(--primary-text-color);
-  text-transform: capitalize;
+  display: none;
 
-  @include block-with-bg-border;
+  @include respond-above(md) {
+    height: bg-space(1);
+    width: bg-space(6);
+    display: flex;
+    align-items: center;
+    margin-bottom: bg-space(2);
+    padding-left: bg-space(1);
+    font-size: to-rem(14);
+    color: var(--primary-text-color);
+    text-transform: capitalize;
+
+    @include block-with-bg-border;
+  }
 }
 
 .home-hero-section__scroll-for-more-icon {
@@ -100,13 +157,17 @@
 }
 
 .home-hero-section__marquee {
-  height: bg-space(3);
+  height: bg-space(2);
   display: flex;
   align-items: center;
-  padding: 0 bg-space(1);
   text-transform: uppercase;
 
   @include block-with-bg-border;
+
+  @include respond-above(md) {
+    height: bg-space(3);
+    padding: 0 bg-space(1);
+  }
 
   .marquee {
     justify-content: space-around;

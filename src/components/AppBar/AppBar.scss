@@ -35,6 +35,15 @@
   display: flex;
   height: 100%;
   align-items: center;
+  padding: 0 bg-space(0.5);
+
+  @include respond-above(sm) {
+    padding: 0 bg-space(1);
+  }
+
+  @include respond-above(xm) {
+    padding: 0;
+  }
 }
 
 .app-bar__logo {

@@ -43,12 +43,12 @@
   --title-font-family: 'Oswald', -apple-system, 'BlinkMacSystemFont', 'Segoe UI',
     'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
 
-  --p-size: #{to-rem(14)};
+  --p-size: #{to-rem(16)};
   --h1-size: #{to-rem(56)};
   --h2-size: #{to-rem(56)};
   --h3-size: #{to-rem(32)};
   --h4-size: #{to-rem(20)};
-  --h5-size: #{to-rem(18)};
+  --h5-size: #{to-rem(20)};
   --h6-size: #{to-rem(18)};
   --overline-size: #{to-rem(12)};
 
@@ -61,16 +61,6 @@
     --h5-size: var(--h5-size-xm); // 38px - 52px
     --h6-size: var(--h6-size-xm); // 22px - 32px
   }
-
-  // @include respond-above(lg) {
-  //   --p-size: #{to-rem(20)};
-  //   --h1-size: #{to-rem(148)};
-  //   --h2-size: #{to-rem(112)};
-  //   --h3-size: #{to-rem(60)};
-  //   --h4-size: #{to-rem(56)};
-  //   --h5-size: #{to-rem(52)};
-  //   --h6-size: #{to-rem(32)};
-  // }
 
   // Transitions
   --fast-transition-duration: 0.2s;
@@ -86,15 +76,12 @@
 
   // Base
   --container-max-width: 100%;
-  --container-side-padding: #{bg-space(1)};
+  --container-side-padding: 0;
   --primary-bg-rect-size: #{to-rem(40)};
-
-  // @include respond-above(md) {
-  //   --container-side-padding: #{to-rem(36)};
-  // }
 
   @include respond-above(xm) {
     --container-max-width: #{to-rem(1300)};
+    --container-side-padding: #{bg-space(1)};
   }
 
   @include respond-above(lg) {
