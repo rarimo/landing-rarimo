@@ -2,8 +2,20 @@ import { createContext, useEffect, useMemo, useRef } from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
 import useRouteLocationContext from '@/hooks/useRouteLocation';
 
-const DEFAULT_RECT_COUNT = 40;
 const DEFAULT_RECT_SIZE = 40;
+
+const getDefaultRectCount = containerWidth => {
+  switch (true) {
+    case containerWidth >= 1200:
+      return 40;
+    case containerWidth >= 1000:
+      return 30;
+    case containerWidth >= 750:
+      return 22;
+    default:
+      return Math.round((containerWidth * 2.7) / 100); // 2.7%
+  }
+};
 
 export const AppContext = createContext({});
 
@@ -33,8 +45,8 @@ export const AppContextProvider = ({ children, isInited }) => {
 
   const defineBgRectSize = pixelsPerRem => {
     const containerWidth = containerRef.current?.clientWidth ?? 0;
-    const rectSizeInPx =
-      containerWidth / DEFAULT_RECT_COUNT || DEFAULT_RECT_SIZE;
+    const defaultRectCount = getDefaultRectCount(containerWidth);
+    const rectSizeInPx = containerWidth / defaultRectCount || DEFAULT_RECT_SIZE;
 
     rootRef.current.style.setProperty(
       '--primary-bg-rect-size',
