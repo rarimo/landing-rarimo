@@ -8,10 +8,6 @@ const getDefaultRectCount = containerWidth => {
   switch (true) {
     case containerWidth >= 1200:
       return 40;
-    case containerWidth >= 1000:
-      return 30;
-    case containerWidth >= 750:
-      return 22;
     default:
       return Math.round((containerWidth * 2.7) / 100); // 2.7%
   }
