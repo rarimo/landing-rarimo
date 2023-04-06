@@ -26,11 +26,9 @@ const VerticalsSection = () => {
         <ul className="verticals-section__list">
           {verticalsSectionList.map((item, index) => (
             <li className="verticals-section__list-item" key={index}>
-              <div className="verticals-section__list-item-icon">
-                <svg height="116">
-                  <use href={item.icon}></use>
-                </svg>
-              </div>
+              <svg className="verticals-section__list-item-icon" height="116">
+                <use href={item.icon}></use>
+              </svg>
               <h6 className="verticals-section__list-item-title">
                 {t(item.titleKey)}
               </h6>
