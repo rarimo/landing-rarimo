@@ -1,17 +1,21 @@
-import useResizeObserver from '@react-hook/resize-observer';
 import { createContext, useEffect, useMemo, useRef } from 'react';
+import useResizeObserver from '@react-hook/resize-observer';
+import useRouteLocationContext from '@/hooks/useRouteLocation';
 
 const DEFAULT_RECT_COUNT = 40;
+const DEFAULT_RECT_SIZE = 40;
 
 export const AppContext = createContext({});
 
 export const AppContextProvider = ({ children, isInited }) => {
+  const { displayLocation } = useRouteLocationContext();
+
   const rootRef = useRef(null);
   const containerRef = useRef(null);
 
   const defineSectionWrapperShift = pixelsPerRem => {
     const bodyWidth = document.body.clientWidth;
-    const containerWidth = containerRef.current.clientWidth;
+    const containerWidth = containerRef.current?.clientWidth ?? 0;
     const diff = bodyWidth - containerWidth;
     const bgRectSize =
       Number.parseFloat(
@@ -28,8 +32,9 @@ export const AppContextProvider = ({ children, isInited }) => {
   };
 
   const defineBgRectSize = pixelsPerRem => {
-    const containerWidth = containerRef.current.clientWidth;
-    const rectSizeInPx = containerWidth / DEFAULT_RECT_COUNT;
+    const containerWidth = containerRef.current?.clientWidth ?? 0;
+    const rectSizeInPx =
+      containerWidth / DEFAULT_RECT_COUNT || DEFAULT_RECT_SIZE;
 
     rootRef.current.style.setProperty(
       '--primary-bg-rect-size',
@@ -38,12 +43,16 @@ export const AppContextProvider = ({ children, isInited }) => {
   };
 
   const positionBg = () => {
-    if (!isInited) return;
+    // FIXME: need to optimize interaction with DOM
 
-    if (!containerRef.current || !rootRef.current) {
+    // if (!containerRef.current || !rootRef.current) {
+    //   rootRef.current = document.documentElement;
+    //   containerRef.current = rootRef.current.querySelector('.container');
+    // }
+    if (!rootRef.current) {
       rootRef.current = document.documentElement;
-      containerRef.current = rootRef.current.querySelector('.container');
     }
+    containerRef.current = rootRef.current.querySelector('.container');
 
     const pixelsPerRem = Number(
       getComputedStyle(rootRef.current).fontSize.slice(0, -2),
@@ -54,12 +63,16 @@ export const AppContextProvider = ({ children, isInited }) => {
   };
 
   useResizeObserver(document.body, entry => {
+    if (!isInited) return;
+
     positionBg();
   });
 
   useEffect(() => {
+    if (!isInited) return;
+
     positionBg();
-  }, [isInited]);
+  }, [isInited, displayLocation]);
 
   const memoizedContextValue = useMemo(() => {
     return {};

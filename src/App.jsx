@@ -23,11 +23,11 @@ const App = () => {
 
   return (
     <div className="application js-application">
-      <AppContextProvider isInited={isInited}>
-        <RouteLocationProvider>
+      <RouteLocationProvider>
+        <AppContextProvider isInited={isInited}>
           <AppRoutes />
-        </RouteLocationProvider>
-      </AppContextProvider>
+        </AppContextProvider>
+      </RouteLocationProvider>
     </div>
   );
 };
