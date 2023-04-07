@@ -1,23 +1,24 @@
 export const backersList = [
   {
-    image: '/img/backers/pantera.webp',
-    width: 78,
-    height: 23,
-  },
-  {
     image: '/img/backers/pareto.webp',
     width: 69,
     height: 10,
   },
   {
-    image: '/img/backers/eniqa.webp',
+    image: '/img/backers/greycroft.webp',
+    width: 72,
+    height: 16,
+  },
+  {
+    image: '/img/backers/eniac.webp',
     width: 53,
     height: 17,
   },
   {
-    image: '/img/backers/greycroft.webp',
-    width: 72,
-    height: 16,
+    image: '/img/backers/pantera.webp',
+    width: 78,
+    height: 23,
+    isIncreased: true,
   },
   {
     image: '/img/backers/hyper.png',

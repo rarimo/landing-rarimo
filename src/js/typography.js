@@ -18,7 +18,14 @@ function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
 }
 
 export const defineDesktopFontSizes = () => {
-  root.style.setProperty('--p-size-xm', clampBuilder(1200, 1512, 0.875, 1));
-  root.style.setProperty('--h2-size-xm', clampBuilder(1200, 1512, 3.5, 4.375));
-  root.style.setProperty('--h3-size-xm', clampBuilder(1200, 1512, 2, 3));
+  root.style.setProperty('--h3-size-xs', clampBuilder(400, 750, 2, 3)); // 32px - 48px
+  root.style.setProperty('--h3-size-sm', clampBuilder(750, 1024, 3, 3.5)); // 48px - 56px
+
+  root.style.setProperty('--p-size-xm', clampBuilder(1200, 1600, 0.875, 1.25));
+  root.style.setProperty('--h1-size-xm', clampBuilder(1200, 1600, 6.5, 9.125));
+  root.style.setProperty('--h2-size-xm', clampBuilder(1200, 1600, 5, 7));
+  root.style.setProperty('--h3-size-xm', clampBuilder(1200, 1600, 3, 3.75));
+  root.style.setProperty('--h4-size-xm', clampBuilder(1200, 1600, 2.625, 3.5));
+  root.style.setProperty('--h5-size-xm', clampBuilder(1200, 1600, 2.375, 3.25));
+  root.style.setProperty('--h6-size-xm', clampBuilder(1200, 1600, 1.375, 2));
 };

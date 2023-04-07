@@ -1,57 +1,53 @@
-import 'swiper/css/bundle';
-
-import Swiper from 'swiper/bundle';
+import { register } from 'swiper/element/bundle';
+register();
 
 export const initSwiper = () => {
-  const sharedOptions = {
-    mousewheel: {
-      forceToAxis: true,
-    },
-    grabCursor: true,
-    edgeSwipeDetection: true,
+  const useCasesSwiperRef = document.querySelector('.use-cases-swiper');
 
-    speed: 1000,
-    a11y: {
-      slideRole: 'listitem',
-    },
-  };
-
-  new Swiper('.partners-swiper', {
-    ...sharedOptions,
-    slidesPerView: 'auto',
-    spaceBetween: 60,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    rewind: true,
-    freeMode: {
-      enabled: true,
-    },
-    // breakpoints: {
-    //   1550: {
-    //     enabled: false,
-    //     grabCursor: false,
-    //   },
-    // },
-  });
-
-  new Swiper('.user-cases-swiper', {
-    ...sharedOptions,
-    slidesPerView: 1,
-    spaceBetween: 16,
-    breakpoints: {
-      800: {
-        slidesPerView: 2,
+  if (useCasesSwiperRef) {
+    Object.assign(useCasesSwiperRef, {
+      slidesPerView: 1,
+      speed: 1200,
+      allowTouchMove: false,
+      navigation: {
+        nextEl: '.use-cases-section__list-nav-btn--next',
+        prevEl: '.use-cases-section__list-nav-btn--prev',
       },
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 24,
+      a11y: {
+        slideRole: 'listitem',
+        containerRoleDescriptionMessage: 'Use cases list',
+        itemRoleDescriptionMessage: 'Use case',
       },
-    },
-    navigation: {
-      nextEl: '.user-cases-section__list-nav-btn--next',
-      prevEl: '.user-cases-section__list-nav-btn--prev',
-    },
-  });
+    });
+    useCasesSwiperRef.initialize();
+  }
+
+  const newsSwiperRef = document.querySelector('.news-swiper');
+
+  if (newsSwiperRef) {
+    Object.assign(newsSwiperRef, {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      mousewheel: {
+        forceToAxis: true,
+      },
+      autoplay: false,
+      resistanceRatio: 0.5,
+      grabCursor: true,
+      edgeSwipeDetection: true,
+      speed: 1000,
+      breakpoints: {
+        1200: {
+          slidesPerView: 4,
+          enabled: false,
+        },
+      },
+      a11y: {
+        slideRole: 'listitem',
+        containerRoleDescriptionMessage: 'Last news list',
+        itemRoleDescriptionMessage: 'Actual news',
+      },
+    });
+    newsSwiperRef.initialize();
+  }
 };
