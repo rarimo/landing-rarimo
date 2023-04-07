@@ -37,7 +37,7 @@ const NewsSection = () => {
               <div className="news-section__img-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/branding/og-img.jpg"
+                  src="/img/news-section/ux-improvements.jpg"
                   alt=""
                 />
               </div>
@@ -56,7 +56,7 @@ const NewsSection = () => {
               <div className="news-section__img-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/interoperability.webp"
+                  src="/img/news-section/interoperability.jpg"
                   alt=""
                 />
               </div>
@@ -72,7 +72,13 @@ const NewsSection = () => {
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
-              <div className="news-section__img-wrapper"></div>
+              <div className="news-section__img-wrapper">
+                <img
+                  className="news-section__img"
+                  src="/img/news-section/branding-colors.jpg"
+                  alt=""
+                />
+              </div>
               <h6 className="news-section__item-title">
                 {t('news-section.third-title')}
               </h6>
@@ -85,7 +91,13 @@ const NewsSection = () => {
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
-              <div className="news-section__img-wrapper"></div>
+              <div className="news-section__img-wrapper">
+                <img
+                  className="news-section__img"
+                  src="/img/news-section/identity.jpg"
+                  alt=""
+                />
+              </div>
               <h6 className="news-section__item-title">
                 {t('news-section.fourth-title')}
               </h6>

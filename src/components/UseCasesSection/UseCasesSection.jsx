@@ -6,8 +6,6 @@ import SectionWrapper, {
   SECTION_WRAPPER_SCHEME,
 } from '@/components/SectionWrapper';
 import AppButton from '@/components/AppButton';
-import PartnersList from '@/components/PartnersList';
-import { supportedBlockchainsList } from '@/template-data';
 import { ROUTES_PATHS } from '@/const';
 import { CONFIG } from '@/config';
 
@@ -69,7 +67,7 @@ const UseCasesSection = () => {
               className="use-cases-section__case-link"
               href={CONFIG.nftCheckoutDocsLink}
             >
-              <span>{t('use-cases-section.view-demo-link')}</span>
+              <span>{t('use-cases-section.view-docs-link')}</span>
               <svg
                 className="use-cases-section__case-link-icon"
                 height="13"
@@ -87,11 +85,18 @@ const UseCasesSection = () => {
                   {t('use-cases-section.nft-checkout-desc')}
                 </p>
               </div>
-              <PartnersList
-                className="use-cases-section__partners use-cases-section__content-block"
-                titleKey="use-cases-section.partners-title"
-                items={supportedBlockchainsList}
-              />
+              <div className="use-cases-section__content-block">
+                <h6 className="overline">
+                  {t('use-cases-section.partners-title')}
+                </h6>
+                <svg
+                  className="use-cases-section__partner-logo"
+                  height="24"
+                  width="160"
+                >
+                  <use href="/icons/sprite.svg#icon-nft-trade-logo"></use>
+                </svg>
+              </div>
             </div>
           </swiper-slide>
           <swiper-slide class="use-cases-section__case-wrapper">
