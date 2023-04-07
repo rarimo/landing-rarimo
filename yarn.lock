@@ -245,6 +245,13 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@distributedlab/fetcher@^0.2.0-rc.0":
+  version "0.2.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@distributedlab/fetcher/-/fetcher-0.2.0-rc.0.tgz#8407fb6e2e74890742829eecc80bfab68e87ce2a"
+  integrity sha512-TjCku2voGNLSHu4hzXoAW75um+vZ3kd4peI+Mg/q8rGUP+EFC0vW5UBL8aoNNdXG5cS9/XvGrwsAhO3w2M4ckQ==
+  dependencies:
+    uuid "^9.0.0"
+
 "@esbuild/android-arm64@0.17.11":
   version "0.17.11"
   resolved "https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.17.11.tgz#52c3e6cabc19c5e4c1c0c01cb58f0442338e1c14"
@@ -1190,6 +1197,11 @@ update-browserslist-db@^1.0.9:
   dependencies:
     escalade "^3.1.1"
     picocolors "^1.0.0"
+
+uuid@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 vite@^4.2.0:
   version "4.2.0"

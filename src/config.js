@@ -7,6 +7,7 @@ export const CONFIG = {
   nftCheckoutDemoLink: 'https://rarimo.gitlab.io/docs/docs/sdk',
   mediumLink: 'https://rarimo.medium.com/',
   googleTagManagerId: 'GTM-5RH6GR6',
+  hubspotProxyUrl: 'https://hp.testnet.rarimo.com',
 
   // Use cases
   nftCheckoutDocsLink:

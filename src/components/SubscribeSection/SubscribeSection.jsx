@@ -9,6 +9,8 @@ import TextField from '@/components/TextField';
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import useForm from '@/hooks/useForm';
 import { REGEX } from '@/const';
+import { hubspotApi } from '@/hubspot-api';
+import { CONFIG } from '@/config';
 
 const SubscribeSection = () => {
   const { t } = useTranslation();
@@ -33,10 +35,31 @@ const SubscribeSection = () => {
     isSubmitting,
   } = useForm(initialValues, onSubscribe, validationSchema);
 
-  function onSubscribe() {
+  const isSubscribed = async (email) => {
+    try {
+      const { status } = await hubspotApi.get('/v1/subscriptions', {
+        emailAddress: email,
+      })
+      return status === 200
+    } catch (e) {
+      return false
+    }
+  }
+
+  async function onSubscribe() {
     if (isSubmitting || errors.email) return;
 
-    console.log('subs');
+    try {
+      if (await isSubscribed(values.email)) return
+
+      const resp = await hubspotApi.get('/v1/subscriptions', {
+        emailAddress: values.email,
+      })
+
+      console.log(resp)
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (
