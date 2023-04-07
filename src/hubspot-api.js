@@ -7,4 +7,5 @@ export const hubspotApi = new Fetcher({
     'Content-Type': 'application/json',
     "Origin": window.origin,
   },
+  credentials: 'omit'
 })
