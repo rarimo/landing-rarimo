@@ -19,7 +19,7 @@ const WhatRarimoDoesSection = () => {
           <svg
             className="what-rarimo-does-section__main-content-decor"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 447.54 431.38"
           >
             <defs>
@@ -32,7 +32,7 @@ const WhatRarimoDoesSection = () => {
             </defs>
             <title>Landing</title>
             <g id="Layer_8" data-name="Layer 8">
-              <g clip-path="url(#clip-path)">
+              <g clipPath="url(#clip-path)">
                 <path
                   d="M157.87,390.74a15,15,0,0,1-3.11,8.21,15.37,15.37,0,0,1-6.8,5L97.52,424.06A15.06,15.06,0,0,1,84,424a39.78,39.78,0,0,1-22-35.58V174.78l26.11-9.9L88,164.4,113.92,154l26-10.38v168l-.85-2.4.52,74.2Z"
                   fill="#84b19f"
@@ -41,40 +41,40 @@ const WhatRarimoDoesSection = () => {
                   d="M97.52,424.06l24.63-9.83,1.08-.43L148,403.93a15.14,15.14,0,0,0,9.91-13.19L132,380.48,106,370.2v40.22c0,.31,0,.62,0,.92"
                   fill="none"
                   stroke="#231f20"
-                  stroke-miterlimit="10"
+                  strokeMiterlimit="10"
                 />
                 <path
                   d="M97.52,424.06A15.08,15.08,0,0,0,106,411.34a39.77,39.77,0,0,1-18-33.29V164.4L113.92,154V322l26-10.38v-168L113.92,154,88,164.4,62,174.78V388.43A39.78,39.78,0,0,0,84,424a15.06,15.06,0,0,0,13.49.05"
                   fill="none"
                   stroke="#231f20"
-                  stroke-miterlimit="10"
+                  strokeMiterlimit="10"
                 />
                 <path
                   d="M122.15,414.23h.06c.35-.14.69-.28,1-.44a15.36,15.36,0,0,0,5.94-4.94A15,15,0,0,0,132,400V380.48"
                   fill="none"
                   stroke="#231f20"
-                  stroke-miterlimit="10"
+                  strokeMiterlimit="10"
                 />
                 <path
                   d="M157.87,390.74A15.18,15.18,0,0,1,148,403.93h0L97.51,424.05"
                   fill="none"
                   stroke="#231f20"
-                  stroke-miterlimit="10"
-                  stroke-width="3"
+                  strokeMiterlimit="10"
+                  strokeWidth="3"
                 />
                 <path
                   d="M88,164.4,62,174.78V388.42h0A39.79,39.79,0,0,0,84,424h0a15.2,15.2,0,0,0,22-13.6h0V370.2"
                   fill="none"
                   stroke="#231f20"
-                  stroke-miterlimit="10"
-                  stroke-width="3"
+                  strokeMiterlimit="10"
+                  strokeWidth="3"
                 />
                 <polyline
                   points="87.98 164.4 113.92 154.02 139.86 143.65 139.86 311.6"
                   fill="none"
                   stroke="#231f20"
-                  stroke-miterlimit="10"
-                  stroke-width="3"
+                  strokeMiterlimit="10"
+                  strokeWidth="3"
                 />
               </g>
               <polygon
@@ -85,19 +85,19 @@ const WhatRarimoDoesSection = () => {
                 points="54.29 340.79 248.04 418.29 441.79 340.79 248.04 263.29 54.29 340.79"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="54.29 340.79 248.04 418.29 248.04 426.79 54.29 349.29 54.29 340.79"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="441.79 340.79 248.04 418.29 248.04 426.79 441.79 349.29 441.79 340.79"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="441.79 340.79 248.04 418.29 248.04 426.79 441.79 349.29 441.79 340.79"
@@ -107,26 +107,26 @@ const WhatRarimoDoesSection = () => {
                 points="441.79 340.79 441.79 349.29 248.04 426.79 54.29 349.29 54.29 340.79 248.04 263.29 441.79 340.79"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <polygon
                 points="321.77 365.49 328.72 368.27 398.27 340.45 391.31 337.67 321.77 365.49"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="321.77 365.49 328.72 368.27 328.72 374.91 321.77 372.13 321.77 365.49"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="398.27 340.45 328.72 368.27 328.72 374.91 398.27 347.09 398.27 340.45"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="398.27 340.45 328.72 368.27 328.72 374.91 398.27 347.09 398.27 340.45"
@@ -136,20 +136,20 @@ const WhatRarimoDoesSection = () => {
                 points="398.27 340.46 398.27 347.1 328.73 374.92 321.77 372.13 321.77 365.49 391.32 337.68 398.27 340.46"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <polygon
                 points="320.17 321.12 313.21 323.9 243.67 296.08 250.63 293.3 320.17 321.12"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="320.17 321.12 313.21 323.9 313.21 330.54 320.17 327.76 320.17 321.12"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="320.17 321.12 313.21 323.9 313.21 330.54 320.17 327.76 320.17 321.12"
@@ -159,14 +159,14 @@ const WhatRarimoDoesSection = () => {
                 points="243.67 296.08 313.21 323.9 313.21 330.54 243.67 302.72 243.67 296.08"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="320.17 321.12 320.17 327.76 313.22 330.55 243.67 302.73 243.67 296.09 250.63 293.31 320.17 321.12"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <polygon
                 points="212.65 412.64 205.92 409.94 205.92 401.45 241.31 387.29 163.81 356.29 270.7 313.54 277.43 316.23 177.27 356.29 254.77 387.29 212.65 404.14 212.65 412.64"
@@ -180,65 +180,65 @@ const WhatRarimoDoesSection = () => {
                 d="M338.5,287.56l-35.39-14.12a10,10,0,0,1-1.41-.65v-7.21a27.94,27.94,0,0,1,15.45-25,10.64,10.64,0,0,1,4.77-1.14,9.5,9.5,0,0,1,1.31.09l2.39.95h0a11.11,11.11,0,0,1,1.41.64,10.61,10.61,0,0,1,5.55,8.63V278A10.62,10.62,0,0,0,338.5,287.56Z"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <path
                 d="M363.5,182.38v80.16a28,28,0,0,1-15.46,25,10.55,10.55,0,0,1-9.48,0l-.05,0h0a10.62,10.62,0,0,1-5.92-9.56V249.73A10.61,10.61,0,0,0,327,241.1V167.79Z"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <path
                 d="M323.23,239.52a10.67,10.67,0,0,1,9.38,10.6v28.27"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <path
                 d="M323.23,239.52a9.5,9.5,0,0,0-1.31-.09,10.64,10.64,0,0,0-4.77,1.14,27.94,27.94,0,0,0-15.45,25v50.53l-36.47-14.58V251.36a27.93,27.93,0,0,1,15.46-25,10.64,10.64,0,0,1,4.77-1.14,10.52,10.52,0,0,1,4.7,1.11l0,0Z"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <path
                 d="M338.5,287.56l-35.39-14.12a10,10,0,0,1-1.41-.65v-7.21a27.94,27.94,0,0,1,15.45-25,10.64,10.64,0,0,1,4.77-1.14,9.5,9.5,0,0,1,1.31.09l2.39.95h0a11.11,11.11,0,0,1,1.41.64,10.61,10.61,0,0,1,5.55,8.63V278A10.62,10.62,0,0,0,338.5,287.56Z"
                 fill="none"
                 stroke="#231f20"
-                stroke-linejoin="round"
-                stroke-width="3"
+                strokeLinejoin="round"
+                strokeWidth="3"
               />
               <path
                 d="M363.5,182.38v80.16a28,28,0,0,1-15.46,25,10.55,10.55,0,0,1-9.48,0l-.05,0h0a10.62,10.62,0,0,1-5.92-9.56V249.73A10.61,10.61,0,0,0,327,241.1V167.79Z"
                 fill="none"
                 stroke="#231f20"
-                stroke-linejoin="round"
-                stroke-width="3"
+                strokeLinejoin="round"
+                strokeWidth="3"
               />
               <path
                 d="M345.5,175.38v80.16a28,28,0,0,1-12.87,23.53"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <path
                 d="M323.23,239.52a10.67,10.67,0,0,1,9.38,10.6v28.27"
                 fill="none"
                 stroke="#231f20"
-                stroke-linejoin="round"
-                stroke-width="3"
+                strokeLinejoin="round"
+                strokeWidth="3"
               />
               <path
                 d="M323.23,239.52a9.5,9.5,0,0,0-1.31-.09,10.64,10.64,0,0,0-4.77,1.14,27.94,27.94,0,0,0-15.45,25v50.53l-36.47-14.58V251.36a27.93,27.93,0,0,1,15.46-25,10.64,10.64,0,0,1,4.77-1.14,10.52,10.52,0,0,1,4.7,1.11l0,0Z"
                 fill="none"
                 stroke="#231f20"
-                stroke-linejoin="round"
-                stroke-width="3"
+                strokeLinejoin="round"
+                strokeWidth="3"
               />
               <path
                 d="M304.69,232.15a9.5,9.5,0,0,0-1.31-.09,10.64,10.64,0,0,0-4.77,1.14,27.94,27.94,0,0,0-15.45,25v50.53"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
             </g>
             <g id="Layer_10" data-name="Layer 10">
@@ -255,21 +255,21 @@ const WhatRarimoDoesSection = () => {
                 d="M162.52,64.58V188.22h0a39.79,39.79,0,0,1-22,35.59h0"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <path
                 d="M177,70.43V194.07a39.78,39.78,0,0,1-22,35.58l-21.95-8.81-6.53-2.62a39.78,39.78,0,0,0,22-35.58V59"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <path
                 d="M133.09,220.84l0,0"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <polygon
                 points="177.27 234.99 177.27 243.49 93.04 277.18 8.81 243.49 8.81 234.99 93.04 201.3 177.27 234.99"
@@ -279,19 +279,19 @@ const WhatRarimoDoesSection = () => {
                 points="8.8 234.99 93.04 268.68 177.27 234.99 93.04 201.29 8.8 234.99"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="8.8 234.99 93.04 268.68 93.04 277.18 8.8 243.49 8.8 234.99"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="177.27 234.99 93.04 268.68 93.04 277.18 177.27 243.49 177.27 234.99"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="177.27 234.99 93.04 268.68 93.04 277.18 177.27 243.49 177.27 234.99"
@@ -301,8 +301,8 @@ const WhatRarimoDoesSection = () => {
                 points="177.27 234.99 177.27 243.49 93.04 277.18 8.81 243.49 8.81 234.99 93.04 201.3 177.27 234.99"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <polygon
                 points="110.95 238.63 84.71 223.49 84.65 213.11 86.65 213.1 86.7 222.33 111.49 236.63 128.14 236.63 128.14 238.63 110.95 238.63"
@@ -327,27 +327,27 @@ const WhatRarimoDoesSection = () => {
                 d="M307.52,164.57h0"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <path
                 d="M278.05,8.3V131.94h0a39.76,39.76,0,0,0,22,35.58h0"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <path
                 d="M263.54,14.14V137.79a40.1,40.1,0,0,0,.87,8.3c.19.9.42,1.79.67,2.67s.54,1.75.85,2.6.65,1.7,1,2.53a40.84,40.84,0,0,0,2.54,4.81c.24.38.48.77.73,1.14.4.6.81,1.18,1.24,1.75.23.32.48.64.72.94.44.56.89,1.1,1.36,1.63.91,1,1.87,2,2.88,2.92.67.62,1.36,1.21,2.08,1.79h0c.71.57,1.45,1.12,2.21,1.65l1.16.77c.78.5,1.59,1,2.41,1.43l1.25.65,22-8.81,6.52-2.62c-.84-.42-1.67-.87-2.47-1.34a41,41,0,0,1-3.47-2.31A39.55,39.55,0,0,1,296,143.69c-.54-1.11-1-2.25-1.46-3.41-.37-1-.69-2-1-3s-.48-1.77-.67-2.67a40.1,40.1,0,0,1-.87-8.3V2.71"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <path
                 d="M307.52,164.57h0"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <line
                 x1="270.03"
@@ -356,8 +356,8 @@ const WhatRarimoDoesSection = () => {
                 y2="11.51"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <polygon
                 points="425.27 182.68 425.27 191.18 341.04 224.87 256.81 191.18 256.81 182.68 341.04 148.98 425.27 182.68"
@@ -367,19 +367,19 @@ const WhatRarimoDoesSection = () => {
                 points="256.81 182.67 341.04 216.36 425.27 182.67 341.04 148.98 256.81 182.67"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="256.81 182.67 341.04 216.36 341.04 224.86 256.81 191.17 256.81 182.67"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="425.27 182.67 341.04 216.36 341.04 224.86 425.27 191.17 425.27 182.67"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
               />
               <polygon
                 points="425.27 182.67 341.04 216.36 341.04 224.86 425.27 191.17 425.27 182.67"
@@ -389,8 +389,8 @@ const WhatRarimoDoesSection = () => {
                 points="425.27 182.68 425.27 191.18 341.04 224.87 256.81 191.18 256.81 182.68 341.04 148.98 425.27 182.68"
                 fill="none"
                 stroke="#231f20"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeMiterlimit="10"
+                strokeWidth="3"
               />
               <path
                 d="M346.61,179.26l-.2-.11a14.66,14.66,0,0,0-13.31.07l-.75.43,1.71,1,.25-.14a9.73,9.73,0,0,1,2.79-1,3.32,3.32,0,0,0-1.63,2.67,3.49,3.49,0,0,0,2,2.92,10.06,10.06,0,0,0,9.07,0c.19-.12.37-.24.54-.37a4.71,4.71,0,0,1-1.75,1.63l-.74.43,1.7,1,.25-.15c1.87-1.08,2.9-2.55,2.91-4.14S348.48,180.38,346.61,179.26Zm-.33.39-.06.21-.05,0,0,0Zm-9.81,2.47a1,1,0,0,1,0-.17,1,1,0,0,0,0,.17,1.09,1.09,0,0,0,0,.18A1.09,1.09,0,0,1,336.47,182.12Zm8.88,1.64a7.33,7.33,0,0,1-6.64,0,2.05,2.05,0,0,1-1.24-1.64,2,2,0,0,1,1.22-1.63,7.39,7.39,0,0,1,6.55-.05l.17.1a2,2,0,0,1,1.15,1.61A2,2,0,0,1,345.35,183.76Z"
