@@ -68,11 +68,12 @@
   },
   "subscribe-section": {
     "title": "Subscribe to our newsletter",
-    "description": "Stay up-to-date about new features and supported apps & Games",
+    "description": "Stay up-to-date about new features and supported apps",
     "input-plh": "Enter you mail",
     "subscribe-btn": "Subscribe",
     "err-email-required": "Email is required",
-    "err-wrong-format": "Wrong mail format"
+    "err-wrong-format": "Wrong mail format",
+    "success-msg": "Success!"
   },
   "community-section": {
     "title": "Start building with Rarimo",

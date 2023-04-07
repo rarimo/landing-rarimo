@@ -153,7 +153,7 @@ const useForm = (initialValues, submitHandler, validationSchema) => {
     }));
   }, []);
 
-  const setError = useCallback(name => {
+  const setError = useCallback((name, err) => {
     setTouched(prevValues => ({
       ...prevValues,
       [name]: true,
@@ -161,7 +161,7 @@ const useForm = (initialValues, submitHandler, validationSchema) => {
 
     setErrors(prevValues => ({
       ...prevValues,
-      [name]: value,
+      [name]: err,
     }));
   }, []);
 
