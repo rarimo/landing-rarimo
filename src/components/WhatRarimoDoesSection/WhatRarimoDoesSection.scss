@@ -14,8 +14,14 @@
 .what-rarimo-does-section__main-content {
   @include respond-above(md) {
     background-image: url('/img/what-rarimo-does-section/books.png');
-    background-size: bg-space(10);
+    background-size: bg-space(8);
     background-repeat: no-repeat;
+    background-position: top bg-space(0.5) right
+      calc(#{bg-space(1)} + #{to-rem(2)});
+  }
+
+  @include respond-above(xm) {
+    background-size: bg-space(10);
     background-position: top bg-space(0.5) right
       calc(#{bg-space(2)} + #{to-rem(2)});
   }
@@ -37,6 +43,12 @@
     padding: 0 bg-space(1);
     font-size: 1em;
   }
+
+  @include respond-above(md) {
+    @include respond-to(xm) {
+      width: bg-space(8);
+    }
+  }
 }
 
 .what-rarimo-does-section__title-wrapper {
@@ -52,8 +64,12 @@
   }
 
   @include respond-above(md) {
-    width: bg-space(24);
+    width: bg-space(23);
     margin-bottom: bg-space(2);
+  }
+
+  @include respond-above(xm) {
+    width: bg-space(24);
   }
 }
 
@@ -82,6 +98,7 @@
 
   @include respond-above(md) {
     max-width: to-rem(678);
+    font-size: to-rem(18);
   }
 }
 
@@ -94,16 +111,12 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-to(md) {
+  @include respond-to(xm) {
     @include block-with-bg-border(var(--accent-bg-color));
   }
 
-  @include respond-above(md) {
-    grid-template-columns: 11fr 12fr 11fr;
-    grid-gap: bg-space(1);
-  }
-
   @include respond-above(xm) {
+    grid-template-columns: 11fr 12fr 11fr;
     grid-gap: bg-space(2);
   }
 }
@@ -112,11 +125,11 @@
   height: 100%;
   padding: bg-space(1);
 
-  @include respond-to(md) {
+  @include respond-to(xm) {
     padding-bottom: 0;
   }
 
-  @include respond-above(md) {
+  @include respond-above(xm) {
     @include block-with-bg-border(var(--accent-bg-color));
   }
 }
