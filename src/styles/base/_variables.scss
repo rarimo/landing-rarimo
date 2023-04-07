@@ -63,6 +63,7 @@
   @include respond-above(md) {
     --h1-size: #{to-rem(88)};
     --h3-size: #{to-rem(48)};
+    --h5-size: #{to-rem(32)};
   }
 
   @include respond-above(xm) {
