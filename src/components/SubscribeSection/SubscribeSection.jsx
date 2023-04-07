@@ -52,8 +52,8 @@ const SubscribeSection = () => {
     try {
       if (await isSubscribed(values.email)) return
 
-      const resp = await hubspotApi.get('/v1/subscriptions', {
-        emailAddress: values.email,
+      const resp = await hubspotApi.post('/v1/subscriptions', {
+        email: values.email,
       })
 
       console.log(resp)
