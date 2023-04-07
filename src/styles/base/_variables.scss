@@ -32,7 +32,7 @@
 
   // Z-indexes
   --z-app-bar: 14;
-  --z-user-cases-swiper-arrow: 5;
+  --z-use-cases-swiper-arrow: 5;
   --z-default: 1;
   --z-hidden: -1;
 
@@ -45,7 +45,7 @@
 
   --p-size: #{to-rem(16)};
   --h1-size: #{to-rem(56)};
-  --h2-size: #{to-rem(56)};
+  --h2-size: #{to-rem(52)};
   --h3-size: var(--h3-size-xs, #{to-rem(32)});
   --h4-size: #{to-rem(20)};
   --h5-size: #{to-rem(20)};
@@ -54,7 +54,9 @@
 
   @include respond-above(sm) {
     --p-size: #{to-rem(20)};
+    --h2-size: #{to-rem(60)};
     --h3-size: var(--h3-size-sm, #{to-rem(56)});
+    --overline-size: #{to-rem(14)};
   }
 
   @include respond-above(xm) {

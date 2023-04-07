@@ -42,8 +42,8 @@ const UseCasesSection = () => {
             >
               <svg
                 className="use-cases-section__list-nav-icon"
-                height="26"
-                width="26"
+                height="16"
+                width="16"
               >
                 <use href="/icons/sprite.svg#icon-arrow-right"></use>
               </svg>
@@ -54,8 +54,8 @@ const UseCasesSection = () => {
             >
               <svg
                 className="use-cases-section__list-nav-icon"
-                height="26"
-                width="26"
+                height="16"
+                width="16"
               >
                 <use href="/icons/sprite.svg#icon-arrow-right"></use>
               </svg>
