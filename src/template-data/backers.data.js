@@ -1,18 +1,24 @@
 export const backersList = [
   {
-    image: '/img/backers/pareto.png',
+    image: '/img/backers/pareto.webp',
     width: 69,
     height: 10,
   },
   {
-    image: '/img/backers/greycroft.png',
+    image: '/img/backers/greycroft.webp',
     width: 72,
     height: 16,
   },
   {
-    image: '/img/backers/eniqa.png',
+    image: '/img/backers/eniac.webp',
     width: 53,
     height: 17,
+  },
+  {
+    image: '/img/backers/pantera.webp',
+    width: 78,
+    height: 23,
+    isIncreased: true,
   },
   {
     image: '/img/backers/hyper.png',
@@ -20,12 +26,12 @@ export const backersList = [
     height: 12,
   },
   {
-    image: '/img/backers/circle.png',
+    image: '/img/backers/circle.webp',
     width: 69,
     height: 21,
   },
   {
-    image: '/img/backers/protocol-labs.png',
+    image: '/img/backers/protocol-labs.webp',
     width: 91,
     height: 24,
   },
