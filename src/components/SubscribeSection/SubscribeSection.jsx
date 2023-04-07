@@ -1,5 +1,6 @@
 import './SubscribeSection.scss';
 
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 import SectionWrapper, {
@@ -13,6 +14,7 @@ import { hubspotApi } from '@/hubspot-api';
 
 const SubscribeSection = () => {
   const { t } = useTranslation();
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const initialValues = {
     email: '',
@@ -32,6 +34,7 @@ const SubscribeSection = () => {
     handleBlur,
     handleSubmit,
     isSubmitting,
+    setError,
   } = useForm(initialValues, onSubscribe, validationSchema);
 
   async function onSubscribe() {
@@ -41,11 +44,12 @@ const SubscribeSection = () => {
       await hubspotApi.post('/v1/subscriptions', {
         email: values.email,
       });
+      setIsSuccess(true);
     } catch (e) {
       if (e?.response?.status === 400) {
-        console.log('Already subscribed');
+        setError('email', 'Already subscribed');
       } else {
-        console.error(e);
+        setError('email', e?.response?.message ?? 'Something went wrong');
       }
     }
   }
@@ -60,25 +64,29 @@ const SubscribeSection = () => {
           <p className="subscribe-section__description">
             {t('subscribe-section.description')}
           </p>
-          <form className="subscribe-section__form" onSubmit={handleSubmit}>
-            <TextField
-              name="email"
-              placeholder={t('subscribe-section.input-plh')}
-              value={values.email}
-              error={errors.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              appendSlot={
-                <AppButton
-                  className="subscribe-section__subscribe-btn"
-                  scheme={APP_BUTTON_SCHEMES.secondary}
-                  textKey={t('subscribe-section.subscribe-btn')}
-                  type="submit"
-                  disabled={isSubmitting}
-                />
-              }
-            />
-          </form>
+          {isSuccess ? (
+            <h6>{t('subscribe-section.success-msg')}</h6>
+          ) : (
+            <form className="subscribe-section__form" onSubmit={handleSubmit}>
+              <TextField
+                name="email"
+                placeholder={t('subscribe-section.input-plh')}
+                value={values.email}
+                error={errors.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                appendSlot={
+                  <AppButton
+                    className="subscribe-section__subscribe-btn"
+                    scheme={APP_BUTTON_SCHEMES.secondary}
+                    textKey={t('subscribe-section.subscribe-btn')}
+                    type="submit"
+                    disabled={isSubmitting}
+                  />
+                }
+              />
+            </form>
+          )}
         </div>
       </section>
     </SectionWrapper>
