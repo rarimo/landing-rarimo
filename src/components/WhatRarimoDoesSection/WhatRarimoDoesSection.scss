@@ -12,18 +12,38 @@
 }
 
 .what-rarimo-does-section__main-content {
+  position: relative;
+  // @include respond-above(md) {
+  // background-image: url('/img/what-rarimo-does-section/books.png');
+  // background-image: url('/icons/sprite.svg#icon-what-rarimo-does-decor');
+  // background-size: bg-space(8);
+  // background-repeat: no-repeat;
+  // background-position: top bg-space(0.5) right
+  //   calc(#{bg-space(1)} + #{to-rem(2)});
+  // }
+
+  // @include respond-above(xm) {
+  //   background-size: bg-space(10);
+  //   background-position: top bg-space(0.5) right
+  //     calc(#{bg-space(2)} + #{to-rem(2)});
+  // }
+}
+
+.what-rarimo-does-section__main-content-decor {
+  display: none;
+
   @include respond-above(md) {
-    background-image: url('/img/what-rarimo-does-section/books.png');
-    background-size: bg-space(8);
-    background-repeat: no-repeat;
-    background-position: top bg-space(0.5) right
-      calc(#{bg-space(1)} + #{to-rem(2)});
+    position: absolute;
+    display: block;
+    top: 0;
+    right: calc(#{bg-space(1)} + #{to-rem(2)});
+    width: bg-space(8);
+    height: auto;
   }
 
   @include respond-above(xm) {
-    background-size: bg-space(10);
-    background-position: top bg-space(0.5) right
-      calc(#{bg-space(2)} + #{to-rem(2)});
+    width: bg-space(10);
+    right: calc(#{bg-space(2)} + #{to-rem(2)});
   }
 }
 

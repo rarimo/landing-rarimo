@@ -37,7 +37,7 @@ const NewsSection = () => {
               <div className="news-section__img-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/ux-improvements.jpg"
+                  src="/img/news-section/ux-improvements-black.png"
                   alt=""
                 />
               </div>
@@ -56,7 +56,7 @@ const NewsSection = () => {
               <div className="news-section__img-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/interoperability.jpg"
+                  src="/img/news-section/interoperability-black.png"
                   alt=""
                 />
               </div>
@@ -75,7 +75,7 @@ const NewsSection = () => {
               <div className="news-section__img-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/branding-colors.jpg"
+                  src="/img/news-section/branding-colors-black.png"
                   alt=""
                 />
               </div>
@@ -94,7 +94,7 @@ const NewsSection = () => {
               <div className="news-section__img-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/identity.jpg"
+                  src="/img/news-section/identity-black.png"
                   alt=""
                 />
               </div>
