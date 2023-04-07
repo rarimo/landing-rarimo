@@ -43,11 +43,15 @@
   }
 
   @include respond-above(md) {
-    width: bg-space(7);
+    width: bg-space(8);
     padding: 0 bg-space(1);
     font-size: 1em;
 
     @include block-with-bg-border(var(--yellow-accent-bg-color));
+  }
+
+  @include respond-above(xm) {
+    width: bg-space(7);
   }
 }
 
@@ -63,11 +67,15 @@
   }
 
   @include respond-above(md) {
-    width: bg-space(10);
+    width: bg-space(11);
     padding: 0 bg-space(1);
-    font-size: 0.8em;
 
     @include block-with-bg-border(var(--yellow-accent-bg-color));
+  }
+
+  @include respond-above(xm) {
+    width: bg-space(10);
+    font-size: 0.8em;
   }
 
   @include respond-above(lg) {

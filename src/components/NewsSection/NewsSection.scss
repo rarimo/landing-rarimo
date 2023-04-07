@@ -29,6 +29,10 @@
   @include respond-to(md) {
     @include block-with-bg-border();
   }
+
+  @include respond-above(xm) {
+    padding: 0;
+  }
 }
 
 .news-section__subtitle {
@@ -60,11 +64,15 @@
   }
 
   @include respond-above(md) {
-    width: bg-space(8);
+    width: bg-space(9);
     padding: 0 bg-space(1);
-    font-size: 0.8em;
 
     @include block-with-bg-border();
+  }
+
+  @include respond-above(xm) {
+    width: bg-space(8);
+    font-size: 0.8em;
   }
 
   @include respond-above(lg) {
@@ -112,7 +120,7 @@
     padding: bg-space(1);
   }
 
-  @include respond-above(xm) {
+  @include respond-above(md) {
     height: bg-space(11);
   }
 

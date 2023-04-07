@@ -49,12 +49,9 @@
     margin-right: bg-space(1);
   }
 
-  @include respond-above(md) {
-    margin-right: 0;
-  }
-
   @include respond-above(xm) {
     max-width: bg-space(5);
+    margin-right: 0;
   }
 }
 
@@ -72,11 +69,11 @@
   }
 
   @include respond-above(md) {
-    grid-gap: bg-space(1);
-    grid-auto-rows: bg-space(5);
+    grid-auto-rows: bg-space(6);
   }
 
   @include respond-above(xm) {
+    grid-auto-rows: bg-space(5);
     grid-gap: bg-space(2);
   }
 }
