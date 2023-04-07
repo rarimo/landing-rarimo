@@ -3,5 +3,4 @@ export const ROUTES_PATHS = {
   testnet: '/testnet',
   testnetSignUp: '/testnet/sign-up',
   nftCheckout: '/nft-checkout',
-  nftSettlement: '/nft-settlement', // deprecated
 };

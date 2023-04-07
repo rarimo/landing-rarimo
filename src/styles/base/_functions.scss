@@ -12,3 +12,10 @@
 @function hex-to-rgb($color) {
   @return red($color) + ', ' + green($color) + ', ' + blue($color);
 }
+
+@function bg-space($mult) {
+  $space-in-rect-value: calc(
+    var(--primary-bg-rect-size, #{to-rem(40)}) * #{$mult}
+  );
+  @return $space-in-rect-value;
+}

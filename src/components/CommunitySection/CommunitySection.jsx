@@ -2,8 +2,8 @@ import './CommunitySection.scss';
 
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import AppLink from '@/components/AppLink';
-import BaseCardList from '@/components/BaseCardList';
+import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
+import SectionWrapper from '@/components/SectionWrapper';
 import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
@@ -12,98 +12,102 @@ const CommunitySection = ({ isHomePage = true }) => {
   const { t } = useTranslation();
 
   return (
-    <section
-      className={cn([
-        'community-section container',
-        {
-          'community-section--testnet': !isHomePage,
-        },
-      ])}
-    >
-      <div className="community-section__titles-wrapper">
-        <h2 className="community-section__title" data-aos="zoom-in">
-          {t('community-section.title')}
-        </h2>
-        {isHomePage && (
-          <p
-            className="community-section__description"
-            data-aos="zoom-in"
-            data-aos-delay="400"
-          >
-            {t('community-section.description')}
-          </p>
-        )}
-      </div>
-      <div
-        className="community-section__links-wrapper"
-        data-aos="zoom-in"
-        data-aos-delay={isHomePage ? '800' : '400'}
+    <SectionWrapper>
+      <section
+        className={cn([
+          'community-section container',
+          {
+            'community-section--testnet': !isHomePage,
+          },
+        ])}
       >
-        {isHomePage ? (
-          <>
-            <AppLink
-              className="community-section__link"
-              routePath={ROUTES_PATHS.testnet}
-              textKey="community-section.join-testnet-link"
-            />
-            <AppLink
-              className="community-section__link"
-              href={CONFIG.whitePaperLink}
-              textKey="community-section.white-paper-link"
-            />
-          </>
-        ) : (
-          <AppLink
-            className="community-section__link"
-            routePath={ROUTES_PATHS.testnetSignUp}
-            textKey="community-section.sign-up-link"
-          />
-        )}
-      </div>
-
-      <BaseCardList>
-        {communitySectionList.map((item, index) => (
-          <div className="community-section__card" key={index}>
-            <a
-              className={cn([
-                'community-section__card-link',
-                {
-                  'community-section__card-link--active': item.link,
-                },
-              ])}
-              href={item.link}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              <div className="community-section__card-icon">
-                <svg height="20" width="20">
+        <div className="community-section__titles-wrapper">
+          <h4 className="community-section__title">
+            {t('community-section.title')}
+          </h4>
+          {isHomePage && (
+            <p className="community-section__description">
+              {t('community-section.description')}
+            </p>
+          )}
+          <div className="community-section__links-wrapper">
+            {isHomePage ? (
+              <>
+                <AppButton
+                  className="community-section__link"
+                  routePath={ROUTES_PATHS.testnetSignUp}
+                >
+                  <span>{t('community-section.join-testnet-link')}</span>
+                  <svg
+                    className="community-section__link-icon"
+                    height="13"
+                    width="13"
+                  >
+                    <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </AppButton>
+                <AppButton
+                  className="community-section__link"
+                  href={CONFIG.whitepaperLink}
+                  scheme={APP_BUTTON_SCHEMES.secondary}
+                  textKey="community-section.whitepaper-link"
+                />
+              </>
+            ) : (
+              <AppButton
+                className="community-section__link"
+                routePath={ROUTES_PATHS.testnetSignUp}
+                scheme={APP_BUTTON_SCHEMES.secondary}
+                textKey="community-section.sign-up-link"
+              />
+            )}
+          </div>
+        </div>
+        <ul className="community-section__list">
+          {communitySectionList.map((item, index) => (
+            <li className="comunity-section__list-item" key={index}>
+              <a
+                className={cn([
+                  'community-section__list-item-link',
+                  {
+                    'community-section__list-item-link--active': item.link,
+                  },
+                ])}
+                href={item.link}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+              >
+                <svg
+                  className="community-section__list-item-icon"
+                  height="32"
+                  width="32"
+                >
                   <use href={item.icon}></use>
                 </svg>
-              </div>
-              <h5 className="community-section__card-title">
-                {t(item.titleKey)}
-              </h5>
-              <div className="community-section__learn-more-wrapper">
-                {item.link ? (
-                  <>
-                    <span>{t('community-section.learn-more-link')}</span>
-                    <svg
-                      className="community-section__learn-more-icon"
-                      height="13"
-                      width="11"
-                    >
-                      <use href="/sprite.svg#icon-chevron-down"></use>
-                    </svg>
-                  </>
-                ) : (
-                  <span>{t('community-section.coming-soon-text')}</span>
+
+                <div>
+                  <h6 className="community-section__list-item-title">
+                    {t(item.titleKey)}
+                  </h6>
+                  <p className="community-section__list-item-description">
+                    {t(item.descKey)}
+                  </p>
+                </div>
+                {item.link && (
+                  <svg
+                    className="community-section__arrow-icon"
+                    height="12"
+                    width="12"
+                  >
+                    <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                  </svg>
                 )}
-              </div>
-            </a>
-          </div>
-        ))}
-      </BaseCardList>
-    </section>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </SectionWrapper>
   );
 };
 

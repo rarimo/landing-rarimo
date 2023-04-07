@@ -1,30 +1,18 @@
 [color-scheme='dark'] {
-  --primary-bg-color: var(--col-total-black);
+  --primary-bg-color: var(--col-primary-black);
+  --accent-bg-color: var(--col-primary-green);
+  --yellow-accent-bg-color: var(--col-primary-yellow);
   --primary-title-color: var(--col-total-white);
-  --primary-text-color: rgba(#{$col-total-white-rgb}, 64%);
-  --primary-divider-color: var(--col-total-black);
-
-  // App link
-  --app-link-border-color: var(--col-total-white);
-  --app-link-border-color-hover: var(--col-tame-teal);
-  --app-link-text: var(--col-total-white);
-  --app-link-text-hover: var(--col-total-black);
-
-  // Base card
-  --base-card-bg: var(--col-gluon-grey);
-  --base-card-shadow-color: #{$col-cool-current};
-  --base-card-primary-icon-color: var(--col-tame-teal);
-
-  // App footer
-  --app-footer-border-color: rgba(#{$col-total-white-rgb}, 10%);
-  --app-footer-link-bg: var(--col-gluon-grey);
+  --secondary-title-color: var(--col-white-alpha);
+  --primary-text-color: var(--col-primary-grey);
+  --secondary-text-color: var(--col-black-alpha);
+  --primary-btn-color: var(--secondary-title-color);
+  --bg-rect-border-color: var(--col-white-min-alpha);
+  --primary-divider-color: var(--bg-rect-border-color);
 
   // Theme switcher
   --theme-switcher-bg: var(--col-total-white);
   --theme-switcher-color: var(--col-total-black);
-
-  // Partners list
-  --partners-list-image-filter: invert(0);
 
   // How it works section
   --how-it-works-chart-border-color: var(--col-silverpine-cyan);

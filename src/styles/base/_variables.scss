@@ -7,6 +7,19 @@
   --col-total-white: #{$col-total-white};
   --col-total-black: #{$col-total-black};
 
+  --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
+  --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 5%);
+  --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
+  --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 5%);
+  --col-primary-black: #{$col-cursed-black};
+  --col-primary-grey: #{$col-more-than-a-week};
+  --col-primary-green: #{$col-le-max};
+  --col-primary-yellow: #{$col-sunstitch};
+
+  --col-chaos-black: #{$col-chaos-black};
+
+  --col-error: #{$col-vermilion-cinnabar};
+
   --col-gluon-grey: #{$col-gluon-grey};
   --col-tame-teal: #{$col-tame-teal};
   --col-turquoise-pearl: #{$col-turquoise-pearl};
@@ -19,34 +32,48 @@
 
   // Z-indexes
   --z-app-bar: 14;
-  --z-user-cases-swiper-arrow: 5;
+  --z-use-cases-swiper-arrow: 5;
   --z-default: 1;
   --z-hidden: -1;
 
   // Text variables
-  --primary-font: 'SpaceGrotesk', -apple-system, 'BlinkMacSystemFont',
+  --primary-font-family: 'Inter', -apple-system, 'BlinkMacSystemFont',
     'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue',
     sans-serif;
+  --title-font-family: 'Oswald', -apple-system, 'BlinkMacSystemFont', 'Segoe UI',
+    'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
 
-  --p-size: #{to-rem(14)};
-  --p-weight: 400;
-  --h2-size: #{to-rem(56)};
-  --h3-size: #{to-rem(32)};
-  --h4-size: #{to-rem(20)};
-  --h5-size: #{to-rem(18)};
-  --title-weight: 700;
+  --p-size: #{to-rem(16)};
+  --h1-size: #{to-rem(60)};
+  --h2-size: #{to-rem(52)};
+  --h3-size: var(--h3-size-xs, #{to-rem(32)});
+  --h4-size: #{to-rem(32)};
+  --h5-size: #{to-rem(20)};
+  --h6-size: #{to-rem(20)};
+  --overline-size: #{to-rem(12)};
 
-  @include respond-above(xm) {
-    --p-size: var(--p-size-xm); // 16px max
-    --h2-size: var(--h2-size-xm); // 70px max
-    --h3-size: var(--h3-size-xm); // 48px max
-    --h5-size: #{to-rem(20)};
+  @include respond-above(sm) {
+    --p-size: #{to-rem(20)};
+    --h1-size: #{to-rem(104)};
+    --h2-size: #{to-rem(60)};
+    --h3-size: var(--h3-size-sm, #{to-rem(56)});
+    --overline-size: #{to-rem(14)};
   }
 
-  @include respond-above(lg) {
-    --p-size: #{to-rem(18)};
-    --h2-size: #{to-rem(80)};
-    --h3-size: #{to-rem(56)};
+  @include respond-above(md) {
+    --h1-size: #{to-rem(88)};
+    --h3-size: #{to-rem(48)};
+    --h5-size: #{to-rem(32)};
+  }
+
+  @include respond-above(xm) {
+    --p-size: var(--p-size-xm);
+    --h1-size: var(--h1-size-xm); // 104px - 146px
+    --h2-size: var(--h2-size-xm); // 80px - 112px
+    --h3-size: var(--h3-size-xm); // 48px - 60px
+    --h4-size: var(--h4-size-xm); // 42px - 56px
+    --h5-size: var(--h5-size-xm); // 38px - 52px
+    --h6-size: var(--h6-size-xm); // 22px - 32px
   }
 
   // Transitions
@@ -63,20 +90,16 @@
 
   // Base
   --container-max-width: 100%;
-  --container-side-padding: #{to-rem(24)};
-
-  @include respond-above(md) {
-    --container-side-padding: #{to-rem(36)};
-  }
+  --container-side-padding: 0;
+  --primary-bg-rect-size: #{to-rem(40)};
 
   @include respond-above(xm) {
-    --container-max-width: #{to-rem(1400)};
-    --container-side-padding: #{to-rem(50)};
+    --container-max-width: #{to-rem(1300)};
+    --container-side-padding: #{bg-space(1)};
   }
 
   @include respond-above(lg) {
-    --container-max-width: #{to-rem(1652)};
-    --container-side-padding: #{to-rem(70)};
+    --container-max-width: #{to-rem(1600)};
   }
 
   // Common
@@ -84,21 +107,23 @@
   --scrollbar-color: var(--primary-text-color);
 
   // App bar
-  --app-bar-height: #{to-rem(80)};
-  --app-bar-bg: #{lighten($col-total-black, 7%)};
-  --app-bar-shadow: 0 0.4rem 2rem rgba(#{$col-total-black-rgb}, 10%);
-
-  @include respond-above(xm) {
-    --app-bar-height: #{to-rem(88)};
-  }
+  --app-bar-height: #{bg-space(2)};
+  --app-bar-logo-color: var(--secondary-title-color);
 
   // App footer
-  --app-footer-height: #{to-rem(104)};
-  --app-footer-logo-color: var(--primary-title-color);
+  --app-footer-height: #{bg-space(4)};
+  --app-footer-logo-color: var(--secondary-title-color);
 
-  @include respond-above(xm) {
-    --app-footer-height: #{to-rem(124)};
+  @include respond-above(md) {
+    --app-footer-height: #{bg-space(6)};
   }
+
+  // Use cases section
+  --use-cases-section-case-bg-gradient: conic-gradient(
+    from 164.83deg at 63.38% 38.28%,
+    var(--col-primary-black) 0deg,
+    #{$col-carbon-fiber} 360deg
+  );
 
   // Nft checkout video
   --nft-checkout-video-bg: rgba(#{$col-total-black-rgb}, 90%);

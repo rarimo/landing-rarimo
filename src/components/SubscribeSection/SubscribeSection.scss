@@ -1,0 +1,86 @@
+.subscribe-section {
+  padding-top: bg-space(2);
+  padding-bottom: bg-space(2);
+
+  background-color: var(--accent-bg-color);
+  background-image: url('/img/bg/green-rect.png');
+  background-size: var(--primary-bg-rect-size);
+  background-repeat: repeat;
+
+  @extend %accent-bg-plh;
+}
+
+.subscribe-section__content {
+  width: 100%;
+  height: bg-space(8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: bg-space(0.5);
+  text-align: center;
+
+  @include block-with-bg-border(var(--accent-bg-color));
+
+  @include respond-above(sm) {
+    height: bg-space(11);
+    padding: bg-space(1);
+  }
+
+  @include respond-above(md) {
+    height: bg-space(9);
+    max-width: bg-space(28);
+  }
+
+  @include respond-above(xm) {
+    height: bg-space(8);
+    max-width: bg-space(24);
+  }
+}
+
+.subscribe-section__title {
+  max-width: 10em;
+  text-transform: uppercase;
+
+  @include respond-above(sm) {
+    font-size: to-rem(48);
+  }
+
+  @include respond-above(md) {
+    max-width: unset;
+  }
+
+  @include respond-above(xm) {
+    font-size: var(--h4-size);
+  }
+}
+
+.subscribe-section__description {
+  max-width: 23em;
+  color: var(--secondary-text-color);
+
+  @include respond-above(md) {
+    max-width: unset;
+    font-size: 0.8em;
+  }
+}
+
+.subscribe-section__form {
+  width: 100%;
+  max-width: 23em;
+}
+
+.subscribe-section__subscribe-btn {
+  &.subscribe-section__subscribe-btn {
+    padding: 0;
+    color: var(--secondary-text-color);
+
+    @media all and (hover: hover) {
+      &:hover,
+      &:focus-visible {
+        color: var(--primary-text-color);
+      }
+    }
+  }
+}

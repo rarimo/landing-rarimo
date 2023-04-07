@@ -81,10 +81,10 @@ const ThemeSwitcher = () => {
     //   onClick={onClickSwitcher}
     // >
     //   <svg className="theme-switcher__icon" height="17" width="17">
-    //     <use className="theme-switcher__sun" href="/sprite.svg#icon-sun"></use>
+    //     <use className="theme-switcher__sun" href="/icons/sprite.svg#icon-sun"></use>
     //     <use
     //       className="theme-switcher__moon"
-    //       href="/sprite.svg#icon-moon"
+    //       href="/icons/sprite.svg#icon-moon"
     //     ></use>
     //   </svg>
     // </button>

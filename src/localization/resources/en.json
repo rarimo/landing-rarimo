@@ -1,64 +1,92 @@
 {
   "app": {
-    "title": "Rarimo Lending"
+    "title": "Rarimo Landing"
+  },
+  "app-bar": {
+    "discord": "Discord",
+    "twitter": "Twitter"
+  },
+  "app-footer": {
+    "discord": "Discord",
+    "twitter": "Twitter"
   },
   "home-hero-section": {
     "title": "Unlocked & Connected",
     "subtitle": "Decentralized worlds",
-    "description_html": "Rarimo is a base protocol to build <strong>liquidity</strong> and <strong>interoperability</strong> across chains in a <strong>seamless way</strong>",
+    "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
     "join-testnet-link": "Join Testnet",
-    "white-paper-link": "White Paper",
-    "blockchains-title": "Supported blockchains"
+    "whitepaper-link": "Whitepaper",
+    "blockchains-title": "Supported blockchains",
+    "scroll-for-more": "Scroll for more",
+    "marquee": "The next generation of multi-chain assets & identities"
   },
-  "experience-section": {
-    "title": "Experience what Rarimo can do",
-    "subtitle": "Build complex logics to realize full potential in a multichain universe",
-    "access-title": "Access",
-    "access-text": "Access cross-chain network data and allow dynamic interactions",
-    "interoperability-title": "Interoperability",
-    "interoperability-text": "Move Digital assets or in-game items across different ecosystems",
-    "liquidity-title": "Liquidity",
-    "liquidity-text": "Build liquidity pools across chains, with reduced gas requirements"
+  "what-rarimo-does-section": {
+    "title": "Rarimo’s uniquely modular multi-layer architecture makes developing interoperable dApps faster, easier, and cheaper",
+    "subtitle": "What Rarimo does?",
+    "description": "The protocol consists of a generalized messaging protocol with a series of sub-protocols on top.",
+    "easy-solutions-title": "Easy: Single-click solutions",
+    "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
+    "decentralized-network-title": "Decentralized network",
+    "decentralized-network-text": "Blockchain core and endless number of validators, no limit on the number of blockchains that can be connected.",
+    "security-title": "Security and cost efficiency",
+    "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
   },
-  "user-cases-section": {
-    "title": "Start building",
-    "subtitle": "Enable seamless user experience with a single click interactions",
+  "verticals-section": {
+    "subtitle": "Verticals",
+    "docs-link": "Documentation",
+    "assets-title": "Assets",
+    "assets-text": "From Defi Lending, to NFT Checkouts, Rarimo makes multi-chain transactions possible",
+    "identites-title": "Identites",
+    "identites-text": "Cross-chain proofs for Soul-Bound Tokens, POAPs, dynamic NFTs and more. For interoperable social graphs and identities"
+  },
+  "use-cases-section": {
+    "subtitle": "Featured use cases",
+    "share-text": "Are you building something?",
+    "share-link": "Share now",
+    "view-demo-link": "View Demo",
+    "view-docs-link": "View Docs",
     "nft-checkout-title": "NFT Checkout",
-    "nft-checkout-text": "Allow buying of NFTs using any token of choice in a single transaction — with the lowest fees.",
-    "nft-checkout-btn": "Learn more",
-    "borrowing-title": "Lending & Borrowing",
-    "borrowing-text": "Integrate protocol with lending platforms, enabling collateralized or uncollateralized lending across different chains.",
-    "asset-verification-title": "Asset Verification",
-    "asset-verification-text": "Retrieve and publish timestamped proofs about an NFT’s state and activities.",
-    "airdrop-title": "Multichain Airdrop",
-    "airdrop-text": "Allow minting and airdrops, where users can redeem NFT tokens on different chain.",
-    "staking-title": "Staking aggregator",
-    "staking-text": "Create investment strategy and publish it as a smart contract, to be executed automatically across chains.",
-    "share-title": "Share what you’re building",
-    "backers-title": "Backers"
+    "nft-checkout-desc": "With Rarimo, developers can build fully decentralized NFT checkouts with non-native tokens",
+    "crosschain-proofs-title": "Crosschain proofs",
+    "crosschain-proofs-desc": "Verify the NFT / SBT ownership and easily retrieve the metadata stored on Rarimo",
+    "multichain-minting-title": "Multichain minting",
+    "multichain-minting-desc": "Simplify the flow for airdropping and allow community to mint and hold tokens on their preferred chain",
+    "description-title": "Description",
+    "partners-title": "Partner"
   },
-  "features-section": {
-    "title": "Key features",
-    "join-testnet-link": "Join Testnet",
-    "white-paper-link": "White Paper",
-    "security-title": "Security",
-    "security-text": "Using a threshold signature mechanism for creating proofs for asset unlocking, Rarimo offers a greater number of validators — while maintaining speed and keeping gas costs low.",
-    "transaction-bundling-title": "Transaction Bundling",
-    "transaction-bundling-text": "Users can seamlessly transfer digital assets and identities across chains with a minimum number of actions. Executing cross-chain interactions with a single click.",
-    "on-chain-verification-title": "On-Chain verification and provenance",
-    "on-chain-verification-text": "Allowing to retrieve and publish timestamped proofs about the state and activities, removing the need for additional chain or smart contract integrations."
+  "backers-section": {
+    "subtitle": "Backers"
+  },
+  "news-section": {
+    "subtitle": "Last news",
+    "view-all-text": "Need read more?",
+    "view-all-link": "View All",
+    "first-title": "Rarimo: making multi-chain transactions user-friendly",
+    "second-title": "What is Interoperability, and why is it so important?",
+    "third-title": "Rarimo Whitepaper",
+    "fourth-title": "Decentralized Identity Use Cases"
+  },
+  "subscribe-section": {
+    "title": "Subscribe to our newsletter",
+    "description": "Stay up-to-date about new features and supported apps",
+    "input-plh": "Enter you mail",
+    "subscribe-btn": "Subscribe",
+    "err-email-required": "Email is required",
+    "err-wrong-format": "Wrong mail format",
+    "success-msg": "Success!"
   },
   "community-section": {
     "title": "Start building with Rarimo",
-    "description": "Our community is here to help, get hands-on approach and tailored support to the unique needs of your project",
+    "description": "Our community is here to help! Enjoy support tailored to the unique needs of your project",
     "join-testnet-link": "Join Testnet",
-    "white-paper-link": "White Paper",
+    "whitepaper-link": "Whitepaper",
     "sign-up-link": "Sign up",
-    "learn-more-link": "Learn More",
-    "coming-soon-text": "Coming soon",
-    "engineering-support-title": "Engineering support",
+    "support-title": "Engineric Support",
+    "support-desc": "Make your engineering workflow more efficient",
     "grant-programs-title": "Grant Programs",
-    "discord-title": "Discord Comunity"
+    "grant-programs-desc": "Coming soon",
+    "discord-title": "Discord Comunity",
+    "discord-desc": "Connect with like-minded community for support and inspiration"
   },
   "testnet-hero-section": {
     "title": "Join private Testnet",

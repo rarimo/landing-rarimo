@@ -1,0 +1,112 @@
+.app-button {
+  --text-color: var(--col-white-alpha);
+
+  position: relative;
+  z-index: var(--z-default);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: bg-space(1);
+  width: 100%;
+  max-width: to-rem(184);
+  flex-grow: 1;
+  padding: 0 to-rem(10);
+  color: var(--text-color);
+  background-color: transparent;
+  box-shadow: none;
+  font-size: to-rem(14);
+  line-height: 1.2;
+  font-weight: 600;
+  user-select: none;
+  cursor: pointer;
+  transition-property: color;
+  transition-duration: var(--medium-transition-duration);
+  transition-timing-function: var(--hover-transition-timing-function);
+
+  @include respond-above(lg) {
+    font-size: to-rem(16);
+  }
+}
+
+.app-button__content {
+  position: relative;
+  z-index: var(--z-default);
+}
+
+.app-button--primary {
+  --border-color: var(--col-white-alpha);
+  --border: #{to-rem(1)} solid var(--border-color);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: var(--z-hidden);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-bg-color);
+    border: var(--border);
+    transition-property: transform, border-color;
+    transition-duration: var(--medium-transition-duration);
+    transition-timing-function: var(--hover-transition-timing-function);
+  }
+
+  &::before {
+    transform: translate(#{to-rem(5)}, #{to-rem(5)});
+  }
+
+  @media all and (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      --border-color: var(--col-primary-grey);
+
+      color: var(--text-color);
+
+      &::before {
+        transform: translate(0, 0);
+      }
+    }
+  }
+}
+
+.app-button--secondary {
+  @media all and (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      --text-color: var(--col-primary-grey);
+
+      color: var(--text-color);
+    }
+  }
+}
+
+.app-button--solid-border {
+  --border-color: var(--col-white-alpha);
+  --border: #{to-rem(1)} solid var(--border-color);
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: var(--z-hidden);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-bg-color);
+    border: var(--border);
+    transition-property: transform, border-color;
+    transition-duration: var(--medium-transition-duration);
+    transition-timing-function: var(--hover-transition-timing-function);
+  }
+
+  @media all and (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      --border-color: var(--col-primary-grey);
+
+      color: var(--text-color);
+    }
+  }
+}

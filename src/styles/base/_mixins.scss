@@ -21,3 +21,12 @@
     padding-block-start: calc(100% / #{$ratio});
   }
 }
+
+@mixin block-with-bg-border($bg-color: var(--primary-bg-color)) {
+  background-color: #{$bg-color};
+
+  border-top: none;
+  border-right: to-rem(1) solid var(--bg-rect-border-color);
+  border-bottom: to-rem(1) solid var(--bg-rect-border-color);
+  border-left: none;
+}

@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
-import ExperienceSection from '@/components/ExperienceSection';
 import HomeHeroSection from '@/components/HomeHeroSection';
-import UserCasesSection from '@/components/UserCasesSection';
-import FeaturesSection from '@/components/FeaturesSection';
+import WhatRarimoDoesSection from '@/components/WhatRarimoDoesSection';
+import VerticalsSection from '@/components/VerticalsSection';
+import UseCasesSection from '@/components/UseCasesSection';
+import BackersSection from '@/components/BackersSection';
+import NewsSection from '@/components/NewsSection';
+import SubscribeSection from '@/components/SubscribeSection';
 import CommunitySection from '@/components/CommunitySection';
 import { initSwiper } from '@/js';
 
@@ -14,9 +17,12 @@ const HomePage = () => {
   return (
     <>
       <HomeHeroSection />
-      <ExperienceSection />
-      <UserCasesSection />
-      <FeaturesSection />
+      <WhatRarimoDoesSection />
+      <VerticalsSection />
+      <UseCasesSection />
+      <BackersSection />
+      <NewsSection />
+      <SubscribeSection />
       <CommunitySection />
     </>
   );
