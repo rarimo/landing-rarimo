@@ -1,14 +1,14 @@
-%grid-column {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: bg-space(1);
-  align-items: center;
-}
-
 .app-footer {
   padding-bottom: bg-space(2);
   height: var(--app-footer-height);
+
+  @include respond-above(sm) {
+    padding-bottom: bg-space(1);
+  }
+
+  @include respond-above(md) {
+    padding-bottom: bg-space(2);
+  }
 }
 
 .app-footer__wrapper {
@@ -18,14 +18,19 @@
 }
 
 .app-footer__bg-table {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: var(--z-default);
-  width: calc(100% - bg-space(2) - to-rem(1));
-  margin: 0 bg-space(1);
+  display: none;
 
-  @include block-with-bg-border;
+  @include respond-above(md) {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: var(--z-default);
+    width: calc(100% - bg-space(2) - to-rem(1));
+    margin: 0 bg-space(1);
+
+    @include block-with-bg-border;
+  }
 }
 
 .app-footer__bg-table-cell {
@@ -37,20 +42,38 @@
 }
 
 .app-footer__content {
-  position: relative;
-  z-index: var(--z-default);
   height: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, max-content) 1fr auto;
-  grid-gap: 20%;
-  margin: 0 bg-space(1);
-  font-size: 0.8em;
+  font-size: to-rem(14);
+
+  @include respond-to(md) {
+    padding: 0 bg-space(1);
+
+    @include block-with-bg-border;
+  }
+
+  @include respond-above(md) {
+    position: relative;
+    z-index: var(--z-default);
+    display: grid;
+    grid-template-columns: repeat(2, max-content) 1fr auto;
+    grid-gap: 20%;
+    margin: 0 bg-space(1);
+  }
 }
 
 .app-footer__logo-wrapper {
-  @extend %grid-column;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  grid-gap: bg-space(2);
+  @include respond-above(md) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: bg-space(1);
+    grid-gap: bg-space(2);
+    align-items: center;
+  }
 }
 
 .app-footer__logo {
@@ -72,7 +95,15 @@
 // }
 
 .app-footer__social-links-wrapper {
-  @extend %grid-column;
+  display: none;
+
+  @include respond-above(md) {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: bg-space(1);
+    align-items: center;
+  }
 }
 
 .app-footer__link {
@@ -101,12 +132,25 @@
 
 .app-footer__scroll-to-top-btn {
   &.app-footer__scroll-to-top-btn {
+    display: none;
     height: bg-space(1);
     width: bg-space(1);
     padding: 0;
+
+    @include respond-above(md) {
+      display: inline-flex;
+    }
   }
 }
 
 .app-footer__scroll-to-top-icon {
   transform: rotate(-90deg);
+}
+
+.app-footer__space {
+  display: none;
+
+  @include respond-above(md) {
+    display: block;
+  }
 }
