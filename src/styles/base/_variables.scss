@@ -44,7 +44,7 @@
     'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
 
   --p-size: #{to-rem(16)};
-  --h1-size: #{to-rem(56)};
+  --h1-size: #{to-rem(60)};
   --h2-size: #{to-rem(52)};
   --h3-size: var(--h3-size-xs, #{to-rem(32)});
   --h4-size: #{to-rem(32)};
@@ -54,9 +54,14 @@
 
   @include respond-above(sm) {
     --p-size: #{to-rem(20)};
+    --h1-size: #{to-rem(104)};
     --h2-size: #{to-rem(60)};
     --h3-size: var(--h3-size-sm, #{to-rem(56)});
     --overline-size: #{to-rem(14)};
+  }
+
+  @include respond-above(md) {
+    --h1-size: #{to-rem(88)};
   }
 
   @include respond-above(xm) {
