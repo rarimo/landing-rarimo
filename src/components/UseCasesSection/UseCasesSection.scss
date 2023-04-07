@@ -63,10 +63,15 @@
   }
 
   @include respond-above(md) {
-    width: bg-space(9);
+    width: bg-space(10);
     padding: 0 bg-space(1);
+    font-size: 0.8em;
 
     @include block-with-bg-border(var(--yellow-accent-bg-color));
+  }
+
+  @include respond-above(lg) {
+    font-size: 0.7em;
   }
 }
 
