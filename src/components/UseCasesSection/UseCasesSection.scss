@@ -241,18 +241,22 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: to-rem(48) to-rem(80);
+    gap: to-rem(36) to-rem(60);
     margin-top: bg-space(1);
   }
 }
 
 .use-cases-section__content-block {
   @include respond-above(md) {
-    flex: 0 0 to-rem(450);
+    flex: 0 0 to-rem(400);
   }
 
   &:not(:last-child) {
     margin-bottom: bg-space(1.2);
+
+    @include respond-above(md) {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -263,18 +267,15 @@
   @include respond-above(sm) {
     font-size: 0.8em;
   }
-}
 
-.use-cases-section__partners {
-  flex-basis: auto;
-
-  .partners-list__item {
-    &:not(:last-child) {
-      margin-right: to-rem(16);
+  @include respond-above(md) {
+    @include respond-to(xm) {
+      font-size: 0.7em;
     }
   }
+}
 
-  .partners-list__item-icon {
-    width: bg-space(0.5);
-  }
+.use-cases-section__partner-logo {
+  height: to-rem(30);
+  width: auto;
 }
