@@ -90,12 +90,12 @@
   grid-template-columns: repeat(auto-fill, minmax(to-rem(330), 1fr));
   grid-auto-rows: bg-space(7);
 
-  @include respond-to(md) {
-    @include block-with-bg-border(var(--accent-bg-color));
-  }
-
   @include respond-above(sm) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(md) {
+    @include block-with-bg-border(var(--accent-bg-color));
   }
 
   @include respond-above(md) {
