@@ -57,6 +57,15 @@
   "backers-section": {
     "subtitle": "Backers"
   },
+  "news-section": {
+    "subtitle": "Last news",
+    "view-all-text": "Need read more?",
+    "view-all-link": "View All",
+    "first-title": "Rarimo: making multi-chain transactions user-friendly",
+    "second-title": "What is Interoperability, and why is it so important?",
+    "third-title": "Rarimo Whitepaper",
+    "fourth-title": "Decentralized Identity Use Cases"
+  },
   "subscribe-section": {
     "title": "Subscribe to our newsletter",
     "description": "Stay up-to-date about new features and supported apps & Games",
