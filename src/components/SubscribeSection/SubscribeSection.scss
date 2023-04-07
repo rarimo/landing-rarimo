@@ -44,7 +44,7 @@
   text-transform: uppercase;
 
   @include respond-above(sm) {
-    font-size: to-rem(56);
+    font-size: to-rem(48);
   }
 
   @include respond-above(md) {
