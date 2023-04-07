@@ -77,11 +77,14 @@ const CommunitySection = ({ isHomePage = true }) => {
                 target="_blank"
                 rel="nofollow noopener noreferrer"
               >
-                <div className="community-section__list-item-icon">
-                  <svg height="32" width="32">
-                    <use href={item.icon}></use>
-                  </svg>
-                </div>
+                <svg
+                  className="community-section__list-item-icon"
+                  height="32"
+                  width="32"
+                >
+                  <use href={item.icon}></use>
+                </svg>
+
                 <div>
                   <h6 className="community-section__list-item-title">
                     {t(item.titleKey)}
@@ -91,15 +94,13 @@ const CommunitySection = ({ isHomePage = true }) => {
                   </p>
                 </div>
                 {item.link && (
-                  <div className="community-section__arrow-icon-wrapper">
-                    <svg
-                      className="community-section__arrow-icon"
-                      height="12"
-                      width="12"
-                    >
-                      <use href="/icons/sprite.svg#icon-arrow-right"></use>
-                    </svg>
-                  </div>
+                  <svg
+                    className="community-section__arrow-icon"
+                    height="12"
+                    width="12"
+                  >
+                    <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                  </svg>
                 )}
               </a>
             </li>
