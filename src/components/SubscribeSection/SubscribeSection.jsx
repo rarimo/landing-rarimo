@@ -35,30 +35,19 @@ const SubscribeSection = () => {
     isSubmitting,
   } = useForm(initialValues, onSubscribe, validationSchema);
 
-  const isSubscribed = async (email) => {
-    try {
-      const { status } = await hubspotApi.get('/v1/subscriptions', {
-        email,
-      })
-      return status === 200
-    } catch (e) {
-      return false
-    }
-  }
-
   async function onSubscribe() {
     if (isSubmitting || errors.email) return;
 
     try {
-      if (await isSubscribed(values.email)) return
-
-      const resp = await hubspotApi.post('/v1/subscriptions', {
+     await hubspotApi.post('/v1/subscriptions', {
         email: values.email,
       })
-
-      console.log(resp)
     } catch (e) {
-      console.error(e);
+      if (e?.response?.status === 400) {
+        console.log('Already subscribed')
+      } else {
+        console.error(e);
+      }
     }
   }
 
