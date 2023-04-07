@@ -33,16 +33,30 @@
   display: none;
 
   @include respond-above(md) {
+    --size: calc(#{bg-space(8)} + #{to-rem(1)});
+
     position: absolute;
     display: block;
     top: 0;
     right: calc(#{bg-space(1)} + #{to-rem(2)});
-    width: bg-space(8);
-    height: auto;
+    width: var(--size);
+    height: var(--size);
+    background-size: var(--primary-bg-rect-size) var(--primary-bg-rect-size);
+    background-image: linear-gradient(
+        to right,
+        var(--col-primary-black) #{to-rem(1)},
+        transparent #{to-rem(1)}
+      ),
+      linear-gradient(
+        to bottom,
+        var(--col-primary-black) #{to-rem(1)},
+        transparent #{to-rem(1)}
+      );
   }
 
   @include respond-above(xm) {
-    width: bg-space(10);
+    --size: calc(#{bg-space(10)} + #{to-rem(1)});
+
     right: calc(#{bg-space(2)} + #{to-rem(2)});
   }
 }
