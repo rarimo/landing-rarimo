@@ -38,7 +38,7 @@ const SubscribeSection = () => {
   const isSubscribed = async (email) => {
     try {
       const { status } = await hubspotApi.get('/v1/subscriptions', {
-        emailAddress: email,
+        email,
       })
       return status === 200
     } catch (e) {
