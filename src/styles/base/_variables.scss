@@ -104,8 +104,12 @@
   --app-bar-logo-color: var(--secondary-title-color);
 
   // App footer
-  --app-footer-height: #{bg-space(6)};
+  --app-footer-height: #{bg-space(4)};
   --app-footer-logo-color: var(--secondary-title-color);
+
+  @include respond-above(md) {
+    --app-footer-height: #{bg-space(6)};
+  }
 
   // Use cases section
   --use-cases-section-case-bg-gradient: conic-gradient(
