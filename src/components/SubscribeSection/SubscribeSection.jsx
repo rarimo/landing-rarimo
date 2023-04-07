@@ -10,7 +10,6 @@ import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import useForm from '@/hooks/useForm';
 import { REGEX } from '@/const';
 import { hubspotApi } from '@/hubspot-api';
-import { CONFIG } from '@/config';
 
 const SubscribeSection = () => {
   const { t } = useTranslation();
@@ -39,12 +38,12 @@ const SubscribeSection = () => {
     if (isSubmitting || errors.email) return;
 
     try {
-     await hubspotApi.post('/v1/subscriptions', {
+      await hubspotApi.post('/v1/subscriptions', {
         email: values.email,
-      })
+      });
     } catch (e) {
       if (e?.response?.status === 400) {
-        console.log('Already subscribed')
+        console.log('Already subscribed');
       } else {
         console.error(e);
       }
