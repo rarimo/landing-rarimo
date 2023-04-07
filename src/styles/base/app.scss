@@ -32,16 +32,6 @@ body {
   overflow-y: auto;
 }
 
-// section {
-//   @include respond-above(md) {
-//     min-height: min(100vh, to-rem(500));
-//   }
-
-//   @include respond-above(xm) {
-//     min-height: min(100vh, to-rem(700));
-//   }
-// }
-
 body,
 button {
   font-size: var(--p-size, #{to-rem(16)});
@@ -102,8 +92,16 @@ h6 {
 
 h1 {
   font-size: var(--h1-size);
-  line-height: 1.08;
-  font-weight: 600;
+  line-height: 1.1;
+  font-weight: 500;
+
+  @include respond-above(sm) {
+    font-weight: 700;
+  }
+
+  @include respond-above(md) {
+    font-weight: 600;
+  }
 }
 
 h2 {
@@ -137,13 +135,17 @@ h6 {
   font-weight: 500;
 
   &.overline {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     color: var(--col-primary-grey);
     font-size: var(--overline-size);
     line-height: 1.3;
     font-weight: 600;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+
+    @include respond-above(xm) {
+      margin-bottom: 2em;
+    }
   }
 }
 
