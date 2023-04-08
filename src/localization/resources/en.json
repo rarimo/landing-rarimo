@@ -12,7 +12,7 @@
   },
   "home-hero-section": {
     "title": "Unlocked & Connected",
-    "subtitle": "Decentralized worlds",
+    "subtitle": "Decentralized social layer",
     "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
@@ -22,7 +22,7 @@
   },
   "what-rarimo-does-section": {
     "title": "Rarimo’s uniquely modular multi-layer architecture makes developing interoperable dApps faster, easier, and cheaper",
-    "subtitle": "What Rarimo does?",
+    "subtitle": "What is Rarimo?",
     "description": "The protocol consists of a generalized messaging protocol with a series of sub-protocols on top.",
     "easy-solutions-title": "Easy: Single-click solutions",
     "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
@@ -35,9 +35,9 @@
     "subtitle": "Verticals",
     "docs-link": "Documentation",
     "assets-title": "Assets",
-    "assets-text": "From Defi Lending, to NFT Checkouts, Rarimo makes multi-chain transactions possible",
+    "assets-text": "From Defi Lending, to NFT Checkouts, Rarimo makes multi-chain transactions easy and possible",
     "identites-title": "Identites",
-    "identites-text": "Cross-chain proofs for Soul-Bound Tokens, POAPs, dynamic NFTs and more. For interoperable social graphs and identities"
+    "identites-text": "Cross-chain proofs for SBTs, Social Tokens, dynamic NFTs and more. For interoperable social graphs and identities"
   },
   "use-cases-section": {
     "subtitle": "Featured use cases",
@@ -58,9 +58,8 @@
     "subtitle": "Backers"
   },
   "news-section": {
-    "subtitle": "Last news",
-    "view-all-text": "Need read more?",
-    "view-all-link": "View All",
+    "subtitle": "Latest news",
+    "read-more-link": "Read more",
     "first-title": "Rarimo: making multi-chain transactions user-friendly",
     "second-title": "What is Interoperability, and why is it so important?",
     "third-title": "Rarimo Whitepaper",
@@ -81,11 +80,11 @@
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
     "sign-up-link": "Sign up",
-    "support-title": "Engineric Support",
+    "support-title": "Engineеr Support",
     "support-desc": "Make your engineering workflow more efficient",
     "grant-programs-title": "Grant Programs",
     "grant-programs-desc": "Coming soon",
-    "discord-title": "Discord Comunity",
+    "discord-title": "Discord Community",
     "discord-desc": "Connect with like-minded community for support and inspiration"
   },
   "testnet-hero-section": {
