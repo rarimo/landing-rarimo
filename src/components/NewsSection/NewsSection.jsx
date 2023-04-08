@@ -14,15 +14,14 @@ const NewsSection = () => {
           <h6 className="news-section__subtitle">
             {t('news-section.subtitle')}
           </h6>
-          <div className="news-section__view-all-wrapper">
-            <span>{t('news-section.view-all-text')}</span>
+          <div className="news-section__read-more-wrapper">
             <a
-              className="news-section__view-all-link"
+              className="news-section__read-more-link"
               href={CONFIG.mediumLink}
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
-              {t('news-section.view-all-link')}
+              {t('news-section.read-more-link')}
             </a>
           </div>
         </div>
