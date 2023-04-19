@@ -9,11 +9,21 @@
   transition-property: transform;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);
+  // animation: first-render-slide 0.6s;
 
   &.app-bar--hidden {
     transform: translateY(-100%);
   }
 }
+
+// @keyframes first-render-slide {
+//   0% {
+//     transform: translateY(-100%);
+//   }
+//   100% {
+//     transform: translateY(0);
+//   }
+// }
 
 .app-bar__container {
   height: 100%;
