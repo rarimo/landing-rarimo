@@ -1,8 +1,9 @@
 import './IntegrationsSection.scss';
 
 import { useTranslation } from 'react-i18next';
-import { integrationsList } from '@/template-data';
+
 import { getShiftedDelay } from '@/helpers';
+import { integrationsList } from '@/template-data';
 
 const IntegrationsSection = () => {
   const { t } = useTranslation();

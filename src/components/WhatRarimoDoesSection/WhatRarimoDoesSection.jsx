@@ -1,6 +1,7 @@
 import './WhatRarimoDoesSection.scss';
 
 import { useTranslation } from 'react-i18next';
+
 import SectionWrapper, {
   SECTION_WRAPPER_SCHEME,
 } from '@/components/SectionWrapper';

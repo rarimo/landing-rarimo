@@ -1,20 +1,21 @@
 import './HowItWorksSection.scss';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useMedia, usePrevious } from 'react-use';
-import { useTranslation } from 'react-i18next';
-import cn from 'classnames';
-import { useInView } from 'react-intersection-observer';
 import useResizeObserver from '@react-hook/resize-observer';
+import cn from 'classnames';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useInView } from 'react-intersection-observer';
+import { useMedia, usePrevious } from 'react-use';
+
 import HowItWorksChartDesktop from '@/components/HowItWorksChartDesktop';
 import HowItWorksChartMobile from '@/components/HowItWorksChartMobile';
-import useForceUpdate from '@/hooks/useForceUpdate';
-import { howItWorksGroupsList } from '@/template-data';
 import {
   HOW_IT_WORKS_DEFAULT_CHART_HEIGHT,
   HOW_IT_WORKS_DEFAULT_CHART_WIDTH,
   HOW_IT_WORKS_GROUPS,
 } from '@/const';
+import useForceUpdate from '@/hooks/useForceUpdate';
+import { howItWorksGroupsList } from '@/template-data';
 
 const HowItWorksSection = () => {
   const { t } = useTranslation();

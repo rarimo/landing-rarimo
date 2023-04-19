@@ -2,12 +2,13 @@ import './AppBar.scss';
 
 import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { throttle } from 'throttle-debounce';
+
 import ThemeSwitcher from '@/components/ThemeSwitcher';
-import { ROUTES_PATHS } from '@/const';
 import { CONFIG } from '@/config';
-import { useTranslation } from 'react-i18next';
+import { ROUTES_PATHS } from '@/const';
 
 const APP_BAR_THRESHOLD = 60;
 

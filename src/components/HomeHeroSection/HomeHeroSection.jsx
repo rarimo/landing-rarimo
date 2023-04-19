@@ -1,13 +1,14 @@
 import './HomeHeroSection.scss';
 
-import { useTranslation } from 'react-i18next';
 import Marquee from 'react-fast-marquee';
-import SectionWrapper from '@/components/SectionWrapper';
+import { useTranslation } from 'react-i18next';
+
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
-import { supportedBlockchainsList } from '@/template-data';
+import SectionWrapper from '@/components/SectionWrapper';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
+import { supportedBlockchainsList } from '@/template-data';
 
 const HomeHeroSection = () => {
   const { t } = useTranslation();

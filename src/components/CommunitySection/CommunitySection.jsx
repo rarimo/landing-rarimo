@@ -2,11 +2,12 @@ import './CommunitySection.scss';
 
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import SectionWrapper from '@/components/SectionWrapper';
-import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
+import { communitySectionList } from '@/template-data';
 
 const CommunitySection = ({ isHomePage = true }) => {
   const { t } = useTranslation();

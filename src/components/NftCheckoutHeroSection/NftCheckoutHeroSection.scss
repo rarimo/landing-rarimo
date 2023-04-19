@@ -53,10 +53,11 @@
 }
 
 @keyframes blink-caret {
-  from,
-  to {
+  0%,
+  100% {
     border-color: transparent;
   }
+
   50% {
     border-color: currentColor;
   }

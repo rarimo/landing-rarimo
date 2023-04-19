@@ -1,5 +1,6 @@
-import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Outlet } from 'react-router-dom';
+
 import AppBar from '@/components/AppBar';
 import AppFooter from '@/components/AppFooter';
 import RouteTransition from '@/components/RouteTransition';

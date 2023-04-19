@@ -59,7 +59,7 @@
   position: relative;
   white-space: nowrap;
 
-  &:after {
+  &::after {
     position: absolute;
     right: 0;
     left: 0;

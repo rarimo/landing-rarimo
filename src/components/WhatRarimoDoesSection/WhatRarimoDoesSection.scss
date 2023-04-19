@@ -2,7 +2,6 @@
   position: relative;
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
-
   background-color: var(--accent-bg-color);
   background-image: url('/img/bg/green-rect.png');
   background-size: var(--primary-bg-rect-size);
@@ -13,20 +12,6 @@
 
 .what-rarimo-does-section__main-content {
   position: relative;
-  // @include respond-above(md) {
-  // background-image: url('/img/what-rarimo-does-section/books.png');
-  // background-image: url('/icons/sprite.svg#icon-what-rarimo-does-decor');
-  // background-size: bg-space(8);
-  // background-repeat: no-repeat;
-  // background-position: top bg-space(0.5) right
-  //   calc(#{bg-space(1)} + #{to-rem(2)});
-  // }
-
-  // @include respond-above(xm) {
-  //   background-size: bg-space(10);
-  //   background-position: top bg-space(0.5) right
-  //     calc(#{bg-space(2)} + #{to-rem(2)});
-  // }
 }
 
 .what-rarimo-does-section__main-content-decor {

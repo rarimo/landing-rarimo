@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
+
 import AdvantagesSection from '@/components/AdvantagesSection';
-import HowItWorksSection from '@/components/HowItWorksSection/HowItWorksSection';
-import NftCheckoutHeroSection from '@/components/NftCheckoutHeroSection';
-import ImplementationSection from '@/components/ImplementationSection';
 import CommunitySection from '@/components/CommunitySection';
+import HowItWorksSection from '@/components/HowItWorksSection/HowItWorksSection';
+import ImplementationSection from '@/components/ImplementationSection';
+import NftCheckoutHeroSection from '@/components/NftCheckoutHeroSection';
 // import IntegrationsSection from '@/components/IntegrationsSection';
 import { initSwiper } from '@/js';
 

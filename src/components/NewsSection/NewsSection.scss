@@ -2,7 +2,6 @@
   position: relative;
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
-
   background-color: var(--primary-bg-color);
   background-image: url('/img/bg/black-rect.png');
   background-size: var(--primary-bg-rect-size);
@@ -27,7 +26,7 @@
   }
 
   @include respond-to(md) {
-    @include block-with-bg-border();
+    @include block-with-bg-border;
   }
 
   @include respond-above(xm) {
@@ -49,7 +48,7 @@
     padding: 0 bg-space(1);
     font-size: 1em;
 
-    @include block-with-bg-border();
+    @include block-with-bg-border;
   }
 }
 
@@ -67,7 +66,7 @@
     width: bg-space(9);
     padding: 0 bg-space(1);
 
-    @include block-with-bg-border();
+    @include block-with-bg-border;
   }
 
   @include respond-above(xm) {
@@ -85,7 +84,7 @@
   color: var(--secondary-title-color);
   transition: color var(--hover-transition);
 
-  &:after {
+  &::after {
     position: absolute;
     left: 0;
     bottom: -#{to-rem(1)};
@@ -112,7 +111,7 @@
   height: bg-space(9);
   padding: bg-space(0.5);
 
-  @include block-with-bg-border();
+  @include block-with-bg-border;
 
   @include respond-above(sm) {
     height: bg-space(10);
@@ -132,7 +131,7 @@
   width: to-rem(320);
 
   @include respond-above(xm) {
-    width: calc(25% - 18px);
+    width: calc(25% - #{to-rem(18)});
   }
 }
 
@@ -162,7 +161,7 @@
   font-size: to-rem(20);
   color: var(--secondary-title-color);
 
-  &:after {
+  &::after {
     position: absolute;
     right: 0;
     bottom: -#{to-rem(2)};
@@ -177,7 +176,7 @@
   @media all and (hover: hover) {
     .news-section__item-link:hover &,
     .news-section__item-link:focus-visible & {
-      &:after {
+      &::after {
         left: 0;
         width: 100%;
       }
