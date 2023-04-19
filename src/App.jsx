@@ -12,7 +12,7 @@ const App = () => {
     setTimeout(() => {
       hideLoader();
       defineDesktopFontSizes();
-      // initAOS();
+      initAOS();
       setIsInited(true);
     }, CONFIG.initLoaderDelay);
   };
@@ -22,7 +22,11 @@ const App = () => {
   }, []);
 
   return (
-    <div className="application js-application">
+    <div
+      className="application js-application"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-center"
+    >
       <RouteLocationProvider>
         <AppContextProvider isInited={isInited}>
           <AppRoutes />

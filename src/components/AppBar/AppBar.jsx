@@ -52,7 +52,7 @@ const AppBar = () => {
       ])}
     >
       <div className="app-bar__container container">
-        <div className="app-bar__content">
+        <div className="app-bar__content" data-aos="fade-up">
           <Link className="app-bar__logo" to={ROUTES_PATHS.home}>
             <svg className="app-bar__logo-img" height="28" width="108">
               <use href="/icons/sprite.svg#icon-app-logo"></use>
