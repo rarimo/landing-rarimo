@@ -1,7 +1,8 @@
 import './ThemeSwitcher.scss';
 
-import { useEffect, useState } from 'react';
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
+
 import { COLOR_SCHEME_KEY, SCHEMES } from '@/const';
 
 const ThemeSwitcher = () => {

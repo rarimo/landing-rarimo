@@ -1,7 +1,6 @@
 .community-section {
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
-
   background-color: var(--primary-bg-color);
   background-image: url('/img/bg/black-rect.png');
   background-size: var(--primary-bg-rect-size);
@@ -127,7 +126,7 @@
   }
 
   @include respond-to(md) {
-    @include block-with-bg-border();
+    @include block-with-bg-border;
   }
 
   @include respond-above(md) {
@@ -199,7 +198,7 @@
     margin-left: 0;
   }
 
-  &:after {
+  &::after {
     position: absolute;
     right: 0;
     bottom: -#{to-rem(2)};
@@ -214,7 +213,7 @@
   @media all and (hover: hover) {
     .community-section__list-item-link--active:hover &,
     .community-section__list-item-link--active:focus-visible & {
-      &:after {
+      &::after {
         left: 0;
         width: 100%;
       }

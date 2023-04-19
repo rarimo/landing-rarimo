@@ -1,6 +1,8 @@
-import { CONFIG } from '@/config';
-import { useTranslation } from 'react-i18next';
 import './TestnetDescSection.scss';
+
+import { useTranslation } from 'react-i18next';
+
+import { CONFIG } from '@/config';
 
 const TestnetDescSection = () => {
   const { t } = useTranslation();

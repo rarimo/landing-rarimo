@@ -2,6 +2,7 @@ import './BackersSection.scss';
 
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+
 import SectionWrapper from '@/components/SectionWrapper';
 import { backersList } from '@/template-data';
 

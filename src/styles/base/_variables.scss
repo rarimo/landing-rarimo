@@ -1,8 +1,8 @@
 @import '@/styles/colors';
 
 :root,
-:before,
-:after {
+::before,
+::after {
   // Colors
   --col-total-white: #{$col-total-white};
   --col-total-black: #{$col-total-black};
@@ -37,11 +37,13 @@
   --z-hidden: -1;
 
   // Text variables
+  /* stylelint-disable max-line-length */
   --primary-font-family: 'Inter', -apple-system, 'BlinkMacSystemFont',
     'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue',
     sans-serif;
   --title-font-family: 'Oswald', -apple-system, 'BlinkMacSystemFont', 'Segoe UI',
     'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+  /* stylelint-enable max-line-length */
 
   --p-size: #{to-rem(16)};
   --h1-size: #{to-rem(60)};

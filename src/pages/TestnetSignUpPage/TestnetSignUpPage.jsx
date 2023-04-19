@@ -1,4 +1,5 @@
 import './TestnetSignUpPage.scss';
+
 import { Widget } from '@typeform/embed-react';
 
 const TestnetSignUpPage = () => {

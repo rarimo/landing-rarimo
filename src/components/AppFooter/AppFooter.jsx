@@ -2,8 +2,9 @@ import './AppFooter.scss';
 
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import SectionWrapper from '@/components/SectionWrapper';
+
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
+import SectionWrapper from '@/components/SectionWrapper';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
 

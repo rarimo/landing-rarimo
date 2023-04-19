@@ -1,7 +1,8 @@
 import './BaseCardList.scss';
 
-import { Children, cloneElement } from 'react';
 import cn from 'classnames';
+import { Children, cloneElement } from 'react';
+
 import { getShiftedDelay } from '@/helpers';
 
 const BaseCardList = ({ children, className }) => (

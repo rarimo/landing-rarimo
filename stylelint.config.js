@@ -95,10 +95,7 @@ module.exports = {
         ],
       },
     ],
-    'declaration-block-no-redundant-longhand-properties': [
-      true,
-      { severity: 'warning' },
-    ],
+    'declaration-block-no-redundant-longhand-properties': null,
     'declaration-no-important': [true, { severity: 'warning' }],
     'declaration-block-single-line-max-declarations': [
       1,
@@ -143,7 +140,10 @@ module.exports = {
     'string-quotes': ['single', { severity: 'warning' }],
     'length-zero-no-unit': [true, { severity: 'warning' }],
     'unit-case': ['lower', { severity: 'warning' }],
-    'value-keyword-case': ['lower', { severity: 'warning' }],
+    'value-keyword-case': [
+      'lower',
+      { severity: 'warning', camelCaseSvgKeywords: true },
+    ],
     'value-list-comma-space-after': [
       'always-single-line',
       { severity: 'warning' },
@@ -289,8 +289,8 @@ module.exports = {
         ignoreKeywords: {
           // '' means default, for all
           '': ['currentColor', 'transparent', 'inherit', 'initial'],
-          fill: ['none'],
-          stroke: ['none'],
+          fill: ['none', 'currentColor', 'transparent'],
+          stroke: ['none', 'currentColor', 'transparent'],
         },
       },
     ],

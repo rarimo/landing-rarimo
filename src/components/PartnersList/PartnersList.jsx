@@ -1,7 +1,8 @@
 import './PartnersList.scss';
 
-import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
+import { useTranslation } from 'react-i18next';
+
 import { getShiftedDelay } from '@/helpers';
 
 const PartnersList = ({ titleKey, items, className }) => {

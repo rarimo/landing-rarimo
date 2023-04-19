@@ -1,8 +1,9 @@
 import './TestnetHeroSection.scss';
 
-import { useTranslation, Trans } from 'react-i18next';
-import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
+import { Trans, useTranslation } from 'react-i18next';
+
 import AppButton from '@/components/AppButton';
+import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import { ROUTES_PATHS } from '@/const';
 
 const TestnetHeroSection = () => {

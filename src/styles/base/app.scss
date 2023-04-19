@@ -4,13 +4,17 @@ html {
   font-family: var(--primary-font-family);
   word-spacing: to-rem(1);
   text-rendering: optimizeLegibility;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
   -ms-text-size-adjust: 100%;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  /* stylelint-disable-next-line declaration-no-important */
   -webkit-overflow-scrolling: touch !important;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
+  /* stylelint-disable-next-line declaration-no-important */
   overflow-y: auto !important;
   scroll-behavior: smooth;
 }
@@ -161,6 +165,7 @@ img {
 }
 
 ::placeholder {
+  /* stylelint-disable-next-line declaration-no-important */
   color: var(--secondary-text-color) !important;
 }
 

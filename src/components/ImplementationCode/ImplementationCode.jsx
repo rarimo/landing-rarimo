@@ -1,7 +1,7 @@
 import './ImplementationCode.scss';
 
-import Highlight, { defaultProps } from 'prism-react-renderer';
 import cn from 'classnames';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 
 const codeExample = `import { RarimoPayButton, getRarimoSupportedChains } from "rarimo-checkout-react-component"; const chains = getRarimoSupportedChains(); <RarimoPayButton buttonProps={{ label: "Buy with Rarimo" }} tokenChain="ETH" chainList={{ chains }} />`;
 

@@ -1,5 +1,6 @@
 .testnet-sign-up-page__widget {
   iframe {
+    /* stylelint-disable-next-line declaration-no-important */
     border-radius: 0 !important;
     min-height: 100vh;
   }
