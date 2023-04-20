@@ -17,7 +17,9 @@
   white-space: nowrap;
 }
 
-%accent-bg-plh {
+%accent-bg-plh,
+%accent-bg-plh ::before,
+%accent-bg-plh ::after {
   --primary-title-color: var(--col-primary-black);
   --primary-text-color: var(--col-primary-black);
   --bg-rect-border-color: var(--col-black-min-alpha);
@@ -25,7 +27,9 @@
   color: var(--primary-text-color);
 }
 
-%primary-bg-plh {
+%primary-bg-plh,
+%primary-bg-plh ::before,
+%primary-bg-plh ::after {
   --primary-title-color: var(--col-total-white);
   --primary-text-color: var(--col-primary-grey);
   --bg-rect-border-color: var(--col-white-min-alpha);
