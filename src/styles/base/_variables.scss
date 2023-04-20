@@ -33,6 +33,7 @@
   // Z-indexes
   --z-app-bar: 14;
   --z-use-cases-swiper-arrow: 5;
+  --z-above-noise-bg: 2;
   --z-default: 1;
   --z-hidden: -1;
 
@@ -44,8 +45,8 @@
     'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
 
   --p-size: #{to-rem(16)};
-  --h1-size: #{to-rem(60)};
-  --h2-size: #{to-rem(52)};
+  --h1-size: #{to-rem(56)};
+  --h2-size: #{to-rem(50)};
   --h3-size: var(--h3-size-xs, #{to-rem(32)});
   --h4-size: #{to-rem(32)};
   --h5-size: #{to-rem(20)};
@@ -57,6 +58,7 @@
     --h1-size: #{to-rem(104)};
     --h2-size: #{to-rem(60)};
     --h3-size: var(--h3-size-sm, #{to-rem(56)});
+    --h4-size: #{to-rem(48)};
     --overline-size: #{to-rem(14)};
   }
 
@@ -121,8 +123,8 @@
   // Use cases section
   --use-cases-section-case-bg-gradient: conic-gradient(
     from 164.83deg at 63.38% 38.28%,
-    var(--col-primary-black) 0deg,
-    #{$col-carbon-fiber} 360deg
+    #{darken($col-cursed-black, 15%)} 0deg,
+    #{darken($col-carbon-fiber, 7%)} 360deg
   );
 
   // Nft checkout video

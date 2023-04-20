@@ -45,10 +45,6 @@
   text-transform: uppercase;
   overflow: hidden;
 
-  @include respond-above(sm) {
-    font-size: to-rem(48);
-  }
-
   @include respond-above(md) {
     max-width: unset;
   }
