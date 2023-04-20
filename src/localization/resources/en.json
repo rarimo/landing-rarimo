@@ -11,7 +11,8 @@
     "twitter": "Twitter"
   },
   "home-hero-section": {
-    "title": "Unlocked & Connected",
+    "title-part-1": "Unlocked &",
+    "title-part-2": "Connected",
     "subtitle": "Decentralized social layer",
     "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
     "join-testnet-link": "Join Testnet",

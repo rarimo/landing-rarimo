@@ -41,7 +41,9 @@
 
 .subscribe-section__title {
   max-width: 10em;
+  display: flex;
   text-transform: uppercase;
+  overflow: hidden;
 
   @include respond-above(sm) {
     font-size: to-rem(48);

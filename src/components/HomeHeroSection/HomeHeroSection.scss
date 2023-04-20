@@ -84,6 +84,11 @@
   }
 }
 
+.home-hero-section__title-part {
+  overflow: hidden;
+  white-space: break-spaces;
+}
+
 .home-hero-section__subtitle {
   display: none;
 
@@ -161,6 +166,7 @@
   display: flex;
   align-items: center;
   padding: 0 to-rem(24);
+  overflow: hidden;
 
   @include block-with-bg-border;
 

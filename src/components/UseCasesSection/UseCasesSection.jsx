@@ -16,10 +16,10 @@ const UseCasesSection = () => {
     <SectionWrapper scheme={SECTION_WRAPPER_SCHEME.yellowAccent}>
       <section className="use-cases-section container">
         <div className="use-cases-section__title-wrapper">
-          <h6 className="use-cases-section__subtitle">
+          <h6 className="use-cases-section__subtitle" data-aos="fade">
             {t('use-cases-section.subtitle')}
           </h6>
-          <div className="use-cases-section__share-wrapper">
+          <div className="use-cases-section__share-wrapper" data-aos="fade">
             <span>{t('use-cases-section.share-text')}</span>
             <Link
               className="use-cases-section__share-link"
@@ -32,6 +32,8 @@ const UseCasesSection = () => {
         <swiper-container
           class="use-cases-section__cases-list use-cases-swiper"
           init="false"
+          data-aos="zoom-out"
+          data-aos-anchor-placement="top-bottom"
         >
           <div slot="container-start">
             <button
@@ -60,12 +62,13 @@ const UseCasesSection = () => {
             </button>
           </div>
           <swiper-slide class="use-cases-section__case-wrapper">
-            <h2 className="use-cases-section__case-title">
+            <h2 className="use-cases-section__case-title" data-aos="fade-up">
               {t('use-cases-section.nft-checkout-title')}
             </h2>
             <AppButton
               className="use-cases-section__case-link"
               href={CONFIG.nftCheckoutDocsLink}
+              data-aos="fade-up"
             >
               <span>{t('use-cases-section.view-docs-link')}</span>
               <svg
@@ -76,7 +79,11 @@ const UseCasesSection = () => {
                 <use href="/icons/sprite.svg#icon-arrow-right"></use>
               </svg>
             </AppButton>
-            <div className="use-cases-section__case-content-wrapper">
+            <div
+              className="use-cases-section__case-content-wrapper"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
               <div className="use-cases-section__content-block">
                 <h6 className="overline">
                   {t('use-cases-section.description-title')}

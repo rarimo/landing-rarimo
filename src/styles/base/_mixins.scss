@@ -30,3 +30,11 @@
   border-bottom: to-rem(1) solid var(--bg-rect-border-color);
   border-left: none;
 }
+
+@mixin redefine-aos-prop($animation) {
+  html:not(.no-js) & {
+    &[data-aos='#{$animation}'] {
+      @content;
+    }
+  }
+}

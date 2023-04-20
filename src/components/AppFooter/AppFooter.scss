@@ -1,3 +1,10 @@
+%redefined-aos-fade {
+  @include redefine-aos-prop('fade-up') {
+    -webkit-transform: translate3d(0, bg-space(2), 0);
+    transform: translate3d(0, bg-space(2), 0);
+  }
+}
+
 .app-footer {
   padding-bottom: bg-space(2);
   height: var(--app-footer-height);
@@ -67,6 +74,8 @@
   align-items: center;
   justify-content: space-between;
 
+  @extend %redefined-aos-fade;
+
   @include respond-above(md) {
     display: grid;
     grid-template-columns: 1fr;
@@ -96,6 +105,8 @@
 
 .app-footer__social-links-wrapper {
   display: none;
+
+  @extend %redefined-aos-fade;
 
   @include respond-above(md) {
     height: 100%;
@@ -136,6 +147,8 @@
     height: bg-space(1);
     width: bg-space(1);
     padding: 0;
+
+    @extend %redefined-aos-fade;
 
     @include respond-above(md) {
       display: inline-flex;

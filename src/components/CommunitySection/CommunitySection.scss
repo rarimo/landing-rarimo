@@ -1,3 +1,10 @@
+%redefined-aos-fade {
+  @include redefine-aos-prop('fade-up') {
+    -webkit-transform: translate3d(0, bg-space(0.5), 0);
+    transform: translate3d(0, bg-space(0.5), 0);
+  }
+}
+
 .community-section {
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
@@ -47,6 +54,8 @@
   color: var(--secondary-title-color);
   text-transform: uppercase;
 
+  @extend %redefined-aos-fade;
+
   @include respond-above(sm) {
     max-width: 7em;
     font-size: to-rem(60);
@@ -66,6 +75,8 @@
 .community-section__description {
   max-width: 23em;
 
+  @extend %redefined-aos-fade;
+
   @include respond-above(md) {
     max-width: 34em;
     font-size: to-rem(14);
@@ -78,6 +89,8 @@
 
 .community-section__links-wrapper {
   width: 100%;
+
+  @extend %redefined-aos-fade;
 
   @include respond-above(sm) {
     display: flex;
@@ -156,6 +169,8 @@
   grid-template-columns: auto 1fr auto;
   grid-gap: to-rem(24);
   padding: 0 bg-space(0.5);
+
+  @extend %redefined-aos-fade;
 
   @include respond-above(sm) {
     display: flex;
