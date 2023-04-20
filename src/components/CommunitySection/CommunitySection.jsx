@@ -7,6 +7,7 @@ import SectionWrapper from '@/components/SectionWrapper';
 import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
+import { getShiftedDelay } from '@/helpers';
 
 const CommunitySection = ({ isHomePage = true }) => {
   const { t } = useTranslation();
@@ -22,15 +23,15 @@ const CommunitySection = ({ isHomePage = true }) => {
         ])}
       >
         <div className="community-section__titles-wrapper">
-          <h4 className="community-section__title">
+          <h4 className="community-section__title" data-aos="fade-up">
             {t('community-section.title')}
           </h4>
           {isHomePage && (
-            <p className="community-section__description">
+            <p className="community-section__description" data-aos="fade-up">
               {t('community-section.description')}
             </p>
           )}
-          <div className="community-section__links-wrapper">
+          <div className="community-section__links-wrapper" data-aos="fade-up">
             {isHomePage ? (
               <>
                 <AppButton
@@ -76,6 +77,8 @@ const CommunitySection = ({ isHomePage = true }) => {
                 href={item.link}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
+                data-aos="fade-up"
+                data-aos-delay={getShiftedDelay(index, 100)}
               >
                 <svg
                   className="community-section__list-item-icon"
