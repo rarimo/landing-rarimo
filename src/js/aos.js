@@ -10,6 +10,6 @@ export const initAOS = () => {
     offset: 0,
     once: true,
     mirror: false,
-    anchorPlacement: 'bottom-bottom',
+    anchorPlacement: 'center-bottom',
   });
 };
