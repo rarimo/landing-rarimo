@@ -28,10 +28,7 @@ const WhatRarimoDoesSection = () => {
           </div>
         </div>
         <div className="what-rarimo-does-section__title-wrapper">
-          <h3
-            className="what-rarimo-does-section__title js-title"
-            data-aos="fade-up"
-          >
+          <h3 className="what-rarimo-does-section__title js-string-animation">
             {t('what-rarimo-does-section.title')}
           </h3>
           <p

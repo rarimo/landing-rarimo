@@ -1,8 +1,9 @@
 import AOS from 'aos';
-import { prepareCharacterAnimation } from '@/helpers';
+import { prepareCharacterAnimation, prepareStringAnimation } from '@/helpers';
 
 export const initAOS = () => {
   prepareCharacterAnimation();
+  prepareStringAnimation();
 
   AOS.init({
     duration: 1000,

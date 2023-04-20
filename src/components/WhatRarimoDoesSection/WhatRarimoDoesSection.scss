@@ -96,6 +96,10 @@
   font-weight: 500;
   text-transform: uppercase;
 
+  @include respond-to(xs) {
+    font-size: to-rem(30);
+  }
+
   @include respond-above(sm) {
     font-weight: 600;
   }
