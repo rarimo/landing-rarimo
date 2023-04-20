@@ -2,6 +2,7 @@ import { createContext, useEffect, useMemo, useRef } from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
 import useRouteLocationContext from '@/hooks/useRouteLocation';
 import { getScrollbarWidth } from '@/helpers';
+import { initAOS } from '@/js';
 
 const DEFAULT_RECT_SIZE = 40;
 
@@ -90,6 +91,12 @@ export const AppContextProvider = ({ children, isInited }) => {
 
     positionBg();
   }, [isInited, displayLocation]);
+
+  useEffect(() => {
+    if (!isInited) return;
+
+    initAOS();
+  }, [isInited]);
 
   const memoizedContextValue = useMemo(() => {
     return {};
