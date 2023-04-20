@@ -1,4 +1,6 @@
-[color-scheme='dark'] {
+[color-scheme='dark'],
+[color-scheme='dark'] ::before,
+[color-scheme='dark'] ::after {
   --primary-bg-color: var(--col-primary-black);
   --accent-bg-color: var(--col-primary-green);
   --yellow-accent-bg-color: var(--col-primary-yellow);
