@@ -33,7 +33,6 @@
   // Z-indexes
   --z-app-bar: 14;
   --z-use-cases-swiper-arrow: 5;
-  --z-above-noise-bg: 2;
   --z-default: 1;
   --z-hidden: -1;
 
@@ -123,8 +122,8 @@
   // Use cases section
   --use-cases-section-case-bg-gradient: conic-gradient(
     from 164.83deg at 63.38% 38.28%,
-    #{darken($col-cursed-black, 15%)} 0deg,
-    #{darken($col-carbon-fiber, 7%)} 360deg
+    var(--col-primary-black) 0deg,
+    #{$col-carbon-fiber} 360deg
   );
 
   // Nft checkout video
