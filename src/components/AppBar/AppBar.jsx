@@ -45,7 +45,7 @@ const AppBar = () => {
   return (
     <header
       className={cn([
-        'app-bar',
+        'app-bar container',
         {
           'app-bar--hidden': isAppBarHidden,
         },
