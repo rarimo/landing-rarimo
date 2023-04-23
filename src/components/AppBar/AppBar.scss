@@ -2,17 +2,18 @@
   position: fixed;
   z-index: var(--z-app-bar);
   top: 0;
-  left: 0;
+  left: 50%;
   width: 100%;
   height: var(--app-bar-height);
   background-color: transparent;
+  transform: translate(-50%, 0);
   transition-property: transform;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);
   // animation: first-render-slide 0.6s;
 
   &.app-bar--hidden {
-    transform: translateY(-100%);
+    transform: translate(-50%, -100%);
   }
 }
 

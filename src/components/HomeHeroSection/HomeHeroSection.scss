@@ -39,8 +39,6 @@
 
   @include respond-above(xm) {
     padding-top: bg-space(2);
-    padding-right: 0;
-    background-position: top right;
   }
 }
 
