@@ -11,11 +11,10 @@
   padding-bottom: bg-space(2);
 
   background-color: var(--yellow-accent-bg-color);
-  background-image: url('/img/bg/green-rect.png');
-  background-size: var(--primary-bg-rect-size);
-  background-repeat: repeat;
 
   @extend %accent-bg-plh;
+
+  @include bg-rect;
 }
 
 .use-cases-section__title-wrapper {
@@ -188,10 +187,9 @@
 
   &--next {
     background-color: var(--yellow-accent-bg-color);
-    background-image: url('/img/bg/green-rect.png');
-    background-size: var(--primary-bg-rect-size);
-    background-repeat: repeat;
     color: var(--col-black-alpha);
+
+    @include bg-rect;
 
     @media all and (hover: hover) {
       &:not(:disabled) {

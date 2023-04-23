@@ -3,11 +3,10 @@
   padding-bottom: bg-space(2);
 
   background-color: var(--accent-bg-color);
-  background-image: url('/img/bg/green-rect.png');
-  background-size: var(--primary-bg-rect-size);
-  background-repeat: repeat;
 
   @extend %accent-bg-plh;
+
+  @include bg-rect;
 }
 
 .subscribe-section__content {

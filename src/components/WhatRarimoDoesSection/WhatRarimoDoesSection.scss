@@ -4,11 +4,10 @@
   padding-bottom: bg-space(2);
 
   background-color: var(--accent-bg-color);
-  background-image: url('/img/bg/green-rect.png');
-  background-size: var(--primary-bg-rect-size);
-  background-repeat: repeat;
 
   @extend %accent-bg-plh;
+
+  @include bg-rect;
 }
 
 .what-rarimo-does-section__decor-wrapper {
@@ -23,17 +22,8 @@
     right: calc(#{bg-space(1)} + #{to-rem(2)});
     width: var(--size);
     height: var(--size);
-    background-size: var(--primary-bg-rect-size) var(--primary-bg-rect-size);
-    background-image: linear-gradient(
-        to right,
-        var(--col-primary-black) #{to-rem(1)},
-        transparent #{to-rem(1)}
-      ),
-      linear-gradient(
-        to bottom,
-        var(--col-primary-black) #{to-rem(1)},
-        transparent #{to-rem(1)}
-      );
+
+    @include bg-rect(var(--col-primary-black));
   }
 
   @include respond-above(xm) {
