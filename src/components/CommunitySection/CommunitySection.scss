@@ -10,9 +10,8 @@
   padding-bottom: bg-space(2);
 
   background-color: var(--primary-bg-color);
-  background-image: url('/img/bg/black-rect.png');
-  background-size: var(--primary-bg-rect-size);
-  background-repeat: repeat;
+
+  @include bg-rect;
 
   @include respond-above(md) {
     display: grid;

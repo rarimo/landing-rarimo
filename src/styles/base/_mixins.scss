@@ -22,13 +22,28 @@
   }
 }
 
+@mixin bg-rect($rect-color: var(--bg-rect-border-color)) {
+  background-image: linear-gradient(
+      to right,
+      #{$rect-color} #{to-rem(1)},
+      transparent #{to-rem(1)}
+    ),
+    linear-gradient(
+      to bottom,
+      #{$rect-color} #{to-rem(1)},
+      transparent #{to-rem(1)}
+    );
+  background-size: var(--primary-bg-rect-size) var(--primary-bg-rect-size);
+  background-repeat: repeat;
+}
+
 @mixin block-with-bg-border($bg-color: var(--primary-bg-color)) {
   background-color: #{$bg-color};
 
-  border-top: none;
-  border-right: to-rem(1) solid var(--bg-rect-border-color);
-  border-bottom: to-rem(1) solid var(--bg-rect-border-color);
-  border-left: none;
+  border-top: to-rem(1) solid var(--bg-rect-border-color);
+  border-right: none;
+  border-bottom: none;
+  border-left: to-rem(1) solid var(--bg-rect-border-color);
 }
 
 @mixin redefine-aos-prop($animation) {

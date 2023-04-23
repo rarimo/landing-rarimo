@@ -10,16 +10,16 @@ export const SECTION_WRAPPER_SCHEME = {
 
 const SCHEMES = {
   [SECTION_WRAPPER_SCHEME.primary]: {
-    image: '/img/bg/black-rect.png',
-    color: 'var(--primary-bg-color)',
+    rectColor: 'var(--col-white-min-alpha)',
+    bgColor: 'var(--primary-bg-color)',
   },
   [SECTION_WRAPPER_SCHEME.accent]: {
-    image: '/img/bg/green-rect.png',
-    color: 'var(--accent-bg-color)',
+    rectColor: 'var(--col-black-min-alpha)',
+    bgColor: 'var(--accent-bg-color)',
   },
   [SECTION_WRAPPER_SCHEME.yellowAccent]: {
-    image: '/img/bg/green-rect.png',
-    color: 'var(--yellow-accent-bg-color)',
+    rectColor: 'var(--col-black-min-alpha)',
+    bgColor: 'var(--yellow-accent-bg-color)',
   },
 };
 
@@ -32,8 +32,8 @@ const SectionWrapper = ({
     <div
       className={cn(['section-wrapper', className])}
       style={{
-        backgroundImage: `url(${SCHEMES[scheme].image})`,
-        backgroundColor: SCHEMES[scheme].color,
+        '--section-wrapper-bg-color': SCHEMES[scheme].rectColor,
+        backgroundColor: SCHEMES[scheme].bgColor,
       }}
     >
       {children}
