@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { routeLocationContext } from '@/providers/RouteLocationProvider';
+import { routeLocationContext } from '@/context';
 
 const useRouteLocationContext = () => useContext(routeLocationContext);
 
