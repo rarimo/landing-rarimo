@@ -29,7 +29,7 @@
     @include block-with-bg-border();
   }
 
-  @include respond-above(xm) {
+  @include respond-above(md) {
     padding: 0;
   }
 }

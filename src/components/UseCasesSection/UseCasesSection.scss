@@ -27,7 +27,7 @@
   padding: 0 bg-space(0.5);
 
   @include respond-above(sm) {
-    height: auto;
+    height: bg-space(1);
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: bg-space(2);
@@ -36,6 +36,10 @@
 
   @include respond-to(md) {
     @include block-with-bg-border(var(--yellow-accent-bg-color));
+  }
+
+  @include respond-above(md) {
+    padding: 0;
   }
 }
 

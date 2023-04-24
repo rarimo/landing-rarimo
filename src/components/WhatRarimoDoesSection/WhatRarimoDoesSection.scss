@@ -124,6 +124,9 @@
 
   @include respond-to(xm) {
     @include block-with-bg-border(var(--accent-bg-color));
+
+    // redefining of border-bottom is required under the mixin
+    border-bottom: to-rem(1) solid var(--bg-rect-border-color);
   }
 
   @include respond-above(xm) {

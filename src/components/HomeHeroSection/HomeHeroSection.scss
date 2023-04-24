@@ -56,6 +56,7 @@
 
   @include respond-above(sm) {
     height: bg-space(17);
+    padding-bottom: bg-space(2);
   }
 
   @include respond-above(md) {
@@ -73,6 +74,7 @@
 
 .home-hero-section__title {
   max-width: to-rem(300);
+  margin: -0.15em 0;
   color: var(--secondary-title-color);
   text-transform: uppercase;
 
