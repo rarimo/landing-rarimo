@@ -5,7 +5,7 @@ import { FADE_TRANSITION_STAGE, SHIFT_TRANSITION_DIRECTION } from '@/const';
 
 export const routeLocationContext = createContext({});
 
-const RouteLocationProvider = ({ children }) => {
+export const RouteLocationProvider = ({ children }) => {
   const navigationType = useNavigationType();
   const location = useLocation();
   const [displayLocation, setDisplayLocation] = useState(location);
@@ -58,5 +58,3 @@ const RouteLocationProvider = ({ children }) => {
     </routeLocationContext.Provider>
   );
 };
-
-export default RouteLocationProvider;

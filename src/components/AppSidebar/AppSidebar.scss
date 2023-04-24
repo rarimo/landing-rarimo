@@ -1,0 +1,22 @@
+.app-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-app-sidebar);
+  min-width: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  background-color: red;
+  transition-property: transform;
+  transition-duration: var(--slow-transition-duration);
+  transition-timing-function: var(--slide-transition-timing-function);
+  will-change: transform;
+  user-select: none;
+
+  &--is-visible {
+    transform: translateX(0);
+  }
+}

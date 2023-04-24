@@ -31,6 +31,8 @@
   --col-silverpine-cyan: #{$col-silverpine-cyan};
 
   // Z-indexes
+  --z-app-sidebar: 20;
+  --z-main-overlay: 18;
   --z-app-bar: 14;
   --z-use-cases-swiper-arrow: 5;
   --z-default: 1;
