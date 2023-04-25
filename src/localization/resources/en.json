@@ -6,6 +6,16 @@
     "discord": "Discord",
     "twitter": "Twitter"
   },
+  "app-sidebar": {
+    "home": "Home",
+    "use-cases": "Use Cases",
+    "community": "Community",
+    "support": "Support",
+    "discord": "Discord",
+    "twitter": "Twitter",
+    "join-testnet-link": "Join Testnet",
+    "whitepaper-link": "Whitepaper"
+  },
   "app-footer": {
     "discord": "Discord",
     "twitter": "Twitter"

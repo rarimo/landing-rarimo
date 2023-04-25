@@ -27,6 +27,7 @@ const AppButton = ({
       <Link
         className={cn(['app-button', `app-button--${scheme}`, className])}
         to={routePath}
+        onClick={onClick}
         {...rest}
       >
         <span className="app-button__content">{children ?? t(textKey)}</span>
@@ -41,6 +42,7 @@ const AppButton = ({
         href={href}
         target="_blank"
         rel="nofollow noopener noreferrer"
+        onClick={onClick}
         {...rest}
       >
         <span className="app-button__content">{children ?? t(textKey)}</span>

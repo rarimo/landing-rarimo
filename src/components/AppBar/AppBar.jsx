@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { throttle } from 'throttle-debounce';
+import BurgerButton from '@/components/BurgerButton';
 import AppSidebar from '@/components/AppSidebar';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { ROUTES_PATHS } from '@/const';
@@ -44,6 +45,10 @@ const AppBar = () => {
   useResizeObserver(document.body, ({ contentRect }) => {
     setIsDesktop(contentRect.width >= 1024);
   });
+
+  useEffect(() => {
+    setIsVisibleSidebar(false);
+  }, [isDesktop]);
 
   useEffect(() => {
     const onScroll = throttle(400, toggleShowHeader);
@@ -102,14 +107,10 @@ const AppBar = () => {
             </>
           ) : (
             <>
-              <button
+              <BurgerButton
                 className="app-bar__sidebar-btn"
                 onClick={toggleSidebarVisibility}
-                type="button"
-              >
-                <span className="app-bar__sidebar-btn-inner"></span>
-                <span className="app-bar__sidebar-btn-inner"></span>
-              </button>
+              />
               <AppSidebar
                 isVisible={isVisibleSidebar}
                 toggleVisibility={toggleSidebarVisibility}
