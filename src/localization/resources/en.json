@@ -6,9 +6,21 @@
     "discord": "Discord",
     "twitter": "Twitter"
   },
+  "app-sidebar": {
+    "discord": "Discord",
+    "twitter": "Twitter",
+    "join-testnet-link": "Join Testnet",
+    "whitepaper-link": "Whitepaper"
+  },
   "app-footer": {
     "discord": "Discord",
     "twitter": "Twitter"
+  },
+  "navigation": {
+    "home": "Home",
+    "use-cases": "Use Cases",
+    "community": "Community",
+    "support": "Support"
   },
   "home-hero-section": {
     "title-part-1": "Unlocked &",
