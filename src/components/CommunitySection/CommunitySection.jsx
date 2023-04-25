@@ -13,7 +13,7 @@ const CommunitySection = ({ isHomePage = true }) => {
   const { t } = useTranslation();
 
   return (
-    <SectionWrapper>
+    <SectionWrapper className="community-section-wrapper">
       <section
         id={COMPONENT_NODE_IDS.communitySection}
         className={cn([

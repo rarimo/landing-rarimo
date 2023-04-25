@@ -7,10 +7,6 @@
     "twitter": "Twitter"
   },
   "app-sidebar": {
-    "home": "Home",
-    "use-cases": "Use Cases",
-    "community": "Community",
-    "support": "Support",
     "discord": "Discord",
     "twitter": "Twitter",
     "join-testnet-link": "Join Testnet",
@@ -19,6 +15,12 @@
   "app-footer": {
     "discord": "Discord",
     "twitter": "Twitter"
+  },
+  "navigation": {
+    "home": "Home",
+    "use-cases": "Use Cases",
+    "community": "Community",
+    "support": "Support"
   },
   "home-hero-section": {
     "title-part-1": "Unlocked &",

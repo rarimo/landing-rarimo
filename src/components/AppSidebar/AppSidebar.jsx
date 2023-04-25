@@ -7,53 +7,13 @@ import Portal from '@/components/Portal';
 import MainOverlay from '@/components/MainOverlay';
 import BurgerButton from '@/components/BurgerButton';
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
-import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
+import { ROUTES_PATHS } from '@/const';
 import { CONFIG } from '@/config';
-
-const linksList = [
-  {
-    textKey: 'app-sidebar.home',
-    path: COMPONENT_NODE_IDS.homeHeroSection,
-    hash: true,
-  },
-  {
-    textKey: 'app-sidebar.use-cases',
-    path: COMPONENT_NODE_IDS.useCasesSection,
-    hash: true,
-  },
-  {
-    textKey: 'app-sidebar.community',
-    path: COMPONENT_NODE_IDS.communitySection,
-    hash: true,
-  },
-  {
-    textKey: 'app-sidebar.support',
-    path: CONFIG.supportMailLink,
-    external: true,
-  },
-];
+import { navigation } from '@/template-data';
+import { handleNavClick } from '@/helpers';
 
 const AppSidebar = ({ isVisible, toggleVisibility }) => {
   const { t } = useTranslation();
-
-  const handleNavClick = link => {
-    const linkElement = document.createElement('a');
-
-    if (link.hash) {
-      linkElement.href = `#${link.path}`;
-      linkElement.click();
-      toggleVisibility();
-      return;
-    }
-
-    if (link.external) {
-      linkElement.href = link.path;
-      linkElement.target = '_blank';
-      linkElement.rel = 'nofollow noopener noreferrer';
-      linkElement.click();
-      return;
-    }
-  };
 
   return (
     <Portal>
@@ -75,11 +35,11 @@ const AppSidebar = ({ isVisible, toggleVisibility }) => {
         <div className="app-sidebar__content">
           <nav className="app-sidebar__navigation">
             <ul className="app-sidebar__nav-list">
-              {linksList.map((link, index) => (
+              {navigation.map((link, index) => (
                 <li
                   className="app-sidebar__nav-item"
                   key={index}
-                  onClick={() => handleNavClick(link)}
+                  onClick={() => handleNavClick(link, toggleVisibility)}
                 >
                   {t(link.textKey)}
                 </li>
