@@ -6,7 +6,7 @@ import SectionWrapper, {
   SECTION_WRAPPER_SCHEME,
 } from '@/components/SectionWrapper';
 import AppButton from '@/components/AppButton';
-import { ROUTES_PATHS } from '@/const';
+import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 import { CONFIG } from '@/config';
 
 const UseCasesSection = () => {
@@ -14,7 +14,10 @@ const UseCasesSection = () => {
 
   return (
     <SectionWrapper scheme={SECTION_WRAPPER_SCHEME.yellowAccent}>
-      <section className="use-cases-section container">
+      <section
+        id={COMPONENT_NODE_IDS.useCasesSection}
+        className="use-cases-section container"
+      >
         <div className="use-cases-section__title-wrapper">
           <h6 className="use-cases-section__subtitle" data-aos="fade">
             {t('use-cases-section.subtitle')}

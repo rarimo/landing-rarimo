@@ -7,14 +7,17 @@ import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
 import { supportedBlockchainsList } from '@/template-data';
 import { CONFIG } from '@/config';
-import { ROUTES_PATHS } from '@/const';
+import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 
 const HomeHeroSection = () => {
   const { t } = useTranslation();
 
   return (
     <SectionWrapper>
-      <section className="home-hero-section container">
+      <section
+        id={COMPONENT_NODE_IDS.homeHeroSection}
+        className="home-hero-section container"
+      >
         <div className="home-hero-section__main-content">
           <div className="home-hero-section__hero-wrapper">
             <h1 className="home-hero-section__title">

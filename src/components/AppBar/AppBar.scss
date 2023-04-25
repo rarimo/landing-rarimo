@@ -97,31 +97,10 @@
 }
 
 .app-bar__link-icon {
+  margin-left: to-rem(8);
   transform: rotate(-45deg);
-
-  &:not(:first-child) {
-    margin-left: to-rem(8);
-  }
 }
 
 .app-bar__sidebar-btn {
-  height: bg-space(1);
-  width: bg-space(1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin-left: auto;
-  background-image: url('/img/app-bar/sidebar-btn-bg.jpg');
-  background-size: 100%;
-}
-
-.app-bar__sidebar-btn-inner {
-  height: to-rem(2);
-  width: to-rem(16);
-  background-color: var(--primary-bg-color);
-
-  &:not(:last-child) {
-    margin-bottom: to-rem(2);
-  }
 }
