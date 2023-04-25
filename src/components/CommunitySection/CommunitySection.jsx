@@ -6,15 +6,16 @@ import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import SectionWrapper from '@/components/SectionWrapper';
 import { communitySectionList } from '@/template-data';
 import { CONFIG } from '@/config';
-import { ROUTES_PATHS } from '@/const';
+import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 import { getShiftedDelay } from '@/helpers';
 
 const CommunitySection = ({ isHomePage = true }) => {
   const { t } = useTranslation();
 
   return (
-    <SectionWrapper>
+    <SectionWrapper className="community-section-wrapper">
       <section
+        id={COMPONENT_NODE_IDS.communitySection}
         className={cn([
           'community-section container',
           {

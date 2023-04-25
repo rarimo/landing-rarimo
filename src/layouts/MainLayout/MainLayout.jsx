@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import AppBar from '@/components/AppBar';
@@ -23,4 +24,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default memo(MainLayout);

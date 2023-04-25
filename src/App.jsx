@@ -1,9 +1,9 @@
-import RouteLocationProvider from '@/providers/RouteLocationProvider';
-import AppRoutes from '@/router/routes';
 import { useEffect, useState } from 'react';
+import AppRoutes from '@/router/routes';
 import { defineDesktopFontSizes, hideLoader } from '@/js';
 import { CONFIG } from '@/config';
-import { AppContextProvider } from '@/context';
+import { AppContextProvider, RouteLocationProvider } from '@/context';
+import { COMPONENT_NODE_IDS } from '@/const';
 
 const App = () => {
   const [isInited, setIsInited] = useState(false);
@@ -22,7 +22,8 @@ const App = () => {
 
   return (
     <div
-      className="application js-application"
+      id={COMPONENT_NODE_IDS.application}
+      className="application"
       data-aos="fade-up"
       data-aos-anchor-placement="top-bottom"
     >
