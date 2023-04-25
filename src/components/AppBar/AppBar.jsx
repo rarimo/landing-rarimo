@@ -11,6 +11,8 @@ import AppSidebar from '@/components/AppSidebar';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { ROUTES_PATHS } from '@/const';
 import { CONFIG } from '@/config';
+import { navigation } from '@/template-data';
+import { handleNavClick } from '@/helpers';
 
 const APP_BAR_THRESHOLD = 60;
 
@@ -78,7 +80,19 @@ const AppBar = () => {
 
           {isDesktop ? (
             <>
-              <div className="app-bar__navigation"></div>
+              <nav className="app-bar__navigation">
+                <ul className="app-bar__nav-list">
+                  {navigation.map((link, index) => (
+                    <li
+                      className="app-bar__nav-item"
+                      key={index}
+                      onClick={() => handleNavClick(link)}
+                    >
+                      {t(link.textKey)}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
 
               <div className="app-bar__links-wrapper">
                 <a

@@ -1,3 +1,4 @@
+export * from './navigation.data';
 export * from './supported-blockchains.data';
 export * from './backers.data';
 export * from './community-section.data';
