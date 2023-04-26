@@ -66,6 +66,8 @@
 }
 
 .app-sidebar__nav-item {
+  cursor: pointer;
+
   &:not(:last-child) {
     margin-bottom: to-rem(24);
   }
