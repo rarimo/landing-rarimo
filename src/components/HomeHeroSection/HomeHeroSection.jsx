@@ -19,6 +19,22 @@ const HomeHeroSection = () => {
         className="home-hero-section container"
       >
         <div className="home-hero-section__main-content">
+          <div className="home-hero-section__decor">
+            <div
+              className="home-hero-section__decor--part-1"
+              data-aos="fade-up"
+            ></div>
+            <div
+              className="home-hero-section__decor--part-2"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            ></div>
+            <div
+              className="home-hero-section__decor--part-3"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            ></div>
+          </div>
           <div className="home-hero-section__hero-wrapper">
             <h1 className="home-hero-section__title">
               <div className="home-hero-section__title-part">

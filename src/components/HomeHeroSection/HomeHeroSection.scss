@@ -1,3 +1,10 @@
+%redefined-aos-fade {
+  @include redefine-aos-prop('fade-up') {
+    -webkit-transform: translate3d(0, bg-space(2), 0);
+    transform: translate3d(0, bg-space(2), 0);
+  }
+}
+
 .home-hero-section {
   position: relative;
   padding-top: bg-space(3);
@@ -7,12 +14,13 @@
 
   @include bg-rect;
 
-  @include respond-above(xm) {
+  @include respond-above(md) {
     padding-top: bg-space(2);
   }
 }
 
 .home-hero-section__main-content {
+  position: relative;
   margin-bottom: bg-space(1);
 
   @include respond-above(sm) {
@@ -29,16 +37,43 @@
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: bg-space(2);
-    padding-top: bg-space(1);
+    padding-top: bg-space(2);
     padding-left: 0;
-    background-image: url('/img/home-hero-section/decor.png');
-    background-size: bg-space(5);
-    background-repeat: no-repeat;
-    background-position: top right bg-space(1);
+  }
+}
+
+.home-hero-section__decor {
+  display: none;
+
+  @include respond-above(md) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: bg-space(1);
+    width: bg-space(5);
   }
 
-  @include respond-above(xm) {
-    padding-top: bg-space(2);
+  &--part-1,
+  &--part-2,
+  &--part-3 {
+    background-size: 100%;
+
+    @extend %redefined-aos-fade;
+  }
+
+  &--part-1 {
+    height: bg-space(4);
+    background-image: url('/img/home-hero-section/decor-part-1.png');
+  }
+
+  &--part-2 {
+    height: bg-space(3);
+    background-image: url('/img/home-hero-section/decor-part-2.png');
+  }
+
+  &--part-3 {
+    height: bg-space(3);
+    background-image: url('/img/home-hero-section/decor-part-3.png');
   }
 }
 
