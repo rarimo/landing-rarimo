@@ -89,7 +89,6 @@
   padding: bg-space(1);
   text-align: center;
 
-  @include noise-bg;
   @include block-with-bg-border;
 
   @include respond-above(sm) {
@@ -205,7 +204,6 @@
   padding: 0 to-rem(24);
   overflow: hidden;
 
-  @include noise-bg;
   @include block-with-bg-border;
 
   @include respond-above(sm) {
@@ -250,7 +248,6 @@
     color: var(--primary-text-color);
     text-transform: capitalize;
 
-    @include noise-bg;
     @include block-with-bg-border;
   }
 }
@@ -266,7 +263,6 @@
   align-items: center;
   text-transform: uppercase;
 
-  @include noise-bg;
   @include block-with-bg-border;
 
   @include respond-above(md) {

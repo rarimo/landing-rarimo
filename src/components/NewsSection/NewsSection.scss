@@ -27,7 +27,6 @@
   }
 
   @include respond-to(md) {
-    @include noise-bg;
     @include block-with-bg-border;
   }
 
@@ -50,7 +49,6 @@
     padding: 0 bg-space(1);
     font-size: 1em;
 
-    @include noise-bg;
     @include block-with-bg-border;
   }
 }
@@ -69,7 +67,6 @@
     width: bg-space(6);
     padding: 0 bg-space(1);
 
-    @include noise-bg;
     @include block-with-bg-border;
   }
 
@@ -115,7 +112,6 @@
   height: bg-space(9);
   padding: bg-space(0.5);
 
-  @include noise-bg;
   @include block-with-bg-border;
 
   @include respond-above(sm) {

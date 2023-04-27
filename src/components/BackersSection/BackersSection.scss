@@ -21,7 +21,6 @@
   font-size: 1em;
   text-transform: uppercase;
 
-  @include noise-bg;
   @include block-with-bg-border;
 
   @include respond-above(sm) {
@@ -47,7 +46,6 @@
   padding: 0 bg-space(1);
   overflow: hidden;
 
-  @include noise-bg;
   @include block-with-bg-border;
 
   @include respond-above(sm) {

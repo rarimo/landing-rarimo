@@ -25,25 +25,16 @@
 @mixin bg-rect($rect-color: var(--bg-rect-border-color)) {
   background-image: linear-gradient(
       to right,
-      #{$rect-color} #{to-rem(1)},
-      transparent #{to-rem(1)}
+      #{$rect-color} var(--bg-rect-border-size),
+      transparent var(--bg-rect-border-size)
     ),
     linear-gradient(
       to bottom,
-      #{$rect-color} #{to-rem(1)},
-      transparent #{to-rem(1)}
+      #{$rect-color} var(--bg-rect-border-size),
+      transparent var(--bg-rect-border-size)
     );
   background-size: var(--primary-bg-rect-size) var(--primary-bg-rect-size);
   background-repeat: repeat;
-}
-
-@mixin block-with-bg-border($bg-color: var(--primary-bg-color)) {
-  background-color: #{$bg-color};
-
-  border-top: to-rem(1) solid var(--bg-rect-border-color);
-  border-right: none;
-  border-bottom: none;
-  border-left: to-rem(1) solid var(--bg-rect-border-color);
 }
 
 @mixin noise-bg() {
@@ -55,10 +46,10 @@
   &::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: calc(var(--bg-rect-border-size) * -1);
     right: 0;
     bottom: 0;
-    left: 0;
+    left: calc(var(--bg-rect-border-size) * -1);
     background-image: url('/img/bg/noise.png');
     filter: invert(0.4) opacity(0.3);
 
@@ -68,6 +59,17 @@
     //   filter: invert(0.2) opacity(0.6);
     // }
   }
+}
+
+@mixin block-with-bg-border($bg-color: var(--primary-bg-color)) {
+  background-color: #{$bg-color};
+
+  border-top: var(--bg-rect-border-size) solid var(--bg-rect-border-color);
+  border-right: none;
+  border-bottom: none;
+  border-left: var(--bg-rect-border-size) solid var(--bg-rect-border-color);
+
+  @include noise-bg;
 }
 
 @mixin redefine-aos-prop($animation) {

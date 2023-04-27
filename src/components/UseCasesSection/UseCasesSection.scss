@@ -36,7 +36,6 @@
   }
 
   @include respond-to(md) {
-    @include noise-bg;
     @include block-with-bg-border(var(--yellow-accent-bg-color));
   }
 
@@ -59,7 +58,6 @@
     padding: 0 bg-space(1);
     font-size: 1em;
 
-    @include noise-bg;
     @include block-with-bg-border(var(--yellow-accent-bg-color));
   }
 
@@ -83,7 +81,6 @@
     width: bg-space(11);
     padding: 0 bg-space(1);
 
-    @include noise-bg;
     @include block-with-bg-border(var(--yellow-accent-bg-color));
   }
 
