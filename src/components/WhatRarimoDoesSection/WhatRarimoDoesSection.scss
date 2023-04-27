@@ -34,20 +34,26 @@
   }
 }
 
+.what-rarimo-does-section__subtitle-wrapper {
+  margin-bottom: bg-space(1);
+  overflow: hidden;
+
+  @include respond-above(sm) {
+    margin-bottom: bg-space(2);
+  }
+}
+
 .what-rarimo-does-section__subtitle {
   height: bg-space(1);
   width: bg-space(7);
   display: flex;
   align-items: center;
-  margin-bottom: bg-space(1);
   padding: 0 bg-space(0.5);
   text-transform: uppercase;
-  overflow: hidden;
 
   @include block-with-bg-border(var(--accent-bg-color));
 
   @include respond-above(sm) {
-    margin-bottom: bg-space(2);
     padding: 0 bg-space(1);
     font-size: 1em;
   }
@@ -136,10 +142,14 @@
   }
 }
 
+.what-rarimo-does-section__list-item-wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
 .what-rarimo-does-section__list-item {
   height: 100%;
   padding: bg-space(1);
-  overflow: hidden;
 
   @include respond-to(xm) {
     padding-bottom: 0;

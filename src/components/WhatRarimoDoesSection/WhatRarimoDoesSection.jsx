@@ -14,11 +14,13 @@ const WhatRarimoDoesSection = () => {
   return (
     <SectionWrapper scheme={SECTION_WRAPPER_SCHEME.accent}>
       <section className="what-rarimo-does-section container">
-        <h6 className="what-rarimo-does-section__subtitle">
-          <span data-aos="fade-up">
-            {t('what-rarimo-does-section.subtitle')}
-          </span>
-        </h6>
+        <div className="what-rarimo-does-section__subtitle-wrapper">
+          <h6 className="what-rarimo-does-section__subtitle">
+            <span data-aos="fade-up">
+              {t('what-rarimo-does-section.subtitle')}
+            </span>
+          </h6>
+        </div>
         <div
           className="what-rarimo-does-section__decor-wrapper"
           data-aos="fade"
@@ -45,27 +47,32 @@ const WhatRarimoDoesSection = () => {
               'data-aos-delay': getShiftedDelay(index, 100),
             };
             return (
-              <li className="what-rarimo-does-section__list-item" key={index}>
-                <div
-                  className="what-rarimo-does-section__list-item-icon"
-                  {...aosProps}
-                >
-                  <svg height="24" width="24">
-                    <use href={item.icon}></use>
-                  </svg>
+              <li
+                className="what-rarimo-does-section__list-item-wrapper"
+                key={index}
+              >
+                <div className="what-rarimo-does-section__list-item">
+                  <div
+                    className="what-rarimo-does-section__list-item-icon"
+                    {...aosProps}
+                  >
+                    <svg height="24" width="24">
+                      <use href={item.icon}></use>
+                    </svg>
+                  </div>
+                  <h6
+                    className="what-rarimo-does-section__list-item-title"
+                    {...aosProps}
+                  >
+                    {t(item.titleKey)}
+                  </h6>
+                  <p
+                    className="what-rarimo-does-section__list-item-text"
+                    {...aosProps}
+                  >
+                    {t(item.textKey)}
+                  </p>
                 </div>
-                <h6
-                  className="what-rarimo-does-section__list-item-title"
-                  {...aosProps}
-                >
-                  {t(item.titleKey)}
-                </h6>
-                <p
-                  className="what-rarimo-does-section__list-item-text"
-                  {...aosProps}
-                >
-                  {t(item.textKey)}
-                </p>
               </li>
             );
           })}

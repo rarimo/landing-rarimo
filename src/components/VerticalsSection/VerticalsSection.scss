@@ -23,14 +23,21 @@
   }
 }
 
+.verticals-section__subtitle-wrapper {
+  flex-grow: 1;
+  overflow: hidden;
+
+  @include respond-above(sm) {
+    flex-grow: 0;
+  }
+}
+
 .verticals-section__subtitle {
   height: bg-space(1);
   display: flex;
   align-items: center;
-  flex-grow: 1;
   padding: 0 bg-space(0.5);
   text-transform: uppercase;
-  overflow: hidden;
 
   @include block-with-bg-border;
 
@@ -79,9 +86,13 @@
   }
 }
 
-.verticals-section__list-item {
+.verticals-section__list-item-wrapper {
   height: 100%;
   overflow: hidden;
+}
+
+.verticals-section__list-item {
+  height: 100%;
 
   @include block-with-bg-border;
 }
