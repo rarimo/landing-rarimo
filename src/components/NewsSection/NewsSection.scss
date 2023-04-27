@@ -5,6 +5,7 @@
 
   background-color: var(--primary-bg-color);
 
+  @include noise-bg;
   @include bg-rect;
 }
 
@@ -26,7 +27,8 @@
   }
 
   @include respond-to(md) {
-    @include block-with-bg-border();
+    @include noise-bg;
+    @include block-with-bg-border;
   }
 
   @include respond-above(md) {
@@ -48,7 +50,8 @@
     padding: 0 bg-space(1);
     font-size: 1em;
 
-    @include block-with-bg-border();
+    @include noise-bg;
+    @include block-with-bg-border;
   }
 }
 
@@ -63,14 +66,15 @@
   }
 
   @include respond-above(md) {
-    width: bg-space(9);
+    width: bg-space(6);
     padding: 0 bg-space(1);
 
-    @include block-with-bg-border();
+    @include noise-bg;
+    @include block-with-bg-border;
   }
 
   @include respond-above(xm) {
-    width: bg-space(8);
+    width: bg-space(5);
     font-size: 0.8em;
   }
 
@@ -111,7 +115,8 @@
   height: bg-space(9);
   padding: bg-space(0.5);
 
-  @include block-with-bg-border();
+  @include noise-bg;
+  @include block-with-bg-border;
 
   @include respond-above(sm) {
     height: bg-space(10);

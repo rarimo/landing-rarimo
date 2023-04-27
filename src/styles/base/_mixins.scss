@@ -46,6 +46,30 @@
   border-left: to-rem(1) solid var(--bg-rect-border-color);
 }
 
+@mixin noise-bg() {
+  &,
+  > * {
+    position: relative;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('/img/bg/noise.png');
+    filter: invert(0.4) opacity(0.3);
+
+    // @if $args > 11px {
+    //   filter: invert(0.4) opacity(0.3);
+    // } @else {
+    //   filter: invert(0.2) opacity(0.6);
+    // }
+  }
+}
+
 @mixin redefine-aos-prop($animation) {
   html:not(.no-js) & {
     &[data-aos='#{$animation}'] {

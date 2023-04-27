@@ -18,6 +18,7 @@
 
   background-color: var(--primary-bg-color);
 
+  @include noise-bg;
   @include bg-rect;
 
   @include respond-above(md) {
@@ -37,6 +38,7 @@
   padding: bg-space(0.5) bg-space(1);
   text-align: center;
 
+  @include noise-bg;
   @include block-with-bg-border;
 
   @include respond-above(sm) {
@@ -144,6 +146,7 @@
   }
 
   @include respond-to(md) {
+    @include noise-bg;
     @include block-with-bg-border();
   }
 
@@ -161,6 +164,7 @@
   align-items: center;
 
   @include respond-above(md) {
+    @include noise-bg;
     @include block-with-bg-border;
   }
 }
