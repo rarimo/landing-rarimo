@@ -8,9 +8,9 @@
   --col-total-black: #{$col-total-black};
 
   --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
-  --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 5%);
+  --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 6%);
   --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
-  --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 5%);
+  --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 6%);
   --col-primary-black: #{$col-cursed-black};
   --col-primary-grey: #{$col-more-than-a-week};
   --col-primary-green: #{$col-le-max};
@@ -95,6 +95,7 @@
   --container-max-width: 100%;
   --container-side-padding: 0;
   --primary-bg-rect-size: #{to-rem(40)};
+  --bg-rect-border-size: #{to-rem(1)};
 
   @include respond-above(xm) {
     --container-max-width: #{to-rem(1300)};

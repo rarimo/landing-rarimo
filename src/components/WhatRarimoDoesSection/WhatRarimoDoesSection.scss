@@ -44,7 +44,6 @@
   text-transform: uppercase;
   overflow: hidden;
 
-  @include noise-bg;
   @include block-with-bg-border(var(--accent-bg-color));
 
   @include respond-above(sm) {
@@ -65,7 +64,6 @@
   margin-bottom: bg-space(1);
   padding: bg-space(0.5);
 
-  @include noise-bg;
   @include block-with-bg-border(var(--accent-bg-color));
 
   @include respond-above(sm) {
@@ -126,7 +124,6 @@
   }
 
   @include respond-to(xm) {
-    @include noise-bg;
     @include block-with-bg-border(var(--accent-bg-color));
 
     // redefining of border-bottom is required under the mixin
@@ -149,7 +146,6 @@
   }
 
   @include respond-above(xm) {
-    @include noise-bg;
     @include block-with-bg-border(var(--accent-bg-color));
   }
 }

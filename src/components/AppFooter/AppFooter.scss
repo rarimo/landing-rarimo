@@ -28,8 +28,6 @@
   display: none;
 
   @include respond-above(md) {
-    @include noise-bg;
-
     display: table;
     position: absolute !important;
     top: 0;
