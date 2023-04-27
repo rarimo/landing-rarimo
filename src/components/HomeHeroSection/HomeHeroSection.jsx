@@ -80,12 +80,14 @@ const HomeHeroSection = () => {
             </div>
           </div>
 
-          <div className="home-hero-section__blockchains-wrapper">
-            <PartnersList
-              titleKey="home-hero-section.blockchains-title"
-              items={supportedBlockchainsList}
-              data-aos="fade-up"
-            />
+          <div className="overflow-hidden">
+            <div className="home-hero-section__blockchains-wrapper">
+              <PartnersList
+                titleKey="home-hero-section.blockchains-title"
+                items={supportedBlockchainsList}
+                data-aos="fade-up"
+              />
+            </div>
           </div>
         </div>
 

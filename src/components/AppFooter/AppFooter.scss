@@ -30,7 +30,7 @@
   @include respond-above(md) {
     display: table;
     position: absolute !important;
-    top: 0;
+    top: calc(var(--bg-rect-border-size) * -1);
     left: 0;
     z-index: var(--z-default);
     width: calc(100% - bg-space(2) - to-rem(1));

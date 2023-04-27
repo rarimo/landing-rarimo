@@ -7,6 +7,7 @@
   height: var(--app-bar-height);
   background-color: transparent;
   transform: translate(-50%, 0);
+  overflow: hidden;
   transition-property: transform;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);
@@ -28,7 +29,6 @@
 
 .app-bar__container {
   height: 100%;
-  overflow: hidden;
 
   @include block-with-bg-border;
 }
