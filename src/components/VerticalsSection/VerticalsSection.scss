@@ -4,6 +4,7 @@
 
   background-color: var(--primary-bg-color);
 
+  @include noise-bg;
   @include bg-rect;
 }
 
@@ -31,6 +32,7 @@
   text-transform: uppercase;
   overflow: hidden;
 
+  @include noise-bg;
   @include block-with-bg-border;
 
   @include respond-above(sm) {
@@ -82,6 +84,7 @@
   height: 100%;
   overflow: hidden;
 
+  @include noise-bg;
   @include block-with-bg-border;
 }
 

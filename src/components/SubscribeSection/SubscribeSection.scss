@@ -6,6 +6,7 @@
 
   @extend %accent-bg-plh;
 
+  @include noise-bg;
   @include bg-rect;
 }
 
@@ -20,6 +21,7 @@
   padding: bg-space(0.5);
   text-align: center;
 
+  @include noise-bg;
   @include block-with-bg-border(var(--accent-bg-color));
 
   @include respond-above(sm) {
