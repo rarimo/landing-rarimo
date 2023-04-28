@@ -59,15 +59,19 @@ const SubscribeSection = () => {
       <section className="subscribe-section container">
         <div className="subscribe-section__content">
           <h4 className="subscribe-section__title">
-            {t('subscribe-section.title')}
+            <span data-aos="fade-up">{t('subscribe-section.title')}</span>
           </h4>
-          <p className="subscribe-section__description">
+          <p className="subscribe-section__description" data-aos="fade-up">
             {t('subscribe-section.description')}
           </p>
           {isSuccess ? (
             <h6>{t('subscribe-section.success-msg')}</h6>
           ) : (
-            <form className="subscribe-section__form" onSubmit={handleSubmit}>
+            <form
+              className="subscribe-section__form"
+              onSubmit={handleSubmit}
+              data-aos="fade-up"
+            >
               <TextField
                 name="email"
                 placeholder={t('subscribe-section.input-plh')}

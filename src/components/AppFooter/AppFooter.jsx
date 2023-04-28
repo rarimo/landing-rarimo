@@ -30,7 +30,7 @@ const AppFooter = () => {
           </tbody>
         </table>
         <footer className="app-footer__content">
-          <div className="app-footer__logo-wrapper">
+          <div className="app-footer__logo-wrapper" data-aos="fade-up">
             <Link className="app-footer__logo" to={ROUTES_PATHS.home}>
               <svg className="app-footer__logo-img" height="24" width="93">
                 <use href="/icons/sprite.svg#icon-app-logo"></use>
@@ -39,7 +39,7 @@ const AppFooter = () => {
             <span>&copy; {new Date().getFullYear()}</span>
           </div>
           {/* <div className="app-footer__navigation"></div> */}
-          <div className="app-footer__social-links-wrapper">
+          <div className="app-footer__social-links-wrapper" data-aos="fade-up">
             <a
               className="app-footer__link"
               href={CONFIG.discordLink}
@@ -68,6 +68,7 @@ const AppFooter = () => {
             className="app-footer__scroll-to-top-btn"
             scheme={APP_BUTTON_SCHEMES.secondary}
             onClick={onScrollToTop}
+            data-aos="fade-up"
           >
             <svg
               className="app-footer__scroll-to-top-icon"

@@ -21,6 +21,7 @@ html {
 
 body {
   position: relative;
+  width: 100%;
   max-width: 100%;
   background-color: var(--primary-bg-color);
   color: var(--primary-text-color);
@@ -33,7 +34,12 @@ body {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
+
+  @include redefine-aos-prop('fade-up') {
+    -webkit-transform: translate3d(0, 1.5em, 0);
+    transform: translate3d(0, 1.5em, 0);
+  }
 }
 
 body,

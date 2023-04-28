@@ -3,9 +3,9 @@
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
   background-color: var(--primary-bg-color);
-  background-image: url('/img/bg/black-rect.png');
-  background-size: var(--primary-bg-rect-size);
-  background-repeat: repeat;
+
+  @include noise-bg;
+  @include bg-rect;
 }
 
 .news-section__title-wrapper {
@@ -29,7 +29,7 @@
     @include block-with-bg-border;
   }
 
-  @include respond-above(xm) {
+  @include respond-above(md) {
     padding: 0;
   }
 }
@@ -63,14 +63,14 @@
   }
 
   @include respond-above(md) {
-    width: bg-space(9);
+    width: bg-space(6);
     padding: 0 bg-space(1);
 
     @include block-with-bg-border;
   }
 
   @include respond-above(xm) {
-    width: bg-space(8);
+    width: bg-space(5);
     font-size: 0.8em;
   }
 

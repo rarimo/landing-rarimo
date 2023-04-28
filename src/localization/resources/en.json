@@ -6,12 +6,25 @@
     "discord": "Discord",
     "twitter": "Twitter"
   },
+  "app-sidebar": {
+    "discord": "Discord",
+    "twitter": "Twitter",
+    "join-testnet-link": "Join Testnet",
+    "whitepaper-link": "Whitepaper"
+  },
   "app-footer": {
     "discord": "Discord",
     "twitter": "Twitter"
   },
+  "navigation": {
+    "home": "Home",
+    "use-cases": "Use Cases",
+    "community": "Community",
+    "support": "Support"
+  },
   "home-hero-section": {
-    "title": "Unlocked & Connected",
+    "title-part-1": "Unlocked &",
+    "title-part-2": "Connected",
     "subtitle": "Decentralized social layer",
     "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
     "join-testnet-link": "Join Testnet",

@@ -3,18 +3,14 @@
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
   background-color: var(--accent-bg-color);
-  background-image: url('/img/bg/green-rect.png');
-  background-size: var(--primary-bg-rect-size);
-  background-repeat: repeat;
 
   @extend %accent-bg-plh;
+
+  @include noise-bg;
+  @include bg-rect;
 }
 
-.what-rarimo-does-section__main-content {
-  position: relative;
-}
-
-.what-rarimo-does-section__main-content-decor {
+.what-rarimo-does-section__decor-wrapper {
   display: none;
 
   @include respond-above(md) {
@@ -22,21 +18,12 @@
 
     position: absolute;
     display: block;
-    top: 0;
+    top: bg-space(5);
     right: calc(#{bg-space(1)} + #{to-rem(2)});
     width: var(--size);
     height: var(--size);
-    background-size: var(--primary-bg-rect-size) var(--primary-bg-rect-size);
-    background-image: linear-gradient(
-        to right,
-        var(--col-primary-black) #{to-rem(1)},
-        transparent #{to-rem(1)}
-      ),
-      linear-gradient(
-        to bottom,
-        var(--col-primary-black) #{to-rem(1)},
-        transparent #{to-rem(1)}
-      );
+
+    @include bg-rect(var(--col-primary-black));
   }
 
   @include respond-above(xm) {
@@ -46,19 +33,26 @@
   }
 }
 
+.what-rarimo-does-section__subtitle-wrapper {
+  margin-bottom: bg-space(1);
+  overflow: hidden;
+
+  @include respond-above(sm) {
+    margin-bottom: bg-space(2);
+  }
+}
+
 .what-rarimo-does-section__subtitle {
   height: bg-space(1);
   width: bg-space(7);
   display: flex;
   align-items: center;
-  margin-bottom: bg-space(1);
   padding: 0 bg-space(0.5);
   text-transform: uppercase;
 
   @include block-with-bg-border(var(--accent-bg-color));
 
   @include respond-above(sm) {
-    margin-bottom: bg-space(2);
     padding: 0 bg-space(1);
     font-size: 1em;
   }
@@ -98,6 +92,10 @@
   font-weight: 500;
   text-transform: uppercase;
 
+  @include respond-to(xs) {
+    font-size: to-rem(30);
+  }
+
   @include respond-above(sm) {
     font-weight: 600;
   }
@@ -132,12 +130,20 @@
 
   @include respond-to(xm) {
     @include block-with-bg-border(var(--accent-bg-color));
+
+    // redefining of border-bottom is required under the mixin
+    border-bottom: to-rem(1) solid var(--bg-rect-border-color);
   }
 
   @include respond-above(xm) {
     grid-template-columns: 11fr 12fr 11fr;
     grid-gap: bg-space(2);
   }
+}
+
+.what-rarimo-does-section__list-item-wrapper {
+  height: 100%;
+  overflow: hidden;
 }
 
 .what-rarimo-does-section__list-item {

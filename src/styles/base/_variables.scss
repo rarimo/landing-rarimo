@@ -8,9 +8,9 @@
   --col-total-black: #{$col-total-black};
 
   --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
-  --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 5%);
+  --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 6%);
   --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
-  --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 5%);
+  --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 6%);
   --col-primary-black: #{$col-cursed-black};
   --col-primary-grey: #{$col-more-than-a-week};
   --col-primary-green: #{$col-le-max};
@@ -31,6 +31,8 @@
   --col-silverpine-cyan: #{$col-silverpine-cyan};
 
   // Z-indexes
+  --z-app-sidebar: 20;
+  --z-main-overlay: 18;
   --z-app-bar: 14;
   --z-use-cases-swiper-arrow: 5;
   --z-default: 1;
@@ -46,8 +48,8 @@
   /* stylelint-enable max-line-length */
 
   --p-size: #{to-rem(16)};
-  --h1-size: #{to-rem(60)};
-  --h2-size: #{to-rem(52)};
+  --h1-size: #{to-rem(56)};
+  --h2-size: #{to-rem(50)};
   --h3-size: var(--h3-size-xs, #{to-rem(32)});
   --h4-size: #{to-rem(32)};
   --h5-size: #{to-rem(20)};
@@ -59,6 +61,7 @@
     --h1-size: #{to-rem(104)};
     --h2-size: #{to-rem(60)};
     --h3-size: var(--h3-size-sm, #{to-rem(56)});
+    --h4-size: #{to-rem(48)};
     --overline-size: #{to-rem(14)};
   }
 
@@ -94,6 +97,7 @@
   --container-max-width: 100%;
   --container-side-padding: 0;
   --primary-bg-rect-size: #{to-rem(40)};
+  --bg-rect-border-size: #{to-rem(1)};
 
   @include respond-above(xm) {
     --container-max-width: #{to-rem(1300)};

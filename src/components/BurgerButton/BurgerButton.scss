@@ -1,0 +1,55 @@
+.burger-button {
+  position: relative;
+  height: bg-space(1);
+  width: bg-space(1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/img/app-bar/sidebar-btn-bg.jpg');
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.burger-button__inner {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: to-rem(16);
+  height: to-rem(2);
+  background-color: rgba(#000000, 0);
+  transition: transform var(--hover-transition);
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: to-rem(16);
+    height: to-rem(2);
+    background-color: var(--primary-bg-color);
+    transition: top var(--hover-transition), transform var(--hover-transition);
+  }
+
+  &:before {
+    top: -#{to-rem(2)};
+  }
+
+  &:after {
+    top: #{to-rem(2)};
+  }
+
+  .burger-button--is-opened & {
+    transform: translateX(-50%) rotate(45deg);
+
+    &:before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    &:after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+  }
+}

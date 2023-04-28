@@ -6,7 +6,7 @@ body::after {
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url('/img/bg/black-rect.png'), url('/img/bg/green-rect.png');
+  content: url('/img/bg/noise.png');
 }
 
 /* Init loader */
