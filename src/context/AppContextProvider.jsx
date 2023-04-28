@@ -1,7 +1,8 @@
-import { createContext, useEffect, useMemo, useRef } from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
-import useRouteLocationContext from '@/hooks/useRouteLocation';
+import { createContext, useEffect, useMemo, useRef } from 'react';
+
 import { getScrollbarWidth } from '@/helpers';
+import useRouteLocationContext from '@/hooks/useRouteLocation';
 import { initAOS } from '@/js';
 
 const DEFAULT_RECT_SIZE = 40;

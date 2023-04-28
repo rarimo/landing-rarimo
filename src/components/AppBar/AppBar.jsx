@@ -1,18 +1,19 @@
 import './AppBar.scss';
 
-import cn from 'classnames';
 import useResizeObserver from '@react-hook/resize-observer';
+import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { throttle } from 'throttle-debounce';
-import BurgerButton from '@/components/BurgerButton';
+
 import AppSidebar from '@/components/AppSidebar';
+import BurgerButton from '@/components/BurgerButton';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
-import { ROUTES_PATHS } from '@/const';
 import { CONFIG } from '@/config';
-import { navigation } from '@/template-data';
+import { ROUTES_PATHS } from '@/const';
 import { handleNavClick } from '@/helpers';
+import { navigation } from '@/template-data';
 
 const APP_BAR_THRESHOLD = 60;
 
@@ -86,7 +87,19 @@ const AppBar = () => {
                     <li
                       className="app-bar__nav-item"
                       key={index}
+                      role="link"
+                      tabIndex="0"
                       onClick={() => handleNavClick(link)}
+                      onKeyDown={event => {
+                        switch (event.code) {
+                          case 'Enter':
+                            handleNavClick(link);
+                            return;
+
+                          default:
+                            return;
+                        }
+                      }}
                     >
                       {t(link.textKey)}
                     </li>

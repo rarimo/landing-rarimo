@@ -2,8 +2,9 @@ import './NftCheckoutHeroSection.scss';
 
 import { useEffect, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
+
 import AppButton from '@/components/AppButton';
+import PrimaryVideoParallax from '@/components/PrimaryVideoParallax';
 import { CONFIG } from '@/config';
 import { VIDEO_BG_COLOR } from '@/const';
 

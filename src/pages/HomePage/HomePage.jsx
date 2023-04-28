@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
-import HomeHeroSection from '@/components/HomeHeroSection';
-import WhatRarimoDoesSection from '@/components/WhatRarimoDoesSection';
-import VerticalsSection from '@/components/VerticalsSection';
-import UseCasesSection from '@/components/UseCasesSection';
+
 import BackersSection from '@/components/BackersSection';
+import CommunitySection from '@/components/CommunitySection';
+import HomeHeroSection from '@/components/HomeHeroSection';
 import NewsSection from '@/components/NewsSection';
 import SubscribeSection from '@/components/SubscribeSection';
-import CommunitySection from '@/components/CommunitySection';
+import UseCasesSection from '@/components/UseCasesSection';
+import VerticalsSection from '@/components/VerticalsSection';
+import WhatRarimoDoesSection from '@/components/WhatRarimoDoesSection';
 import { initSwiper } from '@/js';
 
 const HomePage = () => {

@@ -3,13 +3,14 @@ import './SubscribeSection.scss';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
+
+import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import SectionWrapper, {
   SECTION_WRAPPER_SCHEME,
 } from '@/components/SectionWrapper';
 import TextField from '@/components/TextField';
-import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
-import useForm from '@/hooks/useForm';
 import { REGEX } from '@/const';
+import useForm from '@/hooks/useForm';
 import { hubspotApi } from '@/hubspot-api';
 
 const SubscribeSection = () => {

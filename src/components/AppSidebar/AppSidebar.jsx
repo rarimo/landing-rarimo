@@ -1,16 +1,20 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+
 import './AppSidebar.scss';
 
 import cn from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import Portal from '@/components/Portal';
-import MainOverlay from '@/components/MainOverlay';
-import BurgerButton from '@/components/BurgerButton';
+
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
-import { ROUTES_PATHS } from '@/const';
+import BurgerButton from '@/components/BurgerButton';
+import MainOverlay from '@/components/MainOverlay';
+import Portal from '@/components/Portal';
 import { CONFIG } from '@/config';
-import { navigation } from '@/template-data';
+import { ROUTES_PATHS } from '@/const';
 import { handleNavClick } from '@/helpers';
+import { navigation } from '@/template-data';
 
 const AppSidebar = ({ isVisible, toggleVisibility }) => {
   const { t } = useTranslation();

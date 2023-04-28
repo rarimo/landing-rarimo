@@ -1,6 +1,7 @@
 import './ImplementationSection.scss';
 
-import { useTranslation, Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
+
 import ImplementationCode from '@/components/ImplementationCode';
 import { implementationList } from '@/template-data';
 

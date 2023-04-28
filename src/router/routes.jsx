@@ -1,10 +1,10 @@
 import { lazy, Suspense } from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
 
+import RouteTransition from '@/components/RouteTransition';
 import { ROUTES_PATHS } from '@/const';
 import useRouteLocationContext from '@/hooks/useRouteLocation';
 import MainLayout from '@/layouts/MainLayout';
-import RouteTransition from '@/components/RouteTransition';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));
 // const TestnetPage = lazy(() => import('@/pages/TestnetPage'));

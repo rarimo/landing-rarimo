@@ -1,7 +1,7 @@
 import './ImplementationCode.scss';
 
-import Highlight, { defaultProps } from 'prism-react-renderer';
 import cn from 'classnames';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 
 const codeExample = `import { RarimoPayButton, getRarimoSupportedChains } from "rarimo-checkout-react-component"; const chains = getRarimoSupportedChains(); <RarimoPayButton buttonProps={{ label: "Buy with Rarimo" }} tokenChain="ETH" chainList={{ chains }} />`;
 
@@ -79,6 +79,7 @@ const ImplementationCode = ({ wrapperClassName }) => {
         >
           {tokens.map((line, i) => (
             <div
+              key={i}
               {...getLineProps({
                 line,
                 className: 'implementation-code__line',
@@ -87,6 +88,7 @@ const ImplementationCode = ({ wrapperClassName }) => {
             >
               {line.map((token, key) => (
                 <span
+                  key={key}
                   {...getTokenProps({
                     token,
                     key,

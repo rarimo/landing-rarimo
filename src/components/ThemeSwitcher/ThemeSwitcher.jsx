@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import './ThemeSwitcher.scss';
 
-import { useEffect, useState } from 'react';
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
+
 import { COLOR_SCHEME_KEY, SCHEMES } from '@/const';
 
 const ThemeSwitcher = () => {
@@ -81,7 +83,8 @@ const ThemeSwitcher = () => {
     //   onClick={onClickSwitcher}
     // >
     //   <svg className="theme-switcher__icon" height="17" width="17">
-    //     <use className="theme-switcher__sun" href="/icons/sprite.svg#icon-sun"></use>
+    //     <use className="theme-switcher__sun"
+    //  href="/icons/sprite.svg#icon-sun"></use>
     //     <use
     //       className="theme-switcher__moon"
     //       href="/icons/sprite.svg#icon-moon"
