@@ -79,6 +79,7 @@ const ImplementationCode = ({ wrapperClassName }) => {
         >
           {tokens.map((line, i) => (
             <div
+              key={i}
               {...getLineProps({
                 line,
                 className: 'implementation-code__line',
@@ -87,6 +88,7 @@ const ImplementationCode = ({ wrapperClassName }) => {
             >
               {line.map((token, key) => (
                 <span
+                  key={key}
                   {...getTokenProps({
                     token,
                     key,
