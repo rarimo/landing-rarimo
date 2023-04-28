@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import * as fs from 'fs';
 import * as path from 'path';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relative => path.resolve(appDirectory, relative);
