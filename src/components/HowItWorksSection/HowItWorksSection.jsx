@@ -67,7 +67,7 @@ const HowItWorksSection = () => {
     }px`;
   }, []);
 
-  useResizeObserver(sectionRef.current, entry => {
+  useResizeObserver(sectionRef.current, () => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;

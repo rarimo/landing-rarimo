@@ -6,7 +6,7 @@ module.exports = {
     browser: true,
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
   },
   extends: [
     'eslint:recommended',
@@ -64,6 +64,7 @@ module.exports = {
       },
     ],
     'react/display-name': 'off',
+    'react/prop-types': 'off',
     'import/namespace': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'jsx-a11y/no-noninteractive-element-to-interactive-role': [
