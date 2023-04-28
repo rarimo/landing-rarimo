@@ -1,6 +1,8 @@
 import { createContext, useEffect, useMemo, useRef } from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
 import useRouteLocationContext from '@/hooks/useRouteLocation';
+import { getScrollbarWidth } from '@/helpers';
+import { initAOS } from '@/js';
 
 const DEFAULT_RECT_SIZE = 40;
 
@@ -22,6 +24,7 @@ export const AppContextProvider = ({ children, isInited }) => {
 
   const rootRef = useRef(null);
   const containerRef = useRef(null);
+  const scrollbarWidth = useRef(null);
 
   const defineSectionWrapperShift = pixelsPerRem => {
     const bodyWidth = document.body.clientWidth;
@@ -43,12 +46,14 @@ export const AppContextProvider = ({ children, isInited }) => {
 
   const defineBgRectSize = pixelsPerRem => {
     const containerWidth = containerRef.current?.clientWidth ?? 0;
-    const defaultRectCount = getDefaultRectCount(containerWidth);
+    const defaultRectCount = getDefaultRectCount(
+      containerWidth + scrollbarWidth.current,
+    );
     const rectSizeInPx = containerWidth / defaultRectCount || DEFAULT_RECT_SIZE;
 
     rootRef.current.style.setProperty(
       '--primary-bg-rect-size',
-      rectSizeInPx / pixelsPerRem + 'rem',
+      `${rectSizeInPx / pixelsPerRem}rem`,
     );
   };
 
@@ -62,6 +67,9 @@ export const AppContextProvider = ({ children, isInited }) => {
     if (!rootRef.current) {
       rootRef.current = document.documentElement;
     }
+
+    scrollbarWidth.current ??= getScrollbarWidth();
+
     containerRef.current = rootRef.current.querySelector('.container');
 
     const pixelsPerRem = Number(
@@ -72,7 +80,7 @@ export const AppContextProvider = ({ children, isInited }) => {
     defineSectionWrapperShift(pixelsPerRem);
   };
 
-  useResizeObserver(document.body, entry => {
+  useResizeObserver(document.body, () => {
     if (!isInited) return;
 
     positionBg();
@@ -83,6 +91,12 @@ export const AppContextProvider = ({ children, isInited }) => {
 
     positionBg();
   }, [isInited, displayLocation]);
+
+  useEffect(() => {
+    if (!isInited) return;
+
+    initAOS();
+  }, [isInited]);
 
   const memoizedContextValue = useMemo(() => {
     return {};

@@ -7,7 +7,7 @@ import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
 import SectionWrapper from '@/components/SectionWrapper';
 import { CONFIG } from '@/config';
-import { ROUTES_PATHS } from '@/const';
+import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 import { supportedBlockchainsList } from '@/template-data';
 
 const HomeHeroSection = () => {
@@ -15,30 +15,49 @@ const HomeHeroSection = () => {
 
   return (
     <SectionWrapper>
-      <section className="home-hero-section container">
+      <section
+        id={COMPONENT_NODE_IDS.homeHeroSection}
+        className="home-hero-section container"
+      >
         <div className="home-hero-section__main-content">
-          <div className="home-hero-section__hero-wrapper">
-            <h1
-              className="home-hero-section__title"
-              data-aos="fade-right"
+          <div className="home-hero-section__decor">
+            <div
+              className="home-hero-section__decor--part-1"
+              data-aos="fade-up"
+            ></div>
+            <div
+              className="home-hero-section__decor--part-2"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            ></div>
+            <div
+              className="home-hero-section__decor--part-3"
+              data-aos="fade-up"
               data-aos-delay="300"
-            >
-              {t('home-hero-section.title')}
+            ></div>
+          </div>
+          <div className="home-hero-section__hero-wrapper">
+            <h1 className="home-hero-section__title">
+              <div className="home-hero-section__title-part">
+                <span className="js-character-animation">
+                  {t('home-hero-section.title-part-1')}
+                </span>
+              </div>
+              <div className="home-hero-section__title-part">
+                <span className="js-character-animation">
+                  {t('home-hero-section.title-part-2')}
+                </span>
+              </div>
             </h1>
-            <h6 className="home-hero-section__subtitle" data-aos="fade-right">
+            <h6 className="home-hero-section__subtitle" data-aos="fade-up">
               {t('home-hero-section.subtitle')}
             </h6>
-            <p
-              className="home-hero-section__description"
-              data-aos="fade-right"
-              data-aos-delay="600"
-            >
+            <p className="home-hero-section__description" data-aos="fade-up">
               {t('home-hero-section.description')}
             </p>
             <div
               className="home-hero-section__links-wrapper"
-              data-aos="fade-right"
-              data-aos-delay="900"
+              data-aos="fade-up"
             >
               <AppButton
                 className="home-hero-section__link"
@@ -62,15 +81,18 @@ const HomeHeroSection = () => {
             </div>
           </div>
 
-          <div className="home-hero-section__blockchains-wrapper">
-            <PartnersList
-              titleKey="home-hero-section.blockchains-title"
-              items={supportedBlockchainsList}
-            />
+          <div className="overflow-hidden">
+            <div className="home-hero-section__blockchains-wrapper">
+              <PartnersList
+                titleKey="home-hero-section.blockchains-title"
+                items={supportedBlockchainsList}
+                data-aos="fade-up"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="home-hero-section__scroll-for-more">
+        <div className="home-hero-section__scroll-for-more" data-aos="fade-up">
           <svg
             className="home-hero-section__scroll-for-more-icon"
             height="13"

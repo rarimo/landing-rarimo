@@ -2,11 +2,11 @@
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
   background-color: var(--accent-bg-color);
-  background-image: url('/img/bg/green-rect.png');
-  background-size: var(--primary-bg-rect-size);
-  background-repeat: repeat;
 
   @extend %accent-bg-plh;
+
+  @include noise-bg;
+  @include bg-rect;
 }
 
 .subscribe-section__content {
@@ -40,11 +40,9 @@
 
 .subscribe-section__title {
   max-width: 10em;
+  display: flex;
   text-transform: uppercase;
-
-  @include respond-above(sm) {
-    font-size: to-rem(48);
-  }
+  overflow: hidden;
 
   @include respond-above(md) {
     max-width: unset;

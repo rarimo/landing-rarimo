@@ -1,3 +1,4 @@
+export * from './component-node-ids.const';
 export * from './how-it-works-section.const';
 export * from './regex.const';
 export * from './routes.const';

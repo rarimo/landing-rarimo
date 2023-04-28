@@ -1,13 +1,20 @@
+%redefined-aos-fade {
+  @include redefine-aos-prop('fade-up') {
+    -webkit-transform: translate3d(0, bg-space(0.5), 0);
+    transform: translate3d(0, bg-space(0.5), 0);
+  }
+}
+
 .use-cases-section {
   position: relative;
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
   background-color: var(--yellow-accent-bg-color);
-  background-image: url('/img/bg/green-rect.png');
-  background-size: var(--primary-bg-rect-size);
-  background-repeat: repeat;
 
   @extend %accent-bg-plh;
+
+  @include noise-bg;
+  @include bg-rect;
 }
 
 .use-cases-section__title-wrapper {
@@ -20,7 +27,7 @@
   padding: 0 bg-space(0.5);
 
   @include respond-above(sm) {
-    height: auto;
+    height: bg-space(1);
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: bg-space(2);
@@ -29,6 +36,10 @@
 
   @include respond-to(md) {
     @include block-with-bg-border(var(--yellow-accent-bg-color));
+  }
+
+  @include respond-above(md) {
+    padding: 0;
   }
 }
 
@@ -118,6 +129,11 @@
 
   @extend %primary-bg-plh;
 
+  @include redefine-aos-prop('zoom-out') {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
   @include respond-above(sm) {
     height: bg-space(16);
     margin: 0 bg-space(1);
@@ -174,11 +190,13 @@
   }
 
   &--next {
+    @include noise-bg;
+
+    position: absolute !important;
     background-color: var(--yellow-accent-bg-color);
-    background-image: url('/img/bg/green-rect.png');
-    background-size: var(--primary-bg-rect-size);
-    background-repeat: repeat;
     color: var(--col-black-alpha);
+
+    @include bg-rect;
 
     @media all and (hover: hover) {
       &:not(:disabled) {
@@ -210,7 +228,10 @@
   display: flex;
   flex-direction: column;
   padding: bg-space(1) bg-space(0.5);
-  background-image: var(--use-cases-section-case-bg-gradient);
+  background-image: url('/img/use-cases-section/noise-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: 66% center;
+  background-size: cover;
 
   @include respond-above(sm) {
     padding: bg-space(2);
@@ -220,11 +241,15 @@
 .use-cases-section__case-title {
   margin-bottom: bg-space(1.2);
   color: var(--secondary-title-color);
+
+  @extend %redefined-aos-fade;
 }
 
 .use-cases-section__case-link {
   margin-bottom: bg-space(1.2);
   flex: 0 0 bg-space(1.2);
+
+  @extend %redefined-aos-fade;
 
   @include respond-above(sm) {
     margin-bottom: auto;
@@ -236,6 +261,8 @@
 }
 
 .use-cases-section__case-content-wrapper {
+  @extend %redefined-aos-fade;
+
   @include respond-above(md) {
     display: flex;
     align-items: flex-start;

@@ -1,16 +1,16 @@
-// import 'aos/dist/aos.css';
-
 import AOS from 'aos';
+import { prepareCharacterAnimation, prepareStringAnimation } from '@/helpers';
 
 export const initAOS = () => {
+  prepareCharacterAnimation();
+  prepareStringAnimation();
+
   AOS.init({
-    duration: 1500,
+    duration: 1000,
     easing: 'ease',
     offset: 0,
-    // once: false,
-    // mirror: true,
     once: true,
     mirror: false,
-    anchorPlacement: 'bottom-bottom',
+    anchorPlacement: 'center-bottom',
   });
 };
