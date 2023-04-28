@@ -1,7 +1,7 @@
 import './HowItWorksChartDesktop.scss';
 
-import { useEffect, useState, useRef } from 'react';
 import cn from 'classnames';
+import { useEffect, useRef, useState } from 'react';
 
 const HowItWorksChartDesktop = ({
   isVisibleOnScreen,

@@ -4,8 +4,8 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import SectionWrapper from '@/components/SectionWrapper';
-import { backersList } from '@/template-data';
 import { getShiftedDelay } from '@/helpers';
+import { backersList } from '@/template-data';
 
 const BackersSection = () => {
   const { t } = useTranslation();

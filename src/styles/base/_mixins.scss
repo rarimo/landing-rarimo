@@ -62,8 +62,7 @@
 }
 
 @mixin block-with-bg-border($bg-color: var(--primary-bg-color)) {
-  background-color: #{$bg-color};
-
+  background-color: $bg-color;
   border-top: var(--bg-rect-border-size) solid var(--bg-rect-border-color);
   border-right: none;
   border-bottom: none;

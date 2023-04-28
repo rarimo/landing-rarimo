@@ -1,8 +1,9 @@
 import './AdvantagesSection.scss';
 
+import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import cn from 'classnames';
+
 import BaseCardList from '@/components/BaseCardList';
 import PartnersList from '@/components/PartnersList';
 import { advantagesList, supportedFTList } from '@/template-data';

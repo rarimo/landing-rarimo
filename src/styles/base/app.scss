@@ -37,7 +37,6 @@ body {
   overflow-y: hidden;
 
   @include redefine-aos-prop('fade-up') {
-    -webkit-transform: translate3d(0, 1.5em, 0);
     transform: translate3d(0, 1.5em, 0);
   }
 }

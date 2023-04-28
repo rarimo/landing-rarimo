@@ -1,4 +1,5 @@
 import AOS from 'aos';
+
 import { prepareCharacterAnimation, prepareStringAnimation } from '@/helpers';
 
 export const initAOS = () => {
