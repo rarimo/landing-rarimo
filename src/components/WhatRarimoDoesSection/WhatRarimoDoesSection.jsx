@@ -2,12 +2,12 @@ import './WhatRarimoDoesSection.scss';
 
 import { useTranslation } from 'react-i18next';
 
+import SectionDecorSvg from '@/components/SectionDecorSvg';
 import SectionWrapper, {
   SECTION_WRAPPER_SCHEME,
 } from '@/components/SectionWrapper';
-import SectionDecorSvg from '@/components/SectionDecorSvg';
-import { whatRarimoDoesSectionList } from '@/template-data';
 import { getShiftedDelay } from '@/helpers';
+import { whatRarimoDoesSectionList } from '@/template-data';
 
 const WhatRarimoDoesSection = () => {
   const { t } = useTranslation();

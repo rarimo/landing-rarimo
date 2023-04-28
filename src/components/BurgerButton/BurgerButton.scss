@@ -20,8 +20,8 @@
   background-color: rgba(#000000, 0);
   transition: transform var(--hover-transition);
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     left: 0;
@@ -31,23 +31,23 @@
     transition: top var(--hover-transition), transform var(--hover-transition);
   }
 
-  &:before {
+  &::before {
     top: -#{to-rem(2)};
   }
 
-  &:after {
+  &::after {
     top: #{to-rem(2)};
   }
 
   .burger-button--is-opened & {
     transform: translateX(-50%) rotate(45deg);
 
-    &:before {
+    &::before {
       top: 0;
       transform: rotate(0);
     }
 
-    &:after {
+    &::after {
       top: 0;
       transform: rotate(90deg);
     }

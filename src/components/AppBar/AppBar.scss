@@ -11,6 +11,7 @@
   transition-property: transform;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);
+
   // animation: first-render-slide 0.6s;
 
   &.app-bar--hidden {

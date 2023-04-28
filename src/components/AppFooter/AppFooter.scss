@@ -1,6 +1,5 @@
 %redefined-aos-fade {
   @include redefine-aos-prop('fade-up') {
-    -webkit-transform: translate3d(0, bg-space(2), 0);
     transform: translate3d(0, bg-space(2), 0);
   }
 }
@@ -29,6 +28,8 @@
 
   @include respond-above(md) {
     display: table;
+
+    // stylelint-disable-next-line declaration-no-important
     position: absolute !important;
     top: calc(var(--bg-rect-border-size) * -1);
     left: 0;

@@ -1,6 +1,5 @@
 %redefined-aos-fade {
   @include redefine-aos-prop('fade-up') {
-    -webkit-transform: translate3d(0, bg-space(0.5), 0);
     transform: translate3d(0, bg-space(0.5), 0);
   }
 }
@@ -192,6 +191,7 @@
   &--next {
     @include noise-bg;
 
+    // stylelint-disable-next-line declaration-no-important
     position: absolute !important;
     background-color: var(--yellow-accent-bg-color);
     color: var(--col-black-alpha);
