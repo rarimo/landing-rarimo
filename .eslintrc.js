@@ -3,6 +3,10 @@ module.exports = {
   env: {
     es2021: true,
     node: true,
+    browser: true,
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
   },
   extends: [
     'eslint:recommended',
@@ -15,16 +19,11 @@ module.exports = {
   ],
   plugins: ['simple-import-sort', 'prettier'],
   settings: {
-    // 'import/parsers': {
-    //   '@typescript-eslint/parser': ['.ts', '.tsx'],
-    // },
-    // 'import/resolver': {
-    //   typescript: {},
-    //   node: {
-    //     paths: ['src'],
-    //     extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    //   },
-    // },
+    'import/resolver': {
+      alias: {
+        map: [['@', './src']],
+      },
+    },
     react: {
       version: 'detect',
     },
@@ -67,5 +66,11 @@ module.exports = {
     'react/display-name': 'off',
     'import/namespace': 'off',
     'react-hooks/exhaustive-deps': 'off',
+    'jsx-a11y/no-noninteractive-element-to-interactive-role': [
+      'error',
+      {
+        li: ['link'],
+      },
+    ],
   },
 };

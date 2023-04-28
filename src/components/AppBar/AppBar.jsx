@@ -11,6 +11,7 @@ import AppSidebar from '@/components/AppSidebar';
 import BurgerButton from '@/components/BurgerButton';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { CONFIG } from '@/config';
+import { ROUTES_PATHS } from '@/const';
 import { handleNavClick } from '@/helpers';
 import { navigation } from '@/template-data';
 
@@ -86,7 +87,19 @@ const AppBar = () => {
                     <li
                       className="app-bar__nav-item"
                       key={index}
+                      role="link"
+                      tabIndex="0"
                       onClick={() => handleNavClick(link)}
+                      onKeyDown={event => {
+                        switch (event.code) {
+                          case 'Enter':
+                            handleNavClick(link);
+                            return;
+
+                          default:
+                            return;
+                        }
+                      }}
                     >
                       {t(link.textKey)}
                     </li>
