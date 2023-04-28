@@ -23,6 +23,7 @@
 }
 
 .implementation-code__punctuation {
+  /* stylelint-disable-next-line declaration-no-important */
   color: var(--primary-text-color) !important;
   transition-property: color;
   transition-duration: var(--medium-transition-duration);
@@ -30,6 +31,7 @@
 }
 
 .implementation-code__plain {
+  /* stylelint-disable-next-line declaration-no-important */
   color: var(--primary-title-color) !important;
   transition-property: color;
   transition-duration: var(--medium-transition-duration);

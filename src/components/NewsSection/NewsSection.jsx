@@ -1,6 +1,7 @@
 import './NewsSection.scss';
 
 import { useTranslation } from 'react-i18next';
+
 import SectionWrapper from '@/components/SectionWrapper';
 import { CONFIG } from '@/config';
 

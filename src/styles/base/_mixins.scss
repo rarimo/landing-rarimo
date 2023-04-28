@@ -1,5 +1,5 @@
 @mixin clearfix() {
-  &:after {
+  &::after {
     display: block;
     clear: both;
     content: '';
@@ -12,7 +12,7 @@
   position: relative;
   display: block;
 
-  &:before {
+  &::before {
     width: to-rem(1);
     height: 0;
     margin-left: to-rem(-1);
@@ -62,8 +62,7 @@
 }
 
 @mixin block-with-bg-border($bg-color: var(--primary-bg-color)) {
-  background-color: #{$bg-color};
-
+  background-color: $bg-color;
   border-top: var(--bg-rect-border-size) solid var(--bg-rect-border-color);
   border-right: none;
   border-bottom: none;

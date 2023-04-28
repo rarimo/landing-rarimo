@@ -1,6 +1,5 @@
 %redefined-aos-fade {
   @include redefine-aos-prop('fade-up') {
-    -webkit-transform: translate3d(0, bg-space(0.5), 0);
     transform: translate3d(0, bg-space(0.5), 0);
   }
 }
@@ -9,7 +8,6 @@
   position: relative;
   padding-top: bg-space(2);
   padding-bottom: bg-space(2);
-
   background-color: var(--yellow-accent-bg-color);
 
   @extend %accent-bg-plh;
@@ -99,7 +97,7 @@
   margin-left: 0.3em;
   transition: color var(--hover-transition);
 
-  &:after {
+  &::after {
     position: absolute;
     left: 0;
     bottom: -#{to-rem(1)};
@@ -193,6 +191,7 @@
   &--next {
     @include noise-bg;
 
+    // stylelint-disable-next-line declaration-no-important
     position: absolute !important;
     background-color: var(--yellow-accent-bg-color);
     color: var(--col-black-alpha);

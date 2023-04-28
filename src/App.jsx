@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import AppRoutes from '@/router/routes';
-import { defineDesktopFontSizes, hideLoader } from '@/js';
+
 import { CONFIG } from '@/config';
-import { AppContextProvider, RouteLocationProvider } from '@/context';
 import { COMPONENT_NODE_IDS } from '@/const';
+import { AppContextProvider, RouteLocationProvider } from '@/context';
+import { defineDesktopFontSizes, hideLoader } from '@/js';
+import AppRoutes from '@/router/routes';
 
 const App = () => {
   const [isInited, setIsInited] = useState(false);

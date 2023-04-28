@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { throttle } from 'throttle-debounce';
+
 import { VIDEO_BG_COLOR } from '@/const';
 
 const videoData = {

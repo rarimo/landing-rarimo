@@ -2,12 +2,13 @@ import './UseCasesSection.scss';
 
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+
+import AppButton from '@/components/AppButton';
 import SectionWrapper, {
   SECTION_WRAPPER_SCHEME,
 } from '@/components/SectionWrapper';
-import AppButton from '@/components/AppButton';
-import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 import { CONFIG } from '@/config';
+import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 
 const UseCasesSection = () => {
   const { t } = useTranslation();
