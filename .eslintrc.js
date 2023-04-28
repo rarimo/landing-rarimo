@@ -1,12 +1,19 @@
+const path = require('path');
+
+const srcPath = path.resolve(__dirname, 'src');
+
 module.exports = {
   root: true,
   env: {
-    es2021: true,
     node: true,
     browser: true,
   },
   parserOptions: {
     ecmaVersion: 'latest',
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   extends: [
     'eslint:recommended',
@@ -21,7 +28,12 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: {
-        map: [['@', './src']],
+        map: [['@', srcPath]],
+        extensions: ['.js', '.jsx'],
+      },
+      node: {
+        paths: [srcPath],
+        extensions: ['.js', '.jsx'],
       },
     },
     react: {

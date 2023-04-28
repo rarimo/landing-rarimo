@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import AdvantagesSection from '@/components/AdvantagesSection';
 import CommunitySection from '@/components/CommunitySection';
-import HowItWorksSection from '@/components/HowItWorksSection/HowItWorksSection';
+import HowItWorksSection from '@/components/HowItWorksSection';
 import ImplementationSection from '@/components/ImplementationSection';
 import NftCheckoutHeroSection from '@/components/NftCheckoutHeroSection';
 // import IntegrationsSection from '@/components/IntegrationsSection';
