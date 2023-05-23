@@ -2,9 +2,9 @@ export const CONFIG = {
   initLoaderDelay: 500,
   discordLink: 'https://discord.gg/Bzjm5MDXrU',
   twitterLink: 'https://twitter.com/Rarimo_protocol',
-  docsLink: 'https://rarimo.gitlab.io/docs/docs/overview',
-  whitepaperLink: 'https://rarimo.gitlab.io/docs/docs/whitepaper',
-  nftCheckoutDemoLink: 'https://rarimo.gitlab.io/docs/docs/sdk',
+  docsLink: 'https://docs.rarimo.com',
+  whitepaperLink: 'https://docs.rarimo.com/whitepaper',
+  nftCheckoutDemoLink: 'https://nft-checkout.rarimo.com',
   supportMailLink: 'mailto: support@rarimo.com',
   mediumLink: 'https://rarimo.medium.com/',
   googleTagManagerId: 'GTM-5RH6GR6',
@@ -12,9 +12,9 @@ export const CONFIG = {
 
   // Use cases
   nftCheckoutDocsLink:
-    'https://rarimo.gitlab.io/docs/docs/overview/applications/settlement-integration',
+    'https://docs.rarimo.com/overview/applications/settlement-integration',
   crosschainProofsDocsLink:
-    'https://rarimo.gitlab.io/docs/docs/overview/applications/cross-chain-proofs',
+    'https://docs.rarimo.com/overview/applications/cross-chain-proofs',
   multichainMintingDocsLink:
-    'https://rarimo.gitlab.io/docs/docs/overview/applications/cross-chain-minting',
+    'https://docs.rarimo.com/overview/applications/cross-chain-minting',
 };
