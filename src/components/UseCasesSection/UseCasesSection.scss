@@ -12,7 +12,7 @@
 
   @extend %accent-bg-plh;
 
-  @include noise-bg;
+  @include noise-bg(var(--yellow-accent-bg-color));
   @include bg-rect;
 }
 
@@ -189,7 +189,7 @@
   }
 
   &--next {
-    @include noise-bg;
+    @include noise-bg(var(--yellow-accent-bg-color));
 
     // stylelint-disable-next-line declaration-no-important
     position: absolute !important;

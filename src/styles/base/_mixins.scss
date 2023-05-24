@@ -37,7 +37,7 @@
   background-repeat: repeat;
 }
 
-@mixin noise-bg() {
+@mixin noise-bg($bg-color: var(--primary-bg-color)) {
   &,
   > * {
     position: relative;
@@ -51,13 +51,12 @@
     bottom: 0;
     left: calc(var(--bg-rect-border-size) * -1);
     background-image: url('/img/bg/noise.png');
-    filter: invert(0.4) opacity(0.3);
 
-    // @if $args > 11px {
-    //   filter: invert(0.4) opacity(0.3);
-    // } @else {
-    //   filter: invert(0.2) opacity(0.6);
-    // }
+    @if $bg-color == var(--primary-bg-color) {
+      filter: invert(0.2) opacity(0.6);
+    } @else {
+      filter: invert(0.4) opacity(0.3);
+    }
   }
 }
 
@@ -68,7 +67,7 @@
   border-bottom: none;
   border-left: var(--bg-rect-border-size) solid var(--bg-rect-border-color);
 
-  @include noise-bg;
+  @include noise-bg($bg-color);
 }
 
 @mixin redefine-aos-prop($animation) {

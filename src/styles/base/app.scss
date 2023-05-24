@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  display: flex;
   flex-direction: column;
   font-family: var(--primary-font-family);
   word-spacing: to-rem(1);
@@ -42,7 +43,8 @@ body {
 }
 
 body,
-button {
+button,
+p {
   font-size: var(--p-size, #{to-rem(16)});
   line-height: 1.4;
 }
@@ -53,6 +55,19 @@ button {
   background-color: transparent;
   color: var(--primary-btn-color);
   outline: transparent;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+
+  /* Remove excess padding and border in Firefox 4+ */
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
 
   &:focus {
     outline: transparent;
@@ -80,7 +95,6 @@ select {
 
 p {
   margin: 0;
-  font-size: var(--p-size);
   font-weight: 400;
   word-wrap: break-word;
 }
