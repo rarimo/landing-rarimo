@@ -30,7 +30,14 @@ const SectionWrapper = ({
 }) => {
   return (
     <div
-      className={cn(['section-wrapper', className])}
+      className={cn([
+        'section-wrapper',
+        className,
+        {
+          'section-wrapper--accent-bg':
+            SCHEMES[scheme].bgColor !== 'var(--primary-bg-color)',
+        },
+      ])}
       style={{
         '--section-wrapper-bg-color': SCHEMES[scheme].rectColor,
         backgroundColor: SCHEMES[scheme].bgColor,

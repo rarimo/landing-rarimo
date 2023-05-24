@@ -6,7 +6,7 @@
 
   @extend %accent-bg-plh;
 
-  @include noise-bg;
+  @include noise-bg(var(--accent-bg-color));
   @include bg-rect;
 }
 
