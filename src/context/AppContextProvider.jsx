@@ -59,12 +59,14 @@ export const AppContextProvider = ({ children, isInited }) => {
   };
 
   const positionBg = () => {
+    return;
     // FIXME: need to optimize interaction with DOM
 
     // if (!containerRef.current || !rootRef.current) {
     //   rootRef.current = document.documentElement;
     //   containerRef.current = rootRef.current.querySelector('.container');
     // }
+    // eslint-disable-next-line no-unreachable
     if (!rootRef.current) {
       rootRef.current = document.documentElement;
     }

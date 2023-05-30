@@ -118,7 +118,7 @@
   width: to-rem(100);
   flex-shrink: 0;
   margin-bottom: bg-space(1);
-  color: var(--secondary-title-color);
+  color: var(--primary-title-color);
 
   @include respond-above(md) {
     grid-row: span 2;
@@ -131,7 +131,6 @@
 .verticals-section__list-item-title {
   margin-bottom: bg-space(0.5);
   font-size: 2em;
-  color: var(--secondary-title-color);
 
   @include respond-above(md) {
     align-self: flex-end;

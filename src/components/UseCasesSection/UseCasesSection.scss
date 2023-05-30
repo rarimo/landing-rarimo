@@ -149,7 +149,7 @@
   height: bg-space(1);
   width: bg-space(1.5);
   background-color: transparent;
-  color: var(--secondary-title-color);
+  color: var(--primary-title-color);
   cursor: pointer;
   transition: color var(--hover-transition);
 
@@ -240,7 +240,6 @@
 
 .use-cases-section__case-title {
   margin-bottom: bg-space(1.2);
-  color: var(--secondary-title-color);
 
   @extend %redefined-aos-fade;
 }

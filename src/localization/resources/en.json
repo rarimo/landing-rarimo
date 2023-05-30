@@ -30,7 +30,9 @@
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
     "blockchains-title": "Supported blockchains",
-    "scroll-for-more": "Scroll for more",
+    "scroll-for-more": "Scroll for more"
+  },
+  "marquee-section": {
     "marquee": "The next generation of multi-chain assets & identities"
   },
   "what-rarimo-does-section": {
