@@ -11,7 +11,7 @@ const WhatIsRarimoSection = () => {
 
   return (
     <section className="what-is-rarimo-section">
-      <div className="what-is-rarimo-section__content container">
+      <div className="container">
         <h5 className="what-is-rarimo-section__subtitle" data-aos="fade-up">
           {t('what-is-rarimo-section.subtitle')}
         </h5>
