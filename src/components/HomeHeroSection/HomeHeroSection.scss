@@ -133,9 +133,6 @@
 }
 
 .home-hero-section__link {
-  min-height: to-rem(56);
-  width: 100%;
-
   &:not(:last-child) {
     margin-bottom: to-rem(18);
   }

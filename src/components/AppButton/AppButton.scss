@@ -1,30 +1,28 @@
 .app-button {
-  --text-color: var(--col-white-alpha);
-
   position: relative;
   z-index: var(--z-default);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: bg-space(1);
+  min-height: to-rem(56);
   width: 100%;
-  max-width: to-rem(184);
+  max-width: to-rem(194);
   flex-grow: 1;
   padding: 0 to-rem(10);
-  color: var(--text-color);
+  color: var(--primary-btn-color);
   background-color: transparent;
   box-shadow: none;
-  font-size: to-rem(14);
+  font-size: to-rem(16);
   line-height: 1.2;
-  font-weight: 600;
+  font-weight: 700;
   user-select: none;
   cursor: pointer;
-  transition-property: color;
+  transition-property: color, background-color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
   @include respond-above(lg) {
-    font-size: to-rem(16);
+    font-size: to-rem(18);
   }
 }
 
@@ -36,79 +34,17 @@
 }
 
 .app-button--primary {
-  --border-color: var(--col-white-alpha);
-  --border: #{to-rem(1)} solid var(--border-color);
+  background-color: var(--col-primary-accent-main);
+  color: var(--col-primary-black);
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: var(--z-hidden);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--primary-bg-color);
-    border: var(--border);
-    transition-property: transform, border-color;
-    transition-duration: var(--medium-transition-duration);
-    transition-timing-function: var(--hover-transition-timing-function);
-  }
-
-  &::before {
-    transform: translate(#{to-rem(5)}, #{to-rem(5)});
-  }
-
-  @media all and (hover: hover) {
-    &:hover,
-    &:focus-visible {
-      --border-color: var(--col-primary-grey);
-
-      color: var(--text-color);
-
-      &::before {
-        transform: translate(0, 0);
-      }
-    }
+  @include hover {
+    background-color: var(--col-primary-accent-dark);
+    color: var(--col-primary-black);
   }
 }
 
 .app-button--secondary {
-  @media all and (hover: hover) {
-    &:hover,
-    &:focus-visible {
-      --text-color: var(--col-primary-grey);
-
-      color: var(--text-color);
-    }
-  }
-}
-
-.app-button--solid-border {
-  --border-color: var(--col-white-alpha);
-  --border: #{to-rem(1)} solid var(--border-color);
-
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: var(--z-hidden);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--primary-bg-color);
-    border: var(--border);
-    transition-property: transform, border-color;
-    transition-duration: var(--medium-transition-duration);
-    transition-timing-function: var(--hover-transition-timing-function);
-  }
-
-  @media all and (hover: hover) {
-    &:hover,
-    &:focus-visible {
-      --border-color: var(--col-primary-grey);
-
-      color: var(--text-color);
-    }
+  @include hover {
+    color: var(--col-primary-grey);
   }
 }

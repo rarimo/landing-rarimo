@@ -24,7 +24,7 @@ const VerticalsSection = () => {
             className="verticals-section__docs-link"
             href={CONFIG.docsLink}
             textKey="verticals-section.docs-link"
-            scheme={APP_BUTTON_SCHEMES.solidBorder}
+            scheme={APP_BUTTON_SCHEMES.secondary}
             data-aos="fade-up"
           />
         </div>
