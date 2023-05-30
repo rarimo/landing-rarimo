@@ -2,6 +2,7 @@ export const CONFIG = {
   initLoaderDelay: 500,
   discordLink: 'https://discord.gg/Bzjm5MDXrU',
   twitterLink: 'https://twitter.com/Rarimo_protocol',
+  telegramLink: 'https://t.me/+m_vvj8nFk5g4NTgy',
   docsLink: 'https://docs.rarimo.com',
   whitepaperLink: 'https://docs.rarimo.com/whitepaper',
   nftCheckoutDemoLink: 'https://nft-checkout.rarimo.com',

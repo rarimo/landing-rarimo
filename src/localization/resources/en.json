@@ -4,17 +4,20 @@
   },
   "app-bar": {
     "discord": "Discord",
-    "twitter": "Twitter"
+    "twitter": "Twitter",
+    "telegram": "Telegram"
   },
   "app-sidebar": {
     "discord": "Discord",
     "twitter": "Twitter",
+    "telegram": "Telegram",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper"
   },
   "app-footer": {
     "discord": "Discord",
-    "twitter": "Twitter"
+    "twitter": "Twitter",
+    "telegram": "Telegram"
   },
   "navigation": {
     "home": "Home",

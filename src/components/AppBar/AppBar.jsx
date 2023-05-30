@@ -130,6 +130,17 @@ const AppBar = () => {
                     <use href="/icons/sprite.svg#icon-arrow-right"></use>
                   </svg>
                 </a>
+                <a
+                  className="app-bar__link"
+                  href={CONFIG.telegramLink}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <span>{t('app-bar.telegram')}</span>
+                  <svg className="app-bar__link-icon" height="12" width="12">
+                    <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                  </svg>
+                </a>
               </div>
             </>
           ) : (
