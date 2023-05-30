@@ -62,6 +62,17 @@ const AppFooter = () => {
                 <use href="/icons/sprite.svg#icon-arrow-right"></use>
               </svg>
             </a>
+            <a
+              className="app-footer__link"
+              href={CONFIG.telegramLink}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >
+              <span>{t('app-footer.telegram')}</span>
+              <svg className="app-footer__link-icon" height="12" width="12">
+                <use href="/icons/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </a>
           </div>
           <div className="app-footer__space" />
           <AppButton
