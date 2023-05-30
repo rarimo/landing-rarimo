@@ -8,7 +8,7 @@ import NewsSection from '@/components/NewsSection';
 import SubscribeSection from '@/components/SubscribeSection';
 import UseCasesSection from '@/components/UseCasesSection';
 import VerticalsSection from '@/components/VerticalsSection';
-import WhatRarimoDoesSection from '@/components/WhatRarimoDoesSection';
+import WhatIsRarimoSection from '@/components/WhatIsRarimoSection';
 import { initSwiper } from '@/js';
 
 const HomePage = () => {
@@ -20,7 +20,7 @@ const HomePage = () => {
     <>
       <HomeHeroSection />
       <MarqueeSection />
-      <WhatRarimoDoesSection />
+      <WhatIsRarimoSection />
       <VerticalsSection />
       <UseCasesSection />
       <BackersSection />

@@ -8,4 +8,4 @@ export * from './navigation.data';
 export * from './supported-blockchains.data';
 export * from './supported-ft.data';
 export * from './verticals-section.data';
-export * from './what-rarimo-does-section.data';
+export * from './what-is-rarimo-section.data';
