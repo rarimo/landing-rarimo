@@ -4,9 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import AppButton from '@/components/AppButton';
-import SectionWrapper, {
-  SECTION_WRAPPER_SCHEME,
-} from '@/components/SectionWrapper';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 
@@ -14,16 +11,16 @@ const UseCasesSection = () => {
   const { t } = useTranslation();
 
   return (
-    <SectionWrapper scheme={SECTION_WRAPPER_SCHEME.yellowAccent}>
-      <section
-        id={COMPONENT_NODE_IDS.useCasesSection}
-        className="use-cases-section container"
-      >
-        <div className="use-cases-section__title-wrapper">
-          <h5 className="use-cases-section__subtitle" data-aos="fade">
+    <section
+      id={COMPONENT_NODE_IDS.useCasesSection}
+      className="use-cases-section"
+    >
+      <div className="container">
+        <div className="use-cases-section__title-wrapper" data-aos="fade-up">
+          <h5 className="use-cases-section__title">
             {t('use-cases-section.subtitle')}
           </h5>
-          <div className="use-cases-section__share-wrapper" data-aos="fade">
+          <div className="use-cases-section__share-wrapper">
             <span>{t('use-cases-section.share-text')}</span>
             <Link
               className="use-cases-section__share-link"
@@ -69,20 +66,18 @@ const UseCasesSection = () => {
             <h2 className="use-cases-section__case-title" data-aos="fade-up">
               {t('use-cases-section.nft-checkout-title')}
             </h2>
-            <AppButton
-              className="use-cases-section__case-link"
-              routePath={ROUTES_PATHS.nftCheckout}
-              data-aos="fade-up"
-            >
-              <span>{t('use-cases-section.view-docs-link')}</span>
-              <svg
-                className="use-cases-section__case-link-icon"
-                height="13"
-                width="13"
-              >
-                <use href="/icons/sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </AppButton>
+            <div className="use-cases-section__case-link" data-aos="fade-up">
+              <AppButton routePath={ROUTES_PATHS.nftCheckout}>
+                <span>{t('use-cases-section.view-docs-link')}</span>
+                <svg
+                  className="use-cases-section__case-link-icon"
+                  height="13"
+                  width="13"
+                >
+                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                </svg>
+              </AppButton>
+            </div>
             <div
               className="use-cases-section__case-content-wrapper"
               data-aos="fade-up"
@@ -114,19 +109,18 @@ const UseCasesSection = () => {
             <h2 className="use-cases-section__case-title">
               {t('use-cases-section.crosschain-proofs-title')}
             </h2>
-            <AppButton
-              className="use-cases-section__case-link"
-              href={CONFIG.crosschainProofsDocsLink}
-            >
-              <span>{t('use-cases-section.view-docs-link')}</span>
-              <svg
-                className="use-cases-section__case-link-icon"
-                height="13"
-                width="13"
-              >
-                <use href="/icons/sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </AppButton>
+            <div className="use-cases-section__case-link">
+              <AppButton href={CONFIG.crosschainProofsDocsLink}>
+                <span>{t('use-cases-section.view-docs-link')}</span>
+                <svg
+                  className="use-cases-section__case-link-icon"
+                  height="13"
+                  width="13"
+                >
+                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                </svg>
+              </AppButton>
+            </div>
             <div className="use-cases-section__case-content-wrapper">
               <div className="use-cases-section__content-block">
                 <h5 className="overline">
@@ -142,19 +136,18 @@ const UseCasesSection = () => {
             <h2 className="use-cases-section__case-title">
               {t('use-cases-section.multichain-minting-title')}
             </h2>
-            <AppButton
-              className="use-cases-section__case-link"
-              href={CONFIG.multichainMintingDocsLink}
-            >
-              <span>{t('use-cases-section.view-docs-link')}</span>
-              <svg
-                className="use-cases-section__case-link-icon"
-                height="13"
-                width="13"
-              >
-                <use href="/icons/sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </AppButton>
+            <div className="use-cases-section__case-link">
+              <AppButton href={CONFIG.multichainMintingDocsLink}>
+                <span>{t('use-cases-section.view-docs-link')}</span>
+                <svg
+                  className="use-cases-section__case-link-icon"
+                  height="13"
+                  width="13"
+                >
+                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                </svg>
+              </AppButton>
+            </div>
             <div className="use-cases-section__case-content-wrapper">
               <div className="use-cases-section__content-block">
                 <h5 className="overline">
@@ -167,8 +160,8 @@ const UseCasesSection = () => {
             </div>
           </swiper-slide>
         </swiper-container>
-      </section>
-    </SectionWrapper>
+      </div>
+    </section>
   );
 };
 
