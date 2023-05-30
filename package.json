@@ -13,7 +13,7 @@
   "author": "Oleksandr Kropivnyi <kropivnyy@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "yarn lint:styles && yarn lint:scripts",
