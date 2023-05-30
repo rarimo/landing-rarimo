@@ -70,6 +70,15 @@
   @include noise-bg($bg-color);
 }
 
+@mixin hover() {
+  @media all and (hover: hover) {
+    &:hover,
+    &:focus-within {
+      @content;
+    }
+  }
+}
+
 @mixin redefine-aos-prop($animation) {
   html:not(.no-js) & {
     &[data-aos='#{$animation}'] {
