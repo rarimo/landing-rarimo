@@ -2,52 +2,48 @@
   position: fixed;
   z-index: var(--z-app-bar);
   top: 0;
-  left: 50%;
-  width: 100%;
+  right: 0;
+  left: 0;
   height: var(--app-bar-height);
   background-color: transparent;
-  transform: translate(-50%, 0);
   overflow: hidden;
-  transition-property: transform;
+  transition-property: background-color, transform;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);
 
   // animation: first-render-slide 0.6s;
 
+  &.app-bar--filled {
+    background-color: var(--primary-bg-color);
+  }
+
   &.app-bar--hidden {
-    transform: translate(-50%, -100%);
+    transform: translateY(-100%);
   }
 }
 
 // @keyframes first-render-slide {
 //   0% {
-//     transform: translateY(-100%);
+//     transform: translate(-50%, -100%);
 //   }
 //   100% {
-//     transform: translateY(0);
+//     transform: translate(-50%, 0);
 //   }
 // }
 
 .app-bar__container {
   height: 100%;
 
-  @include block-with-bg-border;
+  .app-bar--filled & {
+    @include noise-bg;
+  }
 }
 
 .app-bar__content {
   display: flex;
   height: 100%;
   align-items: center;
-  padding: 0 bg-space(0.5);
   font-size: to-rem(14);
-
-  @include respond-above(sm) {
-    padding: 0 bg-space(1);
-  }
-
-  @include respond-above(xm) {
-    padding: 0;
-  }
 }
 
 .app-bar__logo {

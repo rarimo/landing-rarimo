@@ -117,7 +117,7 @@
   }
 
   @include respond-above(lg) {
-    --container-max-width: #{to-rem(1600)};
+    --container-max-width: #{to-rem(1520)};
   }
 
   // Common

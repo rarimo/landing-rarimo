@@ -7,8 +7,8 @@ const MarqueeSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="marquee-section container">
-      <div className="marquee-section__content ">
+    <section className="marquee-section">
+      <div className="marquee-section__content container">
         <Marquee speed={100} gradient={false}>
           <h2 className="marquee-section__title">
             {t('marquee-section.marquee')}

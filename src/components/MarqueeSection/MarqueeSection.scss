@@ -5,11 +5,13 @@
 .marquee-section__content {
   display: flex;
   align-items: center;
-  padding: to-rem(80) 0;
+  padding-top: to-rem(80);
+  padding-bottom: to-rem(80);
   text-transform: uppercase;
 
   @include respond-above(md) {
-    padding: to-rem(180) 0;
+    padding-top: to-rem(180);
+    padding-bottom: to-rem(180);
   }
 
   .marquee {

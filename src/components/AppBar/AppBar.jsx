@@ -22,6 +22,7 @@ const AppBar = () => {
 
   const [isAppBarHidden, setIsAppBarHidden] = useState(false);
   const [isVisibleSidebar, setIsVisibleSidebar] = useState(false);
+  const [isAppBarFilled, setIsAppBarFilled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);
 
   const lastScrollPosition = useRef(0);
@@ -30,6 +31,7 @@ const AppBar = () => {
     const currentScrollPosition = window.pageYOffset;
     const isScrollUnderThreshold = currentScrollPosition > APP_BAR_THRESHOLD;
 
+    setIsAppBarFilled(isScrollUnderThreshold);
     if (
       currentScrollPosition > lastScrollPosition.current &&
       isScrollUnderThreshold
@@ -65,14 +67,15 @@ const AppBar = () => {
   return (
     <header
       className={cn([
-        'app-bar container',
+        'app-bar',
         {
           'app-bar--hidden': isAppBarHidden,
+          'app-bar--filled': isAppBarFilled,
         },
       ])}
     >
-      <div className="app-bar__container container">
-        <div className="app-bar__content">
+      <div className="app-bar__container">
+        <div className="app-bar__content container">
           <Link className="app-bar__logo" to={ROUTES_PATHS.home}>
             <svg className="app-bar__logo-img" height="28" width="108">
               <use href="/icons/sprite.svg#icon-app-logo"></use>
