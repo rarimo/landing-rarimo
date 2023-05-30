@@ -54,11 +54,11 @@
   --p-size: #{to-rem(16)};
   --h1-size: #{to-rem(56)};
   --h2-size: #{to-rem(50)};
-  --h3-size: var(--h3-size-xs, #{to-rem(32)});
+  --h3-size: #{to-rem(32)};
   --h4-size: #{to-rem(32)};
   --h5-size: #{to-rem(20)};
   --h6-size: #{to-rem(20)};
-  --overline-size: #{to-rem(12)};
+  --overline-size: #{to-rem(14)};
 
   // @include respond-above(sm) {
   //   --p-size: #{to-rem(20)};
@@ -139,9 +139,9 @@
 
   // Use cases section
   --use-cases-section-case-bg-gradient: conic-gradient(
-    from 164.83deg at 63.38% 38.28%,
+    from 145deg at 61% 38%,
     var(--col-primary-black) 0deg,
-    #{$col-carbon-fiber} 360deg
+    #2f2f2f 360deg
   );
 
   // Nft checkout video

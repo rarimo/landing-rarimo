@@ -4,7 +4,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: to-rem(56);
+  min-height: to-rem(48);
   width: 100%;
   max-width: to-rem(194);
   flex-grow: 1;
@@ -22,6 +22,7 @@
   transition-timing-function: var(--hover-transition-timing-function);
 
   @include respond-above(lg) {
+    min-height: to-rem(56);
     font-size: to-rem(18);
   }
 }

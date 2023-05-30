@@ -48,7 +48,7 @@
     position: absolute;
     top: calc(var(--bg-rect-border-size) * -1);
     right: 0;
-    bottom: 0;
+    bottom: var(--bg-rect-border-size);
     left: calc(var(--bg-rect-border-size) * -1);
     background-image: url('/img/bg/noise.png');
 
