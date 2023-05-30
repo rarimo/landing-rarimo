@@ -154,7 +154,7 @@
 .home-hero-section__blockchains-wrapper {
   display: flex;
   align-items: center;
-  padding: to-rem(30) to-rem(24);
+  padding: to-rem(30) 0;
 
   @include respond-above(sm) {
     @include respond-to(md) {
