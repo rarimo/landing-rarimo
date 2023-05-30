@@ -54,7 +54,6 @@
   max-width: 6em;
   font-size: to-rem(48);
   font-weight: 700;
-  color: var(--secondary-title-color);
   text-transform: uppercase;
 
   @extend %redefined-aos-fade;
@@ -197,14 +196,13 @@
 }
 
 .community-section__list-item-icon {
-  color: var(--secondary-title-color);
+  color: var(--primary-title-color);
 }
 
 .community-section__list-item-title {
   position: relative;
   width: max-content;
   margin-bottom: to-rem(8);
-  color: var(--secondary-title-color);
   font-size: to-rem(20);
 
   @include respond-above(sm) {
@@ -223,7 +221,7 @@
     bottom: -#{to-rem(2)};
     width: 0;
     height: to-rem(1);
-    background-color: var(--secondary-title-color);
+    background-color: inherit;
     content: '';
     transition: width var(--medium-transition-duration)
       var(--slide-transition-timing-function);

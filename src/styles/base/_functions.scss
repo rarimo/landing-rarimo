@@ -15,7 +15,7 @@
 
 @function bg-space($mult) {
   $space-in-rect-value: calc(
-    var(--primary-bg-rect-size, #{to-rem(40)}) * #{$mult}
+    var(--primary-bg-rect-size, #{to-rem(66)}) * #{$mult}
   );
   @return $space-in-rect-value;
 }

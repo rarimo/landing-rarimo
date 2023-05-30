@@ -81,7 +81,7 @@
 
 .news-section__read-more-link {
   position: relative;
-  color: var(--secondary-title-color);
+  color: var(--primary-title-color);
   transition: color var(--hover-transition);
 
   &::after {
@@ -90,7 +90,7 @@
     bottom: -#{to-rem(1)};
     width: 100%;
     height: to-rem(1);
-    background-color: var(--secondary-title-color);
+    background-color: var(--primary-title-color);
     content: '';
     transition: background-color var(--hover-transition);
   }
@@ -159,7 +159,6 @@
 .news-section__item-title {
   position: relative;
   font-size: to-rem(20);
-  color: var(--secondary-title-color);
 
   &::after {
     position: absolute;
@@ -167,7 +166,7 @@
     bottom: -#{to-rem(2)};
     width: 0;
     height: to-rem(1);
-    background-color: var(--secondary-title-color);
+    background-color: inherit;
     content: '';
     transition: width var(--medium-transition-duration)
       var(--slide-transition-timing-function);

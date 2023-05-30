@@ -1,0 +1,22 @@
+.marquee-section {
+  @include noise-bg;
+}
+
+.marquee-section__content {
+  display: flex;
+  align-items: center;
+  padding: to-rem(80) 0;
+  text-transform: uppercase;
+
+  @include respond-above(md) {
+    padding: to-rem(180) 0;
+  }
+
+  .marquee {
+    justify-content: space-around;
+  }
+}
+
+.marquee-section__title {
+  font-size: to-rem(52);
+}

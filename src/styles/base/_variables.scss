@@ -8,10 +8,11 @@
   --col-total-black: #{$col-total-black};
 
   --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
-  --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 6%);
-  --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
+  --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 10%);
+  --col-black-alpha: rgba(#{$col-black-wash-rgb}, 70%);
   --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 6%);
-  --col-primary-black: #{$col-cursed-black};
+  --col-primary-black: #{$col-black-wash};
+  --col-primary-black-opacity: rgba(#{$col-black-wash-rgb}, 0%);
   --col-primary-grey: #{$col-more-than-a-week};
   --col-primary-green: #{$col-le-max};
   --col-primary-yellow: #{$col-sunstitch};
@@ -56,29 +57,36 @@
   --h6-size: #{to-rem(20)};
   --overline-size: #{to-rem(12)};
 
-  @include respond-above(sm) {
-    --p-size: #{to-rem(20)};
-    --h1-size: #{to-rem(104)};
-    --h2-size: #{to-rem(60)};
-    --h3-size: var(--h3-size-sm, #{to-rem(56)});
-    --h4-size: #{to-rem(48)};
-    --overline-size: #{to-rem(14)};
-  }
+  // @include respond-above(sm) {
+  //   --p-size: #{to-rem(20)};
+  //   --h1-size: #{to-rem(104)};
+  //   --h2-size: #{to-rem(60)};
+  //   --h3-size: var(--h3-size-sm, #{to-rem(56)});
+  //   --h4-size: #{to-rem(48)};
+  //   --overline-size: #{to-rem(14)};
+  // }
 
-  @include respond-above(md) {
-    --h1-size: #{to-rem(88)};
-    --h3-size: #{to-rem(48)};
-    --h5-size: #{to-rem(32)};
-  }
+  // @include respond-above(md) {
+  //   --h1-size: #{to-rem(88)};
+  //   --h3-size: #{to-rem(48)};
+  //   --h5-size: #{to-rem(32)};
+  // }
 
   @include respond-above(xm) {
-    --p-size: var(--p-size-xm);
-    --h1-size: var(--h1-size-xm); // 104px - 146px
-    --h2-size: var(--h2-size-xm); // 80px - 112px
-    --h3-size: var(--h3-size-xm); // 48px - 60px
-    --h4-size: var(--h4-size-xm); // 42px - 56px
-    --h5-size: var(--h5-size-xm); // 38px - 52px
-    --h6-size: var(--h6-size-xm); // 22px - 32px
+    // --p-size: var(--p-size-xm);
+    // --h1-size: var(--h1-size-xm); // 104px - 146px
+    // --h2-size: var(--h2-size-xm); // 80px - 112px
+    // --h3-size: var(--h3-size-xm); // 48px - 60px
+    // --h4-size: var(--h4-size-xm); // 42px - 56px
+    // --h5-size: var(--h5-size-xm); // 38px - 52px
+    // --h6-size: var(--h6-size-xm); // 22px - 32px
+    --p-size: #{to-rem(16)};
+    --h1-size: #{to-rem(148)};
+    --h2-size: #{to-rem(112)};
+    --h3-size: #{to-rem(60)};
+    --h4-size: #{to-rem(32)};
+    --h5-size: #{to-rem(20)};
+    --h6-size: #{to-rem(18)};
   }
 
   // Transitions
@@ -96,12 +104,13 @@
   // Base
   --container-max-width: 100%;
   --container-side-padding: 0;
-  --primary-bg-rect-size: #{to-rem(40)};
+  --primary-bg-rect-size: #{to-rem(66)};
   --bg-rect-border-size: #{to-rem(1)};
 
   @include respond-above(xm) {
     --container-max-width: #{to-rem(1300)};
-    --container-side-padding: #{bg-space(1)};
+    // --container-side-padding: #{bg-space(1)};
+    --container-side-padding: #{to-rem(40)};
   }
 
   @include respond-above(lg) {
@@ -113,15 +122,16 @@
   --scrollbar-color: var(--primary-text-color);
 
   // App bar
-  --app-bar-height: #{bg-space(2)};
-  --app-bar-logo-color: var(--secondary-title-color);
+  // --app-bar-height: #{bg-space(2)};
+  --app-bar-height: #{to-rem(80)};
+  --app-bar-logo-color: var(--primary-title-color);
 
   // App footer
-  --app-footer-height: #{bg-space(4)};
-  --app-footer-logo-color: var(--secondary-title-color);
+  --app-footer-height: #{to-rem(160)};
+  --app-footer-logo-color: var(--primary-title-color);
 
   @include respond-above(md) {
-    --app-footer-height: #{bg-space(6)};
+    --app-footer-height: #{to-rem(240)};
   }
 
   // Use cases section
