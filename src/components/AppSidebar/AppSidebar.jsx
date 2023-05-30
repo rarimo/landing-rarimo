@@ -84,6 +84,21 @@ const AppSidebar = ({ isVisible, toggleVisibility }) => {
                 <use href="/icons/sprite.svg#icon-arrow-right"></use>
               </svg>
             </a>
+            <a
+              className="app-sidebar__social-link"
+              href={CONFIG.telegramLink}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >
+              <span>{t('app-sidebar.telegram')}</span>
+              <svg
+                className="app-sidebar__social-link-icon"
+                height="12"
+                width="12"
+              >
+                <use href="/icons/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </a>
           </div>
         </div>
         <footer className="app-sidebar__footer">
