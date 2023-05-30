@@ -8,7 +8,7 @@ const PartnersList = ({ titleKey, items, className, ...rest }) => {
 
   return (
     <div className={cn(['partners-list', className])} {...rest}>
-      <h6 className="overline">{t(titleKey)}</h6>
+      <h5 className="overline">{t(titleKey)}</h5>
       <ul className="partners-list__list">
         {items.map((item, index) => (
           <li key={index} className="partners-list__item">

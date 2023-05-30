@@ -1,0 +1,81 @@
+.what-is-rarimo-section {
+  position: relative;
+  padding-top: to-rem(88);
+  padding-bottom: to-rem(128);
+  background-color: var(--accent-bg-color);
+
+  @extend %accent-bg-plh;
+
+  @include noise-bg(var(--accent-bg-color));
+}
+
+.what-is-rarimo-section__decor-wrapper {
+  display: none;
+
+  // @include respond-above(md) {
+  //   --size: calc(#{bg-space(8)} + #{to-rem(1)});
+
+  //   position: absolute;
+  //   display: block;
+  //   top: bg-space(5);
+  //   right: calc(#{bg-space(1)} + #{to-rem(2)});
+  //   width: var(--size);
+  //   height: var(--size);
+
+  //   @include bg-rect(var(--col-primary-black));
+  // }
+
+  // @include respond-above(xm) {
+  //   --size: calc(#{bg-space(10)} + #{to-rem(1)});
+
+  //   right: calc(#{bg-space(2)} + #{to-rem(2)});
+  // }
+}
+
+.what-is-rarimo-section__subtitle {
+  margin-bottom: to-rem(120);
+  text-transform: uppercase;
+}
+
+.what-is-rarimo-section__title {
+  max-width: to-rem(800);
+  margin-bottom: to-rem(40);
+  text-transform: capitalize;
+}
+
+.what-is-rarimo-section__description {
+  max-width: to-rem(678);
+  margin-bottom: to-rem(120);
+  font-size: to-rem(20);
+  letter-spacing: 0.02em;
+}
+
+.what-is-rarimo-section__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(to-rem(280), 1fr));
+  grid-gap: to-rem(60) to-rem(32);
+}
+
+.what-is-rarimo-section__list-item-icon {
+  height: to-rem(24);
+  width: to-rem(24);
+  display: flex;
+  margin-bottom: to-rem(16);
+  color: var(--primary-title-color);
+}
+
+.what-is-rarimo-section__list-item-title {
+  position: relative;
+  margin-bottom: to-rem(40);
+  text-transform: capitalize;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -#{to-rem(16)};
+    left: 0;
+    width: 100%;
+    height: to-rem(1);
+    background-color: var(--primary-title-color);
+  }
+}

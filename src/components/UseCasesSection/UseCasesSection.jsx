@@ -20,9 +20,9 @@ const UseCasesSection = () => {
         className="use-cases-section container"
       >
         <div className="use-cases-section__title-wrapper">
-          <h6 className="use-cases-section__subtitle" data-aos="fade">
+          <h5 className="use-cases-section__subtitle" data-aos="fade">
             {t('use-cases-section.subtitle')}
-          </h6>
+          </h5>
           <div className="use-cases-section__share-wrapper" data-aos="fade">
             <span>{t('use-cases-section.share-text')}</span>
             <Link
@@ -89,17 +89,17 @@ const UseCasesSection = () => {
               data-aos-delay="150"
             >
               <div className="use-cases-section__content-block">
-                <h6 className="overline">
+                <h5 className="overline">
                   {t('use-cases-section.description-title')}
-                </h6>
+                </h5>
                 <p className="use-cases-section__description">
                   {t('use-cases-section.nft-checkout-desc')}
                 </p>
               </div>
               <div className="use-cases-section__content-block">
-                <h6 className="overline">
+                <h5 className="overline">
                   {t('use-cases-section.partners-title')}
-                </h6>
+                </h5>
                 <svg
                   className="use-cases-section__partner-logo"
                   height="24"
@@ -129,9 +129,9 @@ const UseCasesSection = () => {
             </AppButton>
             <div className="use-cases-section__case-content-wrapper">
               <div className="use-cases-section__content-block">
-                <h6 className="overline">
+                <h5 className="overline">
                   {t('use-cases-section.description-title')}
-                </h6>
+                </h5>
                 <p className="use-cases-section__description">
                   {t('use-cases-section.crosschain-proofs-desc')}
                 </p>
@@ -157,9 +157,9 @@ const UseCasesSection = () => {
             </AppButton>
             <div className="use-cases-section__case-content-wrapper">
               <div className="use-cases-section__content-block">
-                <h6 className="overline">
+                <h5 className="overline">
                   {t('use-cases-section.description-title')}
-                </h6>
+                </h5>
                 <p className="use-cases-section__description">
                   {t('use-cases-section.multichain-minting-desc')}
                 </p>

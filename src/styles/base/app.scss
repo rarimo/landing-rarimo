@@ -127,7 +127,7 @@ h2 {
 
 h3 {
   font-size: var(--h3-size);
-  line-height: 1.2;
+  line-height: 1.27;
   font-weight: 500;
 }
 
@@ -141,12 +141,6 @@ h5 {
   font-size: var(--h5-size);
   line-height: 1.48;
   font-weight: 700;
-}
-
-h6 {
-  font-size: var(--h6-size);
-  line-height: 1.47;
-  font-weight: 500;
 
   &.overline {
     margin-bottom: to-rem(24);
@@ -157,6 +151,13 @@ h6 {
     letter-spacing: 0.02em;
     text-transform: uppercase;
   }
+}
+
+h6 {
+  font-family: var(--primary-font-family);
+  font-size: var(--h6-size);
+  line-height: 1.23;
+  font-weight: 600;
 }
 
 b,

@@ -35,10 +35,10 @@
   "marquee-section": {
     "marquee": "The next generation of multi-chain assets & identities"
   },
-  "what-rarimo-does-section": {
-    "title": "Rarimo’s uniquely modular multi-layer architecture makes developing interoperable dApps faster, easier, and cheaper",
+  "what-is-rarimo-section": {
+    "title": "Rarimo's modular architecture accelerates development of interoperable dApps and identities.",
     "subtitle": "What is Rarimo?",
-    "description": "The protocol consists of a generalized messaging protocol with a series of sub-protocols on top.",
+    "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts.",
     "easy-solutions-title": "Easy: Single-click solutions",
     "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
     "decentralized-network-title": "Decentralized network",

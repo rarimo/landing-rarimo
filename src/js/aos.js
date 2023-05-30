@@ -10,8 +10,9 @@ export const initAOS = () => {
     duration: 1000,
     easing: 'ease',
     offset: 0,
-    once: true,
-    mirror: false,
+    // TODO: switch off mirror mode
+    once: false,
+    mirror: true,
     anchorPlacement: 'center-bottom',
   });
 };
