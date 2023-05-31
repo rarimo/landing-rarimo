@@ -106,10 +106,25 @@
 }
 
 .home-hero-section__subtitle {
+  --divider-width: #{to-rem(48)};
+
+  position: relative;
   display: flex;
   order: -1;
   margin-bottom: to-rem(40);
+  padding-left: calc(var(--divider-width) + #{to-rem(32)});
   text-transform: uppercase;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: var(--divider-width);
+    height: to-rem(1);
+    transform: translateY(-50%);
+    background-color: currentColor;
+    content: '';
+  }
 }
 
 .home-hero-section__description {

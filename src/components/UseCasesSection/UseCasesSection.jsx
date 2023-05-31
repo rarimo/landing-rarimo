@@ -18,7 +18,7 @@ const UseCasesSection = () => {
       <div className="container">
         <div className="use-cases-section__title-wrapper" data-aos="fade-up">
           <h5 className="use-cases-section__title">
-            {t('use-cases-section.subtitle')}
+            {t('use-cases-section.title')}
           </h5>
           <div className="use-cases-section__share-wrapper">
             <span>{t('use-cases-section.share-text')}</span>

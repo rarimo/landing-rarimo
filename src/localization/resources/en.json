@@ -50,7 +50,7 @@
     "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
   },
   "verticals-section": {
-    "subtitle": "Verticals",
+    "title": "Verticals",
     "docs-link": "Documentation",
     "assets-title": "Assets",
     "assets-text": "From Defi Lending, to NFT Checkouts, Rarimo makes multi-chain transactions easy and possible",
@@ -58,7 +58,7 @@
     "identites-text": "Cross-chain proofs for SBTs, Social Tokens, dynamic NFTs and more. For interoperable social graphs and identities"
   },
   "use-cases-section": {
-    "subtitle": "Featured use cases",
+    "title": "Featured use cases",
     "share-text": "Are you building something?",
     "share-link": "Share now",
     "view-demo-link": "View Demo",
@@ -73,7 +73,7 @@
     "partners-title": "Partner"
   },
   "backers-section": {
-    "subtitle": "Backers"
+    "title": "Backers"
   },
   "news-section": {
     "subtitle": "Latest news",

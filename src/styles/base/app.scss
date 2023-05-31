@@ -21,7 +21,6 @@ html {
 }
 
 body {
-  position: relative;
   width: 100%;
   max-width: 100%;
   background-color: var(--primary-bg-color);
@@ -29,6 +28,8 @@ body {
   transition-property: color, background-color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+
+  @include noise-bg;
 }
 
 .application {
