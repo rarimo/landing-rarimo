@@ -2,30 +2,24 @@ import './NewsSection.scss';
 
 import { useTranslation } from 'react-i18next';
 
-import SectionWrapper from '@/components/SectionWrapper';
 import { CONFIG } from '@/config';
 
 const NewsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <SectionWrapper>
-      <section className="news-section container">
-        <div className="news-section__title-wrapper">
-          <h6 className="news-section__subtitle">
-            <span data-aos="fade-up">{t('news-section.subtitle')}</span>
-          </h6>
-          <div className="news-section__read-more-wrapper">
-            <a
-              className="news-section__read-more-link"
-              href={CONFIG.mediumLink}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              data-aos="fade-up"
-            >
-              {t('news-section.read-more-link')}
-            </a>
-          </div>
+    <section className="news-section">
+      <div className="container">
+        <div className="news-section__title-wrapper" data-aos="fade-up">
+          <h5 className="news-section__title">{t('news-section.title')}</h5>
+          <a
+            className="news-section__view-all-link"
+            href={CONFIG.mediumLink}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            {t('news-section.view-all-link')}
+          </a>
         </div>
         <swiper-container class="news-section__list news-swiper" init="false">
           <swiper-slide class="news-section__item" data-aos="fade-up">
@@ -117,8 +111,8 @@ const NewsSection = () => {
             </a>
           </swiper-slide>
         </swiper-container>
-      </section>
-    </SectionWrapper>
+      </div>
+    </section>
   );
 };
 

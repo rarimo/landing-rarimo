@@ -27,7 +27,7 @@ export const initSwiper = () => {
   if (newsSwiperRef) {
     Object.assign(newsSwiperRef, {
       slidesPerView: 'auto',
-      spaceBetween: 24,
+      spaceBetween: 32,
       mousewheel: {
         forceToAxis: true,
       },
