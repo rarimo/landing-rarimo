@@ -5,9 +5,6 @@ import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
-import SectionWrapper, {
-  SECTION_WRAPPER_SCHEME,
-} from '@/components/SectionWrapper';
 import TextField from '@/components/TextField';
 import { REGEX } from '@/const';
 import useForm from '@/hooks/useForm';
@@ -56,12 +53,12 @@ const SubscribeSection = () => {
   }
 
   return (
-    <SectionWrapper scheme={SECTION_WRAPPER_SCHEME.accent}>
-      <section className="subscribe-section container">
-        <div className="subscribe-section__content">
-          <h4 className="subscribe-section__title">
-            <span data-aos="fade-up">{t('subscribe-section.title')}</span>
-          </h4>
+    <section className="subscribe-section">
+      <div className="subscribe-section__inner">
+        <div className="container">
+          <h3 className="subscribe-section__title" data-aos="fade-up">
+            {t('subscribe-section.title')}
+          </h3>
           <p className="subscribe-section__description" data-aos="fade-up">
             {t('subscribe-section.description')}
           </p>
@@ -93,8 +90,8 @@ const SubscribeSection = () => {
             </form>
           )}
         </div>
-      </section>
-    </SectionWrapper>
+      </div>
+    </section>
   );
 };
 
