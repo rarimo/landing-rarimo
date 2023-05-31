@@ -13,7 +13,7 @@
   padding-bottom: to-rem(80);
   background-image: linear-gradient(
     180deg,
-    var(--col-primary-black-opacity) 0%,
+    rgba(var(--col-primary-black-rgb), 0%),
     var(--col-primary-black) 60%,
     var(--col-primary-black) 61%
   );

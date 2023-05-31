@@ -21,7 +21,7 @@
 %accent-bg-plh ::before,
 %accent-bg-plh ::after {
   --primary-title-color: var(--col-primary-black);
-  --primary-text-color: var(--secondary-text-color);
+  --primary-text-color: var(--col-black-alpha);
   --bg-rect-border-color: var(--col-black-min-alpha);
 
   color: var(--primary-text-color);

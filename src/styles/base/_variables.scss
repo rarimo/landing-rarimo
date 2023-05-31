@@ -11,13 +11,14 @@
   --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
   --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 10%);
   --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
-  --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 6%);
+  --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 10%);
   --col-primary-black: #{$col-cursed-black};
-  --col-primary-black-opacity: rgba(#{$col-cursed-black-rgb}, 0%);
+  --col-primary-black-rgb: #{$col-cursed-black-rgb};
   --col-primary-grey: #{$col-more-than-a-week};
   --col-primary-yellow: #{$col-sunstitch};
 
   --col-primary-accent-main: #{$col-le-max};
+  --col-primary-accent-main-rgb: #{$col-le-max-rgb};
   --col-primary-accent-dark: #{color.adjust($col-le-max, $lightness: -10%)};
 
   --col-chaos-black: #{$col-chaos-black};
