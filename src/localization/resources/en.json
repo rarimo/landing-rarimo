@@ -76,8 +76,8 @@
     "title": "Backers"
   },
   "news-section": {
-    "subtitle": "Latest news",
-    "read-more-link": "Read more",
+    "title": "Latest news",
+    "view-all-link": "View All",
     "first-title": "Rarimo: making multi-chain transactions user-friendly",
     "second-title": "What is Interoperability, and why is it so important?",
     "third-title": "Rarimo Whitepaper",
