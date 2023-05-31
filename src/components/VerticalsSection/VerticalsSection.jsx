@@ -14,7 +14,7 @@ const VerticalsSection = () => {
       <div className="container">
         <div className="verticals-section__title-wrapper" data-aos="fade-up">
           <h5 className="verticals-section__title">
-            {t('verticals-section.subtitle')}
+            {t('verticals-section.title')}
           </h5>
           <a
             className="verticals-section__docs-link"
