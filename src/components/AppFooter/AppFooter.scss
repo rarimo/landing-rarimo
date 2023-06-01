@@ -1,93 +1,35 @@
-%redefined-aos-fade {
-  @include redefine-aos-prop('fade-up') {
-    transform: translate3d(0, bg-space(2), 0);
-  }
-}
-
 .app-footer {
-  padding-bottom: bg-space(2);
-  height: var(--app-footer-height);
+  --footer-cell-height: #{to-rem(40)};
 
-  @include respond-above(sm) {
-    padding-bottom: bg-space(1);
-  }
-
-  @include respond-above(md) {
-    padding-bottom: bg-space(2);
-  }
-}
-
-.app-footer__wrapper {
   position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-.app-footer__bg-table {
-  display: none;
-
-  @include respond-above(md) {
-    display: table;
-
-    // stylelint-disable-next-line declaration-no-important
-    position: absolute !important;
-    top: calc(var(--bg-rect-border-size) * -1);
-    left: 0;
-    z-index: var(--z-default);
-    width: calc(100% - bg-space(2) - to-rem(1));
-    margin: 0 bg-space(1);
-
-    @include block-with-bg-border;
-  }
-}
-
-.app-footer__bg-table-cell {
-  height: bg-space(1);
-
-  tr:not(:last-child) & {
-    border-bottom: to-rem(1) solid var(--bg-rect-border-color);
-  }
+  padding-top: to-rem(130);
+  padding-bottom: to-rem(40);
 }
 
 .app-footer__content {
-  height: 100%;
   font-size: to-rem(14);
 
-  @include respond-to(md) {
-    padding: 0 bg-space(1);
-
-    @include block-with-bg-border;
-  }
-
   @include respond-above(md) {
-    position: relative;
-    z-index: var(--z-default);
     display: grid;
-    grid-template-columns: repeat(2, max-content) 1fr auto;
+    grid-template-columns: repeat(3, max-content) 1fr auto;
     grid-gap: 20%;
-    margin: 0 bg-space(1);
   }
 }
 
 .app-footer__logo-wrapper {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  @extend %redefined-aos-fade;
-
   @include respond-above(md) {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: bg-space(1);
-    grid-gap: bg-space(2);
-    align-items: center;
+    padding: calc(var(--footer-cell-height) / 4) 0;
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
 .app-footer__logo {
-  height: bg-space(0.5);
+  height: to-rem(20);
   display: flex;
   color: var(--app-footer-logo-color);
 
@@ -101,19 +43,13 @@
   width: auto;
 }
 
-// .app-footer__navigation {
-// }
-
-.app-footer__social-links-wrapper {
+.app-footer__links-list {
   display: none;
 
-  @extend %redefined-aos-fade;
-
   @include respond-above(md) {
-    height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: bg-space(1);
+    grid-auto-rows: var(--footer-cell-height);
     align-items: center;
   }
 }
@@ -125,12 +61,10 @@
   transition-property: color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+  cursor: pointer;
 
-  @media all and (hover: hover) {
-    &:hover,
-    &:focus-visible {
-      color: var(--primary-title-color);
-    }
+  @include hover {
+    color: var(--primary-title-color);
   }
 }
 
@@ -145,11 +79,9 @@
 .app-footer__scroll-to-top-btn {
   &.app-footer__scroll-to-top-btn {
     display: none;
-    height: bg-space(1);
-    width: bg-space(1);
+    height: var(--footer-cell-height);
+    width: var(--footer-cell-height);
     padding: 0;
-
-    @extend %redefined-aos-fade;
 
     @include respond-above(md) {
       display: inline-flex;
