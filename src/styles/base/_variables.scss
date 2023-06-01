@@ -4,7 +4,7 @@
 :root,
 ::before,
 ::after {
-  // Colors
+  // Primary colors
   --col-total-white: #{$col-total-white};
   --col-total-black: #{$col-total-black};
 
@@ -15,24 +15,33 @@
   --col-primary-black: #{$col-cursed-black};
   --col-primary-black-rgb: #{$col-cursed-black-rgb};
   --col-primary-grey: #{$col-more-than-a-week};
-  --col-primary-yellow: #{$col-sunstitch};
 
   --col-primary-accent-main: #{$col-le-max};
   --col-primary-accent-main-rgb: #{$col-le-max-rgb};
   --col-primary-accent-dark: #{color.adjust($col-le-max, $lightness: -10%)};
 
-  --col-chaos-black: #{$col-chaos-black};
-
+  // Status colors
   --col-error: #{$col-vermilion-cinnabar};
 
+  // Brand colors
+  --col-sunstitch: #{$col-sunstitch};
+  --col-sunstitch-rgb: #{$col-sunstitch-rgb};
+
+  --col-cantaloupe-slice: #{$col-cantaloupe-slice};
+  --col-cantaloupe-slice-rgb: #{$col-cantaloupe-slice-rgb};
+
+  --col-sagittarius-amber: #{$col-sagittarius-amber};
+  --col-sagittarius-amber-rgb: #{$col-sagittarius-amber-rgb};
+
+  --col-le-max: #{$col-le-max};
+  --col-le-max-rgb: #{$col-le-max-rgb};
+
+  --col-latigo-bay: #{$col-latigo-bay};
+  --col-latigo-bay-rgb: #{$col-latigo-bay-rgb};
+
+  // Old design colors
   --col-gluon-grey: #{$col-gluon-grey};
-  --col-tame-teal: #{$col-tame-teal};
   --col-turquoise-pearl: #{$col-turquoise-pearl};
-  --col-honeydew-peel: #{$col-honeydew-peel};
-  --col-apocyan: #{$col-apocyan};
-  --col-pink-elephants: #{$col-pink-elephants};
-  --col-melon-sprinkle: #{$col-melon-sprinkle};
-  --col-california-lilac: #{$col-california-lilac};
   --col-silverpine-cyan: #{$col-silverpine-cyan};
 
   // Z-indexes

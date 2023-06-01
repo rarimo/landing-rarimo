@@ -3,6 +3,7 @@ import './HomeHeroSection.scss';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
+import HomeHeroDecor from '@/components/HomeHeroDecor';
 import PartnersList from '@/components/PartnersList';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
@@ -18,22 +19,8 @@ const HomeHeroSection = () => {
     >
       <div className="home-hero-section__inner">
         <div className="home-hero-section__content container">
-          <div className="home-hero-section__decor">
-            <div
-              className="home-hero-section__decor--part-1"
-              data-aos="fade-up"
-            ></div>
-            <div
-              className="home-hero-section__decor--part-2"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            ></div>
-            <div
-              className="home-hero-section__decor--part-3"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            ></div>
-          </div>
+          <HomeHeroDecor className="home-hero-section__decor" />
+
           <div className="home-hero-section__hero-wrapper">
             <h1 className="home-hero-section__title">
               <div className="home-hero-section__title-part">
@@ -78,7 +65,6 @@ const HomeHeroSection = () => {
               />
             </div>
           </div>
-
           <div className="home-hero-section__blockchains-wrapper">
             <PartnersList
               titleKey="home-hero-section.blockchains-title"
@@ -86,7 +72,6 @@ const HomeHeroSection = () => {
               data-aos="fade-up"
             />
           </div>
-
           {/* <div className="home-hero-section__scroll-for-more" 
         data-aos="fade-up">
           <svg

@@ -1,0 +1,76 @@
+@mixin cell-color($color) {
+  background-color: var(--col-#{$color});
+
+  @include noise-bg;
+
+  &::after {
+    background-image: linear-gradient(
+      0deg,
+      rgba(var(--col-#{$color}-rgb), 0%),
+      var(--col-#{$color}) 100%
+    );
+  }
+}
+
+.home-hero-decor__row {
+  display: flex;
+
+  &:not(:last-child) {
+    margin-bottom: var(--bg-rect-border-size);
+  }
+}
+
+.home-hero-decor__cell {
+  position: relative;
+  height: var(--primary-bg-rect-size);
+  width: var(--primary-bg-rect-size);
+
+  &:not(:last-child) {
+    margin-right: var(--bg-rect-border-size);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &--transparent {
+    background-color: transparent;
+  }
+
+  &--sunstitch {
+    @include cell-color(sunstitch);
+
+    &::before {
+      filter: invert(0.4) opacity(0.6);
+    }
+  }
+
+  &--cantaloupe-slice {
+    @include cell-color(cantaloupe-slice);
+
+    &::before {
+      filter: invert(0.4) opacity(0.6);
+    }
+  }
+
+  &--sagittarius-amber {
+    @include cell-color(sagittarius-amber);
+
+    &::before {
+      filter: invert(0.4) opacity(0.6);
+    }
+  }
+
+  &--le-max {
+    @include cell-color(le-max);
+  }
+
+  &--latigo-bay {
+    @include cell-color(latigo-bay);
+  }
+}
