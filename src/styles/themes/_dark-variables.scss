@@ -3,7 +3,6 @@
 [color-scheme='dark'] ::after {
   --primary-bg-color: var(--col-primary-black);
   --accent-bg-color: var(--col-primary-accent-main);
-  --yellow-accent-bg-color: var(--col-primary-yellow);
   --primary-title-color: var(--col-white-alpha);
   --primary-text-color: var(--col-primary-grey);
   --secondary-text-color: var(--col-black-alpha);
@@ -21,7 +20,7 @@
 
   // How it works chart
   --how-it-works-chart-back-line-col: var(--col-gluon-grey);
-  --how-it-works-chart-group-hidden-bg: #{$col-graphite-black};
+  // --how-it-works-chart-group-hidden-bg: #{$col-graphite-black};
   --how-it-works-chart-group-hidden-col: rgba(#{$col-total-white-rgb}, 30%);
   --how-it-works-chart-guide-lines-bg: rgba(#{$col-turquoise-pearl-rgb}, 10%);
 }

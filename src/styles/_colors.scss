@@ -4,34 +4,33 @@ $col-total-black-rgb: hex-to-rgb($col-total-black);
 $col-total-white: #ffffff;
 $col-total-white-rgb: hex-to-rgb($col-total-white);
 
-$col-distant-horizon: #f1faf9;
-$col-gluon-grey: #181b1c;
-
 $col-cursed-black: #131313;
 $col-cursed-black-rgb: hex-to-rgb($col-cursed-black);
-$col-chaos-black: #0e0e0e;
-$col-carbon-fiber: #2f2f2f;
+
 $col-more-than-a-week: #8f8f8f;
-$col-vermilion-cinnabar: #e63946;
+
 $col-le-max: #8ab5a4;
 $col-le-max-rgb: hex-to-rgb($col-le-max);
+
+// Status colors
+$col-vermilion-cinnabar: #e63946;
+
+// Brand colors
 $col-sunstitch: #fee1b7;
+$col-sunstitch-rgb: hex-to-rgb($col-sunstitch);
 
-$col-mallorca-blue: #537994;
-$col-mallorca-blue-rgb: hex-to-rgb($col-mallorca-blue);
+$col-cantaloupe-slice: #feb475;
+$col-cantaloupe-slice-rgb: hex-to-rgb($col-cantaloupe-slice);
 
+$col-sagittarius-amber: #fb7c3f;
+$col-sagittarius-amber-rgb: hex-to-rgb($col-sagittarius-amber);
+
+$col-latigo-bay: #3a8b8f;
+$col-latigo-bay-rgb: hex-to-rgb($col-latigo-bay);
+
+// Old design colors
+$col-gluon-grey: #181b1c;
+$col-distant-horizon: #f1faf9;
 $col-turquoise-pearl: #85f8ef;
 $col-turquoise-pearl-rgb: hex-to-rgb($col-turquoise-pearl);
-$col-tropical-green: #187d75;
-
-$col-tame-teal: #bde5dc;
-$col-cool-current: #2a3f46;
-$col-graphite-black: #252a2c;
-
-$col-honeydew-peel: #daff73;
-$col-apocyan: #9ec5ff;
-$col-pink-elephants: #ff9ef0;
-$col-melon-sprinkle: #ffcd9e;
-$col-california-lilac: #b5bfe1;
-
 $col-silverpine-cyan: #91e9ff;
