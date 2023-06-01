@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
-import SectionWrapper from '@/components/SectionWrapper';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 import { getShiftedDelay } from '@/helpers';
@@ -14,20 +13,20 @@ const CommunitySection = ({ isHomePage = true }) => {
   const { t } = useTranslation();
 
   return (
-    <SectionWrapper className="community-section-wrapper">
-      <section
-        id={COMPONENT_NODE_IDS.communitySection}
-        className={cn([
-          'community-section container',
-          {
-            'community-section--testnet': !isHomePage,
-          },
-        ])}
-      >
+    <section
+      id={COMPONENT_NODE_IDS.communitySection}
+      className={cn([
+        'community-section',
+        {
+          'community-section--testnet': !isHomePage,
+        },
+      ])}
+    >
+      <div className="community-section__content container">
         <div className="community-section__titles-wrapper">
-          <h4 className="community-section__title" data-aos="fade-up">
+          <h3 className="community-section__title" data-aos="fade-up">
             {t('community-section.title')}
-          </h4>
+          </h3>
           {isHomePage && (
             <p className="community-section__description" data-aos="fade-up">
               {t('community-section.description')}
@@ -101,8 +100,8 @@ const CommunitySection = ({ isHomePage = true }) => {
                 {item.link && (
                   <svg
                     className="community-section__arrow-icon"
-                    height="12"
-                    width="12"
+                    height="14"
+                    width="14"
                   >
                     <use href="/icons/sprite.svg#icon-arrow-right"></use>
                   </svg>
@@ -111,8 +110,8 @@ const CommunitySection = ({ isHomePage = true }) => {
             </li>
           ))}
         </ul>
-      </section>
-    </SectionWrapper>
+      </div>
+    </section>
   );
 };
 
