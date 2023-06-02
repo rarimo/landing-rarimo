@@ -6,7 +6,9 @@
 ::after {
   // Primary colors
   --col-total-white: #{$col-total-white};
+  --col-total-white-rgb: #{$col-total-white-rgb};
   --col-total-black: #{$col-total-black};
+  --col-total-black-rgb: #{$col-total-black-rgb};
 
   --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
   --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 10%);

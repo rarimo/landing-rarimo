@@ -2,7 +2,7 @@ import './WhatIsRarimoSection.scss';
 
 import { useTranslation } from 'react-i18next';
 
-import SectionDecorSvg from '@/components/SectionDecorSvg';
+import WhatIsRarimoDecor from '@/components/WhatIsRarimoDecor';
 import { getShiftedDelay } from '@/helpers';
 import { whatIsRarimoSectionList } from '@/template-data';
 
@@ -11,15 +11,13 @@ const WhatIsRarimoSection = () => {
 
   return (
     <section className="what-is-rarimo-section">
-      <div className="container">
+      <div className="what-is-rarimo-section__content container">
         <h5 className="what-is-rarimo-section__subtitle" data-aos="fade-up">
           {t('what-is-rarimo-section.subtitle')}
         </h5>
 
-        <div className="what-is-rarimo-section__decor-wrapper" data-aos="fade">
-          <div data-aos="fade-up">
-            <SectionDecorSvg />
-          </div>
+        <div className="what-is-rarimo-section__decor-wrapper">
+          <WhatIsRarimoDecor />
         </div>
         <h3 className="what-is-rarimo-section__title js-string-animation">
           {t('what-is-rarimo-section.title')}
