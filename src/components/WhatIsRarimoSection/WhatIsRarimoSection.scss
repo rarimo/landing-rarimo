@@ -7,29 +7,29 @@
   @extend %accent-bg-plh;
 
   @include noise-bg(var(--accent-bg-color));
+
+  &::before {
+    z-index: var(--z-default);
+  }
+}
+
+.what-is-rarimo-section__content {
+  > *:not(.what-is-rarimo-section__decor-wrapper) {
+    position: relative;
+    z-index: var(--z-default);
+  }
 }
 
 .what-is-rarimo-section__decor-wrapper {
   display: none;
 
-  // @include respond-above(md) {
-  //   --size: calc(#{bg-space(8)} + #{to-rem(1)});
-
-  //   position: absolute;
-  //   display: block;
-  //   top: bg-space(5);
-  //   right: calc(#{bg-space(1)} + #{to-rem(2)});
-  //   width: var(--size);
-  //   height: var(--size);
-
-  //   @include bg-rect(var(--col-primary-black));
-  // }
-
-  // @include respond-above(xm) {
-  //   --size: calc(#{bg-space(10)} + #{to-rem(1)});
-
-  //   right: calc(#{bg-space(2)} + #{to-rem(2)});
-  // }
+  @include respond-above(md) {
+    position: absolute;
+    display: block;
+    top: to-rem(90);
+    right: 0;
+    width: 33%;
+  }
 }
 
 .what-is-rarimo-section__subtitle {
