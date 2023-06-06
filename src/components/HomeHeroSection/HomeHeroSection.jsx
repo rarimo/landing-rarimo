@@ -13,10 +13,7 @@ const HomeHeroSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section
-      id={COMPONENT_NODE_IDS.homeHeroSection}
-      className="home-hero-section"
-    >
+    <section id={COMPONENT_NODE_IDS.heroSection} className="home-hero-section">
       <div className="home-hero-section__inner">
         <div className="home-hero-section__content container">
           <HomeHeroDecor className="home-hero-section__decor" />

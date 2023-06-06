@@ -4,7 +4,7 @@ import { COMPONENT_NODE_IDS } from '@/const';
 export const navigation = [
   {
     textKey: 'navigation.home',
-    path: COMPONENT_NODE_IDS.homeHeroSection,
+    path: COMPONENT_NODE_IDS.heroSection,
     hash: true,
   },
   {
