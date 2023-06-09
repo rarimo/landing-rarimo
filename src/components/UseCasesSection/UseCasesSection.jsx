@@ -32,7 +32,14 @@ const UseCasesSection = () => {
         </div>
         <swiper-container
           class="use-cases-section__cases-list use-cases-swiper"
-          init="false"
+          slides-per-view="1"
+          speed="1200"
+          allow-touch-move="false"
+          navigation-next-el=".use-cases-section__list-nav-btn--next"
+          navigation-prev-el=".use-cases-section__list-nav-btn--prev"
+          a11y-slide-role="listitem"
+          a11y-container-role-description-message="Use cases list"
+          item-role-description-message="Use case"
           data-aos="zoom-out"
           data-aos-anchor-placement="top-bottom"
         >

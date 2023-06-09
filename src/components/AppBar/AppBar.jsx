@@ -2,10 +2,10 @@ import './AppBar.scss';
 
 import useResizeObserver from '@react-hook/resize-observer';
 import cn from 'classnames';
+import { throttle } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { throttle } from 'throttle-debounce';
 
 import AppSidebar from '@/components/AppSidebar';
 import BurgerButton from '@/components/BurgerButton';
@@ -16,6 +16,8 @@ import { handleNavClick } from '@/helpers';
 import { navigation } from '@/template-data';
 
 const APP_BAR_THRESHOLD = 60;
+
+let onScroll;
 
 const AppBar = () => {
   const { t } = useTranslation();
@@ -56,7 +58,7 @@ const AppBar = () => {
   }, [isDesktop]);
 
   useEffect(() => {
-    const onScroll = throttle(400, toggleShowHeader);
+    onScroll = throttle(toggleShowHeader, 400);
     window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {

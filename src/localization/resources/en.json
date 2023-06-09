@@ -105,17 +105,6 @@
     "discord-title": "Discord Community",
     "discord-desc": "Connect with like-minded community for support and inspiration"
   },
-  "testnet-hero-section": {
-    "title": "Join private Testnet",
-    "description_html": "Rarimo is a protocol unlocking <strong>liquidity</strong> and <strong>interoperability</strong> across chains in a <strong>seamless way</strong>",
-    "sign-up-link": "Sign up"
-  },
-  "testnet-desc-section": {
-    "title": "Rarimo will run a closed testnet that will be invite only, with participants chosen from the signups",
-    "description": "Looking for a diverse set of participants, with technical experience participating in testnets and running nodes, those who represent professional validating communities as well as developers, builders, community leaders and moderators.",
-    "feedback": "Post your questions and feedback on Rarimo’s",
-    "discord-link": "Discord channel"
-  },
   "nft-checkout-hero-section": {
     "title": "NFT Checkout",
     "description_html": "Users can pay for NFTs with any token of their choice in <strong>a single</strong> transaction",
@@ -123,6 +112,16 @@
     "features-link": "Explore Features",
     "blockchains-title": "Supported blockchains",
     "scroll-for-more": "Scroll for more"
+  },
+  "nft-checkout-steps-section": {
+    "title-1": "Choose your wallet",
+    "description-1": "Developers can build fully decentralized NFT checkouts with non-native tokens",
+    "title-2": "Choose your token",
+    "description-2": "Developers can build fully decentralized NFT checkouts with non-native tokens",
+    "title-3": "Confirm your transaction",
+    "description-3": "Developers can build fully decentralized NFT checkouts with non-native tokens",
+    "title-4": "Confirm your transaction",
+    "description-4": "Developers can build fully decentralized NFT checkouts with non-native tokens"
   },
   "integrations-section": {
     "title": "Partner Integrations"
