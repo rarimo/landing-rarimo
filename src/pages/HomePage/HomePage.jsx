@@ -9,11 +9,11 @@ import SubscribeSection from '@/components/SubscribeSection';
 import UseCasesSection from '@/components/UseCasesSection';
 import VerticalsSection from '@/components/VerticalsSection';
 import WhatIsRarimoSection from '@/components/WhatIsRarimoSection';
-import { initSwiper } from '@/js';
+import { initAOS } from '@/js';
 
 const HomePage = () => {
   useEffect(() => {
-    initSwiper();
+    initAOS();
   }, []);
 
   return (

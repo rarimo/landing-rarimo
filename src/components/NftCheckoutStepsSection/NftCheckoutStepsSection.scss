@@ -1,0 +1,85 @@
+.nft-checkout-page__lottie-wrapper {
+  --wrapper-relative-width: 0.65;
+
+  position: fixed;
+  z-index: 1;
+  top: to-rem(100);
+  width: calc(var(--container-max-width) * var(--wrapper-relative-width));
+  right: 50%;
+  transform: translateX(
+    calc(50% / var(--wrapper-relative-width) - var(--container-side-padding))
+  );
+  display: block;
+  padding-top: to-rem(80);
+  border: 2px solid red;
+  transition: padding-top var(--hover-transition);
+
+  &--absolute {
+    position: absolute;
+    padding-top: 0;
+  }
+}
+
+.nft-checkout-page__lottie {
+  position: relative;
+  padding-top: calc(2910 / 3575 * 100%);
+  height: 0;
+  overflow: hidden;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(20%, -20%) scale(1.8) !important;
+  }
+}
+
+.nft-checkout-steps-section {
+  border: 2px solid green;
+}
+
+.nft-checkout-steps-section__content {
+  position: relative;
+  min-height: vh(100);
+  display: flex;
+  align-items: flex-end;
+  padding-top: to-rem(560);
+  padding-bottom: to-rem(150);
+}
+
+.nft-checkout-steps-section__list {
+  max-width: to-rem(500);
+  margin: 0;
+}
+
+.nft-checkout-steps-section__item {
+  display: flex;
+  flex-direction: column;
+
+  &:not(.swiper-slide-active) {
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 0 !important;
+  }
+}
+
+.nft-checkout-steps-section__counter {
+  order: -1;
+  margin-bottom: to-rem(24);
+  font-weight: 700;
+
+  &--total {
+    font-size: to-rem(20);
+  }
+}
+
+.nft-checkout-steps-section__title {
+  // max-width: to-rem(280);
+  margin-bottom: to-rem(24);
+  font-size: to-rem(48);
+  text-transform: uppercase;
+}
+
+.nft-checkout-steps-section__description {
+  font-size: to-rem(20);
+  letter-spacing: 0.02em;
+}

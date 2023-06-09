@@ -21,7 +21,22 @@ const NewsSection = () => {
             {t('news-section.view-all-link')}
           </a>
         </div>
-        <swiper-container class="news-section__list news-swiper" init="false">
+        <swiper-container
+          class="news-section__list news-swiper"
+          slides-per-view="auto"
+          space-between="32"
+          mousewheel-force-to-axis="true"
+          autoplay="false"
+          resistance-ratio="0.5"
+          grab-cursor="true"
+          edge-swipe-detection="true"
+          speed="1000"
+          breakpoints-1200-slides-per-view="4"
+          breakpoints-1200-enabled="false"
+          a11y-slide-role="listitem"
+          a11y-container-role-description-message="Last news list"
+          a11y-item-role-description-message="Actual news"
+        >
           <swiper-slide class="news-section__item" data-aos="fade-up">
             <a
               className="news-section__item-link"
