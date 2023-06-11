@@ -17,7 +17,7 @@ const AppFooter = () => {
   const navList = useMemo(() => navigation.filter((_, index) => index), []);
 
   const onScrollToTop = () => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

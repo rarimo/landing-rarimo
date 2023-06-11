@@ -1,14 +1,15 @@
 export const handleNavClick = (link, callback) => {
-  const linkElement = document.createElement('a');
-
   if (link.hash) {
-    linkElement.href = `#${link.path}`;
-    linkElement.click();
+    const targetElement = document.getElementById(link.path);
+    if (!targetElement) return;
+
+    targetElement.scrollIntoView({ behavior: 'smooth' });
     callback?.();
     return;
   }
 
   if (link.external) {
+    const linkElement = document.createElement('a');
     linkElement.href = link.path;
     linkElement.target = '_blank';
     linkElement.rel = 'nofollow noopener noreferrer';

@@ -34,7 +34,7 @@ const NftCheckoutStepsSection = ({ animationStep }) => {
       path: '/animation/nft-checkout-demo.json',
     };
 
-    animationRef.current = window.lottie?.loadAnimation(params);
+    // animationRef.current = window.lottie?.loadAnimation(params);
 
     // [
     //   'complete',
@@ -71,7 +71,6 @@ const NftCheckoutStepsSection = ({ animationStep }) => {
   useEffect(() => {
     onScroll = throttle(parallax, 200);
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
     return () => {
       window.removeEventListener('scroll', onScroll, { passive: true });
