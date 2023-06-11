@@ -1,7 +1,7 @@
 import './NftCheckoutPage.scss';
-// eslint-disable-next-line import/no-unresolved
-import 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.0/lottie.min.js';
 
+// eslint-disable-next-line import/no-unresolved
+// import 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.0/lottie.min.js';
 import { useEffect, useState } from 'react';
 
 import CommunitySection from '@/components/CommunitySection';
