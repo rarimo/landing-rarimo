@@ -6,12 +6,14 @@
 
   // App link
   --app-button-border-color: var(--col-total-black);
+
   // --app-button-border-color-hover: #{$col-mallorca-blue};
   --app-button-text: var(--col-total-black);
   --app-button-text-hover: var(--col-total-white);
 
   // Base card
   --base-card-bg: var(--col-total-white);
+
   // --base-card-shadow-color: rgba(#{$col-mallorca-blue-rgb}, 40%);
   // --base-card-primary-icon-color: #{$col-mallorca-blue};
 
@@ -28,6 +30,7 @@
     $col-silverpine-cyan,
     $lightness: 14%
   );
+
   // --how-it-works-chart-group-hidden-bg: #{$col-graphite-black}; // FIXME
   --how-it-works-chart-guide-lines-bg: rgba(
     #{$col-turquoise-pearl-rgb},

@@ -115,13 +115,9 @@
   },
   "nft-checkout-steps-section": {
     "title-1": "Choose your wallet",
-    "description-1": "Developers can build fully decentralized NFT checkouts with non-native tokens",
     "title-2": "Choose your token",
-    "description-2": "Developers can build fully decentralized NFT checkouts with non-native tokens",
-    "title-3": "Confirm your transaction",
-    "description-3": "Developers can build fully decentralized NFT checkouts with non-native tokens",
-    "title-4": "Confirm your transaction",
-    "description-4": "Developers can build fully decentralized NFT checkouts with non-native tokens"
+    "title-3": "Confirm the transaction",
+    "title-4": "Easy like that!"
   },
   "integrations-section": {
     "title": "Partner Integrations"

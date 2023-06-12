@@ -73,7 +73,7 @@
 @mixin hover() {
   @media all and (hover: hover) {
     &:hover,
-    &:focus-within {
+    &:focus-visible {
       @content;
     }
   }

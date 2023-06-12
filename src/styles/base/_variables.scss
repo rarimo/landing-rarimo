@@ -124,7 +124,6 @@
 
   @include respond-above(xm) {
     --container-max-width: #{to-rem(1300)};
-    // --container-side-padding: #{bg-space(1)};
     --container-side-padding: #{to-rem(40)};
   }
 
