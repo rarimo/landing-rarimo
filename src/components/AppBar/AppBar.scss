@@ -10,7 +10,6 @@
   transition-property: background-color, transform;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--fade-transition-timing-function);
-
   animation: first-render-slide 0.6s;
 
   &.app-bar--filled {
@@ -26,6 +25,7 @@
   0% {
     transform: translateY(-100%);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -75,11 +75,8 @@
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
-  @media all and (hover: hover) {
-    &:hover,
-    &:focus-visible {
-      color: var(--primary-title-color);
-    }
+  @include hover {
+    color: var(--primary-title-color);
   }
 
   &:not(:last-child) {
@@ -101,11 +98,8 @@
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
-  @media all and (hover: hover) {
-    &:hover,
-    &:focus-visible {
-      color: var(--primary-title-color);
-    }
+  @include hover {
+    color: var(--primary-title-color);
   }
 
   &:not(:last-child) {
