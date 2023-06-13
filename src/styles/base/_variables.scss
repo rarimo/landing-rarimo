@@ -22,6 +22,8 @@
   --col-primary-accent-main-rgb: #{$col-le-max-rgb};
   --col-primary-accent-dark: #{color.adjust($col-le-max, $lightness: -10%)};
 
+  --col-lead: #{$col-lead};
+
   // Status colors
   --col-error: #{$col-vermilion-cinnabar};
 

@@ -10,8 +10,8 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
-  grid-gap: bg-space(0.5);
-  padding: 0 bg-space(0.5) to-rem(32);
+  grid-gap: to-rem(20);
+  padding: 0 to-rem(20) to-rem(32);
   transform: translateX(100%);
   background-color: var(--primary-bg-color);
   transition-property: transform;
@@ -19,10 +19,6 @@
   transition-timing-function: var(--slide-transition-timing-function);
   will-change: transform;
   user-select: none;
-
-  @include respond-above(sm) {
-    padding: 0 bg-space(1);
-  }
 
   &--is-visible {
     transform: translateX(0);

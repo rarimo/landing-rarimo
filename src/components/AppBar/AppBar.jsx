@@ -1,6 +1,5 @@
 import './AppBar.scss';
 
-import useResizeObserver from '@react-hook/resize-observer';
 import cn from 'classnames';
 import { throttle } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
@@ -13,6 +12,7 @@ import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
 import { handleNavClick } from '@/helpers';
+import useAppContext from '@/hooks/useAppContext';
 import { navigation } from '@/template-data';
 
 const APP_BAR_THRESHOLD = 60;
@@ -21,11 +21,11 @@ let onScroll;
 
 const AppBar = () => {
   const { t } = useTranslation();
+  const { isDesktop } = useAppContext();
 
   const [isAppBarHidden, setIsAppBarHidden] = useState(false);
   const [isVisibleSidebar, setIsVisibleSidebar] = useState(false);
   const [isAppBarFilled, setIsAppBarFilled] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(true);
 
   const lastScrollPosition = useRef(0);
 
@@ -48,10 +48,6 @@ const AppBar = () => {
   const toggleSidebarVisibility = () => {
     setIsVisibleSidebar(prev => !prev);
   };
-
-  useResizeObserver(document.body, ({ contentRect }) => {
-    setIsDesktop(contentRect.width >= 1024);
-  });
 
   useEffect(() => {
     setIsVisibleSidebar(false);
