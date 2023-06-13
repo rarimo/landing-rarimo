@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export const APP_BUTTON_SCHEMES = {
   primary: 'primary',
   secondary: 'secondary',
+  text: 'text',
 };
 
 const AppButton = ({
