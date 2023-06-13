@@ -1,6 +1,6 @@
 import './NftCheckoutHeroSection.scss';
 
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
@@ -27,7 +27,7 @@ const NftCheckoutHeroSection = () => {
             className="nft-checkout-hero-section__description"
             data-aos="fade-up"
           >
-            <Trans i18nKey="nft-checkout-hero-section.description_html" />
+            {t('nft-checkout-hero-section.description')}
           </p>
           <PartnersList
             className="nft-checkout-hero-section__blockchains"
@@ -60,6 +60,13 @@ const NftCheckoutHeroSection = () => {
               textKey="nft-checkout-hero-section.features-link"
             />
           </div>
+          <img
+            src="/img/nft-checkout-page/alchemy.png"
+            height="35"
+            width="160"
+            alt=""
+            data-aos="fade-up"
+          />
         </div>
       </div>
     </section>

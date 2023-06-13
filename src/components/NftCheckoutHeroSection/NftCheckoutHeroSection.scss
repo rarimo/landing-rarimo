@@ -14,57 +14,70 @@
 }
 
 .nft-checkout-hero-section__content {
+  max-width: to-rem(360);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: to-rem(254);
-  padding-bottom: to-rem(140);
+  padding-top: to-rem(95);
+  padding-bottom: to-rem(30);
   text-align: center;
 
   @include respond-above(md) {
+    max-width: unset;
     align-items: flex-start;
+    padding-top: to-rem(254);
+    padding-bottom: to-rem(140);
     text-align: left;
   }
 }
 
 .nft-checkout-hero-section__title {
-  margin-bottom: to-rem(32);
-  font-size: to-rem(100);
+  margin-bottom: to-rem(24);
   overflow: hidden;
   white-space: break-spaces;
   text-transform: uppercase;
+
+  @include respond-above(md) {
+    margin-bottom: to-rem(32);
+  }
+
+  @include respond-above(xm) {
+    font-size: to-rem(100);
+  }
 }
 
 .nft-checkout-hero-section__description {
-  max-width: to-rem(530);
-  margin-bottom: to-rem(48);
-  font-size: to-rem(20);
+  margin-bottom: to-rem(40);
+  font-size: to-rem(16);
   letter-spacing: 0.02em;
+
+  @include respond-above(md) {
+    max-width: to-rem(530);
+    margin-bottom: to-rem(48);
+    font-size: to-rem(20);
+  }
 }
 
 .nft-checkout-hero-section__links-wrapper {
   width: 100%;
-
-  @include respond-above(sm) {
-    display: flex;
-    justify-content: center;
-  }
+  margin-bottom: to-rem(40);
 
   @include respond-above(md) {
+    display: flex;
     justify-content: flex-start;
   }
 }
 
 .nft-checkout-hero-section__link {
-  &:not(:last-child) {
-    margin-bottom: to-rem(18);
+  @include respond-to(md) {
+    max-width: unset;
   }
 
-  @include respond-above(sm) {
-    width: auto;
-    max-width: to-rem(238);
+  &:not(:last-child) {
+    margin-bottom: to-rem(16);
 
-    &:not(:last-child) {
+    @include respond-above(md) {
+      margin-right: to-rem(16);
       margin-bottom: 0;
     }
   }
@@ -75,5 +88,5 @@
 }
 
 .nft-checkout-hero-section__blockchains {
-  margin-bottom: to-rem(48);
+  margin-bottom: to-rem(40);
 }
