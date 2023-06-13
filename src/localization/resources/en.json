@@ -119,6 +119,12 @@
     "title-3": "Confirm the transaction",
     "title-4": "Easy like that!"
   },
+  "advantages-section": {
+    "single-signature": "Single signature to execute the entire flow",
+    "merge-tokens": "Merge multiple tokens for a single payment",
+    "gas-fee": "Flexibility on gas fee payment options",
+    "best-price": "Best Price discovery via Multiple DEX"
+  },
   "integrations-section": {
     "title": "Partner Integrations"
   },

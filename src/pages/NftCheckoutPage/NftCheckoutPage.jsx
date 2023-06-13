@@ -2,6 +2,7 @@ import './NftCheckoutPage.scss';
 
 import { useEffect } from 'react';
 
+import AdvantagesSection from '@/components/AdvantagesSection';
 import CommunitySection from '@/components/CommunitySection';
 import NftCheckoutHeroSection from '@/components/NftCheckoutHeroSection';
 import NftCheckoutStepsSection from '@/components/NftCheckoutStepsSection';
@@ -16,6 +17,7 @@ const NftCheckoutPage = () => {
     <>
       <NftCheckoutHeroSection />
       <NftCheckoutStepsSection />
+      <AdvantagesSection />
       <CommunitySection />
     </>
   );
