@@ -36,8 +36,10 @@
   color: var(--col-primary-black);
 
   @include hover {
-    background-color: var(--col-primary-accent-dark);
-    color: var(--col-primary-black);
+    &:not(:disabled) {
+      background-color: var(--col-primary-accent-dark);
+      color: var(--col-primary-black);
+    }
   }
 }
 
@@ -46,7 +48,9 @@
   color: var(--col-white-alpha);
 
   @include hover {
-    border-color: var(--col-primary-grey);
-    color: var(--col-primary-grey);
+    &:not(:disabled) {
+      border-color: var(--col-primary-grey);
+      color: var(--col-primary-grey);
+    }
   }
 }

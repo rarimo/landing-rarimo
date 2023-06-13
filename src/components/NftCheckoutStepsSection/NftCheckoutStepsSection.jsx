@@ -1,32 +1,34 @@
 import './NftCheckoutStepsSection.scss';
 
+import cn from 'classnames';
 import { throttle } from 'lodash-es';
 import lottie from 'lottie-web';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Portal from '@/components/Portal/Portal';
+import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
+import Portal from '@/components/Portal';
+import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
-
-import AppButton, { APP_BUTTON_SCHEMES } from '../AppButton/AppButton';
 
 let onScroll;
 
 const fillFramesRange = startFrame => {
-  return Array(4)
+  return Array(3)
     .fill(null)
     .map((_, i) => startFrame + i);
 };
 
 const STEP_FRAMES = [
   fillFramesRange(110),
-  fillFramesRange(220),
+  fillFramesRange(200),
   fillFramesRange(330),
   fillFramesRange(440),
 ];
 
 const NftCheckoutStepsSection = () => {
   const { t } = useTranslation();
+  const { isDesktop } = useAppContext();
 
   const sectionRef = useRef(null);
   const animationRef = useRef(null);
@@ -37,7 +39,7 @@ const NftCheckoutStepsSection = () => {
   const [isStickedAnimation, setIsStickedAnimation] = useState(false);
   const [animationStep, setAnimationStep, animationStepRef] = useStateRef(0);
 
-  const initAnimation = ({ container, autoplay = false }) => {
+  const initAnimation = ({ container }) => {
     if (animationRef.current) {
       destroyAnimation();
     }
@@ -46,7 +48,7 @@ const NftCheckoutStepsSection = () => {
       container,
       renderer: 'svg',
       loop: false,
-      autoplay: Boolean(autoplay),
+      autoplay: false,
       path: '/animation/nft-checkout-demo.json',
     };
 
@@ -58,6 +60,8 @@ const NftCheckoutStepsSection = () => {
   };
 
   const parallax = () => {
+    if (!isDesktop) return;
+
     const sectionClientRect = sectionRef.current?.getBoundingClientRect();
     if (!sectionClientRect) return;
 
@@ -69,13 +73,23 @@ const NftCheckoutStepsSection = () => {
     }
   };
 
+  const isFirstStep = useMemo(() => !animationStep, [animationStep]);
+  const isLastStep = useMemo(
+    () => animationStep + 1 === STEP_FRAMES.length,
+    [animationStep],
+  );
+
   const onStepBackward = () => {
+    if (isFirstStep) return;
+
     setAnimationStep(prev => prev - 1);
     animationRef.current.setDirection(-1);
     animationRef.current.play();
   };
 
   const onStepForward = () => {
+    if (isLastStep) return;
+
     setAnimationStep(prev => prev + 1);
     animationRef.current.setDirection(1);
     animationRef.current.play();
@@ -91,9 +105,15 @@ const NftCheckoutStepsSection = () => {
   }, []);
 
   useEffect(() => {
-    if (isStickedAnimation) return;
+    if (!isDesktop) {
+      setIsStickedAnimation(true);
+    }
 
-    initAnimation({ container: lottieFixedRef.current });
+    initAnimation({
+      container: isStickedAnimation
+        ? lottieAbsoluteRef.current
+        : lottieFixedRef.current,
+    });
 
     return () => {
       destroyAnimation();
@@ -127,12 +147,20 @@ const NftCheckoutStepsSection = () => {
   }, [animationStep]);
 
   return (
-    <section ref={sectionRef} className="nft-checkout-steps-section container">
+    <section
+      ref={sectionRef}
+      className={cn([
+        'nft-checkout-steps-section container',
+        {
+          'nft-checkout-steps-section--first-frame': !animationStep,
+        },
+      ])}
+    >
       {isStickedAnimation ? (
-        <div className="nft-checkout-page__lottie-wrapper nft-checkout-page__lottie-wrapper--absolute">
+        <div className="nft-checkout-steps-section__lottie-wrapper nft-checkout-steps-section__lottie-wrapper--absolute">
           <div
             ref={lottieAbsoluteRef}
-            className="nft-checkout-page__lottie"
+            className="nft-checkout-steps-section__lottie"
             data-aos="fade"
             data-aos-duration="1000"
             data-aos-anchor-placement="top-bottom"
@@ -140,11 +168,12 @@ const NftCheckoutStepsSection = () => {
         </div>
       ) : (
         <Portal>
-          <div className="nft-checkout-page__lottie-wrapper">
+          <div className="nft-checkout-steps-section__lottie-wrapper">
             <div
               ref={lottieFixedRef}
-              className="nft-checkout-page__lottie"
+              className="nft-checkout-steps-section__lottie"
               data-aos="fade"
+              data-aos-duration="1000"
               data-aos-anchor-placement="top-bottom"
             ></div>
           </div>
@@ -214,32 +243,36 @@ const NftCheckoutStepsSection = () => {
             </h3>
           </swiper-slide>
         </swiper-container>
-        <AppButton
-          className="nft-checkout-steps-section__slide-btn"
-          scheme={APP_BUTTON_SCHEMES.secondary}
-          onClick={onStepBackward}
-        >
-          <svg
-            className="nft-checkout-steps-section__slide-btn-icon"
-            height="16"
-            width="16"
+        <div className="nft-checkout-steps-section__slide-btn-wrapper">
+          <AppButton
+            className="nft-checkout-steps-section__slide-btn"
+            scheme={APP_BUTTON_SCHEMES.secondary}
+            onClick={onStepBackward}
+            disabled={isFirstStep}
           >
-            <use href="/icons/sprite.svg#icon-arrow-right"></use>
-          </svg>
-        </AppButton>
-        <AppButton
-          className="nft-checkout-steps-section__slide-btn"
-          scheme={APP_BUTTON_SCHEMES.secondary}
-          onClick={onStepForward}
-        >
-          <svg
-            className="nft-checkout-steps-section__slide-btn-icon nft-checkout-steps-section__slide-btn-icon--forward"
-            height="16"
-            width="16"
+            <svg
+              className="nft-checkout-steps-section__slide-btn-icon"
+              height="20"
+              width="20"
+            >
+              <use href="/icons/sprite.svg#icon-arrow-right"></use>
+            </svg>
+          </AppButton>
+          <AppButton
+            className="nft-checkout-steps-section__slide-btn"
+            scheme={APP_BUTTON_SCHEMES.secondary}
+            onClick={onStepForward}
+            disabled={isLastStep}
           >
-            <use href="/icons/sprite.svg#icon-arrow-right"></use>
-          </svg>
-        </AppButton>
+            <svg
+              className="nft-checkout-steps-section__slide-btn-icon nft-checkout-steps-section__slide-btn-icon--forward"
+              height="20"
+              width="20"
+            >
+              <use href="/icons/sprite.svg#icon-arrow-right"></use>
+            </svg>
+          </AppButton>
+        </div>
       </div>
     </section>
   );
