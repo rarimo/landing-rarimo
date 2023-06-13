@@ -9,6 +9,8 @@
 }
 
 .nft-checkout-page__lottie-wrapper {
+  display: none;
+
   --wrapper-relative-width: 0.65;
 
   position: fixed;
@@ -19,10 +21,13 @@
   transform: translateX(
     calc(50% / var(--wrapper-relative-width) - var(--container-side-padding))
   );
-  display: block;
   padding-top: to-rem(80);
   border: 2px solid red;
   transition: padding-top var(--hover-transition);
+
+  @include respond-above(md) {
+    display: block;
+  }
 
   &--absolute {
     position: absolute;

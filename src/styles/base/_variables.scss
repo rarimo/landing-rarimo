@@ -63,8 +63,8 @@
     'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
   /* stylelint-enable max-line-length */
 
-  --p-size: #{to-rem(16)};
-  --h1-size: #{to-rem(56)};
+  --p-size: #{to-rem(14)};
+  --h1-size: #{to-rem(42)};
   --h2-size: #{to-rem(50)};
   --h3-size: #{to-rem(32)};
   --h4-size: #{to-rem(32)};
@@ -118,13 +118,14 @@
 
   // Base
   --container-max-width: 100%;
-  --container-side-padding: 0;
-  --primary-bg-rect-size: #{to-rem(66)};
+  --container-side-padding: #{to-rem(20)};
+  --primary-bg-rect-size: #{to-rem(50)};
   --bg-rect-border-size: #{to-rem(1)};
 
   @include respond-above(xm) {
     --container-max-width: #{to-rem(1300)};
     --container-side-padding: #{to-rem(40)};
+    --primary-bg-rect-size: #{to-rem(66)};
   }
 
   @include respond-above(lg) {
@@ -136,7 +137,6 @@
   --scrollbar-color: var(--primary-text-color);
 
   // App bar
-  // --app-bar-height: #{bg-space(2)};
   --app-bar-height: #{to-rem(80)};
   --app-bar-logo-color: var(--primary-title-color);
 

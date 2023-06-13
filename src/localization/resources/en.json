@@ -107,8 +107,8 @@
   },
   "nft-checkout-hero-section": {
     "title": "NFT Checkout",
-    "description_html": "Users can pay for NFTs with any token of their choice in <strong>a single</strong> transaction",
-    "docs-link": "Getting Started",
+    "description": "Allow users to purchase NFTs with ANY crypto on any chain",
+    "docs-link": "Get Started",
     "features-link": "Explore Features",
     "blockchains-title": "Supported blockchains",
     "scroll-for-more": "Scroll for more"
