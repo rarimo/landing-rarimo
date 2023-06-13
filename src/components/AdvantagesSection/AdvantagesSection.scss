@@ -1,6 +1,10 @@
 .advantages-section {
   padding-top: to-rem(80);
-  padding-bottom: to-rem(150);
+  padding-bottom: to-rem(100);
+
+  @include respond-above(md) {
+    padding-bottom: to-rem(180);
+  }
 }
 
 .advantages-section__list {

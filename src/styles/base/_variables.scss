@@ -12,16 +12,18 @@
 
   --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
   --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 10%);
-  --col-black-alpha: rgba(#{$col-cursed-black-rgb}, 70%);
+  --col-black-alpha: rgba(#{$col-black-wash-rgb}, 70%);
   --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 10%);
-  --col-primary-black: #{$col-cursed-black};
-  --col-primary-black-rgb: #{$col-cursed-black-rgb};
+  --col-primary-black: #{$col-black-wash};
+  --col-primary-black-rgb: #{$col-black-wash-rgb};
   --col-primary-grey: #{$col-more-than-a-week};
 
   --col-primary-accent-main: #{$col-le-max};
   --col-primary-accent-main-rgb: #{$col-le-max-rgb};
   --col-primary-accent-dark: #{color.adjust($col-le-max, $lightness: -10%)};
 
+  --col-existential-angst: #{$col-existential-angst};
+  --col-existential-angst-rgb: #{$col-existential-angst-rgb};
   --col-lead: #{$col-lead};
 
   // Status colors
@@ -71,7 +73,7 @@
   --h3-size: #{to-rem(32)};
   --h4-size: #{to-rem(32)};
   --h5-size: #{to-rem(20)};
-  --h6-size: #{to-rem(20)};
+  --h6-size: #{to-rem(16)};
   --overline-size: #{to-rem(14)};
 
   // @include respond-above(sm) {
