@@ -54,3 +54,13 @@
     }
   }
 }
+
+.app-button--text {
+  color: var(--col-primary-grey);
+
+  @include hover {
+    &:not(:disabled) {
+      color: var(--col-white-alpha);
+    }
+  }
+}

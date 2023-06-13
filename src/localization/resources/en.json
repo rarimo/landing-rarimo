@@ -86,10 +86,10 @@
   "subscribe-section": {
     "title": "Subscribe to our newsletter",
     "description": "Stay up-to-date about new features and supported apps",
-    "input-plh": "Enter you mail",
+    "input-plh": "Enter your email",
     "subscribe-btn": "Subscribe",
     "err-email-required": "Email is required",
-    "err-wrong-format": "Wrong mail format",
+    "err-wrong-format": "Wrong email format",
     "success-msg": "Success!"
   },
   "community-section": {
