@@ -8,8 +8,7 @@
   background-image: linear-gradient(
     180deg,
     rgba(var(--col-primary-black-rgb), 0%),
-    var(--col-primary-black) 60%,
-    var(--col-primary-black) 61%
+    var(--col-primary-black) 100%
   );
 
   @include noise-bg;
@@ -109,15 +108,15 @@
 }
 
 .home-hero-section__link {
-  &:not(:last-child) {
-    margin-bottom: to-rem(18);
+  @include respond-to(md) {
+    max-width: unset;
   }
 
-  @include respond-above(sm) {
-    width: auto;
-    max-width: to-rem(210);
+  &:not(:last-child) {
+    margin-bottom: to-rem(16);
 
-    &:not(:last-child) {
+    @include respond-above(md) {
+      margin-right: to-rem(16);
       margin-bottom: 0;
     }
   }

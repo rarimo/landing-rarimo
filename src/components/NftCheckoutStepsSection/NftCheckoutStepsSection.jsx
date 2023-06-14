@@ -5,9 +5,11 @@ import { throttle } from 'lodash-es';
 import lottie from 'lottie-web';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import Portal from '@/components/Portal';
+import { ROUTES_PATHS } from '@/const';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 
@@ -53,6 +55,16 @@ const NftCheckoutStepsSection = () => {
     };
 
     animationRef.current = lottie.loadAnimation(params);
+
+    animationRef.current.addEventListener('drawnFrame', frameEvent => {
+      const isFrameInRange = STEP_FRAMES[animationStepRef.current]?.includes(
+        Math.ceil(frameEvent.currentTime),
+      );
+
+      if (isFrameInRange) {
+        animationRef.current.pause();
+      }
+    });
   };
 
   const destroyAnimation = () => {
@@ -65,7 +77,7 @@ const NftCheckoutStepsSection = () => {
     const sectionClientRect = sectionRef.current?.getBoundingClientRect();
     if (!sectionClientRect) return;
 
-    if (sectionClientRect.top <= 200) {
+    if (sectionClientRect.top <= 300) {
       setIsStickedAnimation(true);
       window.removeEventListener('scroll', onScroll, {
         passive: true,
@@ -109,6 +121,7 @@ const NftCheckoutStepsSection = () => {
       setIsStickedAnimation(true);
     }
 
+    setAnimationStep(0);
     initAnimation({
       container: isStickedAnimation
         ? lottieAbsoluteRef.current
@@ -118,26 +131,26 @@ const NftCheckoutStepsSection = () => {
     return () => {
       destroyAnimation();
     };
-  }, []);
+  }, [isDesktop]);
 
   useEffect(() => {
     if (!isStickedAnimation) return;
 
-    initAnimation({ container: lottieAbsoluteRef.current });
+    if (lottieFixedRef.current) {
+      const parent = lottieFixedRef.current?.parentElement;
+      if (!parent) return;
 
-    animationRef.current.addEventListener('drawnFrame', frameEvent => {
-      const isFrameInRange = STEP_FRAMES[animationStepRef.current]?.includes(
-        Math.ceil(frameEvent.currentTime),
+      parent.classList.add(
+        'nft-checkout-steps-section__lottie-wrapper--hidden',
       );
+      const parentStyles = getComputedStyle(parent);
+      const delay = Number.parseFloat(parentStyles.transitionDuration) * 1000;
+      setTimeout(() => {
+        parent.style.display = 'none';
+      }, delay);
+    }
 
-      if (isFrameInRange) {
-        animationRef.current.pause();
-      }
-    });
-
-    animationRef.current.addEventListener('complete', () => {
-      // setAnimationStep(prev => (prev === 3 ? 0 : prev + 1));
-    });
+    initAnimation({ container: lottieAbsoluteRef.current });
 
     animationRef.current.play();
   }, [isStickedAnimation]);
@@ -145,6 +158,22 @@ const NftCheckoutStepsSection = () => {
   useEffect(() => {
     swiperRef.current.swiper.slideTo(animationStep);
   }, [animationStep]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (
+      lottieFixedRef.current &&
+      location.pathname !== ROUTES_PATHS.nftCheckout
+    ) {
+      const parent = lottieFixedRef.current?.parentElement;
+      if (!parent) return;
+
+      parent?.classList.add(
+        'nft-checkout-steps-section__lottie-wrapper--hidden',
+      );
+    }
+  }, [location]);
 
   return (
     <section
@@ -156,29 +185,26 @@ const NftCheckoutStepsSection = () => {
         },
       ])}
     >
-      {isStickedAnimation ? (
-        <div className="nft-checkout-steps-section__lottie-wrapper nft-checkout-steps-section__lottie-wrapper--absolute">
+      <Portal>
+        <div className="nft-checkout-steps-section__lottie-wrapper">
           <div
-            ref={lottieAbsoluteRef}
+            ref={lottieFixedRef}
             className="nft-checkout-steps-section__lottie"
-            data-aos="fade"
+            data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-anchor-placement="top-bottom"
           ></div>
         </div>
-      ) : (
-        <Portal>
-          <div className="nft-checkout-steps-section__lottie-wrapper">
-            <div
-              ref={lottieFixedRef}
-              className="nft-checkout-steps-section__lottie"
-              data-aos="fade"
-              data-aos-duration="1000"
-              data-aos-anchor-placement="top-bottom"
-            ></div>
-          </div>
-        </Portal>
-      )}
+      </Portal>
+      <div className="nft-checkout-steps-section__lottie-wrapper nft-checkout-steps-section__lottie-wrapper--absolute">
+        <div
+          ref={lottieAbsoluteRef}
+          className="nft-checkout-steps-section__lottie"
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-anchor-placement="top-bottom"
+        ></div>
+      </div>
       <div className="nft-checkout-steps-section__content">
         <swiper-container
           ref={swiperRef}

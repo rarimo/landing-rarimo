@@ -1,5 +1,4 @@
 .nft-checkout-steps-section {
-  border: 2px solid green;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -14,9 +13,8 @@
   }
 
   @include respond-above(md) {
-    min-height: vh(100);
     justify-content: flex-start;
-    padding-top: to-rem(560);
+    padding-top: min(25vw, to-rem(500));
     padding-bottom: to-rem(150);
     text-align: left;
   }
@@ -26,6 +24,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include respond-above(md) {
+    min-height: to-rem(250);
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
 }
 
 .nft-checkout-steps-section__lottie-wrapper {
@@ -37,24 +41,45 @@
   right: 50%;
   width: 100%;
   max-width: to-rem(500);
-  padding-top: to-rem(80);
-  border: 2px solid red;
   transform: translateX(50%);
-  transition: padding-top var(--hover-transition);
+  transition: opacity 0.5s var(--hover-transition-timing-function);
+  pointer-events: none;
 
   @include respond-above(md) {
-    top: to-rem(100);
-    right: 50%;
-    width: calc(var(--container-max-width) * var(--wrapper-relative-width));
+    top: to-rem(200);
+    width: calc(var(--wrapper-relative-width) * 100%);
     max-width: unset;
     transform: translateX(
       calc(50% / var(--wrapper-relative-width) - var(--container-side-padding))
     );
   }
 
+  @include respond-above(lg) {
+    width: calc(var(--container-max-width) * var(--wrapper-relative-width));
+  }
+
   &--absolute {
     position: absolute;
-    padding-top: 0;
+    top: to-rem(30);
+
+    @include respond-above(md) {
+      right: var(--container-side-padding);
+      transform: translateX(0);
+    }
+
+    @include respond-above(xl) {
+      right: 50%;
+      transform: translateX(
+        calc(
+          50% / var(--wrapper-relative-width) - var(--container-side-padding)
+        )
+      );
+    }
+  }
+
+  &--hidden {
+    z-index: var(--z-hidden);
+    opacity: 0;
   }
 }
 
@@ -138,8 +163,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      height: 20px;
-      width: 1px;
+      height: to-rem(20);
+      width: to-rem(1);
       background-color: rgba(var(--col-total-white-rgb), 10%);
       content: '';
     }
