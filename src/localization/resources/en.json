@@ -15,6 +15,9 @@
     "whitepaper-link": "Whitepaper"
   },
   "app-footer": {
+    "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
+    "nav-title": "Navigation",
+    "follow-us-title": "Follow Us",
     "discord": "Discord",
     "twitter": "Twitter",
     "telegram": "Telegram"
@@ -61,7 +64,7 @@
     "title": "Featured use cases",
     "share-text": "Are you building something?",
     "share-link": "Share now",
-    "view-demo-link": "View Demo",
+    "learn-more-link": "Learn More",
     "view-docs-link": "View Docs",
     "nft-checkout-title": "NFT Checkout",
     "nft-checkout-desc": "With Rarimo, developers can build fully decentralized NFT checkouts with non-native tokens",

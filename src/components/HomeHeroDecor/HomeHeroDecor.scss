@@ -68,9 +68,17 @@
 
   &--le-max {
     @include cell-color(le-max);
+
+    &::before {
+      filter: opacity(0.6);
+    }
   }
 
   &--latigo-bay {
     @include cell-color(latigo-bay);
+
+    &::before {
+      filter: opacity(0.6);
+    }
   }
 }

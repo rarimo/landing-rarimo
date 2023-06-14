@@ -1,18 +1,19 @@
 .app-footer {
-  --footer-cell-height: #{to-rem(40)};
-
-  position: relative;
-  padding-top: to-rem(130);
-  padding-bottom: to-rem(40);
+  --footer-gutter: #{to-rem(20)};
 }
 
 .app-footer__content {
+  padding-top: to-rem(40);
+  padding-bottom: to-rem(40);
+  border-top: to-rem(1) solid var(--primary-border-color);
   font-size: to-rem(14);
 
   @include respond-above(md) {
     display: grid;
-    grid-template-columns: repeat(3, max-content) 1fr auto;
-    grid-gap: 20%;
+    grid-template-columns: to-rem(290) repeat(2, max-content);
+    grid-gap: to-rem(160);
+    padding-top: to-rem(64);
+    padding-bottom: to-rem(64);
   }
 }
 
@@ -22,14 +23,13 @@
   justify-content: space-between;
 
   @include respond-above(md) {
-    padding: calc(var(--footer-cell-height) / 4) 0;
     align-items: flex-start;
     flex-direction: column;
   }
 }
 
 .app-footer__logo {
-  height: to-rem(20);
+  height: to-rem(24);
   display: flex;
   color: var(--app-footer-logo-color);
 
@@ -43,15 +43,33 @@
   width: auto;
 }
 
+.app-footer__description {
+  display: none;
+  font-size: to-rem(14);
+
+  @include respond-above(md) {
+    display: block;
+    margin-top: var(--footer-gutter);
+    margin-bottom: auto;
+  }
+}
+
 .app-footer__links-list {
   display: none;
 
   @include respond-above(md) {
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: var(--footer-cell-height);
+    grid-auto-rows: min-content;
+    grid-gap: var(--footer-gutter);
     align-items: center;
   }
+}
+
+.app-footer__list-title {
+  color: var(--primary-title-color);
+  font-size: to-rem(16);
+  font-weight: 600;
 }
 
 .app-footer__link {
@@ -73,30 +91,5 @@
 
   &:not(:first-child) {
     margin-left: to-rem(8);
-  }
-}
-
-.app-footer__scroll-to-top-btn {
-  &.app-footer__scroll-to-top-btn {
-    display: none;
-    height: var(--footer-cell-height);
-    width: var(--footer-cell-height);
-    padding: 0;
-
-    @include respond-above(md) {
-      display: inline-flex;
-    }
-  }
-}
-
-.app-footer__scroll-to-top-icon {
-  transform: rotate(-90deg);
-}
-
-.app-footer__space {
-  display: none;
-
-  @include respond-above(md) {
-    display: block;
   }
 }
