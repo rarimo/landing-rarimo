@@ -210,7 +210,6 @@ const NftCheckoutStepsSection = () => {
           ref={swiperRef}
           class="nft-checkout-steps-section__list"
           active-index="0"
-          loop="true"
           slides-per-view="1"
           auto-height="true"
           speed="1200"
