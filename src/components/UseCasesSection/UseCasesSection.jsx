@@ -75,7 +75,7 @@ const UseCasesSection = () => {
             </h2>
             <div className="use-cases-section__case-link" data-aos="fade-up">
               <AppButton routePath={ROUTES_PATHS.nftCheckout}>
-                <span>{t('use-cases-section.view-docs-link')}</span>
+                <span>{t('use-cases-section.learn-more-link')}</span>
                 <svg
                   className="use-cases-section__case-link-icon"
                   height="13"

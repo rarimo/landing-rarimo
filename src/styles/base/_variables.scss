@@ -76,7 +76,7 @@
   --h6-size: #{to-rem(16)};
   --overline-size: #{to-rem(14)};
 
-  @include respond-above(xm) {
+  @include respond-above(md) {
     --p-size: #{to-rem(16)};
     --h1-size: #{to-rem(148)};
     --h2-size: #{to-rem(112)};
@@ -104,14 +104,18 @@
   --primary-bg-rect-size: #{to-rem(50)};
   --bg-rect-border-size: #{to-rem(1)};
 
-  @include respond-above(xm) {
-    --container-max-width: #{to-rem(1300)};
-    --container-side-padding: #{to-rem(40)};
+  @include respond-above(md) {
+    --container-max-width: #{to-rem(1100)};
     --primary-bg-rect-size: #{to-rem(66)};
   }
 
+  @include respond-above(xm) {
+    --container-max-width: #{to-rem(1300)};
+    --container-side-padding: #{to-rem(40)};
+  }
+
   @include respond-above(lg) {
-    --container-max-width: #{to-rem(1520)};
+    --container-max-width: #{to-rem(1400)};
   }
 
   // Common
