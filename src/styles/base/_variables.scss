@@ -123,12 +123,7 @@
   --app-bar-logo-color: var(--primary-title-color);
 
   // App footer
-  --app-footer-height: #{to-rem(160)};
   --app-footer-logo-color: var(--primary-title-color);
-
-  @include respond-above(md) {
-    --app-footer-height: #{to-rem(240)};
-  }
 
   // Use cases section
   --use-cases-section-case-bg-gradient: conic-gradient(

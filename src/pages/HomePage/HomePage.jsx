@@ -25,8 +25,8 @@ const HomePage = () => {
       <UseCasesSection />
       <BackersSection />
       <NewsSection />
-      <SubscribeSection />
       <CommunitySection />
+      <SubscribeSection />
     </>
   );
 };
