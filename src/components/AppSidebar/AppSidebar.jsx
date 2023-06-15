@@ -13,11 +13,14 @@ import MainOverlay from '@/components/MainOverlay';
 import Portal from '@/components/Portal';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
-import { handleNavClick } from '@/helpers';
+import useNavigation from '@/hooks/useNavigation';
+import useRouteLocation from '@/hooks/useRouteLocation';
 import { navigation } from '@/template-data';
 
 const AppSidebar = ({ isVisible, toggleVisibility }) => {
   const { t } = useTranslation();
+  const { displayLocation } = useRouteLocation();
+  const { handleNavClick } = useNavigation();
 
   return (
     <Portal>
@@ -39,15 +42,19 @@ const AppSidebar = ({ isVisible, toggleVisibility }) => {
         <div className="app-sidebar__content">
           <nav className="app-sidebar__navigation">
             <ul className="app-sidebar__nav-list">
-              {navigation.map((link, index) => (
-                <li
-                  className="app-sidebar__nav-item"
-                  key={index}
-                  onClick={() => handleNavClick(link, toggleVisibility)}
-                >
-                  {t(link.textKey)}
-                </li>
-              ))}
+              {navigation.map(
+                (link, index) =>
+                  (!link.includeRoutes ||
+                    link.includeRoutes?.includes(displayLocation.pathname)) && (
+                    <li
+                      className="app-sidebar__nav-item"
+                      key={index}
+                      onClick={() => handleNavClick(link, toggleVisibility)}
+                    >
+                      {t(link.textKey)}
+                    </li>
+                  ),
+              )}
             </ul>
           </nav>
 

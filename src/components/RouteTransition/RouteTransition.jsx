@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { useLocation } from 'react-router-dom';
 
 import { FADE_TRANSITION_STAGE } from '@/const';
-import useRouteLocationContext from '@/hooks/useRouteLocation';
+import useRouteLocation from '@/hooks/useRouteLocation';
 
 const RouteTransition = ({ children }) => {
   const location = useLocation();
@@ -11,7 +11,7 @@ const RouteTransition = ({ children }) => {
     transitionDirection,
     setTransitionStage,
     setDisplayLocation,
-  } = useRouteLocationContext();
+  } = useRouteLocation();
 
   return (
     <div

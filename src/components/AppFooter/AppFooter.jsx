@@ -6,11 +6,14 @@ import { Link } from 'react-router-dom';
 
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
-import { handleNavClick } from '@/helpers';
+import useNavigation from '@/hooks/useNavigation';
+import useRouteLocation from '@/hooks/useRouteLocation';
 import { navigation } from '@/template-data';
 
 const AppFooter = () => {
   const { t } = useTranslation();
+  const { displayLocation } = useRouteLocation();
+  const { handleNavClick } = useNavigation();
 
   // Exclude home page link
   const navList = useMemo(() => navigation.filter((_, index) => index), []);
@@ -34,27 +37,31 @@ const AppFooter = () => {
             <li className="app-footer__list-title">
               {t('app-footer.nav-title')}
             </li>
-            {navList.map((link, index) => (
-              <li
-                className="app-footer__link"
-                key={index}
-                role="link"
-                tabIndex="0"
-                onClick={() => handleNavClick(link)}
-                onKeyDown={event => {
-                  switch (event.code) {
-                    case 'Enter':
-                      handleNavClick(link);
-                      return;
+            {navList.map(
+              (link, index) =>
+                (!link.includeRoutes ||
+                  link.includeRoutes?.includes(displayLocation.pathname)) && (
+                  <li
+                    className="app-footer__link"
+                    key={index}
+                    role="link"
+                    tabIndex="0"
+                    onClick={() => handleNavClick(link)}
+                    onKeyDown={event => {
+                      switch (event.code) {
+                        case 'Enter':
+                          handleNavClick(link);
+                          return;
 
-                    default:
-                      return;
-                  }
-                }}
-              >
-                {t(link.textKey)}
-              </li>
-            ))}
+                        default:
+                          return;
+                      }
+                    }}
+                  >
+                    {t(link.textKey)}
+                  </li>
+                ),
+            )}
           </>
         </ul>
         <ul className="app-footer__links-list">
