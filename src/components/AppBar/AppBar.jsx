@@ -11,8 +11,9 @@ import BurgerButton from '@/components/BurgerButton';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
-import { handleNavClick } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
+import useNavigation from '@/hooks/useNavigation';
+import useRouteLocation from '@/hooks/useRouteLocation';
 import { navigation } from '@/template-data';
 
 const APP_BAR_THRESHOLD = 60;
@@ -21,6 +22,8 @@ let onScroll;
 
 const AppBar = () => {
   const { t } = useTranslation();
+  const { displayLocation } = useRouteLocation();
+  const { handleNavClick } = useNavigation();
   const { isDesktop } = useAppContext();
 
   const [isAppBarHidden, setIsAppBarHidden] = useState(false);
@@ -84,27 +87,33 @@ const AppBar = () => {
             <>
               <nav className="app-bar__navigation">
                 <ul className="app-bar__nav-list">
-                  {navigation.map((link, index) => (
-                    <li
-                      className="app-bar__nav-item"
-                      key={index}
-                      role="link"
-                      tabIndex="0"
-                      onClick={() => handleNavClick(link)}
-                      onKeyDown={event => {
-                        switch (event.code) {
-                          case 'Enter':
-                            handleNavClick(link);
-                            return;
+                  {navigation.map(
+                    (link, index) =>
+                      (!link.includeRoutes ||
+                        link.includeRoutes?.includes(
+                          displayLocation.pathname,
+                        )) && (
+                        <li
+                          className="app-bar__nav-item"
+                          key={index}
+                          role="link"
+                          tabIndex="0"
+                          onClick={() => handleNavClick(link)}
+                          onKeyDown={event => {
+                            switch (event.code) {
+                              case 'Enter':
+                                handleNavClick(link);
+                                return;
 
-                          default:
-                            return;
-                        }
-                      }}
-                    >
-                      {t(link.textKey)}
-                    </li>
-                  ))}
+                              default:
+                                return;
+                            }
+                          }}
+                        >
+                          {t(link.textKey)}
+                        </li>
+                      ),
+                  )}
                 </ul>
               </nav>
 
