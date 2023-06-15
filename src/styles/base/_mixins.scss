@@ -79,6 +79,14 @@
   }
 }
 
+@mixin mobile-hover() {
+  @media all and (hover: none) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
 @mixin redefine-aos-prop($animation) {
   html:not(.no-js) & {
     &[data-aos='#{$animation}'] {

@@ -42,6 +42,7 @@ const NftCheckoutHeroSection = () => {
             <AppButton
               className="nft-checkout-hero-section__link"
               href={CONFIG.nftCheckoutDocsLink}
+              disabled
             >
               <span>{t('nft-checkout-hero-section.docs-link')}</span>
               <svg

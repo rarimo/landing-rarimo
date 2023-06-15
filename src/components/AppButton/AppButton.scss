@@ -35,6 +35,12 @@
   background-color: var(--col-primary-accent-main);
   color: var(--col-primary-black);
 
+  @include mobile-hover {
+    &:not(:disabled) {
+      color: var(--col-primary-black);
+    }
+  }
+
   @include hover {
     &:not(:disabled) {
       background-color: var(--col-primary-accent-dark);
@@ -46,6 +52,12 @@
 .app-button--secondary {
   border: #{to-rem(1)} solid var(--col-white-alpha);
   color: var(--col-white-alpha);
+
+  @include mobile-hover {
+    &:not(:disabled) {
+      color: var(--col-white-alpha);
+    }
+  }
 
   @include hover {
     &:not(:disabled) {
