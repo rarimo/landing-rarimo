@@ -42,7 +42,6 @@ const NftCheckoutHeroSection = () => {
             <AppButton
               className="nft-checkout-hero-section__link"
               href={CONFIG.nftCheckoutDocsLink}
-              disabled
             >
               <span>{t('nft-checkout-hero-section.docs-link')}</span>
               <svg
@@ -55,10 +54,9 @@ const NftCheckoutHeroSection = () => {
             </AppButton>
             <AppButton
               className="nft-checkout-hero-section__link"
-              // TODO: replace link to features
-              href={CONFIG.whitepaperLink}
+              href={CONFIG.nftCheckoutDemoLink}
               scheme={APP_BUTTON_SCHEMES.secondary}
-              textKey="nft-checkout-hero-section.features-link"
+              textKey="nft-checkout-hero-section.demo-link"
             />
           </div>
           <img
