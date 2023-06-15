@@ -1,5 +1,5 @@
 export const CONFIG = {
-  initLoaderDelay: 500,
+  initLoaderDelay: 1000,
   discordLink: 'https://discord.gg/Bzjm5MDXrU',
   twitterLink: 'https://twitter.com/Rarimo_protocol',
   telegramLink: 'https://t.me/+m_vvj8nFk5g4NTgy',

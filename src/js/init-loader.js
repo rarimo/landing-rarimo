@@ -11,5 +11,5 @@ export const hideLoader = () => {
 
   setTimeout(() => {
     loaderRef.remove();
-  }, delay + 500);
+  }, delay);
 };
