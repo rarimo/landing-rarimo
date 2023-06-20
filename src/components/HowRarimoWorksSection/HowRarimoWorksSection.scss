@@ -1,4 +1,4 @@
-.what-is-rarimo-section {
+.how-rarimo-works-section {
   position: relative;
   padding-top: to-rem(88);
   padding-bottom: to-rem(128);
@@ -13,14 +13,14 @@
   }
 }
 
-.what-is-rarimo-section__content {
-  > *:not(.what-is-rarimo-section__decor-wrapper) {
+.how-rarimo-works-section__content {
+  > *:not(.how-rarimo-works-section__decor-wrapper) {
     position: relative;
     z-index: var(--z-default);
   }
 }
 
-.what-is-rarimo-section__decor-wrapper {
+.how-rarimo-works-section__decor-wrapper {
   display: none;
 
   @include respond-above(md) {
@@ -32,31 +32,31 @@
   }
 }
 
-.what-is-rarimo-section__subtitle {
+.how-rarimo-works-section__subtitle {
   margin-bottom: to-rem(120);
   text-transform: uppercase;
 }
 
-.what-is-rarimo-section__title {
+.how-rarimo-works-section__title {
   max-width: to-rem(800);
   margin-bottom: to-rem(40);
   text-transform: capitalize;
 }
 
-.what-is-rarimo-section__description {
+.how-rarimo-works-section__description {
   max-width: to-rem(678);
   margin-bottom: to-rem(120);
   font-size: to-rem(20);
   letter-spacing: 0.02em;
 }
 
-.what-is-rarimo-section__list {
+.how-rarimo-works-section__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(to-rem(280), 1fr));
   grid-gap: to-rem(60) to-rem(32);
 }
 
-.what-is-rarimo-section__list-item-icon {
+.how-rarimo-works-section__list-item-icon {
   height: to-rem(24);
   width: to-rem(24);
   display: flex;
@@ -64,7 +64,7 @@
   color: var(--primary-title-color);
 }
 
-.what-is-rarimo-section__list-item-title {
+.how-rarimo-works-section__list-item-title {
   position: relative;
   margin-bottom: to-rem(40);
   text-transform: capitalize;

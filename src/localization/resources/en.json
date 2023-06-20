@@ -40,7 +40,7 @@
   "marquee-section": {
     "marquee": "THE NEXT CHAPTER OF INTERCONNECTED ASSETS & IDENTITIES"
   },
-  "what-is-rarimo-section": {
+  "how-rarimo-works-section": {
     "title": "Rarimo's modular architecture accelerates development of interoperable dApps and identities.",
     "subtitle": "What is Rarimo?",
     "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts.",
