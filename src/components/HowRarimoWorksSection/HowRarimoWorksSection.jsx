@@ -1,13 +1,19 @@
 import './HowRarimoWorksSection.scss';
 
+// import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import HowRarimoWorksDecor from '@/components/HowRarimoWorksDecor';
 import { getShiftedDelay } from '@/helpers';
+// import useAppContext from '@/hooks/useAppContext';
 import { howRarimoWorksSectionList } from '@/template-data';
+
+// const HowRarimoWorksDecor = lazy(() =>
+//   import('@/components/HowRarimoWorksDecor'),
+// );
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
+  // const { isDesktop } = useAppContext();
 
   return (
     <section className="how-rarimo-works-section">
@@ -16,9 +22,12 @@ const HowRarimoWorksSection = () => {
           {t('how-rarimo-works-section.subtitle')}
         </h5>
 
-        <div className="how-rarimo-works-section__decor-wrapper">
-          <HowRarimoWorksDecor />
-        </div>
+        {/* {isDesktop && (
+          <div className="how-rarimo-works-section__decor-wrapper">
+            <HowRarimoWorksDecor />
+          </div>
+        )} */}
+
         <h3 className="how-rarimo-works-section__title js-string-animation">
           {t('how-rarimo-works-section.title')}
         </h3>

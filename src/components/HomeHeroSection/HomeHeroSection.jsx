@@ -1,22 +1,26 @@
 import './HomeHeroSection.scss';
 
+import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
-import HomeHeroDecor from '@/components/HomeHeroDecor';
 import PartnersList from '@/components/PartnersList';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
+import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
+
+const HomeHeroDecor = lazy(() => import('@/components/HomeHeroDecor'));
 
 const HomeHeroSection = () => {
   const { t } = useTranslation();
+  const { isDesktop } = useAppContext();
 
   return (
     <section id={COMPONENT_NODE_IDS.heroSection} className="home-hero-section">
       <div className="home-hero-section__inner">
         <div className="home-hero-section__content container">
-          <HomeHeroDecor className="home-hero-section__decor" />
+          {isDesktop && <HomeHeroDecor className="home-hero-section__decor" />}
 
           <div className="home-hero-section__hero-wrapper">
             <h1 className="home-hero-section__title">
