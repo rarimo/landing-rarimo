@@ -22,6 +22,12 @@
   transition-property: color, background-color, border;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+
+  @include respond-above(md) {
+    @include respond-to(lg) {
+      min-height: to-rem(48);
+    }
+  }
 }
 
 .app-button__content {

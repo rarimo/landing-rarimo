@@ -102,7 +102,6 @@ h4,
 h5,
 h6 {
   color: var(--primary-title-color);
-  font-family: var(--title-font-family);
   word-wrap: break-word;
   transition-property: color;
   transition-duration: var(--medium-transition-duration);
@@ -110,6 +109,7 @@ h6 {
 }
 
 h1 {
+  font-family: var(--secondary-font-family);
   font-size: var(--h1-size);
   line-height: 1.1;
   font-weight: 600;
@@ -124,7 +124,7 @@ h2 {
 h3 {
   font-size: var(--h3-size);
   line-height: 1.27;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h4 {
@@ -150,7 +150,6 @@ h5 {
 }
 
 h6 {
-  font-family: var(--primary-font-family);
   font-size: var(--h6-size);
   line-height: 1.23;
   font-weight: 500;

@@ -6,15 +6,11 @@
   text-transform: uppercase;
 
   @include respond-above(md) {
-    padding-top: to-rem(180);
-    padding-bottom: to-rem(180);
+    padding-top: to-rem(146);
+    padding-bottom: to-rem(146);
   }
 
   .marquee {
     justify-content: space-around;
   }
-}
-
-.marquee-section__title {
-  font-size: to-rem(52);
 }
