@@ -32,14 +32,13 @@
     "title-part-1": "Unlocked &",
     "title-part-2": "Connected",
     "subtitle": "Decentralized social layer",
-    "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
+    "description": "Bringing interoperability for identity and social components across multiple networks",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
-    "blockchains-title": "Supported blockchains",
-    "scroll-for-more": "Scroll for more"
+    "blockchains-title": "Supported blockchains"
   },
   "marquee-section": {
-    "marquee": "The next generation of multi-chain assets & identities"
+    "marquee": "THE NEXT CHAPTER OF INTERCONNECTED ASSETS & IDENTITIES"
   },
   "what-is-rarimo-section": {
     "title": "Rarimo's modular architecture accelerates development of interoperable dApps and identities.",

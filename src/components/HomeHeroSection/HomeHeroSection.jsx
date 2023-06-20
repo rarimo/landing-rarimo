@@ -69,17 +69,6 @@ const HomeHeroSection = () => {
               data-aos="fade-up"
             />
           </div>
-          {/* <div className="home-hero-section__scroll-for-more" 
-        data-aos="fade-up">
-          <svg
-            className="home-hero-section__scroll-for-more-icon"
-            height="13"
-            width="13"
-          >
-            <use href="/icons/sprite.svg#icon-arrow-right"></use>
-          </svg>
-          <span>{t('home-hero-section.scroll-for-more')}</span>
-        </div> */}
         </div>
       </div>
     </section>
