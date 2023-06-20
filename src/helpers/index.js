@@ -1,3 +1,3 @@
-export * from './get-shifted-delay.helper';
-export * from './prepare-aos-animation.helper';
-export * from './scale-img-dims.helper';
+export * from './get-shifted-delay';
+export * from './prepare-aos-animation';
+export * from './scale-img-dims';

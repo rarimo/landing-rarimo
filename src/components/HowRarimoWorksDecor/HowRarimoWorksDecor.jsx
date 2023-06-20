@@ -1,18 +1,18 @@
 /* eslint-disable max-len */
-import './WhatIsRarimoDecor.scss';
+import './HowRarimoWorksDecor.scss';
 
 import cn from 'classnames';
 
-const WhatIsRarimoDecor = ({ className, ...rest }) => {
+const HowRarimoWorksDecor = ({ className, ...rest }) => {
   return (
-    <div className={cn(['what-is-rarimo-decor', className])} {...rest}>
+    <div className={cn(['how-rarimo-works-decor', className])} {...rest}>
       <div
-        className="what-is-rarimo-decor__figure--part-1"
+        className="how-rarimo-works-decor__figure--part-1"
         data-aos="fade-up"
         data-aos-delay="600"
       >
         <svg
-          className="what-is-rarimo-decor__svg"
+          className="how-rarimo-works-decor__svg"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           width="433"
@@ -154,9 +154,12 @@ const WhatIsRarimoDecor = ({ className, ...rest }) => {
           </defs>
         </svg>
       </div>
-      <div className="what-is-rarimo-decor__figure--part-2" data-aos="fade-up">
+      <div
+        className="how-rarimo-works-decor__figure--part-2"
+        data-aos="fade-up"
+      >
         <svg
-          className="what-is-rarimo-decor__svg"
+          className="how-rarimo-works-decor__svg"
           xmlns="http://www.w3.org/2000/svg"
           width="172"
           height="224"
@@ -200,12 +203,12 @@ const WhatIsRarimoDecor = ({ className, ...rest }) => {
         </svg>
       </div>
       <div
-        className="what-is-rarimo-decor__figure--part-3"
+        className="how-rarimo-works-decor__figure--part-3"
         data-aos="fade-up"
         data-aos-delay="300"
       >
         <svg
-          className="what-is-rarimo-decor__svg"
+          className="how-rarimo-works-decor__svg"
           xmlns="http://www.w3.org/2000/svg"
           width="172"
           height="221"
@@ -248,9 +251,9 @@ const WhatIsRarimoDecor = ({ className, ...rest }) => {
           />
         </svg>
       </div>
-      <div className="what-is-rarimo-decor__grid" data-aos="fade" />
+      <div className="how-rarimo-works-decor__grid" data-aos="fade" />
     </div>
   );
 };
 
-export default WhatIsRarimoDecor;
+export default HowRarimoWorksDecor;
