@@ -8,7 +8,6 @@ import MarqueeSection from '@/components/MarqueeSection';
 import NewsSection from '@/components/NewsSection';
 import SubscribeSection from '@/components/SubscribeSection';
 import UseCasesSection from '@/components/UseCasesSection';
-import VerticalsSection from '@/components/VerticalsSection';
 import { initAOS } from '@/js';
 
 const HomePage = () => {
@@ -21,7 +20,6 @@ const HomePage = () => {
       <HomeHeroSection />
       <MarqueeSection />
       <HowRarimoWorksSection />
-      <VerticalsSection />
       <UseCasesSection />
       <BackersSection />
       <NewsSection />
