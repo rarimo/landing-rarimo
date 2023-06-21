@@ -28,7 +28,7 @@
   height: auto;
   width: to-rem(24);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     width: to-rem(28);
   }
 }

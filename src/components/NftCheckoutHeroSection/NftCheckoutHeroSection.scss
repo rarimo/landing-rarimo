@@ -21,7 +21,7 @@
   padding-bottom: to-rem(30);
   text-align: center;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: var(--container-max-width);
     align-items: flex-start;
     padding-top: to-rem(226);
@@ -36,16 +36,16 @@
   white-space: break-spaces;
   text-transform: uppercase;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     margin-bottom: to-rem(32);
     font-size: to-rem(68);
   }
 
-  @include respond-above(xm) {
+  @include respond-above(xmedium) {
     font-size: to-rem(80);
   }
 
-  @include respond-above(lg) {
+  @include respond-above(large) {
     font-size: to-rem(100);
   }
 }
@@ -55,17 +55,17 @@
   font-size: to-rem(16);
   letter-spacing: 0.02em;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: to-rem(400);
     margin-bottom: to-rem(48);
   }
 
-  @include respond-above(xm) {
+  @include respond-above(xmedium) {
     max-width: to-rem(480);
     font-size: to-rem(18);
   }
 
-  @include respond-above(lg) {
+  @include respond-above(large) {
     max-width: to-rem(530);
     font-size: to-rem(20);
   }
@@ -75,23 +75,25 @@
   width: 100%;
   margin-bottom: to-rem(40);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     display: flex;
     justify-content: flex-start;
   }
 }
 
 .nft-checkout-hero-section__link {
-  @include respond-to(md) {
-    max-width: unset;
-  }
+  &.nft-checkout-hero-section {
+    @include respond-to(medium) {
+      max-width: unset;
+    }
 
-  &:not(:last-child) {
-    margin-bottom: to-rem(16);
+    &:not(:last-child) {
+      margin-bottom: to-rem(16);
 
-    @include respond-above(md) {
-      margin-right: to-rem(16);
-      margin-bottom: 0;
+      @include respond-above(medium) {
+        margin-right: to-rem(16);
+        margin-bottom: 0;
+      }
     }
   }
 }

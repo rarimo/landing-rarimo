@@ -27,7 +27,7 @@
 
   // @include noise-bg;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -37,7 +37,7 @@
     padding-left: to-rem(50);
   }
 
-  @include respond-above(lg) {
+  @include respond-above(large) {
     padding-right: to-rem(64);
     padding-left: to-rem(64);
   }

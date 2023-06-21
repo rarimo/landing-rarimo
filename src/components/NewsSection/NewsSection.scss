@@ -39,7 +39,7 @@
 .news-section__item {
   width: to-rem(320);
 
-  @include respond-above(xm) {
+  @include respond-above(xmedium) {
     width: calc(25% - #{to-rem(24)});
   }
 }

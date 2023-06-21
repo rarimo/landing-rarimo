@@ -37,7 +37,7 @@
   grid-template-columns: 1fr;
   grid-gap: to-rem(32);
 
-  @include respond-above(sm) {
+  @include respond-above(tablet) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -57,7 +57,7 @@
   padding: to-rem(32);
   text-align: center;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     display: grid;
     grid-template-columns: min-content auto;
     grid-gap: to-rem(8) to-rem(32);
@@ -73,7 +73,7 @@
   margin-bottom: to-rem(32);
   color: var(--primary-title-color);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     grid-row: span 2;
     margin-bottom: 0;
   }
@@ -82,7 +82,7 @@
 .verticals-section__list-item-title {
   margin-bottom: to-rem(8);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     align-self: flex-end;
     margin-bottom: 0;
   }
@@ -91,7 +91,7 @@
 .verticals-section__list-item-text {
   max-width: to-rem(400);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     align-self: flex-start;
   }
 }

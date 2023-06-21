@@ -5,7 +5,7 @@
   padding-bottom: to-rem(80);
   text-transform: uppercase;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     padding-top: to-rem(146);
     padding-bottom: to-rem(146);
   }

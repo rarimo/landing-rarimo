@@ -5,7 +5,7 @@
 
   --chart-animation-delay: 0s;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     margin-bottom: to-rem(100);
   }
 }
@@ -14,7 +14,7 @@
   margin-bottom: to-rem(40);
   text-align: center;
 
-  @include respond-above(xm) {
+  @include respond-above(xmedium) {
     margin-bottom: to-rem(80);
   }
 }
@@ -26,7 +26,7 @@
   padding: to-rem(46) to-rem(14) to-rem(14);
   text-align: center;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     min-height: to-rem(62);
     padding: to-rem(14) to-rem(24);
   }
@@ -37,7 +37,7 @@
   max-width: var(--how-it-works-mobile-chart-max-width);
   margin: 0 auto;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: var(--how-it-works-chart-default-width);
     width: var(--how-it-works-chart-default-width);
     transform-origin: top left;
@@ -57,7 +57,7 @@
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     grid-template-columns: repeat(5, auto);
     grid-gap: to-rem(44) to-rem(20);
   }
@@ -149,7 +149,7 @@
   height: to-rem(16);
   margin-right: to-rem(8);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     width: to-rem(24);
     height: to-rem(24);
     margin-right: to-rem(16);
@@ -166,7 +166,7 @@
   transition: background-color var(--medium-transition-duration)
     var(--hover-transition-timing-function);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: to-rem(245);
   }
 
@@ -182,7 +182,7 @@
   &.how-it-works-section__chart-item--first {
     --chart-animation-delay: 0.3s;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       grid-column-start: 2;
       grid-row-start: 2;
       --chart-animation-delay: 0.2s;
@@ -192,7 +192,7 @@
   &.how-it-works-section__chart-item--second {
     --chart-animation-delay: 1.35s;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       grid-column-start: 3;
       grid-row-start: 3;
       --chart-animation-delay: 1.35s;
@@ -202,7 +202,7 @@
   &.how-it-works-section__chart-item--third {
     --chart-animation-delay: 2.75s;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       grid-column-start: 1;
       grid-row-start: 4;
       --chart-animation-delay: 3.95s;
@@ -212,7 +212,7 @@
   &.how-it-works-section__chart-item--fourth {
     --chart-animation-delay: 4.15s;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       justify-self: flex-start;
       max-width: to-rem(182);
       grid-column-start: 4;
@@ -224,7 +224,7 @@
   &.how-it-works-section__chart-item--fifth {
     --chart-animation-delay: 5.65s;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       justify-self: flex-end;
       max-width: to-rem(198);
       grid-column-start: 5;
@@ -236,7 +236,7 @@
   &.how-it-works-section__chart-item--sixth {
     --chart-animation-delay: 7.05s;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       justify-self: flex-end;
       max-width: to-rem(198);
       grid-column-start: 5;
@@ -248,7 +248,7 @@
   &.how-it-works-section__chart-item--seventh {
     --chart-animation-delay: 8.45s;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       grid-column-start: 2;
       grid-row-start: 6;
       --chart-animation-delay: 13.75s;
