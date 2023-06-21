@@ -251,7 +251,6 @@ const HowRarimoWorksDecor = ({ className, ...rest }) => {
           />
         </svg>
       </div>
-      <div className="how-rarimo-works-decor__grid" data-aos="fade" />
     </div>
   );
 };

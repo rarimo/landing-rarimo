@@ -33,6 +33,9 @@
   --col-sunstitch: #{$col-sunstitch};
   --col-sunstitch-rgb: #{$col-sunstitch-rgb};
 
+  --col-peach-bellini: #{$col-peach-bellini};
+  --col-peach-bellini-rgb: #{$col-peach-bellini-rgb};
+
   --col-cantaloupe-slice: #{$col-cantaloupe-slice};
   --col-cantaloupe-slice-rgb: #{$col-cantaloupe-slice-rgb};
 
@@ -78,16 +81,15 @@
   --overline-size: #{to-rem(14)};
 
   @include respond-above(md) {
-    --p-size: #{to-rem(16)};
+    --p-size: #{to-rem(12)};
     --h1-size: #{to-rem(120)};
-    --h2-size: #{to-rem(48)};
+    --h2-size: #{to-rem(40)};
     --h3-size: #{to-rem(32)};
     --h4-size: #{to-rem(32)};
-    --h5-size: #{to-rem(20)};
-    --h6-size: #{to-rem(18)};
   }
 
   @include respond-above(lg) {
+    --p-size: #{to-rem(14)};
     --h1-size: #{to-rem(148)};
     --h2-size: #{to-rem(52)};
     --h3-size: #{to-rem(40)};

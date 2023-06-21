@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  height: 100%;
   display: flex;
   flex-direction: column;
   font-family: var(--primary-font-family);
@@ -15,8 +16,6 @@ html {
   -webkit-overflow-scrolling: touch !important;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
-  /* stylelint-disable-next-line declaration-no-important */
-  overflow-y: auto !important;
 }
 
 body {
@@ -29,13 +28,6 @@ body {
   transition-timing-function: var(--hover-transition-timing-function);
 
   @include noise-bg;
-}
-
-.application {
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 body,

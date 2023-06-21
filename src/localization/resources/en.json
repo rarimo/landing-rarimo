@@ -41,15 +41,41 @@
     "marquee": "THE NEXT CHAPTER OF INTERCONNECTED ASSETS & IDENTITIES"
   },
   "how-rarimo-works-section": {
-    "title": "Rarimo's modular architecture accelerates development of interoperable dApps and identities.",
-    "subtitle": "What is Rarimo?",
-    "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts.",
-    "easy-solutions-title": "Easy: Single-click solutions",
-    "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
-    "decentralized-network-title": "Decentralized network",
-    "decentralized-network-text": "Blockchain core and endless number of validators, no limit on the number of blockchains that can be connected.",
-    "security-title": "Security and cost efficiency",
-    "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
+    "main": {
+      "subtitle": "How Rarimo works?",
+      "title": "Modular Architecture Accelerates Development of Interoperable dApps And Identities",
+      "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts",
+      "easy-solutions-title": "Easy: Single-click solutions",
+      "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
+      "decentralized-network-title": "Decentralized network",
+      "decentralized-network-text": "Blockchain core and endless number of validators, no limit on the number of blockchains that can be connected.",
+      "security-title": "Security and cost efficiency",
+      "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
+    },
+    "identity": {
+      "title": "Identity Protocol",
+      "description": "Rarimo allows creating zkp-based digital identity with portability across connected chains",
+      "zk-proofs-accent": "ZK-proofs",
+      "zk-proofs-text": "to maintain privacy while providing information about user identity",
+      "state-replication-accent": "State replication",
+      "state-replication-text": "Published credentials can be verified on any chain, eliminating extra integrations",
+      "state-aggregators-accent": "State Aggregators and Threshold Signatures",
+      "state-aggregators-text": "make cross-chain data publishing cost-effective",
+      "instant-finality-accent": "Instant finality",
+      "instant-finality-text": "enables seamless bridging of identity data on Rarimo after publishing"
+    },
+    "bridging": {
+      "title": "Bridging Protocol",
+      "description": "Rarimo is able to transfer or mint assets and states across-chains",
+      "fungible-token-accent": "Fungible Token",
+      "fungible-token-text": "bridging enables custom logic inclusion and single signature execution across chains",
+      "nft-and-sbt-accent": "NFT and SBTs",
+      "nft-and-sbt-text": "On-demand feature empowers users to choose their desired network for claims",
+      "identity-states-accent": "Identity states and Social Graph Snapshots",
+      "identity-states-text": "- Oracles parse existing identifiers on connected networks and bridge states"
+    },
+    "protocol-subtitle": "Sub protocols",
+    "docs-link": "Documentation"
   },
   "verticals-section": {
     "title": "Verticals",

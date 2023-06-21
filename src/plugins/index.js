@@ -1,1 +1,3 @@
-export * from './swiper';
+import './swiper';
+
+export default {};
