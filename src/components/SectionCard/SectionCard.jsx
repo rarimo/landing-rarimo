@@ -1,11 +1,13 @@
 import './SectionCard.scss';
 
-const SectionCard = ({ children }) => {
+import cn from 'classnames';
+
+const SectionCard = ({ children, className }) => {
   return (
-    <div className="section-card">
+    <div className={cn(['section-card', className])}>
       <div className="section-card__bg-rect">
         <div className="section-card__content">
-          <>{children}</>
+          <div>{children}</div>
         </div>
       </div>
     </div>
