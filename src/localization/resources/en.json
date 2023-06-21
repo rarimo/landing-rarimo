@@ -77,14 +77,6 @@
     "protocol-subtitle": "Sub protocols",
     "docs-link": "Documentation"
   },
-  "verticals-section": {
-    "title": "Verticals",
-    "docs-link": "Documentation",
-    "assets-title": "Assets",
-    "assets-text": "From Defi Lending, to NFT Checkouts, Rarimo makes multi-chain transactions easy and possible",
-    "identites-title": "Identites",
-    "identites-text": "Cross-chain proofs for SBTs, Social Tokens, dynamic NFTs and more. For interoperable social graphs and identities"
-  },
   "use-cases-section": {
     "title": "Featured use cases",
     "share-text": "Are you building something?",
