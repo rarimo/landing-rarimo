@@ -4,7 +4,7 @@
   display: grid;
   grid-gap: to-rem(40);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: to-rem(64);
   }
@@ -19,11 +19,11 @@
   margin-bottom: to-rem(32);
   font-size: to-rem(18);
 
-  @include respond-above(xm) {
+  @include respond-above(xmedium) {
     font-size: 1.25em;
   }
 
-  @include respond-above(lg) {
+  @include respond-above(large) {
     font-size: to-rem(24);
   }
 }
@@ -52,7 +52,7 @@
 }
 
 .implementation-section__code-wrapper {
-  @include respond-above(md) {
+  @include respond-above(medium) {
     order: -1;
   }
 }

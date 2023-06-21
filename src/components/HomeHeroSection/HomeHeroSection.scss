@@ -11,7 +11,7 @@
 
   @include noise-bg;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     padding-top: bg-space(2);
     padding-bottom: to-rem(80);
   }
@@ -21,7 +21,7 @@
   position: relative;
   padding-top: to-rem(108);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -32,7 +32,7 @@
 .home-hero-section__decor {
   display: none;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     display: block;
     position: absolute;
     top: 0;
@@ -50,7 +50,7 @@
   margin-bottom: to-rem(32);
   text-align: center;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: unset;
     align-items: stretch;
     margin: 0;
@@ -73,12 +73,12 @@
   order: -1;
   margin-bottom: to-rem(16);
 
-  @include respond-to(md) {
+  @include respond-to(medium) {
     font-size: to-rem(14);
     font-weight: 500;
   }
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     --divider-width: #{to-rem(48)};
 
     position: relative;
@@ -105,12 +105,12 @@
   margin-bottom: to-rem(32);
   font-size: to-rem(16);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     margin-bottom: to-rem(72);
     letter-spacing: 0.02em;
   }
 
-  @include respond-above(lg) {
+  @include respond-above(large) {
     font-size: to-rem(20);
   }
 }
@@ -118,23 +118,25 @@
 .home-hero-section__links-wrapper {
   width: 100%;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     display: flex;
     justify-content: flex-start;
   }
 }
 
 .home-hero-section__link {
-  @include respond-to(md) {
-    max-width: unset;
-  }
+  &.home-hero-section__link {
+    @include respond-to(medium) {
+      max-width: unset;
+    }
 
-  &:not(:last-child) {
-    margin-bottom: to-rem(16);
+    &:not(:last-child) {
+      margin-bottom: to-rem(16);
 
-    @include respond-above(md) {
-      margin-right: to-rem(16);
-      margin-bottom: 0;
+      @include respond-above(medium) {
+        margin-right: to-rem(16);
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -144,7 +146,7 @@
 }
 
 .home-hero-section__blockchains-wrapper {
-  @include respond-to(md) {
+  @include respond-to(medium) {
     display: flex;
     justify-content: center;
     text-align: center;

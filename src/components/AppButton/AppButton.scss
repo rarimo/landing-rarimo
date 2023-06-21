@@ -23,8 +23,8 @@
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
-  @include respond-above(md) {
-    @include respond-to(lg) {
+  @include respond-above(medium) {
+    @include respond-to(large) {
       min-height: to-rem(48);
     }
   }

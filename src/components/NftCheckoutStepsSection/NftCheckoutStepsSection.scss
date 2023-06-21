@@ -12,7 +12,7 @@
     padding-top: min(to-rem(600), to-rem(220) + 67%);
   }
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     justify-content: flex-start;
     padding-top: min(25vw, to-rem(500));
     padding-bottom: to-rem(150);
@@ -26,7 +26,7 @@
   flex-direction: column;
   align-items: center;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     min-height: to-rem(250);
     align-items: flex-start;
     justify-content: flex-end;
@@ -46,7 +46,7 @@
   transition: opacity 0.5s var(--hover-transition-timing-function);
   pointer-events: none;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     top: to-rem(200);
     width: calc(var(--wrapper-relative-width) * 100%);
     max-width: unset;
@@ -55,7 +55,7 @@
     );
   }
 
-  @include respond-above(lg) {
+  @include respond-above(large) {
     width: calc(var(--container-max-width) * var(--wrapper-relative-width));
   }
 
@@ -63,12 +63,12 @@
     position: absolute;
     top: to-rem(30);
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       right: var(--container-side-padding);
       transform: translateX(0);
     }
 
-    @include respond-above(xl) {
+    @include respond-above(xlarge) {
       right: 50%;
       transform: translateX(
         calc(
@@ -90,7 +90,7 @@
   height: 0;
   overflow: hidden;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     padding-top: 82%;
   }
 
@@ -101,7 +101,7 @@
     /* stylelint-disable-next-line declaration-no-important */
     transform: translate(2%, -26%) scale(3.4) !important;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       /* stylelint-disable-next-line declaration-no-important */
       transform: translate(20%, -20%) scale(1.8) !important;
     }
@@ -113,7 +113,7 @@
   margin: 0;
   margin-bottom: to-rem(32);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: to-rem(290);
     margin-bottom: to-rem(32);
   }
@@ -135,13 +135,13 @@
   font-size: to-rem(16);
   font-weight: 700;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     margin-bottom: to-rem(24);
     font-size: var(--h4-size);
   }
 
   &--total {
-    @include respond-above(md) {
+    @include respond-above(medium) {
       font-size: to-rem(20);
     }
   }
@@ -150,13 +150,13 @@
 .nft-checkout-steps-section__title {
   font-size: to-rem(24);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     font-size: to-rem(48);
   }
 }
 
 .nft-checkout-steps-section__slide-btn-wrapper {
-  @include respond-to(md) {
+  @include respond-to(medium) {
     position: relative;
     background-color: var(--col-lead);
 
@@ -180,14 +180,14 @@
     padding: 0;
     border: none;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       min-height: to-rem(24);
       width: to-rem(24);
     }
   }
 
   &:not(:last-child) {
-    @include respond-above(md) {
+    @include respond-above(medium) {
       margin-right: to-rem(24);
     }
   }
@@ -196,7 +196,7 @@
 .nft-checkout-steps-section__slide-btn-icon {
   transform: rotate(-90deg);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     width: to-rem(16);
     height: to-rem(16);
   }

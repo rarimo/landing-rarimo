@@ -2,7 +2,7 @@
   padding-top: to-rem(40);
   padding-bottom: to-rem(40);
 
-  @include respond-to(md) {
+  @include respond-to(medium) {
     padding-right: 0;
     padding-left: 0;
   }
@@ -37,7 +37,7 @@
 
   @include noise-bg;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     padding: to-rem(80) to-rem(64);
   }
 }
@@ -47,7 +47,7 @@
   margin: 0 auto to-rem(35);
   text-align: center;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: unset;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@
   font-weight: 700;
   text-transform: capitalize;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     font-size: to-rem(48);
   }
 }
@@ -71,7 +71,7 @@
 .community-section__description {
   margin-bottom: to-rem(32);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: to-rem(510);
     margin-bottom: 0;
     font-size: to-rem(18);
@@ -80,7 +80,7 @@
 }
 
 .community-section__links-wrapper {
-  @include respond-above(md) {
+  @include respond-above(medium) {
     flex: 1 0 to-rem(500);
     display: flex;
     justify-content: flex-end;
@@ -89,18 +89,18 @@
 }
 
 .community-section__link {
-  &:not(:last-child) {
-    margin-bottom: to-rem(16);
-  }
+  &.community-section__link {
+    @include respond-to(medium) {
+      max-width: unset;
+    }
 
-  @include respond-to(md) {
-    max-width: unset;
-  }
-
-  @include respond-above(md) {
     &:not(:last-child) {
-      margin-right: to-rem(16);
-      margin-bottom: 0;
+      margin-bottom: to-rem(16);
+
+      @include respond-above(medium) {
+        margin-right: to-rem(16);
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -114,7 +114,7 @@
   grid-template-columns: 1fr;
   grid-gap: to-rem(16);
 
-  @include respond-above(sm) {
+  @include respond-above(tablet) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -135,7 +135,7 @@
   height: 100%;
   padding: to-rem(24);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     padding: to-rem(32);
   }
 }
@@ -150,7 +150,7 @@
 .community-section__list-item-icon {
   color: var(--primary-title-color);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     width: to-rem(32);
     height: to-rem(32);
   }

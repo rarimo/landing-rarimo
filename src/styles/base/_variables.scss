@@ -80,7 +80,7 @@
   --h6-size: #{to-rem(16)};
   --overline-size: #{to-rem(14)};
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     --p-size: #{to-rem(12)};
     --h1-size: #{to-rem(120)};
     --h2-size: #{to-rem(40)};
@@ -88,7 +88,7 @@
     --h4-size: #{to-rem(32)};
   }
 
-  @include respond-above(lg) {
+  @include respond-above(large) {
     --p-size: #{to-rem(14)};
     --h1-size: #{to-rem(148)};
     --h2-size: #{to-rem(52)};
@@ -116,17 +116,17 @@
   --primary-bg-rect-size: #{to-rem(50)};
   --bg-rect-border-size: #{to-rem(1)};
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     --container-max-width: #{to-rem(1100)};
     --primary-bg-rect-size: #{to-rem(66)};
   }
 
-  @include respond-above(xm) {
+  @include respond-above(xmedium) {
     --container-max-width: #{to-rem(1260)};
     --container-side-padding: #{to-rem(40)};
   }
 
-  @include respond-above(lg) {
+  @include respond-above(large) {
     --container-max-width: #{to-rem(1520)};
   }
 
