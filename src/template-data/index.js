@@ -8,3 +8,4 @@ export * from './integrations-list';
 export * from './navigation';
 export * from './supported-blockchains';
 export * from './supported-ft';
+export * from './use-cases-list';

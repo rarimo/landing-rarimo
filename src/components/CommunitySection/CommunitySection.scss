@@ -8,40 +8,6 @@
   }
 }
 
-.community-section__inner {
-  background-color: var(--primary-bg-color);
-  background-image: radial-gradient(
-    117.02% 117.02% at 50% -17.02%,
-    rgba(var(--col-total-white-rgb), 6%) 0%,
-    rgba(var(--col-total-white-rgb), 0%) 100%
-  );
-  border: to-rem(1) solid var(--primary-border-color);
-  overflow: hidden;
-}
-
-.community-section__bg-rect {
-  position: relative;
-  top: -#{to-rem(1)};
-  left: -#{to-rem(1)};
-
-  @include bg-rect;
-}
-
-.community-section__content {
-  padding: to-rem(40) to-rem(20);
-  background-image: linear-gradient(
-    180deg,
-    rgba(var(--col-existential-angst-rgb), 0%),
-    var(--col-existential-angst) 77%
-  );
-
-  @include noise-bg;
-
-  @include respond-above(medium) {
-    padding: to-rem(80) to-rem(64);
-  }
-}
-
 .community-section__titles-wrapper {
   max-width: to-rem(310);
   margin: 0 auto to-rem(35);

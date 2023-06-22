@@ -3,7 +3,7 @@ import './HowRarimoWorksSection.scss';
 import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import SectionCard from '@/components/SectionCard';
+import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
 import { getShiftedDelay } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
@@ -25,7 +25,7 @@ const HowRarimoWorksSection = () => {
         </div>
       )}
       <div className="how-rarimo-works-section__content container">
-        <SectionCard className="how-rarimo-works-section__card">
+        <BaseCard className="how-rarimo-works-section__card" isSection={true}>
           <div className="how-rarimo-works-section__card-content">
             <h5
               className="how-rarimo-works-section__subtitle"
@@ -64,77 +64,87 @@ const HowRarimoWorksSection = () => {
               ))}
             </ul>
           </div>
-        </SectionCard>
-        <SectionCard className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity">
-          <div className="how-rarimo-works-section__subtitle-wrapper">
-            <h5 className="how-rarimo-works-section__protocol-subtitle">
-              {t('how-rarimo-works-section.protocol-subtitle')}
-            </h5>
-            <a
-              className="how-rarimo-works-section__docs-link"
-              href={CONFIG.docsLink}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              {t('how-rarimo-works-section.docs-link')}
-            </a>
-          </div>
-
-          <h2 className="how-rarimo-works-section__title">
-            {t('how-rarimo-works-section.identity.title')}
-          </h2>
-          <p className="how-rarimo-works-section__description">
-            {t('how-rarimo-works-section.identity.description')}
-          </p>
-          <ul className="how-rarimo-works-section__protocol-list">
-            {howRarimoWorksSectionList.identity.map((item, index) => (
-              <li
-                className="how-rarimo-works-section__protocol-list-item"
-                key={index}
+        </BaseCard>
+        <BaseCard
+          className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
+          isSection={true}
+        >
+          <div className="how-rarimo-works-section__card-content">
+            <div className="how-rarimo-works-section__subtitle-wrapper">
+              <h5 className="how-rarimo-works-section__protocol-subtitle">
+                {t('how-rarimo-works-section.protocol-subtitle')}
+              </h5>
+              <a
+                className="how-rarimo-works-section__docs-link"
+                href={CONFIG.docsLink}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
               >
-                <span className="how-rarimo-works-section__protocol-accent-text">
-                  {t(item.accentTextKey)}
-                </span>
-                <span>{t(item.textKey)}</span>
-              </li>
-            ))}
-          </ul>
-        </SectionCard>
-        <SectionCard className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging">
-          <div className="how-rarimo-works-section__subtitle-wrapper">
-            <h5 className="how-rarimo-works-section__protocol-subtitle">
-              {t('how-rarimo-works-section.protocol-subtitle')}
-            </h5>
-            <a
-              className="how-rarimo-works-section__docs-link"
-              href={CONFIG.docsLink}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              {t('how-rarimo-works-section.docs-link')}
-            </a>
-          </div>
+                {t('how-rarimo-works-section.docs-link')}
+              </a>
+            </div>
 
-          <h2 className="how-rarimo-works-section__title">
-            {t('how-rarimo-works-section.bridging.title')}
-          </h2>
-          <p className="how-rarimo-works-section__description">
-            {t('how-rarimo-works-section.bridging.description')}
-          </p>
-          <ul className="how-rarimo-works-section__protocol-list">
-            {howRarimoWorksSectionList.bridging.map((item, index) => (
-              <li
-                className="how-rarimo-works-section__protocol-list-item"
-                key={index}
+            <h2 className="how-rarimo-works-section__title">
+              {t('how-rarimo-works-section.identity.title')}
+            </h2>
+            <p className="how-rarimo-works-section__description">
+              {t('how-rarimo-works-section.identity.description')}
+            </p>
+            <ul className="how-rarimo-works-section__protocol-list">
+              {howRarimoWorksSectionList.identity.map((item, index) => (
+                <li
+                  className="how-rarimo-works-section__protocol-list-item"
+                  key={index}
+                >
+                  <span className="how-rarimo-works-section__protocol-accent-text">
+                    {t(item.accentTextKey)}
+                  </span>
+                  <span>{t(item.textKey)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </BaseCard>
+        <BaseCard
+          className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
+          isSection={true}
+        >
+          <div className="how-rarimo-works-section__card-content">
+            <div className="how-rarimo-works-section__subtitle-wrapper">
+              <h5 className="how-rarimo-works-section__protocol-subtitle">
+                {t('how-rarimo-works-section.protocol-subtitle')}
+              </h5>
+              <a
+                className="how-rarimo-works-section__docs-link"
+                href={CONFIG.docsLink}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
               >
-                <span className="how-rarimo-works-section__protocol-accent-text">
-                  {t(item.accentTextKey)}
-                </span>
-                <span>{t(item.textKey)}</span>
-              </li>
-            ))}
-          </ul>
-        </SectionCard>
+                {t('how-rarimo-works-section.docs-link')}
+              </a>
+            </div>
+
+            <h2 className="how-rarimo-works-section__title">
+              {t('how-rarimo-works-section.bridging.title')}
+            </h2>
+            <p className="how-rarimo-works-section__description">
+              {t('how-rarimo-works-section.bridging.description')}
+            </p>
+            <ul className="how-rarimo-works-section__protocol-list">
+              {howRarimoWorksSectionList.bridging.map((item, index) => (
+                <li
+                  className="how-rarimo-works-section__protocol-list-item"
+                  key={index}
+                >
+                  <span className="how-rarimo-works-section__protocol-accent-text">
+                    {t(item.accentTextKey)}
+                  </span>
+                  <span>{t(item.textKey)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </BaseCard>
       </div>
     </section>
   );
