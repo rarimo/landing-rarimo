@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+import AppButton from '@/components/AppButton';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
 import useNavigation from '@/hooks/useNavigation';
@@ -17,6 +18,10 @@ const AppFooter = () => {
 
   // Exclude home page link
   const navList = useMemo(() => navigation.filter((_, index) => index), []);
+
+  const onScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="app-footer container">
@@ -108,6 +113,18 @@ const AppFooter = () => {
             </a>
           </li>
         </ul>
+        <AppButton
+          className="app-footer__scroll-to-top-btn"
+          onClick={onScrollToTop}
+        >
+          <svg
+            className="app-footer__scroll-to-top-icon"
+            height="14"
+            width="14"
+          >
+            <use href="/icons/sprite.svg#icon-arrow-right"></use>
+          </svg>
+        </AppButton>
       </div>
     </footer>
   );
