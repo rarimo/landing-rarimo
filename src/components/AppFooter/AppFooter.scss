@@ -3,6 +3,7 @@
 }
 
 .app-footer__content {
+  position: relative;
   padding-top: to-rem(40);
   padding-bottom: to-rem(40);
   border-top: to-rem(1) solid var(--primary-border-color);
@@ -92,4 +93,29 @@
   &:not(:first-child) {
     margin-left: to-rem(8);
   }
+}
+
+.app-footer__scroll-to-top-btn {
+  &.app-footer__scroll-to-top-btn {
+    display: none;
+    min-height: to-rem(40);
+    height: to-rem(40);
+    width: to-rem(40);
+    padding: 0;
+
+    @include respond-above(medium) {
+      display: inline-flex;
+      position: absolute;
+      top: to-rem(64);
+      right: 0;
+      background-image: url('/img/app-bar/sidebar-btn-bg.jpg');
+      background-size: 100%;
+      background-blend-mode: overlay;
+      filter: brightness(0.9);
+    }
+  }
+}
+
+.app-footer__scroll-to-top-icon {
+  transform: rotate(-90deg);
 }
