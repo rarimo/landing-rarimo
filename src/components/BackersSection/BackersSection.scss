@@ -1,11 +1,20 @@
 .backers-section {
-  padding-top: to-rem(160);
-  padding-bottom: to-rem(160);
+  padding-top: to-rem(50);
+  padding-bottom: to-rem(50);
+
+  @include respond-above(medium) {
+    padding-top: to-rem(160);
+    padding-bottom: to-rem(160);
+  }
 }
 
 .backers-section__title {
-  margin-bottom: to-rem(64);
+  margin-bottom: to-rem(40);
   text-transform: uppercase;
+
+  @include respond-above(medium) {
+    margin-bottom: to-rem(64);
+  }
 }
 
 .backers-section__list {

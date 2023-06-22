@@ -1,6 +1,11 @@
 .news-section {
-  padding-top: to-rem(88);
-  padding-bottom: to-rem(130);
+  padding-top: to-rem(50);
+  padding-bottom: to-rem(50);
+
+  @include respond-above(medium) {
+    padding-top: to-rem(80);
+    padding-bottom: to-rem(80);
+  }
 }
 
 .news-section__title-wrapper {
@@ -52,11 +57,6 @@
 .news-section__img-wrapper {
   height: to-rem(225);
   margin-bottom: to-rem(20);
-  background-image: conic-gradient(
-    from 225.77deg at 63.38% 38.28%,
-    #3c3c3c 0deg,
-    #2f2f2f 360deg
-  );
 }
 
 .news-section__img {
