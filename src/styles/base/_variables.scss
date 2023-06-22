@@ -22,10 +22,6 @@
   --col-primary-accent-main-rgb: #{$col-le-max-rgb};
   --col-primary-accent-dark: #{color.adjust($col-le-max, $lightness: -10%)};
 
-  --col-existential-angst: #{$col-existential-angst};
-  --col-existential-angst-rgb: #{$col-existential-angst-rgb};
-  --col-lead: #{$col-lead};
-
   // Status colors
   --col-error: #{$col-vermilion-cinnabar};
 
@@ -57,7 +53,6 @@
   --z-app-sidebar: 20;
   --z-main-overlay: 18;
   --z-app-bar: 14;
-  --z-use-cases-swiper-arrow: 5;
   --z-default: 1;
   --z-hidden: -1;
 
@@ -115,6 +110,7 @@
   --container-side-padding: #{to-rem(20)};
   --primary-bg-rect-size: #{to-rem(50)};
   --bg-rect-border-size: #{to-rem(1)};
+  --primary-border-radius: #{to-rem(4)};
 
   @include respond-above(medium) {
     --container-max-width: #{to-rem(1100)};

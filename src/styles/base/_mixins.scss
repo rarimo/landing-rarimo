@@ -22,7 +22,10 @@
   }
 }
 
-@mixin bg-rect($rect-color: var(--bg-rect-border-color)) {
+@mixin bg-rect(
+  $rect-size: var(--primary-bg-rect-size),
+  $rect-color: var(--bg-rect-border-color)
+) {
   background-image: linear-gradient(
       to right,
       #{$rect-color} var(--bg-rect-border-size),
@@ -33,7 +36,7 @@
       #{$rect-color} var(--bg-rect-border-size),
       transparent var(--bg-rect-border-size)
     );
-  background-size: var(--primary-bg-rect-size) var(--primary-bg-rect-size);
+  background-size: #{$rect-size} #{$rect-size};
   background-repeat: repeat;
 }
 

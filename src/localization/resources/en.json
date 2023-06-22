@@ -79,18 +79,22 @@
   },
   "use-cases-section": {
     "title": "Featured use cases",
-    "share-text": "Are you building something?",
+    "share-text": "Are you building something new?",
     "share-link": "Share now",
-    "learn-more-link": "Learn More",
-    "view-docs-link": "View Docs",
+    "mints-title": "Multi-chain mints",
+    "mints-text": "Issue non-fungible tokens (NFTs) or SBTs on any chain",
+    "gaming-profiles-title": "Gaming profiles",
+    "gaming-profiles-text": "Build out player profile that can be used by third-party dApps",
+    "ssi-title": "Self-sovereign identities (SSI)",
+    "ssi-text": "Use KYC data in the web3 world using ZK-proofs for cross-chain identity verification",
     "nft-checkout-title": "NFT Checkout",
-    "nft-checkout-desc": "With Rarimo, developers can build fully decentralized NFT checkouts with non-native tokens",
-    "crosschain-proofs-title": "Crosschain proofs",
-    "crosschain-proofs-desc": "Verify the NFT / SBT ownership and easily retrieve the metadata stored on Rarimo",
-    "multichain-minting-title": "Multichain minting",
-    "multichain-minting-desc": "Simplify the flow for airdropping and allow community to mint and hold tokens on their preferred chain",
-    "description-title": "Description",
-    "partners-title": "Partner"
+    "nft-checkout-text": "Allow users to purchase NFTs with ANY crypto on any chain with a single signature",
+    "token-agnostic-title": "Token-agnostic payments",
+    "token-agnostic-text": "Users can pay for transactions with their preferred tokens",
+    "social-graphs-title": "Social Graphs",
+    "social-graphs-text": "A cost-efficient way to propagate social graph state between different chains",
+    "name-servers-title": "Name Servers",
+    "name-servers-text": "Issue credentials for the users and build their social identity"
   },
   "backers-section": {
     "title": "Backers"

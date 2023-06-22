@@ -158,7 +158,6 @@
 .nft-checkout-steps-section__slide-btn-wrapper {
   @include respond-to(medium) {
     position: relative;
-    background-color: var(--col-lead);
 
     &::after {
       position: absolute;

@@ -1,14 +1,17 @@
 import './UseCasesSection.scss';
 
+import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import AppButton from '@/components/AppButton';
-import { CONFIG } from '@/config';
+import BaseCard from '@/components/BaseCard';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
+import useAppContext from '@/hooks/useAppContext';
+import { useCasesList } from '@/template-data';
 
 const UseCasesSection = () => {
   const { t } = useTranslation();
+  const { isDesktop } = useAppContext();
 
   return (
     <section
@@ -30,143 +33,91 @@ const UseCasesSection = () => {
             </Link>
           </div>
         </div>
-        <swiper-container
-          class="use-cases-section__cases-list use-cases-swiper"
-          slides-per-view="1"
-          speed="1200"
-          allow-touch-move="false"
-          navigation-next-el=".use-cases-section__list-nav-btn--next"
-          navigation-prev-el=".use-cases-section__list-nav-btn--prev"
-          a11y-slide-role="listitem"
-          a11y-container-role-description-message="Use cases list"
-          item-role-description-message="Use case"
-          data-aos="zoom-out"
-          data-aos-anchor-placement="top-bottom"
-        >
-          <div slot="container-start">
-            <button
-              className="use-cases-section__list-nav-btn use-cases-section__list-nav-btn--prev"
-              type="button"
-            >
-              <svg
-                className="use-cases-section__list-nav-icon"
-                height="16"
-                width="16"
+        {isDesktop ? (
+          <ul className="use-cases-section__grid">
+            {useCasesList.map(useCase => (
+              <BaseCard
+                className={cn([
+                  'use-cases-section__case-item',
+                  `use-cases-section__case-item--${useCase.modifier}`,
+                  {
+                    'use-cases-section__case-item--big': useCase.isBig,
+                    'use-cases-section__case-item--yellow': useCase.isYellow,
+                  },
+                ])}
+                tag="li"
+                key={useCase.modifier}
               >
-                <use href="/icons/sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-            <button
-              className="use-cases-section__list-nav-btn use-cases-section__list-nav-btn--next"
-              type="button"
-            >
-              <svg
-                className="use-cases-section__list-nav-icon"
-                height="16"
-                width="16"
+                <img
+                  className="use-cases-section__case-item-img"
+                  src={useCase.img}
+                  alt=""
+                  loading="lazy"
+                />
+                <div className="use-cases-section__case-item-content">
+                  <h6 className="use-cases-section__case-item-title">
+                    {t(useCase.titleKey)}
+                  </h6>
+                  <p className="use-cases-section__case-item-text">
+                    {t(useCase.textKey)}
+                  </p>
+                </div>
+              </BaseCard>
+            ))}
+          </ul>
+        ) : (
+          <swiper-container
+            class="use-cases-section__cases-swiper"
+            slides-per-view="auto"
+            space-between="16"
+            mousewheel-force-to-axis="true"
+            autoplay="false"
+            resistance-ratio="0.5"
+            grab-cursor="true"
+            edge-swipe-detection="true"
+            speed="1000"
+            a11y-slide-role="listitem"
+            a11y-container-role-description-message="Use cases list"
+            item-role-description-message="Use case"
+            data-aos="fade-up"
+          >
+            {/* TODO: Add pagination */}
+            {/* <div slot="container-start">
+            </div> */}
+            {useCasesList.map(useCase => (
+              <swiper-slide
+                class="use-cases-section__cases-swiper-slide"
+                key={useCase.modifier}
               >
-                <use href="/icons/sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <swiper-slide class="use-cases-section__case-wrapper">
-            <h2 className="use-cases-section__case-title" data-aos="fade-up">
-              {t('use-cases-section.nft-checkout-title')}
-            </h2>
-            <div className="use-cases-section__case-link" data-aos="fade-up">
-              <AppButton routePath={ROUTES_PATHS.nftCheckout}>
-                <span>{t('use-cases-section.learn-more-link')}</span>
-                <svg
-                  className="use-cases-section__case-link-icon"
-                  height="13"
-                  width="13"
+                <BaseCard
+                  className={cn([
+                    'use-cases-section__case-item',
+                    `use-cases-section__case-item--${useCase.modifier}`,
+                    {
+                      'use-cases-section__case-item--yellow': useCase.isYellow,
+                    },
+                  ])}
+                  tag="li"
                 >
-                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
-                </svg>
-              </AppButton>
-            </div>
-            <div
-              className="use-cases-section__case-content-wrapper"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            >
-              <div className="use-cases-section__content-block">
-                <h5 className="overline">
-                  {t('use-cases-section.description-title')}
-                </h5>
-                <p className="use-cases-section__description">
-                  {t('use-cases-section.nft-checkout-desc')}
-                </p>
-              </div>
-              <div className="use-cases-section__content-block">
-                <h5 className="overline">
-                  {t('use-cases-section.partners-title')}
-                </h5>
-                <svg
-                  className="use-cases-section__partner-logo"
-                  height="24"
-                  width="160"
-                >
-                  <use href="/icons/sprite.svg#icon-nft-trade-logo"></use>
-                </svg>
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide class="use-cases-section__case-wrapper">
-            <h2 className="use-cases-section__case-title">
-              {t('use-cases-section.crosschain-proofs-title')}
-            </h2>
-            <div className="use-cases-section__case-link">
-              <AppButton href={CONFIG.crosschainProofsDocsLink}>
-                <span>{t('use-cases-section.view-docs-link')}</span>
-                <svg
-                  className="use-cases-section__case-link-icon"
-                  height="13"
-                  width="13"
-                >
-                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
-                </svg>
-              </AppButton>
-            </div>
-            <div className="use-cases-section__case-content-wrapper">
-              <div className="use-cases-section__content-block">
-                <h5 className="overline">
-                  {t('use-cases-section.description-title')}
-                </h5>
-                <p className="use-cases-section__description">
-                  {t('use-cases-section.crosschain-proofs-desc')}
-                </p>
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide class="use-cases-section__case-wrapper">
-            <h2 className="use-cases-section__case-title">
-              {t('use-cases-section.multichain-minting-title')}
-            </h2>
-            <div className="use-cases-section__case-link">
-              <AppButton href={CONFIG.multichainMintingDocsLink}>
-                <span>{t('use-cases-section.view-docs-link')}</span>
-                <svg
-                  className="use-cases-section__case-link-icon"
-                  height="13"
-                  width="13"
-                >
-                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
-                </svg>
-              </AppButton>
-            </div>
-            <div className="use-cases-section__case-content-wrapper">
-              <div className="use-cases-section__content-block">
-                <h5 className="overline">
-                  {t('use-cases-section.description-title')}
-                </h5>
-                <p className="use-cases-section__description">
-                  {t('use-cases-section.multichain-minting-desc')}
-                </p>
-              </div>
-            </div>
-          </swiper-slide>
-        </swiper-container>
+                  <img
+                    className="use-cases-section__case-item-img"
+                    src={useCase.img}
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div className="use-cases-section__case-item-content">
+                    <h6 className="use-cases-section__case-item-title">
+                      {t(useCase.titleKey)}
+                    </h6>
+                    <p className="use-cases-section__case-item-text">
+                      {t(useCase.textKey)}
+                    </p>
+                  </div>
+                </BaseCard>
+              </swiper-slide>
+            ))}
+          </swiper-container>
+        )}
       </div>
     </section>
   );
