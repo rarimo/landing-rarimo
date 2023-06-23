@@ -1,0 +1,50 @@
+export const useCasesList = [
+  {
+    img: '/img/use-cases-section/mints.png',
+    modifier: 'mints',
+    titleKey: 'use-cases-section.mints-title',
+    textKey: 'use-cases-section.mints-text',
+  },
+  {
+    img: '/img/use-cases-section/gaming-profiles.png',
+    modifier: 'gaming-profiles',
+    titleKey: 'use-cases-section.gaming-profiles-title',
+    textKey: 'use-cases-section.gaming-profiles-text',
+  },
+  {
+    img: '/img/use-cases-section/ssi.png',
+    modifier: 'ssi',
+    titleKey: 'use-cases-section.ssi-title',
+    textKey: 'use-cases-section.ssi-text',
+    isBig: true,
+    isYellow: true,
+  },
+  {
+    img: '/img/use-cases-section/nft-checkout.png',
+    modifier: 'nft-checkout',
+    titleKey: 'use-cases-section.nft-checkout-title',
+    textKey: 'use-cases-section.nft-checkout-text',
+    isBig: true,
+    isYellow: true,
+  },
+  {
+    img: '/img/use-cases-section/token-agnostic.png',
+    modifier: 'token-agnostic',
+    titleKey: 'use-cases-section.token-agnostic-title',
+    textKey: 'use-cases-section.token-agnostic-text',
+  },
+  {
+    img: '/img/use-cases-section/social-graphs.png',
+    modifier: 'social-graphs',
+    titleKey: 'use-cases-section.social-graphs-title',
+    textKey: 'use-cases-section.social-graphs-text',
+    isYellow: true,
+  },
+  {
+    img: '/img/use-cases-section/name-servers.png',
+    modifier: 'name-servers',
+    titleKey: 'use-cases-section.name-servers-title',
+    textKey: 'use-cases-section.name-servers-text',
+    isYellow: true,
+  },
+];

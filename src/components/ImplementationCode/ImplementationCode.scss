@@ -10,7 +10,7 @@
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     padding: to-rem(40);
     font-size: to-rem(16);
   }

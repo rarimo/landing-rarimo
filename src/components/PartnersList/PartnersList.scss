@@ -6,7 +6,7 @@
   margin-bottom: to-rem(24);
   font-size: to-rem(12);
   line-height: 1.33;
-  font-weight: 400;
+  font-weight: 700;
   color: inherit;
   text-transform: uppercase;
 }
@@ -28,7 +28,7 @@
   height: auto;
   width: to-rem(24);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     width: to-rem(28);
   }
 }

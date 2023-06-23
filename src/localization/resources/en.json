@@ -32,48 +32,69 @@
     "title-part-1": "Unlocked &",
     "title-part-2": "Connected",
     "subtitle": "Decentralized social layer",
-    "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
+    "description": "Bringing interoperability for identity and social components across multiple networks",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
-    "blockchains-title": "Supported blockchains",
-    "scroll-for-more": "Scroll for more"
+    "blockchains-title": "Supported blockchains"
   },
   "marquee-section": {
-    "marquee": "The next generation of multi-chain assets & identities"
+    "marquee": "THE NEXT CHAPTER OF INTERCONNECTED ASSETS & IDENTITIES"
   },
-  "what-is-rarimo-section": {
-    "title": "Rarimo's modular architecture accelerates development of interoperable dApps and identities.",
-    "subtitle": "What is Rarimo?",
-    "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts.",
-    "easy-solutions-title": "Easy: Single-click solutions",
-    "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
-    "decentralized-network-title": "Decentralized network",
-    "decentralized-network-text": "Blockchain core and endless number of validators, no limit on the number of blockchains that can be connected.",
-    "security-title": "Security and cost efficiency",
-    "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
-  },
-  "verticals-section": {
-    "title": "Verticals",
-    "docs-link": "Documentation",
-    "assets-title": "Assets",
-    "assets-text": "From Defi Lending, to NFT Checkouts, Rarimo makes multi-chain transactions easy and possible",
-    "identites-title": "Identites",
-    "identites-text": "Cross-chain proofs for SBTs, Social Tokens, dynamic NFTs and more. For interoperable social graphs and identities"
+  "how-rarimo-works-section": {
+    "main": {
+      "subtitle": "How Rarimo works?",
+      "title": "Modular Architecture Accelerates Development of Interoperable dApps And Identities",
+      "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts",
+      "easy-solutions-title": "Easy: Single-click solutions",
+      "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
+      "decentralized-network-title": "Decentralized network",
+      "decentralized-network-text": "Blockchain core and endless number of validators, no limit on the number of blockchains that can be connected.",
+      "security-title": "Security and cost efficiency",
+      "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
+    },
+    "identity": {
+      "title": "Identity Protocol",
+      "description": "Rarimo allows creating zkp-based digital identity with portability across connected chains",
+      "zk-proofs-accent": "ZK-proofs",
+      "zk-proofs-text": "to maintain privacy while providing information about user identity",
+      "state-replication-accent": "State replication",
+      "state-replication-text": "Published credentials can be verified on any chain, eliminating extra integrations",
+      "state-aggregators-accent": "State Aggregators and Threshold Signatures",
+      "state-aggregators-text": "make cross-chain data publishing cost-effective",
+      "instant-finality-accent": "Instant finality",
+      "instant-finality-text": "enables seamless bridging of identity data on Rarimo after publishing"
+    },
+    "bridging": {
+      "title": "Bridging Protocol",
+      "description": "Rarimo is able to transfer or mint assets and states across-chains",
+      "fungible-token-accent": "Fungible Token",
+      "fungible-token-text": "bridging enables custom logic inclusion and single signature execution across chains",
+      "nft-and-sbt-accent": "NFT and SBTs",
+      "nft-and-sbt-text": "On-demand feature empowers users to choose their desired network for claims",
+      "identity-states-accent": "Identity states and Social Graph Snapshots",
+      "identity-states-text": "- Oracles parse existing identifiers on connected networks and bridge states"
+    },
+    "protocol-subtitle": "Sub protocols",
+    "docs-link": "Documentation"
   },
   "use-cases-section": {
     "title": "Featured use cases",
-    "share-text": "Are you building something?",
+    "share-text": "Are you building something new?",
     "share-link": "Share now",
-    "learn-more-link": "Learn More",
-    "view-docs-link": "View Docs",
+    "mints-title": "Multi-chain mints",
+    "mints-text": "Issue non-fungible tokens (NFTs) or SBTs on any chain",
+    "gaming-profiles-title": "Gaming profiles",
+    "gaming-profiles-text": "Build out player profile that can be used by third-party dApps",
+    "ssi-title": "Self-sovereign identities (SSI)",
+    "ssi-text": "Use KYC data in the web3 world using ZK-proofs for cross-chain identity verification",
     "nft-checkout-title": "NFT Checkout",
-    "nft-checkout-desc": "With Rarimo, developers can build fully decentralized NFT checkouts with non-native tokens",
-    "crosschain-proofs-title": "Crosschain proofs",
-    "crosschain-proofs-desc": "Verify the NFT / SBT ownership and easily retrieve the metadata stored on Rarimo",
-    "multichain-minting-title": "Multichain minting",
-    "multichain-minting-desc": "Simplify the flow for airdropping and allow community to mint and hold tokens on their preferred chain",
-    "description-title": "Description",
-    "partners-title": "Partner"
+    "nft-checkout-text": "Allow users to purchase NFTs with ANY crypto on any chain with a single signature",
+    "token-agnostic-title": "Token-agnostic payments",
+    "token-agnostic-text": "Users can pay for transactions with their preferred tokens",
+    "social-graphs-title": "Social Graphs",
+    "social-graphs-text": "A cost-efficient way to propagate social graph state between different chains",
+    "name-servers-title": "Name Servers",
+    "name-servers-text": "Issue credentials for the users and build their social identity"
   },
   "backers-section": {
     "title": "Backers"

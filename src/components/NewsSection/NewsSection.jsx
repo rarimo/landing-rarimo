@@ -22,17 +22,17 @@ const NewsSection = () => {
           </a>
         </div>
         <swiper-container
-          class="news-section__list news-swiper"
+          class="news-section__list"
           slides-per-view="auto"
-          space-between="32"
+          space-between="16"
           mousewheel-force-to-axis="true"
           autoplay="false"
           resistance-ratio="0.5"
           grab-cursor="true"
           edge-swipe-detection="true"
           speed="1000"
-          breakpoints-1200-slides-per-view="4"
-          breakpoints-1200-enabled="false"
+          breakpoints-1280-slides-per-view="4"
+          breakpoints-1280-enabled="false"
           a11y-slide-role="listitem"
           a11y-container-role-description-message="Last news list"
           a11y-item-role-description-message="Actual news"

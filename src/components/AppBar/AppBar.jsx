@@ -2,12 +2,10 @@ import './AppBar.scss';
 
 import cn from 'classnames';
 import { throttle } from 'lodash-es';
-import { useEffect, useRef, useState } from 'react';
+import { lazy, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import AppSidebar from '@/components/AppSidebar';
-import BurgerButton from '@/components/BurgerButton';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
@@ -15,6 +13,9 @@ import useAppContext from '@/hooks/useAppContext';
 import useNavigation from '@/hooks/useNavigation';
 import useRouteLocation from '@/hooks/useRouteLocation';
 import { navigation } from '@/template-data';
+
+const AppSidebar = lazy(() => import('@/components/AppSidebar'));
+const BurgerButton = lazy(() => import('@/components/BurgerButton'));
 
 const APP_BAR_THRESHOLD = 60;
 
