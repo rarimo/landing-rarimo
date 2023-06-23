@@ -22,16 +22,15 @@
   --col-primary-accent-main-rgb: #{$col-le-max-rgb};
   --col-primary-accent-dark: #{color.adjust($col-le-max, $lightness: -10%)};
 
-  --col-existential-angst: #{$col-existential-angst};
-  --col-existential-angst-rgb: #{$col-existential-angst-rgb};
-  --col-lead: #{$col-lead};
-
   // Status colors
   --col-error: #{$col-vermilion-cinnabar};
 
   // Brand colors
   --col-sunstitch: #{$col-sunstitch};
   --col-sunstitch-rgb: #{$col-sunstitch-rgb};
+
+  --col-peach-bellini: #{$col-peach-bellini};
+  --col-peach-bellini-rgb: #{$col-peach-bellini-rgb};
 
   --col-cantaloupe-slice: #{$col-cantaloupe-slice};
   --col-cantaloupe-slice-rgb: #{$col-cantaloupe-slice-rgb};
@@ -54,7 +53,6 @@
   --z-app-sidebar: 20;
   --z-main-overlay: 18;
   --z-app-bar: 14;
-  --z-use-cases-swiper-arrow: 5;
   --z-default: 1;
   --z-hidden: -1;
 
@@ -63,24 +61,33 @@
   --primary-font-family: 'Inter', -apple-system, 'BlinkMacSystemFont',
     'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue',
     sans-serif;
-  --title-font-family: 'Oswald', -apple-system, 'BlinkMacSystemFont', 'Segoe UI',
-    'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+  --secondary-font-family: 'Oswald', -apple-system, 'BlinkMacSystemFont',
+    'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue',
+    sans-serif;
   /* stylelint-enable max-line-length */
 
   --p-size: #{to-rem(14)};
-  --h1-size: #{to-rem(42)};
-  --h2-size: #{to-rem(50)};
-  --h3-size: #{to-rem(32)};
+  --h1-size: #{to-rem(56)};
+  --h2-size: #{to-rem(32)};
+  --h3-size: #{to-rem(24)};
   --h4-size: #{to-rem(32)};
-  --h5-size: #{to-rem(20)};
+  --h5-size: #{to-rem(16)};
   --h6-size: #{to-rem(16)};
   --overline-size: #{to-rem(14)};
 
-  @include respond-above(md) {
-    --p-size: #{to-rem(16)};
+  @include respond-above(medium) {
+    --p-size: #{to-rem(12)};
+    --h1-size: #{to-rem(120)};
+    --h2-size: #{to-rem(40)};
+    --h3-size: #{to-rem(32)};
+    --h4-size: #{to-rem(32)};
+  }
+
+  @include respond-above(large) {
+    --p-size: #{to-rem(14)};
     --h1-size: #{to-rem(148)};
-    --h2-size: #{to-rem(112)};
-    --h3-size: #{to-rem(60)};
+    --h2-size: #{to-rem(52)};
+    --h3-size: #{to-rem(40)};
     --h4-size: #{to-rem(32)};
     --h5-size: #{to-rem(20)};
     --h6-size: #{to-rem(18)};
@@ -103,19 +110,20 @@
   --container-side-padding: #{to-rem(20)};
   --primary-bg-rect-size: #{to-rem(50)};
   --bg-rect-border-size: #{to-rem(1)};
+  --primary-border-radius: #{to-rem(4)};
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     --container-max-width: #{to-rem(1100)};
     --primary-bg-rect-size: #{to-rem(66)};
   }
 
-  @include respond-above(xm) {
-    --container-max-width: #{to-rem(1300)};
+  @include respond-above(xmedium) {
+    --container-max-width: #{to-rem(1260)};
     --container-side-padding: #{to-rem(40)};
   }
 
-  @include respond-above(lg) {
-    --container-max-width: #{to-rem(1400)};
+  @include respond-above(large) {
+    --container-max-width: #{to-rem(1520)};
   }
 
   // Common

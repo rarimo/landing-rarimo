@@ -2,7 +2,7 @@
   padding-top: to-rem(40);
   padding-bottom: to-rem(40);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,14 +14,13 @@
 .subscribe-section__title-wrapper {
   margin-bottom: to-rem(32);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     margin-bottom: 0;
   }
 }
 
 .subscribe-section__title {
   margin-bottom: to-rem(16);
-  font-family: var(--primary-font-family);
   font-size: to-rem(32);
   font-weight: 700;
   text-transform: capitalize;
@@ -34,7 +33,7 @@
 .subscribe-section__form {
   max-width: to-rem(380);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     flex: 1 0 to-rem(380);
     padding-left: to-rem(40);
   }
