@@ -1,6 +1,8 @@
 import './HowRarimoWorksSection.scss';
 
-import { lazy } from 'react';
+import { throttle } from 'lodash-es';
+import { useEffect, useRef } from 'react';
+// import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BaseCard from '@/components/BaseCard';
@@ -9,24 +11,92 @@ import { getShiftedDelay } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-const HowRarimoWorksDecor = lazy(() =>
-  import('@/components/HowRarimoWorksDecor'),
-);
+// const HowRarimoWorksDecor = lazy(() =>
+//   import('@/components/HowRarimoWorksDecor'),
+// );
+
+let onScroll;
+let firstCardRect;
+let secondCardRect;
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
 
+  const decorRef = useRef(null);
+  const firstCardRef = useRef(null);
+  const secondCardRef = useRef(null);
+
+  const shiftDecor = event => {
+    // console.log(event);
+    if (!isDesktop) return;
+
+    // const section = document.querySelector('.how-rarimo-works-section');
+    // const content = document.querySelector(
+    //   '.how-rarimo-works-section__content',
+    // );
+    // const card = document.querySelector('.how-rarimo-works-section__card');
+
+    // console.log('section', section.getBoundingClientRect());
+    // console.log('content', content.getBoundingClientRect());
+    // console.log('card', firstCardRef.current.getBoundingClientRect());
+    // const cardRect = firstCardRef.current.getBoundingClientRect();
+
+    if (firstCardRect.top > window.scrollY) return;
+    // console.log(firstCardRect);
+
+    const firstCardScrollY = firstCardRect.top - window.scrollY;
+
+    const shift = -Math.round(firstCardScrollY);
+    const percent = ((firstCardScrollY * -1) / firstCardRect.height) * 100;
+    decorRef.current.style.transform = `translateY(${shift}px)`;
+    // decorRef.current.style.backgroundPositionX = `-${percent * 600}px`;
+
+    // console.log(percent);
+
+    // 58 frames, 600px,
+
+    //34800px
+    //46800px
+    //47400px
+  };
+
+  useEffect(() => {
+    const placeInitialLottieWrapper = () => {
+      firstCardRect ??= firstCardRef.current.getBoundingClientRect();
+      secondCardRect ??= secondCardRef.current.getBoundingClientRect();
+      // const decorTop = decorRef.current.getBoundingClientRect().top;
+
+      // decorRef.current.style.top = `calc(20vh + ${decorTop}px)`;
+      // decorRef.current.style.position = 'fixed';
+    };
+
+    placeInitialLottieWrapper();
+    // onScroll = throttle(shiftDecor, 2);
+    // window.addEventListener('scroll', onScroll, { passive: true });
+
+    // return () => {
+    //   window.removeEventListener('scroll', onScroll, { passive: true });
+    // };
+  }, []);
+
   return (
     <section className="how-rarimo-works-section">
       {isDesktop && (
-        <div className="how-rarimo-works-section__decor-wrapper">
-          <HowRarimoWorksDecor />
+        <div
+          ref={decorRef}
+          className="how-rarimo-works-section__decor-wrapper animate"
+        >
+          <div className="how-rarimo-works-section__decor"></div>
+          {/* <HowRarimoWorksDecor /> */}
         </div>
       )}
       <div className="how-rarimo-works-section__content container">
         <BaseCard className="how-rarimo-works-section__card" isSection={true}>
-          <div className="how-rarimo-works-section__card-content">
+          <div
+            ref={firstCardRef}
+            className="how-rarimo-works-section__card-content"
+          >
             <h5
               className="how-rarimo-works-section__subtitle"
               data-aos="fade-up"
@@ -69,7 +139,10 @@ const HowRarimoWorksSection = () => {
           className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
           isSection={true}
         >
-          <div className="how-rarimo-works-section__card-content">
+          <div
+            ref={secondCardRef}
+            className="how-rarimo-works-section__card-content"
+          >
             <div className="how-rarimo-works-section__subtitle-wrapper">
               <h5 className="how-rarimo-works-section__protocol-subtitle">
                 {t('how-rarimo-works-section.protocol-subtitle')}
