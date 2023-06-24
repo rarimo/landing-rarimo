@@ -10,7 +10,7 @@
   text-align: center;
   transition: padding-top 0.8s var(--slide-transition-timing-function);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     justify-content: flex-start;
     padding-bottom: to-rem(150);
     text-align: left;
@@ -44,7 +44,7 @@
   height: 0;
   overflow: hidden;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     padding-top: 82%;
   }
 
@@ -55,7 +55,7 @@
     /* stylelint-disable-next-line declaration-no-important */
     transform: translate(2%, -26%) scale(3.4) !important;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       /* stylelint-disable-next-line declaration-no-important */
       transform: translate(20%, -20%) scale(1.8) !important;
     }
@@ -66,7 +66,7 @@
   width: 100%;
   margin: 0;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     max-width: to-rem(290);
   }
 }
@@ -87,13 +87,13 @@
   font-size: to-rem(16);
   font-weight: 700;
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     margin-bottom: to-rem(24);
     font-size: var(--h4-size);
   }
 
   &--total {
-    @include respond-above(md) {
+    @include respond-above(medium) {
       font-size: to-rem(20);
     }
   }
@@ -102,7 +102,7 @@
 .nft-checkout-steps-section__title {
   font-size: to-rem(24);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     font-size: to-rem(48);
   }
 }
@@ -111,7 +111,7 @@
   position: absolute;
   top: 100px;
   left: 100px;
-  @include respond-to(md) {
+  @include respond-to(medium) {
     position: relative;
     background-color: var(--col-lead);
 
@@ -135,14 +135,14 @@
     padding: 0;
     border: none;
 
-    @include respond-above(md) {
+    @include respond-above(medium) {
       min-height: to-rem(24);
       width: to-rem(24);
     }
   }
 
   &:not(:last-child) {
-    @include respond-above(md) {
+    @include respond-above(medium) {
       margin-right: to-rem(24);
     }
   }
@@ -151,7 +151,7 @@
 .nft-checkout-steps-section__slide-btn-icon {
   transform: rotate(-90deg);
 
-  @include respond-above(md) {
+  @include respond-above(medium) {
     width: to-rem(16);
     height: to-rem(16);
   }
