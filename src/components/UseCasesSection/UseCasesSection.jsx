@@ -52,7 +52,6 @@ const UseCasesSection = () => {
                   className="use-cases-section__case-item-img"
                   src={useCase.img}
                   alt=""
-                  loading="lazy"
                 />
                 <div className="use-cases-section__case-item-content">
                   <h6 className="use-cases-section__case-item-title">
@@ -103,7 +102,6 @@ const UseCasesSection = () => {
                     className="use-cases-section__case-item-img"
                     src={useCase.img}
                     alt=""
-                    loading="lazy"
                   />
                   <div className="use-cases-section__case-item-content">
                     <h6 className="use-cases-section__case-item-title">

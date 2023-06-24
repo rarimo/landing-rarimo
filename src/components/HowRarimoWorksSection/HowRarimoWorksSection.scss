@@ -20,14 +20,65 @@
   display: none;
 
   @include respond-above(medium) {
+    --count: 1;
+
     position: absolute;
     z-index: var(--z-card-decor);
     display: block;
-    top: to-rem(90);
-    right: -#{to-rem(50)};
-    width: 33%;
+    top: 20vh;
+    right: 0;
+    width: 600px;
+    aspect-ratio: 1;
+    background-image: url('/animation/rarimo-decor-sprite-optimized.png');
+    background-position-x: calc(var(--count) * -600px);
+    transition: transform var(--fast-transition-duration) linear,
+      background-position-x var(--fast-transition-duration) steps(1);
+    will-change: transform, background-position-x;
+    // animation: moveX1 2s steps(58) forwards, moveX2 3s steps(78) forwards;
+
+    &.animate {
+    }
+    // moveX2 3s steps(78)
   }
 }
+
+@keyframes moveX1 {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -34800px;
+  }
+}
+@keyframes moveX2 {
+  from {
+    background-position-x: 0px;
+    background-position-y: -600px;
+  }
+  to {
+    background-position-x: -46800px;
+    background-position-y: -600px;
+  }
+}
+
+@keyframes moveY {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: -1800px;
+  }
+}
+
+// .how-rarimo-works-section__decor {
+//   position: relative;
+//   padding-top: 100%;
+//   height: 0;
+//   overflow: hidden;
+//   background-image: url('/animation/rarimo-decor-sprite.png');
+//   background-size: 600px 600px;
+//   background-position-x: -6000px;
+// }
 
 .how-rarimo-works-section__content {
   @include respond-to(medium) {
