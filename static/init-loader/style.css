@@ -34,7 +34,7 @@ body::after {
   z-index: 20;
   display: grid;
   place-items: center;
-  background-color: #131313;
+  background-color: #0d0d0d;
 }
 
 .init-loader__logo {
