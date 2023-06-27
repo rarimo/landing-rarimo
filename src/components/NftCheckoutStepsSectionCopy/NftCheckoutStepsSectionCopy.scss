@@ -53,11 +53,11 @@
     top: 0;
     left: 0;
     /* stylelint-disable-next-line declaration-no-important */
-    transform: translate(2%, -26%) scale(3.4) !important;
+    // transform: translate(2%, -26%) scale(3.4) !important;
 
     @include respond-above(medium) {
       /* stylelint-disable-next-line declaration-no-important */
-      transform: translate(20%, -20%) scale(1.8) !important;
+      // transform: translate(20%, -20%) scale(1.8) !important;
     }
   }
 }
@@ -84,6 +84,7 @@
 .nft-checkout-steps-section__counter {
   order: -1;
   margin-bottom: to-rem(8);
+  font-family: var(--secondary-font-family);
   font-size: to-rem(16);
   font-weight: 700;
 
@@ -100,6 +101,7 @@
 }
 
 .nft-checkout-steps-section__title {
+  font-family: var(--secondary-font-family);
   font-size: to-rem(24);
 
   @include respond-above(medium) {
