@@ -13,6 +13,7 @@ import useStateRef from '@/hooks/useStateRef';
 
 let onPageScroll;
 let onAnimationScroll;
+// let sectionBoundingRect;
 
 const fillFramesRange = startFrame => {
   return Array(3)
@@ -91,7 +92,6 @@ const NftCheckoutStepsSectionCopy = () => {
       const isFrameInRange = STEP_FRAMES[animationStepRef.current]?.includes(
         Math.ceil(frameEvent.currentTime),
       );
-
       if (isFrameInRange) {
         animationRef.current.pause();
         setIsTransitionInProgress(false);
@@ -110,21 +110,19 @@ const NftCheckoutStepsSectionCopy = () => {
   const parallax = () => {
     if (!isDesktop) return;
 
-    const shift = Math.round(lottieShiftRef.current - window.scrollY);
-
-    lottieWrapperRef.current.style.transform = `translateY(-${shift}px)`;
+    const shift = Math.round(lottieShiftRef.current - window.scrollY) * -1;
+    console.log(shift);
+    lottieWrapperRef.current.style.transform = `translateY(${shift}px)`;
   };
 
   const sectionIntersection = useIntersection(sectionRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.75,
+    threshold: 0.95,
   });
 
   const fixSectionIntoView = () => {
-    console.log(sectionIntersection.isIntersecting);
-
-    onAnimationScroll = event => {
+    onAnimationScroll ??= event => {
       event.preventDefault();
 
       if (isTransitionInProgressRef.current) return;
@@ -133,6 +131,7 @@ const NftCheckoutStepsSectionCopy = () => {
         lastScrollDirectionRef.current = SCROLL_DIRECTION.down;
         if (isFirstStepRef.current) {
           sectionRef.current.removeEventListener('wheel', onAnimationScroll);
+          onAnimationScroll = null;
           return;
         }
 
@@ -143,6 +142,7 @@ const NftCheckoutStepsSectionCopy = () => {
         lastScrollDirectionRef.current = SCROLL_DIRECTION.up;
         if (isLastStepRef.current) {
           sectionRef.current.removeEventListener('wheel', onAnimationScroll);
+          onAnimationScroll = null;
           return;
         }
 
@@ -156,49 +156,59 @@ const NftCheckoutStepsSectionCopy = () => {
     //   'hidden',
     //   'important',
     // );
-    // onAnimationScroll = debounce(onStepForward, 500);
-    // window.addEventListener('scroll', onAnimationScroll, { passive: true });
-
-    // sectionIntersection.intersectionRatio;
   };
 
-  // if (!sectionIntersection?.isIntersecting && isFixedSection) {
-  // }
+  // const scrollIntoView = () => {
+  //   const interval = setInterval(() => {
+  //     const isTransitionFinished =
+  //       window.scrollY + 100 > sectionBoundingRect.top;
+  //     if (isTransitionFinished) {
+  //       clearInterval(interval);
+  //       return;
+  //     }
+  //     window.scrollTo({
+  //       top:
+  //         lastScrollDirectionRef.current === SCROLL_DIRECTION.down
+  //           ? window.scrollY + 10
+  //           : window.scrollY - 10,
+  //       behavior: 'smooth',
+  //     });
+  //   }, 30);
+  //   setTimeout(() => {
+  //     clearInterval(interval);
+  //   }, 1000);
+  // };
 
   useEffect(() => {
-    // console.log(sectionIntersection);
-    // if (sectionIntersection?.isIntersecting && !isFixedSection) {
-    //   setIsFixedSection(true);
-    //   fixSectionIntoView();
-    // } else {
-    //   setIsFixedSection(false);
-    // }
     setIsFixedSection(Boolean(sectionIntersection?.isIntersecting));
-  }, [sectionIntersection?.isIntersecting]);
+  }, [Boolean(sectionIntersection?.isIntersecting)]);
 
   useEffect(() => {
-    console.log('isFixedSection', isFixedSection);
     if (isFixedSection) {
+      // scrollIntoView();
       fixSectionIntoView();
       animationRef.current.play();
       setIsTransitionInProgress(true);
-      sectionRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
+
+      // sectionRef.current.scrollIntoView({
+      //   behavior: 'smooth',
+      //   block: 'center',
+      // });
       // document.documentElement.style.setProperty(
       //   'overflow-y',
       //   'hidden',
       //   'important',
       // );
-      return;
     }
+  }, [isFixedSection]);
 
+  useEffect(() => {
     if (!isFixedSection && isFirstStep) {
+      console.log('play');
       animationRef.current?.setDirection(-1);
       animationRef.current?.play();
     }
-  }, [isFixedSection]);
+  }, [isFixedSection, isFirstStep]);
 
   useEffect(() => {
     const placeInitialLottieWrapper = () => {
@@ -213,11 +223,12 @@ const NftCheckoutStepsSectionCopy = () => {
     };
 
     placeInitialLottieWrapper();
-    onPageScroll = throttle(parallax, 15);
+    onPageScroll ??= throttle(parallax, 15);
     window.addEventListener('scroll', onPageScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', onPageScroll, { passive: true });
+      onPageScroll = null;
     };
   }, []);
 
