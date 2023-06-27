@@ -1,6 +1,5 @@
 .how-rarimo-works-section {
   --accent-color-rgb: var(--col-total-white-rgb);
-  --z-card-decor: 5;
   --z-card-top: 3;
   --z-card-middle: 2;
   --z-card-bottom: 1;
@@ -16,69 +15,37 @@
   }
 }
 
-.how-rarimo-works-section__decor-wrapper {
+.how-rarimo-works-section__lottie-wrapper {
   display: none;
 
   @include respond-above(medium) {
     --count: 1;
+    --wrapper-relative-width: 0.33;
 
     position: absolute;
-    z-index: var(--z-card-decor);
+    z-index: 5;
     display: block;
-    top: 20vh;
+    top: 50%;
     right: 0;
-    width: 600px;
-    aspect-ratio: 1;
-    background-image: url('/animation/rarimo-decor-sprite-optimized.png');
-    background-position-x: calc(var(--count) * -600px);
-    transition: transform var(--fast-transition-duration) linear,
-      background-position-x var(--fast-transition-duration) steps(1);
-    will-change: transform, background-position-x;
-    // animation: moveX1 2s steps(58) forwards, moveX2 3s steps(78) forwards;
-
-    &.animate {
-    }
-    // moveX2 3s steps(78)
+    width: calc(var(--wrapper-relative-width) * 100%);
+    transform: translateY(-50%);
+    transition: transform var(--fast-transition-duration) linear;
+    will-change: transform;
   }
 }
 
-@keyframes moveX1 {
-  from {
-    background-position-x: 0px;
-  }
-  to {
-    background-position-x: -34800px;
-  }
-}
-@keyframes moveX2 {
-  from {
-    background-position-x: 0px;
-    background-position-y: -600px;
-  }
-  to {
-    background-position-x: -46800px;
-    background-position-y: -600px;
-  }
-}
+.how-rarimo-works-section__lottie {
+  position: relative;
+  padding-top: 100%;
+  height: 0;
+  overflow: hidden;
 
-@keyframes moveY {
-  from {
-    background-position-y: 0px;
-  }
-  to {
-    background-position-y: -1800px;
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
-
-// .how-rarimo-works-section__decor {
-//   position: relative;
-//   padding-top: 100%;
-//   height: 0;
-//   overflow: hidden;
-//   background-image: url('/animation/rarimo-decor-sprite.png');
-//   background-size: 600px 600px;
-//   background-position-x: -6000px;
-// }
 
 .how-rarimo-works-section__content {
   @include respond-to(medium) {
@@ -112,7 +79,15 @@
   &:nth-child(3) {
     z-index: var(--z-card-bottom);
     bottom: 5vh;
+    transform: scale(0.9);
   }
+}
+
+.qwe {
+  transform: scale(0.95);
+
+  transition: transform var(--fast-transition-duration) linear;
+  will-change: transform;
 }
 
 .how-rarimo-works-section__card-content {

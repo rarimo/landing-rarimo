@@ -1,31 +1,52 @@
 import './HowRarimoWorksSection.scss';
 
 import { throttle } from 'lodash-es';
+import lottie from 'lottie-web';
 import { useEffect, useRef } from 'react';
-// import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useIntersection } from 'react-use';
 
 import BaseCard from '@/components/BaseCard';
+import Portal from '@/components/Portal';
 import { CONFIG } from '@/config';
-import { getShiftedDelay } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-// const HowRarimoWorksDecor = lazy(() =>
-//   import('@/components/HowRarimoWorksDecor'),
-// );
-
 let onScroll;
+let sectionRect;
 let firstCardRect;
 let secondCardRect;
+
+const fillFramesRange = startFrame => {
+  return Array(1)
+    .fill(null)
+    .map((_, i) => startFrame + i);
+};
+
+const STEP_FRAMES = [fillFramesRange(20)];
+
+const MUTABLE_SCALE_VALUE = 0.05;
+const DEFAULT_SECOND_CARD_SCALE = 0.95;
+const DEFAULT_THIRD_CARD_SCALE = 0.9;
+const CARD_VISIBILITY_VALUE = 0.85;
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
 
-  const decorRef = useRef(null);
+  const sectionRef = useRef(null);
   const firstCardRef = useRef(null);
   const secondCardRef = useRef(null);
+  const thirdCardRef = useRef(null);
+  const lottieWrapperRef = useRef(null);
+  const lottieRef = useRef(null);
+  const animationRef = useRef(null);
+
+  const sectionIntersection = useIntersection(firstCardRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.8,
+  });
 
   const shiftDecor = event => {
     // console.log(event);
@@ -61,65 +82,144 @@ const HowRarimoWorksSection = () => {
     //47400px
   };
 
+  const initAnimation = () => {
+    if (animationRef.current) {
+      destroyAnimation();
+    }
+
+    const params = {
+      container: lottieRef.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: '/animation/how-rarimo-works.json',
+    };
+
+    animationRef.current = lottie.loadAnimation(params);
+
+    animationRef.current.addEventListener('drawnFrame', frameEvent => {
+      // console.log(frameEvent.currentTime);
+      const isFrameInRange = STEP_FRAMES[0]?.includes(
+        Math.ceil(frameEvent.currentTime),
+      );
+      if (isFrameInRange) {
+        animationRef.current.pause();
+      }
+    });
+  };
+
+  const destroyAnimation = () => {
+    animationRef.current?.destroy();
+  };
+
+  const transformSecondCard = () => {
+    const relativeScroll = window.scrollY - firstCardRect.top;
+    if (relativeScroll < 0) return;
+
+    const previousCardScroll =
+      relativeScroll / (firstCardRect.height * CARD_VISIBILITY_VALUE);
+    const cardScale =
+      previousCardScroll * MUTABLE_SCALE_VALUE + DEFAULT_SECOND_CARD_SCALE;
+
+    if (cardScale >= 1) return;
+
+    secondCardRef.current.style.transform = `scale(${cardScale})`;
+  };
+
+  const transformThirdCard = () => {
+    const relativeScroll = window.scrollY - secondCardRect.top;
+    if (relativeScroll < 0) return;
+
+    const previousCardScroll =
+      relativeScroll / (secondCardRect.height * CARD_VISIBILITY_VALUE);
+    const cardScale =
+      previousCardScroll * MUTABLE_SCALE_VALUE + DEFAULT_THIRD_CARD_SCALE;
+
+    if (cardScale >= 1) return;
+
+    thirdCardRef.current.style.transform = `scale(${cardScale})`;
+  };
+
   useEffect(() => {
     const placeInitialLottieWrapper = () => {
+      // const wrapperRect = lottieWrapperRef.current?.getBoundingClientRect();
+
+      sectionRect ??= sectionRef.current.getBoundingClientRect();
       firstCardRect ??= firstCardRef.current.getBoundingClientRect();
       secondCardRect ??= secondCardRef.current.getBoundingClientRect();
       // const decorTop = decorRef.current.getBoundingClientRect().top;
 
       // decorRef.current.style.top = `calc(20vh + ${decorTop}px)`;
-      // decorRef.current.style.position = 'fixed';
+      // lottieWrapperRef.current.style.top = `${wrapperRect.top}px`;
+      // lottieWrapperRef.current.style.position = 'fixed';
     };
 
     placeInitialLottieWrapper();
     // onScroll = throttle(shiftDecor, 2);
-    // window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll = throttle(() => {
+      transformSecondCard();
+      transformThirdCard();
+    }, 15);
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-    // return () => {
-    //   window.removeEventListener('scroll', onScroll, { passive: true });
-    // };
+    return () => {
+      window.removeEventListener('scroll', onScroll, { passive: true });
+    };
   }, []);
 
+  useEffect(() => {
+    if (sectionIntersection?.isIntersecting) {
+      animationRef.current?.play();
+    }
+  }, [Boolean(sectionIntersection?.isIntersecting)]);
+
+  useEffect(() => {
+    if (isDesktop) {
+      initAnimation();
+    } else {
+      destroyAnimation();
+    }
+
+    return () => {
+      destroyAnimation();
+    };
+  }, [isDesktop]);
+
   return (
-    <section className="how-rarimo-works-section">
+    <section ref={sectionRef} className="how-rarimo-works-section">
       {isDesktop && (
-        <div
-          ref={decorRef}
-          className="how-rarimo-works-section__decor-wrapper animate"
-        >
-          <div className="how-rarimo-works-section__decor"></div>
-          {/* <HowRarimoWorksDecor /> */}
-        </div>
+        <Portal>
+          <div
+            ref={lottieWrapperRef}
+            className="how-rarimo-works-section__lottie-wrapper"
+          >
+            <div
+              ref={lottieRef}
+              className="how-rarimo-works-section__lottie"
+            ></div>
+          </div>
+        </Portal>
       )}
       <div className="how-rarimo-works-section__content container">
-        <BaseCard className="how-rarimo-works-section__card" isSection={true}>
-          <div
-            ref={firstCardRef}
-            className="how-rarimo-works-section__card-content"
-          >
-            <h5
-              className="how-rarimo-works-section__subtitle"
-              data-aos="fade-up"
-            >
+        <BaseCard
+          ref={firstCardRef}
+          className="how-rarimo-works-section__card"
+          isSection={true}
+        >
+          <div className="how-rarimo-works-section__card-content">
+            <h5 className="how-rarimo-works-section__subtitle">
               {t('how-rarimo-works-section.main.subtitle')}
             </h5>
 
-            <h2 className="how-rarimo-works-section__title" data-aos="fade-up">
+            <h2 className="how-rarimo-works-section__title">
               {t('how-rarimo-works-section.main.title')}
             </h2>
-            <p
-              className="how-rarimo-works-section__description"
-              data-aos="fade-up"
-            >
+            <p className="how-rarimo-works-section__description">
               {t('how-rarimo-works-section.main.description')}
             </p>
             <ul className="how-rarimo-works-section__list">
               {howRarimoWorksSectionList.main.map((item, index) => (
-                <li
-                  key={index}
-                  data-aos="fade-up"
-                  data-aos-delay={getShiftedDelay(index, 100)}
-                >
+                <li key={index}>
                   <h6 className="how-rarimo-works-section__list-item-title">
                     <span>{t(item.titleKey)}</span>
                     {/* TODO: Change icons */}
@@ -136,13 +236,11 @@ const HowRarimoWorksSection = () => {
           </div>
         </BaseCard>
         <BaseCard
+          ref={secondCardRef}
           className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
           isSection={true}
         >
-          <div
-            ref={secondCardRef}
-            className="how-rarimo-works-section__card-content"
-          >
+          <div className="how-rarimo-works-section__card-content">
             <div className="how-rarimo-works-section__subtitle-wrapper">
               <h5 className="how-rarimo-works-section__protocol-subtitle">
                 {t('how-rarimo-works-section.protocol-subtitle')}
@@ -179,6 +277,7 @@ const HowRarimoWorksSection = () => {
           </div>
         </BaseCard>
         <BaseCard
+          ref={thirdCardRef}
           className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
           isSection={true}
         >
