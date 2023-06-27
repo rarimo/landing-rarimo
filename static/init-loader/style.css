@@ -6,8 +6,11 @@ body::after {
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url('/img/bg/noise.png'),
-    url('/animation/rarimo-decor-sprite-optimized.png');
+  content: url('/img/bg/noise.png');
+}
+
+.body--no-after::after {
+  content: none;
 }
 
 /* Init loader */
