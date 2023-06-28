@@ -1,19 +1,58 @@
 import './NftCheckoutHeroSection.scss';
 
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS } from '@/const';
+import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
 
 const NftCheckoutHeroSection = () => {
   const { t } = useTranslation();
+  const squareOne = useRef();
+  const squareTwo = useRef();
+  const heroSection = useRef();
+  const { isDesktop } = useAppContext();
+  let translateY = 0;
+  let opacity = 100;
+  let prevWindowScroll = window.scrollY;
+  useEffect(() => {
+    const heightHeroSection =
+      heroSection.current.getBoundingClientRect().height / 2;
+    let onScroll = () => {
+      if (!isDesktop) return;
+      if (window.scrollY > heightHeroSection) {
+        translateY =
+          translateY > 0 ? translateY - (window.scrollY - prevWindowScroll) : 0;
+        opacity =
+          window.scrollY - prevWindowScroll > 0 ? opacity - 1 : opacity + 1;
+      } else {
+        translateY =
+          translateY >= 0
+            ? translateY + (window.scrollY - prevWindowScroll)
+            : 0;
+        opacity = 100;
+      }
+      prevWindowScroll = window.scrollY;
+      squareOne.current.style.transform = `translateY(${translateY}px)`;
+      squareTwo.current.style.transform = `translateY(${translateY}px)`;
+      squareOne.current.style.opacity = `${opacity}%`;
+      squareTwo.current.style.opacity = `${opacity}%`;
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      onScroll = null;
+    };
+  }, []);
 
   return (
     <section
       id={COMPONENT_NODE_IDS.heroSection}
+      ref={heroSection}
       className="nft-checkout-hero-section"
     >
       <div className="nft-checkout-hero-section__inner">
@@ -65,6 +104,20 @@ const NftCheckoutHeroSection = () => {
             width="160"
             alt=""
             data-aos="fade-up"
+          />
+          <div
+            ref={squareOne}
+            className="nft-checkout-hero-section__square-one"
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="150"
+          />
+          <div
+            ref={squareTwo}
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="150"
+            className="nft-checkout-hero-section__square-two"
           />
         </div>
       </div>
