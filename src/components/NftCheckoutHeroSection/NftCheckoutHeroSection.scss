@@ -105,3 +105,35 @@
 .nft-checkout-hero-section__blockchains {
   margin-bottom: to-rem(40);
 }
+
+.nft-checkout-hero-section__square-one{
+  width: to-rem(133);
+  height: to-rem(68);
+  background: linear-gradient(180deg, #FB7C3F 0%, rgba(251, 124, 63, 0) 100%),
+  linear-gradient(0deg, #FB7C3F, #FB7C3F),
+  linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+  position: absolute;
+  top: 21.5%;
+  right: 10%;
+  border-width: 0 1px 1px 0;
+  border: solid #FFFFFF0D;
+  @include respond-to(xmedium) {
+    display: none;
+  }
+}
+
+.nft-checkout-hero-section__square-two{
+  width: to-rem(67);
+  height: to-rem(66);
+  position: absolute;
+  background: linear-gradient(180deg, #8AB5A4 0%, rgba(138, 181, 164, 0) 100%),
+  linear-gradient(0deg, #8AB5A4, #8AB5A4),
+  linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+  top: 45%;
+  right: calc(var(--container-side-padding) - 3.5%);
+  border-width: 0 1px 1px 0;
+  border: solid #FFFFFF0D;
+  @include respond-to(xmedium) {
+    display: none;
+  }
+}
