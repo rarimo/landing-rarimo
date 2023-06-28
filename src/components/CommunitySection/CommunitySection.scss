@@ -8,6 +8,12 @@
   }
 }
 
+.community-section__card-content {
+  &.community-section__card-content.community-section__card-content {
+    min-height: unset;
+  }
+}
+
 .community-section__titles-wrapper {
   max-width: to-rem(310);
   margin: 0 auto to-rem(35);
@@ -93,7 +99,7 @@
   border: to-rem(1) solid var(--primary-border-color);
   overflow: hidden;
 
-  @include noise-bg;
+  // @include noise-bg;
 }
 
 .community-section__list-item-link {

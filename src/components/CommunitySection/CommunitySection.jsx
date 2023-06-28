@@ -18,7 +18,10 @@ const CommunitySection = () => {
       id={COMPONENT_NODE_IDS.communitySection}
       className="community-section container"
     >
-      <BaseCard isSection={true}>
+      <BaseCard
+        contentClassName="community-section__card-content"
+        isSection={true}
+      >
         <div>
           <div className="community-section__titles-wrapper">
             <div>

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { forwardRef } from 'react';
 
 const BaseCard = forwardRef(
-  ({ children, className, isSection = false, tag }, ref) => {
+  ({ children, className, contentClassName, isSection = false, tag }, ref) => {
     const CustomTag = tag || 'div';
 
     return (
@@ -19,7 +19,7 @@ const BaseCard = forwardRef(
         ])}
       >
         <div className="base-card__bg-rect">
-          <div className="base-card__content">
+          <div className={cn(['base-card__content', contentClassName])}>
             <>{children}</>
           </div>
         </div>
