@@ -28,7 +28,10 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: {
-        map: [['@', srcPath]],
+        map: [
+          ['@', srcPath],
+          ['@static', `${srcPath}/../static`],
+        ],
         extensions: ['.js', '.jsx'],
       },
       node: {

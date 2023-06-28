@@ -9,24 +9,32 @@ import { useIntersection } from 'react-use';
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
 import useAppContext from '@/hooks/useAppContext';
+import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-let onScroll;
-let firstCardInitialRect;
-let secondCardInitialRect;
-
 const fillFramesRange = startFrame => {
-  return Array(1)
+  return Array(2)
     .fill(null)
     .map((_, i) => startFrame + i);
 };
 
-const STEP_FRAMES = [fillFramesRange(20)];
+const STEP_FRAMES = [
+  fillFramesRange(1),
+  fillFramesRange(36),
+  fillFramesRange(100),
+  fillFramesRange(160),
+];
 
 const MUTABLE_SCALE_VALUE = 0.05;
 const DEFAULT_SECOND_CARD_SCALE = 0.95;
 const DEFAULT_THIRD_CARD_SCALE = 0.9;
 const CARD_VISIBILITY_VALUE = 0.85;
+
+let onScroll;
+let firstCardInitialRect;
+let secondCardInitialRect;
+let firstCardInitialCenter;
+let secondCardInitialCenter;
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
@@ -39,11 +47,14 @@ const HowRarimoWorksSection = () => {
   const lottieWrapperRef = useRef(null);
   const lottieRef = useRef(null);
   const animationRef = useRef(null);
+  const lastScrollPositionRef = useRef(0);
+
+  const [animationStep, setAnimationStep, animationStepRef] = useStateRef(0);
 
   const firstCardObserver = useIntersection(firstCardRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.85,
+    threshold: 0.8,
   });
 
   const initAnimation = () => {
@@ -62,11 +73,12 @@ const HowRarimoWorksSection = () => {
     animationRef.current = lottie.loadAnimation(params);
 
     animationRef.current.addEventListener('drawnFrame', frameEvent => {
-      const isFrameInRange = STEP_FRAMES[0]?.includes(
+      const isFrameInRange = STEP_FRAMES[animationStepRef.current]?.includes(
         Math.ceil(frameEvent.currentTime),
       );
+
       if (isFrameInRange) {
-        animationRef.current?.pause();
+        animationRef.current.pause();
       }
     });
   };
@@ -75,8 +87,33 @@ const HowRarimoWorksSection = () => {
     animationRef.current?.destroy();
   };
 
+  const animateOnScroll = () => {
+    if (!lottieWrapperRef.current) return;
+
+    const currentScrollPosition = window.scrollY;
+
+    const isScrollDown = currentScrollPosition > lastScrollPositionRef.current;
+
+    if (isScrollDown) {
+      animationRef.current?.setDirection(1);
+    } else {
+      animationRef.current?.setDirection(-1);
+    }
+
+    lastScrollPositionRef.current = currentScrollPosition;
+
+    if (currentScrollPosition > secondCardInitialCenter) {
+      setAnimationStep(3);
+      return;
+    }
+
+    if (currentScrollPosition > firstCardInitialCenter) {
+      setAnimationStep(2);
+    }
+  };
+
   const setLottieWrapperOpacity = () => {
-    if (!isDesktop) return;
+    if (!lottieWrapperRef.current) return;
 
     const thirdCardRect = thirdCardRef.current.getBoundingClientRect();
 
@@ -134,14 +171,25 @@ const HowRarimoWorksSection = () => {
       const lottieWrapperHeight = lottieWrapperRef.current?.clientHeight;
       sectionRef.current.style.marginBottom = `-${lottieWrapperHeight}px`;
 
-      firstCardInitialRect ??= firstCardRef.current.getBoundingClientRect();
-      secondCardInitialRect ??= secondCardRef.current.getBoundingClientRect();
+      firstCardInitialRect = firstCardRef.current.getBoundingClientRect();
+      secondCardInitialRect = secondCardRef.current.getBoundingClientRect();
+
+      firstCardInitialCenter =
+        firstCardInitialRect.top + firstCardInitialRect.height / 2 - 100;
+
+      secondCardInitialCenter =
+        firstCardInitialRect.height +
+        secondCardInitialRect.top +
+        secondCardInitialRect.height / 2;
     };
 
     setInitialBoundingRects();
 
     onScroll = throttle(() => {
-      setLottieWrapperOpacity();
+      if (isDesktop) {
+        animateOnScroll();
+        setLottieWrapperOpacity();
+      }
       transformSecondCard();
       transformThirdCard();
     }, 15);
@@ -155,9 +203,15 @@ const HowRarimoWorksSection = () => {
 
   useEffect(() => {
     if (firstCardObserver?.isIntersecting) {
-      animationRef.current?.play();
+      setAnimationStep(1);
+    } else if (firstCardObserver?.boundingClientRect.top > 0) {
+      setAnimationStep(0);
     }
   }, [Boolean(firstCardObserver?.isIntersecting)]);
+
+  useEffect(() => {
+    animationRef.current?.play();
+  }, [animationStep]);
 
   useEffect(() => {
     if (isDesktop) {
