@@ -156,6 +156,11 @@
     display: block;
     z-index: var(--z-hidden);
     opacity: 0.6;
+    background-image: radial-gradient(
+      circle at 0 0,
+      transparent to-rem(80),
+      rgba(var(--col-total-black-rgb), 0.8) to-rem(200)
+    );
     background-color: rgba(var(--col-primary-black-rgb), 0.6);
   }
 }
