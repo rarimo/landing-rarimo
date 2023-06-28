@@ -1,128 +1,254 @@
 import './HowRarimoWorksSection.scss';
 
 import { throttle } from 'lodash-es';
+import lottie from 'lottie-web';
 import { useEffect, useRef } from 'react';
-// import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useIntersection } from 'react-use';
 
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
-import { getShiftedDelay } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
+import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-// const HowRarimoWorksDecor = lazy(() =>
-//   import('@/components/HowRarimoWorksDecor'),
-// );
+const fillFramesRange = startFrame => {
+  return Array(2)
+    .fill(null)
+    .map((_, i) => startFrame + i);
+};
+
+const STEP_FRAMES = [
+  fillFramesRange(1),
+  fillFramesRange(36),
+  fillFramesRange(100),
+  fillFramesRange(160),
+];
+
+const MUTABLE_SCALE_VALUE = 0.05;
+const DEFAULT_SECOND_CARD_SCALE = 0.95;
+const DEFAULT_THIRD_CARD_SCALE = 0.9;
+const CARD_VISIBILITY_VALUE = 0.85;
 
 let onScroll;
-let firstCardRect;
-let secondCardRect;
+let firstCardInitialRect;
+let secondCardInitialRect;
+let firstCardInitialCenter;
+let secondCardInitialCenter;
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
 
-  const decorRef = useRef(null);
+  const sectionRef = useRef(null);
   const firstCardRef = useRef(null);
   const secondCardRef = useRef(null);
+  const thirdCardRef = useRef(null);
+  const lottieWrapperRef = useRef(null);
+  const lottieRef = useRef(null);
+  const animationRef = useRef(null);
+  const lastScrollPositionRef = useRef(0);
 
-  const shiftDecor = event => {
-    // console.log(event);
-    if (!isDesktop) return;
+  const [animationStep, setAnimationStep, animationStepRef] = useStateRef(0);
 
-    // const section = document.querySelector('.how-rarimo-works-section');
-    // const content = document.querySelector(
-    //   '.how-rarimo-works-section__content',
-    // );
-    // const card = document.querySelector('.how-rarimo-works-section__card');
+  const firstCardObserver = useIntersection(firstCardRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.8,
+  });
 
-    // console.log('section', section.getBoundingClientRect());
-    // console.log('content', content.getBoundingClientRect());
-    // console.log('card', firstCardRef.current.getBoundingClientRect());
-    // const cardRect = firstCardRef.current.getBoundingClientRect();
+  const initAnimation = () => {
+    if (animationRef.current) {
+      destroyAnimation();
+    }
 
-    if (firstCardRect.top > window.scrollY) return;
-    // console.log(firstCardRect);
+    const params = {
+      container: lottieRef.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: '/animation/how-rarimo-works.json',
+    };
 
-    const firstCardScrollY = firstCardRect.top - window.scrollY;
+    animationRef.current = lottie.loadAnimation(params);
 
-    const shift = -Math.round(firstCardScrollY);
-    const percent = ((firstCardScrollY * -1) / firstCardRect.height) * 100;
-    decorRef.current.style.transform = `translateY(${shift}px)`;
-    // decorRef.current.style.backgroundPositionX = `-${percent * 600}px`;
+    animationRef.current.addEventListener('drawnFrame', frameEvent => {
+      const isFrameInRange = STEP_FRAMES[animationStepRef.current]?.includes(
+        Math.ceil(frameEvent.currentTime),
+      );
 
-    // console.log(percent);
+      if (isFrameInRange) {
+        animationRef.current.pause();
+      }
+    });
+  };
 
-    // 58 frames, 600px,
+  const destroyAnimation = () => {
+    animationRef.current?.destroy();
+  };
 
-    //34800px
-    //46800px
-    //47400px
+  const animateOnScroll = () => {
+    if (!lottieWrapperRef.current) return;
+
+    const currentScrollPosition = window.scrollY;
+
+    const isScrollDown = currentScrollPosition > lastScrollPositionRef.current;
+
+    if (isScrollDown) {
+      animationRef.current?.setDirection(1);
+    } else {
+      animationRef.current?.setDirection(-1);
+    }
+
+    lastScrollPositionRef.current = currentScrollPosition;
+
+    if (currentScrollPosition > secondCardInitialCenter) {
+      setAnimationStep(3);
+      return;
+    }
+
+    if (currentScrollPosition > firstCardInitialCenter) {
+      setAnimationStep(2);
+    }
+  };
+
+  const setLottieWrapperOpacity = () => {
+    if (!lottieWrapperRef.current) return;
+
+    const thirdCardRect = thirdCardRef.current.getBoundingClientRect();
+
+    const THRESHOLD = 100;
+
+    const thirdCardBottomScroll =
+      thirdCardRect.height - thirdCardRect.bottom + THRESHOLD;
+
+    if (thirdCardBottomScroll < 0) {
+      lottieWrapperRef.current.style.opacity = '1';
+      return;
+    }
+
+    if (thirdCardBottomScroll > THRESHOLD) {
+      lottieWrapperRef.current.style.opacity = '0';
+      return;
+    }
+
+    const opacity = thirdCardBottomScroll / 0.01;
+    lottieWrapperRef.current.style.opacity = `${opacity}`;
+  };
+
+  const transformSecondCard = () => {
+    const relativeScroll = window.scrollY - firstCardInitialRect.top;
+    if (relativeScroll < 0) return;
+
+    const previousCardScroll =
+      relativeScroll / (firstCardInitialRect.height * CARD_VISIBILITY_VALUE);
+    const cardScale =
+      previousCardScroll * MUTABLE_SCALE_VALUE + DEFAULT_SECOND_CARD_SCALE;
+
+    if (cardScale >= 1) return;
+
+    secondCardRef.current.style.transform = `scale(${cardScale})`;
+    secondCardRef.current.style.opacity = `${cardScale}`;
+  };
+
+  const transformThirdCard = () => {
+    const relativeScroll = window.scrollY - secondCardInitialRect.top;
+    if (relativeScroll < 0) return;
+
+    const previousCardScroll =
+      relativeScroll / (secondCardInitialRect.height * CARD_VISIBILITY_VALUE);
+    const cardScale =
+      previousCardScroll * MUTABLE_SCALE_VALUE + DEFAULT_THIRD_CARD_SCALE;
+
+    if (cardScale >= 1) return;
+
+    thirdCardRef.current.style.transform = `scale(${cardScale})`;
+    thirdCardRef.current.style.opacity = `${cardScale}`;
   };
 
   useEffect(() => {
-    const placeInitialLottieWrapper = () => {
-      firstCardRect ??= firstCardRef.current.getBoundingClientRect();
-      secondCardRect ??= secondCardRef.current.getBoundingClientRect();
-      // const decorTop = decorRef.current.getBoundingClientRect().top;
+    const setInitialBoundingRects = () => {
+      const lottieWrapperHeight = lottieWrapperRef.current?.clientHeight;
+      sectionRef.current.style.marginBottom = `-${lottieWrapperHeight}px`;
 
-      // decorRef.current.style.top = `calc(20vh + ${decorTop}px)`;
-      // decorRef.current.style.position = 'fixed';
+      firstCardInitialRect = firstCardRef.current.getBoundingClientRect();
+      secondCardInitialRect = secondCardRef.current.getBoundingClientRect();
+
+      firstCardInitialCenter =
+        firstCardInitialRect.top + firstCardInitialRect.height / 2 - 100;
+
+      secondCardInitialCenter =
+        firstCardInitialRect.height +
+        secondCardInitialRect.top +
+        secondCardInitialRect.height / 2;
     };
 
-    placeInitialLottieWrapper();
-    // onScroll = throttle(shiftDecor, 2);
-    // window.addEventListener('scroll', onScroll, { passive: true });
+    setInitialBoundingRects();
 
-    // return () => {
-    //   window.removeEventListener('scroll', onScroll, { passive: true });
-    // };
+    onScroll = throttle(() => {
+      if (isDesktop) {
+        animateOnScroll();
+        setLottieWrapperOpacity();
+      }
+      transformSecondCard();
+      transformThirdCard();
+    }, 15);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll, { passive: true });
+      onScroll = null;
+    };
   }, []);
 
+  useEffect(() => {
+    if (firstCardObserver?.isIntersecting) {
+      setAnimationStep(1);
+    } else if (firstCardObserver?.boundingClientRect.top > 0) {
+      setAnimationStep(0);
+    }
+  }, [Boolean(firstCardObserver?.isIntersecting)]);
+
+  useEffect(() => {
+    animationRef.current?.play();
+  }, [animationStep]);
+
+  useEffect(() => {
+    if (isDesktop) {
+      initAnimation();
+    } else {
+      destroyAnimation();
+    }
+
+    return () => {
+      destroyAnimation();
+    };
+  }, [isDesktop]);
+
   return (
-    <section className="how-rarimo-works-section">
-      {isDesktop && (
-        <div
-          ref={decorRef}
-          className="how-rarimo-works-section__decor-wrapper animate"
-        >
-          <div className="how-rarimo-works-section__decor"></div>
-          {/* <HowRarimoWorksDecor /> */}
-        </div>
-      )}
+    <section ref={sectionRef} className="how-rarimo-works-section">
       <div className="how-rarimo-works-section__content container">
-        <BaseCard className="how-rarimo-works-section__card" isSection={true}>
-          <div
-            ref={firstCardRef}
-            className="how-rarimo-works-section__card-content"
-          >
-            <h5
-              className="how-rarimo-works-section__subtitle"
-              data-aos="fade-up"
-            >
+        <BaseCard
+          ref={firstCardRef}
+          className="how-rarimo-works-section__card"
+          isSection={true}
+        >
+          <div className="how-rarimo-works-section__card-content">
+            <h5 className="how-rarimo-works-section__subtitle">
               {t('how-rarimo-works-section.main.subtitle')}
             </h5>
 
-            <h2 className="how-rarimo-works-section__title" data-aos="fade-up">
+            <h2 className="how-rarimo-works-section__title">
               {t('how-rarimo-works-section.main.title')}
             </h2>
-            <p
-              className="how-rarimo-works-section__description"
-              data-aos="fade-up"
-            >
+            <p className="how-rarimo-works-section__description">
               {t('how-rarimo-works-section.main.description')}
             </p>
             <ul className="how-rarimo-works-section__list">
               {howRarimoWorksSectionList.main.map((item, index) => (
-                <li
-                  key={index}
-                  data-aos="fade-up"
-                  data-aos-delay={getShiftedDelay(index, 100)}
-                >
+                <li key={index}>
                   <h6 className="how-rarimo-works-section__list-item-title">
                     <span>{t(item.titleKey)}</span>
-                    {/* TODO: Change icons */}
                     <div className="how-rarimo-works-section__list-item-icon">
                       <svg height="24" width="24">
                         <use href={item.icon}></use>
@@ -136,13 +262,11 @@ const HowRarimoWorksSection = () => {
           </div>
         </BaseCard>
         <BaseCard
+          ref={secondCardRef}
           className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
           isSection={true}
         >
-          <div
-            ref={secondCardRef}
-            className="how-rarimo-works-section__card-content"
-          >
+          <div className="how-rarimo-works-section__card-content">
             <div className="how-rarimo-works-section__subtitle-wrapper">
               <h5 className="how-rarimo-works-section__protocol-subtitle">
                 {t('how-rarimo-works-section.protocol-subtitle')}
@@ -179,6 +303,7 @@ const HowRarimoWorksSection = () => {
           </div>
         </BaseCard>
         <BaseCard
+          ref={thirdCardRef}
           className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
           isSection={true}
         >
@@ -218,6 +343,17 @@ const HowRarimoWorksSection = () => {
             </ul>
           </div>
         </BaseCard>
+        {isDesktop && (
+          <div
+            ref={lottieWrapperRef}
+            className="how-rarimo-works-section__lottie-wrapper"
+          >
+            <div
+              ref={lottieRef}
+              className="how-rarimo-works-section__lottie"
+            ></div>
+          </div>
+        )}
       </div>
     </section>
   );

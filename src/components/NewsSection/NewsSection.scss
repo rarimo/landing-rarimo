@@ -11,7 +11,11 @@
 .news-section__title-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: to-rem(64);
+  margin-bottom: to-rem(40);
+
+  @include respond-above(medium) {
+    margin-bottom: to-rem(64);
+  }
 }
 
 .news-section__title {
