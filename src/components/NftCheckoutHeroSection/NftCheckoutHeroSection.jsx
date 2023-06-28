@@ -6,13 +6,13 @@ import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
+import SpotlightBg from '@/components/SpotlightBg';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS } from '@/const';
 import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
 
 let onScroll;
-let onMousemove;
 let sectionRect;
 
 const NftCheckoutHeroSection = () => {
@@ -22,15 +22,15 @@ const NftCheckoutHeroSection = () => {
   const squareOne = useRef(null);
   const squareTwo = useRef(null);
   const sectionRef = useRef(null);
-  const spotlightRef = useRef(null);
   const lastScrollPositionRef = useRef(0);
+
+  let translateY = 0;
+  let opacity = 100;
 
   const squareParallax = () => {
     if (!squareOne.current || !squareTwo.current) return;
 
     const currentScrollPosition = window.scrollY;
-    let translateY = 0;
-    let opacity = 100;
 
     if (currentScrollPosition > sectionRect.height / 2) {
       translateY =
@@ -61,26 +61,14 @@ const NftCheckoutHeroSection = () => {
     const removeListeners = () => {
       window.removeEventListener('scroll', onScroll, { passive: true });
       onScroll = null;
-      window.removeEventListener('mousemove', onMousemove);
     };
 
     if (isDesktop) {
       sectionRect = sectionRef.current.getBoundingClientRect();
 
       onScroll = throttle(squareParallax, 15);
-      const onMousemove = ({ pageX, pageY }) => {
-        if (!spotlightRef.current || window.scrollY > sectionRect.height)
-          return;
-
-        const x = pageX;
-        const y = pageY;
-        const spotlightSize = 'transparent 80px, rgba(0, 0, 0, 0.8) 200px)';
-
-        spotlightRef.current.style.backgroundImage = `radial-gradient(circle at ${x}px ${y}px, ${spotlightSize}`;
-      };
 
       window.addEventListener('scroll', onScroll, { passive: true });
-      document.addEventListener('mousemove', onMousemove);
       return;
     }
 
@@ -161,13 +149,7 @@ const NftCheckoutHeroSection = () => {
           </>
         )}
       </div>
-      <div className="nft-checkout-hero-section__bg-rect-backdrop" />
-      {isDesktop && (
-        <div
-          ref={spotlightRef}
-          className="nft-checkout-hero-section__spotlight"
-        />
-      )}
+      <SpotlightBg />
     </section>
   );
 };
