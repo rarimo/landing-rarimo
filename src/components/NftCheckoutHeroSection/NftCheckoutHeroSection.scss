@@ -109,15 +109,11 @@
 .nft-checkout-hero-section__square-one{
   width: to-rem(133);
   height: to-rem(68);
-  background: linear-gradient(180deg, #FB7C3F 0%, rgba(251, 124, 63, 0) 100%),
-  linear-gradient(0deg, #FB7C3F, #FB7C3F),
-  linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
-  position: absolute;
+  background: #FB7C3FFF;
   top: 21.5%;
   right: 10%;
-  border-width: 0 1px 1px 0;
-  border: solid #FFFFFF0D;
-  @include respond-to(xmedium) {
+  position: absolute;
+  @include respond-to(medium) {
     display: none;
   }
 }
@@ -126,14 +122,10 @@
   width: to-rem(67);
   height: to-rem(66);
   position: absolute;
-  background: linear-gradient(180deg, #8AB5A4 0%, rgba(138, 181, 164, 0) 100%),
-  linear-gradient(0deg, #8AB5A4, #8AB5A4),
-  linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+  background: #8AB5A4FF;
   top: 45%;
   right: calc(var(--container-side-padding) - 3.5%);
-  border-width: 0 1px 1px 0;
-  border: solid #FFFFFF0D;
-  @include respond-to(xmedium) {
+  @include respond-to(medium) {
     display: none;
   }
 }
