@@ -1,5 +1,6 @@
 .how-rarimo-works-section {
   --accent-color-rgb: var(--col-total-white-rgb);
+  --z-lottie-wrapper: 5;
   --z-card-top: 3;
   --z-card-middle: 2;
   --z-card-bottom: 1;
@@ -15,22 +16,32 @@
   }
 }
 
+.how-rarimo-works-section__content {
+  @include respond-to(medium) {
+    padding: 0;
+  }
+
+  @include respond-above(medium) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
 .how-rarimo-works-section__lottie-wrapper {
   display: none;
 
   @include respond-above(medium) {
-    --count: 1;
-    --wrapper-relative-width: 0.33;
-
-    position: absolute;
-    z-index: 5;
+    position: sticky;
+    z-index: var(--z-lottie-wrapper);
     display: block;
-    top: 50%;
-    right: 0;
-    width: calc(var(--wrapper-relative-width) * 100%);
-    transform: translateY(-50%);
-    transition: transform var(--fast-transition-duration) linear;
-    will-change: transform;
+    bottom: 18vh;
+    margin-left: auto;
+    width: 38%;
+    transform: translateX(15%);
+    transition: opacity var(--fast-transition-duration) linear;
+    will-change: opacity;
+    pointer-events: none;
   }
 }
 
@@ -47,12 +58,6 @@
   }
 }
 
-.how-rarimo-works-section__content {
-  @include respond-to(medium) {
-    padding: 0;
-  }
-}
-
 .how-rarimo-works-section__card {
   position: relative;
   z-index: var(--z-card-top);
@@ -63,31 +68,31 @@
     rgba(var(--accent-color-rgb), 0) 100%
   );
   box-shadow: 0 to-rem(12) to-rem(32) rgba(var(--col-total-black-rgb), 0.48);
+  transition-property: transform, opacity;
+  transition-duration: var(--fast-transition-duration);
+  transition-timing-function: linear;
+  will-change: transform;
 
   &:nth-child(2),
   &:nth-child(3) {
     position: sticky;
-    margin-top: to-rem(50);
+    margin-top: to-rem(40);
     backface-visibility: hidden;
   }
 
   &:nth-child(2) {
     z-index: var(--z-card-middle);
-    bottom: 10vh;
+    bottom: 7vh;
+    opacity: 0.95;
+    transform: scale(0.95);
   }
 
   &:nth-child(3) {
     z-index: var(--z-card-bottom);
-    bottom: 5vh;
+    bottom: 3vh;
+    opacity: 0.9;
     transform: scale(0.9);
   }
-}
-
-.qwe {
-  transform: scale(0.95);
-
-  transition: transform var(--fast-transition-duration) linear;
-  will-change: transform;
 }
 
 .how-rarimo-works-section__card-content {

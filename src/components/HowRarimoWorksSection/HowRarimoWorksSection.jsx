@@ -7,15 +7,13 @@ import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
 import BaseCard from '@/components/BaseCard';
-import Portal from '@/components/Portal';
 import { CONFIG } from '@/config';
 import useAppContext from '@/hooks/useAppContext';
 import { howRarimoWorksSectionList } from '@/template-data';
 
 let onScroll;
-let sectionRect;
-let firstCardRect;
-let secondCardRect;
+let firstCardInitialRect;
+let secondCardInitialRect;
 
 const fillFramesRange = startFrame => {
   return Array(1)
@@ -42,45 +40,11 @@ const HowRarimoWorksSection = () => {
   const lottieRef = useRef(null);
   const animationRef = useRef(null);
 
-  const sectionIntersection = useIntersection(firstCardRef, {
+  const firstCardObserver = useIntersection(firstCardRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.8,
+    threshold: 0.85,
   });
-
-  const shiftDecor = event => {
-    // console.log(event);
-    if (!isDesktop) return;
-
-    // const section = document.querySelector('.how-rarimo-works-section');
-    // const content = document.querySelector(
-    //   '.how-rarimo-works-section__content',
-    // );
-    // const card = document.querySelector('.how-rarimo-works-section__card');
-
-    // console.log('section', section.getBoundingClientRect());
-    // console.log('content', content.getBoundingClientRect());
-    // console.log('card', firstCardRef.current.getBoundingClientRect());
-    // const cardRect = firstCardRef.current.getBoundingClientRect();
-
-    if (firstCardRect.top > window.scrollY) return;
-    // console.log(firstCardRect);
-
-    const firstCardScrollY = firstCardRect.top - window.scrollY;
-
-    const shift = -Math.round(firstCardScrollY);
-    const percent = ((firstCardScrollY * -1) / firstCardRect.height) * 100;
-    decorRef.current.style.transform = `translateY(${shift}px)`;
-    // decorRef.current.style.backgroundPositionX = `-${percent * 600}px`;
-
-    // console.log(percent);
-
-    // 58 frames, 600px,
-
-    //34800px
-    //46800px
-    //47400px
-  };
 
   const initAnimation = () => {
     if (animationRef.current) {
@@ -98,12 +62,11 @@ const HowRarimoWorksSection = () => {
     animationRef.current = lottie.loadAnimation(params);
 
     animationRef.current.addEventListener('drawnFrame', frameEvent => {
-      // console.log(frameEvent.currentTime);
       const isFrameInRange = STEP_FRAMES[0]?.includes(
         Math.ceil(frameEvent.currentTime),
       );
       if (isFrameInRange) {
-        animationRef.current.pause();
+        animationRef.current?.pause();
       }
     });
   };
@@ -112,51 +75,73 @@ const HowRarimoWorksSection = () => {
     animationRef.current?.destroy();
   };
 
+  const setLottieWrapperOpacity = () => {
+    if (!isDesktop) return;
+
+    const thirdCardRect = thirdCardRef.current.getBoundingClientRect();
+
+    const THRESHOLD = 100;
+
+    const thirdCardBottomScroll =
+      thirdCardRect.height - thirdCardRect.bottom + THRESHOLD;
+
+    if (thirdCardBottomScroll < 0) {
+      lottieWrapperRef.current.style.opacity = '1';
+      return;
+    }
+
+    if (thirdCardBottomScroll > THRESHOLD) {
+      lottieWrapperRef.current.style.opacity = '0';
+      return;
+    }
+
+    const opacity = thirdCardBottomScroll / 0.01;
+    lottieWrapperRef.current.style.opacity = `${opacity}`;
+  };
+
   const transformSecondCard = () => {
-    const relativeScroll = window.scrollY - firstCardRect.top;
+    const relativeScroll = window.scrollY - firstCardInitialRect.top;
     if (relativeScroll < 0) return;
 
     const previousCardScroll =
-      relativeScroll / (firstCardRect.height * CARD_VISIBILITY_VALUE);
+      relativeScroll / (firstCardInitialRect.height * CARD_VISIBILITY_VALUE);
     const cardScale =
       previousCardScroll * MUTABLE_SCALE_VALUE + DEFAULT_SECOND_CARD_SCALE;
 
     if (cardScale >= 1) return;
 
     secondCardRef.current.style.transform = `scale(${cardScale})`;
+    secondCardRef.current.style.opacity = `${cardScale}`;
   };
 
   const transformThirdCard = () => {
-    const relativeScroll = window.scrollY - secondCardRect.top;
+    const relativeScroll = window.scrollY - secondCardInitialRect.top;
     if (relativeScroll < 0) return;
 
     const previousCardScroll =
-      relativeScroll / (secondCardRect.height * CARD_VISIBILITY_VALUE);
+      relativeScroll / (secondCardInitialRect.height * CARD_VISIBILITY_VALUE);
     const cardScale =
       previousCardScroll * MUTABLE_SCALE_VALUE + DEFAULT_THIRD_CARD_SCALE;
 
     if (cardScale >= 1) return;
 
     thirdCardRef.current.style.transform = `scale(${cardScale})`;
+    thirdCardRef.current.style.opacity = `${cardScale}`;
   };
 
   useEffect(() => {
-    const placeInitialLottieWrapper = () => {
-      // const wrapperRect = lottieWrapperRef.current?.getBoundingClientRect();
+    const setInitialBoundingRects = () => {
+      const lottieWrapperHeight = lottieWrapperRef.current?.clientHeight;
+      sectionRef.current.style.marginBottom = `-${lottieWrapperHeight}px`;
 
-      sectionRect ??= sectionRef.current.getBoundingClientRect();
-      firstCardRect ??= firstCardRef.current.getBoundingClientRect();
-      secondCardRect ??= secondCardRef.current.getBoundingClientRect();
-      // const decorTop = decorRef.current.getBoundingClientRect().top;
-
-      // decorRef.current.style.top = `calc(20vh + ${decorTop}px)`;
-      // lottieWrapperRef.current.style.top = `${wrapperRect.top}px`;
-      // lottieWrapperRef.current.style.position = 'fixed';
+      firstCardInitialRect ??= firstCardRef.current.getBoundingClientRect();
+      secondCardInitialRect ??= secondCardRef.current.getBoundingClientRect();
     };
 
-    placeInitialLottieWrapper();
-    // onScroll = throttle(shiftDecor, 2);
+    setInitialBoundingRects();
+
     onScroll = throttle(() => {
+      setLottieWrapperOpacity();
       transformSecondCard();
       transformThirdCard();
     }, 15);
@@ -164,14 +149,15 @@ const HowRarimoWorksSection = () => {
 
     return () => {
       window.removeEventListener('scroll', onScroll, { passive: true });
+      onScroll = null;
     };
   }, []);
 
   useEffect(() => {
-    if (sectionIntersection?.isIntersecting) {
+    if (firstCardObserver?.isIntersecting) {
       animationRef.current?.play();
     }
-  }, [Boolean(sectionIntersection?.isIntersecting)]);
+  }, [Boolean(firstCardObserver?.isIntersecting)]);
 
   useEffect(() => {
     if (isDesktop) {
@@ -187,19 +173,6 @@ const HowRarimoWorksSection = () => {
 
   return (
     <section ref={sectionRef} className="how-rarimo-works-section">
-      {isDesktop && (
-        <Portal>
-          <div
-            ref={lottieWrapperRef}
-            className="how-rarimo-works-section__lottie-wrapper"
-          >
-            <div
-              ref={lottieRef}
-              className="how-rarimo-works-section__lottie"
-            ></div>
-          </div>
-        </Portal>
-      )}
       <div className="how-rarimo-works-section__content container">
         <BaseCard
           ref={firstCardRef}
@@ -222,7 +195,6 @@ const HowRarimoWorksSection = () => {
                 <li key={index}>
                   <h6 className="how-rarimo-works-section__list-item-title">
                     <span>{t(item.titleKey)}</span>
-                    {/* TODO: Change icons */}
                     <div className="how-rarimo-works-section__list-item-icon">
                       <svg height="24" width="24">
                         <use href={item.icon}></use>
@@ -317,6 +289,17 @@ const HowRarimoWorksSection = () => {
             </ul>
           </div>
         </BaseCard>
+        {isDesktop && (
+          <div
+            ref={lottieWrapperRef}
+            className="how-rarimo-works-section__lottie-wrapper"
+          >
+            <div
+              ref={lottieRef}
+              className="how-rarimo-works-section__lottie"
+            ></div>
+          </div>
+        )}
       </div>
     </section>
   );
