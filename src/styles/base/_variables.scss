@@ -77,17 +77,17 @@
   --overline-size: #{to-rem(14)};
 
   @include respond-above(medium) {
-    --p-size: #{to-rem(12)};
-    --h1-size: #{to-rem(120)};
-    --h2-size: #{to-rem(40)};
-    --h3-size: #{to-rem(32)};
-    --h4-size: #{to-rem(32)};
+    --p-size: var(--p-size-medium);
+    --h1-size: var(--h1-size-medium);
+    --h2-size: var(--h2-size-medium);
+    --h3-size: var(--h3-size-medium);
+    --h4-size: var(--h4-size-medium);
   }
 
   @include respond-above(large) {
     --p-size: #{to-rem(14)};
     --h1-size: #{to-rem(148)};
-    --h2-size: #{to-rem(52)};
+    --h2-size: #{to-rem(50)};
     --h3-size: #{to-rem(40)};
     --h4-size: #{to-rem(32)};
     --h5-size: #{to-rem(20)};
@@ -119,7 +119,7 @@
   }
 
   @include respond-above(xmedium) {
-    --container-max-width: #{to-rem(1260)};
+    --container-max-width: #{to-rem(1180)};
     --container-side-padding: #{to-rem(40)};
   }
 
@@ -128,7 +128,6 @@
   }
 
   // Common
-  --primary-text-color-accent-bg: rgba(#{$col-total-black-rgb}, 64%);
   --scrollbar-color: var(--primary-text-color);
 
   // App bar
@@ -137,16 +136,6 @@
 
   // App footer
   --app-footer-logo-color: var(--primary-title-color);
-
-  // Use cases section
-  --use-cases-section-case-bg-gradient: conic-gradient(
-    from 145deg at 61% 38%,
-    var(--col-primary-black) 0deg,
-    #2f2f2f 360deg
-  );
-
-  // Nft checkout video
-  --nft-checkout-video-bg: rgba(#{$col-total-black-rgb}, 90%);
 
   // How it works section
   --how-it-works-chart-default-width: #{to-rem(1256)};

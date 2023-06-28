@@ -3,6 +3,7 @@
   padding-bottom: to-rem(52);
 
   @include respond-above(medium) {
+    margin-top: min(25vh, to-rem(250));
     padding-top: max(9vh, to-rem(52));
     padding-bottom: max(9vh, to-rem(52));
   }
@@ -131,10 +132,6 @@
 
 .use-cases-section__case-item-text {
   margin-top: to-rem(8);
-
-  @include respond-above(medium) {
-    font-size: to-rem(14);
-  }
 
   @media all and (hover: hover) {
     opacity: 0;
