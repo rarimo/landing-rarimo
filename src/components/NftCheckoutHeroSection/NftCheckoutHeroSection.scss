@@ -1,8 +1,4 @@
 .nft-checkout-hero-section {
-  @include bg-rect;
-}
-
-.nft-checkout-hero-section__inner {
   background-image: linear-gradient(
     180deg,
     rgba(var(--col-primary-black-rgb), 0%),
@@ -106,25 +102,33 @@
   margin-bottom: to-rem(40);
 }
 
-.nft-checkout-hero-section__square-one{
-  width: to-rem(133);
-  height: to-rem(68);
-  background: #FB7C3FFF;
+.nft-checkout-hero-section__square-one {
+  position: absolute;
   top: 21.5%;
   right: 10%;
-  position: absolute;
+  width: to-rem(133);
+  height: to-rem(68);
+  background-color: var(--col-sagittarius-amber);
+  transition: transform var(--fast-transition-duration) linear;
+  will-change: transform;
+  pointer-events: none;
+
   @include respond-to(medium) {
     display: none;
   }
 }
 
-.nft-checkout-hero-section__square-two{
-  width: to-rem(67);
-  height: to-rem(66);
+.nft-checkout-hero-section__square-two {
   position: absolute;
-  background: #8AB5A4FF;
   top: 45%;
   right: calc(var(--container-side-padding) - 3.5%);
+  height: to-rem(66);
+  width: to-rem(66);
+  background-color: var(--col-primary-accent-main);
+  transition: transform var(--fast-transition-duration) linear;
+  will-change: transform;
+  pointer-events: none;
+
   @include respond-to(medium) {
     display: none;
   }
