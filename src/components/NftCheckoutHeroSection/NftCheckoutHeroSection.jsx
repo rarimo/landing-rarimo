@@ -12,9 +12,10 @@ import { supportedBlockchainsList } from '@/template-data';
 
 const NftCheckoutHeroSection = () => {
   const { t } = useTranslation();
-  const squareOne = useRef();
-  const squareTwo = useRef();
-  const heroSection = useRef();
+  const squareOne = useRef(null);
+  const squareTwo = useRef(null);
+  const heroSection = useRef(null);
+  const light = useRef(null);
   const { isDesktop } = useAppContext();
   let translateY = 0;
   let opacity = 100;
@@ -42,10 +43,21 @@ const NftCheckoutHeroSection = () => {
       squareOne.current.style.opacity = `${opacity}%`;
       squareTwo.current.style.opacity = `${opacity}%`;
     };
+    let highlight = ({ pageX, pageY }) => {
+      const x = pageX;
+      const y = pageY;
+      const spotlightSize = 'transparent 80px, rgba(0, 0, 0, 0.8) 200px)';
+      if (light.current) {
+        light.current.style.background = `radial-gradient(circle at ${x}px ${y}px, ${spotlightSize}`;
+      }
+    };
+    document.addEventListener('mousemove', highlight);
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
       onScroll = null;
+      window.removeEventListener('mousemove', highlight);
+      highlight = null;
     };
   }, []);
 
@@ -120,6 +132,11 @@ const NftCheckoutHeroSection = () => {
             className="nft-checkout-hero-section__square-two"
           />
         </div>
+        <div className="nft-checkout-hero-section__highlight-bgImageFirst" />
+        <div
+          className="nft-checkout-hero-section__highlight-bgImageSecond"
+          ref={light}
+        />
       </div>
     </section>
   );
