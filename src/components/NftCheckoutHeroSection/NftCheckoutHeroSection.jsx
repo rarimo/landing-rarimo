@@ -21,7 +21,7 @@ const NftCheckoutHeroSection = () => {
 
   const squareOne = useRef(null);
   const squareTwo = useRef(null);
-  const heroSection = useRef(null);
+  const sectionRef = useRef(null);
   const spotlightRef = useRef(null);
   const lastScrollPositionRef = useRef(0);
 
@@ -65,7 +65,7 @@ const NftCheckoutHeroSection = () => {
     };
 
     if (isDesktop) {
-      sectionRect = heroSection.current.getBoundingClientRect();
+      sectionRect = sectionRef.current.getBoundingClientRect();
 
       onScroll = throttle(squareParallax, 15);
       const onMousemove = ({ pageX, pageY }) => {
@@ -96,7 +96,7 @@ const NftCheckoutHeroSection = () => {
   return (
     <section
       id={COMPONENT_NODE_IDS.heroSection}
-      ref={heroSection}
+      ref={sectionRef}
       className="nft-checkout-hero-section"
     >
       <div className="nft-checkout-hero-section__content container">

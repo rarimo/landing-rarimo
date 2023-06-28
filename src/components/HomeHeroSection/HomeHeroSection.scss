@@ -1,8 +1,4 @@
 .home-hero-section {
-  @include bg-rect;
-}
-
-.home-hero-section__inner {
   background-image: linear-gradient(
     180deg,
     rgba(var(--col-primary-black-rgb), 0%),
@@ -151,5 +147,36 @@
     display: flex;
     justify-content: center;
     text-align: center;
+  }
+}
+
+.home-hero-section__bg-rect-backdrop,
+.home-hero-section__spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.home-hero-section__bg-rect-backdrop {
+  @include bg-rect;
+
+  z-index: var(--z-hidden);
+}
+
+.home-hero-section__spotlight {
+  display: none;
+
+  @media all and (hover: hover) {
+    display: block;
+    z-index: var(--z-hidden);
+    opacity: 0.6;
+    background-image: radial-gradient(
+      circle at 0 0,
+      transparent to-rem(80),
+      rgba(var(--col-total-black-rgb), 0.8) to-rem(200)
+    );
+    background-color: rgba(var(--col-primary-black-rgb), 0.6);
   }
 }
