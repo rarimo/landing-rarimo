@@ -6,8 +6,11 @@ body::after {
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url('/img/bg/noise.png'),
-    url('/animation/rarimo-decor-sprite-optimized.png');
+  content: url('/img/bg/noise.png');
+}
+
+.body--no-after::after {
+  content: none;
 }
 
 /* Init loader */
@@ -31,7 +34,7 @@ body::after {
   z-index: 20;
   display: grid;
   place-items: center;
-  background-color: #131313;
+  background-color: #0d0d0d;
 }
 
 .init-loader__logo {
