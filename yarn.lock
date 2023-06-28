@@ -281,10 +281,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz#2cbcf822bf3764c9658c4d2e568bd0c0cb748016"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
-"@distributedlab/fetcher@^0.2.0-rc.0":
-  version "0.2.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@distributedlab/fetcher/-/fetcher-0.2.0-rc.0.tgz#8407fb6e2e74890742829eecc80bfab68e87ce2a"
-  integrity sha512-TjCku2voGNLSHu4hzXoAW75um+vZ3kd4peI+Mg/q8rGUP+EFC0vW5UBL8aoNNdXG5cS9/XvGrwsAhO3w2M4ckQ==
+"@distributedlab/fetcher@^0.2.0-rc.21":
+  version "0.2.0-rc.21"
+  resolved "https://registry.yarnpkg.com/@distributedlab/fetcher/-/fetcher-0.2.0-rc.21.tgz#91190fc3727063203aa5d55778b8f16f877a9c91"
+  integrity sha512-m2nm1gSv6Pz82wz6HjF03NjF40P5GtG91EaRyH7qjmgtTqm3+nFa6eH1msGJOgI2EHrb51sjs2wMb/oWPYNL/g==
   dependencies:
     uuid "^9.0.0"
 

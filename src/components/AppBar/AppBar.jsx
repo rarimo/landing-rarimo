@@ -34,7 +34,7 @@ const AppBar = () => {
   const lastScrollPosition = useRef(0);
 
   const toggleShowHeader = () => {
-    const currentScrollPosition = window.pageYOffset;
+    const currentScrollPosition = window.scrollY;
     const isScrollUnderThreshold = currentScrollPosition > APP_BAR_THRESHOLD;
 
     setIsAppBarFilled(isScrollUnderThreshold);
