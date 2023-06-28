@@ -133,10 +133,6 @@
 .use-cases-section__case-item-text {
   margin-top: to-rem(8);
 
-  @include respond-above(medium) {
-    font-size: to-rem(14);
-  }
-
   @media all and (hover: hover) {
     opacity: 0;
     pointer-events: none;
