@@ -1,7 +1,3 @@
-.nft-checkout-hero-section {
-  @include bg-rect;
-}
-
 .nft-checkout-hero-section__inner {
   background-image: linear-gradient(
     180deg,
@@ -128,4 +124,24 @@
   @include respond-to(medium) {
     display: none;
   }
+}
+
+.nft-checkout-hero-section__highlight-bgImageFirst{
+ @include bg-rect;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: var(--z-backdrop);
+  opacity: 0.8;
+}
+
+.nft-checkout-hero-section__highlight-bgImageSecond{
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: var(--z-hidden);
+  opacity: 0.6;
 }
