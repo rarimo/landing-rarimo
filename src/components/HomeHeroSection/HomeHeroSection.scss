@@ -1,8 +1,4 @@
 .home-hero-section {
-  @include bg-rect;
-}
-
-.home-hero-section__inner {
   background-image: linear-gradient(
     180deg,
     rgba(var(--col-primary-black-rgb), 0%),
