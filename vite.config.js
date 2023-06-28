@@ -18,6 +18,7 @@ export default defineConfig({
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
     alias: {
       '@': `${root}/`,
+      '@static': `${root}/../static`,
     },
   },
   css: {
