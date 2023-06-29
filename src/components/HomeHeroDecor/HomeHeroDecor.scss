@@ -1,84 +1,35 @@
-@mixin cell-color($color) {
-  background-color: var(--col-#{$color});
+.home-hero-decor{
+  --z-lottie-wrapper: 5;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.home-hero-decor__lottie-wrapper {
+  display: none;
 
-  @include noise-bg;
-
-  &::after {
-    background-image: linear-gradient(
-      0deg,
-      rgba(var(--col-#{$color}-rgb), 0%),
-      var(--col-#{$color}) 100%
-    );
+  @include respond-above(medium) {
+    position: absolute;
+    display: block;
+    bottom: 15vh;
+    right: 4vw;
+    margin-left: auto;
+    width: 38%;
+    transform: translateX(15%);
+    transition: opacity var(--fast-transition-duration) linear;
+    will-change: opacity;
+    pointer-events: none;
   }
 }
 
-.home-hero-decor__row {
-  display: flex;
-
-  &:not(:last-child) {
-    margin-bottom: var(--bg-rect-border-size);
-  }
-}
-
-.home-hero-decor__cell {
+.home-hero-decor__lottie {
   position: relative;
-  height: var(--primary-bg-rect-size);
-  width: var(--primary-bg-rect-size);
+  padding-top: 100%;
+  height: 0;
+  overflow: hidden;
 
-  &:not(:last-child) {
-    margin-right: var(--bg-rect-border-size);
-  }
-
-  &::after {
-    content: '';
+  svg {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-  }
-
-  &--transparent {
-    background-color: transparent;
-  }
-
-  &--sunstitch {
-    @include cell-color(sunstitch);
-
-    &::before {
-      filter: invert(0.4) opacity(0.6);
-    }
-  }
-
-  &--cantaloupe-slice {
-    @include cell-color(cantaloupe-slice);
-
-    &::before {
-      filter: invert(0.4) opacity(0.6);
-    }
-  }
-
-  &--sagittarius-amber {
-    @include cell-color(sagittarius-amber);
-
-    &::before {
-      filter: invert(0.4) opacity(0.6);
-    }
-  }
-
-  &--le-max {
-    @include cell-color(le-max);
-
-    &::before {
-      filter: opacity(0.6);
-    }
-  }
-
-  &--latigo-bay {
-    @include cell-color(latigo-bay);
-
-    &::before {
-      filter: opacity(0.6);
-    }
   }
 }
