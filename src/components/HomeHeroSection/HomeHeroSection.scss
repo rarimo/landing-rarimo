@@ -16,8 +16,8 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding-top: max(22vh, to-rem(160));
-    padding-bottom: max(11vh, to-rem(80));
+    padding-top: max(vh(22), to-rem(160));
+    padding-bottom: max(vh(11), to-rem(80));
   }
 }
 
@@ -55,7 +55,7 @@
   text-transform: uppercase;
 
   @include respond-above(medium) {
-    margin-bottom: max(3vh, to-rem(24));
+    margin-bottom: max(vh(3), to-rem(24));
   }
 }
 
@@ -70,7 +70,7 @@
   margin-bottom: to-rem(16);
 
   @include respond-to(medium) {
-    margin-bottom: max(3vh, to-rem(24));
+    margin-bottom: max(vh(3), to-rem(24));
     font-size: to-rem(14);
     font-weight: 500;
   }
@@ -103,7 +103,7 @@
   font-size: to-rem(16);
 
   @include respond-above(medium) {
-    margin-bottom: max(10vh, to-rem(76));
+    margin-bottom: max(vh(10), to-rem(76));
     letter-spacing: 0.02em;
   }
 
