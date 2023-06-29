@@ -3,9 +3,9 @@
   padding-bottom: to-rem(52);
 
   @include respond-above(medium) {
-    margin-top: min(25vh, to-rem(250));
-    padding-top: max(9vh, to-rem(52));
-    padding-bottom: max(9vh, to-rem(52));
+    margin-top: min(vh(25), to-rem(250));
+    padding-top: max(vh(9), to-rem(52));
+    padding-bottom: max(vh(9), to-rem(52));
   }
 }
 
@@ -63,7 +63,7 @@
   @include respond-above(medium) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 24vh;
+    grid-auto-rows: vh(24);
     grid-gap: to-rem(32);
   }
 }

@@ -47,11 +47,11 @@
     );
 
     @include respond-above(medium) {
-      min-height: 80vh;
+      min-height: vh(80);
       display: flex;
       align-items: center;
-      padding-top: max(5vh, to-rem(32));
-      padding-bottom: max(5vh, to-rem(32));
+      padding-top: max(vh(5), to-rem(32));
+      padding-bottom: max(vh(5), to-rem(32));
       padding-right: to-rem(50);
       padding-left: to-rem(50);
     }
