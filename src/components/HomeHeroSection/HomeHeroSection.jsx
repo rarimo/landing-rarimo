@@ -1,6 +1,7 @@
 import './HomeHeroSection.scss';
 
-import { lazy } from 'react';
+import lottie from 'lottie-web';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
@@ -8,20 +9,56 @@ import PartnersList from '@/components/PartnersList';
 import SpotlightBg from '@/components/SpotlightBg';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
+import { prepareCharacterAnimation } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
-
-const HomeHeroDecor = lazy(() => import('@/components/HomeHeroDecor'));
 
 const HomeHeroSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
 
+  const lottieRef = useRef(null);
+  const animationRef = useRef(null);
+
+  const initAnimation = () => {
+    if (animationRef.current) {
+      destroyAnimation();
+    }
+
+    const params = {
+      container: lottieRef.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: '/animation/home-hero-decor.json',
+    };
+
+    animationRef.current = lottie.loadAnimation(params);
+  };
+
+  const destroyAnimation = () => {
+    animationRef.current?.destroy();
+  };
+
+  useEffect(() => {
+    if (isDesktop) {
+      initAnimation();
+    } else {
+      destroyAnimation();
+    }
+
+    return () => {
+      destroyAnimation();
+    };
+  }, [isDesktop]);
+
+  useEffect(() => {
+    prepareCharacterAnimation();
+  }, []);
+
   return (
     <section id={COMPONENT_NODE_IDS.heroSection} className="home-hero-section">
       <div className="home-hero-section__content container">
-        {isDesktop && <HomeHeroDecor className="home-hero-section__decor" />}
-
         <div className="home-hero-section__hero-wrapper">
           <h1 className="home-hero-section__title">
             <div className="home-hero-section__title-part">
@@ -64,6 +101,12 @@ const HomeHeroSection = () => {
           </div>
         </div>
         <div className="home-hero-section__blockchains-wrapper">
+          {isDesktop && (
+            <div className="home-hero-section__lottie-wrapper">
+              <div ref={lottieRef} className="home-hero-section__lottie" />
+            </div>
+          )}
+
           <PartnersList
             titleKey="home-hero-section.blockchains-title"
             items={supportedBlockchainsList}
