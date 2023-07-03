@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom';
 import BaseCard from '@/components/BaseCard';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 import useAppContext from '@/hooks/useAppContext';
+import useNavigation from '@/hooks/useNavigation';
 import { useCasesList } from '@/template-data';
 
 const UseCasesSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
+  const { handleNavClick } = useNavigation();
 
   return (
     <section
@@ -37,6 +39,7 @@ const UseCasesSection = () => {
           <ul className="use-cases-section__grid">
             {useCasesList.map(useCase => (
               <BaseCard
+                key={useCase.modifier}
                 className={cn([
                   'use-cases-section__case-item',
                   `use-cases-section__case-item--${useCase.modifier}`,
@@ -46,7 +49,19 @@ const UseCasesSection = () => {
                   },
                 ])}
                 tag="li"
-                key={useCase.modifier}
+                role="link"
+                tabIndex="0"
+                onClick={() => handleNavClick(useCase)}
+                onKeyDown={event => {
+                  switch (event.code) {
+                    case 'Enter':
+                      handleNavClick(useCase);
+                      return;
+
+                    default:
+                      return;
+                  }
+                }}
               >
                 <img
                   className="use-cases-section__case-item-img"

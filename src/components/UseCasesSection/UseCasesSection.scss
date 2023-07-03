@@ -88,6 +88,7 @@
     rgba(var(--col-total-white-rgb), 0%) 100%
   );
   border-radius: var(--primary-border-radius);
+  cursor: pointer;
 
   &--big {
     grid-row: span 2;
