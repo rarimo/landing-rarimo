@@ -38,9 +38,8 @@
     align-self: flex-end;
     overflow: visible;
     transform: translateX(calc(var(--container-side-padding) * -1));
-    transition: right var(--fast-transition-duration) linear,
-      padding var(--slow-transition-duration)
-        var(--slide-transition-timing-function);
+    transition: padding var(--slow-transition-duration)
+      var(--slide-transition-timing-function);
 
     .nft-checkout-page__animation-container--sticky-section & {
       padding-top: vh(10);
