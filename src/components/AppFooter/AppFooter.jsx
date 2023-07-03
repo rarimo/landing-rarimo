@@ -25,7 +25,7 @@ const AppFooter = () => {
 
   return (
     <footer className="app-footer container">
-      <div className="app-footer__content" data-aos="fade-up">
+      <div className="app-footer__content" data-aos="fade">
         <div className="app-footer__logo-wrapper">
           <Link className="app-footer__logo" to={ROUTES_PATHS.home}>
             <svg className="app-footer__logo-img" height="24" width="93">
