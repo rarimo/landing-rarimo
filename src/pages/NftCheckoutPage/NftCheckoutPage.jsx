@@ -1,6 +1,7 @@
 import './NftCheckoutPage.scss';
 
 import useResizeObserver from '@react-hook/resize-observer';
+import cn from 'classnames';
 import { throttle } from 'lodash-es';
 import lottie from 'lottie-web';
 import { useEffect, useRef } from 'react';
@@ -98,11 +99,6 @@ const NftCheckoutPage = () => {
     if (!animationRef.current) return;
 
     const currentScrollPosition = window.scrollY;
-
-    setIsStickySection(
-      currentScrollPosition > stepsSectionWrapperInitialRect.top &&
-        currentScrollPosition < stepsSectionWrapperInitialRect.bottom,
-    );
 
     const sectionScrollPercent = Math.ceil(
       ((currentScrollPosition - stepsSectionWrapperInitialRect.top) /
@@ -219,6 +215,8 @@ const NftCheckoutPage = () => {
   }, [animationStep]);
 
   useEffect(() => {
+    setIsStickySection(!heroSectionObserver?.isIntersecting);
+
     animationRef.current.setDirection(
       heroSectionObserver?.isIntersecting ? -1 : 1,
     );
@@ -228,7 +226,15 @@ const NftCheckoutPage = () => {
 
   return (
     <>
-      <div className="nft-checkout-page__animation-container">
+      <div
+        className={cn([
+          'nft-checkout-page__animation-container',
+          {
+            'nft-checkout-page__animation-container--sticky-section':
+              heroSectionObserver && !heroSectionObserver.isIntersecting,
+          },
+        ])}
+      >
         <NftCheckoutHeroSection ref={heroSectionRef} />
         <div
           ref={lottieWrapperRef}

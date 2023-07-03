@@ -26,7 +26,7 @@
   margin: 0;
 
   @include respond-above(medium) {
-    max-width: to-rem(290);
+    max-width: to-rem(320);
   }
 }
 
@@ -62,6 +62,7 @@
 .nft-checkout-steps-section__title {
   font-family: var(--secondary-font-family);
   font-size: to-rem(24);
+  text-transform: uppercase;
 
   @include respond-above(medium) {
     font-size: to-rem(48);
