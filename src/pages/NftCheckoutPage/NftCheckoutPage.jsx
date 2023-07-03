@@ -9,7 +9,7 @@ import { useIntersection, usePrevious } from 'react-use';
 import AdvantagesSection from '@/components/AdvantagesSection';
 import CommunitySection from '@/components/CommunitySection';
 import NftCheckoutHeroSection from '@/components/NftCheckoutHeroSection';
-import NftCheckoutStepsSectionCopy from '@/components/NftCheckoutStepsSectionCopy';
+import NftCheckoutStepsSection from '@/components/NftCheckoutStepsSection';
 import SubscribeSection from '@/components/SubscribeSection';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
@@ -252,7 +252,7 @@ const NftCheckoutPage = () => {
           ref={stepsSectionWrapperRef}
           className="nft-checkout-page__steps-section-wrapper"
         >
-          <NftCheckoutStepsSectionCopy
+          <NftCheckoutStepsSection
             ref={stepsSectionRef}
             animationStep={animationStep}
           />
