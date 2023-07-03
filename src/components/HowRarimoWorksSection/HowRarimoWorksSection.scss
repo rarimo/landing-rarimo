@@ -35,7 +35,7 @@
     position: sticky;
     z-index: var(--z-lottie-wrapper);
     display: block;
-    bottom: 18vh;
+    bottom: vh(18);
     margin-left: auto;
     width: 38%;
     transform: translateX(15%);
@@ -82,14 +82,14 @@
 
   &:nth-child(2) {
     z-index: var(--z-card-middle);
-    bottom: 7vh;
+    bottom: vh(7);
     opacity: 0.95;
     transform: scale(0.95);
   }
 
   &:nth-child(3) {
     z-index: var(--z-card-bottom);
-    bottom: 3vh;
+    bottom: vh(3);
     opacity: 0.9;
     transform: scale(0.9);
   }
@@ -106,7 +106,7 @@
   text-transform: uppercase;
 
   @include respond-above(medium) {
-    margin-bottom: max(6vh, to-rem(50));
+    margin-bottom: max(vh(6), to-rem(50));
   }
 }
 
@@ -119,7 +119,7 @@
 
   .how-rarimo-works-section__card--protocol & {
     @include respond-above(medium) {
-      margin-bottom: max(5.5vh, to-rem(40));
+      margin-bottom: max(vh(5.5), to-rem(40));
     }
   }
 }
@@ -128,7 +128,7 @@
   margin-bottom: to-rem(72);
 
   @include respond-above(medium) {
-    margin-bottom: max(6vh, to-rem(50));
+    margin-bottom: max(vh(6), to-rem(50));
     font-size: to-rem(16);
     letter-spacing: 0.02em;
   }
@@ -140,7 +140,7 @@
   .how-rarimo-works-section__card--protocol & {
     @include respond-above(medium) {
       max-width: to-rem(480);
-      margin-bottom: max(8vh, to-rem(60));
+      margin-bottom: max(vh(8), to-rem(60));
     }
   }
 }
@@ -160,8 +160,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: max(1.5vh, to-rem(10));
-  padding-bottom: max(1.5vh, to-rem(10));
+  margin-bottom: max(vh(1.5), to-rem(10));
+  padding-bottom: max(vh(1.5), to-rem(10));
   border-bottom: to-rem(1) solid var(--primary-border-color);
   text-transform: capitalize;
 
@@ -181,7 +181,7 @@
   @include respond-above(medium) {
     width: 100%;
     order: -1;
-    margin-bottom: max(1.5vh, to-rem(10));
+    margin-bottom: max(vh(1.5), to-rem(10));
   }
 }
 
@@ -191,7 +191,7 @@
   margin-bottom: to-rem(40);
 
   @include respond-above(medium) {
-    margin-bottom: max(8vh, to-rem(60));
+    margin-bottom: max(vh(8), to-rem(60));
   }
 }
 
@@ -228,7 +228,7 @@
   position: relative;
 
   &:not(:last-child) {
-    margin-bottom: max(2vh, to-rem(16));
+    margin-bottom: max(vh(2), to-rem(16));
   }
 
   &::before {
