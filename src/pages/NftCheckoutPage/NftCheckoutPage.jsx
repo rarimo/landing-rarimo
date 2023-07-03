@@ -59,11 +59,15 @@ const NftCheckoutPage = () => {
     threshold: 0.15,
   });
 
-  useResizeObserver(document.documentElement, () => {
+  const placeLottieWrapperOnContainer = () => {
     const sectionWidth = stepsSectionRef.current.getBoundingClientRect().width;
     const right = (screen.availWidth - sectionWidth) / 2;
 
     lottieWrapperRef.current.style.right = `${right}px`;
+  };
+
+  useResizeObserver(document.documentElement, () => {
+    placeLottieWrapperOnContainer();
   });
 
   const initAnimation = () => {
@@ -223,6 +227,10 @@ const NftCheckoutPage = () => {
 
     animationRef.current?.play();
   }, [heroSectionObserver?.isIntersecting]);
+
+  useEffect(() => {
+    placeLottieWrapperOnContainer();
+  }, []);
 
   return (
     <>
