@@ -1,12 +1,13 @@
 .nft-checkout-steps-section {
   border: 1px solid green;
-  position: relative;
+  position: sticky;
+  top: 0;
   height: vh(100);
   display: flex;
   align-items: flex-end;
   justify-content: center;
   padding-top: 0;
-  padding-bottom: to-rem(80);
+  padding-bottom: to-rem(50);
   text-align: center;
   transition: padding-top 0.8s var(--slide-transition-timing-function);
 
@@ -52,13 +53,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    /* stylelint-disable-next-line declaration-no-important */
-    // transform: translate(2%, -26%) scale(3.4) !important;
-
-    @include respond-above(medium) {
-      /* stylelint-disable-next-line declaration-no-important */
-      // transform: translate(20%, -20%) scale(1.8) !important;
-    }
   }
 }
 

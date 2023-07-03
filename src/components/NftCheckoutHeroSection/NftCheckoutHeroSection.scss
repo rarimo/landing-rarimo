@@ -9,31 +9,36 @@
 }
 
 .nft-checkout-hero-section__content {
-  max-width: to-rem(360);
+  max-width: to-rem(380);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: to-rem(95);
-  padding-bottom: to-rem(30);
+  padding-top: to-rem(108);
+  padding-bottom: to-rem(60);
   text-align: center;
 
   @include respond-above(medium) {
     max-width: var(--container-max-width);
     align-items: flex-start;
-    padding-top: to-rem(226);
-    padding-bottom: to-rem(140);
+    padding-top: max(vh(22), to-rem(160));
+    padding-bottom: max(vh(11), to-rem(80));
     text-align: left;
   }
 }
 
 .nft-checkout-hero-section__title {
-  margin-bottom: to-rem(24);
+  margin-bottom: to-rem(16);
+  font-size: to-rem(50);
   overflow: hidden;
   white-space: break-spaces;
   text-transform: uppercase;
 
+  @include respond-above(small) {
+    font-size: var(--h1-size);
+  }
+
   @include respond-above(medium) {
-    margin-bottom: to-rem(32);
+    margin-bottom: max(vh(3), to-rem(24));
     font-size: to-rem(68);
   }
 
@@ -47,13 +52,13 @@
 }
 
 .nft-checkout-hero-section__description {
-  margin-bottom: to-rem(40);
+  margin-bottom: to-rem(32);
   font-size: to-rem(16);
-  letter-spacing: 0.02em;
 
   @include respond-above(medium) {
     max-width: to-rem(400);
-    margin-bottom: to-rem(48);
+    margin-bottom: max(vh(10), to-rem(76));
+    letter-spacing: 0.02em;
   }
 
   @include respond-above(xmedium) {
@@ -78,7 +83,7 @@
 }
 
 .nft-checkout-hero-section__link {
-  &.nft-checkout-hero-section {
+  &.nft-checkout-hero-section__link {
     @include respond-to(medium) {
       max-width: unset;
     }
@@ -100,36 +105,4 @@
 
 .nft-checkout-hero-section__blockchains {
   margin-bottom: to-rem(40);
-}
-
-.nft-checkout-hero-section__square-one {
-  position: absolute;
-  top: 21.5%;
-  right: 10%;
-  width: to-rem(133);
-  height: to-rem(68);
-  background-color: var(--col-sagittarius-amber);
-  transition: transform var(--fast-transition-duration) linear;
-  will-change: transform;
-  pointer-events: none;
-
-  @include respond-to(medium) {
-    display: none;
-  }
-}
-
-.nft-checkout-hero-section__square-two {
-  position: absolute;
-  top: 45%;
-  right: calc(var(--container-side-padding) - 3.5%);
-  height: to-rem(66);
-  width: to-rem(66);
-  background-color: var(--col-primary-accent-main);
-  transition: transform var(--fast-transition-duration) linear;
-  will-change: transform;
-  pointer-events: none;
-
-  @include respond-to(medium) {
-    display: none;
-  }
 }

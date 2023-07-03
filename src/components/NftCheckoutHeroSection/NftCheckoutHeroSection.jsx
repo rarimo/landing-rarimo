@@ -1,7 +1,6 @@
 import './NftCheckoutHeroSection.scss';
 
-import { throttle } from 'lodash-es';
-import { useEffect, useRef } from 'react';
+import { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
@@ -9,82 +8,15 @@ import PartnersList from '@/components/PartnersList';
 import SpotlightBg from '@/components/SpotlightBg';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS } from '@/const';
-import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
 
-let onScroll;
-let sectionRect;
-
-const NftCheckoutHeroSection = () => {
+const NftCheckoutHeroSection = forwardRef((_, ref) => {
   const { t } = useTranslation();
-  const { isDesktop } = useAppContext();
-
-  const squareOne = useRef(null);
-  const squareTwo = useRef(null);
-  const sectionRef = useRef(null);
-  const lastScrollPositionRef = useRef(0);
-
-  let translateY = 0;
-  let opacity = 100;
-
-  const squareParallax = () => {
-    if (!squareOne.current || !squareTwo.current) return;
-
-    const currentScrollPosition = window.scrollY;
-
-    if (currentScrollPosition > sectionRect.height / 2) {
-      translateY =
-        translateY > 0
-          ? translateY - (currentScrollPosition - lastScrollPositionRef.current)
-          : 0;
-      opacity =
-        currentScrollPosition - lastScrollPositionRef.current > 0
-          ? opacity - 1
-          : opacity + 1;
-    } else {
-      translateY =
-        translateY >= 0
-          ? translateY + (currentScrollPosition - lastScrollPositionRef.current)
-          : 0;
-      opacity = 100;
-    }
-
-    lastScrollPositionRef.current = currentScrollPosition;
-
-    squareOne.current.style.transform = `translateY(${translateY}px)`;
-    squareTwo.current.style.transform = `translateY(${translateY}px)`;
-    squareOne.current.style.opacity = `${opacity}%`;
-    squareTwo.current.style.opacity = `${opacity}%`;
-  };
-
-  useEffect(() => {
-    const removeListeners = () => {
-      window.removeEventListener('scroll', onScroll, { passive: true });
-      onScroll = null;
-    };
-
-    if (isDesktop) {
-      sectionRect = sectionRef.current.getBoundingClientRect();
-
-      onScroll = throttle(squareParallax, 15);
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      return;
-    }
-
-    if (!isDesktop) {
-      removeListeners();
-    }
-
-    return () => {
-      removeListeners();
-    };
-  }, [isDesktop]);
 
   return (
     <section
       id={COMPONENT_NODE_IDS.heroSection}
-      ref={sectionRef}
+      ref={ref}
       className="nft-checkout-hero-section"
     >
       <div className="nft-checkout-hero-section__content container">
@@ -136,22 +68,10 @@ const NftCheckoutHeroSection = () => {
           alt=""
           data-aos="fade-up"
         />
-        {isDesktop && (
-          <>
-            <div
-              ref={squareOne}
-              className="nft-checkout-hero-section__square-one"
-            />
-            <div
-              ref={squareTwo}
-              className="nft-checkout-hero-section__square-two"
-            />
-          </>
-        )}
       </div>
       <SpotlightBg />
     </section>
   );
-};
+});
 
 export default NftCheckoutHeroSection;
