@@ -4,7 +4,7 @@ import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS } from '@/const';
 import { AppContextProvider, RouteLocationProvider } from '@/context';
 import useViewportSizes from '@/hooks/useViewportSizes';
-import { defineDesktopFontSizes, hideLoader } from '@/js';
+import { defineDesktopFontSizes, hideLoader, initAOS } from '@/js';
 import AppRoutes from '@/router/routes';
 
 const App = () => {
@@ -14,6 +14,7 @@ const App = () => {
     setTimeout(() => {
       hideLoader();
       defineDesktopFontSizes();
+      initAOS();
     }, CONFIG.initLoaderDelay);
   };
 
