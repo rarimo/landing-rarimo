@@ -23,9 +23,8 @@
     "telegram": "Telegram"
   },
   "navigation": {
-    "home": "Home",
     "use-cases": "Use Cases",
-    "community": "Community",
+    "documentation": "Documentation",
     "support": "Support"
   },
   "home-hero-section": {
