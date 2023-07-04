@@ -26,7 +26,7 @@ const NftCheckoutHeroSection = forwardRef((_, ref) => {
     >
       <div className="nft-checkout-hero-section__content container">
         <h1 className="nft-checkout-hero-section__title">
-          <span className="js-character-animation">
+          <span>
             {t('nft-checkout-hero-section.title')}
           </span>
         </h1>
