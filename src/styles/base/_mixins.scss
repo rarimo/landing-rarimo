@@ -55,6 +55,10 @@
     left: calc(var(--bg-rect-border-size) * -1);
     background-image: url('/img/bg/noise.png');
 
+    @supports (background-image: url('/img/bg/noise.webp')) {
+      background-image: url('/img/bg/noise.webp');
+    }
+
     @if $bg-color == var(--primary-bg-color) {
       // filter: invert(0.2) opacity(0.6);
     } @else {
