@@ -6,7 +6,7 @@ body::after {
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url('/img/bg/noise.png');
+  content: url('/img/bg/noise.png') url('/img/bg/noise.webp');
 }
 
 .body--no-after::after {
