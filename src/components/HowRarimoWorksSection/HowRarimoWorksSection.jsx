@@ -20,9 +20,9 @@ const fillFramesRange = startFrame => {
 
 const STEP_FRAMES = [
   fillFramesRange(1),
-  fillFramesRange(36),
-  fillFramesRange(100),
-  fillFramesRange(160),
+  fillFramesRange(40),
+  fillFramesRange(120),
+  fillFramesRange(212),
 ];
 
 const MUTABLE_SCALE_VALUE = 0.05;
