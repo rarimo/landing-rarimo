@@ -60,7 +60,8 @@
   @include respond-to(medium) {
     margin-bottom: max(vh(3), to-rem(24));
     font-size: to-rem(14);
-    font-weight: 500;
+    font-family: var(--secondary-font-family) ;
+    font-weight: 700;
   }
 
   @include respond-above(medium) {
