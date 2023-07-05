@@ -42,7 +42,7 @@
   "how-rarimo-works-section": {
     "main": {
       "subtitle": "How Rarimo works?",
-      "title": "Modular Architecture Accelerates Development of Interoperable dApps And Identities",
+      "title": "Interoperability for Identity and Social Components Across Multiple Networks",
       "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts",
       "easy-solutions-title": "Easy: Single-click solutions",
       "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
