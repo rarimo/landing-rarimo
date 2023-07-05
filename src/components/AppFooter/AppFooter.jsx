@@ -1,6 +1,6 @@
 import './AppFooter.scss';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -16,9 +16,6 @@ const AppFooter = () => {
   const { displayLocation } = useRouteLocation();
   const { handleNavClick } = useNavigation();
 
-  // Exclude home page link
-  const navList = useMemo(() => navigation.filter((_, index) => index), []);
-
   const onScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -32,9 +29,6 @@ const AppFooter = () => {
               <use href="/icons/sprite.svg#icon-app-logo"></use>
             </svg>
           </Link>
-          <p className="app-footer__description">
-            {t('app-footer.description')}
-          </p>
           <span>&copy; {new Date().getFullYear()}</span>
         </div>
         <ul className="app-footer__links-list">
@@ -42,7 +36,7 @@ const AppFooter = () => {
             <li className="app-footer__list-title">
               {t('app-footer.nav-title')}
             </li>
-            {navList.map(
+            {navigation.map(
               (link, index) =>
                 (!link.includeRoutes ||
                   link.includeRoutes?.includes(displayLocation.pathname)) && (
