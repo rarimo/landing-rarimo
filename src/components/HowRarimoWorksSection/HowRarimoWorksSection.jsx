@@ -255,7 +255,7 @@ const HowRarimoWorksSection = () => {
                       </svg>
                     </div>
                   </h6>
-                  <p>{t(item.textKey)}</p>
+                  <p className="how-rarimo-works-section__list-item-description">{t(item.textKey)}</p>
                 </li>
               ))}
             </ul>
