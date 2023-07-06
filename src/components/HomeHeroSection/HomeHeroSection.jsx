@@ -9,7 +9,6 @@ import PartnersList from '@/components/PartnersList';
 import SpotlightBg from '@/components/SpotlightBg';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
-import { prepareCharacterAnimation } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
 
@@ -51,10 +50,6 @@ const HomeHeroSection = () => {
       destroyAnimation();
     };
   }, [isDesktop]);
-
-  useEffect(() => {
-    prepareCharacterAnimation();
-  }, []);
 
   return (
     <section id={COMPONENT_NODE_IDS.heroSection} className="home-hero-section">

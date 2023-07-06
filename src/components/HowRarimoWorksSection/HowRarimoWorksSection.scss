@@ -179,7 +179,7 @@
   display: none;
 
   @include respond-above(medium) {
-    display: inherit;
+    display: block;
   }
 }
 

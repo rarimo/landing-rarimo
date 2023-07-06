@@ -8,15 +8,10 @@ import PartnersList from '@/components/PartnersList';
 import SpotlightBg from '@/components/SpotlightBg';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS } from '@/const';
-import { prepareCharacterAnimation } from '@/helpers';
 import { supportedBlockchainsList } from '@/template-data';
 
 const NftCheckoutHeroSection = forwardRef((_, ref) => {
   const { t } = useTranslation();
-
-  useEffect(() => {
-    prepareCharacterAnimation();
-  }, []);
 
   return (
     <section
@@ -26,9 +21,7 @@ const NftCheckoutHeroSection = forwardRef((_, ref) => {
     >
       <div className="nft-checkout-hero-section__content container">
         <h1 className="nft-checkout-hero-section__title">
-          <span>
-            {t('nft-checkout-hero-section.title')}
-          </span>
+          <span>{t('nft-checkout-hero-section.title')}</span>
         </h1>
         <p
           className="nft-checkout-hero-section__description"
