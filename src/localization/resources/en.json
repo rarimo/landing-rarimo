@@ -101,10 +101,10 @@
   "news-section": {
     "title": "Latest news",
     "view-all-link": "View All",
-    "first-title": "Rarimo: making multi-chain transactions user-friendly",
+    "first-title": "Purchase NFT on one network, Pay on another",
     "second-title": "What is Interoperability, and why is it so important?",
-    "third-title": "Rarimo Whitepaper",
-    "fourth-title": "Decentralized Identity Use Cases"
+    "third-title": "VeradiVerdict - Introduction to Rarimo",
+    "fourth-title": "Self-sovereign identities (SSI) and blockchain"
   },
   "subscribe-section": {
     "title": "Subscribe to our newsletter",

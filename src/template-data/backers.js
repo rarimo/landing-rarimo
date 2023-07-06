@@ -18,7 +18,6 @@ export const backersList = [
     image: '/img/backers/pantera.webp',
     width: 78,
     height: 23,
-    isIncreased: true,
   },
   {
     image: '/img/backers/hyper.png',
