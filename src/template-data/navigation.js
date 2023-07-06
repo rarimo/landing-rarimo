@@ -15,7 +15,7 @@ export const navigation = [
   },
   {
     textKey: 'navigation.support',
-    path: CONFIG.supportMailLink,
-    external: true,
+    path: COMPONENT_NODE_IDS.communitySection,
+    hash: true,
   },
 ];
