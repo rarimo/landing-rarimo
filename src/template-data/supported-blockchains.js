@@ -4,12 +4,12 @@ export const supportedBlockchainsList = [
     text: 'Ethereum',
   },
   {
-    icon: '/icons/sprite.svg#icon-solana',
-    text: 'Solana',
-  },
-  {
     icon: '/icons/sprite.svg#icon-binance',
     text: 'Binance',
+  },
+  {
+    icon: '/icons/sprite.svg#icon-solana',
+    text: 'Solana',
   },
   {
     icon: '/icons/sprite.svg#icon-near',

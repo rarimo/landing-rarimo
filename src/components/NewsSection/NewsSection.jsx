@@ -40,20 +40,22 @@ const NewsSection = () => {
           <swiper-slide class="news-section__item" data-aos="fade-up">
             <a
               className="news-section__item-link"
-              href="https://rarimo.medium.com/rarimo-making-multi-chain-transactions-user-friendly-4b3a52c20df"
+              href="https://cointelegraph.com/news/nft-marketplace-enables-cross-chain-purchases-on-multiple-networks"
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
-              <div className="news-section__img-wrapper">
+              <div className="news-section__content-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/ux-improvements-black.png"
+                  src="/img/news-section/news-bg.webp"
                   alt=""
                 />
+                <div className="news-section__item-title-wrapper">
+                  <h5 className="news-section__item-title">
+                    {t('news-section.first-title')}
+                  </h5>
+                </div>
               </div>
-              <h6 className="news-section__item-title">
-                {t('news-section.first-title')}
-              </h6>
             </a>
           </swiper-slide>
           <swiper-slide
@@ -67,16 +69,18 @@ const NewsSection = () => {
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
-              <div className="news-section__img-wrapper">
+              <div className="news-section__content-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/interoperability-black.png"
+                  src="/img/news-section/news-bg.webp"
                   alt=""
                 />
+                <div className="news-section__item-title-wrapper">
+                  <h6 className="news-section__item-title">
+                    {t('news-section.second-title')}
+                  </h6>
+                </div>
               </div>
-              <h6 className="news-section__item-title">
-                {t('news-section.second-title')}
-              </h6>
             </a>
           </swiper-slide>
           <swiper-slide
@@ -86,20 +90,22 @@ const NewsSection = () => {
           >
             <a
               className="news-section__item-link"
-              href={CONFIG.whitepaperLink}
+              href="https://www.veradiverdict.com/p/rarimoo"
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
-              <div className="news-section__img-wrapper">
+              <div className="news-section__content-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/branding-colors-black.png"
+                  src="/img/news-section/news-bg.webp"
                   alt=""
                 />
+                <div className="news-section__item-title-wrapper">
+                  <h6 className="news-section__item-title">
+                    {t('news-section.third-title')}
+                  </h6>
+                </div>
               </div>
-              <h6 className="news-section__item-title">
-                {t('news-section.third-title')}
-              </h6>
             </a>
           </swiper-slide>
           <swiper-slide
@@ -109,20 +115,22 @@ const NewsSection = () => {
           >
             <a
               className="news-section__item-link"
-              href="https://rarimo.notion.site/Cross-Chain-Use-Cases-0c0a1d855fd14b26b63ce9326d143015"
+              href="https://rarimo.notion.site/Self-sovereign-identities-SSI-982f1b0989774289af73d54b8a76e426"
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
-              <div className="news-section__img-wrapper">
+              <div className="news-section__content-wrapper">
                 <img
                   className="news-section__img"
-                  src="/img/news-section/identity-black.png"
+                  src="/img/news-section/news-bg.webp"
                   alt=""
                 />
+                <div className="news-section__item-title-wrapper">
+                  <h6 className="news-section__item-title">
+                    {t('news-section.fourth-title')}
+                  </h6>
+                </div>
               </div>
-              <h6 className="news-section__item-title">
-                {t('news-section.fourth-title')}
-              </h6>
             </a>
           </swiper-slide>
         </swiper-container>
