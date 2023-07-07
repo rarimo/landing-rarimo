@@ -3,6 +3,7 @@ import './NewsSection.scss';
 import { useTranslation } from 'react-i18next';
 
 import { CONFIG } from '@/config';
+import { newsList } from '@/template-data';
 
 const NewsSection = () => {
   const { t } = useTranslation();
@@ -37,102 +38,33 @@ const NewsSection = () => {
           a11y-container-role-description-message="Last news list"
           a11y-item-role-description-message="Actual news"
         >
-          <swiper-slide class="news-section__item" data-aos="fade-up">
-            <a
-              className="news-section__item-link"
-              href="https://cointelegraph.com/news/nft-marketplace-enables-cross-chain-purchases-on-multiple-networks"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
+          {newsList.map((item, index) => (
+            <swiper-slide
+              class="news-section__item"
+              data-aos="fade-up"
+              key={index}
             >
-              <div className="news-section__content-wrapper">
-                <img
-                  className="news-section__img"
-                  src="/img/news-section/news-bg.webp"
-                  alt=""
-                />
-                <div className="news-section__item-title-wrapper">
-                  <h5 className="news-section__item-title">
-                    {t('news-section.first-title')}
-                  </h5>
+              <a
+                className="news-section__item-link"
+                href={item.link}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+              >
+                <div className="news-section__content-wrapper">
+                  <img
+                    className="news-section__img"
+                    src="/img/news-section/news-bg.webp"
+                    alt=""
+                  />
+                  <div className="news-section__item-title-wrapper">
+                    <h5 className="news-section__item-title">
+                      {t(item.textKey)}
+                    </h5>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </swiper-slide>
-          <swiper-slide
-            class="news-section__item"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <a
-              className="news-section__item-link"
-              href="https://rarimo.medium.com/what-is-interoperability-and-why-is-it-so-important-6b421bdaab09"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              <div className="news-section__content-wrapper">
-                <img
-                  className="news-section__img"
-                  src="/img/news-section/news-bg.webp"
-                  alt=""
-                />
-                <div className="news-section__item-title-wrapper">
-                  <h6 className="news-section__item-title">
-                    {t('news-section.second-title')}
-                  </h6>
-                </div>
-              </div>
-            </a>
-          </swiper-slide>
-          <swiper-slide
-            class="news-section__item"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <a
-              className="news-section__item-link"
-              href="https://www.veradiverdict.com/p/rarimoo"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              <div className="news-section__content-wrapper">
-                <img
-                  className="news-section__img"
-                  src="/img/news-section/news-bg.webp"
-                  alt=""
-                />
-                <div className="news-section__item-title-wrapper">
-                  <h6 className="news-section__item-title">
-                    {t('news-section.third-title')}
-                  </h6>
-                </div>
-              </div>
-            </a>
-          </swiper-slide>
-          <swiper-slide
-            class="news-section__item"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <a
-              className="news-section__item-link"
-              href="https://rarimo.notion.site/Self-sovereign-identities-SSI-982f1b0989774289af73d54b8a76e426"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              <div className="news-section__content-wrapper">
-                <img
-                  className="news-section__img"
-                  src="/img/news-section/news-bg.webp"
-                  alt=""
-                />
-                <div className="news-section__item-title-wrapper">
-                  <h6 className="news-section__item-title">
-                    {t('news-section.fourth-title')}
-                  </h6>
-                </div>
-              </div>
-            </a>
-          </swiper-slide>
+              </a>
+            </swiper-slide>
+          ))}
         </swiper-container>
       </div>
     </section>
