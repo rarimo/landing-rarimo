@@ -1,6 +1,6 @@
 import './NftCheckoutHeroSection.scss';
 
-import { forwardRef, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
@@ -11,7 +11,7 @@ import { COMPONENT_NODE_IDS } from '@/const';
 import { prepareCharacterAnimation } from '@/helpers';
 import { supportedBlockchainsList } from '@/template-data';
 
-const NftCheckoutHeroSection = forwardRef((_, ref) => {
+const NftCheckoutHeroSection = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -21,7 +21,6 @@ const NftCheckoutHeroSection = forwardRef((_, ref) => {
   return (
     <section
       id={COMPONENT_NODE_IDS.heroSection}
-      ref={ref}
       className="nft-checkout-hero-section"
     >
       <div className="nft-checkout-hero-section__content container">
@@ -77,6 +76,6 @@ const NftCheckoutHeroSection = forwardRef((_, ref) => {
       <SpotlightBg />
     </section>
   );
-});
+};
 
-export default NftCheckoutHeroSection;
+export default memo(NftCheckoutHeroSection);

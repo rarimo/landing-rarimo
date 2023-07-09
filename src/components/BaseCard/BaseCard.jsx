@@ -1,7 +1,7 @@
 import './BaseCard.scss';
 
 import cn from 'classnames';
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
 const BaseCard = forwardRef(
   (
@@ -32,4 +32,4 @@ const BaseCard = forwardRef(
   },
 );
 
-export default BaseCard;
+export default memo(BaseCard);

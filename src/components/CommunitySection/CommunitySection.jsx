@@ -1,6 +1,7 @@
 import './CommunitySection.scss';
 
 import cn from 'classnames';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
@@ -107,4 +108,4 @@ const CommunitySection = () => {
   );
 };
 
-export default CommunitySection;
+export default memo(CommunitySection);
