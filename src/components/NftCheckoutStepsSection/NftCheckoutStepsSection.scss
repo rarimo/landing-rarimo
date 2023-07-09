@@ -1,38 +1,109 @@
 .nft-checkout-steps-section {
+  height: vh(400);
+  margin-top: calc(var(--nft-checkout-lottie-wrapper-height) * -1);
+
+  @include respond-above(medium) {
+    margin-top: 0;
+  }
+}
+
+.nft-checkout-steps-section__lottie-wrapper {
+  position: sticky;
+  z-index: var(--z-lottie-animation);
+  top: 0;
+  right: 0;
+  height: var(--nft-checkout-lottie-wrapper-height);
+  width: 100%;
+  max-width: to-rem(360);
+  align-self: center;
+  padding-top: vh(6);
+  overflow: hidden;
+  pointer-events: none;
+
+  @include respond-above(medium) {
+    width: calc(var(--container-max-width) * 0.65);
+    max-width: unset;
+    margin-top: calc(var(--nft-checkout-lottie-wrapper-height) * -1);
+    padding-top: vh(18);
+    align-self: flex-end;
+    overflow: visible;
+    transform: translateX(calc(var(--container-side-padding) * -1));
+    transition: padding var(--slow-transition-duration)
+      var(--slide-transition-timing-function);
+
+    &--sticky {
+      padding-top: vh(10);
+    }
+  }
+
+  @include respond-above(large) {
+    width: calc(var(--container-max-width) * 0.6);
+  }
+}
+
+.nft-checkout-steps-section__lottie {
+  display: flex;
+  transform: scale(1.72);
+  transform-origin: top right;
+
+  @include respond-above(medium) {
+    transform: none;
+  }
+}
+
+.nft-checkout-steps-section__parallax-square {
+  position: absolute;
+  z-index: var(--z-hidden);
+  transition-property: transform, opacity;
+  transition-duration: var(--fast-transition-duration);
+  transition-timing-function: linear;
+  will-change: transform, opacity;
+  pointer-events: none;
+
+  @include respond-to(medium) {
+    display: none;
+  }
+
+  &--first {
+    top: 14%;
+    right: 8%;
+    width: to-rem(133);
+    height: to-rem(68);
+    background-color: var(--col-sagittarius-amber);
+  }
+
+  &--second {
+    top: 40%;
+    right: -5%;
+    height: to-rem(66);
+    width: to-rem(66);
+    background-color: var(--col-primary-accent-main);
+  }
+}
+
+.nft-checkout-steps-section__swiper-container {
   position: sticky;
   top: 0;
+  width: 100%;
   height: vh(100);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
   padding-bottom: to-rem(50);
   text-align: center;
 
   @include respond-above(medium) {
-    justify-content: flex-start;
     padding-bottom: to-rem(150);
     text-align: left;
   }
 }
 
-.nft-checkout-steps-section__content {
+.nft-checkout-steps-section__slide {
   width: 100%;
   display: flex;
-  align-items: flex-end;
-}
-
-.nft-checkout-steps-section__list {
-  width: 100%;
-  margin: 0;
+  flex-direction: column;
+  justify-content: flex-end;
 
   @include respond-above(medium) {
     max-width: to-rem(320);
   }
-}
-
-.nft-checkout-steps-section__item {
-  display: flex;
-  flex-direction: column;
 
   &:not(.swiper-slide-active) {
     /* stylelint-disable-next-line declaration-no-important */

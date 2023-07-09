@@ -7,28 +7,17 @@ import { useIntersection } from 'react-use';
 
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
+import { TOUCH_EVENTS } from '@/const';
+import { fillFramesRange } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-const fillFramesRange = startFrame => {
-  return Array(2)
-    .fill(null)
-    .map((_, i) => startFrame + i);
-};
-
 const STEP_FRAMES = [
-  // fillFramesRange(0),
   fillFramesRange(40),
   fillFramesRange(120),
   fillFramesRange(212),
 ];
-
-const TOUCH_EVENTS = {
-  touchstart: 'touchstart',
-  touchmove: 'touchmove',
-  touchend: 'touchend',
-};
 
 // const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
@@ -88,8 +77,6 @@ const HowRarimoWorksSection = () => {
   }, []);
 
   const wheelHandler = useCallback(event => {
-    // if (!isStickySectionRef.current) return;
-
     event.preventDefault();
 
     if (!isStickySectionRef.current || isAnimationInProgressRef.current) return;
@@ -158,10 +145,11 @@ const HowRarimoWorksSection = () => {
     window.removeEventListener(TOUCH_EVENTS.touchend, touchHandler, {
       passive: false,
     });
-    // window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+    // window.removeEventListener('keydown',
+    // preventDefaultForScrollKeys, false);
   }, []);
 
-  const initAnimation = () => {
+  const initAnimation = useCallback(() => {
     if (animationRef.current) {
       destroyAnimation();
     }
@@ -194,7 +182,7 @@ const HowRarimoWorksSection = () => {
       animationRef.current.pause();
       setIsAnimationInProgress(false);
     });
-  };
+  }, []);
 
   const destroyAnimation = () => {
     animationRef.current?.destroy();
@@ -207,7 +195,6 @@ const HowRarimoWorksSection = () => {
       longSwipes: false,
       allowTouchMove: false,
       grabCursor: false,
-      // simulateTouch: false,
       resistance: false,
       speed: 1500,
       effect: 'creative',
@@ -270,7 +257,7 @@ const HowRarimoWorksSection = () => {
         animationRef.current?.play();
 
         window.scrollTo({
-          top: sectionRef.current.offsetTop,
+          top: sectionRef.current.offsetTop + 200,
           behavior: 'smooth',
         });
       } else {
@@ -292,8 +279,10 @@ const HowRarimoWorksSection = () => {
         animationRef.current?.play();
       }
 
-      setIsStickySection(false);
-      enableScroll();
+      setTimeout(() => {
+        setIsStickySection(false);
+        enableScroll();
+      }, 200);
     }
   }, [Boolean(sectionObserver?.isIntersecting)]);
 
