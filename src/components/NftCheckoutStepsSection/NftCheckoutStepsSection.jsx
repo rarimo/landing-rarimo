@@ -8,6 +8,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
+import { CONFIG } from '@/config';
 import { TOUCH_EVENTS } from '@/const';
 import { fillFramesRange, getIsInertialScrolling } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
@@ -29,7 +30,7 @@ let onSquareParallax;
 
 const NftCheckoutStepsSection = () => {
   const { t } = useTranslation();
-  const { isDesktop } = useAppContext();
+  const { isDesktop, needSkipAnimationRef } = useAppContext();
 
   const sectionRef = useRef(null);
   const swiperRef = useRef(null);
@@ -258,7 +259,7 @@ const NftCheckoutStepsSection = () => {
   }, [isDesktop]);
 
   useEffect(() => {
-    if (!sectionObserver) return;
+    if (!sectionObserver || needSkipAnimationRef.current) return;
 
     if (sectionObserver.isIntersecting) {
       if (sectionObserver.boundingClientRect.top > 0) {
@@ -281,7 +282,7 @@ const NftCheckoutStepsSection = () => {
       setTimeout(() => {
         setIsStickySection(true);
         disableScroll();
-      }, 200);
+      }, CONFIG.htmlScrollingTime);
       return;
     }
 
