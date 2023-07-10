@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import AppButton from '@/components/AppButton';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
+import useAppContext from '@/hooks/useAppContext';
 import useNavigation from '@/hooks/useNavigation';
 import useRouteLocation from '@/hooks/useRouteLocation';
 import { navigation } from '@/template-data';
@@ -14,9 +15,14 @@ const AppFooter = () => {
   const { t } = useTranslation();
   const { displayLocation } = useRouteLocation();
   const { handleNavClick } = useNavigation();
+  const { setNeedSkipAnimation } = useAppContext();
 
   const onScrollToTop = () => {
+    setNeedSkipAnimation(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      setNeedSkipAnimation(false);
+    }, CONFIG.htmlScrollingTime);
   };
 
   return (

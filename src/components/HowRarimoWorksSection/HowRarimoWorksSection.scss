@@ -17,21 +17,7 @@
 }
 
 .how-rarimo-works-section__content {
-  // position: relative;
   height: vh(300);
-  // border: 2px solid green;
-
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
-  //   background-image: linear-gradient(to bottom, blue 2px, transparent 2px);
-  //   background-size: 100% 28%;
-  //   background-repeat: repeat;
-  // }
 
   @include respond-to(medium) {
     padding: 0;
@@ -51,6 +37,7 @@
   overflow: visible;
 }
 
+/* stylelint-disable declaration-no-important */
 .how-rarimo-works-section__slide {
   z-index: var(--z-card-top) !important;
   overflow: visible !important;
@@ -63,6 +50,7 @@
     z-index: var(--z-card-bottom) !important;
   }
 }
+/* stylelint-enable declaration-no-important */
 
 .how-rarimo-works-section__lottie-wrapper {
   display: none;

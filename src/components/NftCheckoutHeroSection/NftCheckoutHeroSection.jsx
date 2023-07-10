@@ -1,6 +1,6 @@
 import './NftCheckoutHeroSection.scss';
 
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
