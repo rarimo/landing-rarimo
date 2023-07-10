@@ -96,9 +96,6 @@ const UseCasesSection = () => {
             item-role-description-message="Use case"
             data-aos="fade-up"
           >
-            {/* TODO: Add pagination */}
-            {/* <div slot="container-start">
-            </div> */}
             {useCasesList.map(useCase => (
               <swiper-slide
                 class="use-cases-section__cases-swiper-slide"
