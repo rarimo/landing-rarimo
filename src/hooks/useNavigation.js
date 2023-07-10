@@ -22,7 +22,7 @@ const useNavigation = () => {
       callback?.();
       setTimeout(() => {
         setNeedSkipAnimation(false);
-      }, CONFIG.htmlScrollingTime);
+      }, CONFIG.htmlScrollingTime * 4);
       return;
     }
 
