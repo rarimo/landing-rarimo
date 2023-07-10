@@ -22,9 +22,9 @@ if (import.meta.env.MODE === 'production') {
 const root = createRoot(document.getElementById('root'));
 
 root.render(
-  // <StrictMode>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  // </StrictMode>,
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>,
 );
