@@ -11,12 +11,13 @@
 .home-hero-section__content {
   position: relative;
   padding-top: to-rem(108);
+  padding-bottom: to-rem(80);
 
   @include respond-above(medium) {
     display: flex;
     justify-content: space-between;
     padding-top: max(vh(22), to-rem(160));
-    padding-bottom: max(vh(11), to-rem(80));
+    padding-bottom: max(vh(20), to-rem(160));
   }
 }
 
@@ -56,22 +57,20 @@
   display: flex;
   order: -1;
   margin-bottom: to-rem(16);
+  font-family: var(--secondary-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
 
   @include respond-to(medium) {
-    margin-bottom: max(vh(3), to-rem(24));
     font-size: to-rem(14);
-    font-family: var(--secondary-font-family) ;
-    font-weight: 700;
   }
 
   @include respond-above(medium) {
     --divider-width: #{to-rem(48)};
 
     position: relative;
-    margin-bottom: to-rem(40);
+    margin-bottom: max(vh(3), to-rem(24));
     padding-left: calc(var(--divider-width) + #{to-rem(32)});
-    font-family: var(--secondary-font-family);
-    text-transform: uppercase;
 
     &::before {
       position: absolute;

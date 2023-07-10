@@ -31,13 +31,10 @@
     "title-part-1": "Unlocked &",
     "title-part-2": "Connected",
     "subtitle": "Decentralized social layer",
-    "description": "Interoperability protocol for cross-chain identity and asset management\n",
+    "description": "Interoperability protocol for cross-chain identity and asset management",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
     "blockchains-title": "Supported blockchains"
-  },
-  "marquee-section": {
-    "marquee": "THE NEXT CHAPTER OF INTERCONNECTED ASSETS & IDENTITIES"
   },
   "how-rarimo-works-section": {
     "main": {
