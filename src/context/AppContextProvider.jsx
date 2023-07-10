@@ -1,10 +1,12 @@
 import useResizeObserver from '@react-hook/resize-observer';
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useMemo } from 'react';
+
+import useStateRef from '@/hooks/useStateRef';
 
 export const AppContext = createContext({});
 
 export const AppContextProvider = ({ children }) => {
-  const [isDesktop, setIsDesktop] = useState(true);
+  const [isDesktop, setIsDesktop, isDesktopRef] = useStateRef(true);
 
   useResizeObserver(document.documentElement, ({ contentRect }) => {
     setIsDesktop(contentRect.width >= 1024);
@@ -13,6 +15,7 @@ export const AppContextProvider = ({ children }) => {
   const memoizedContextValue = useMemo(() => {
     return {
       isDesktop,
+      isDesktopRef,
     };
   }, [isDesktop]);
 

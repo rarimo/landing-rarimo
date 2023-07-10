@@ -1,63 +1,155 @@
 import './HowRarimoWorksSection.scss';
 
-import { throttle } from 'lodash-es';
 import lottie from 'lottie-web';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
+import { TOUCH_EVENTS } from '@/const';
+import { fillFramesRange } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-const fillFramesRange = startFrame => {
-  return Array(2)
-    .fill(null)
-    .map((_, i) => startFrame + i);
-};
-
 const STEP_FRAMES = [
-  fillFramesRange(1),
-  fillFramesRange(36),
-  fillFramesRange(100),
-  fillFramesRange(160),
+  fillFramesRange(40),
+  fillFramesRange(120),
+  fillFramesRange(212),
 ];
 
-const MUTABLE_SCALE_VALUE = 0.05;
-const DEFAULT_SECOND_CARD_SCALE = 0.95;
-const DEFAULT_THIRD_CARD_SCALE = 0.9;
-const CARD_VISIBILITY_VALUE = 0.85;
+// const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
-let onScroll;
-let firstCardInitialRect;
-let secondCardInitialRect;
-let firstCardInitialCenter;
-let secondCardInitialCenter;
+const touches = {
+  [TOUCH_EVENTS.touchstart]: { x: -1, y: -1 },
+  [TOUCH_EVENTS.touchmove]: { x: -1, y: -1 },
+};
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
 
   const sectionRef = useRef(null);
-  const firstCardRef = useRef(null);
-  const secondCardRef = useRef(null);
-  const thirdCardRef = useRef(null);
+  const swiperRef = useRef(null);
   const lottieWrapperRef = useRef(null);
   const lottieRef = useRef(null);
   const animationRef = useRef(null);
-  const lastScrollPositionRef = useRef(0);
 
+  const [, setIsStickySection, isStickySectionRef] = useStateRef(false);
+  const [, setIsAnimationInProgress, isAnimationInProgressRef] =
+    useStateRef(false);
   const [animationStep, setAnimationStep, animationStepRef] = useStateRef(0);
+  const [, setIsFirstStep, isFirstStepRef] = useStateRef(true);
+  const [, setIsLastStep, isLastStepRef] = useStateRef(false);
 
-  const firstCardObserver = useIntersection(firstCardRef, {
+  const sectionObserver = useIntersection(sectionRef, {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.8,
+    rootMargin: `-50% 0px`,
   });
 
-  const initAnimation = () => {
+  const nextSlide = useCallback(() => {
+    if (isLastStepRef.current) {
+      setIsStickySection(false);
+      window.scrollTo({
+        top: sectionRef.current?.nextSibling?.offsetTop,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
+    animationRef.current?.setDirection(1);
+    setAnimationStep(prev => prev + 1);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    if (isFirstStepRef.current) {
+      setIsStickySection(false);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
+    animationRef.current?.setDirection(-1);
+    setAnimationStep(prev => prev - 1);
+  }, []);
+
+  const wheelHandler = useCallback(event => {
+    event.preventDefault();
+
+    if (!isStickySectionRef.current || isAnimationInProgressRef.current) return;
+
+    if (event.wheelDeltaY < 0) {
+      nextSlide();
+      return;
+    }
+
+    if (event.wheelDeltaY > 0) {
+      prevSlide();
+      return;
+    }
+  }, []);
+
+  const touchHandler = useCallback(event => {
+    event.preventDefault();
+
+    if (!event?.touches) return;
+
+    const touch = event.touches[0];
+    switch (event.type) {
+      case TOUCH_EVENTS.touchstart:
+      case TOUCH_EVENTS.touchmove:
+        touches[event.type].x = touch.pageX;
+        touches[event.type].y = touch.pageY;
+        break;
+      case TOUCH_EVENTS.touchend:
+        if (touches.touchstart.y > touches.touchmove.y) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+    }
+  }, []);
+
+  // const preventDefaultForScrollKeys = useCallback(event => {
+  //   if (keys[event.keyCode]) {
+  //     preventDefault(event);
+  //     return false;
+  //   }
+  // }, []);
+
+  const disableScroll = useCallback(() => {
+    window.addEventListener('wheel', wheelHandler, { passive: false });
+    window.addEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
+      passive: false,
+    });
+    window.addEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
+      passive: false,
+    });
+    window.addEventListener(TOUCH_EVENTS.touchend, touchHandler, {
+      passive: false,
+    });
+    // window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+  }, []);
+
+  const enableScroll = useCallback(() => {
+    window.removeEventListener('wheel', wheelHandler, { passive: false });
+    window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
+      passive: false,
+    });
+    window.removeEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
+      passive: false,
+    });
+    window.removeEventListener(TOUCH_EVENTS.touchend, touchHandler, {
+      passive: false,
+    });
+    // window.removeEventListener('keydown',
+    // preventDefaultForScrollKeys, false);
+  }, []);
+
+  const initAnimation = useCallback(() => {
     if (animationRef.current) {
       destroyAnimation();
     }
@@ -73,145 +165,75 @@ const HowRarimoWorksSection = () => {
     animationRef.current = lottie.loadAnimation(params);
 
     animationRef.current.addEventListener('drawnFrame', frameEvent => {
-      const isFrameInRange = STEP_FRAMES[animationStepRef.current]?.includes(
-        Math.ceil(frameEvent.currentTime),
-      );
+      const currentFrame = Math.ceil(frameEvent.currentTime);
+      const isFrameInRange =
+        STEP_FRAMES[animationStepRef.current]?.includes(currentFrame);
 
-      if (isFrameInRange) {
+      if (
+        (isFrameInRange && isStickySectionRef.current) ||
+        currentFrame === 0
+      ) {
         animationRef.current.pause();
+        setIsAnimationInProgress(false);
       }
     });
-  };
+
+    animationRef.current.addEventListener('complete', () => {
+      animationRef.current.pause();
+      setIsAnimationInProgress(false);
+    });
+  }, []);
 
   const destroyAnimation = () => {
     animationRef.current?.destroy();
   };
 
-  const animateOnScroll = () => {
-    if (!lottieWrapperRef.current) return;
-
-    const currentScrollPosition = window.scrollY;
-
-    const isScrollDown = currentScrollPosition > lastScrollPositionRef.current;
-
-    if (isScrollDown) {
-      animationRef.current?.setDirection(1);
-    } else {
-      animationRef.current?.setDirection(-1);
-    }
-
-    lastScrollPositionRef.current = currentScrollPosition;
-
-    if (currentScrollPosition > secondCardInitialCenter) {
-      setAnimationStep(3);
-      return;
-    }
-
-    if (currentScrollPosition > firstCardInitialCenter) {
-      setAnimationStep(2);
-    }
-  };
-
-  const setLottieWrapperOpacity = () => {
-    if (!lottieWrapperRef.current) return;
-
-    const thirdCardRect = thirdCardRef.current.getBoundingClientRect();
-
-    const THRESHOLD = 100;
-
-    const thirdCardBottomScroll =
-      thirdCardRect.height - thirdCardRect.bottom + THRESHOLD;
-
-    if (thirdCardBottomScroll < 0) {
-      lottieWrapperRef.current.style.opacity = '1';
-      return;
-    }
-
-    if (thirdCardBottomScroll > THRESHOLD) {
-      lottieWrapperRef.current.style.opacity = '0';
-      return;
-    }
-
-    const opacity = thirdCardBottomScroll / 0.01;
-    lottieWrapperRef.current.style.opacity = `${opacity}`;
-  };
-
-  const transformSecondCard = () => {
-    const relativeScroll = window.scrollY - firstCardInitialRect.top;
-    if (relativeScroll < 0) return;
-
-    const previousCardScroll =
-      relativeScroll / (firstCardInitialRect.height * CARD_VISIBILITY_VALUE);
-    const cardScale =
-      previousCardScroll * MUTABLE_SCALE_VALUE + DEFAULT_SECOND_CARD_SCALE;
-
-    if (cardScale >= 1) return;
-
-    secondCardRef.current.style.transform = `scale(${cardScale})`;
-    secondCardRef.current.style.opacity = `${cardScale}`;
-  };
-
-  const transformThirdCard = () => {
-    const relativeScroll = window.scrollY - secondCardInitialRect.top;
-    if (relativeScroll < 0) return;
-
-    const previousCardScroll =
-      relativeScroll / (secondCardInitialRect.height * CARD_VISIBILITY_VALUE);
-    const cardScale =
-      previousCardScroll * MUTABLE_SCALE_VALUE + DEFAULT_THIRD_CARD_SCALE;
-
-    if (cardScale >= 1) return;
-
-    thirdCardRef.current.style.transform = `scale(${cardScale})`;
-    thirdCardRef.current.style.opacity = `${cardScale}`;
-  };
-
   useEffect(() => {
-    const setInitialBoundingRects = () => {
-      const lottieWrapperHeight = lottieWrapperRef.current?.clientHeight;
-      sectionRef.current.style.marginBottom = `-${lottieWrapperHeight}px`;
+    const params = {
+      direction: 'vertical',
+      spaceBetween: 40,
+      longSwipes: false,
+      allowTouchMove: false,
+      grabCursor: false,
+      resistance: false,
+      speed: 1500,
+      effect: 'creative',
+      creativeEffect: {
+        limitProgress: 2,
+        prev: {
+          translate: [0, '-106%', 1],
+        },
+        next: {
+          translate: [0, '4vh', 0],
+          scale: 0.95,
+          opacity: 0.95,
+        },
+      },
+      on: {
+        slideChangeTransitionStart({ activeIndex }) {
+          const isFirstStep = activeIndex === 0;
+          const isLastStep = activeIndex === 2;
+          setIsFirstStep(isFirstStep);
+          setIsLastStep(isLastStep);
 
-      firstCardInitialRect = firstCardRef.current.getBoundingClientRect();
-      secondCardInitialRect = secondCardRef.current.getBoundingClientRect();
-
-      firstCardInitialCenter =
-        firstCardInitialRect.top + firstCardInitialRect.height / 2 - 100;
-
-      secondCardInitialCenter =
-        firstCardInitialRect.height +
-        secondCardInitialRect.top +
-        secondCardInitialRect.height / 2;
+          sectionRef.current.scrollIntoView({
+            block: isLastStep ? 'end' : isFirstStep ? 'start' : 'center',
+            behavior: 'smooth',
+          });
+        },
+      },
     };
 
-    setInitialBoundingRects();
+    Object.assign(swiperRef.current, params);
 
-    onScroll = throttle(() => {
-      if (isDesktop) {
-        animateOnScroll();
-        setLottieWrapperOpacity();
-      }
-      transformSecondCard();
-      transformThirdCard();
-    }, 15);
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', onScroll, { passive: true });
-      onScroll = null;
-    };
+    swiperRef.current.initialize();
   }, []);
 
   useEffect(() => {
-    if (firstCardObserver?.isIntersecting) {
-      setAnimationStep(1);
-    } else if (firstCardObserver?.boundingClientRect.top > 0) {
-      setAnimationStep(0);
-    }
-  }, [Boolean(firstCardObserver?.isIntersecting)]);
-
-  useEffect(() => {
-    animationRef.current?.play();
-  }, [animationStep]);
+    return () => {
+      enableScroll();
+    };
+  }, []);
 
   useEffect(() => {
     if (isDesktop) {
@@ -225,135 +247,194 @@ const HowRarimoWorksSection = () => {
     };
   }, [isDesktop]);
 
+  useEffect(() => {
+    if (!sectionObserver) return;
+
+    if (sectionObserver.isIntersecting) {
+      if (sectionObserver.boundingClientRect.top > 0) {
+        setIsAnimationInProgress(true);
+        animationRef.current?.setDirection(1);
+        animationRef.current?.play();
+
+        window.scrollTo({
+          top: sectionRef.current.offsetTop + 200,
+          behavior: 'smooth',
+        });
+      } else {
+        const { offsetTop, clientHeight } = sectionRef.current;
+        window.scrollTo({
+          top: offsetTop + clientHeight / 2,
+          behavior: 'smooth',
+        });
+      }
+
+      setIsStickySection(true);
+      disableScroll();
+      return;
+    }
+
+    if (!sectionObserver.isIntersecting) {
+      if (sectionObserver.boundingClientRect.top > 0) {
+        animationRef.current?.setDirection(-1);
+        animationRef.current?.play();
+      }
+
+      setTimeout(() => {
+        setIsStickySection(false);
+        enableScroll();
+      }, 200);
+    }
+  }, [Boolean(sectionObserver?.isIntersecting)]);
+
+  useEffect(() => {
+    setIsAnimationInProgress(true);
+    swiperRef.current?.swiper.slideTo(animationStep);
+    animationRef.current?.play();
+  }, [animationStep]);
+
   return (
     <section ref={sectionRef} className="how-rarimo-works-section">
       <div className="how-rarimo-works-section__content container">
-        <BaseCard
-          ref={firstCardRef}
-          className="how-rarimo-works-section__card"
-          isSection={true}
+        <swiper-container
+          ref={swiperRef}
+          class="how-rarimo-works-section__swiper-container"
+          init="false"
         >
-          <div className="how-rarimo-works-section__card-content">
-            <h5 className="how-rarimo-works-section__subtitle">
-              {t('how-rarimo-works-section.main.subtitle')}
-            </h5>
-
-            <h2 className="how-rarimo-works-section__title">
-              {t('how-rarimo-works-section.main.title')}
-            </h2>
-            <p className="how-rarimo-works-section__description">
-              {t('how-rarimo-works-section.main.description')}
-            </p>
-            <ul className="how-rarimo-works-section__list">
-              {howRarimoWorksSectionList.main.map((item, index) => (
-                <li key={index}>
-                  <h6 className="how-rarimo-works-section__list-item-title">
-                    <span>{t(item.titleKey)}</span>
-                    <div className="how-rarimo-works-section__list-item-icon">
-                      <svg height="24" width="24">
-                        <use href={item.icon}></use>
-                      </svg>
-                    </div>
-                  </h6>
-                  <p className="how-rarimo-works-section__list-item-description">{t(item.textKey)}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </BaseCard>
-        <BaseCard
-          ref={secondCardRef}
-          className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
-          isSection={true}
-        >
-          <div className="how-rarimo-works-section__card-content">
-            <div className="how-rarimo-works-section__subtitle-wrapper">
-              <h5 className="how-rarimo-works-section__protocol-subtitle">
-                {t('how-rarimo-works-section.protocol-subtitle')}
-              </h5>
-              <a
-                className="how-rarimo-works-section__docs-link"
-                href={CONFIG.docsLink}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
+          <div slot="container-end">
+            {isDesktop && (
+              <div
+                ref={lottieWrapperRef}
+                className="how-rarimo-works-section__lottie-wrapper"
               >
-                {t('how-rarimo-works-section.docs-link')}
-              </a>
-            </div>
+                <div
+                  ref={lottieRef}
+                  className="how-rarimo-works-section__lottie"
+                ></div>
+              </div>
+            )}
+          </div>
+          <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--first">
+            <BaseCard
+              className="how-rarimo-works-section__card"
+              isSection={true}
+            >
+              <div className="how-rarimo-works-section__card-content">
+                <h5 className="how-rarimo-works-section__subtitle">
+                  {t('how-rarimo-works-section.main.subtitle')}
+                </h5>
 
-            <h2 className="how-rarimo-works-section__title">
-              {t('how-rarimo-works-section.identity.title')}
-            </h2>
-            <p className="how-rarimo-works-section__description">
-              {t('how-rarimo-works-section.identity.description')}
-            </p>
-            <ul className="how-rarimo-works-section__protocol-list">
-              {howRarimoWorksSectionList.identity.map((item, index) => (
-                <li
-                  className="how-rarimo-works-section__protocol-list-item"
-                  key={index}
-                >
-                  <span className="how-rarimo-works-section__protocol-accent-text">
-                    {t(item.accentTextKey)}
-                  </span>
-                  <span>{t(item.textKey)}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </BaseCard>
-        <BaseCard
-          ref={thirdCardRef}
-          className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
-          isSection={true}
-        >
-          <div className="how-rarimo-works-section__card-content">
-            <div className="how-rarimo-works-section__subtitle-wrapper">
-              <h5 className="how-rarimo-works-section__protocol-subtitle">
-                {t('how-rarimo-works-section.protocol-subtitle')}
-              </h5>
-              <a
-                className="how-rarimo-works-section__docs-link"
-                href={CONFIG.docsLink}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-              >
-                {t('how-rarimo-works-section.docs-link')}
-              </a>
-            </div>
+                <h2 className="how-rarimo-works-section__title">
+                  {t('how-rarimo-works-section.main.title')}
+                </h2>
+                <p className="how-rarimo-works-section__description">
+                  {t('how-rarimo-works-section.main.description')}
+                </p>
+                <ul className="how-rarimo-works-section__list">
+                  {howRarimoWorksSectionList.main.map((item, index) => (
+                    <li key={index}>
+                      <h6 className="how-rarimo-works-section__list-item-title">
+                        <span>{t(item.titleKey)}</span>
+                        <div className="how-rarimo-works-section__list-item-icon">
+                          <svg height="24" width="24">
+                            <use href={item.icon}></use>
+                          </svg>
+                        </div>
+                      </h6>
+                      <p className="how-rarimo-works-section__list-item-description">
+                        {t(item.textKey)}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </BaseCard>
+          </swiper-slide>
 
-            <h2 className="how-rarimo-works-section__title">
-              {t('how-rarimo-works-section.bridging.title')}
-            </h2>
-            <p className="how-rarimo-works-section__description">
-              {t('how-rarimo-works-section.bridging.description')}
-            </p>
-            <ul className="how-rarimo-works-section__protocol-list">
-              {howRarimoWorksSectionList.bridging.map((item, index) => (
-                <li
-                  className="how-rarimo-works-section__protocol-list-item"
-                  key={index}
-                >
-                  <span className="how-rarimo-works-section__protocol-accent-text">
-                    {t(item.accentTextKey)}
-                  </span>
-                  <span>{t(item.textKey)}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </BaseCard>
-        {isDesktop && (
-          <div
-            ref={lottieWrapperRef}
-            className="how-rarimo-works-section__lottie-wrapper"
-          >
-            <div
-              ref={lottieRef}
-              className="how-rarimo-works-section__lottie"
-            ></div>
-          </div>
-        )}
+          <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--second">
+            <BaseCard
+              className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
+              isSection={true}
+            >
+              <div className="how-rarimo-works-section__card-content">
+                <div className="how-rarimo-works-section__subtitle-wrapper">
+                  <h5 className="how-rarimo-works-section__protocol-subtitle">
+                    {t('how-rarimo-works-section.protocol-subtitle')}
+                  </h5>
+                  <a
+                    className="how-rarimo-works-section__docs-link"
+                    href={CONFIG.docsLink}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >
+                    {t('how-rarimo-works-section.docs-link')}
+                  </a>
+                </div>
+
+                <h2 className="how-rarimo-works-section__title">
+                  {t('how-rarimo-works-section.identity.title')}
+                </h2>
+                <p className="how-rarimo-works-section__description">
+                  {t('how-rarimo-works-section.identity.description')}
+                </p>
+                <ul className="how-rarimo-works-section__protocol-list">
+                  {howRarimoWorksSectionList.identity.map((item, index) => (
+                    <li
+                      className="how-rarimo-works-section__protocol-list-item"
+                      key={index}
+                    >
+                      <span className="how-rarimo-works-section__protocol-accent-text">
+                        {t(item.accentTextKey)}
+                      </span>
+                      <span>{t(item.textKey)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </BaseCard>
+          </swiper-slide>
+          <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--third">
+            <BaseCard
+              className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
+              isSection={true}
+            >
+              <div className="how-rarimo-works-section__card-content">
+                <div className="how-rarimo-works-section__subtitle-wrapper">
+                  <h5 className="how-rarimo-works-section__protocol-subtitle">
+                    {t('how-rarimo-works-section.protocol-subtitle')}
+                  </h5>
+                  <a
+                    className="how-rarimo-works-section__docs-link"
+                    href={CONFIG.docsLink}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >
+                    {t('how-rarimo-works-section.docs-link')}
+                  </a>
+                </div>
+
+                <h2 className="how-rarimo-works-section__title">
+                  {t('how-rarimo-works-section.bridging.title')}
+                </h2>
+                <p className="how-rarimo-works-section__description">
+                  {t('how-rarimo-works-section.bridging.description')}
+                </p>
+                <ul className="how-rarimo-works-section__protocol-list">
+                  {howRarimoWorksSectionList.bridging.map((item, index) => (
+                    <li
+                      className="how-rarimo-works-section__protocol-list-item"
+                      key={index}
+                    >
+                      <span className="how-rarimo-works-section__protocol-accent-text">
+                        {t(item.accentTextKey)}
+                      </span>
+                      <span>{t(item.textKey)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </BaseCard>
+          </swiper-slide>
+        </swiper-container>
       </div>
     </section>
   );

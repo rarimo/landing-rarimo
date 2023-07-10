@@ -1,6 +1,6 @@
 import './SubscribeSection.scss';
 
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 
@@ -93,4 +93,4 @@ const SubscribeSection = () => {
   );
 };
 
-export default SubscribeSection;
+export default memo(SubscribeSection);
