@@ -20,6 +20,8 @@
 
   --col-lead: #{$col-lead};
   --col-lead-rgb: #{$col-lead-rgb};
+  --col-gainsboro: #{$col-gainsboro};
+  --col-gainsboro-rgb: #{$col-gainsboro-rgb};
 
   --col-primary-accent-main: #{$col-le-max};
   --col-primary-accent-main-rgb: #{$col-le-max-rgb};
@@ -142,6 +144,15 @@
 
   // NftCheckoutStepsSection
   --nft-checkout-lottie-wrapper-height: #{vh(100)};
+
+  // UseCasesSection
+  --swiper-pagination-bottom: -#{to-rem(22)};
+  --swiper-pagination-bullet-width: #{to-rem(4)};
+  --swiper-pagination-bullet-height: #{to-rem(4)};
+  --swiper-pagination-bullet-horizontal-gap: #{to-rem(4)};
+  --swiper-pagination-bullet-border-radius: 0;
+  --swiper-pagination-bullet-inactive-color: var(--col-total-white);
+  --swiper-pagination-color: var(--col-gainsboro);
 
   // How it works section
   --how-it-works-chart-default-width: #{to-rem(1256)};

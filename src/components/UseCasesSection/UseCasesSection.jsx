@@ -90,6 +90,7 @@ const UseCasesSection = () => {
             grab-cursor="true"
             edge-swipe-detection="true"
             speed="1000"
+            pagination="true"
             a11y-slide-role="listitem"
             a11y-container-role-description-message="Use cases list"
             item-role-description-message="Use case"
