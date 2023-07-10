@@ -23,27 +23,23 @@
     "telegram": "Telegram"
   },
   "navigation": {
-    "home": "Home",
     "use-cases": "Use Cases",
-    "community": "Community",
+    "documentation": "Documentation",
     "support": "Support"
   },
   "home-hero-section": {
     "title-part-1": "Unlocked &",
     "title-part-2": "Connected",
     "subtitle": "Decentralized social layer",
-    "description": "Bringing interoperability for identity and social components across multiple networks",
+    "description": "Interoperability protocol for cross-chain identity and asset management",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
     "blockchains-title": "Supported blockchains"
   },
-  "marquee-section": {
-    "marquee": "THE NEXT CHAPTER OF INTERCONNECTED ASSETS & IDENTITIES"
-  },
   "how-rarimo-works-section": {
     "main": {
-      "subtitle": "How Rarimo works?",
-      "title": "Modular Architecture Accelerates Development of Interoperable dApps And Identities",
+      "subtitle": "What is rarimo?",
+      "title": "Interoperability for Identity and Social Components Across Multiple Networks",
       "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts",
       "easy-solutions-title": "Easy: Single-click solutions",
       "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
@@ -102,10 +98,10 @@
   "news-section": {
     "title": "Latest news",
     "view-all-link": "View All",
-    "first-title": "Rarimo: making multi-chain transactions user-friendly",
+    "first-title": "Purchase NFT on one network, Pay on another",
     "second-title": "What is Interoperability, and why is it so important?",
-    "third-title": "Rarimo Whitepaper",
-    "fourth-title": "Decentralized Identity Use Cases"
+    "third-title": "VeradiVerdict - Introduction to Rarimo",
+    "fourth-title": "Self-sovereign identities (SSI) and blockchain"
   },
   "subscribe-section": {
     "title": "Subscribe to our newsletter",

@@ -6,6 +6,7 @@ export * from './how-rarimo-works-section';
 export * from './implementation-list';
 export * from './integrations-list';
 export * from './navigation';
+export * from './news-list';
 export * from './supported-blockchains';
 export * from './supported-ft';
 export * from './use-cases-list';
