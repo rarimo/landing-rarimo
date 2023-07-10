@@ -3,6 +3,7 @@ import './NewsSection.scss';
 import { useTranslation } from 'react-i18next';
 
 import { CONFIG } from '@/config';
+import { getShiftedDelay } from '@/helpers';
 import { newsList } from '@/template-data';
 
 const NewsSection = () => {
@@ -25,7 +26,7 @@ const NewsSection = () => {
         <swiper-container
           class="news-section__list"
           slides-per-view="auto"
-          space-between="16"
+          space-between="32"
           mousewheel-force-to-axis="true"
           autoplay="false"
           resistance-ratio="0.5"
@@ -40,9 +41,10 @@ const NewsSection = () => {
         >
           {newsList.map((item, index) => (
             <swiper-slide
+              key={index}
               class="news-section__item"
               data-aos="fade-up"
-              key={index}
+              data-aos-delay={getShiftedDelay(index, 100)}
             >
               <a
                 className="news-section__item-link"
@@ -50,17 +52,10 @@ const NewsSection = () => {
                 target="_blank"
                 rel="nofollow noopener noreferrer"
               >
-                <div className="news-section__content-wrapper">
-                  <img
-                    className="news-section__img"
-                    src="/img/news-section/news-bg.webp"
-                    alt=""
-                  />
-                  <div className="news-section__item-title-wrapper">
-                    <h5 className="news-section__item-title">
-                      {t(item.textKey)}
-                    </h5>
-                  </div>
+                <div className="news-section__item-title-wrapper">
+                  <h5 className="news-section__item-title">
+                    {t(item.textKey)}
+                  </h5>
                 </div>
               </a>
             </swiper-slide>
