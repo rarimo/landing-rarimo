@@ -86,7 +86,7 @@ const UseCasesSection = () => {
             space-between="16"
             mousewheel-force-to-axis="true"
             autoplay="false"
-            resistance-ratio="0.5"
+            resistance-ratio="0.25"
             grab-cursor="true"
             edge-swipe-detection="true"
             speed="1000"
@@ -110,6 +110,19 @@ const UseCasesSection = () => {
                     },
                   ])}
                   tag="li"
+                  role="link"
+                  tabIndex="0"
+                  onClick={() => handleNavClick(useCase)}
+                  onKeyDown={event => {
+                    switch (event.code) {
+                      case 'Enter':
+                        handleNavClick(useCase);
+                        return;
+
+                      default:
+                        return;
+                    }
+                  }}
                 >
                   <img
                     className="use-cases-section__case-item-img"
