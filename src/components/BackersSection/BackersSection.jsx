@@ -21,7 +21,7 @@ const BackersSection = () => {
               className={cn([
                 'backers-section__list-item',
                 {
-                  'backers-section__list-item--increased': item.isIncreased,
+                  'backers-section__list-item--opacity': item.withOpacity,
                 },
               ])}
               key={index}

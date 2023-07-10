@@ -175,6 +175,14 @@
   }
 }
 
+.how-rarimo-works-section__list-item-description {
+  display: none;
+
+  @include respond-above(medium) {
+    display: block;
+  }
+}
+
 .how-rarimo-works-section__list-item-icon {
   display: flex;
 
