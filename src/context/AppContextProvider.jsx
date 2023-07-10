@@ -7,6 +7,8 @@ export const AppContext = createContext({});
 
 export const AppContextProvider = ({ children }) => {
   const [isDesktop, setIsDesktop, isDesktopRef] = useStateRef(true);
+  const [needSkipAnimation, setNeedSkipAnimation, needSkipAnimationRef] =
+    useStateRef(false);
 
   useResizeObserver(document.documentElement, ({ contentRect }) => {
     setIsDesktop(contentRect.width >= 1024);
@@ -16,8 +18,11 @@ export const AppContextProvider = ({ children }) => {
     return {
       isDesktop,
       isDesktopRef,
+      needSkipAnimation,
+      setNeedSkipAnimation,
+      needSkipAnimationRef,
     };
-  }, [isDesktop]);
+  }, [isDesktop, needSkipAnimation]);
 
   return (
     <AppContext.Provider value={memoizedContextValue}>

@@ -28,7 +28,7 @@ const touches = {
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
-  const { isDesktop, isDesktopRef } = useAppContext();
+  const { isDesktop, isDesktopRef, needSkipAnimationRef } = useAppContext();
 
   const sectionRef = useRef(null);
   const swiperRef = useRef(null);
@@ -265,7 +265,7 @@ const HowRarimoWorksSection = () => {
   }, [isDesktop]);
 
   useEffect(() => {
-    if (!sectionObserver) return;
+    if (!sectionObserver || needSkipAnimationRef.current) return;
 
     if (sectionObserver.isIntersecting) {
       if (sectionObserver.boundingClientRect.top > 0) {
@@ -292,7 +292,7 @@ const HowRarimoWorksSection = () => {
       setTimeout(() => {
         setIsStickySection(true);
         disableScroll();
-      }, 200);
+      }, CONFIG.htmlScrollingTime);
       return;
     }
 

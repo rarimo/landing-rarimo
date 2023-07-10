@@ -1,6 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
+import { CONFIG } from '@/config';
+import useAppContext from '@/hooks/useAppContext';
+
 const useNavigation = () => {
+  const { setNeedSkipAnimation } = useAppContext();
   const navigate = useNavigate();
 
   const handleNavClick = (link, callback) => {
@@ -13,9 +17,12 @@ const useNavigation = () => {
     if (link.hash) {
       const targetElement = document.getElementById(link.path);
       if (!targetElement) return;
-
+      setNeedSkipAnimation(true);
       targetElement.scrollIntoView({ behavior: 'smooth' });
       callback?.();
+      setTimeout(() => {
+        setNeedSkipAnimation(false);
+      }, CONFIG.htmlScrollingTime);
       return;
     }
 
