@@ -18,6 +18,9 @@
   --col-primary-black-rgb: #{$col-black-wash-rgb};
   --col-primary-grey: #{$col-more-than-a-week};
 
+  --col-lead: #{$col-lead};
+  --col-lead-rgb: #{$col-lead-rgb};
+
   --col-primary-accent-main: #{$col-le-max};
   --col-primary-accent-main-rgb: #{$col-le-max-rgb};
   --col-primary-accent-dark: #{color.adjust($col-le-max, $lightness: -10%)};

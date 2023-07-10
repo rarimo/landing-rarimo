@@ -9,7 +9,6 @@ import PartnersList from '@/components/PartnersList';
 import SpotlightBg from '@/components/SpotlightBg';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
-import { prepareCharacterAnimation } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
 
@@ -52,24 +51,16 @@ const HomeHeroSection = () => {
     };
   }, [isDesktop]);
 
-  useEffect(() => {
-    prepareCharacterAnimation();
-  }, []);
-
   return (
     <section id={COMPONENT_NODE_IDS.heroSection} className="home-hero-section">
       <div className="home-hero-section__content container">
         <div className="home-hero-section__hero-wrapper">
           <h1 className="home-hero-section__title">
             <div className="home-hero-section__title-part">
-              <span className="js-character-animation">
-                {t('home-hero-section.title-part-1')}
-              </span>
+              <span>{t('home-hero-section.title-part-1')}</span>
             </div>
             <div className="home-hero-section__title-part">
-              <span className="js-character-animation">
-                {t('home-hero-section.title-part-2')}
-              </span>
+              <span>{t('home-hero-section.title-part-2')}</span>
             </div>
           </h1>
           <h5 className="home-hero-section__subtitle" data-aos="fade-up">
