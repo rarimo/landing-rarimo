@@ -1,4 +1,5 @@
 export * from './component-node-ids';
+export * from './events';
 export * from './how-it-works-section';
 export * from './regex';
 export * from './routes';
