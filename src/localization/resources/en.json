@@ -42,11 +42,11 @@
       "title": "Interoperability for Identity and Social Components Across Multiple Networks",
       "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts",
       "easy-solutions-title": "Easy: Single-click solutions",
-      "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
+      "easy-solutions-text": "Bundle transactions for fewer fees, signatures, and seamless experience",
       "decentralized-network-title": "Decentralized network",
-      "decentralized-network-text": "Blockchain core and endless number of validators, no limit on the number of blockchains that can be connected.",
+      "decentralized-network-text": "Unlimited blockchains, validators, and core for seamless connectivity",
       "security-title": "Security and cost efficiency",
-      "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
+      "security-text": "Threshold signatures ensure high security with constant transfer price"
     },
     "identity": {
       "title": "Identity Protocol",
