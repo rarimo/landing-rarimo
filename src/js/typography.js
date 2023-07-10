@@ -25,7 +25,7 @@ export const defineDesktopFontSizes = () => {
     '--h1-size-medium',
     clampBuilder(1024, 1400, 100, 120),
   );
-  root.style.setProperty('--h2-size-medium', clampBuilder(1024, 1400, 34, 40));
+  root.style.setProperty('--h2-size-medium', clampBuilder(1024, 1400, 34, 38));
   root.style.setProperty('--h3-size-medium', clampBuilder(1024, 1400, 28, 32));
   root.style.setProperty('--h4-size-medium', clampBuilder(1024, 1400, 24, 32));
 };

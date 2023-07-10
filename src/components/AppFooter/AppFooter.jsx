@@ -22,7 +22,7 @@ const AppFooter = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => {
       setNeedSkipAnimation(false);
-    }, CONFIG.htmlScrollingTime);
+    }, CONFIG.htmlScrollingTime * 4);
   };
 
   return (
