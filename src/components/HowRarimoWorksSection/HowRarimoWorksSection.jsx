@@ -8,7 +8,7 @@ import { useIntersection } from 'react-use';
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
 import { TOUCH_EVENTS } from '@/const';
-import { fillFramesRange } from '@/helpers';
+import { fillFramesRange, getIsInertialScrolling } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
@@ -28,7 +28,7 @@ const touches = {
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
-  const { isDesktop } = useAppContext();
+  const { isDesktop, isDesktopRef } = useAppContext();
 
   const sectionRef = useRef(null);
   const swiperRef = useRef(null);
@@ -79,7 +79,14 @@ const HowRarimoWorksSection = () => {
   const wheelHandler = useCallback(event => {
     event.preventDefault();
 
-    if (!isStickySectionRef.current || isAnimationInProgressRef.current) return;
+    const isInertialScrolling = getIsInertialScrolling(event);
+
+    if (
+      isInertialScrolling ||
+      !isStickySectionRef.current ||
+      isAnimationInProgressRef.current
+    )
+      return;
 
     if (event.wheelDeltaY < 0) {
       nextSlide();
@@ -95,7 +102,12 @@ const HowRarimoWorksSection = () => {
   const touchHandler = useCallback(event => {
     event.preventDefault();
 
-    if (!event?.touches) return;
+    if (
+      !isStickySectionRef.current ||
+      isAnimationInProgressRef.current ||
+      !event?.touches
+    )
+      return;
 
     const touch = event.touches[0];
     switch (event.type) {
@@ -221,6 +233,11 @@ const HowRarimoWorksSection = () => {
             behavior: 'smooth',
           });
         },
+        slideChangeTransitionEnd() {
+          if (!isDesktopRef.current) {
+            setIsAnimationInProgress(false);
+          }
+        },
       },
     };
 
@@ -252,9 +269,13 @@ const HowRarimoWorksSection = () => {
 
     if (sectionObserver.isIntersecting) {
       if (sectionObserver.boundingClientRect.top > 0) {
-        setIsAnimationInProgress(true);
-        animationRef.current?.setDirection(1);
-        animationRef.current?.play();
+        if (isDesktop) {
+          setIsAnimationInProgress(true);
+          animationRef.current?.setDirection(1);
+          animationRef.current?.play();
+        } else {
+          setIsAnimationInProgress(false);
+        }
 
         window.scrollTo({
           top: sectionRef.current.offsetTop + 200,
@@ -268,21 +289,21 @@ const HowRarimoWorksSection = () => {
         });
       }
 
-      setIsStickySection(true);
-      disableScroll();
+      setTimeout(() => {
+        setIsStickySection(true);
+        disableScroll();
+      }, 200);
       return;
     }
 
     if (!sectionObserver.isIntersecting) {
-      if (sectionObserver.boundingClientRect.top > 0) {
+      if (sectionObserver.boundingClientRect.top > 0 && isDesktop) {
         animationRef.current?.setDirection(-1);
         animationRef.current?.play();
       }
 
-      setTimeout(() => {
-        setIsStickySection(false);
-        enableScroll();
-      }, 200);
+      setIsStickySection(false);
+      enableScroll();
     }
   }, [Boolean(sectionObserver?.isIntersecting)]);
 

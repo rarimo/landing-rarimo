@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
 import { TOUCH_EVENTS } from '@/const';
-import { fillFramesRange } from '@/helpers';
+import { fillFramesRange, getIsInertialScrolling } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 
@@ -85,7 +85,14 @@ const NftCheckoutStepsSection = () => {
   const wheelHandler = useCallback(event => {
     event.preventDefault();
 
-    if (!isStickySectionRef.current || isAnimationInProgressRef.current) return;
+    const isInertialScrolling = getIsInertialScrolling(event);
+
+    if (
+      isInertialScrolling ||
+      !isStickySectionRef.current ||
+      isAnimationInProgressRef.current
+    )
+      return;
 
     if (event.wheelDeltaY < 0) {
       nextSlide();
@@ -101,7 +108,12 @@ const NftCheckoutStepsSection = () => {
   const touchHandler = useCallback(event => {
     event.preventDefault();
 
-    if (!event?.touches) return;
+    if (
+      !isStickySectionRef.current ||
+      isAnimationInProgressRef.current ||
+      !event?.touches
+    )
+      return;
 
     const touch = event.touches[0];
     switch (event.type) {
