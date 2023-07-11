@@ -1,7 +1,8 @@
 import './HowRarimoWorksSection.scss';
 
+import useResizeObserver from '@react-hook/resize-observer';
 import lottie from 'lottie-web';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
@@ -43,10 +44,11 @@ const HowRarimoWorksSection = () => {
   const [, setIsFirstStep, isFirstStepRef] = useStateRef(true);
   const [, setIsLastStep, isLastStepRef] = useStateRef(false);
 
-  const sectionObserver = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: `-50% 0px`,
+  const [observerParams, setObserverParams] = useState({
+    threshold: 0.25,
   });
+
+  const sectionObserver = useIntersection(sectionRef, observerParams);
 
   const nextSlide = useCallback(() => {
     if (isLastStepRef.current) {
@@ -200,6 +202,16 @@ const HowRarimoWorksSection = () => {
     animationRef.current?.destroy();
   };
 
+  const changeObserverParams = () => {
+    const { clientHeight } = sectionRef.current;
+    const threshold = (window.screen.availHeight * 0.75) / clientHeight;
+    setObserverParams({ threshold });
+  };
+
+  useResizeObserver(document.documentElement, () => {
+    changeObserverParams();
+  });
+
   useEffect(() => {
     const params = {
       direction: 'vertical',
@@ -312,6 +324,10 @@ const HowRarimoWorksSection = () => {
     swiperRef.current?.swiper.slideTo(animationStep);
     animationRef.current?.play();
   }, [animationStep]);
+
+  useEffect(() => {
+    changeObserverParams();
+  }, []);
 
   return (
     <section ref={sectionRef} className="how-rarimo-works-section">
