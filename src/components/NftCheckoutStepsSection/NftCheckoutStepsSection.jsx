@@ -72,10 +72,15 @@ const NftCheckoutStepsSection = () => {
   const prevSlide = useCallback(() => {
     if (isFirstStepRef.current) {
       setIsStickySection(false);
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
+      animationRef.current?.setDirection(-1);
+      animationRef.current?.play();
+
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }, 700);
       return;
     }
 
@@ -287,10 +292,10 @@ const NftCheckoutStepsSection = () => {
     }
 
     if (!sectionObserver.isIntersecting) {
-      if (sectionObserver.boundingClientRect.top > 0) {
-        animationRef.current?.setDirection(-1);
-        animationRef.current?.play();
-      }
+      // if (sectionObserver.boundingClientRect.top > 0) {
+      //   animationRef.current?.setDirection(-1);
+      //   animationRef.current?.play();
+      // }
 
       setIsStickySection(false);
       enableScroll();
