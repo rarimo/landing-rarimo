@@ -2,6 +2,7 @@
   height: vh(400);
   margin-top: calc(var(--nft-checkout-lottie-wrapper-height) * -1);
 
+  border: 2px solid green;
   @include respond-above(medium) {
     margin-top: 0;
   }

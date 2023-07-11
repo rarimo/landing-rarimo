@@ -4,7 +4,7 @@ import useResizeObserver from '@react-hook/resize-observer';
 import classNames from 'classnames';
 import { throttle } from 'lodash-es';
 import lottie from 'lottie-web';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
@@ -49,10 +49,11 @@ const NftCheckoutStepsSection = () => {
   const [, setIsFirstStep, isFirstStepRef] = useStateRef(true);
   const [, setIsLastStep, isLastStepRef] = useStateRef(false);
 
-  const sectionObserver = useIntersection(sectionRef, {
-    root: null,
-    rootMargin: '-50% 0px',
+  const [observerParams, setObserverParams] = useState({
+    threshold: 0.25,
   });
+
+  const sectionObserver = useIntersection(sectionRef, observerParams);
 
   const nextSlide = useCallback(() => {
     if (isLastStepRef.current) {
@@ -212,6 +213,12 @@ const NftCheckoutStepsSection = () => {
     animationRef.current?.destroy();
   };
 
+  const changeObserverParams = () => {
+    const { clientHeight } = sectionRef.current;
+    const threshold = (window.screen.availHeight * 0.75) / clientHeight;
+    setObserverParams({ threshold });
+  };
+
   const placeLottieWrapperOnContainer = () => {
     const sectionWidth = sectionRef.current.getBoundingClientRect().width;
     const right = (screen.availWidth - sectionWidth) / 2;
@@ -220,6 +227,7 @@ const NftCheckoutStepsSection = () => {
   };
 
   useResizeObserver(document.documentElement, () => {
+    changeObserverParams();
     placeLottieWrapperOnContainer();
   });
 
@@ -375,6 +383,7 @@ const NftCheckoutStepsSection = () => {
   }, []);
 
   useEffect(() => {
+    changeObserverParams();
     placeLottieWrapperOnContainer();
   }, []);
 
