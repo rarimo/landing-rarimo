@@ -47,7 +47,6 @@
     );
 
     @include respond-above(medium) {
-      min-height: vh(80);
       display: flex;
       align-items: center;
       padding-top: max(vh(5), to-rem(32));
