@@ -63,7 +63,7 @@
   @include respond-above(medium) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: vh(24);
+    grid-auto-rows: vh(20);
     grid-gap: to-rem(32);
   }
 }
