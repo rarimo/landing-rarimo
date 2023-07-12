@@ -33,7 +33,10 @@
   position: sticky;
   top: var(--app-bar-height);
   width: 100%;
-  height: vh(85);
+  // height: vh(85);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: visible;
 }
 
@@ -83,6 +86,10 @@
   );
   box-shadow: 0 to-rem(12) to-rem(32) rgba(var(--col-total-black-rgb), 0.48);
 
+  &:not(.how-rarimo-works-section__card--protocol) {
+    min-height: vh(80);
+  }
+
   .base-card__content::before {
     filter: invert(0.4) opacity(0.2);
   }
@@ -99,7 +106,7 @@
   text-transform: uppercase;
 
   @include respond-above(medium) {
-    margin-bottom: max(vh(9), to-rem(72));
+    margin-bottom: max(vh(8), to-rem(72));
   }
 }
 
@@ -107,13 +114,8 @@
   margin-bottom: to-rem(16);
 
   @include respond-to(medium) {
+    margin-bottom: max(vh(3), to-rem(16));
     font-size: to-rem(24);
-  }
-
-  .how-rarimo-works-section__card--protocol & {
-    @include respond-above(medium) {
-      margin-bottom: max(vh(5.5), to-rem(40));
-    }
   }
 }
 
@@ -122,7 +124,7 @@
 
   @include respond-above(medium) {
     max-width: 70%;
-    margin-bottom: max(vh(15), to-rem(120));
+    margin-bottom: max(vh(13), to-rem(110));
     font-size: to-rem(16);
     letter-spacing: 0.02em;
   }
@@ -134,7 +136,7 @@
   .how-rarimo-works-section__card--protocol & {
     @include respond-above(medium) {
       max-width: to-rem(480);
-      margin-bottom: max(vh(8), to-rem(60));
+      margin-bottom: max(vh(7), to-rem(60));
     }
   }
 }
@@ -143,7 +145,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: to-rem(36) 3%;
-  padding-bottom: to-rem(24);
+  padding-bottom: max(vh(5), to-rem(24));
 
   @include respond-above(medium) {
     grid-template-columns: repeat(3, 1fr);
@@ -193,7 +195,7 @@
   margin-bottom: to-rem(40);
 
   @include respond-above(medium) {
-    margin-bottom: max(vh(12), to-rem(90));
+    margin-bottom: max(vh(8), to-rem(72));
   }
 }
 
@@ -230,7 +232,7 @@
   position: relative;
 
   &:not(:last-child) {
-    margin-bottom: max(vh(3), to-rem(24));
+    margin-bottom: max(vh(2), to-rem(16));
   }
 
   &::before {
