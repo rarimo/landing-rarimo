@@ -216,8 +216,6 @@ const HowRarimoWorksSection = () => {
 
   useEffect(() => {
     const params = {
-      direction: 'vertical',
-      spaceBetween: 40,
       longSwipes: false,
       allowTouchMove: false,
       grabCursor: false,
