@@ -14,10 +14,12 @@ import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
+const LAST_STEP_FRAME = 212;
+
 const STEP_FRAMES = [
   fillFramesRange(40),
   fillFramesRange(120),
-  fillFramesRange(212),
+  fillFramesRange(LAST_STEP_FRAME),
 ];
 
 // const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
@@ -283,6 +285,7 @@ const HowRarimoWorksSection = () => {
       if (sectionObserver.boundingClientRect.top > 0) {
         if (isDesktop) {
           setIsAnimationInProgress(true);
+          swiperRef.current?.swiper.slideTo(animationStep);
           animationRef.current?.setDirection(1);
           animationRef.current?.play();
         } else {
@@ -316,6 +319,22 @@ const HowRarimoWorksSection = () => {
 
       setIsStickySection(false);
       enableScroll();
+    }
+  }, [Boolean(sectionObserver?.isIntersecting)]);
+
+  useEffect(() => {
+    if (!sectionObserver) return;
+
+    if (!sectionObserver.isIntersecting) {
+      const isAboveSection = sectionObserver.boundingClientRect.top > 0;
+      swiperRef.current?.swiper.setProgress(isAboveSection ? 0 : 1, 0);
+
+      if (isDesktop) {
+        animationRef.current?.goToAndStop(
+          isAboveSection ? 0 : LAST_STEP_FRAME,
+          true,
+        );
+      }
     }
   }, [Boolean(sectionObserver?.isIntersecting)]);
 

@@ -14,11 +14,13 @@ import { fillFramesRange, getIsInertialScrolling } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 
+const LAST_STEP_FRAME = 450;
+
 const STEP_FRAMES = [
   fillFramesRange(90),
   fillFramesRange(200),
   fillFramesRange(330),
-  fillFramesRange(450),
+  fillFramesRange(LAST_STEP_FRAME),
 ];
 
 const touches = {
@@ -277,6 +279,7 @@ const NftCheckoutStepsSection = () => {
     if (sectionObserver.isIntersecting) {
       if (sectionObserver.boundingClientRect.top > 0) {
         setIsAnimationInProgress(true);
+        swiperRef.current?.swiper.slideTo(animationStep);
         animationRef.current?.setDirection(1);
         animationRef.current?.play();
 
@@ -307,6 +310,22 @@ const NftCheckoutStepsSection = () => {
 
       setIsStickySection(false);
       enableScroll();
+    }
+  }, [Boolean(sectionObserver?.isIntersecting)]);
+
+  useEffect(() => {
+    if (!sectionObserver) return;
+
+    if (!sectionObserver.isIntersecting) {
+      const isAboveSection = sectionObserver.boundingClientRect.top > 0;
+      swiperRef.current?.swiper.setProgress(isAboveSection ? 0 : 1, 0);
+
+      if (isDesktop) {
+        animationRef.current?.goToAndStop(
+          isAboveSection ? 0 : LAST_STEP_FRAME,
+          true,
+        );
+      }
     }
   }, [Boolean(sectionObserver?.isIntersecting)]);
 
