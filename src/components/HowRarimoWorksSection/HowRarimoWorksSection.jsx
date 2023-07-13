@@ -15,9 +15,9 @@ import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
 const STEP_FRAMES = [
-  fillFramesRange(40),
+  fillFramesRange(35),
+  fillFramesRange(75),
   fillFramesRange(120),
-  fillFramesRange(212),
 ];
 
 // const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
