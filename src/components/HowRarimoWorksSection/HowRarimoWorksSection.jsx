@@ -14,11 +14,11 @@ import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-const LAST_STEP_FRAME = 212;
+const LAST_STEP_FRAME = 120;
 
 const STEP_FRAMES = [
-  fillFramesRange(40),
-  fillFramesRange(120),
+  fillFramesRange(35),
+  fillFramesRange(75),
   fillFramesRange(LAST_STEP_FRAME),
 ];
 
