@@ -33,11 +33,12 @@
   position: sticky;
   top: var(--app-bar-height);
   width: 100%;
-  // height: vh(85);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  height: vh(77);
   overflow: visible;
+
+  @include respond-above(medium) {
+    top: calc(var(--app-bar-height) + vh(3));
+  }
 }
 
 /* stylelint-disable declaration-no-important */
@@ -89,10 +90,6 @@
     rgba(var(--accent-color-rgb), 0) 100%
   );
   box-shadow: 0 to-rem(12) to-rem(32) rgba(var(--col-total-black-rgb), 0.48);
-
-  &:not(.how-rarimo-works-section__card--protocol) {
-    min-height: vh(80);
-  }
 
   .base-card__content::before {
     filter: invert(0.4) opacity(0.2);

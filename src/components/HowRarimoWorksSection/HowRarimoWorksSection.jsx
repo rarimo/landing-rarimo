@@ -216,7 +216,6 @@ const HowRarimoWorksSection = () => {
 
   useEffect(() => {
     const params = {
-      autoHeight: true,
       longSwipes: false,
       allowTouchMove: false,
       grabCursor: false,
@@ -226,10 +225,10 @@ const HowRarimoWorksSection = () => {
       creativeEffect: {
         limitProgress: 2,
         prev: {
-          translate: [0, '-108%', 1],
+          translate: [0, '-106%', 1],
         },
         next: {
-          translate: [0, '7vh', 0],
+          translate: [0, '4vh', 0],
           scale: 0.95,
           opacity: 0.95,
         },
