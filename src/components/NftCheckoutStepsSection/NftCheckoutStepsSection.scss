@@ -24,14 +24,14 @@
     width: calc(var(--container-max-width) * 0.64);
     max-width: unset;
     margin-top: calc(var(--nft-checkout-lottie-wrapper-height) * -1);
-    padding-top: vh(18);
+    padding-top: vh(22);
     align-self: flex-end;
     overflow: visible;
     transform: translateX(calc(var(--container-side-padding) * -1));
-    transition: padding 0.7s var(--slide-transition-timing-function);
+    transition: padding 0.8s var(--slide-transition-timing-function);
 
     &--sticky {
-      padding-top: vh(10);
+      padding-top: vh(14);
     }
   }
 
@@ -64,7 +64,7 @@
   }
 
   &--first {
-    top: 14%;
+    top: 18%;
     right: 8%;
     width: to-rem(133);
     height: to-rem(68);
@@ -72,7 +72,7 @@
   }
 
   &--second {
-    top: 40%;
+    top: 43%;
     right: -5%;
     height: to-rem(66);
     width: to-rem(66);
