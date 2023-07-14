@@ -28,8 +28,7 @@
     align-self: flex-end;
     overflow: visible;
     transform: translateX(calc(var(--container-side-padding) * -1));
-    transition: padding var(--slow-transition-duration)
-      var(--slide-transition-timing-function);
+    transition: padding 0.7s var(--slide-transition-timing-function);
 
     &--sticky {
       padding-top: vh(10);
