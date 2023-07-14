@@ -21,7 +21,7 @@
   pointer-events: none;
 
   @include respond-above(medium) {
-    width: calc(var(--container-max-width) * 0.65);
+    width: calc(var(--container-max-width) * 0.64);
     max-width: unset;
     margin-top: calc(var(--nft-checkout-lottie-wrapper-height) * -1);
     padding-top: vh(18);
@@ -36,7 +36,7 @@
   }
 
   @include respond-above(large) {
-    width: calc(var(--container-max-width) * 0.6);
+    width: calc(var(--container-max-width) * 0.62);
   }
 }
 

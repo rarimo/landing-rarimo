@@ -61,11 +61,15 @@
     z-index: var(--z-lottie-wrapper);
     bottom: vh(18);
     right: 0;
-    width: 35%;
+    width: 34%;
     transform: translateX(14%);
     transition: opacity var(--fast-transition-duration) linear;
     will-change: opacity;
     pointer-events: none;
+  }
+
+  @include respond-above(xlarge) {
+    width: 31%;
   }
 }
 
@@ -91,6 +95,10 @@
 .how-rarimo-works-section__card-content {
   @include respond-above(medium) {
     max-width: 71%;
+  }
+
+  @include respond-above(xlarge) {
+    max-width: 75%;
   }
 }
 
