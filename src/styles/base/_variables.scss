@@ -124,16 +124,16 @@
   }
 
   @include respond-above(xmedium) {
-    --container-max-width: #{to-rem(1140)};
+    --container-max-width: #{to-rem(1180)};
     --container-side-padding: #{to-rem(40)};
   }
 
   @include respond-above(large) {
-    --container-max-width: #{to-rem(1240)};
+    --container-max-width: #{to-rem(1320)};
   }
 
   @include respond-above(xlarge) {
-    --container-max-width: #{to-rem(1440)};
+    --container-max-width: #{to-rem(1520)};
   }
 
   // Common
