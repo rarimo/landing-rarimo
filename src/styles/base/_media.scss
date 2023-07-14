@@ -7,7 +7,7 @@ $media-breakpoints: (
   medium: 1024px,
   xmedium: 1280px,
   large: 1400px,
-  xlarge: 1920px,
+  xlarge: 1600px,
 );
 
 @mixin respond-above($media) {
