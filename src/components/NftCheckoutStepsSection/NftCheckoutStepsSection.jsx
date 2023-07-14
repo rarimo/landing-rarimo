@@ -1,7 +1,7 @@
 import './NftCheckoutStepsSection.scss';
 
 import useResizeObserver from '@react-hook/resize-observer';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { throttle } from 'lodash-es';
 import lottie from 'lottie-web';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -74,11 +74,11 @@ const NftCheckoutStepsSection = () => {
 
   const prevSlide = useCallback(() => {
     if (isFirstStepRef.current) {
-      setIsStickySection(false);
       animationRef.current?.setDirection(-1);
       animationRef.current?.play();
 
       setTimeout(() => {
+        setIsStickySection(false);
         window.scrollTo({
           top: 0,
           behavior: 'smooth',
@@ -410,7 +410,7 @@ const NftCheckoutStepsSection = () => {
     <>
       <div
         ref={lottieWrapperRef}
-        className={classNames([
+        className={cn([
           'nft-checkout-steps-section__lottie-wrapper',
           {
             'nft-checkout-steps-section__lottie-wrapper--sticky':

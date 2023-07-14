@@ -15,9 +15,21 @@
 
   @include respond-above(medium) {
     display: flex;
+    align-items: flex-end;
     justify-content: space-between;
     padding-top: max(vh(22), to-rem(160));
     padding-bottom: max(vh(20), to-rem(160));
+  }
+}
+
+.home-hero-section__decor {
+  display: none;
+
+  @include respond-above(medium) {
+    display: block;
+    position: absolute;
+    top: bg-space(2);
+    right: var(--container-side-padding);
   }
 }
 
@@ -131,32 +143,9 @@
 }
 
 .home-hero-section__blockchains-wrapper {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-
-  @include respond-above(medium) {
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    text-align: left;
+  @include respond-to(medium) {
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
-}
-
-.home-hero-section__lottie-wrapper {
-  display: none;
-
-  @include respond-above(medium) {
-    display: block;
-    height: 40vh;
-    flex-grow: 1;
-    margin-bottom: max(vh(7), to-rem(60));
-    transform: translateY(-10%);
-    pointer-events: none;
-  }
-}
-
-.home-hero-section__lottie {
-  display: flex;
-  height: 100%;
 }

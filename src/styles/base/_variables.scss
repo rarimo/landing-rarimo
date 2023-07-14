@@ -89,7 +89,7 @@
     --h4-size: var(--h4-size-medium);
   }
 
-  @include respond-above(large) {
+  @include respond-above(xlarge) {
     --p-size: #{to-rem(14)};
     --h1-size: #{to-rem(148)};
     --h2-size: #{to-rem(48)};
@@ -124,12 +124,16 @@
   }
 
   @include respond-above(xmedium) {
-    --container-max-width: #{to-rem(1180)};
+    --container-max-width: #{to-rem(1140)};
     --container-side-padding: #{to-rem(40)};
   }
 
   @include respond-above(large) {
-    --container-max-width: #{to-rem(1520)};
+    --container-max-width: #{to-rem(1240)};
+  }
+
+  @include respond-above(xlarge) {
+    --container-max-width: #{to-rem(1440)};
   }
 
   // Common
