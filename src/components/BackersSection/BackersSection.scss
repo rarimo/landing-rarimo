@@ -40,7 +40,10 @@
   height: 100%;
   display: flex;
   align-items: center;
-  min-width: to-rem(100);
+
+  @include respond-above(tablet) {
+    min-width: unset;
+  }
 
   &--opacity {
     opacity: 0.4;
