@@ -84,6 +84,8 @@
 
 .how-rarimo-works-section__card {
   height: 100%;
+  width: 90%;
+  margin: auto;
   border-radius: var(--primary-border-radius);
   background-image: radial-gradient(
     84.49% 84.49% at 50% -29.58%,
@@ -91,6 +93,11 @@
     rgba(var(--accent-color-rgb), 0) 100%
   );
   box-shadow: 0 to-rem(12) to-rem(32) rgba(var(--col-total-black-rgb), 0.48);
+
+  @include respond-above(medium) {
+    width: 100%;
+    margin: unset;
+  }
 
   .base-card__content::before {
     filter: invert(0.4) opacity(0.2);
