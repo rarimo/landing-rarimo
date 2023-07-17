@@ -134,6 +134,11 @@
 
 .use-cases-section__case-item-text {
   margin-top: to-rem(8);
+  display: none;
+
+  @include respond-above(medium) {
+    display: block;
+  }
 
   @media all and (hover: hover) {
     opacity: 0;
