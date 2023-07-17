@@ -31,13 +31,14 @@
 
 .how-rarimo-works-section__swiper-container {
   position: sticky;
-  top: var(--app-bar-height);
+  top: calc(var(--app-bar-height) - vh(3));
   width: 100%;
-  height: vh(77);
+  min-height: vh(77);
   overflow: visible;
 
   @include respond-above(medium) {
     top: calc(var(--app-bar-height) + vh(3));
+    height: vh(77);
   }
 }
 
