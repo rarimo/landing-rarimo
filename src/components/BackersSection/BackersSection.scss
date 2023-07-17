@@ -3,6 +3,10 @@
   padding-bottom: to-rem(50);
   overflow-x: auto;
 
+  @include respond-above(tablet) {
+    overflow-x: unset;
+  }
+
   @include respond-above(medium) {
     padding-top: to-rem(160);
     padding-bottom: to-rem(160);
@@ -28,7 +32,7 @@
   grid-gap: to-rem(40);
 
   @include respond-above(tablet) {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @include respond-above(medium) {
