@@ -240,24 +240,26 @@ const HowRarimoWorksSection = () => {
           opacity: 0.95,
         },
       },
-      on: {
-        slideChangeTransitionStart({ activeIndex }) {
-          const isFirstStep = activeIndex === 0;
-          const isLastStep = activeIndex === 2;
-          setIsFirstStep(isFirstStep);
-          setIsLastStep(isLastStep);
+      on: isDesktop
+        ? {
+            slideChangeTransitionStart({ activeIndex }) {
+              const isFirstStep = activeIndex === 0;
+              const isLastStep = activeIndex === 2;
+              setIsFirstStep(isFirstStep);
+              setIsLastStep(isLastStep);
 
-          sectionRef.current.scrollIntoView({
-            block: isLastStep ? 'end' : isFirstStep ? 'start' : 'center',
-            behavior: 'smooth',
-          });
-        },
-        slideChangeTransitionEnd() {
-          if (!isDesktopRef.current) {
-            setIsAnimationInProgress(false);
+              sectionRef.current.scrollIntoView({
+                block: isLastStep ? 'end' : isFirstStep ? 'start' : 'center',
+                behavior: 'smooth',
+              });
+            },
+            slideChangeTransitionEnd() {
+              if (!isDesktopRef.current) {
+                setIsAnimationInProgress(false);
+              }
+            },
           }
-        },
-      },
+        : false,
     };
 
     Object.assign(swiperRef.current, params);
