@@ -14,11 +14,11 @@ import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-const LAST_STEP_FRAME = 120;
+const LAST_STEP_FRAME = 95;
 
 const STEP_FRAMES = [
-  fillFramesRange(35),
-  fillFramesRange(75),
+  fillFramesRange(20),
+  fillFramesRange(55),
   fillFramesRange(LAST_STEP_FRAME),
 ];
 
@@ -61,7 +61,6 @@ const HowRarimoWorksSection = () => {
       });
       return;
     }
-
     animationRef.current?.setDirection(1);
     setAnimationStep(prev => prev + 1);
   }, []);
