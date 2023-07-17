@@ -6,7 +6,8 @@
 }
 
 @function vh($vh) {
-  @return calc(var(--vh, 1vh) * #{$vh});
+  // @return calc(var(--vh, 1vh) * #{$vh});
+  @return #{$vh}svh;
 }
 
 @function hex-to-rgb($color) {
