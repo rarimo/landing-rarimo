@@ -1,6 +1,11 @@
 .backers-section {
   padding-top: to-rem(50);
   padding-bottom: to-rem(50);
+  overflow-x: auto;
+
+  @include respond-above(tablet) {
+    overflow-x: unset;
+  }
 
   @include respond-above(medium) {
     padding-top: to-rem(160);
@@ -19,7 +24,7 @@
 
 .backers-section__list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-auto-rows: to-rem(24);
   place-items: center;
   align-content: center;
@@ -39,6 +44,11 @@
   height: 100%;
   display: flex;
   align-items: center;
+  min-width: to-rem(100);
+
+  @include respond-above(tablet) {
+    min-width: unset;
+  }
 
   &--opacity {
     opacity: 0.4;
