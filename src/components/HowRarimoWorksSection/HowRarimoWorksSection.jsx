@@ -80,6 +80,7 @@ const HowRarimoWorksSection = () => {
   }, []);
 
   const wheelHandler = useCallback(event => {
+    if (!isDesktop) return;
     event.preventDefault();
 
     const isInertialScrolling = getIsInertialScrolling(event);
@@ -103,6 +104,8 @@ const HowRarimoWorksSection = () => {
   }, []);
 
   const touchHandler = useCallback(event => {
+    if (!isDesktop) return;
+
     event.preventDefault();
 
     if (
@@ -136,6 +139,8 @@ const HowRarimoWorksSection = () => {
   // }, []);
 
   const disableScroll = useCallback(() => {
+    if (!isDesktop) return;
+
     window.addEventListener('wheel', wheelHandler, { passive: false });
     window.addEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
       passive: false,
@@ -150,6 +155,8 @@ const HowRarimoWorksSection = () => {
   }, []);
 
   const enableScroll = useCallback(() => {
+    if (!isDesktop) return;
+
     window.removeEventListener('wheel', wheelHandler, { passive: false });
     window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
       passive: false,
@@ -204,6 +211,7 @@ const HowRarimoWorksSection = () => {
   };
 
   const changeObserverParams = () => {
+    if (!isDesktop) return;
     const { clientHeight } = sectionRef.current;
     const threshold = (window.screen.availHeight * 0.75) / clientHeight;
     setObserverParams({ threshold });
@@ -215,12 +223,12 @@ const HowRarimoWorksSection = () => {
 
   useEffect(() => {
     const params = {
-      longSwipes: false,
-      allowTouchMove: false,
+      longSwipes: !isDesktop,
+      allowTouchMove: !isDesktop,
       grabCursor: false,
       resistance: false,
       speed: 1500,
-      effect: 'creative',
+      effect: isDesktop ? 'creative' : false,
       creativeEffect: {
         limitProgress: 2,
         prev: {
@@ -276,6 +284,7 @@ const HowRarimoWorksSection = () => {
   }, [isDesktop]);
 
   useEffect(() => {
+    if (!isDesktop) return;
     if (!sectionObserver || needSkipAnimationRef.current) return;
 
     if (sectionObserver.isIntersecting) {
