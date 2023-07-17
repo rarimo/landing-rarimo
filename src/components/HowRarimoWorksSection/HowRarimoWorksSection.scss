@@ -17,13 +17,13 @@
 }
 
 .how-rarimo-works-section__content {
-  height: vh(300);
 
   @include respond-to(medium) {
     padding: 0;
   }
 
   @include respond-above(medium) {
+    height: vh(300);
     display: flex;
     flex-direction: column;
   }
