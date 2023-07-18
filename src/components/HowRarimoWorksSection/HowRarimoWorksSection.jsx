@@ -270,8 +270,8 @@ const HowRarimoWorksSection = () => {
       freeMode: true,
       effect: 'coverflow',
       coverflowEffect: {
-        rotate: 25,
-        scale: 0.95,
+        rotate: 5,
+        scale: 0.98,
       },
     };
 
