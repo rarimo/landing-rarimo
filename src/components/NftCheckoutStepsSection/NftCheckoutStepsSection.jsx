@@ -297,9 +297,7 @@ const NftCheckoutStepsSection = () => {
 
       setTimeout(() => {
         setIsStickySection(true);
-        if (isDesktop) {
-          disableScroll();
-        }
+        disableScroll();
       }, CONFIG.htmlScrollingTime);
       return;
     }
