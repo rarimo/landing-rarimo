@@ -230,7 +230,8 @@ const HowRarimoWorksSection = () => {
       autoHeight: !isDesktop,
       grabCursor: false,
       resistance: false,
-      speed: isDesktop ? 1500 : null,
+      speed: isDesktop ? 1500 : 300,
+      freeMode: !isDesktop,
       effect: isDesktop ? 'creative' : false,
       creativeEffect: {
         limitProgress: 2,
