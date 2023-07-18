@@ -263,8 +263,6 @@ const HowRarimoWorksSection = () => {
     const paramsMobile = {
       longSwipes: true,
       pagination: true,
-      // slidesPerView: 'auto',
-      // spaceBetween: 16,
       allowTouchMove: true,
       autoHeight: true,
       grabCursor: false,

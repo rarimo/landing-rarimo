@@ -31,6 +31,7 @@ const NewsSection = () => {
           autoplay="false"
           resistance-ratio="0.5"
           grab-cursor="true"
+          freemode="true"
           edge-swipe-detection="true"
           speed="1000"
           breakpoints-1280-slides-per-view="4"
