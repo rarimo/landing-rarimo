@@ -20,6 +20,7 @@
 
   @include respond-to(medium) {
     padding: 0;
+    overflow: hidden;
   }
 
   @include respond-above(medium) {
@@ -32,13 +33,16 @@
 .how-rarimo-works-section__swiper-container {
   position: sticky;
   top: calc(var(--app-bar-height) - vh(3));
-  width: 100%;
+  width: 85%;
+  margin-left: to-rem(20);
   min-height: vh(77);
   overflow: visible;
 
   @include respond-above(medium) {
     top: calc(var(--app-bar-height) + vh(3));
     height: vh(77);
+    width: 100%;
+    margin-left: unset;
   }
 }
 
@@ -46,6 +50,7 @@
 .how-rarimo-works-section__slide {
   z-index: var(--z-card-top) !important;
   overflow: visible !important;
+  height: 100%!important;
 
   &--second {
     z-index: var(--z-card-middle) !important;
@@ -84,8 +89,6 @@
 
 .how-rarimo-works-section__card {
   height: 100%;
-  width: 90%;
-  margin: auto;
   border-radius: var(--primary-border-radius);
   background-image: radial-gradient(
     84.49% 84.49% at 50% -29.58%,

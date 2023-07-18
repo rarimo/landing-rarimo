@@ -224,10 +224,14 @@ const HowRarimoWorksSection = () => {
   useEffect(() => {
     const params = {
       longSwipes: !isDesktop,
+      slidesPerView: 'auto',
+      spaceBetween: !isDesktop ? 16 : 0,
       allowTouchMove: !isDesktop,
+      autoHeight: !isDesktop,
       grabCursor: false,
       resistance: false,
-      speed: 1500,
+      speed: isDesktop ? 1500 : 300,
+      freeMode: !isDesktop,
       effect: isDesktop ? 'creative' : false,
       creativeEffect: {
         limitProgress: 2,
@@ -331,18 +335,16 @@ const HowRarimoWorksSection = () => {
   }, [Boolean(sectionObserver?.isIntersecting)]);
 
   useEffect(() => {
+    if (!isDesktop) return;
     if (!sectionObserver) return;
 
     if (!sectionObserver.isIntersecting) {
       const isAboveSection = sectionObserver.boundingClientRect.top > 0;
       swiperRef.current?.swiper.setProgress(isAboveSection ? 0 : 1, 0);
-
-      if (isDesktop) {
-        animationRef.current?.goToAndStop(
-          isAboveSection ? 0 : LAST_STEP_FRAME,
-          true,
-        );
-      }
+      animationRef.current?.goToAndStop(
+        isAboveSection ? 0 : LAST_STEP_FRAME,
+        true,
+      );
     }
   }, [Boolean(sectionObserver?.isIntersecting)]);
 
