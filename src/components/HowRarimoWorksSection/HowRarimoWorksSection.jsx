@@ -223,16 +223,12 @@ const HowRarimoWorksSection = () => {
 
   useEffect(() => {
     const params = {
-      longSwipes: !isDesktop,
-      slidesPerView: 'auto',
-      spaceBetween: !isDesktop ? 16 : 0,
-      allowTouchMove: !isDesktop,
-      autoHeight: !isDesktop,
+      longSwipes: false,
+      allowTouchMove: false,
       grabCursor: false,
       resistance: false,
-      speed: isDesktop ? 1500 : 300,
-      freeMode: !isDesktop,
-      effect: isDesktop ? 'creative' : false,
+      speed: 1500,
+      effect: 'creative',
       creativeEffect: {
         limitProgress: 2,
         prev: {
@@ -244,29 +240,44 @@ const HowRarimoWorksSection = () => {
           opacity: 0.95,
         },
       },
-      on: isDesktop
-        ? {
-            slideChangeTransitionStart({ activeIndex }) {
-              const isFirstStep = activeIndex === 0;
-              const isLastStep = activeIndex === 2;
-              setIsFirstStep(isFirstStep);
-              setIsLastStep(isLastStep);
+      on: {
+        slideChangeTransitionStart({ activeIndex }) {
+          const isFirstStep = activeIndex === 0;
+          const isLastStep = activeIndex === 2;
+          setIsFirstStep(isFirstStep);
+          setIsLastStep(isLastStep);
 
-              sectionRef.current.scrollIntoView({
-                block: isLastStep ? 'end' : isFirstStep ? 'start' : 'center',
-                behavior: 'smooth',
-              });
-            },
-            slideChangeTransitionEnd() {
-              if (!isDesktopRef.current) {
-                setIsAnimationInProgress(false);
-              }
-            },
+          sectionRef.current.scrollIntoView({
+            block: isLastStep ? 'end' : isFirstStep ? 'start' : 'center',
+            behavior: 'smooth',
+          });
+        },
+        slideChangeTransitionEnd() {
+          if (!isDesktopRef.current) {
+            setIsAnimationInProgress(false);
           }
-        : false,
+        },
+      },
     };
 
-    Object.assign(swiperRef.current, params);
+    const paramsMobile = {
+      longSwipes: true,
+      pagination: true,
+      // slidesPerView: 'auto',
+      // spaceBetween: 16,
+      allowTouchMove: true,
+      autoHeight: true,
+      grabCursor: false,
+      resistance: false,
+      freeMode: true,
+      effect: 'coverflow',
+      coverflowEffect: {
+        rotate: 25,
+        scale: 0.95,
+      },
+    };
+
+    Object.assign(swiperRef.current, isDesktop ? params : paramsMobile);
 
     swiperRef.current.initialize();
   }, []);
