@@ -20,6 +20,7 @@
 
   @include respond-to(medium) {
     padding: 0;
+    overflow: hidden;
   }
 
   @include respond-above(medium) {
@@ -49,6 +50,7 @@
 .how-rarimo-works-section__slide {
   z-index: var(--z-card-top) !important;
   overflow: visible !important;
+  height: 100%!important;
 
   &--second {
     z-index: var(--z-card-middle) !important;
