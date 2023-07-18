@@ -185,7 +185,7 @@ const HowRarimoWorksSection = () => {
     };
 
     animationRef.current = lottie.loadAnimation(params);
-
+    console.log(animationRef.current);
     animationRef.current.addEventListener('drawnFrame', frameEvent => {
       const currentFrame = Math.ceil(frameEvent.currentTime);
       const isFrameInRange =
