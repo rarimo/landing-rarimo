@@ -11,12 +11,6 @@ export const backersList = [
     height: 16,
     withOpacity: false,
   },
-  // {
-  //   image: '/img/backers/Vector.png',
-  //   width: 72,
-  //   height: 16,
-  //   withOpacity: true,
-  // },
   {
     image: '/img/backers/eniac.webp',
     width: 80,
@@ -40,10 +34,4 @@ export const backersList = [
     height: 32,
     withOpacity: false,
   },
-  // {
-  //   image: '/img/backers/protocol-labs.webp',
-  //   width: 91,
-  //   height: 24,
-  //   withOpacity: true,
-  // },
 ];
