@@ -161,7 +161,7 @@
 .how-rarimo-works-section__list {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: to-rem(36) 3%;
+  grid-gap: to-rem(24) 3%;
   padding-bottom: max(vh(5), to-rem(24));
 
   @include respond-above(medium) {
