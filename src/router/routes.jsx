@@ -3,16 +3,16 @@ import { Navigate, useRoutes } from 'react-router-dom';
 
 import RouteTransition from '@/components/RouteTransition';
 import { ROUTES_PATHS } from '@/const';
-import useRouteLocationContext from '@/hooks/useRouteLocation';
+import useRouteLocation from '@/hooks/useRouteLocation';
 import MainLayout from '@/layouts/MainLayout';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));
 // const TestnetPage = lazy(() => import('@/pages/TestnetPage'));
-// const NftCheckoutPage = lazy(() => import('@/pages/NftCheckoutPage'));
+const NftCheckoutPage = lazy(() => import('@/pages/NftCheckoutPage'));
 const TestnetSignUpPage = lazy(() => import('@/pages/TestnetSignUpPage'));
 
 const AppRoutes = () => {
-  const { displayLocation } = useRouteLocationContext();
+  const { displayLocation } = useRouteLocation();
 
   const routes = [
     {
@@ -27,10 +27,10 @@ const AppRoutes = () => {
         //   path: ROUTES_PATHS.testnet,
         //   element: <TestnetPage />,
         // },
-        // {
-        //   path: ROUTES_PATHS.nftCheckout,
-        //   element: <NftCheckoutPage />,
-        // },
+        {
+          path: ROUTES_PATHS.nftCheckout,
+          element: <NftCheckoutPage />,
+        },
       ],
     },
     {

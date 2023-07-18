@@ -1,19 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS } from '@/const';
 import { AppContextProvider, RouteLocationProvider } from '@/context';
-import { defineDesktopFontSizes, hideLoader } from '@/js';
+import useViewportSizes from '@/hooks/useViewportSizes';
+import { defineDesktopFontSizes, hideLoader, initAOS } from '@/js';
 import AppRoutes from '@/router/routes';
 
 const App = () => {
-  const [isInited, setIsInited] = useState(false);
+  useViewportSizes();
 
   const setup = () => {
     setTimeout(() => {
       hideLoader();
       defineDesktopFontSizes();
-      setIsInited(true);
+      initAOS();
     }, CONFIG.initLoaderDelay);
   };
 
@@ -22,14 +23,9 @@ const App = () => {
   }, []);
 
   return (
-    <div
-      id={COMPONENT_NODE_IDS.application}
-      className="application"
-      data-aos="fade-up"
-      data-aos-anchor-placement="top-bottom"
-    >
+    <div id={COMPONENT_NODE_IDS.application} className="application">
       <RouteLocationProvider>
-        <AppContextProvider isInited={isInited}>
+        <AppContextProvider>
           <AppRoutes />
         </AppContextProvider>
       </RouteLocationProvider>

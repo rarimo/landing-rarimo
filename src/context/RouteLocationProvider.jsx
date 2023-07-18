@@ -37,8 +37,6 @@ export const RouteLocationProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.scrollTop = document.body.scrollTop = 0;
-    // document.documentElement.scrollTo({ top: 0, behavior: 'auto' });
-    // document.body.scrollTo({ top: 0, behavior: 'auto' });
   }, [displayLocation]);
 
   const memoizedContextValue = useMemo(

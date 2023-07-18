@@ -1,83 +1,46 @@
 .subscribe-section {
-  padding-top: bg-space(2);
-  padding-bottom: bg-space(2);
-  background-color: var(--accent-bg-color);
+  padding-top: to-rem(40);
+  padding-bottom: to-rem(40);
 
-  @extend %accent-bg-plh;
-
-  @include noise-bg(var(--accent-bg-color));
-  @include bg-rect;
+  @include respond-above(medium) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: to-rem(150);
+    padding-bottom: to-rem(72);
+  }
 }
 
-.subscribe-section__content {
-  width: 100%;
-  height: bg-space(8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: bg-space(0.5);
-  text-align: center;
+.subscribe-section__title-wrapper {
+  margin-bottom: to-rem(32);
 
-  @include block-with-bg-border(var(--accent-bg-color));
-
-  @include respond-above(sm) {
-    height: bg-space(11);
-    padding: bg-space(1);
-  }
-
-  @include respond-above(md) {
-    height: bg-space(9);
-    max-width: bg-space(28);
-  }
-
-  @include respond-above(xm) {
-    height: bg-space(8);
-    max-width: bg-space(24);
+  @include respond-above(medium) {
+    margin-bottom: 0;
   }
 }
 
 .subscribe-section__title {
-  max-width: 10em;
-  display: flex;
-  text-transform: uppercase;
-  overflow: hidden;
-
-  @include respond-above(md) {
-    max-width: unset;
-  }
-
-  @include respond-above(xm) {
-    font-size: var(--h4-size);
-  }
+  margin-bottom: to-rem(16);
+  font-size: to-rem(32);
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 .subscribe-section__description {
-  max-width: 23em;
-  color: var(--secondary-text-color);
-
-  @include respond-above(md) {
-    max-width: unset;
-    font-size: 0.8em;
-  }
+  font-size: to-rem(16);
 }
 
 .subscribe-section__form {
-  width: 100%;
-  max-width: 23em;
+  max-width: to-rem(380);
+
+  @include respond-above(medium) {
+    flex: 1 0 to-rem(380);
+    padding-left: to-rem(40);
+  }
 }
 
 .subscribe-section__subscribe-btn {
   &.subscribe-section__subscribe-btn {
-    padding: 0;
-    color: var(--secondary-text-color);
-
-    @media all and (hover: hover) {
-      &:hover,
-      &:focus-visible {
-        color: var(--primary-text-color);
-      }
-    }
+    min-height: to-rem(54);
   }
 }

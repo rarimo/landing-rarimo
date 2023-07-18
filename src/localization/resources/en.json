@@ -15,79 +15,101 @@
     "whitepaper-link": "Whitepaper"
   },
   "app-footer": {
+    "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
+    "nav-title": "Navigation",
+    "follow-us-title": "Follow Us",
     "discord": "Discord",
     "twitter": "Twitter",
     "telegram": "Telegram"
   },
   "navigation": {
-    "home": "Home",
     "use-cases": "Use Cases",
-    "community": "Community",
+    "documentation": "Documentation",
     "support": "Support"
   },
   "home-hero-section": {
     "title-part-1": "Unlocked &",
     "title-part-2": "Connected",
     "subtitle": "Decentralized social layer",
-    "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
+    "description": "Interoperability protocol for cross-chain identity and asset management",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper",
-    "blockchains-title": "Supported blockchains",
-    "scroll-for-more": "Scroll for more",
-    "marquee": "The next generation of multi-chain assets & identities"
+    "blockchains-title": "Supported blockchains"
   },
-  "what-rarimo-does-section": {
-    "title": "Rarimo’s uniquely modular multi-layer architecture makes developing interoperable dApps faster, easier, and cheaper",
-    "subtitle": "What is Rarimo?",
-    "description": "The protocol consists of a generalized messaging protocol with a series of sub-protocols on top.",
-    "easy-solutions-title": "Easy: Single-click solutions",
-    "easy-solutions-text": "Transaction bundling allows multiple flows to be executed at once. Meaning fewer fees, signatures, and simplest experience for users.",
-    "decentralized-network-title": "Decentralized network",
-    "decentralized-network-text": "Blockchain core and endless number of validators, no limit on the number of blockchains that can be connected.",
-    "security-title": "Security and cost efficiency",
-    "security-text": "Threshold signatures ensure top-level security, and a constant transfer price guarantees affordability."
-  },
-  "verticals-section": {
-    "subtitle": "Verticals",
-    "docs-link": "Documentation",
-    "assets-title": "Assets",
-    "assets-text": "From Defi Lending, to NFT Checkouts, Rarimo makes multi-chain transactions easy and possible",
-    "identites-title": "Identites",
-    "identites-text": "Cross-chain proofs for SBTs, Social Tokens, dynamic NFTs and more. For interoperable social graphs and identities"
+  "how-rarimo-works-section": {
+    "main": {
+      "subtitle": "What is rarimo?",
+      "title": "Interoperability for Identity and Social Components Across Multiple Networks",
+      "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts",
+      "easy-solutions-title": "Easy: Single-click solutions",
+      "easy-solutions-text": "Bundle transactions for fewer fees, signatures, and seamless experience",
+      "decentralized-network-title": "Decentralized network",
+      "decentralized-network-text": "Unlimited blockchains, validators, and core for seamless connectivity",
+      "security-title": "Security and cost efficiency",
+      "security-text": "Threshold signatures ensure high security with constant transfer price"
+    },
+    "identity": {
+      "title": "Identity Protocol",
+      "description": "Rarimo allows creating zkp-based digital identity with portability across connected chains",
+      "zk-proofs-accent": "ZK-proofs",
+      "zk-proofs-text": "to maintain privacy while providing information about user identity",
+      "state-replication-accent": "State replication",
+      "state-replication-text": "Published credentials can be verified on any chain, eliminating extra integrations",
+      "state-aggregators-accent": "State Aggregators and Threshold Signatures",
+      "state-aggregators-text": "make cross-chain data publishing cost-effective",
+      "instant-finality-accent": "Instant finality",
+      "instant-finality-text": "enables seamless bridging of identity data on Rarimo after publishing"
+    },
+    "bridging": {
+      "title": "Bridging Protocol",
+      "description": "Rarimo is able to transfer or mint assets and states across-chains",
+      "fungible-token-accent": "Fungible Token",
+      "fungible-token-text": "bridging enables custom logic inclusion and single signature execution across chains",
+      "nft-and-sbt-accent": "NFT and SBTs",
+      "nft-and-sbt-text": "On-demand feature empowers users to choose their desired network for claims",
+      "identity-states-accent": "Identity states and Social Graph Snapshots",
+      "identity-states-text": "- Oracles parse existing identifiers on connected networks and bridge states"
+    },
+    "protocol-subtitle": "Sub protocols",
+    "docs-link": "Documentation"
   },
   "use-cases-section": {
-    "subtitle": "Featured use cases",
-    "share-text": "Are you building something?",
+    "title": "Featured use cases",
+    "share-text": "Are you building something new?",
     "share-link": "Share now",
-    "view-demo-link": "View Demo",
-    "view-docs-link": "View Docs",
+    "mints-title": "Multi-chain mints",
+    "mints-text": "Issue non-fungible tokens (NFTs) or SBTs on any chain",
+    "gaming-profiles-title": "Gaming profiles",
+    "gaming-profiles-text": "Build out player profile that can be used by third-party dApps",
+    "ssi-title": "Self-sovereign identities (SSI)",
+    "ssi-text": "Use KYC data in the web3 world using ZK-proofs for cross-chain identity verification",
     "nft-checkout-title": "NFT Checkout",
-    "nft-checkout-desc": "With Rarimo, developers can build fully decentralized NFT checkouts with non-native tokens",
-    "crosschain-proofs-title": "Crosschain proofs",
-    "crosschain-proofs-desc": "Verify the NFT / SBT ownership and easily retrieve the metadata stored on Rarimo",
-    "multichain-minting-title": "Multichain minting",
-    "multichain-minting-desc": "Simplify the flow for airdropping and allow community to mint and hold tokens on their preferred chain",
-    "description-title": "Description",
-    "partners-title": "Partner"
+    "nft-checkout-text": "Allow users to purchase NFTs with ANY crypto on any chain with a single signature",
+    "token-agnostic-title": "Token-agnostic payments",
+    "token-agnostic-text": "Users can pay for transactions with their preferred tokens",
+    "social-graphs-title": "Social Graphs",
+    "social-graphs-text": "A cost-efficient way to propagate social graph state between different chains",
+    "name-servers-title": "Name Servers",
+    "name-servers-text": "Issue credentials for the users and build their social identity"
   },
   "backers-section": {
-    "subtitle": "Backers"
+    "title": "Backers"
   },
   "news-section": {
-    "subtitle": "Latest news",
-    "read-more-link": "Read more",
-    "first-title": "Rarimo: making multi-chain transactions user-friendly",
+    "title": "Latest news",
+    "view-all-link": "View All",
+    "first-title": "Purchase NFT on one network, Pay on another",
     "second-title": "What is Interoperability, and why is it so important?",
-    "third-title": "Rarimo Whitepaper",
-    "fourth-title": "Decentralized Identity Use Cases"
+    "third-title": "VeradiVerdict - Introduction to Rarimo",
+    "fourth-title": "Self-sovereign identities (SSI) and blockchain"
   },
   "subscribe-section": {
     "title": "Subscribe to our newsletter",
     "description": "Stay up-to-date about new features and supported apps",
-    "input-plh": "Enter you mail",
+    "input-plh": "Enter your email",
     "subscribe-btn": "Subscribe",
     "err-email-required": "Email is required",
-    "err-wrong-format": "Wrong mail format",
+    "err-wrong-format": "Wrong email format",
     "success-msg": "Success!"
   },
   "community-section": {
@@ -103,32 +125,25 @@
     "discord-title": "Discord Community",
     "discord-desc": "Connect with like-minded community for support and inspiration"
   },
-  "testnet-hero-section": {
-    "title": "Join private Testnet",
-    "description_html": "Rarimo is a protocol unlocking <strong>liquidity</strong> and <strong>interoperability</strong> across chains in a <strong>seamless way</strong>",
-    "sign-up-link": "Sign up"
-  },
-  "testnet-desc-section": {
-    "title": "Rarimo will run a closed testnet that will be invite only, with participants chosen from the signups",
-    "description": "Looking for a diverse set of participants, with technical experience participating in testnets and running nodes, those who represent professional validating communities as well as developers, builders, community leaders and moderators.",
-    "feedback": "Post your questions and feedback on Rarimo’s",
-    "discord-link": "Discord channel"
-  },
   "nft-checkout-hero-section": {
-    "title": "NFT purchase made",
-    "title-easy-span": "easy",
-    "title-instant-span": "instant",
-    "title-atomic-span": "atomic",
-    "subtitle": "NFT Checkout",
-    "description_html": "Users can pay for NFTs with any token of their choice in <strong>a single</strong> transaction",
-    "try-demo-link": "Try Demo"
+    "title": "NFT Checkout",
+    "description": "Allow users to purchase NFTs with ANY crypto on any chain",
+    "docs-link": "Get Started",
+    "demo-link": "Try the Demo",
+    "blockchains-title": "Supported blockchains",
+    "scroll-for-more": "Scroll for more"
+  },
+  "nft-checkout-steps-section": {
+    "title-1": "Choose your wallet",
+    "title-2": "Choose your token",
+    "title-3": "Confirm the transaction",
+    "title-4": "Easy like that!"
   },
   "advantages-section": {
-    "supported-ft-title": "Supported tokens",
-    "experience-title": "Simplest User Experience",
-    "experience-text": "Choose a payment token from the available balance, sign once and redeem NFT",
-    "fee-title": "Lowest gas fees",
-    "fee-text": "Execute multiple events with a bundling functionality, for lowest fees and non reversible transaction"
+    "single-signature": "Single signature to execute the entire flow",
+    "merge-tokens": "Merge multiple tokens for a single payment",
+    "gas-fee": "Flexibility on gas fee payment options",
+    "best-price": "Best Price discovery via Multiple DEX"
   },
   "integrations-section": {
     "title": "Partner Integrations"

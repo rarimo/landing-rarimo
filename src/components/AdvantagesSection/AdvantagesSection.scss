@@ -1,95 +1,48 @@
 .advantages-section {
-  padding-bottom: min(15vmin, to-rem(100));
+  padding-top: to-rem(80);
+  padding-bottom: to-rem(100);
+
+  @include respond-above(medium) {
+    padding-bottom: to-rem(180);
+  }
 }
 
-.advantages-section__video-wrapper {
-  position: relative;
-  width: 100%;
+.advantages-section__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: to-rem(40) to-rem(24);
+  justify-items: center;
+  color: var(--primary-title-color);
+  font-weight: 600;
+  text-transform: capitalize;
+
+  @include respond-above(tablet) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include respond-above(medium) {
+    font-size: to-rem(18);
+  }
+}
+
+.advantages-section__list-item {
+  max-width: to-rem(272);
   display: flex;
   flex-direction: column;
-  margin-top: -10vh;
-  margin-right: auto;
-  margin-bottom: min(15vmin, to-rem(100));
-  margin-left: auto;
-  border-radius: to-rem(6);
-  overflow: hidden;
-  object-fit: contain;
+  align-items: center;
+  text-align: center;
 
-  @include respond-above(md) {
-    width: 80%;
-    margin-top: -25vh;
-  }
-
-  @include respond-above(xm) {
-    // width: auto;
-    // height: 85vh;
-    margin-top: -35vh;
+  @include respond-above(medium) {
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
-.advantages-section__video-play-btn {
-  height: to-rem(60);
-  width: to-rem(60);
-  display: grid;
-  place-items: center;
-  position: absolute;
-  z-index: var(--z-default);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background-color: var(--col-silverpine-cyan);
-  opacity: 1;
-  color: var(--col-total-black);
-  transition-property: opacity, transform;
-  transition-duration: var(--medium-transition-duration);
-  transition-timing-function: var(--hover-transition-timing-function);
-  cursor: pointer;
+.advantages-section__list-item-icon {
+  margin-bottom: to-rem(32);
 
-  @media all and (hover: hover) {
-    &:hover,
-    &:focus-visible {
-      transform: translate(-50%, -50%) scale(1.2);
-    }
+  @include respond-above(medium) {
+    width: to-rem(64);
+    height: to-rem(64);
   }
-
-  &--hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-}
-
-.advantages-section__browser-toolbar-img {
-  background-color: var(--nft-checkout-video-bg);
-  border-top-right-radius: to-rem(6);
-  border-top-left-radius: to-rem(6);
-}
-
-.advantages-section__browser-video {
-  border: to-rem(6) solid var(--nft-checkout-video-bg);
-  border-top: none;
-  border-bottom-right-radius: to-rem(6);
-  border-bottom-left-radius: to-rem(6);
-  cursor: pointer;
-}
-
-.advantages-section__partners {
-  margin-bottom: min(20vmin, to-rem(100));
-
-  @include respond-above(md) {
-    margin-bottom: min(20vmin, to-rem(150));
-  }
-}
-
-.advantages-section__card-icon {
-  margin-bottom: to-rem(24);
-  color: var(--base-card-primary-icon-color);
-}
-
-.advantages-section__card-title {
-  margin-bottom: to-rem(8);
-}
-
-.advantages-section__card-text {
-  letter-spacing: 0.02em;
 }

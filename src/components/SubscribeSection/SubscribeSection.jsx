@@ -1,13 +1,10 @@
 import './SubscribeSection.scss';
 
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as yup from 'yup';
 
 import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
-import SectionWrapper, {
-  SECTION_WRAPPER_SCHEME,
-} from '@/components/SectionWrapper';
 import TextField from '@/components/TextField';
 import { REGEX } from '@/const';
 import useForm from '@/hooks/useForm';
@@ -56,46 +53,44 @@ const SubscribeSection = () => {
   }
 
   return (
-    <SectionWrapper scheme={SECTION_WRAPPER_SCHEME.accent}>
-      <section className="subscribe-section container">
-        <div className="subscribe-section__content">
-          <h4 className="subscribe-section__title">
-            <span data-aos="fade-up">{t('subscribe-section.title')}</span>
-          </h4>
-          <p className="subscribe-section__description" data-aos="fade-up">
-            {t('subscribe-section.description')}
-          </p>
-          {isSuccess ? (
-            <h6>{t('subscribe-section.success-msg')}</h6>
-          ) : (
-            <form
-              className="subscribe-section__form"
-              onSubmit={handleSubmit}
-              data-aos="fade-up"
-            >
-              <TextField
-                name="email"
-                placeholder={t('subscribe-section.input-plh')}
-                value={values.email}
-                error={errors.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                appendSlot={
-                  <AppButton
-                    className="subscribe-section__subscribe-btn"
-                    scheme={APP_BUTTON_SCHEMES.secondary}
-                    textKey={t('subscribe-section.subscribe-btn')}
-                    type="submit"
-                    disabled={isSubmitting}
-                  />
-                }
+    <section className="subscribe-section container">
+      <div className="subscribe-section__title-wrapper">
+        <h3 className="subscribe-section__title" data-aos="fade-up">
+          {t('subscribe-section.title')}
+        </h3>
+        <p className="subscribe-section__description" data-aos="fade-up">
+          {t('subscribe-section.description')}
+        </p>
+      </div>
+      {isSuccess ? (
+        <h6>{t('subscribe-section.success-msg')}</h6>
+      ) : (
+        <form
+          className="subscribe-section__form"
+          onSubmit={handleSubmit}
+          data-aos="fade-up"
+        >
+          <TextField
+            name="email"
+            placeholder={t('subscribe-section.input-plh')}
+            value={values.email}
+            error={errors.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            appendSlot={
+              <AppButton
+                className="subscribe-section__subscribe-btn"
+                scheme={APP_BUTTON_SCHEMES.text}
+                textKey={t('subscribe-section.subscribe-btn')}
+                type="submit"
+                disabled={isSubmitting}
               />
-            </form>
-          )}
-        </div>
-      </section>
-    </SectionWrapper>
+            }
+          />
+        </form>
+      )}
+    </section>
   );
 };
 
-export default SubscribeSection;
+export default memo(SubscribeSection);

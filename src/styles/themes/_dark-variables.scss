@@ -2,15 +2,11 @@
 [color-scheme='dark'] ::before,
 [color-scheme='dark'] ::after {
   --primary-bg-color: var(--col-primary-black);
-  --accent-bg-color: var(--col-primary-green);
-  --yellow-accent-bg-color: var(--col-primary-yellow);
-  --primary-title-color: var(--col-total-white);
-  --secondary-title-color: var(--col-white-alpha);
+  --primary-title-color: var(--col-white-alpha);
   --primary-text-color: var(--col-primary-grey);
-  --secondary-text-color: var(--col-black-alpha);
-  --primary-btn-color: var(--secondary-title-color);
+  --primary-btn-color: var(--col-white-alpha);
   --bg-rect-border-color: var(--col-white-min-alpha);
-  --primary-divider-color: var(--bg-rect-border-color);
+  --primary-border-color: var(--col-white-min-alpha);
 
   // Theme switcher
   --theme-switcher-bg: var(--col-total-white);
@@ -22,7 +18,8 @@
 
   // How it works chart
   --how-it-works-chart-back-line-col: var(--col-gluon-grey);
-  --how-it-works-chart-group-hidden-bg: #{$col-graphite-black};
+
+  // --how-it-works-chart-group-hidden-bg: #{$col-graphite-black};
   --how-it-works-chart-group-hidden-col: rgba(#{$col-total-white-rgb}, 30%);
   --how-it-works-chart-guide-lines-bg: rgba(#{$col-turquoise-pearl-rgb}, 10%);
 }

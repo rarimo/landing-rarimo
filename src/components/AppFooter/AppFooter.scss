@@ -1,93 +1,36 @@
-%redefined-aos-fade {
-  @include redefine-aos-prop('fade-up') {
-    transform: translate3d(0, bg-space(2), 0);
-  }
-}
-
 .app-footer {
-  padding-bottom: bg-space(2);
-  height: var(--app-footer-height);
-
-  @include respond-above(sm) {
-    padding-bottom: bg-space(1);
-  }
-
-  @include respond-above(md) {
-    padding-bottom: bg-space(2);
-  }
-}
-
-.app-footer__wrapper {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-.app-footer__bg-table {
-  display: none;
-
-  @include respond-above(md) {
-    display: table;
-
-    // stylelint-disable-next-line declaration-no-important
-    position: absolute !important;
-    top: calc(var(--bg-rect-border-size) * -1);
-    left: 0;
-    z-index: var(--z-default);
-    width: calc(100% - bg-space(2) - to-rem(1));
-    margin: 0 bg-space(1);
-
-    @include block-with-bg-border;
-  }
-}
-
-.app-footer__bg-table-cell {
-  height: bg-space(1);
-
-  tr:not(:last-child) & {
-    border-bottom: to-rem(1) solid var(--bg-rect-border-color);
-  }
+  --footer-gutter: #{to-rem(20)};
 }
 
 .app-footer__content {
-  height: 100%;
+  position: relative;
+  padding-top: to-rem(40);
+  padding-bottom: to-rem(40);
+  border-top: to-rem(1) solid var(--primary-border-color);
   font-size: to-rem(14);
 
-  @include respond-to(md) {
-    padding: 0 bg-space(1);
-
-    @include block-with-bg-border;
-  }
-
-  @include respond-above(md) {
-    position: relative;
-    z-index: var(--z-default);
+  @include respond-above(medium) {
     display: grid;
-    grid-template-columns: repeat(2, max-content) 1fr auto;
-    grid-gap: 20%;
-    margin: 0 bg-space(1);
+    grid-template-columns: to-rem(290) repeat(2, max-content);
+    grid-gap: to-rem(160);
+    padding-top: to-rem(64);
+    padding-bottom: to-rem(64);
   }
 }
 
 .app-footer__logo-wrapper {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  @extend %redefined-aos-fade;
-
-  @include respond-above(md) {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: bg-space(1);
-    grid-gap: bg-space(2);
-    align-items: center;
+  @include respond-above(medium) {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
 .app-footer__logo {
-  height: bg-space(0.5);
+  height: to-rem(24);
   display: flex;
   color: var(--app-footer-logo-color);
 
@@ -101,21 +44,33 @@
   width: auto;
 }
 
-// .app-footer__navigation {
-// }
+.app-footer__description {
+  display: none;
+  font-size: to-rem(14);
 
-.app-footer__social-links-wrapper {
+  @include respond-above(medium) {
+    display: block;
+    margin-top: var(--footer-gutter);
+    margin-bottom: auto;
+  }
+}
+
+.app-footer__links-list {
   display: none;
 
-  @extend %redefined-aos-fade;
-
-  @include respond-above(md) {
-    height: 100%;
+  @include respond-above(medium) {
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: bg-space(1);
+    grid-auto-rows: min-content;
+    grid-gap: var(--footer-gutter);
     align-items: center;
   }
+}
+
+.app-footer__list-title {
+  color: var(--primary-title-color);
+  font-size: to-rem(16);
+  font-weight: 600;
 }
 
 .app-footer__link {
@@ -125,12 +80,10 @@
   transition-property: color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+  cursor: pointer;
 
-  @media all and (hover: hover) {
-    &:hover,
-    &:focus-visible {
-      color: var(--secondary-title-color);
-    }
+  @include hover {
+    color: var(--primary-title-color);
   }
 }
 
@@ -145,26 +98,24 @@
 .app-footer__scroll-to-top-btn {
   &.app-footer__scroll-to-top-btn {
     display: none;
-    height: bg-space(1);
-    width: bg-space(1);
+    min-height: to-rem(40);
+    height: to-rem(40);
+    width: to-rem(40);
     padding: 0;
 
-    @extend %redefined-aos-fade;
-
-    @include respond-above(md) {
+    @include respond-above(medium) {
       display: inline-flex;
+      position: absolute;
+      top: to-rem(64);
+      right: 0;
+      background-image: url('/img/app-bar/sidebar-btn-bg.jpg');
+      background-size: 100%;
+      background-blend-mode: overlay;
+      filter: brightness(0.9);
     }
   }
 }
 
 .app-footer__scroll-to-top-icon {
   transform: rotate(-90deg);
-}
-
-.app-footer__space {
-  display: none;
-
-  @include respond-above(md) {
-    display: block;
-  }
 }
