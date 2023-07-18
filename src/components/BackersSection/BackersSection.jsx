@@ -3,7 +3,6 @@ import './BackersSection.scss';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import SectionWrapper from '@/components/SectionWrapper';
 import { getShiftedDelay } from '@/helpers';
 import { backersList } from '@/template-data';
 
@@ -11,38 +10,36 @@ const BackersSection = () => {
   const { t } = useTranslation();
 
   return (
-    <SectionWrapper>
-      <section className="backers-section container">
-        <h6 className="backers-section__subtitle">
-          <span data-aos="fade-up">{t('backers-section.subtitle')}</span>
-        </h6>
-        <div className="overflow-hidden">
-          <ul className="backers-section__list">
-            {backersList.map((item, index) => (
-              <li
-                className={cn([
-                  'backers-section__list-item',
-                  {
-                    'backers-section__list-item--increased': item.isIncreased,
-                  },
-                ])}
-                key={index}
-              >
-                <img
-                  className="backers-section__item-image"
-                  src={item.image}
-                  height="20"
-                  width="90"
-                  alt=""
-                  data-aos="fade-up"
-                  data-aos-delay={getShiftedDelay(index, 100)}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </SectionWrapper>
+    <section className="backers-section">
+      <div className="container">
+        <h5 className="backers-section__title" data-aos="fade-up">
+          {t('backers-section.title')}
+        </h5>
+        <ul className="backers-section__list">
+          {backersList.map((item, index) => (
+            <li
+              className={cn([
+                'backers-section__list-item',
+                {
+                  'backers-section__list-item--opacity': item.withOpacity,
+                },
+              ])}
+              key={index}
+            >
+              <img
+                className="backers-section__item-image"
+                src={item.image}
+                height="20"
+                width="90"
+                alt=""
+                data-aos="fade-up"
+                data-aos-delay={getShiftedDelay(index, 100)}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 };
 

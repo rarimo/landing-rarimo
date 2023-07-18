@@ -1,5 +1,5 @@
+import { throttle } from 'lodash-es';
 import { useEffect, useRef } from 'react';
-import { throttle } from 'throttle-debounce';
 
 import { VIDEO_BG_COLOR } from '@/const';
 
@@ -47,7 +47,7 @@ const PrimaryVideoParallax = ({ type = VIDEO_BG_COLOR.primary }) => {
     }
   };
 
-  const onScroll = useRef(throttle(20, parallax));
+  const onScroll = useRef(throttle(parallax, 20));
 
   useEffect(() => {
     videoRef.current?.play();

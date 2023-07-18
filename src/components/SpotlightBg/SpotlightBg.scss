@@ -1,0 +1,37 @@
+%absolute-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.spotlight-bg__bg-rect-backdrop {
+  &.spotlight-bg__bg-rect-backdrop {
+    @extend %absolute-fullscreen;
+
+    @include bg-rect;
+
+    z-index: var(--z-hidden);
+  }
+}
+
+.spotlight-bg__spotlight {
+  &.spotlight-bg__spotlight {
+    display: none;
+
+    @extend %absolute-fullscreen;
+
+    @media all and (hover: hover) {
+      display: block;
+      z-index: var(--z-hidden);
+      opacity: 0.6;
+      background-image: radial-gradient(
+        circle at 0 0,
+        transparent to-rem(80),
+        rgba(var(--col-total-black-rgb), 0.8) to-rem(200)
+      );
+      background-color: rgba(var(--col-primary-black-rgb), 0.6);
+    }
+  }
+}

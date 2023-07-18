@@ -1,0 +1,3 @@
+import './swiper';
+
+export default {};

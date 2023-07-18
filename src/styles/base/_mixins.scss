@@ -22,7 +22,10 @@
   }
 }
 
-@mixin bg-rect($rect-color: var(--bg-rect-border-color)) {
+@mixin bg-rect(
+  $rect-size: var(--primary-bg-rect-size),
+  $rect-color: var(--bg-rect-border-color)
+) {
   background-image: linear-gradient(
       to right,
       #{$rect-color} var(--bg-rect-border-size),
@@ -33,7 +36,7 @@
       #{$rect-color} var(--bg-rect-border-size),
       transparent var(--bg-rect-border-size)
     );
-  background-size: var(--primary-bg-rect-size) var(--primary-bg-rect-size);
+  background-size: #{$rect-size} #{$rect-size};
   background-repeat: repeat;
 }
 
@@ -51,9 +54,15 @@
     bottom: 0;
     left: calc(var(--bg-rect-border-size) * -1);
     background-image: url('/img/bg/noise.png');
+    background-repeat: repeat;
+    background-size: 100vw to-rem(600);
+
+    @supports (background-image: url('/img/bg/noise.webp')) {
+      background-image: url('/img/bg/noise.webp');
+    }
 
     @if $bg-color == var(--primary-bg-color) {
-      filter: invert(0.2) opacity(0.6);
+      // filter: invert(0.2) opacity(0.6);
     } @else {
       filter: invert(0.4) opacity(0.3);
     }
@@ -68,6 +77,23 @@
   border-left: var(--bg-rect-border-size) solid var(--bg-rect-border-color);
 
   @include noise-bg($bg-color);
+}
+
+@mixin hover() {
+  @media all and (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      @content;
+    }
+  }
+}
+
+@mixin mobile-hover() {
+  @media all and (hover: none) {
+    &:hover {
+      @content;
+    }
+  }
 }
 
 @mixin redefine-aos-prop($animation) {

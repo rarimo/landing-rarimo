@@ -1,11 +1,13 @@
 const root = document.documentElement;
 
 // Takes the viewport widths in pixels and the font sizes in rem
-function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
+function clampBuilder(minWidthPx, maxWidthPx, minFontSizePx, maxFontSizePx) {
   const pixelsPerRem = Number(getComputedStyle(root).fontSize.slice(0, -2));
 
   const minWidth = minWidthPx / pixelsPerRem;
   const maxWidth = maxWidthPx / pixelsPerRem;
+  const minFontSize = minFontSizePx / pixelsPerRem;
+  const maxFontSize = maxFontSizePx / pixelsPerRem;
 
   const slope = (maxFontSize - minFontSize) / (maxWidth - minWidth);
   const yAxisIntersection = -minWidth * slope + minFontSize;
@@ -18,14 +20,12 @@ function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
 }
 
 export const defineDesktopFontSizes = () => {
-  root.style.setProperty('--h3-size-xs', clampBuilder(400, 750, 2, 3)); // 32px - 48px
-  root.style.setProperty('--h3-size-sm', clampBuilder(750, 1024, 3, 3.5)); // 48px - 56px
-
-  root.style.setProperty('--p-size-xm', clampBuilder(1200, 1600, 0.875, 1.25));
-  root.style.setProperty('--h1-size-xm', clampBuilder(1200, 1600, 6.5, 9.125));
-  root.style.setProperty('--h2-size-xm', clampBuilder(1200, 1600, 5, 7));
-  root.style.setProperty('--h3-size-xm', clampBuilder(1200, 1600, 3, 3.75));
-  root.style.setProperty('--h4-size-xm', clampBuilder(1200, 1600, 2.625, 3.5));
-  root.style.setProperty('--h5-size-xm', clampBuilder(1200, 1600, 2.375, 3.25));
-  root.style.setProperty('--h6-size-xm', clampBuilder(1200, 1600, 1.375, 2));
+  root.style.setProperty('--p-size-medium', clampBuilder(1024, 1400, 11, 13));
+  root.style.setProperty(
+    '--h1-size-medium',
+    clampBuilder(1024, 1400, 100, 120),
+  );
+  root.style.setProperty('--h2-size-medium', clampBuilder(1024, 1400, 34, 38));
+  root.style.setProperty('--h3-size-medium', clampBuilder(1024, 1400, 28, 32));
+  root.style.setProperty('--h4-size-medium', clampBuilder(1024, 1400, 24, 32));
 };

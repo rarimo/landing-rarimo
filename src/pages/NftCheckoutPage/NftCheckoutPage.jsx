@@ -1,28 +1,21 @@
-import { useEffect } from 'react';
+import './NftCheckoutPage.scss';
 
 import AdvantagesSection from '@/components/AdvantagesSection';
 import CommunitySection from '@/components/CommunitySection';
-import HowItWorksSection from '@/components/HowItWorksSection';
-import ImplementationSection from '@/components/ImplementationSection';
 import NftCheckoutHeroSection from '@/components/NftCheckoutHeroSection';
-// import IntegrationsSection from '@/components/IntegrationsSection';
-import { initSwiper } from '@/js';
+import NftCheckoutStepsSection from '@/components/NftCheckoutStepsSection';
+import SubscribeSection from '@/components/SubscribeSection';
 
 const NftCheckoutPage = () => {
-  useEffect(() => {
-    initSwiper();
-  }, []);
-
   return (
     <>
-      <NftCheckoutHeroSection />
+      <div className="nft-checkout-page__animation-container">
+        <NftCheckoutHeroSection />
+        <NftCheckoutStepsSection />
+      </div>
       <AdvantagesSection />
-      {/* <IntegrationsSection /> */}
-      <HowItWorksSection />
-      <ImplementationSection />
       <CommunitySection />
-      {/* TODO: add badge into footer
-      https://alchemotion.notion.site/Alchemy-Badge-Installation-Steps-1daeaccf15364448a72fae5a061a8945 */}
+      <SubscribeSection />
     </>
   );
 };

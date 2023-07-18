@@ -1,35 +1,43 @@
 import './AppBar.scss';
 
-import useResizeObserver from '@react-hook/resize-observer';
 import cn from 'classnames';
-import { useEffect, useRef, useState } from 'react';
+import { throttle } from 'lodash-es';
+import { lazy, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { throttle } from 'throttle-debounce';
 
-import AppSidebar from '@/components/AppSidebar';
-import BurgerButton from '@/components/BurgerButton';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { CONFIG } from '@/config';
 import { ROUTES_PATHS } from '@/const';
-import { handleNavClick } from '@/helpers';
+import useAppContext from '@/hooks/useAppContext';
+import useNavigation from '@/hooks/useNavigation';
+import useRouteLocation from '@/hooks/useRouteLocation';
 import { navigation } from '@/template-data';
+
+const AppSidebar = lazy(() => import('@/components/AppSidebar'));
+const BurgerButton = lazy(() => import('@/components/BurgerButton'));
 
 const APP_BAR_THRESHOLD = 60;
 
+let onScroll;
+
 const AppBar = () => {
   const { t } = useTranslation();
+  const { displayLocation } = useRouteLocation();
+  const { handleNavClick } = useNavigation();
+  const { isDesktop } = useAppContext();
 
   const [isAppBarHidden, setIsAppBarHidden] = useState(false);
   const [isVisibleSidebar, setIsVisibleSidebar] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(true);
+  const [isAppBarFilled, setIsAppBarFilled] = useState(false);
 
   const lastScrollPosition = useRef(0);
 
   const toggleShowHeader = () => {
-    const currentScrollPosition = window.pageYOffset;
+    const currentScrollPosition = window.scrollY;
     const isScrollUnderThreshold = currentScrollPosition > APP_BAR_THRESHOLD;
 
+    setIsAppBarFilled(isScrollUnderThreshold);
     if (
       currentScrollPosition > lastScrollPosition.current &&
       isScrollUnderThreshold
@@ -45,16 +53,12 @@ const AppBar = () => {
     setIsVisibleSidebar(prev => !prev);
   };
 
-  useResizeObserver(document.body, ({ contentRect }) => {
-    setIsDesktop(contentRect.width >= 1024);
-  });
-
   useEffect(() => {
     setIsVisibleSidebar(false);
   }, [isDesktop]);
 
   useEffect(() => {
-    const onScroll = throttle(400, toggleShowHeader);
+    onScroll = throttle(toggleShowHeader, 400);
     window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
@@ -65,14 +69,15 @@ const AppBar = () => {
   return (
     <header
       className={cn([
-        'app-bar container',
+        'app-bar',
         {
           'app-bar--hidden': isAppBarHidden,
+          'app-bar--filled': isAppBarFilled,
         },
       ])}
     >
-      <div className="app-bar__container container">
-        <div className="app-bar__content">
+      <div className="app-bar__container">
+        <div className="app-bar__content container">
           <Link className="app-bar__logo" to={ROUTES_PATHS.home}>
             <svg className="app-bar__logo-img" height="28" width="108">
               <use href="/icons/sprite.svg#icon-app-logo"></use>
@@ -83,27 +88,33 @@ const AppBar = () => {
             <>
               <nav className="app-bar__navigation">
                 <ul className="app-bar__nav-list">
-                  {navigation.map((link, index) => (
-                    <li
-                      className="app-bar__nav-item"
-                      key={index}
-                      role="link"
-                      tabIndex="0"
-                      onClick={() => handleNavClick(link)}
-                      onKeyDown={event => {
-                        switch (event.code) {
-                          case 'Enter':
-                            handleNavClick(link);
-                            return;
+                  {navigation.map(
+                    (link, index) =>
+                      (!link.includeRoutes ||
+                        link.includeRoutes?.includes(
+                          displayLocation.pathname,
+                        )) && (
+                        <li
+                          className="app-bar__nav-item"
+                          key={index}
+                          role="link"
+                          tabIndex="0"
+                          onClick={() => handleNavClick(link)}
+                          onKeyDown={event => {
+                            switch (event.code) {
+                              case 'Enter':
+                                handleNavClick(link);
+                                return;
 
-                          default:
-                            return;
-                        }
-                      }}
-                    >
-                      {t(link.textKey)}
-                    </li>
-                  ))}
+                              default:
+                                return;
+                            }
+                          }}
+                        >
+                          {t(link.textKey)}
+                        </li>
+                      ),
+                  )}
                 </ul>
               </nav>
 

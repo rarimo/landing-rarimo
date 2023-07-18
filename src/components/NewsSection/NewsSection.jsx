@@ -2,123 +2,67 @@ import './NewsSection.scss';
 
 import { useTranslation } from 'react-i18next';
 
-import SectionWrapper from '@/components/SectionWrapper';
 import { CONFIG } from '@/config';
+import { getShiftedDelay } from '@/helpers';
+import { newsList } from '@/template-data';
 
 const NewsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <SectionWrapper>
-      <section className="news-section container">
-        <div className="news-section__title-wrapper">
-          <h6 className="news-section__subtitle">
-            <span data-aos="fade-up">{t('news-section.subtitle')}</span>
-          </h6>
-          <div className="news-section__read-more-wrapper">
-            <a
-              className="news-section__read-more-link"
-              href={CONFIG.mediumLink}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              data-aos="fade-up"
-            >
-              {t('news-section.read-more-link')}
-            </a>
-          </div>
+    <section className="news-section">
+      <div className="container">
+        <div className="news-section__title-wrapper" data-aos="fade-up">
+          <h5 className="news-section__title">{t('news-section.title')}</h5>
+          <a
+            className="news-section__view-all-link"
+            href={CONFIG.mediumLink}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            {t('news-section.view-all-link')}
+          </a>
         </div>
-        <swiper-container class="news-section__list news-swiper" init="false">
-          <swiper-slide class="news-section__item" data-aos="fade-up">
-            <a
-              className="news-section__item-link"
-              href="https://rarimo.medium.com/rarimo-making-multi-chain-transactions-user-friendly-4b3a52c20df"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
+        <swiper-container
+          class="news-section__list"
+          slides-per-view="auto"
+          space-between="32"
+          mousewheel-force-to-axis="true"
+          autoplay="false"
+          resistance-ratio="0.5"
+          grab-cursor="true"
+          free-mode="true"
+          edge-swipe-detection="true"
+          breakpoints-1280-slides-per-view="4"
+          breakpoints-1280-enabled="false"
+          a11y-slide-role="listitem"
+          a11y-container-role-description-message="Last news list"
+          a11y-item-role-description-message="Actual news"
+        >
+          {newsList.map((item, index) => (
+            <swiper-slide
+              key={index}
+              class="news-section__item"
+              data-aos="fade-up"
+              data-aos-delay={getShiftedDelay(index, 100)}
             >
-              <div className="news-section__img-wrapper">
-                <img
-                  className="news-section__img"
-                  src="/img/news-section/ux-improvements-black.png"
-                  alt=""
-                />
-              </div>
-              <h6 className="news-section__item-title">
-                {t('news-section.first-title')}
-              </h6>
-            </a>
-          </swiper-slide>
-          <swiper-slide
-            class="news-section__item"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <a
-              className="news-section__item-link"
-              href="https://rarimo.medium.com/what-is-interoperability-and-why-is-it-so-important-6b421bdaab09"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              <div className="news-section__img-wrapper">
-                <img
-                  className="news-section__img"
-                  src="/img/news-section/interoperability-black.png"
-                  alt=""
-                />
-              </div>
-              <h6 className="news-section__item-title">
-                {t('news-section.second-title')}
-              </h6>
-            </a>
-          </swiper-slide>
-          <swiper-slide
-            class="news-section__item"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <a
-              className="news-section__item-link"
-              href={CONFIG.whitepaperLink}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              <div className="news-section__img-wrapper">
-                <img
-                  className="news-section__img"
-                  src="/img/news-section/branding-colors-black.png"
-                  alt=""
-                />
-              </div>
-              <h6 className="news-section__item-title">
-                {t('news-section.third-title')}
-              </h6>
-            </a>
-          </swiper-slide>
-          <swiper-slide
-            class="news-section__item"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <a
-              className="news-section__item-link"
-              href="https://rarimo.notion.site/Cross-Chain-Use-Cases-0c0a1d855fd14b26b63ce9326d143015"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              <div className="news-section__img-wrapper">
-                <img
-                  className="news-section__img"
-                  src="/img/news-section/identity-black.png"
-                  alt=""
-                />
-              </div>
-              <h6 className="news-section__item-title">
-                {t('news-section.fourth-title')}
-              </h6>
-            </a>
-          </swiper-slide>
+              <a
+                className="news-section__item-link"
+                href={item.link}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+              >
+                <div className="news-section__item-title-wrapper">
+                  <h5 className="news-section__item-title">
+                    {t(item.textKey)}
+                  </h5>
+                </div>
+              </a>
+            </swiper-slide>
+          ))}
         </swiper-container>
-      </section>
-    </SectionWrapper>
+      </div>
+    </section>
   );
 };
 

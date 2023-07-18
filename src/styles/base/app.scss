@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  height: 100%;
   display: flex;
   flex-direction: column;
   font-family: var(--primary-font-family);
@@ -15,13 +16,9 @@ html {
   -webkit-overflow-scrolling: touch !important;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
-  /* stylelint-disable-next-line declaration-no-important */
-  overflow-y: auto !important;
-  scroll-behavior: smooth;
 }
 
 body {
-  position: relative;
   width: 100%;
   max-width: 100%;
   background-color: var(--primary-bg-color);
@@ -29,17 +26,8 @@ body {
   transition-property: color, background-color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
-}
 
-.application {
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
-
-  @include redefine-aos-prop('fade-up') {
-    transform: translate3d(0, 1.5em, 0);
-  }
+  @include noise-bg;
 }
 
 body,
@@ -106,7 +94,6 @@ h4,
 h5,
 h6 {
   color: var(--primary-title-color);
-  font-family: var(--title-font-family);
   word-wrap: break-word;
   transition-property: color;
   transition-duration: var(--medium-transition-duration);
@@ -114,17 +101,11 @@ h6 {
 }
 
 h1 {
+  margin-left: -0.03em;
+  font-family: var(--secondary-font-family);
   font-size: var(--h1-size);
   line-height: 1.1;
-  font-weight: 500;
-
-  @include respond-above(sm) {
-    font-weight: 700;
-  }
-
-  @include respond-above(md) {
-    font-weight: 600;
-  }
+  font-weight: 600;
 }
 
 h2 {
@@ -135,8 +116,8 @@ h2 {
 
 h3 {
   font-size: var(--h3-size);
-  line-height: 1.2;
-  font-weight: 500;
+  line-height: 1.27;
+  font-weight: 700;
 }
 
 h4 {
@@ -149,27 +130,22 @@ h5 {
   font-size: var(--h5-size);
   line-height: 1.48;
   font-weight: 700;
-  color: var(--secondary-title-color);
+
+  &.overline {
+    margin-bottom: to-rem(24);
+    color: var(--col-primary-grey);
+    font-size: var(--overline-size);
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
 }
 
 h6 {
   font-size: var(--h6-size);
-  line-height: 1.47;
+  line-height: 1.23;
   font-weight: 500;
-
-  &.overline {
-    margin-bottom: 1.5em;
-    color: var(--col-primary-grey);
-    font-size: var(--overline-size);
-    line-height: 1.3;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-
-    @include respond-above(xm) {
-      margin-bottom: 2em;
-    }
-  }
 }
 
 b,
@@ -185,7 +161,7 @@ img {
 
 ::placeholder {
   /* stylelint-disable-next-line declaration-no-important */
-  color: var(--secondary-text-color) !important;
+  color: var(--primary-text-color) !important;
 }
 
 .container {
