@@ -35,7 +35,7 @@
   top: calc(var(--app-bar-height) - vh(3));
   width: 85%;
   margin-left: to-rem(20);
-  min-height: vh(77);
+  height: to-rem(600);
   overflow: visible;
 
   @include respond-above(medium) {
@@ -88,7 +88,7 @@
 }
 
 .how-rarimo-works-section__card {
-  height: 100%;
+  height: to-rem(581);
   border-radius: var(--primary-border-radius);
   background-image: radial-gradient(
     84.49% 84.49% at 50% -29.58%,
@@ -98,6 +98,7 @@
   box-shadow: 0 to-rem(12) to-rem(32) rgba(var(--col-total-black-rgb), 0.48);
 
   @include respond-above(medium) {
+    height: 100%;
     width: 100%;
     margin: unset;
   }
@@ -136,7 +137,7 @@
 }
 
 .how-rarimo-works-section__description {
-  margin-bottom: to-rem(72);
+  margin-bottom: to-rem(32);
 
   @include respond-above(medium) {
     max-width: 70%;
