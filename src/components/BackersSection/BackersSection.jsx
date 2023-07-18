@@ -29,8 +29,8 @@ const BackersSection = () => {
               <img
                 className="backers-section__item-image"
                 src={item.image}
-                height="20"
-                width="90"
+                height={item.height}
+                width={item.width}
                 alt=""
                 data-aos="fade-up"
                 data-aos-delay={getShiftedDelay(index, 100)}
