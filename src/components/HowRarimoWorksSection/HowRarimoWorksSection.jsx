@@ -61,21 +61,22 @@ const HowRarimoWorksSection = () => {
   }
 
   function handleIntersectingEntry(entry) {
-    if (entry.boundingClientRect.top > 0 || isFirstStepRef.current) {
+    const { offsetTop, clientHeight } = sectionRef.current;
+    const isVisible =
+      entry.boundingClientRect.top > 0 || isFirstStepRef.current;
+    const visibleScrollTopCount = sectionRef.current.offsetTop + OFFSET_SCROLL;
+    const invisibleScrollTopCount = offsetTop + clientHeight / 2;
+
+    if (isVisible) {
       observeEntry = entry;
+      setIsAnimationInProgress(isDesktop);
       if (isDesktop) {
-        setIsAnimationInProgress(true);
         swiperRef.current?.swiper.slideTo(animationStep);
-        animationRef.current?.setDirection(DIRECTIONS.next);
+        animationRef.current?.setDirection(1);
         animationRef.current?.play();
-      } else {
-        setIsAnimationInProgress(false);
       }
-      scrollToTop(sectionRef.current.offsetTop + OFFSET_SCROLL);
-    } else {
-      const { offsetTop, clientHeight } = sectionRef.current;
-      scrollToTop(offsetTop + clientHeight / 2);
     }
+    scrollToTop(isVisible ? visibleScrollTopCount : invisibleScrollTopCount);
 
     setTimeout(() => {
       setIsStickySection(true);
