@@ -156,7 +156,6 @@ const HowRarimoWorksSection = () => {
 
   const enableScroll = useCallback(() => {
     if (!isDesktop) return;
-    console.log(animationRef.current);
     window.removeEventListener('wheel', wheelHandler, { passive: false });
     window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
       passive: false,
