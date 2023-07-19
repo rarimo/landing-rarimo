@@ -9,13 +9,17 @@ import { useTranslation } from 'react-i18next';
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
 import {
-  LOTTIE_PARAMS,
+  DEBOUNCE_DELAY,
+  DIRECTIONS,
   LAST_STEP_FRAME,
+  LOTTIE_PARAMS,
+  OFFSET_SCROLL,
   STEP_FRAMES,
   SWIPER_PARAMS,
   SWIPER_PARAMS_MOBILE,
-  TOUCHES,
+  SWIPER_PROGRESS,
   TOUCH_EVENTS,
+  TOUCHES,
 } from '@/const';
 import { getIsInertialScrolling, scrollToTop } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
@@ -50,11 +54,9 @@ const HowRarimoWorksSection = () => {
     if (!isDesktop || !sectionObserver || needSkipAnimationRef.current) return;
 
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        handleIntersectingEntry(entry);
-      } else {
-        handleNonIntersectingEntry(entry);
-      }
+      entry.isIntersecting
+        ? handleIntersectingEntry(entry)
+        : handleNonIntersectingEntry(entry);
     });
   }
 
@@ -64,12 +66,12 @@ const HowRarimoWorksSection = () => {
       if (isDesktop) {
         setIsAnimationInProgress(true);
         swiperRef.current?.swiper.slideTo(animationStep);
-        animationRef.current?.setDirection(1);
+        animationRef.current?.setDirection(DIRECTIONS.next);
         animationRef.current?.play();
       } else {
         setIsAnimationInProgress(false);
       }
-      scrollToTop(sectionRef.current.offsetTop + 200);
+      scrollToTop(sectionRef.current.offsetTop + OFFSET_SCROLL);
     } else {
       const { offsetTop, clientHeight } = sectionRef.current;
       scrollToTop(offsetTop + clientHeight / 2);
@@ -83,7 +85,7 @@ const HowRarimoWorksSection = () => {
 
   function handleNonIntersectingEntry(entry) {
     if (entry.boundingClientRect.top > 0 && isDesktop) {
-      animationRef.current?.setDirection(-1);
+      animationRef.current?.setDirection(DIRECTIONS.last);
       animationRef.current?.play();
     }
 
@@ -107,9 +109,9 @@ const HowRarimoWorksSection = () => {
         scrollToTop(sectionRef.current?.nextSibling?.offsetTop);
         return;
       }
-      animationRef.current?.setDirection(1);
+      animationRef.current?.setDirection(DIRECTIONS.next);
       setAnimationStep(prev => prev + 1);
-    }, 50),
+    }, DEBOUNCE_DELAY),
     [],
   );
 
@@ -121,9 +123,9 @@ const HowRarimoWorksSection = () => {
         return;
       }
 
-      animationRef.current?.setDirection(-1);
+      animationRef.current?.setDirection(DIRECTIONS.last);
       setAnimationStep(prev => prev - 1);
-    }, 50),
+    }, DEBOUNCE_DELAY),
     [],
   );
 
@@ -171,11 +173,7 @@ const HowRarimoWorksSection = () => {
         TOUCHES[event.type].y = touch.pageY;
         break;
       case TOUCH_EVENTS.touchend:
-        if (TOUCHES.touchstart.y > TOUCHES.touchmove.y) {
-          nextSlide();
-        } else {
-          prevSlide();
-        }
+        TOUCHES.touchstart.y > TOUCHES.touchmove.y ? nextSlide() : prevSlide();
     }
   }, []);
 
@@ -221,7 +219,7 @@ const HowRarimoWorksSection = () => {
       const isFrameInRange =
         STEP_FRAMES[animationStepRef.current]?.includes(currentFrame);
 
-      if (isFrameInRange || currentFrame === 0) {
+      if (isFrameInRange || !currentFrame) {
         animationRef.current.pause();
         setIsAnimationInProgress(false);
       }
@@ -302,7 +300,10 @@ const HowRarimoWorksSection = () => {
     if (isIntersecting) return;
 
     const isAboveSection = observeEntry.boundingClientRect.top > 0;
-    swiperRef.current?.swiper.setProgress(isAboveSection ? 0 : 1, 0);
+    swiperRef.current?.swiper.setProgress(
+      isAboveSection ? SWIPER_PROGRESS.zero : SWIPER_PROGRESS.one,
+      0,
+    );
     animationRef.current?.goToAndStop(
       isAboveSection ? 0 : LAST_STEP_FRAME,
       true,
