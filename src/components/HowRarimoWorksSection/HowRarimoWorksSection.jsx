@@ -1,10 +1,10 @@
 import './HowRarimoWorksSection.scss';
 
 import useResizeObserver from '@react-hook/resize-observer';
+import { debounce } from 'lodash-es';
 import lottie from 'lottie-web';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useIntersection } from 'react-use';
 
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
@@ -50,34 +50,100 @@ const HowRarimoWorksSection = () => {
     threshold: 0.25,
   });
 
-  const sectionObserver = useIntersection(sectionRef, observerParams);
+  // const sectionObserver = useIntersection(sectionRef, observerParams);
 
-  const nextSlide = useCallback(() => {
-    if (isLastStepRef.current) {
-      setIsStickySection(false);
-      window.scrollTo({
-        top: sectionRef.current?.nextSibling?.offsetTop,
-        behavior: 'smooth',
-      });
-      return;
-    }
-    animationRef.current?.setDirection(1);
-    setAnimationStep(prev => prev + 1);
-  }, []);
+  let sectionObserver;
+  let observeEntry;
 
-  const prevSlide = useCallback(() => {
-    if (isFirstStepRef.current) {
-      setIsStickySection(false);
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-      return;
-    }
+  function callback(entries) {
+    if (!isDesktop) return;
+    if (!sectionObserver || needSkipAnimationRef.current) return;
 
-    animationRef.current?.setDirection(-1);
-    setAnimationStep(prev => prev - 1);
-  }, []);
+    entries.forEach(entry => {
+      console.log(entry);
+      if (entry.isIntersecting) {
+        if (entry.boundingClientRect.top > 0 || isFirstStepRef.current) {
+          observeEntry = entry;
+          if (isDesktop) {
+            setIsAnimationInProgress(true);
+            swiperRef.current?.swiper.slideTo(animationStep);
+            animationRef.current?.setDirection(1);
+            animationRef.current?.play();
+          } else {
+            setIsAnimationInProgress(false);
+          }
+
+          window.scrollTo({
+            top: sectionRef.current.offsetTop + 200,
+            behavior: 'smooth',
+          });
+        } else {
+          const { offsetTop, clientHeight } = sectionRef.current;
+
+          window.scrollTo({
+            top: offsetTop + clientHeight / 2,
+            behavior: 'smooth',
+          });
+        }
+
+        setTimeout(() => {
+          setIsStickySection(true);
+          disableScroll();
+        }, CONFIG.htmlScrollingTime);
+        return;
+      }
+
+      if (!entry.isIntersecting) {
+        if (entry.boundingClientRect.top > 0 && isDesktop) {
+          animationRef.current?.setDirection(-1);
+          animationRef.current?.play();
+        }
+
+        setIsStickySection(false);
+        enableScroll();
+      }
+    });
+  }
+
+  useEffect(() => {
+    if (sectionObserver || !sectionRef.current) return;
+    sectionObserver = new IntersectionObserver(callback, observerParams);
+    sectionObserver.observe(sectionRef.current);
+  }, [sectionRef.current]);
+
+  const nextSlide = useCallback(
+    debounce(() => {
+      if (isLastStepRef.current) {
+        setIsStickySection(false);
+        window.scrollTo({
+          top: sectionRef.current?.nextSibling?.offsetTop,
+          behavior: 'smooth',
+        });
+        return;
+      }
+      animationRef.current?.setDirection(1);
+      setAnimationStep(prev => prev + 1);
+    }, 100),
+    [],
+  );
+
+  const prevSlide = useCallback(
+    debounce(() => {
+      if (isFirstStepRef.current) {
+        setIsStickySection(false);
+        // TODO: scroll to extract
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+        return;
+      }
+
+      animationRef.current?.setDirection(-1);
+      setAnimationStep(prev => prev - 1);
+    }, 100),
+    [],
+  );
 
   const wheelHandler = useCallback(event => {
     if (!isDesktop) return;
@@ -130,7 +196,7 @@ const HowRarimoWorksSection = () => {
         }
     }
   }, []);
-
+  //
   // const preventDefaultForScrollKeys = useCallback(event => {
   //   if (keys[event.keyCode]) {
   //     preventDefault(event);
@@ -145,9 +211,8 @@ const HowRarimoWorksSection = () => {
     window.addEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
       passive: false,
     });
-    window.addEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
-      passive: false,
-    });
+    const args = [touchHandler, { passive: false }];
+    window.addEventListener(TOUCH_EVENTS.touchmove, ...args);
     window.addEventListener(TOUCH_EVENTS.touchend, touchHandler, {
       passive: false,
     });
@@ -156,7 +221,7 @@ const HowRarimoWorksSection = () => {
 
   const enableScroll = useCallback(() => {
     if (!isDesktop) return;
-    console.log(animationRef.current);
+    // console.log(animationRef.current);
     window.removeEventListener('wheel', wheelHandler, { passive: false });
     window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
       passive: false,
@@ -180,7 +245,7 @@ const HowRarimoWorksSection = () => {
       container: lottieRef.current,
       renderer: 'svg',
       loop: false,
-      autoplay: false,
+      autoplay: true,
       path: '/animation/how-rarimo-works.json',
     };
 
@@ -191,7 +256,8 @@ const HowRarimoWorksSection = () => {
         STEP_FRAMES[animationStepRef.current]?.includes(currentFrame);
 
       if (
-        (isFrameInRange && isStickySectionRef.current) ||
+        isFrameInRange ||
+        // (isFrameInRange && isStickySectionRef.current) ||
         currentFrame === 0
       ) {
         animationRef.current.pause();
@@ -279,18 +345,15 @@ const HowRarimoWorksSection = () => {
     swiperRef.current.initialize();
   }, []);
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       enableScroll();
-    };
-  }, []);
+    },
+    [],
+  );
 
   useEffect(() => {
-    if (isDesktop) {
-      initAnimation();
-    } else {
-      destroyAnimation();
-    }
+    isDesktop ? initAnimation() : destroyAnimation();
 
     return () => {
       destroyAnimation();
@@ -298,63 +361,22 @@ const HowRarimoWorksSection = () => {
   }, [isDesktop]);
 
   useEffect(() => {
-    if (!isDesktop) return;
-    if (!sectionObserver || needSkipAnimationRef.current) return;
+    const isIntersecting = Boolean(
+      !isDesktop ||
+        !sectionObserver ||
+        !observeEntry ||
+        observeEntry.isIntersecting,
+    );
 
-    if (sectionObserver.isIntersecting) {
-      if (sectionObserver.boundingClientRect.top > 0) {
-        if (isDesktop) {
-          setIsAnimationInProgress(true);
-          swiperRef.current?.swiper.slideTo(animationStep);
-          animationRef.current?.setDirection(1);
-          animationRef.current?.play();
-        } else {
-          setIsAnimationInProgress(false);
-        }
+    if (isIntersecting) return;
 
-        window.scrollTo({
-          top: sectionRef.current.offsetTop + 200,
-          behavior: 'smooth',
-        });
-      } else {
-        const { offsetTop, clientHeight } = sectionRef.current;
-        window.scrollTo({
-          top: offsetTop + clientHeight / 2,
-          behavior: 'smooth',
-        });
-      }
-
-      setTimeout(() => {
-        setIsStickySection(true);
-        disableScroll();
-      }, CONFIG.htmlScrollingTime);
-      return;
-    }
-
-    if (!sectionObserver.isIntersecting) {
-      if (sectionObserver.boundingClientRect.top > 0 && isDesktop) {
-        animationRef.current?.setDirection(-1);
-        animationRef.current?.play();
-      }
-
-      setIsStickySection(false);
-      enableScroll();
-    }
-  }, [Boolean(sectionObserver?.isIntersecting)]);
-
-  useEffect(() => {
-    if (!isDesktop) return;
-    if (!sectionObserver) return;
-
-    if (!sectionObserver.isIntersecting) {
-      const isAboveSection = sectionObserver.boundingClientRect.top > 0;
-      swiperRef.current?.swiper.setProgress(isAboveSection ? 0 : 1, 0);
-      animationRef.current?.goToAndStop(
-        isAboveSection ? 0 : LAST_STEP_FRAME,
-        true,
-      );
-    }
-  }, [Boolean(sectionObserver?.isIntersecting)]);
+    const isAboveSection = observeEntry.boundingClientRect.top > 0;
+    swiperRef.current?.swiper.setProgress(isAboveSection ? 0 : 1, 0);
+    animationRef.current?.goToAndStop(
+      isAboveSection ? 0 : LAST_STEP_FRAME,
+      true,
+    );
+  }, [Boolean(observeEntry?.isIntersecting)]);
 
   useEffect(() => {
     setIsAnimationInProgress(true);
