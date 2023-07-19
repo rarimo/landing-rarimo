@@ -8,26 +8,19 @@ import { useTranslation } from 'react-i18next';
 
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
-import { TOUCH_EVENTS } from '@/const';
-import { fillFramesRange, getIsInertialScrolling } from '@/helpers';
+import {
+  LOTTIE_PARAMS,
+  LAST_STEP_FRAME,
+  STEP_FRAMES,
+  SWIPER_PARAMS,
+  SWIPER_PARAMS_MOBILE,
+  TOUCHES,
+  TOUCH_EVENTS,
+} from '@/const';
+import { getIsInertialScrolling, scrollToTop } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
-
-const LAST_STEP_FRAME = 96;
-
-const STEP_FRAMES = [
-  fillFramesRange(20),
-  fillFramesRange(55),
-  fillFramesRange(LAST_STEP_FRAME),
-];
-
-// const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-
-const touches = {
-  [TOUCH_EVENTS.touchstart]: { x: -1, y: -1 },
-  [TOUCH_EVENTS.touchmove]: { x: -1, y: -1 },
-};
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
@@ -50,64 +43,60 @@ const HowRarimoWorksSection = () => {
     threshold: 0.25,
   });
 
-  // const sectionObserver = useIntersection(sectionRef, observerParams);
-
   let sectionObserver;
   let observeEntry;
 
-  function callback(entries) {
-    if (!isDesktop) return;
-    if (!sectionObserver || needSkipAnimationRef.current) return;
+  function handleIntersectionChange(entries) {
+    if (!isDesktop || !sectionObserver || needSkipAnimationRef.current) return;
 
     entries.forEach(entry => {
-      console.log(entry);
       if (entry.isIntersecting) {
-        if (entry.boundingClientRect.top > 0 || isFirstStepRef.current) {
-          observeEntry = entry;
-          if (isDesktop) {
-            setIsAnimationInProgress(true);
-            swiperRef.current?.swiper.slideTo(animationStep);
-            animationRef.current?.setDirection(1);
-            animationRef.current?.play();
-          } else {
-            setIsAnimationInProgress(false);
-          }
-
-          window.scrollTo({
-            top: sectionRef.current.offsetTop + 200,
-            behavior: 'smooth',
-          });
-        } else {
-          const { offsetTop, clientHeight } = sectionRef.current;
-
-          window.scrollTo({
-            top: offsetTop + clientHeight / 2,
-            behavior: 'smooth',
-          });
-        }
-
-        setTimeout(() => {
-          setIsStickySection(true);
-          disableScroll();
-        }, CONFIG.htmlScrollingTime);
-        return;
-      }
-
-      if (!entry.isIntersecting) {
-        if (entry.boundingClientRect.top > 0 && isDesktop) {
-          animationRef.current?.setDirection(-1);
-          animationRef.current?.play();
-        }
-
-        setIsStickySection(false);
-        enableScroll();
+        handleIntersectingEntry(entry);
+      } else {
+        handleNonIntersectingEntry(entry);
       }
     });
   }
 
+  function handleIntersectingEntry(entry) {
+    if (entry.boundingClientRect.top > 0 || isFirstStepRef.current) {
+      observeEntry = entry;
+      if (isDesktop) {
+        setIsAnimationInProgress(true);
+        swiperRef.current?.swiper.slideTo(animationStep);
+        animationRef.current?.setDirection(1);
+        animationRef.current?.play();
+      } else {
+        setIsAnimationInProgress(false);
+      }
+      scrollToTop(sectionRef.current.offsetTop + 200);
+    } else {
+      const { offsetTop, clientHeight } = sectionRef.current;
+      scrollToTop(offsetTop + clientHeight / 2);
+    }
+
+    setTimeout(() => {
+      setIsStickySection(true);
+      disableScroll();
+    }, CONFIG.htmlScrollingTime);
+  }
+
+  function handleNonIntersectingEntry(entry) {
+    if (entry.boundingClientRect.top > 0 && isDesktop) {
+      animationRef.current?.setDirection(-1);
+      animationRef.current?.play();
+    }
+
+    setIsStickySection(false);
+    enableScroll();
+  }
+
   useEffect(() => {
     if (sectionObserver || !sectionRef.current) return;
-    sectionObserver = new IntersectionObserver(callback, observerParams);
+    sectionObserver = new IntersectionObserver(
+      handleIntersectionChange,
+      observerParams,
+    );
     sectionObserver.observe(sectionRef.current);
   }, [sectionRef.current]);
 
@@ -115,15 +104,12 @@ const HowRarimoWorksSection = () => {
     debounce(() => {
       if (isLastStepRef.current) {
         setIsStickySection(false);
-        window.scrollTo({
-          top: sectionRef.current?.nextSibling?.offsetTop,
-          behavior: 'smooth',
-        });
+        scrollToTop(sectionRef.current?.nextSibling?.offsetTop);
         return;
       }
       animationRef.current?.setDirection(1);
       setAnimationStep(prev => prev + 1);
-    }, 100),
+    }, 50),
     [],
   );
 
@@ -131,17 +117,13 @@ const HowRarimoWorksSection = () => {
     debounce(() => {
       if (isFirstStepRef.current) {
         setIsStickySection(false);
-        // TODO: scroll to extract
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
+        scrollToTop(0);
         return;
       }
 
       animationRef.current?.setDirection(-1);
       setAnimationStep(prev => prev - 1);
-    }, 100),
+    }, 50),
     [],
   );
 
@@ -185,24 +167,17 @@ const HowRarimoWorksSection = () => {
     switch (event.type) {
       case TOUCH_EVENTS.touchstart:
       case TOUCH_EVENTS.touchmove:
-        touches[event.type].x = touch.pageX;
-        touches[event.type].y = touch.pageY;
+        TOUCHES[event.type].x = touch.pageX;
+        TOUCHES[event.type].y = touch.pageY;
         break;
       case TOUCH_EVENTS.touchend:
-        if (touches.touchstart.y > touches.touchmove.y) {
+        if (TOUCHES.touchstart.y > TOUCHES.touchmove.y) {
           nextSlide();
         } else {
           prevSlide();
         }
     }
   }, []);
-  //
-  // const preventDefaultForScrollKeys = useCallback(event => {
-  //   if (keys[event.keyCode]) {
-  //     preventDefault(event);
-  //     return false;
-  //   }
-  // }, []);
 
   const disableScroll = useCallback(() => {
     if (!isDesktop) return;
@@ -211,17 +186,16 @@ const HowRarimoWorksSection = () => {
     window.addEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
       passive: false,
     });
-    const args = [touchHandler, { passive: false }];
-    window.addEventListener(TOUCH_EVENTS.touchmove, ...args);
+    window.addEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
+      passive: false,
+    });
     window.addEventListener(TOUCH_EVENTS.touchend, touchHandler, {
       passive: false,
     });
-    // window.addEventListener('keydown', preventDefaultForScrollKeys, false);
   }, []);
 
   const enableScroll = useCallback(() => {
     if (!isDesktop) return;
-    // console.log(animationRef.current);
     window.removeEventListener('wheel', wheelHandler, { passive: false });
     window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
       passive: false,
@@ -232,8 +206,6 @@ const HowRarimoWorksSection = () => {
     window.removeEventListener(TOUCH_EVENTS.touchend, touchHandler, {
       passive: false,
     });
-    // window.removeEventListener('keydown',
-    // preventDefaultForScrollKeys, false);
   }, []);
 
   const initAnimation = useCallback(() => {
@@ -241,13 +213,7 @@ const HowRarimoWorksSection = () => {
       destroyAnimation();
     }
 
-    const params = {
-      container: lottieRef.current,
-      renderer: 'svg',
-      loop: false,
-      autoplay: true,
-      path: '/animation/how-rarimo-works.json',
-    };
+    const params = { container: lottieRef.current, ...LOTTIE_PARAMS };
 
     animationRef.current = lottie.loadAnimation(params);
     animationRef.current.addEventListener('drawnFrame', frameEvent => {
@@ -255,11 +221,7 @@ const HowRarimoWorksSection = () => {
       const isFrameInRange =
         STEP_FRAMES[animationStepRef.current]?.includes(currentFrame);
 
-      if (
-        isFrameInRange ||
-        // (isFrameInRange && isStickySectionRef.current) ||
-        currentFrame === 0
-      ) {
+      if (isFrameInRange || currentFrame === 0) {
         animationRef.current.pause();
         setIsAnimationInProgress(false);
       }
@@ -288,23 +250,7 @@ const HowRarimoWorksSection = () => {
 
   useEffect(() => {
     const params = {
-      longSwipes: false,
-      allowTouchMove: false,
-      grabCursor: false,
-      resistance: false,
-      speed: 1500,
-      effect: 'creative',
-      creativeEffect: {
-        limitProgress: 2,
-        prev: {
-          translate: [0, '-106%', 1],
-        },
-        next: {
-          translate: [0, '4vh', 0],
-          scale: 0.95,
-          opacity: 0.95,
-        },
-      },
+      ...SWIPER_PARAMS,
       on: {
         slideChangeTransitionStart({ activeIndex }) {
           const isFirstStep = activeIndex === 0;
@@ -325,22 +271,7 @@ const HowRarimoWorksSection = () => {
       },
     };
 
-    const paramsMobile = {
-      longSwipes: true,
-      pagination: true,
-      allowTouchMove: true,
-      autoHeight: true,
-      grabCursor: false,
-      resistance: false,
-      freeMode: true,
-      effect: 'coverflow',
-      coverflowEffect: {
-        rotate: 5,
-        scale: 0.98,
-      },
-    };
-
-    Object.assign(swiperRef.current, isDesktop ? params : paramsMobile);
+    Object.assign(swiperRef.current, isDesktop ? params : SWIPER_PARAMS_MOBILE);
 
     swiperRef.current.initialize();
   }, []);
