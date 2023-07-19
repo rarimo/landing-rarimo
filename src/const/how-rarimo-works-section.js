@@ -49,7 +49,21 @@ export const STEP_FRAMES = [
   fillFramesRange(LAST_STEP_FRAME),
 ];
 
+export const SWIPER_PROGRESS = {
+  zero: 0,
+  one: 1,
+};
+
 export const TOUCHES = {
   [TOUCH_EVENTS.touchstart]: { x: -1, y: -1 },
   [TOUCH_EVENTS.touchmove]: { x: -1, y: -1 },
 };
+
+export const DEBOUNCE_DELAY = 50;
+
+export const DIRECTIONS = {
+  next: 1,
+  last: -1,
+};
+
+export const OFFSET_SCROLL = 200;
