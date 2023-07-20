@@ -52,7 +52,7 @@ const NftCheckoutStepsSection = () => {
   const [, setIsLastStep, isLastStepRef] = useStateRef(false);
 
   const [observerParams, setObserverParams] = useState({
-    threshold: 0.25,
+    threshold: 0.001,
   });
 
   const sectionObserver = useIntersection(sectionRef, observerParams);
@@ -275,7 +275,7 @@ const NftCheckoutStepsSection = () => {
 
   useEffect(() => {
     if (!sectionObserver || needSkipAnimationRef.current) return;
-
+    console.log(sectionObserver);
     if (sectionObserver.isIntersecting) {
       if (sectionObserver.boundingClientRect.top > 0) {
         setIsAnimationInProgress(true);
