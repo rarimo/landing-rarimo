@@ -39,19 +39,6 @@ const CommunitySection = () => {
             >
               <AppButton
                 className="community-section__link"
-                routePath={ROUTES_PATHS.testnetSignUp}
-              >
-                <span>{t('community-section.join-testnet-link')}</span>
-                <svg
-                  className="community-section__link-icon"
-                  height="13"
-                  width="13"
-                >
-                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
-                </svg>
-              </AppButton>
-              <AppButton
-                className="community-section__link"
                 href={CONFIG.whitepaperLink}
                 scheme={APP_BUTTON_SCHEMES.secondary}
                 textKey="community-section.whitepaper-link"
