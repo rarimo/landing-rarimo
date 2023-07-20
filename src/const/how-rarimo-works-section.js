@@ -37,14 +37,21 @@ export const SWIPER_PARAMS_MOBILE = {
 export const LOTTIE_PARAMS = {
   renderer: 'svg',
   loop: false,
-  autoplay: true,
+  autoplay: false,
   path: '/animation/how-rarimo-works.json',
 };
 
-export const LAST_STEP_FRAME = 96;
+export const ANIMATION_FRAMES = {
+  0: 25,
+  1: 55,
+  2: 95,
+};
+
+export const LAST_STEP_FRAME =
+  ANIMATION_FRAMES[Object.keys(ANIMATION_FRAMES).length - 1];
 
 export const STEP_FRAMES = [
-  fillFramesRange(20),
+  fillFramesRange(30),
   fillFramesRange(55),
   fillFramesRange(LAST_STEP_FRAME),
 ];
@@ -59,11 +66,9 @@ export const TOUCHES = {
   [TOUCH_EVENTS.touchmove]: { x: -1, y: -1 },
 };
 
-export const DEBOUNCE_DELAY = 50;
-
 export const DIRECTIONS = {
   next: 1,
-  last: -1,
+  prev: -1,
 };
 
 export const OFFSET_SCROLL = 200;

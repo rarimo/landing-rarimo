@@ -1,7 +1,6 @@
 import './HowRarimoWorksSection.scss';
 
 import useResizeObserver from '@react-hook/resize-observer';
-import { debounce } from 'lodash-es';
 import lottie from 'lottie-web';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,26 +8,24 @@ import { useTranslation } from 'react-i18next';
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
 import {
-  DEBOUNCE_DELAY,
+  ANIMATION_FRAMES,
   DIRECTIONS,
-  LAST_STEP_FRAME,
   LOTTIE_PARAMS,
   OFFSET_SCROLL,
-  STEP_FRAMES,
   SWIPER_PARAMS,
   SWIPER_PARAMS_MOBILE,
   SWIPER_PROGRESS,
-  TOUCH_EVENTS,
-  TOUCHES,
+  // TOUCH_EVENTS,
+  // TOUCHES,
 } from '@/const';
-import { getIsInertialScrolling, scrollToTop } from '@/helpers';
+import { scrollToTop } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
-  const { isDesktop, isDesktopRef, needSkipAnimationRef } = useAppContext();
+  const { isDesktop, needSkipAnimationRef } = useAppContext();
 
   const sectionRef = useRef(null);
   const swiperRef = useRef(null);
@@ -36,197 +33,42 @@ const HowRarimoWorksSection = () => {
   const lottieRef = useRef(null);
   const animationRef = useRef(null);
 
-  const [, setIsStickySection, isStickySectionRef] = useStateRef(false);
-  const [, setIsAnimationInProgress, isAnimationInProgressRef] =
-    useStateRef(false);
+  const [
+    isAnimationInProgress,
+    setIsAnimationInProgress,
+    isAnimationInProgressRef,
+  ] = useStateRef(false);
   const [animationStep, setAnimationStep, animationStepRef] = useStateRef(0);
-  const [, setIsFirstStep, isFirstStepRef] = useStateRef(true);
-  const [, setIsLastStep, isLastStepRef] = useStateRef(false);
+  const [, setIsFirstStep, isFirstStep] = useStateRef(true);
+  const [, setIsLastStep, isLastStep] = useStateRef(false);
+  const [, setIsScrolling, isScrolling] = useStateRef(false);
+  const [, setScrollDirection, scrollDirection] = useStateRef(DIRECTIONS.next);
 
   const [observerParams, setObserverParams] = useState({
-    threshold: 0.25,
+    threshold: 0.1,
   });
 
   let sectionObserver;
-  let observeEntry;
-
-  function handleIntersectionChange(entries) {
-    if (!isDesktop || !sectionObserver || needSkipAnimationRef.current) return;
-
-    entries.forEach(entry => {
-      entry.isIntersecting
-        ? handleIntersectingEntry(entry)
-        : handleNonIntersectingEntry(entry);
-    });
-  }
-
-  function handleIntersectingEntry(entry) {
-    const { offsetTop, clientHeight } = sectionRef.current;
-    const isVisible =
-      entry.boundingClientRect.top > 0 || isFirstStepRef.current;
-    const visibleScrollTopCount = sectionRef.current.offsetTop + OFFSET_SCROLL;
-    const invisibleScrollTopCount = offsetTop + clientHeight / 2;
-
-    if (isVisible) {
-      observeEntry = entry;
-      setIsAnimationInProgress(isDesktop);
-      if (isDesktop) {
-        swiperRef.current?.swiper.slideTo(animationStep);
-        animationRef.current?.setDirection(1);
-        animationRef.current?.play();
-      }
-    }
-    scrollToTop(isVisible ? visibleScrollTopCount : invisibleScrollTopCount);
-
-    setTimeout(() => {
-      setIsStickySection(true);
-      disableScroll();
-    }, CONFIG.htmlScrollingTime);
-  }
-
-  function handleNonIntersectingEntry(entry) {
-    if (entry.boundingClientRect.top > 0 && isDesktop) {
-      animationRef.current?.setDirection(DIRECTIONS.last);
-      animationRef.current?.play();
-    }
-
-    setIsStickySection(false);
-    enableScroll();
-  }
-
-  useEffect(() => {
-    if (sectionObserver || !sectionRef.current) return;
-    sectionObserver = new IntersectionObserver(
-      handleIntersectionChange,
-      observerParams,
-    );
-    sectionObserver.observe(sectionRef.current);
-  }, [sectionRef.current]);
-
-  const nextSlide = useCallback(
-    debounce(() => {
-      if (isLastStepRef.current) {
-        setIsStickySection(false);
-        scrollToTop(sectionRef.current?.nextSibling?.offsetTop);
-        return;
-      }
-      animationRef.current?.setDirection(DIRECTIONS.next);
-      setAnimationStep(prev => prev + 1);
-    }, DEBOUNCE_DELAY),
-    [],
-  );
-
-  const prevSlide = useCallback(
-    debounce(() => {
-      if (isFirstStepRef.current) {
-        setIsStickySection(false);
-        scrollToTop(0);
-        return;
-      }
-
-      animationRef.current?.setDirection(DIRECTIONS.last);
-      setAnimationStep(prev => prev - 1);
-    }, DEBOUNCE_DELAY),
-    [],
-  );
-
-  const wheelHandler = useCallback(event => {
-    if (!isDesktop) return;
-    event.preventDefault();
-
-    const isInertialScrolling = getIsInertialScrolling(event);
-
-    if (
-      isInertialScrolling ||
-      !isStickySectionRef.current ||
-      isAnimationInProgressRef.current
-    )
-      return;
-
-    if (event.wheelDeltaY < 0) {
-      nextSlide();
-      return;
-    }
-
-    if (event.wheelDeltaY > 0) {
-      prevSlide();
-      return;
-    }
-  }, []);
-
-  const touchHandler = useCallback(event => {
-    if (!isDesktop) return;
-
-    event.preventDefault();
-
-    if (
-      !isStickySectionRef.current ||
-      isAnimationInProgressRef.current ||
-      !event?.touches
-    )
-      return;
-
-    const touch = event.touches[0];
-    switch (event.type) {
-      case TOUCH_EVENTS.touchstart:
-      case TOUCH_EVENTS.touchmove:
-        TOUCHES[event.type].x = touch.pageX;
-        TOUCHES[event.type].y = touch.pageY;
-        break;
-      case TOUCH_EVENTS.touchend:
-        TOUCHES.touchstart.y > TOUCHES.touchmove.y ? nextSlide() : prevSlide();
-    }
-  }, []);
-
-  const disableScroll = useCallback(() => {
-    if (!isDesktop) return;
-
-    window.addEventListener('wheel', wheelHandler, { passive: false });
-    window.addEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
-      passive: false,
-    });
-    window.addEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
-      passive: false,
-    });
-    window.addEventListener(TOUCH_EVENTS.touchend, touchHandler, {
-      passive: false,
-    });
-  }, []);
-
-  const enableScroll = useCallback(() => {
-    if (!isDesktop) return;
-    window.removeEventListener('wheel', wheelHandler, { passive: false });
-    window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
-      passive: false,
-    });
-    window.removeEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
-      passive: false,
-    });
-    window.removeEventListener(TOUCH_EVENTS.touchend, touchHandler, {
-      passive: false,
-    });
-  }, []);
 
   const initAnimation = useCallback(() => {
-    if (animationRef.current) {
-      destroyAnimation();
-    }
+    if (animationRef.current) destroyAnimation();
 
-    const params = { container: lottieRef.current, ...LOTTIE_PARAMS };
-
-    animationRef.current = lottie.loadAnimation(params);
-    animationRef.current.addEventListener('drawnFrame', frameEvent => {
-      const currentFrame = Math.ceil(frameEvent.currentTime);
-      const isFrameInRange =
-        STEP_FRAMES[animationStepRef.current]?.includes(currentFrame);
-
-      if (isFrameInRange || !currentFrame) {
-        animationRef.current.pause();
-        setIsAnimationInProgress(false);
-      }
+    animationRef.current = lottie.loadAnimation({
+      container: lottieRef.current,
+      ...LOTTIE_PARAMS,
     });
 
-    animationRef.current.addEventListener('complete', () => {
+    animationRef.current.addEventListener('drawnFrame', frameEvent => {
+      const currentFrame = Math.trunc(frameEvent.currentTime);
+      const stopFrame = ANIMATION_FRAMES[animationStepRef.current];
+
+      const isFrameAcqured =
+        scrollDirection.current === DIRECTIONS.next
+          ? currentFrame < stopFrame
+          : currentFrame > stopFrame;
+
+      if (!stopFrame || !currentFrame || isFrameAcqured) return;
+
       animationRef.current.pause();
       setIsAnimationInProgress(false);
     });
@@ -236,16 +78,161 @@ const HowRarimoWorksSection = () => {
     animationRef.current?.destroy();
   };
 
-  const changeObserverParams = () => {
-    if (!isDesktop) return;
-    const { clientHeight } = sectionRef.current;
-    const threshold = (window.screen.availHeight * 0.75) / clientHeight;
-    setObserverParams({ threshold });
+  const handleIntersectionChange = entries => {
+    if (!sectionObserver || needSkipAnimationRef.current) return;
+
+    entries.forEach(entry => {
+      console.log(entry.isIntersecting);
+      entry.isIntersecting
+        ? handleIntersectingEntry(entry)
+        : handleNonIntersectingEntry(entry);
+    });
   };
 
-  useResizeObserver(document.documentElement, () => {
-    changeObserverParams();
-  });
+  const handleIntersectingEntry = entry => {
+    const { offsetTop, clientHeight } = sectionRef.current;
+    const visibleScrollTopCount = sectionRef.current.offsetTop + OFFSET_SCROLL;
+    const invisibleScrollTopCount = offsetTop + clientHeight / 2;
+
+    // sectionRef.current.scrollIntoView(true)
+
+    sectionRef.current.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+      inline: 'start',
+    });
+
+    // scrollToTop(
+    //   entry.boundingClientRect.top > 0
+    //     ? visibleScrollTopCount
+    //     : invisibleScrollTopCount,
+    // );
+
+    if (isAnimationInProgress) return;
+
+    // isLastStep.current
+    setTimeout(() => {
+      _listenScroll();
+    }, 1000);
+    // : _listenScroll();
+
+    if (isFirstStep.current) setIsAnimationInProgress(true);
+  };
+
+  const handleNonIntersectingEntry = entry => {
+    const isAboveSection = entry.boundingClientRect.top > 0;
+    swiperRef.current?.swiper.setProgress(
+      isAboveSection ? SWIPER_PROGRESS.zero : SWIPER_PROGRESS.one,
+      0,
+    );
+
+    _unlistenScroll();
+  };
+
+  const wheelHandler = useCallback(
+    event => {
+      if (!isDesktop) return;
+
+      event.preventDefault();
+
+      if (isScrolling.current || isAnimationInProgressRef.current) {
+        return;
+      }
+
+      if (!isLastStep.current) {
+        setIsAnimationInProgress(true);
+      }
+      if (isLastStep.current && event.wheelDeltaY > 0) {
+        setIsAnimationInProgress(true);
+      }
+
+      event.wheelDeltaY && event.wheelDeltaY < 0 ? nextSlide() : prevSlide();
+      setIsScrolling(true);
+
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1500);
+    },
+    [isAnimationInProgress, isAnimationInProgressRef],
+  );
+
+  // const touchHandler = useCallback(event => {
+  //   if (!isDesktop) return;
+  //
+  //   event.preventDefault();
+  //
+  //   if (
+  //     !isStickySectionRef.current ||
+  //     isAnimationInProgressRef.current ||
+  //     !event?.touches
+  //   )
+  //     return;
+  //
+  //   const touch = event.touches[0];
+  //   switch (event.type) {
+  //     case TOUCH_EVENTS.touchstart:
+  //     case TOUCH_EVENTS.touchmove:
+  //       TOUCHES[event.type].x = touch.pageX;
+  //       TOUCHES[event.type].y = touch.pageY;
+  //       break;
+  //     case TOUCH_EVENTS.touchend:
+  //       TOUCHES.touchstart.y > TOUCHES.touchmove.y ? nextSlide() : prevSlide();
+  //   }
+  // }, []);
+
+  const _listenScroll = useCallback(() => {
+    if (!isDesktop) return;
+    window.addEventListener('wheel', wheelHandler, { passive: false });
+    // window.addEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
+    //   passive: false,
+    // });
+    // window.addEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
+    //   passive: false,
+    // });
+    // window.addEventListener(TOUCH_EVENTS.touchend, touchHandler, {
+    //   passive: false,
+    // });
+  }, []);
+
+  const _unlistenScroll = useCallback(() => {
+    if (!isDesktop) return;
+    window.removeEventListener('wheel', wheelHandler, { passive: false });
+    // window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
+    //   passive: false,
+    // });
+    // window.removeEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
+    //   passive: false,
+    // });
+    // window.removeEventListener(TOUCH_EVENTS.touchend, touchHandler, {
+    //   passive: false,
+    // });
+  }, []);
+
+  const nextSlide = useCallback(() => {
+    if (isLastStep.current) {
+      scrollToTop(sectionRef.current?.nextSibling?.offsetTop);
+    }
+
+    setScrollDirection(DIRECTIONS.next);
+    animationRef.current?.setDirection(DIRECTIONS.next);
+
+    setAnimationStep(prev => {
+      const res = prev + 1;
+      return res > 2 ? 2 : res;
+    });
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    if (isFirstStep.current) scrollToTop(0);
+
+    setScrollDirection(DIRECTIONS.prev);
+    animationRef.current?.setDirection(DIRECTIONS.prev);
+
+    setAnimationStep(prev => {
+      const res = prev - 1;
+      return res < 0 ? 0 : res;
+    });
+  }, []);
 
   useEffect(() => {
     const params = {
@@ -262,10 +249,9 @@ const HowRarimoWorksSection = () => {
             behavior: 'smooth',
           });
         },
-        slideChangeTransitionEnd() {
-          if (!isDesktopRef.current) {
-            setIsAnimationInProgress(false);
-          }
+        slideChangeTransitionEnd(args) {
+          setIsAnimationInProgress(false);
+          // console.log(args);
         },
       },
     };
@@ -275,47 +261,37 @@ const HowRarimoWorksSection = () => {
     swiperRef.current.initialize();
   }, []);
 
-  useEffect(
-    () => () => {
-      enableScroll();
-    },
-    [],
-  );
+  useEffect(() => {
+    if (sectionObserver || !sectionRef.current || !isDesktop) return;
+
+    sectionObserver = new IntersectionObserver(
+      handleIntersectionChange,
+      observerParams,
+    );
+    sectionObserver.observe(sectionRef.current);
+  }, [sectionRef.current]);
 
   useEffect(() => {
-    isDesktop ? initAnimation() : destroyAnimation();
-
-    return () => {
-      destroyAnimation();
-    };
+    if (isDesktop) initAnimation();
+    return destroyAnimation;
   }, [isDesktop]);
 
   useEffect(() => {
-    const isIntersecting = Boolean(
-      !isDesktop ||
-        !sectionObserver ||
-        !observeEntry ||
-        observeEntry.isIntersecting,
-    );
+    const swiper = swiperRef.current?.swiper;
+    if (!swiper || !isAnimationInProgress) return;
 
-    if (isIntersecting) return;
-
-    const isAboveSection = observeEntry.boundingClientRect.top > 0;
-    swiperRef.current?.swiper.setProgress(
-      isAboveSection ? SWIPER_PROGRESS.zero : SWIPER_PROGRESS.one,
-      0,
-    );
-    animationRef.current?.goToAndStop(
-      isAboveSection ? 0 : LAST_STEP_FRAME,
-      true,
-    );
-  }, [Boolean(observeEntry?.isIntersecting)]);
-
-  useEffect(() => {
-    setIsAnimationInProgress(true);
-    swiperRef.current?.swiper.slideTo(animationStep);
+    swiper.slideTo(animationStep);
     animationRef.current?.play();
-  }, [animationStep]);
+  }, [animationStep, isAnimationInProgress]);
+
+  const changeObserverParams = () => {
+    if (!isDesktop) return;
+    const { clientHeight } = sectionRef.current;
+    const threshold = (window.screen.availHeight * 0.75) / clientHeight;
+    setObserverParams({ threshold });
+  };
+
+  useResizeObserver(document.documentElement, changeObserverParams);
 
   useEffect(() => {
     changeObserverParams();
