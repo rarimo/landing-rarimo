@@ -40,7 +40,9 @@ const SubscribeSection = () => {
 
     try {
       await hubspotApi.post('/v1/subscriptions', {
-        email: values.email,
+        body: {
+          email: values.email,
+        },
       });
       setIsSuccess(true);
     } catch (e) {

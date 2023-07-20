@@ -7,7 +7,7 @@ import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import PartnersList from '@/components/PartnersList';
 import SpotlightBg from '@/components/SpotlightBg';
 import { CONFIG } from '@/config';
-import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
+import { COMPONENT_NODE_IDS } from '@/const';
 import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
 
@@ -38,19 +38,6 @@ const HomeHeroSection = () => {
             {t('home-hero-section.description')}
           </p>
           <div className="home-hero-section__links-wrapper" data-aos="fade-up">
-            <AppButton
-              className="home-hero-section__link"
-              routePath={ROUTES_PATHS.testnetSignUp}
-            >
-              <span>{t('home-hero-section.join-testnet-link')}</span>
-              <svg
-                className="home-hero-section__link-icon"
-                height="13"
-                width="13"
-              >
-                <use href="/icons/sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </AppButton>
             <AppButton
               className="home-hero-section__link"
               href={CONFIG.whitepaperLink}
