@@ -189,10 +189,6 @@ const HowRarimoWorksSection = () => {
       const isFrameInRange =
         STEP_FRAMES[animationStepRef.current]?.includes(currentFrame);
 
-      if (needSkipAnimationRef.current && isFirstStepRef.current) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
       if (isFrameInRange) {
         animationRef.current.pause();
         setIsAnimationInProgress(false);
