@@ -40,19 +40,6 @@ const HomeHeroSection = () => {
           <div className="home-hero-section__links-wrapper" data-aos="fade-up">
             <AppButton
               className="home-hero-section__link"
-              routePath={ROUTES_PATHS.testnetSignUp}
-            >
-              <span>{t('home-hero-section.join-testnet-link')}</span>
-              <svg
-                className="home-hero-section__link-icon"
-                height="13"
-                width="13"
-              >
-                <use href="/icons/sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </AppButton>
-            <AppButton
-              className="home-hero-section__link"
               href={CONFIG.whitepaperLink}
               scheme={APP_BUTTON_SCHEMES.secondary}
               textKey="home-hero-section.whitepaper-link"
@@ -60,12 +47,6 @@ const HomeHeroSection = () => {
           </div>
         </div>
         <div className="home-hero-section__blockchains-wrapper">
-          {/* {isDesktop && (
-            <div className="home-hero-section__lottie-wrapper">
-              <div ref={lottieRef} className="home-hero-section__lottie" />
-            </div>
-          )} */}
-
           <PartnersList
             titleKey="home-hero-section.blockchains-title"
             items={supportedBlockchainsList}
