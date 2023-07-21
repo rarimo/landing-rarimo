@@ -20,12 +20,13 @@ const BurgerButton = lazy(() => import('@/components/BurgerButton'));
 const APP_BAR_THRESHOLD = 60;
 
 let onScroll;
+let scrollToTopTimeout;
 
 const AppBar = () => {
   const { t } = useTranslation();
   const { displayLocation } = useRouteLocation();
   const { handleNavClick } = useNavigation();
-  const { isDesktop } = useAppContext();
+  const { isDesktop, needSkipAnimationRef } = useAppContext();
 
   const [isAppBarHidden, setIsAppBarHidden] = useState(false);
   const [isVisibleSidebar, setIsVisibleSidebar] = useState(false);
@@ -44,6 +45,12 @@ const AppBar = () => {
     ) {
       setIsAppBarHidden(true);
     } else if (currentScrollPosition < lastScrollPosition.current) {
+      if (needSkipAnimationRef.current && !scrollToTopTimeout) {
+        scrollToTopTimeout = setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          scrollToTopTimeout = undefined;
+        }, 1500);
+      }
       setIsAppBarHidden(false);
     }
     lastScrollPosition.current = currentScrollPosition;

@@ -17,7 +17,7 @@ import { howRarimoWorksSectionList } from '@/template-data';
 const LAST_STEP_FRAME = 95;
 
 const STEP_FRAMES = [
-  fillFramesRange(20),
+  fillFramesRange(25),
   fillFramesRange(55),
   fillFramesRange(LAST_STEP_FRAME),
 ];
@@ -62,7 +62,7 @@ const HowRarimoWorksSection = () => {
       return;
     }
     animationRef.current?.setDirection(1);
-    setAnimationStep(prev => prev + 1);
+    setAnimationStep(prev => (prev + 1 > 2 ? 2 : prev + 1));
   }, []);
 
   const prevSlide = useCallback(() => {
@@ -76,7 +76,7 @@ const HowRarimoWorksSection = () => {
     }
 
     animationRef.current?.setDirection(-1);
-    setAnimationStep(prev => prev - 1);
+    setAnimationStep(prev => (prev - 1 < 0 ? 0 : prev - 1));
   }, []);
 
   const wheelHandler = useCallback(event => {
@@ -156,7 +156,6 @@ const HowRarimoWorksSection = () => {
 
   const enableScroll = useCallback(() => {
     if (!isDesktop) return;
-
     window.removeEventListener('wheel', wheelHandler, { passive: false });
     window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
       passive: false,
@@ -190,10 +189,7 @@ const HowRarimoWorksSection = () => {
       const isFrameInRange =
         STEP_FRAMES[animationStepRef.current]?.includes(currentFrame);
 
-      if (
-        (isFrameInRange && isStickySectionRef.current) ||
-        currentFrame === 0
-      ) {
+      if (isFrameInRange) {
         animationRef.current.pause();
         setIsAnimationInProgress(false);
       }
@@ -353,6 +349,14 @@ const HowRarimoWorksSection = () => {
         isAboveSection ? 0 : LAST_STEP_FRAME,
         true,
       );
+
+      if (isAboveSection) {
+        setAnimationStep(0);
+        animationRef.current.setDirection(1);
+        animationRef.current?.play();
+        setIsAnimationInProgress(true);
+        swiperRef.current?.swiper.slideTo(animationStep);
+      }
     }
   }, [Boolean(sectionObserver?.isIntersecting)]);
 
