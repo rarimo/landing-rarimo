@@ -217,7 +217,7 @@ const NftCheckoutStepsSection = () => {
 
   const changeObserverParams = () => {
     const { clientHeight } = sectionRef.current;
-    const threshold = (window.screen.availHeight * 0.6) / clientHeight;
+    const threshold = (window.screen.availHeight * 0.3) / clientHeight;
     setObserverParams({ threshold });
   };
 
@@ -284,7 +284,7 @@ const NftCheckoutStepsSection = () => {
         animationRef.current?.play();
 
         window.scrollTo({
-          top: sectionRef.current.offsetTop + 300,
+          top: sectionRef.current.offsetTop + 350,
           behavior: 'smooth',
         });
       } else {
