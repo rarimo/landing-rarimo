@@ -283,14 +283,12 @@ const NftCheckoutStepsSection = () => {
         swiperRef.current?.swiper.slideTo(animationStep);
         animationRef.current?.setDirection(1);
         animationRef.current?.play();
-        console.log(!isMobile ? '200' : '350', sectionRef.current.offsetTop);
         window.scrollTo({
           top: sectionRef.current.offsetTop + (!isMobile ? 200 : 350),
           behavior: 'smooth',
         });
       } else {
         const { offsetTop, clientHeight } = sectionRef.current;
-        console.log('i axyel');
         window.scrollTo({
           top: offsetTop + clientHeight / 2,
           behavior: 'smooth',
@@ -316,8 +314,6 @@ const NftCheckoutStepsSection = () => {
   }, [Boolean(sectionObserver?.isIntersecting)]);
 
   useEffect(() => {
-    console.log(sectionObserver);
-    console.log(window.scrollY);
     if (!sectionObserver) return;
     if (!sectionObserver.isIntersecting) {
       const isAboveSection = sectionObserver.boundingClientRect.top > 0;
