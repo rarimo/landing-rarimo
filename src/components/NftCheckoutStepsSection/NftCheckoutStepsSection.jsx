@@ -32,7 +32,7 @@ let onSquareParallax;
 
 const NftCheckoutStepsSection = () => {
   const { t } = useTranslation();
-  const { isDesktop, needSkipAnimationRef } = useAppContext();
+  const { isMobile, isDesktop, needSkipAnimationRef } = useAppContext();
 
   const sectionRef = useRef(null);
   const swiperRef = useRef(null);
@@ -217,7 +217,8 @@ const NftCheckoutStepsSection = () => {
 
   const changeObserverParams = () => {
     const { clientHeight } = sectionRef.current;
-    const threshold = (window.screen.availHeight * 0.3) / clientHeight;
+    const threshold =
+      (window.screen.availHeight * (!isMobile ? 0.75 : 0.35)) / clientHeight;
     setObserverParams({ threshold });
   };
 
@@ -282,9 +283,8 @@ const NftCheckoutStepsSection = () => {
         swiperRef.current?.swiper.slideTo(animationStep);
         animationRef.current?.setDirection(1);
         animationRef.current?.play();
-
         window.scrollTo({
-          top: sectionRef.current.offsetTop + 350,
+          top: sectionRef.current.offsetTop + (!isMobile ? 200 : 350),
           behavior: 'smooth',
         });
       } else {
