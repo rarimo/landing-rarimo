@@ -217,7 +217,7 @@ const NftCheckoutStepsSection = () => {
 
   const changeObserverParams = () => {
     const { clientHeight } = sectionRef.current;
-    const threshold = (window.screen.availHeight * 0.75) / clientHeight;
+    const threshold = (window.screen.availHeight * 0.6) / clientHeight;
     setObserverParams({ threshold });
   };
 
@@ -284,7 +284,7 @@ const NftCheckoutStepsSection = () => {
         animationRef.current?.play();
 
         window.scrollTo({
-          top: sectionRef.current.offsetTop + 200,
+          top: sectionRef.current.offsetTop + 300,
           behavior: 'smooth',
         });
       } else {
@@ -315,7 +315,6 @@ const NftCheckoutStepsSection = () => {
 
   useEffect(() => {
     if (!sectionObserver) return;
-
     if (!sectionObserver.isIntersecting) {
       const isAboveSection = sectionObserver.boundingClientRect.top > 0;
       swiperRef.current?.swiper.setProgress(isAboveSection ? 0 : 1, 0);
