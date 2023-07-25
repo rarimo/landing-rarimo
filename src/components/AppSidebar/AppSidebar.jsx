@@ -111,20 +111,6 @@ const AppSidebar = ({ isVisible, toggleVisibility }) => {
         <footer className="app-sidebar__footer">
           <AppButton
             className="app-sidebar__footer-link"
-            routePath={ROUTES_PATHS.testnetSignUp}
-            onClick={toggleVisibility}
-          >
-            <span>{t('app-sidebar.join-testnet-link')}</span>
-            <svg
-              className="app-sidebar__footer-link-icon"
-              height="13"
-              width="13"
-            >
-              <use href="/icons/sprite.svg#icon-arrow-right"></use>
-            </svg>
-          </AppButton>
-          <AppButton
-            className="app-sidebar__footer-link"
             href={CONFIG.whitepaperLink}
             scheme={APP_BUTTON_SCHEMES.secondary}
             textKey="app-sidebar.whitepaper-link"
