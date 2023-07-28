@@ -276,21 +276,18 @@ const NftCheckoutStepsSection = () => {
 
   useEffect(() => {
     if (!sectionObserver || needSkipAnimationRef.current) return;
-    console.log({ sectionObserver }, 1);
     if (sectionObserver.isIntersecting) {
       if (sectionObserver.boundingClientRect.top > 0) {
         setIsAnimationInProgress(true);
         swiperRef.current?.swiper.slideTo(animationStep);
         animationRef.current?.setDirection(1);
         animationRef.current?.play();
-        console.log('scroll 300');
         window.scrollTo({
           top: sectionRef.current.offsetTop + (!isMobile ? 200 : 350),
           behavior: 'smooth',
         });
       } else {
         const { offsetTop, clientHeight } = sectionRef.current;
-        console.log('scroll /2');
         window.scrollTo({
           top: offsetTop + clientHeight / 2,
           behavior: 'smooth',

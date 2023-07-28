@@ -17,16 +17,15 @@ const NftCheckoutBlockAnimationSection = () => {
   const animationThirdRef = useRef(null);
   const animationFourRef = useRef(null);
 
-  // const lottieWrapperRef = useRef(null);
   const lottieRefFirst = useRef(null);
   const lottieRefTwo = useRef(null);
   const lottieRefThird = useRef(null);
   const lottieRefFour = useRef(null);
   const swiperRef = useRef(null);
 
-  const [observerParams, setObserverParams] = useState({
+  const observerParams = {
     threshold: 1,
-  });
+  };
   const sectionObserverOne = useIntersection(lottieRefFirst, observerParams);
   const sectionObserverTwo = useIntersection(lottieRefTwo, observerParams);
   const sectionObserverThree = useIntersection(lottieRefThird, observerParams);
@@ -97,28 +96,24 @@ const NftCheckoutBlockAnimationSection = () => {
 
   useEffect(() => {
     if (sectionObserverOne?.isIntersecting) {
-      console.log('play1');
       animationFirstRef.current.play();
     }
   }, [Boolean(sectionObserverOne?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverTwo?.isIntersecting) {
-      console.log('play2');
       animationTwoRef.current.play();
     }
   }, [Boolean(sectionObserverTwo?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverThree?.isIntersecting) {
-      console.log('play3');
       animationThirdRef.current.play();
     }
   }, [Boolean(sectionObserverThree?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverFour?.isIntersecting) {
-      console.log('play4');
       animationFourRef.current.play();
     }
   }, [Boolean(sectionObserverFour?.isIntersecting)]);
@@ -130,9 +125,6 @@ const NftCheckoutBlockAnimationSection = () => {
       spaceBetween: 8,
       longSwipes: false,
       speed: 500,
-      // pagination: {
-      //   clickable: true,
-      // },
       a11y: {
         slideRole: 'listitem',
         containerRoleDescriptionMessage: 'NFT Checkout flow',
