@@ -10,7 +10,7 @@ export const CONFIG = {
   supportMailLink: 'mailto: support@rarimo.com',
   mediumLink: 'https://rarimo.medium.com/',
   googleTagManagerId: 'GTM-5RH6GR6',
-  mailchipUrl: 'https://us21.api.mailchimp.com/',
+  mailchipUrl: 'https://proxy.landing.rarimo.com/',
 
   // Use cases
   nftCheckoutDocsLink:
