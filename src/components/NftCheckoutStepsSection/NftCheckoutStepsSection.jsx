@@ -276,7 +276,6 @@ const NftCheckoutStepsSection = () => {
 
   useEffect(() => {
     if (!sectionObserver || needSkipAnimationRef.current) return;
-
     if (sectionObserver.isIntersecting) {
       if (sectionObserver.boundingClientRect.top > 0) {
         setIsAnimationInProgress(true);
