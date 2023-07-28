@@ -1,19 +1,15 @@
 import './NftCheckoutBlockAnimationSection.scss';
 
-import useResizeObserver from '@react-hook/resize-observer';
 import lottie from 'lottie-web';
 import { useCallback, useEffect, useRef, useState } from 'react';
-// import { useTranslation } from 'react-i18next';
+import * as ReactDOMServer from 'react-dom/server';
+import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
-// import { TOUCH_EVENTS } from '@/const';
-// import { fillFramesRange } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 
-// const LAST_STEP_FRAME = 450;
-
 const NftCheckoutBlockAnimationSection = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const { isDesktop } = useAppContext();
 
   const animationFirstRef = useRef(null);
@@ -26,9 +22,10 @@ const NftCheckoutBlockAnimationSection = () => {
   const lottieRefTwo = useRef(null);
   const lottieRefThird = useRef(null);
   const lottieRefFour = useRef(null);
+  const swiperRef = useRef(null);
 
   const [observerParams, setObserverParams] = useState({
-    threshold: 0.25,
+    threshold: 1,
   });
   const sectionObserverOne = useIntersection(lottieRefFirst, observerParams);
   const sectionObserverTwo = useIntersection(lottieRefTwo, observerParams);
@@ -82,25 +79,6 @@ const NftCheckoutBlockAnimationSection = () => {
     animationFourRef.current?.destroy();
   };
 
-  const changeObserverParams = () => {
-    const { clientHeight } = lottieRefFirst.current;
-    const threshold = (window.screen.availHeight * 0.13) / clientHeight;
-    console.log({threshold})
-    setObserverParams({ threshold });
-  };
-
-  // const placeLottieWrapperOnContainer = () => {
-  //   const sectionWidth = sectionRef.current.getBoundingClientRect().width;
-  //   const right = (screen.availWidth - sectionWidth) / 2;
-  //
-  //   lottieWrapperRef.current.style.right = `${right}px`;
-  // };
-
-  useResizeObserver(document.documentElement, () => {
-    changeObserverParams();
-    // placeLottieWrapperOnContainer();
-  });
-
   useEffect(() => {
     initAnimation();
 
@@ -108,11 +86,6 @@ const NftCheckoutBlockAnimationSection = () => {
       destroyAnimation();
     };
   }, [isDesktop]);
-
-  useEffect(() => {
-    changeObserverParams();
-    // placeLottieWrapperOnContainer();
-  }, []);
 
   useEffect(() => {
     if (sectionObserverOne?.isIntersecting) {
@@ -142,25 +115,111 @@ const NftCheckoutBlockAnimationSection = () => {
     }
   }, [Boolean(sectionObserverFour?.isIntersecting)]);
 
+  useEffect(() => {
+    const params = {
+      nextButton: '.swiper-next',
+      prevButton: '.swiper-prev',
+      spaceBetween: 8,
+      longSwipes: false,
+      speed: 1200,
+      pagination: {
+        clickable: true,
+      },
+      a11y: {
+        slideRole: 'listitem',
+        containerRoleDescriptionMessage: 'NFT Checkout flow',
+        itemRoleDescriptionMessage: 'NFT Checkout step',
+      },
+    };
+
+    Object.assign(swiperRef.current, params);
+
+    swiperRef.current.initialize();
+  }, []);
+
   return (
     <>
       <div className="nft-checkout-block-animation-section">
-        <div
-          className="nft-checkout-block-animation-section__lottie-wrapper-first"
-          ref={lottieRefFirst}
-        ></div>
-        <div
-          className="nft-checkout-block-animation-section__lottie-wrapper-two"
-          ref={lottieRefTwo}
-        ></div>
-        <div
-          className="nft-checkout-block-animation-section__lottie-wrapper-third"
-          ref={lottieRefThird}
-        ></div>
-        <div
-          className="nft-checkout-block-animation-section__lottie-wrapper-four"
-          ref={lottieRefFour}
-        ></div>
+        <swiper-container
+          ref={swiperRef}
+          className="nft-checkout-block-animation-section__swiper-container"
+          init="false"
+          style={{ height: '100%' }}
+        >
+          <swiper-slide className="nft-checkout-block-animation-section__swiper-slide">
+            <div
+              className="nft-checkout-block-animation-section__lottie-wrapper-first"
+              ref={lottieRefFirst}
+            ></div>
+            <div
+              className="nft-checkout-block-animation-section__swiper-slide-content"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <h4 className="nft-checkout-steps-section__counter">
+                <span>01</span>
+                <span>/</span>
+                <span className="nft-checkout-steps-section__counter--total">
+                  04
+                </span>
+              </h4>
+              <h3 className="nft-checkout-steps-section__title">
+                {t('nft-checkout-steps-section.title-1')}
+              </h3>
+            </div>
+          </swiper-slide>
+          <swiper-slide className="nft-checkout-block-animation-section__swiper-slide">
+            <div
+              className="nft-checkout-block-animation-section__lottie-wrapper-two"
+              ref={lottieRefTwo}
+            ></div>
+            <h4 className="nft-checkout-steps-section__counter">
+              <span>02</span>
+              <span>/</span>
+              <span className="nft-checkout-steps-section__counter--total">
+                04
+              </span>
+            </h4>
+            <h3 className="nft-checkout-steps-section__title">
+              {t('nft-checkout-steps-section.title-2')}
+            </h3>
+          </swiper-slide>
+          <swiper-slide className="nft-checkout-block-animation-section__swiper-slide">
+            <div
+              className="nft-checkout-block-animation-section__lottie-wrapper-third"
+              ref={lottieRefThird}
+            ></div>
+            <h4 className="nft-checkout-steps-section__counter">
+              <span>03</span>
+              <span>/</span>
+              <span className="nft-checkout-steps-section__counter--total">
+                04
+              </span>
+            </h4>
+            <h3 className="nft-checkout-steps-section__title">
+              {t('nft-checkout-steps-section.title-3')}
+            </h3>
+          </swiper-slide>
+          <swiper-slide className="nft-checkout-block-animation-section__swiper-slide">
+            <div
+              className="nft-checkout-block-animation-section__lottie-wrapper-four"
+              ref={lottieRefFour}
+            ></div>
+            <h4 className="nft-checkout-steps-section__counter">
+              <span>04</span>
+              <span>/</span>
+              <span className="nft-checkout-steps-section__counter--total">
+                04
+              </span>
+            </h4>
+            <h3 className="nft-checkout-steps-section__title">
+              {t('nft-checkout-steps-section.title-4')}
+            </h3>
+          </swiper-slide>
+        </swiper-container>
       </div>
     </>
   );
