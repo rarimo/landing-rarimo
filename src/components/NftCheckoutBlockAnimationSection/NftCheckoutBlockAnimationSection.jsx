@@ -110,10 +110,7 @@ const NftCheckoutBlockAnimationSection = () => {
         setFirstAnimationComplete(false);
       }
     }
-  }, [
-    Boolean(sectionObserverOne?.isIntersecting),
-    Boolean(sectionObserverTwo?.isIntersecting),
-  ]);
+  }, [Boolean(sectionObserverOne?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverTwo?.isIntersecting) {
