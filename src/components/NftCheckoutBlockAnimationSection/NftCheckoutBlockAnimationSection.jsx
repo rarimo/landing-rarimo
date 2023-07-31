@@ -1,5 +1,6 @@
 import './NftCheckoutBlockAnimationSection.scss';
 
+import { delay } from 'lodash-es';
 import lottie from 'lottie-web';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import * as ReactDOMServer from 'react-dom/server';
@@ -100,15 +101,13 @@ const NftCheckoutBlockAnimationSection = () => {
   useEffect(() => {
     if (sectionObserverOne?.isIntersecting) {
       if (!firstAnimationComplete) {
+        animationFirstRef.current.setDirection(1);
         animationFirstRef.current.play();
         setFirstAnimationComplete(true);
       } else {
         animationFirstRef.current.setDirection(-1);
         animationFirstRef.current.play();
-      }
-    } else {
-      if (firstAnimationComplete) {
-        animationFirstRef.current.goToAndStop(28, true);
+        setFirstAnimationComplete(false);
       }
     }
   }, [Boolean(sectionObserverOne?.isIntersecting)]);
