@@ -8,7 +8,7 @@ import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import TextField from '@/components/TextField';
 import { REGEX } from '@/const';
 import useForm from '@/hooks/useForm';
-import { hubspotApi } from '@/hubspot-api';
+import { mailchimpApi } from '@/mailchimp-api';
 
 const SubscribeSection = () => {
   const { t } = useTranslation();
@@ -39,7 +39,7 @@ const SubscribeSection = () => {
     if (isSubmitting || errors.email) return;
 
     try {
-      await hubspotApi.post('/v1/subscriptions', {
+      await mailchimpApi.post('/v1/subscriptions', {
         body: {
           email: values.email,
         },
