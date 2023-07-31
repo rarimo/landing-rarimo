@@ -16,6 +16,9 @@ const NftCheckoutBlockAnimationSection = () => {
   const animationTwoRef = useRef(null);
   const animationThirdRef = useRef(null);
   const animationFourRef = useRef(null);
+  const [firstAnimationComplete, setFirstAnimationComplete] = useState(false);
+  const [secondAnimationComplete, setSecondAnimationComplete] = useState(false);
+  const [thirdAnimationComplete, setThirdAnimationComplete] = useState(false);
 
   const lottieRefFirst = useRef(null);
   const lottieRefTwo = useRef(null);
@@ -96,18 +99,42 @@ const NftCheckoutBlockAnimationSection = () => {
 
   useEffect(() => {
     if (sectionObserverOne?.isIntersecting) {
-      animationFirstRef.current.play();
+      if (!firstAnimationComplete) {
+        animationFirstRef.current.play();
+        setFirstAnimationComplete(true);
+      } else {
+        animationFirstRef.current.setDirection(-1);
+        animationFirstRef.current.play();
+      }
+    } else {
+      if (firstAnimationComplete) {
+        animationFirstRef.current.goToAndStop(28, true);
+      }
     }
   }, [Boolean(sectionObserverOne?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverTwo?.isIntersecting) {
+      if (!secondAnimationComplete) {
+        animationTwoRef.current.setDirection(1);
+        setSecondAnimationComplete(true);
+      } else {
+        animationTwoRef.current.setDirection(-1);
+        setSecondAnimationComplete(false);
+      }
       animationTwoRef.current.play();
     }
   }, [Boolean(sectionObserverTwo?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverThree?.isIntersecting) {
+      if (!thirdAnimationComplete) {
+        animationThirdRef.current.setDirection(1);
+        setThirdAnimationComplete(true);
+      } else {
+        animationThirdRef.current.setDirection(-1);
+        setThirdAnimationComplete(false);
+      }
       animationThirdRef.current.play();
     }
   }, [Boolean(sectionObserverThree?.isIntersecting)]);
@@ -115,6 +142,8 @@ const NftCheckoutBlockAnimationSection = () => {
   useEffect(() => {
     if (sectionObserverFour?.isIntersecting) {
       animationFourRef.current.play();
+    } else {
+      animationFourRef.current.goToAndStop(0, true);
     }
   }, [Boolean(sectionObserverFour?.isIntersecting)]);
 

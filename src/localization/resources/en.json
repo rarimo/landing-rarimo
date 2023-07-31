@@ -39,7 +39,7 @@
   "how-rarimo-works-section": {
     "main": {
       "subtitle": "What is rarimo?",
-      "title": "Interoperability for Identity and Social Components Across Multiple Networks",
+      "title": "Interoperability for identity and social components across multiple networks",
       "description": "Protocol is based on Tendermint & Cosmos SDK and supports EVM-compatible smart contracts",
       "easy-solutions-title": "Easy: Single-click solutions",
       "easy-solutions-text": "Bundle transactions for fewer fees, signatures, and seamless experience",
@@ -110,7 +110,7 @@
     "subscribe-btn": "Subscribe",
     "err-email-required": "Email is required",
     "err-wrong-format": "Wrong email format",
-    "success-msg": "Success!"
+    "success-msg": "Welcome, stay informed and inspired!"
   },
   "community-section": {
     "title": "Start building with Rarimo",
