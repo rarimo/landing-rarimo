@@ -44,7 +44,7 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "@distributedlab/fetcher": "^0.2.0-rc.21",
+    "@distributedlab/fetcher": "^1.0.0-rc.2",
     "@react-hook/resize-observer": "^1.2.6",
     "@typeform/embed-react": "^2.10.0",
     "aos": "3.0.0-beta.6",
