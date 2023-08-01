@@ -107,6 +107,7 @@ const NftCheckoutBlockAnimationSection = () => {
         animationFirstRef.current.play();
         setFirstAnimationComplete(true);
         setScrollPrev(window?.pageYOffset);
+        animationTwoRef.current.goToAndStop(0, true);
       }
     } else if (scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset) {
       animationFirstRef.current.setDirection(-1);
@@ -117,40 +118,24 @@ const NftCheckoutBlockAnimationSection = () => {
 
   useEffect(() => {
     if (sectionObserverTwo?.isIntersecting) {
+      animationThirdRef.current.goToAndStop(0, true);
+
       animationTwoRef.current.play();
-    } else if (
-      scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset ||
-      scrollPrev + SCROLL_FLOAT_DOWN < window.pageYOffset
-    ) {
-      return;
-    } else {
-      animationTwoRef.current.goToAndStop(0, true);
     }
   }, [Boolean(sectionObserverTwo?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverThree?.isIntersecting) {
+      animationTwoRef.current.goToAndStop(0, true);
+      animationFourRef.current.goToAndStop(0, true);
       animationThirdRef.current.play();
-    } else if (
-      scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset ||
-      scrollPrev + SCROLL_FLOAT_DOWN < window.pageYOffset
-    ) {
-      return;
-    } else {
-      animationThirdRef.current.goToAndStop(0, true);
     }
   }, [Boolean(sectionObserverThree?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverFour?.isIntersecting) {
+      animationThirdRef.current.goToAndStop(0, true);
       animationFourRef.current.play();
-    } else if (
-      scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset ||
-      scrollPrev + SCROLL_FLOAT_DOWN < window.pageYOffset
-    ) {
-      return;
-    } else {
-      animationFourRef.current.goToAndStop(0, true);
     }
   }, [Boolean(sectionObserverFour?.isIntersecting)]);
 
