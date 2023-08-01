@@ -194,48 +194,75 @@ const NftCheckoutBlockAnimationSection = () => {
               className="nft-checkout-block-animation-section__lottie-wrapper-two"
               ref={lottieRefTwo}
             ></div>
-            <h4 className="nft-checkout-block-animation-section__counter">
-              <span>02</span>
-              <span>/</span>
-              <span className="nft-checkout-block-animation-section__counter--total">
-                04
-              </span>
-            </h4>
-            <h3 className="nft-checkout-block-animation-section__title">
-              {t('nft-checkout-steps-section.title-2')}
-            </h3>
+            <div
+              className="nft-checkout-block-animation-section__swiper-slide-content"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <h4 className="nft-checkout-block-animation-section__counter">
+                <span>02</span>
+                <span>/</span>
+                <span className="nft-checkout-block-animation-section__counter--total">
+                  04
+                </span>
+              </h4>
+              <h3 className="nft-checkout-block-animation-section__title">
+                {t('nft-checkout-steps-section.title-2')}
+              </h3>
+            </div>
           </swiper-slide>
           <swiper-slide className="nft-checkout-block-animation-section__swiper-slide">
             <div
               className="nft-checkout-block-animation-section__lottie-wrapper-third"
               ref={lottieRefThird}
             ></div>
-            <h4 className="nft-checkout-block-animation-section__counter">
-              <span>03</span>
-              <span>/</span>
-              <span className="nnft-checkout-block-animation-section__counter--total">
-                04
-              </span>
-            </h4>
-            <h3 className="nft-checkout-block-animation-section__title">
-              {t('nft-checkout-steps-section.title-3')}
-            </h3>
+            <div
+              className="nft-checkout-block-animation-section__swiper-slide-content"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <h4 className="nft-checkout-block-animation-section__counter">
+                <span>03</span>
+                <span>/</span>
+                <span className="nnft-checkout-block-animation-section__counter--total">
+                  04
+                </span>
+              </h4>
+              <h3 className="nft-checkout-block-animation-section__title">
+                {t('nft-checkout-steps-section.title-3')}
+              </h3>
+            </div>
           </swiper-slide>
           <swiper-slide className="nft-checkout-block-animation-section__swiper-slide">
             <div
               className="nft-checkout-block-animation-section__lottie-wrapper-four"
               ref={lottieRefFour}
             ></div>
-            <h4 className="nft-checkout-block-animation-section__counter">
-              <span>04</span>
-              <span>/</span>
-              <span className="nft-checkout-block-animation-section__counter--total">
-                04
-              </span>
-            </h4>
-            <h3 className="nft-checkout-steps-section__title">
-              {t('nft-checkout-steps-section.title-4')}
-            </h3>
+            <div
+              className="nft-checkout-block-animation-section__swiper-slide-content"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              <h4 className="nft-checkout-block-animation-section__counter">
+                <span>04</span>
+                <span>/</span>
+                <span className="nft-checkout-block-animation-section__counter--total">
+                  04
+                </span>
+              </h4>
+              <h3 className="nft-checkout-steps-section__title">
+                {t('nft-checkout-steps-section.title-4')}
+              </h3>
+            </div>
           </swiper-slide>
         </swiper-container>
         <div className="nft-checkout-block-animation-section__swiper-pagination">
