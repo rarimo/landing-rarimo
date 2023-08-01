@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
 const SCROLL_FLOAT_UP = 10;
-const SCROLL_FLOAT_DOWN = 500;
 
 import useAppContext from '@/hooks/useAppContext';
 
@@ -20,8 +19,6 @@ const NftCheckoutBlockAnimationSection = () => {
   const animationFourRef = useRef(null);
   const [scrollPrev, setScrollPrev] = useState(null);
   const [firstAnimationComplete, setFirstAnimationComplete] = useState(false);
-  const [secondAnimationComplete, setSecondAnimationComplete] = useState(false);
-  const [thirdAnimationComplete, setThirdAnimationComplete] = useState(false);
 
   const lottieRefFirst = useRef(null);
   const lottieRefTwo = useRef(null);
@@ -145,7 +142,7 @@ const NftCheckoutBlockAnimationSection = () => {
       prevButton: '.swiper-prev',
       spaceBetween: 8,
       longSwipes: false,
-      speed: 500,
+      speed: 300,
       a11y: {
         slideRole: 'listitem',
         containerRoleDescriptionMessage: 'NFT Checkout flow',
