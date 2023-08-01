@@ -5,8 +5,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useIntersection } from 'react-use';
 
-const SCROLL_FLOAT_UP = 10
-const SCROLL_FLOAT_DOWN = 500
+const SCROLL_FLOAT_UP = 10;
+const SCROLL_FLOAT_DOWN = 500;
 
 import useAppContext from '@/hooks/useAppContext';
 
@@ -107,48 +107,48 @@ const NftCheckoutBlockAnimationSection = () => {
         animationFirstRef.current.play();
         setFirstAnimationComplete(true);
         setScrollPrev(window?.pageYOffset);
-      } else {
-        animationFirstRef.current.setDirection(-1);
-        animationFirstRef.current.play();
-        setFirstAnimationComplete(false);
       }
-    } else if (scrollPrev + SCROLL_FLOAT_UP < window.pageYOffset) {
-      animationFirstRef.current.goToAndStop(0, true);
-      setFirstAnimationComplete(false);
-    } else if (scrollPrev - SCROLL_FLOAT_DOWN > window.pageYOffset) {
+    } else if (scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset) {
+      animationFirstRef.current.setDirection(-1);
+      animationFirstRef.current.play();
       setFirstAnimationComplete(false);
     }
   }, [Boolean(sectionObserverOne?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverTwo?.isIntersecting) {
-      if (!secondAnimationComplete) {
-        animationTwoRef.current.setDirection(1);
-        setSecondAnimationComplete(true);
-      } else {
-        animationTwoRef.current.setDirection(-1);
-        setSecondAnimationComplete(false);
-      }
       animationTwoRef.current.play();
+    } else if (
+      scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset ||
+      scrollPrev + SCROLL_FLOAT_DOWN < window.pageYOffset
+    ) {
+      return;
+    } else {
+      animationTwoRef.current.goToAndStop(0, true);
     }
   }, [Boolean(sectionObserverTwo?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverThree?.isIntersecting) {
-      if (!thirdAnimationComplete) {
-        animationThirdRef.current.setDirection(1);
-        setThirdAnimationComplete(true);
-      } else {
-        animationThirdRef.current.setDirection(-1);
-        setThirdAnimationComplete(false);
-      }
       animationThirdRef.current.play();
+    } else if (
+      scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset ||
+      scrollPrev + SCROLL_FLOAT_DOWN < window.pageYOffset
+    ) {
+      return;
+    } else {
+      animationThirdRef.current.goToAndStop(0, true);
     }
   }, [Boolean(sectionObserverThree?.isIntersecting)]);
 
   useEffect(() => {
     if (sectionObserverFour?.isIntersecting) {
       animationFourRef.current.play();
+    } else if (
+      scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset ||
+      scrollPrev + SCROLL_FLOAT_DOWN < window.pageYOffset
+    ) {
+      return;
     } else {
       animationFourRef.current.goToAndStop(0, true);
     }
