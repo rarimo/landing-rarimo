@@ -43,43 +43,47 @@ const NftCheckoutBlockAnimationSection = () => {
   };
 
   const initAnimation = useCallback(() => {
-    if (animationFirstRef.current) {
+    if (
+      animationFirstRef.current &&
+      animationTwoRef.current &&
+      animationThirdRef.current &&
+      animationFourRef.current
+    ) {
       destroyAnimation();
     }
+    const params = {
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+    };
 
-    const paramsOne = {
+    const pathOne = '/animation/nft-checkout-demo-mob-first-step.json';
+    const pathTwo = '/animation/nft-checkout-demo-mob-second-step.json';
+    const pathThree = '/animation/nft-checkout-demo-mob-third-step.json';
+    const pathFour = '/animation/nft-checkout-demo-mob-fourth-step.json';
+
+    animationFirstRef.current = lottie.loadAnimation({
+      ...params,
+      path: pathOne,
       container: lottieRefFirst.current,
-      renderer: 'svg',
-      loop: false,
-      autoplay: false,
-      path: '/animation/1.json',
-    };
-    const paramsTwo = {
+    });
+    animationTwoRef.current = lottie.loadAnimation({
+      ...params,
+      path: pathTwo,
       container: lottieRefTwo.current,
-      renderer: 'svg',
-      loop: false,
-      autoplay: false,
-      path: '/animation/2.json',
-    };
-    const paramsThree = {
-      container: lottieRefThird.current,
-      renderer: 'svg',
-      loop: false,
-      autoplay: false,
-      path: '/animation/3.json',
-    };
-    const paramsFour = {
-      container: lottieRefFour.current,
-      renderer: 'svg',
-      loop: false,
-      autoplay: false,
-      path: '/animation/4.json',
-    };
 
-    animationFirstRef.current = lottie.loadAnimation(paramsOne);
-    animationTwoRef.current = lottie.loadAnimation(paramsTwo);
-    animationThirdRef.current = lottie.loadAnimation(paramsThree);
-    animationFourRef.current = lottie.loadAnimation(paramsFour);
+    });
+    animationThirdRef.current = lottie.loadAnimation({
+      ...params,
+      path: pathThree,
+      container: lottieRefThird.current,
+    });
+    animationFourRef.current = lottie.loadAnimation({
+      ...params,
+      path: pathFour,
+      container: lottieRefFour.current,
+
+    });
   }, []);
 
   const destroyAnimation = () => {
@@ -138,8 +142,6 @@ const NftCheckoutBlockAnimationSection = () => {
 
   useEffect(() => {
     const params = {
-      nextButton: '.swiper-next',
-      prevButton: '.swiper-prev',
       spaceBetween: 8,
       longSwipes: false,
       speed: 300,
