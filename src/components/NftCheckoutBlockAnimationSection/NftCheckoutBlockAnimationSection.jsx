@@ -103,12 +103,12 @@ const NftCheckoutBlockAnimationSection = () => {
 
   useEffect(() => {
     if (sectionObserverOne?.isIntersecting) {
+      animationTwoRef.current.goToAndStop(0, true);
       if (!firstAnimationComplete) {
         animationFirstRef.current.setDirection(1);
         animationFirstRef.current.play();
         setFirstAnimationComplete(true);
         setScrollPrev(window?.pageYOffset);
-        animationTwoRef.current.goToAndStop(0, true);
       }
     } else if (scrollPrev + SCROLL_FLOAT_UP > window.pageYOffset) {
       animationFirstRef.current.setDirection(-1);
