@@ -2,7 +2,7 @@
   background-image: linear-gradient(
     180deg,
     rgba(var(--col-primary-black-rgb), 0%),
-    var(--col-primary-black) 100%
+    var(--col-primary-black) 50%
   );
 
   @include noise-bg;
@@ -27,8 +27,8 @@
 }
 
 .nft-checkout-hero-section__title {
-  margin-bottom: to-rem(16);
-  font-size: to-rem(50);
+  margin-bottom: to-rem(24);
+  font-size: to-rem(42);
   overflow: hidden;
   white-space: break-spaces;
   text-transform: uppercase;
@@ -52,7 +52,7 @@
 }
 
 .nft-checkout-hero-section__description {
-  margin-bottom: to-rem(32);
+  margin-bottom: to-rem(40);
   font-size: to-rem(16);
 
   @include respond-above(medium) {
