@@ -223,6 +223,9 @@ const HowRarimoWorksSection = () => {
       grabCursor: false,
       resistance: false,
       speed: 1500,
+      mousewheel: {
+        thresholdDelta: 4,
+      },
       effect: 'creative',
       creativeEffect: {
         limitProgress: 2,
@@ -256,12 +259,10 @@ const HowRarimoWorksSection = () => {
     };
 
     const paramsMobile = {
-      longSwipes: true,
       pagination: true,
-      allowTouchMove: true,
       autoHeight: true,
-      grabCursor: false,
-      resistance: false,
+      grabCursor: true,
+      resistanceRatio: 0.25,
       freeMode: true,
       effect: 'coverflow',
       coverflowEffect: {
