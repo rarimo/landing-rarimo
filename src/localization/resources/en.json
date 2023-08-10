@@ -98,10 +98,10 @@
   "news-section": {
     "title": "Latest news",
     "view-all-link": "View All",
-    "first-title": "Purchase NFT on one network, Pay on another",
-    "second-title": "What is Interoperability, and why is it so important?",
-    "third-title": "VeradiVerdict - Introduction to Rarimo",
-    "fourth-title": "Self-sovereign identities (SSI) and blockchain"
+    "first-title": "Blockworks - Polygon ID comes to Ethereum thanks to Rarimo integration, more chains to come",
+    "second-title": "CoinTelegraph - NFT marketplace enables cross-chain purchases on multiple networks",
+    "third-title": "The Block - Blockchain-infused AI could save Drake's voice, or your average Joe's data ",
+    "fourth-title": "Radix DLT - Rarimo: an interoperability protocol for the decentralized social identity"
   },
   "subscribe-section": {
     "title": "Subscribe to our newsletter",
