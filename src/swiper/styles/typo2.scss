@@ -1,0 +1,24 @@
+// TYPO2-UTILS
+
+@mixin typo-height($line-height) {
+  @if ($line-height != '') {
+    line-height: var(--ui-typo--lh-#{$line-height});
+  }
+}
+
+@mixin typo-size($size) {
+  @if ($size != '') {
+    font-size: var(--ui-typo--fs-#{$size});
+  }
+}
+
+@mixin typo-weight($weight) {
+  @if ($weight != '') {
+    font-weight: var(--ui-typo--fw-#{$weight});
+  }
+}
+
+@mixin typo($size:'', $weight:'') {
+  @include typo-size($size);
+  @include typo-weight($weight);
+}

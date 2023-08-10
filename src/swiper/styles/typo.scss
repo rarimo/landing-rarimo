@@ -1,0 +1,137 @@
+@import "vars";
+@import "media";
+
+@mixin --generic-text-block() {
+  margin: 0.3em 0;
+  line-height: 1.2em;
+}
+
+%h1 {
+  @include --generic-text-block();
+
+  color: $color-dark;
+  font-family: $layout-font-family;
+  font-weight: 500;
+
+  @include respond-font-size(46px);
+}
+
+%h2 {
+  @include --generic-text-block();
+
+  color: $color-dark;
+  font-family: $layout-font-family;
+  font-weight: 500;
+
+  @include respond-font-size(32px);
+}
+
+%h3 {
+  @include --generic-text-block();
+
+  color: $color-dark;
+  font-family: $layout-font-family;
+  font-weight: 500;
+
+  @include respond-font-size(24px);
+}
+
+%h4 {
+  @include --generic-text-block();
+
+  color: $color-dark;
+  font-family: $layout-font-family;
+  font-weight: 600;
+
+  @include respond-font-size(18px);
+}
+
+%h5 {
+  @include --generic-text-block();
+
+  color: $color-dark;
+  font-family: $layout-font-family;
+  font-weight: 500;
+
+  @include respond-font-size(14px);
+}
+
+%h6 {
+  @include --generic-text-block();
+
+  color: $color-dark;
+  font-family: $layout-font-family;
+  font-weight: 500;
+
+  @include respond-font-size(14px);
+}
+
+%p {
+  margin: 0.4em 0;
+  line-height: 1.4em;
+  font-family: $layout-font-family;
+  font-weight: 400;
+
+  @include respond(font-size, 14px, 13px, 13px, 14px);
+}
+
+%p-minor {
+  margin: 0.4em 0;
+  line-height: 1.4em;
+  font-family: $layout-font-family;
+  font-weight: 400;
+  color: $color-grey;
+
+  @include respond(font-size, 14px, 13px, 13px, 14px);
+}
+
+%p-caps {
+  margin: 0.4em 0;
+  line-height: 1.4em;
+  font-family: $layout-font-family;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  @include respond(font-size, 13px, 11px, 11px, 13px);
+}
+
+%small {
+  margin: 0.4em 0;
+  font-family: $layout-font-family;
+  font-weight: 400;
+
+  @include respond-font-size(13px);
+}
+
+%small-caps {
+  margin: 0.4em 0;
+  font-family: $layout-font-family;
+  font-weight: 400;
+
+  @include respond(font-size, 13px, 11px, 11px, 13px);
+}
+
+%ui-panel {
+  @include respond-font-size(14px);
+
+  line-height: $layout-line-height;
+}
+
+%link {
+  color: $color-ui-primary-border;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+@mixin line-no-wrap() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
