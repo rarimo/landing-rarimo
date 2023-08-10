@@ -1,0 +1,255 @@
+@import "media";
+@import "spacing";
+@import "colors";
+
+// stylelint-disable
+
+@font-face {
+  font-family: 'uikit-icons';
+  src: url('../assets/fonts/uikit.ttf?xptaum') format('truetype'),
+  url('../assets/fonts/uikit.woff?xptaum') format('woff'),
+  url('../assets/fonts/uikit.svg?xptaum#uikit') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+// stylelint-enable
+
+:root {
+  // COLOORS PALETTER
+  --ui-color--pal-white: 255, 255, 255;
+  --ui-color--pal-grey75: 247, 247, 251;
+  --ui-color--pal-grey100: 242, 242, 247;
+  --ui-color--pal-grey200: 229, 229, 234;
+  --ui-color--pal-grey300: 209, 209, 214;
+  --ui-color--pal-grey400: 199, 199, 204;
+  --ui-color--pal-grey500: 174, 174, 178;
+  --ui-color--pal-grey600: 142, 142, 147;
+  --ui-color--pal-grey700: 109, 109, 115;
+  --ui-color--pal-grey800: 72, 72, 76;
+  --ui-color--pal-grey900: 28, 28, 30;
+  --ui-color--pal-black: 0, 0, 0;
+  --ui-color--pal-yellow: 255, 190, 50;
+  --ui-color--pal-purple: 175, 82, 222;
+  --ui-color--pal-green: 52, 199, 89;
+  --ui-color--pal-red: 255, 113, 88;
+  --ui-color--pal-blue: 38, 96, 246;
+
+  // accessible opposite colors
+  --ui-color--pal-white-acc: #{color-code(pal-black)};
+  --ui-color--pal-grey75-acc: #{color-code(pal-black)};
+  --ui-color--pal-grey100-acc: #{color-code(pal-black)};
+  --ui-color--pal-grey200-acc: #{color-code(pal-black)};
+  --ui-color--pal-grey300-acc: #{color-code(pal-black)};
+  --ui-color--pal-grey400-acc: #{color-code(pal-black)};
+  --ui-color--pal-grey500-acc: #{color-code(pal-black)};
+  --ui-color--pal-grey600-acc: #{color-code(pal-black)};
+  --ui-color--pal-grey700-acc: #{color-code(pal-white)};
+  --ui-color--pal-grey800-acc: #{color-code(pal-white)};
+  --ui-color--pal-grey900-acc: #{color-code(pal-white)};
+  --ui-color--pal-black-acc: #{color-code(pal-white)};
+  --ui-color--pal-yellow-acc: #{color-code(pal-white)};
+  --ui-color--pal-purple-acc: #{color-code(pal-white)};
+  --ui-color--pal-green-acc: #{color-code(pal-white)};
+  --ui-color--pal-red-acc: #{color-code(pal-white)};
+  --ui-color--pal-blue-acc: #{color-code(pal-white)};
+
+  // LAYOUT/GRID
+  --ui-grid--spacing-pad: calc(#{spacing(sp500)} * 0.5);
+  --ui-grid--spacing-row-negative: calc(#{spacing(sp500)} * -0.5);
+  --ui-container--padding: 10px;
+
+  // generic border radius for UI elements
+  --ui-layout--border-radius: 16px;
+  --ui-layout--border-radius-inner: 12px;
+
+  // spacings
+  --ui-spacing--sp100: 2px;
+  --ui-spacing--sp200: 8px;
+  --ui-spacing--sp300: 16px;
+  --ui-spacing--sp400: 24px;
+  --ui-spacing--sp500: 32px;
+  --ui-spacing--sp600: 48px;
+  --ui-spacing--sp700: 64px;
+  --ui-spacing--sp800: 86px;
+
+  // z-indices
+  --ui-z-index--negative: -1;
+  --ui-z-index--0: 0;
+  --ui-z-index--1: 1;
+  --ui-z-index--10: 10;
+  --ui-z-index--100: 100;
+  --ui-z-index--1000: 1000;
+  --ui-z-index--modal: 9999;
+
+  // TYPO FEATURES
+  --ui-icon--font: 'uikit-icons';
+  --ui-typo--font-family: 'Arial';
+
+  // font-size
+  --ui-typo--fs-h100: 12px;
+  --ui-typo--fs-h200: 14px;
+  --ui-typo--fs-h300: 16px;
+  --ui-typo--fs-h400: 20px;
+  --ui-typo--fs-h500: 24px;
+  --ui-typo--fs-h600: 30px;
+  --ui-typo--fs-h700: 38px;
+  --ui-typo--fs-h800: 46px;
+
+  // line-height
+  --ui-typo--lh-h100: 20px;
+  --ui-typo--lh-h200: 22px;
+  --ui-typo--lh-h300: 24px;
+  --ui-typo--lh-h400: 28px;
+  --ui-typo--lh-h500: 32px;
+  --ui-typo--lh-h600: 38px;
+  --ui-typo--lh-h700: 46px;
+  --ui-typo--lh-h800: 54px;
+
+  // icon-size (can be applied for icons and flags)
+  --ui-icon--size-i100: 16px;
+  --ui-icon--size-i200: 24px;
+  --ui-icon--size-i300: 32px;
+  --ui-icon--size-i400: 48px;
+  --ui-icon--size-i500: 64px;
+  --ui-icon--size-i600: 86px;
+
+  // font-weight
+  --ui-typo--fw-regular: 300;
+  --ui-typo--fw-medium: 500;
+  --ui-typo--fw-bold: 800;
+
+  //
+  // UI-COMPONENTS DEFAULT VALUES
+  // any existing component's CSS var should be defined here
+  // with default value
+  //
+  --ui-skeleton--bg: color-code(pal-grey75);
+  --ui-skeleton--accent: color-code(pal-grey300);
+  --ui-skeleton--border-radius: var(--ui-layout--border-radius);
+  --ui-button--padding: 12px;
+  --ui-button--border-radius: var(--ui-layout--border-radius);
+  --ui-button--border-radius-hover: 24px;
+
+  // Button colors
+  --ui-button--color-primary-bg: #{color-code(pal-yellow)};
+  --ui-button--color-primary-acc: #{color-code(pal-white)};
+  --ui-button--color-primary-acc-disabled: #{color-code(pal-white)};
+  --ui-button--color-primary-ripple: #{color-code(pal-white, 0.6)};
+  --ui-button--color-secondary-bg: #{color-code(pal-blue)};
+  --ui-button--color-secondary-acc: #{color-code(pal-white)};
+  --ui-button--color-secondary-acc-disabled: #{color-code(pal-white)};
+  --ui-button--color-secondary-ripple: #{color-code(pal-white, 0.4)};
+  --ui-button--color-light-bg: #{color-code(pal-grey100)};
+  --ui-button--color-light-acc: #{color-code(pal-grey900)};
+  --ui-button--color-light-acc-disabled: #{color-code(pal-grey900)};
+  --ui-button--color-light-ripple: #{color-code(pal-grey300, 0.6)};
+  --ui-button--color-dark-bg: #{color-code(pal-grey900)};
+  --ui-button--color-dark-acc: #{color-code(pal-white)};
+  --ui-button--color-dark-acc-disabled: #{color-code(pal-white)};
+  --ui-button--color-dark-ripple: #{color-code(pal-white, 0.3)};
+  --ui-button--color-none-bg: transparent;
+  --ui-button--color-none-acc: #{color-code(pal-yellow)};
+  --ui-button--color-none-acc-disabled: #{color-code(pal-yellow)};
+  --ui-button--color-none-ripple: #{color-code(pal-grey200, 0.6)};
+
+  // Text field
+  --ui-text--border-radius: 16px;
+  --ui-text--color-focus: #{color-code(pal-yellow)};
+  --ui-text--color-focus-shadow: #{color-code(pal-yellow, 0.2)};
+  --ui-text--color-autofill-bg: #{color-code(pal-white)};
+  --ui-text--color-autofill-acc: #{color-code(pal-grey900)};
+  --ui-text--color-autofill-bg-disabled: #{color-code(pal-grey200)};
+  --ui-text--color-autofill-acc-disabled: #{color-code(pal-grey500)};
+
+  // Phone field
+  --ui-phone--border-radius: 16px;
+  --ui-phone--color-focus: #{color-code(pal-yellow)};
+  --ui-phone--color-focus-shadow: #{color-code(pal-yellow, 0.2)};
+
+  // Select
+  --ui-select--color-focus: #{color-code(pal-yellow)};
+  --ui-select--color-shadow: #{color-code(pal-yellow, 0.1)};
+  --ui-select--color-toggle: #{color-code(pal-grey900)};
+
+  // Multi Select
+  --ui-multi-select--color-focus: #{color-code(pal-yellow)};
+  --ui-multi-select--color-shadow: #{color-code(pal-yellow, 0.1)};
+
+  // Select range
+  --ui-select-range--color-active: #{color-code(pal-yellow)};
+  --ui-select-range--color-hover: #{color-code(pal-yellow, 0.1)};
+
+  // Radio button
+  --ui-radio--color-active: #{color-code(pal-yellow)};
+
+  // Checkbox
+  --ui-check--color-active: #{color-code(pal-yellow)};
+
+  // Switch
+  --ui-switch--color-default: #{color-code(pal-grey100)};
+  --ui-switch--color-active: #{color-code(pal-green)};
+
+  // Range
+  --ui-range--border-radius: 4px;
+  --ui-range--track-height: 4px;
+  --ui-range--thumb-size: 18px;
+  --ui-range--thumb-border: 5px;
+  --ui-range--color-bg: #{color-code(pal-grey100)};
+  --ui-range--color-fill: #{color-code(pal-green)};
+  --ui-range--color-thumb: #{color-code(pal-white)};
+  --ui-range--color-fill-disabled: #{color-code(pal-green, 0.5)};
+
+  // Hover slider
+  --ui-hover-slider--color-indicator: #{color-code(pal-yellow)};
+
+  // Date picker
+  --ui-date-picker--color-disabled: #{color-code(pal-grey200)};
+  --ui-date-picker--color-active: #{color-code(pal-yellow)};
+  --ui-date-picker--color-active-hover: #{color-code(pal-yellow, 0.2)};
+
+  //
+  // S-DISPLAYS OVEDRIDES
+  //
+  @include respond-below-v2(md) {
+    // LAYOUT/GRID
+    --ui-container--padding: 48px;
+
+    // generic border radius for UI elements
+    --ui-layout--border-radius: 12px;
+    --ui-layout--border-radius-inner: 8px;
+
+    // font-size
+    --ui-typo--fs-h100: 11px;
+    --ui-typo--fs-h200: 12px;
+    --ui-typo--fs-h300: 14px;
+    --ui-typo--fs-h400: 17px;
+    --ui-typo--fs-h500: 20px;
+    --ui-typo--fs-h600: 24px;
+    --ui-typo--fs-h700: 32px;
+    --ui-typo--fs-h800: 36px;
+
+    // line-height
+    --ui-typo--lh-h100: 16px;
+    --ui-typo--lh-h200: 18px;
+    --ui-typo--lh-h300: 20px;
+    --ui-typo--lh-h400: 26px;
+    --ui-typo--lh-h500: 28px;
+    --ui-typo--lh-h600: 34px;
+    --ui-typo--lh-h700: 44px;
+    --ui-typo--lh-h800: 52px;
+
+    // ui-components
+    --ui-button--padding: 12px;
+    --ui-layout--border-radius: 14px;
+  }
+
+  //
+  // MOBILE DISPLAY OVEDRIDES
+  //
+  @include respond-below-v2(sm) {
+    // LAYOUT/GRID
+    --ui-container--padding: 16px;
+  }
+}

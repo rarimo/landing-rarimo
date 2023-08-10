@@ -90,6 +90,8 @@
   );
   border-radius: var(--primary-border-radius);
   cursor: pointer;
+  width: 90vw;
+  margin-right: to-rem(16);
 
   &--big {
     grid-row: span 2;

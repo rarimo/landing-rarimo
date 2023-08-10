@@ -1,0 +1,35 @@
+
+// COLOR UTILS
+
+@function color-code($color-code, $opacity: 1) {
+  @if ($opacity == 1) {
+    // HACK: Use upper-cased function because of the
+    // node-sass issue: https://github.com/sass/node-sass/issues/2251
+    @return RGB(var(--ui-color--#{$color-code}));
+  }
+
+  // HACK: Use upper-cased function because of the
+  // node-sass issue: https://github.com/sass/node-sass/issues/2251
+  @return RGBA(var(--ui-color--#{$color-code}), $opacity);
+}
+
+@function color-code-acc($color-code) {
+  @return var(--ui-color--#{$color-code}-acc);
+}
+
+@mixin color-bg-code($color-code) {
+  background-color: color-code($color-code);
+  color: color-code-acc($color-code);
+}
+
+@mixin button-type($type) {
+  --ui-spinner-color-a: var(--ui-button--color-#{$type}-acc);
+  --ui-button--color-ripple: var(--ui-button--color-#{type}-ripple);
+
+  background-color: var(--ui-button--color-#{$type}-bg);
+  color: var(--ui-button--color-#{$type}-acc);
+
+  &:disabled {
+    color: var(--ui-button--color-#{$type}-acc-disabled);
+  }
+}
