@@ -1,6 +1,7 @@
 import './UseCasesSection.scss';
 
 import cn from 'classnames';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -8,12 +9,27 @@ import BaseCard from '@/components/BaseCard';
 import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
 import useAppContext from '@/hooks/useAppContext';
 import useNavigation from '@/hooks/useNavigation';
+import UiSwiper from '@/swiper/UiSwiper';
 import { useCasesList } from '@/template-data';
 
 const UseCasesSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
   const { handleNavClick } = useNavigation();
+  const activateSlide = index => {
+    console.log('a');
+    // // if (this._isEngaged) return;
+    // //
+    // const MINIMUM_VIEWS_PER_SLIDE = 2;
+    //
+    // this._activatedSlides[index]++;
+    //
+    // const views = this._activatedSlides.slice(1);
+    // if (!views.includes(0) && views.some(v => v >= MINIMUM_VIEWS_PER_SLIDE)) {
+    //   trackEvent('Browsed images on a lot card', { lotId: this.lot.id });
+    //   this._isEngaged = true;
+    // }
+  };
 
   return (
     <section
@@ -80,67 +96,12 @@ const UseCasesSection = () => {
             ))}
           </ul>
         ) : (
-          <swiper-container
+          <UiSwiper
             class="use-cases-section__cases-swiper"
-            slides-per-view="auto"
-            space-between="16"
-            mousewheel-force-to-axis="true"
-            autoplay="false"
-            free-mode="true"
-            resistance-ratio="0.25"
-            grab-cursor="true"
-            edge-swipe-detection="true"
-            pagination="true"
-            a11y-slide-role="listitem"
-            a11y-container-role-description-message="Use cases list"
-            item-role-description-message="Use case"
+            slideIndexActivated={activateSlide}
+            useCases={useCasesList}
             data-aos="fade-up"
-          >
-            {useCasesList.map(useCase => (
-              <swiper-slide
-                class="use-cases-section__cases-swiper-slide"
-                key={useCase.modifier}
-              >
-                <BaseCard
-                  className={cn([
-                    'use-cases-section__case-item',
-                    `use-cases-section__case-item--${useCase.modifier}`,
-                    {
-                      'use-cases-section__case-item--yellow': useCase.isYellow,
-                    },
-                  ])}
-                  tag="li"
-                  role="link"
-                  tabIndex="0"
-                  onClick={() => handleNavClick(useCase)}
-                  onKeyDown={event => {
-                    switch (event.code) {
-                      case 'Enter':
-                        handleNavClick(useCase);
-                        return;
-
-                      default:
-                        return;
-                    }
-                  }}
-                >
-                  <img
-                    className="use-cases-section__case-item-img"
-                    src={useCase.img}
-                    alt=""
-                  />
-                  <div className="use-cases-section__case-item-content">
-                    <h6 className="use-cases-section__case-item-title">
-                      {t(useCase.titleKey)}
-                    </h6>
-                    <p className="use-cases-section__case-item-text">
-                      {t(useCase.textKey)}
-                    </p>
-                  </div>
-                </BaseCard>
-              </swiper-slide>
-            ))}
-          </swiper-container>
+          ></UiSwiper>
         )}
       </div>
     </section>

@@ -1,0 +1,354 @@
+@import "vars";
+
+@function list-get($list, $index, $default) {
+  @if (length($list) >= $index) {
+    @return nth($list, $index);
+  } @else {
+    @return $default;
+  }
+}
+
+@mixin ui-wrap-soft($display: block) {
+  @include respond-font-size($layout-ui-font-size);
+
+  font-family: $layout-font-family;
+  display: $display;
+}
+
+@mixin ui-wrap($display: block) {
+  @include ui-wrap-soft($display);
+
+  box-sizing: border-box;
+  position: relative;
+  line-height: $layout-line-height;
+
+  &__label {
+    line-height: $layout-line-height / 2;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+}
+
+@mixin ui-base($display: block) {
+  display: $display;
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  outline: none;
+  font-family: inherit;
+  // todo: make mixin from it
+  transition: all ease-out 300ms;
+}
+
+@mixin ui-can-text() {
+  @include respond-font-size($layout-ui-font-size);
+
+  font-family: inherit;
+  padding: 0 1em;
+  color: $color-text-input;
+
+  &::placeholder {
+    font-family: inherit;
+    color: transparentize($color-text-input, 0.75);
+  }
+}
+
+@mixin ui-can-focus() {
+  @each $map in $looks {
+    $name: nth($map, 1);
+    $colors: map-get($looks, $name);
+
+    $border-color: nth($colors, 2);
+
+    &[fill="solid"] {
+      &[look="#{$name}"]:focus {
+        border-color: darken($border-color, 10%);
+      }
+    }
+
+    &[fill="frame"] {
+      &[look="#{$name}"]:focus {
+        border-color: darken($border-color, 10%);
+      }
+    }
+
+    &[fill="frame-hover"]:focus {
+      &[look="#{$name}"]:focus {
+        border-color: darken($border-color, 10%);
+      }
+    }
+
+    &[fill="none"] {
+      &[look="#{$name}"]:focus {
+        color: darken($border-color, 10%);
+      }
+    }
+  }
+}
+
+@mixin ui-can-disabled() {
+  &[is-disabled],
+  &[is-disabled]:hover {
+    cursor: not-allowed;
+
+    &[fill="none"] {
+      color: $color-flag-is-disabled !important;
+    }
+
+    &[fill="frame"] {
+      color: $color-flag-is-disabled !important;
+      background: $color-ui-bg !important;
+      box-shadow: none !important;
+      border-color: $color-flag-is-disabled !important;
+      border-style: dashed !important;
+    }
+
+    &[fill="solid"] {
+      color: $color-flag-is-disabled !important;
+      background: lighten($color-flag-is-disabled, 10%) !important;
+      box-shadow: none !important;
+      border-color: $color-flag-is-disabled !important;
+      border-style: dashed !important;
+    }
+
+    &[fill="frame-hover"] {
+      color: $color-flag-is-disabled !important;
+      background: $color-ui-bg !important;
+      box-shadow: none !important;
+      border-color: $color-flag-is-disabled !important;
+      border-style: dashed !important;
+    }
+  }
+}
+
+@mixin ui-can-error() {
+  &[is-error],
+  &[is-error]:hover {
+    &[fill="none"] {
+      color: $color-flag-is-error;
+    }
+
+    &[fill="frame"] {
+      background: $color-ui-bg !important;
+      border-color: $color-flag-is-error !important;
+      border-style: dashed !important;
+    }
+
+    &[fill="solid"] {
+      background: lighten($color-flag-is-error, 10%) !important;
+      border-color: $color-flag-is-error !important;
+    }
+
+    &[fill="frame-hover"] {
+      background: $color-ui-bg !important;
+      border-color: $color-flag-is-error !important;
+    }
+  }
+}
+
+@mixin ui-can-click() {
+  transition: all linear 300ms;
+
+  &:not([is-disabled]) {
+    &:hover,
+    &:focus {
+      transition: all linear 80ms;
+    }
+
+    &:active {
+      transform: translateY(0.1em);
+    }
+  }
+}
+
+@mixin ui-can-fill($hover:true) {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: $layout-border-radius;
+
+  @each $map in $looks {
+    $name: nth($map, 1);
+    $colors: map-get($looks, $name);
+
+    $bg-color: nth($colors, 1);
+    $border-color: nth($colors, 2);
+    $text-color: nth($colors, 3);
+    $shadow-color: nth($colors, 4);
+    $fill-basic_shadow: 0 0.4em 0.8em -0.3em $shadow-color;
+    $color-ui-bg-alt: list-get($colors, 5, $color-ui-bg);
+
+    &[fill="solid"] {
+      &[look="#{$name}"] {
+        color: $text-color;
+        background: $bg-color;
+        border-color: $border-color;
+
+        @if ($hover) {
+          &:hover {
+            background: darken($bg-color, 10%);
+            border-color: darken($bg-color, 10%);
+            box-shadow: $fill-basic_shadow;
+          }
+        }
+      }
+    }
+
+    &[fill="frame"] {
+      &[look="#{$name}"] {
+        color: $border-color;
+        background: $color-ui-bg-alt;
+        border-color: $border-color;
+
+        @if ($hover) {
+          &:hover {
+            color: $border-color;
+            border-color: $border-color;
+            box-shadow: $fill-basic_shadow;
+          }
+        }
+      }
+    }
+
+    &[fill="frame-hover"] {
+      &[look="#{$name}"] {
+        color: $border-color;
+        background: $color-ui-bg-alt;
+        border-color: $border-color;
+
+        @if ($hover) {
+          &:hover {
+            color: $text-color;
+            background: $bg-color;
+            border-color: $border-color;
+            box-shadow: $fill-basic_shadow;
+          }
+        }
+      }
+    }
+
+    &[fill="none"] {
+      &[look="#{$name}"] {
+        color: $border-color;
+        background: transparent;
+        border-width: 0;
+
+        @if ($hover) {
+          &:hover {
+            color: darken($border-color, 15%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+@mixin scrollbar-awesome($transparent: false) {
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    @if ($transparent) {
+      background-color: transparent;
+    }
+
+    background-color: $color-light;
+    width: 2px;
+    height: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-dark;
+  }
+}
+
+@mixin scrollbar-awesome-bold() {
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-grey;
+    border: 1px solid transparent;
+    border-radius: 0.25em;
+  }
+
+  &:hover::-webkit-scrollbar {
+    background-color: $color-light-grey;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: $color-dark-grey;
+  }
+}
+
+@mixin scroll-awesome($transparent: false) {
+  // deprecated
+  @include scrollbar-awesome($transparent);
+}
+
+@mixin scrollbar-invisible() {
+  &::-webkit-scrollbar {
+    width: 0; // Remove scrollbar space
+    background: transparent; // Optional: just make scrollbar invisible
+    display: none; // Safari and Chrome
+  }
+
+  // Optional: show position indicator in red
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  -ms-overflow-style: none; // IE 10+
+  scrollbar-width: none; // Firefox
+}
+
+@mixin reset-number-appearance {
+  &[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield; // stylelint-disabled-line
+    margin: 0;
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+@mixin aspect-ratio() {
+  @include clearfix();
+
+  position: relative;
+  display: block;
+
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: calc(100% / var(--ratio));
+  }
+}

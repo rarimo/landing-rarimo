@@ -1,0 +1,142 @@
+@import "all";
+
+.ui-hover-slider {
+  @include ui-wrap-soft(block);
+  @include aspect-ratio();
+  @include scrollbar-invisible();
+
+  --ratio: calc(4 / 3);
+
+  background-color: lighten($color-light-grey, 10%);
+  overflow-x: visible;
+  overflow-y: hidden;
+
+  @include respond-below-v2(sm) {
+    background-color: transparent;
+    overflow-x: scroll;
+  }
+
+  &__slides {
+    position: absolute;
+    will-change: transform;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-x: visible;
+    pointer-events: none;
+    vertical-align: middle;
+    line-height: 1em;
+    transition: none;
+  }
+
+  &__item {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    width: var(--slide-width);
+
+    @include respond-below-v2(sm) {
+      margin-left: spacing(sp100);
+      border-radius: var(--ui-hover-slider--border-radius, 5px);
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    border-radius: inherit;
+  }
+
+  &__more {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: color-code(pal-black, 0.75);
+    color: $color-light;
+    z-index: z-index(1);
+    border-radius: inherit;
+
+    &-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      min-width: 100%;
+      min-height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &-icon {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  &__indicator {
+    position: absolute;
+    bottom: spacing(sp200);
+    left: spacing(sp200);
+    right: spacing(sp200);
+    display: grid;
+    grid-auto-flow: column;
+    gap: spacing(sp200);
+    pointer-events: none;
+
+    &-bar {
+      display: inline-block;
+      height: 2px;
+      background-color: color-code(pal-white);
+      opacity: 0.5;
+
+      &_active {
+        background-color: var(--ui-hover-slider--color-indicator);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-height: 100%;
+    overflow: hidden;
+
+    @include clearfix();
+  }
+}
+
+.indicator {
+  &-enter,
+  &-leave-to {
+    transform: translateY(calc(0.75em + 3px));
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: transform ease-in 0.2s;
+  }
+
+  &-enter-to {
+    transform: translateY(0);
+  }
+}
