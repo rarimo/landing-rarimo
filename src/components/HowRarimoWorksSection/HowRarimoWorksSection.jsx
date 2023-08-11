@@ -262,7 +262,10 @@ const HowRarimoWorksSection = () => {
       pagination: true,
       autoHeight: true,
       grabCursor: true,
-      resistanceRatio: 0.25,
+      autoplay: false,
+      mousewheelForceToAxis: true,
+      edgeSwipeDetection: true,
+      resistanceRatio: 0.5,
       freeMode: true,
       effect: 'coverflow',
       coverflowEffect: {
@@ -378,6 +381,12 @@ const HowRarimoWorksSection = () => {
           ref={swiperRef}
           class="how-rarimo-works-section__swiper-container"
           init="false"
+          slides-per-view="auto"
+          space-between="16"
+          mousewheel-force-to-axis={!isDesktop}
+          resistance-ratio="1"
+          free-mode={!isDesktop}
+          edge-swipe-detection="true"
         >
           <div slot="container-end">
             {isDesktop && (

@@ -87,7 +87,7 @@ const UseCasesSection = () => {
             mousewheel-force-to-axis="true"
             autoplay="false"
             free-mode="true"
-            resistance-ratio="0.25"
+            resistance-ratio="0.9"
             grab-cursor="true"
             edge-swipe-detection="true"
             pagination="true"
