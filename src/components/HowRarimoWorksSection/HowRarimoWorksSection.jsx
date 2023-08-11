@@ -99,7 +99,6 @@ const HowRarimoWorksSection = () => {
 
     if (event.wheelDeltaY > 0) {
       prevSlide();
-      return;
     }
   }, []);
 
@@ -184,6 +183,7 @@ const HowRarimoWorksSection = () => {
     };
 
     animationRef.current = lottie.loadAnimation(params);
+    animationRef.current.setSpeed(1.5);
     animationRef.current.addEventListener('drawnFrame', frameEvent => {
       const currentFrame = Math.ceil(frameEvent.currentTime);
       const isFrameInRange =
@@ -222,7 +222,7 @@ const HowRarimoWorksSection = () => {
       allowTouchMove: false,
       grabCursor: false,
       resistance: false,
-      speed: 1500,
+      speed: 1000,
       mousewheel: {
         thresholdDelta: 4,
       },
