@@ -11,7 +11,6 @@ const NewsSection = () => {
   const { t } = useTranslation();
   const swiperRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  let quantityThumbs = [];
   const nextSlide = () => {
     swiperRef.current?.swiper.slideNext();
     setActiveSlide(swiperRef.current?.swiper.activeIndex);
@@ -22,7 +21,7 @@ const NewsSection = () => {
     setActiveSlide(swiperRef.current?.swiper.activeIndex);
   };
 
-  const getAmountThumbs = () => {
+  const getAmountBullets = () => {
     if (!swiperRef.current) return;
     return (
       swiperRef.current?.swiper.slides.length -
@@ -33,14 +32,15 @@ const NewsSection = () => {
       1
     );
   };
-  useEffect(() => {
-    const handleScroll = () => {
-      const newActiveSlide = swiperRef.current?.swiper.activeIndex;
-      if (activeSlide !== newActiveSlide) {
-        setActiveSlide(newActiveSlide);
-      }
-    };
 
+  const handleScroll = () => {
+    const newActiveSlide = swiperRef.current?.swiper.activeIndex;
+    if (activeSlide !== newActiveSlide) {
+      setActiveSlide(newActiveSlide);
+    }
+  };
+
+  useEffect(() => {
     swiperRef.current?.addEventListener('scroll', handleScroll);
     return () => {
       swiperRef.current?.removeEventListener('scroll', handleScroll);
@@ -129,7 +129,7 @@ const NewsSection = () => {
             </svg>
           </button>
           <div className="news-section__swiper-pagination-bullet-wrapper">
-            {[...Array(getAmountThumbs()).keys()].map(el => (
+            {[...Array(getAmountBullets()).keys()].map(el => (
               <div
                 key={el}
                 className={
