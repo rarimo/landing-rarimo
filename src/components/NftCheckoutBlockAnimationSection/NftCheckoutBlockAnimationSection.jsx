@@ -159,7 +159,7 @@ const NftCheckoutBlockAnimationSection = () => {
 
   return (
     <>
-      <div className="nft-checkout-block-animation-section">
+      <section className="nft-checkout-block-animation-section">
         <swiper-container
           ref={swiperRef}
           className="nft-checkout-block-animation-section__swiper-container"
@@ -329,7 +329,7 @@ const NftCheckoutBlockAnimationSection = () => {
             </svg>
           </button>
         </div>
-      </div>
+      </section>
     </>
   );
 };
