@@ -98,11 +98,19 @@
   "news-section": {
     "title": "Latest news",
     "view-all-link": "View All",
-    "first-title": "Blockworks - Polygon ID comes to Ethereum thanks to Rarimo integration, more chains to come",
-    "second-title": "CoinTelegraph - NFT marketplace enables cross-chain purchases on multiple networks",
-    "third-title": "The Block - Blockchain-infused AI could save Drake's voice, or your average Joe's data ",
-    "fourth-title": "Radix DLT - Rarimo: an interoperability protocol for the decentralized social identity"
-  },
+    "first-title": "Polygon ID comes to Ethereum thanks to Rarimo integration, more chains to come",
+    "first-block-name": "Blockworks",
+    "second-title": "NFT marketplace enables cross-chain purchases on multiple networks",
+    "second-block-name": "CoinTelegraph",
+    "third-title": "Blockchain-infused AI could save Drake's voice, or your average Joe's data ",
+    "third-block-name": "The Block",
+    "fourth-title": "Rarimo: an interoperability protocol for the decentralized social identity",
+    "fourth-block-name": "Radix DLT",
+    "five-title": "Purchase NFT on one network, Pay on another",
+    "six-title": "What is Interoperability, and why is it so important?",
+    "seven-title": "VeradiVerdict - Introduction to Rarimo",
+    "eighth-title": "Self-sovereign identities (SSI) and blockchain"
+},
   "subscribe-section": {
     "title": "Subscribe to our newsletter",
     "description": "Stay up-to-date about new features and supported apps",
