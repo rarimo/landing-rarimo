@@ -93,6 +93,12 @@ const NewsSection = () => {
           grab-cursor="true"
           free-mode="true"
           edge-swipe-detection="true"
+          allow-touch-move={event => {
+            return (
+              event.type === 'touchmove' &&
+              Math.abs(event.deltaY) < Math.abs(event.deltaX)
+            );
+          }}
           breakpoints-1280-slides-per-view="4"
           breakpoints-1280-enabled="false"
           a11y-slide-role="listitem"
