@@ -128,24 +128,23 @@ const NewsSection = () => {
               className="news-section__swiper-pagination-btn-icon-prev"
               height="24"
               width="24"
-              color={
-                swiperRef.current?.swiper.activeIndex === 0 ? 'gray' : '#FFFFFF'
-              }
+              color={activeSlide === 0 ? 'gray' : '#FFFFFF'}
             >
               <use href="/icons/sprite.svg#icon-arrow-right-min"></use>
             </svg>
           </button>
           <div className="news-section__swiper-pagination-bullet-wrapper">
-            {[...Array(getAmountBullets()).keys()].map(el => (
-              <div
-                key={el}
-                className={
-                  swiperRef.current?.swiper.activeIndex === el
-                    ? 'active-bullet news-section__swiper-pagination-bullet'
-                    : 'news-section__swiper-pagination-bullet'
-                }
-              />
-            ))}
+            {swiperRef.current &&
+              [...Array(getAmountBullets()).keys()].map(el => (
+                <div
+                  key={el}
+                  className={
+                    activeSlide === el
+                      ? 'active-bullet news-section__swiper-pagination-bullet'
+                      : 'news-section__swiper-pagination-bullet'
+                  }
+                />
+              ))}
           </div>
           <button
             className="news-section__swiper-pagination-btn-next"
@@ -156,9 +155,7 @@ const NewsSection = () => {
               height="24"
               width="24"
               color={
-                swiperRef.current?.swiper?.activeIndex === getAmountBullets()-1
-                  ? 'gray'
-                  : '#FFFFFF'
+                activeSlide === getAmountBullets() - 1 ? 'gray' : '#FFFFFF'
               }
             >
               <use href="/icons/sprite.svg#icon-arrow-right-min"></use>
