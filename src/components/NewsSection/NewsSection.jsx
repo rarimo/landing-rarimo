@@ -49,8 +49,15 @@ const NewsSection = () => {
 
   useEffect(() => {
     swiperRef.current?.addEventListener('scroll', handleScroll);
+    swiperRef.current?.addEventListener('touchmove', handleScroll);
+    swiperRef.current?.addEventListener('touchend', handleScroll);
+    swiperRef.current?.addEventListener('touchcancel', handleScroll);
+
     return () => {
       swiperRef.current?.removeEventListener('scroll', handleScroll);
+      swiperRef.current?.removeEventListener('touchmove', handleScroll);
+      swiperRef.current?.removeEventListener('touchend', handleScroll);
+      swiperRef.current?.removeEventListener('touchcancel', handleScroll);
     };
   }, [activeSlide]);
 
