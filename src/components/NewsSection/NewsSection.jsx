@@ -134,17 +134,16 @@ const NewsSection = () => {
             </svg>
           </button>
           <div className="news-section__swiper-pagination-bullet-wrapper">
-            {swiperRef.current &&
-              [...Array(getAmountBullets()).keys()].map(el => (
-                <div
-                  key={el}
-                  className={
-                    activeSlide === el
-                      ? 'active-bullet news-section__swiper-pagination-bullet'
-                      : 'news-section__swiper-pagination-bullet'
-                  }
-                />
-              ))}
+            {[...Array(getAmountBullets()).keys()].map(el => (
+              <div
+                key={el}
+                className={
+                  activeSlide === el
+                    ? 'active-bullet news-section__swiper-pagination-bullet'
+                    : 'news-section__swiper-pagination-bullet'
+                }
+              />
+            ))}
           </div>
           <button
             className="news-section__swiper-pagination-btn-next"
