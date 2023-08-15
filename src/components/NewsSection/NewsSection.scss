@@ -127,16 +127,13 @@
 .news-section__swiper-pagination{
   display: flex;
   justify-content: center;
-  width: 55%;
-  margin: 0 auto;
+  align-items: center;
   margin-top: to-rem(48);
 }
 
 .news-section__swiper-pagination-btn{
   &-next, &-prev{
-    width: to-rem(30);
-    height: to-rem(30);
-    margin: to-rem(10) 0;
+    width: to-rem(40);
     align-items: end;
     justify-content: center;
     display: flex;
@@ -146,8 +143,7 @@
 .news-section__swiper-pagination-bullet-wrapper{
   display: flex;
   align-items: center;
-  height: to-rem(50);
-
+  height: to-rem(5);
 }
 
 
@@ -160,5 +156,8 @@
 
 .active-bullet{
   background: #ffffff;
+}
+.news-section__swiper-pagination-btn-icon-prev{
+  transform: rotate(180deg);
 }
 
