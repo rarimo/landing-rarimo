@@ -82,7 +82,7 @@
     "gaming-profiles-title": "Gaming profiles",
     "gaming-profiles-text": "Build out player profile that can be used by third-party dApps",
     "ssi-title": "Self-sovereign identities (SSI)",
-    "ssi-text": "Use KYC data in the web3 world using ZK-proofs for cross-chain identity verification",
+    "ssi-text": "Use data in the web3 world using ZK-proofs for identity verification",
     "nft-checkout-title": "NFT Checkout",
     "nft-checkout-text": "Allow users to purchase NFTs with ANY crypto on any chain with a single signature",
     "token-agnostic-title": "Token-agnostic payments",
