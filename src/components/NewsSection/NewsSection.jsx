@@ -93,6 +93,7 @@ const NewsSection = () => {
           grab-cursor="true"
           free-mode="true"
           edge-swipe-detection="true"
+          touch-move-stop-propagation="true"
           breakpoints-1280-slides-per-view="4"
           breakpoints-1280-enabled="false"
           a11y-slide-role="listitem"
