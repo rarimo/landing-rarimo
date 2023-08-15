@@ -5,10 +5,15 @@ import { useTranslation } from 'react-i18next';
 
 import { CONFIG } from '@/config';
 import { getShiftedDelay } from '@/helpers';
+import useAppContext from '@/hooks/useAppContext';
 import { newsList } from '@/template-data';
+
+const DEFAULT_MOBILE_BULLETS = 8;
+const DEFAULT_DESKTOP_BULLETS = 5;
 
 const NewsSection = () => {
   const { t } = useTranslation();
+  const { isDesktop } = useAppContext();
   const swiperRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const nextSlide = () => {
@@ -22,7 +27,9 @@ const NewsSection = () => {
   };
 
   const getAmountBullets = () => {
-    if (!swiperRef.current) return;
+    if (!swiperRef.current) {
+      return isDesktop ? DEFAULT_DESKTOP_BULLETS : DEFAULT_MOBILE_BULLETS;
+    }
     return (
       swiperRef.current?.swiper.slides.length -
       Math.round(
@@ -122,10 +129,10 @@ const NewsSection = () => {
               height="24"
               width="24"
               color={
-                swiperRef?.current?.swiper.isBeginning ? 'gray' : '#FFFFFF'
+                swiperRef.current?.swiper.activeIndex === 0 ? 'gray' : '#FFFFFF'
               }
             >
-              <use href="/icons/sprite.svg#icon-arrow-left-min"></use>
+              <use href="/icons/sprite.svg#icon-arrow-right-min"></use>
             </svg>
           </button>
           <div className="news-section__swiper-pagination-bullet-wrapper">
@@ -148,7 +155,11 @@ const NewsSection = () => {
               className="news-section__swiper-pagination-btn-icon-next"
               height="24"
               width="24"
-              color={swiperRef.current?.swiper?.isEnd ? 'gray' : '#FFFFFF'}
+              color={
+                swiperRef.current?.swiper?.activeIndex === getAmountBullets()-1
+                  ? 'gray'
+                  : '#FFFFFF'
+              }
             >
               <use href="/icons/sprite.svg#icon-arrow-right-min"></use>
             </svg>
