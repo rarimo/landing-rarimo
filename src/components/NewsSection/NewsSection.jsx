@@ -52,7 +52,7 @@ const NewsSection = () => {
     swiperRef.current?.addEventListener('touchmove', handleScroll);
     swiperRef.current?.addEventListener('touchend', handleScroll);
     swiperRef.current?.addEventListener('touchcancel', handleScroll);
-
+    Object.assign(swiperRef.current, { touchAngle: 90 });
     return () => {
       swiperRef.current?.removeEventListener('scroll', handleScroll);
       swiperRef.current?.removeEventListener('touchmove', handleScroll);
@@ -86,6 +86,7 @@ const NewsSection = () => {
           ref={swiperRef}
           class="news-section__list"
           slides-per-view="auto"
+          touch-angle="90"
           space-between="32"
           mousewheel-force-to-axis="true"
           autoplay="false"
