@@ -43,7 +43,14 @@
 
 .news-section__list {
   height: to-rem(196);
-}
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  }
 
 .news-section__item {
   height: 100%;
