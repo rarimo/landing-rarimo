@@ -52,7 +52,13 @@ const NewsSection = () => {
     swiperRef.current?.addEventListener('touchmove', handleScroll);
     swiperRef.current?.addEventListener('touchend', handleScroll);
     swiperRef.current?.addEventListener('touchcancel', handleScroll);
-    Object.assign(swiperRef.current, { touchAngle: 90 });
+    Object.assign(swiperRef.current, {
+      touchAngle: 90,
+      preventInteractionOnTransition: true,
+      touchMoveStopPropagation: false,
+      touchStartPreventDefault: false,
+      touchStartForcePreventDefault: false,
+    });
     return () => {
       swiperRef.current?.removeEventListener('scroll', handleScroll);
       swiperRef.current?.removeEventListener('touchmove', handleScroll);
