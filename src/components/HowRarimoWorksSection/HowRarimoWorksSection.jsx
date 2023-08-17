@@ -259,16 +259,21 @@ const HowRarimoWorksSection = () => {
     };
 
     const paramsMobile = {
+      slidesPerView: 'auto',
       pagination: true,
       autoHeight: true,
       grabCursor: true,
-      resistanceRatio: 0.25,
-      freeMode: true,
-      effect: 'coverflow',
-      coverflowEffect: {
-        rotate: 5,
-        scale: 0.98,
-      },
+      resistanceRatio: 0.5,
+      spaceBetween: 32,
+      mousewheelForceToAxis: true,
+      edgeSwipeDetection: true,
+      autoplay: false,
+      freeMode: false,
+      // effect: 'coverflow',
+      // coverflowEffect: {
+      //   rotate: 5,
+      //   scale: 0.98,
+      // },
     };
 
     Object.assign(swiperRef.current, isDesktop ? params : paramsMobile);
