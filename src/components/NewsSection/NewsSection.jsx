@@ -91,7 +91,7 @@ const NewsSection = () => {
           autoplay="false"
           resistance-ratio="0.5"
           grab-cursor="true"
-          free-mode="true"
+          free-mode={isDesktop}
           edge-swipe-detection="true"
           breakpoints-1280-slides-per-view="4"
           breakpoints-1280-enabled="false"
