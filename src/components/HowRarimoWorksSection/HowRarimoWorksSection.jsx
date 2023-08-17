@@ -264,16 +264,16 @@ const HowRarimoWorksSection = () => {
       autoHeight: true,
       grabCursor: true,
       resistanceRatio: 0.5,
-      spaceBetween: 32,
+      spaceBetween: 16,
       mousewheelForceToAxis: true,
       edgeSwipeDetection: true,
       autoplay: false,
       freeMode: false,
-      // effect: 'coverflow',
-      // coverflowEffect: {
-      //   rotate: 5,
-      //   scale: 0.98,
-      // },
+      effect: 'coverflow',
+      coverflowEffect: {
+        rotate: 5,
+        scale: 0.98,
+      },
     };
 
     Object.assign(swiperRef.current, isDesktop ? params : paramsMobile);
