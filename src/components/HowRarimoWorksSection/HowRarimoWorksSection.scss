@@ -36,8 +36,8 @@
   width: 85%;
   margin-left: to-rem(20);
   height: to-rem(600);
-  overflow: visible;
-  //overflow-x: scroll;
+  //overflow: visible;
+  overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   scrollbar-width: none;
