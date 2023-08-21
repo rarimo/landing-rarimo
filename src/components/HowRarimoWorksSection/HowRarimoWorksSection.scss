@@ -110,9 +110,9 @@
     margin: unset;
   }
 
-  .base-card__content::before {
-    filter: invert(0.4) opacity(0.2);
-  }
+  //.base-card__content::before {
+  //  filter: invert(0.4) opacity(0.2);
+  //}
 }
 
 .how-rarimo-works-section__card-content {
