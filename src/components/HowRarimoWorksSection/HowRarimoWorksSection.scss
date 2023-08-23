@@ -36,7 +36,6 @@
   width: 85%;
   margin-left: to-rem(20);
   height: to-rem(600);
-  //overflow: visible;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
@@ -46,6 +45,7 @@
   }
 
   @include respond-above(medium) {
+    overflow: visible;
     top: calc(var(--app-bar-height) + vh(3));
     height: vh(77);
     width: 100%;
