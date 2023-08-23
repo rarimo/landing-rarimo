@@ -417,7 +417,7 @@ const NftCheckoutStepsSection = () => {
         ])}
       >
         <div ref={lottieRef} className="nft-checkout-steps-section__lottie" />
-        {isDesktop && (
+        {isDesktop && animationRef?.current?.isLoaded && (
           <>
             <div
               ref={squareOne}

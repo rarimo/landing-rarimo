@@ -70,6 +70,13 @@
 
 .use-cases-section__cases-swiper {
   height: to-rem(200);
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @include respond-above(medium) {
     display: none;
