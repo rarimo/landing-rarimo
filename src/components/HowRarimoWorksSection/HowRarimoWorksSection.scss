@@ -36,9 +36,16 @@
   width: 85%;
   margin-left: to-rem(20);
   height: to-rem(600);
-  overflow: visible;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @include respond-above(medium) {
+    overflow: visible;
     top: calc(var(--app-bar-height) + vh(3));
     height: vh(77);
     width: 100%;
@@ -103,9 +110,9 @@
     margin: unset;
   }
 
-  .base-card__content::before {
-    filter: invert(0.4) opacity(0.2);
-  }
+  //.base-card__content::before {
+  //  filter: invert(0.4) opacity(0.2);
+  //}
 }
 
 .how-rarimo-works-section__card-content {

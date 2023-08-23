@@ -1,13 +1,65 @@
 import './NewsSection.scss';
 
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CONFIG } from '@/config';
 import { getShiftedDelay } from '@/helpers';
+import useAppContext from '@/hooks/useAppContext';
 import { newsList } from '@/template-data';
+
+const DEFAULT_MOBILE_BULLETS = 7;
+const DEFAULT_DESKTOP_BULLETS = 4;
 
 const NewsSection = () => {
   const { t } = useTranslation();
+  const { isDesktop } = useAppContext();
+  const swiperRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const nextSlide = () => {
+    swiperRef.current?.swiper.slideNext();
+    setActiveSlide(swiperRef.current?.swiper.activeIndex);
+  };
+
+  const prevSlide = () => {
+    swiperRef.current?.swiper.slidePrev();
+    setActiveSlide(swiperRef.current?.swiper.activeIndex);
+  };
+
+  const getAmountBullets = () => {
+    if (!swiperRef.current) {
+      return isDesktop ? DEFAULT_DESKTOP_BULLETS : DEFAULT_MOBILE_BULLETS;
+    }
+    return (
+      swiperRef.current?.swiper.slides.length -
+      Math.round(
+        swiperRef.current?.swiper.width /
+          swiperRef.current?.swiper.slidesSizesGrid[0],
+      ) +
+      1
+    );
+  };
+
+  const handleScroll = () => {
+    const newActiveSlide = swiperRef.current?.swiper.activeIndex;
+    if (activeSlide !== newActiveSlide) {
+      setActiveSlide(newActiveSlide);
+    }
+  };
+
+  useEffect(() => {
+    swiperRef.current?.addEventListener('scroll', handleScroll);
+    swiperRef.current?.addEventListener('touchmove', handleScroll);
+    swiperRef.current?.addEventListener('touchend', handleScroll);
+    swiperRef.current?.addEventListener('touchcancel', handleScroll);
+
+    return () => {
+      swiperRef.current?.removeEventListener('scroll', handleScroll);
+      swiperRef.current?.removeEventListener('touchmove', handleScroll);
+      swiperRef.current?.removeEventListener('touchend', handleScroll);
+      swiperRef.current?.removeEventListener('touchcancel', handleScroll);
+    };
+  }, [activeSlide]);
 
   return (
     <section className="news-section">
@@ -21,9 +73,17 @@ const NewsSection = () => {
             rel="nofollow noopener noreferrer"
           >
             {t('news-section.view-all-link')}
+            <svg
+              className="news-section__view-all-link-icon"
+              height="20"
+              width="20"
+            >
+              <use href="/icons/sprite.svg#icon-arrow-right"></use>
+            </svg>
           </a>
         </div>
         <swiper-container
+          ref={swiperRef}
           class="news-section__list"
           slides-per-view="auto"
           space-between="32"
@@ -31,7 +91,7 @@ const NewsSection = () => {
           autoplay="false"
           resistance-ratio="0.5"
           grab-cursor="true"
-          free-mode="true"
+          free-mode={isDesktop}
           edge-swipe-detection="true"
           breakpoints-1280-slides-per-view="4"
           breakpoints-1280-enabled="false"
@@ -53,6 +113,11 @@ const NewsSection = () => {
                 rel="nofollow noopener noreferrer"
               >
                 <div className="news-section__item-title-wrapper">
+                  {item.blockName && (
+                    <span className="news-section__item-block-name">
+                      {t(item.blockName)}
+                    </span>
+                  )}
                   <h5 className="news-section__item-title">
                     {t(item.textKey)}
                   </h5>
@@ -61,6 +126,48 @@ const NewsSection = () => {
             </swiper-slide>
           ))}
         </swiper-container>
+        <div className="news-section__swiper-pagination">
+          <button
+            className="news-section__swiper-pagination-btn-prev"
+            onClick={prevSlide}
+          >
+            <svg
+              className="news-section__swiper-pagination-btn-icon-prev"
+              height="24"
+              width="24"
+              color={activeSlide === 0 ? 'gray' : '#FFFFFF'}
+            >
+              <use href="/icons/sprite.svg#icon-arrow-right-min"></use>
+            </svg>
+          </button>
+          <div className="news-section__swiper-pagination-bullet-wrapper">
+            {[...Array(getAmountBullets()).keys()].map(el => (
+              <div
+                key={el}
+                className={
+                  activeSlide === el
+                    ? 'active-bullet news-section__swiper-pagination-bullet'
+                    : 'news-section__swiper-pagination-bullet'
+                }
+              />
+            ))}
+          </div>
+          <button
+            className="news-section__swiper-pagination-btn-next"
+            onClick={nextSlide}
+          >
+            <svg
+              className="news-section__swiper-pagination-btn-icon-next"
+              height="24"
+              width="24"
+              color={
+                activeSlide === getAmountBullets() - 1 ? 'gray' : '#FFFFFF'
+              }
+            >
+              <use href="/icons/sprite.svg#icon-arrow-right-min"></use>
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
   );
