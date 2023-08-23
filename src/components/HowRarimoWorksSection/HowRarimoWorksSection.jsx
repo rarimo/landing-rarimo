@@ -400,7 +400,7 @@ const HowRarimoWorksSection = () => {
             )}
           </div>
           <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--first">
-            <div class="swiper-slide-transform">
+            <div className="swiper-slide-transform" style={{ height: '100%' }}>
               <BaseCard
                 className="how-rarimo-works-section__card"
                 isSection={true}
@@ -439,7 +439,7 @@ const HowRarimoWorksSection = () => {
           </swiper-slide>
 
           <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--second">
-            <div class="swiper-slide-transform">
+            <div className="swiper-slide-transform" style={{ height: '100%' }}>
               <BaseCard
                 className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
                 isSection={true}
@@ -483,7 +483,7 @@ const HowRarimoWorksSection = () => {
             </div>
           </swiper-slide>
           <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--third">
-            <div class="swiper-slide-transform">
+            <div className="swiper-slide-transform" style={{ height: '100%' }}>
               <BaseCard
                 className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
                 isSection={true}
