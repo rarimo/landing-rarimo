@@ -8,8 +8,8 @@ import { getShiftedDelay } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import { newsList } from '@/template-data';
 
-const DEFAULT_MOBILE_BULLETS = 8;
-const DEFAULT_DESKTOP_BULLETS = 5;
+const DEFAULT_MOBILE_BULLETS = 7;
+const DEFAULT_DESKTOP_BULLETS = 4;
 
 const NewsSection = () => {
   const { t } = useTranslation();

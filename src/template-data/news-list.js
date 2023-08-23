@@ -20,19 +20,19 @@ export const newsList = [
     link: 'https://www.youtube.com/watch?v=y-ymBN8P9Nc',
   },
   {
+    blockName: 'news-section.five-block-name',
     textKey: 'news-section.five-title',
-    link: 'https://cointelegraph.com/news/nft-marketplace-enables-cross-chain-purchases-on-multiple-networks',
-  },
-  {
-    textKey: 'news-section.six-title',
     link: 'https://rarimo.medium.com/what-is-interoperability-and-why-is-it-so-important-6b421bdaab09',
   },
   {
-    textKey: 'news-section.seven-title',
+    blockName: 'news-section.six-block-name',
+    textKey: 'news-section.six-title',
     link: 'https://www.veradiverdict.com/p/rarimoo',
   },
   {
-    textKey: 'news-section.eighth-title',
+    blockName: 'news-section.seven-block-name',
+    textKey: 'news-section.seven-title',
     link: 'https://rarimo.notion.site/Self-sovereign-identities-SSI-982f1b0989774289af73d54b8a76e426',
   },
+
 ];

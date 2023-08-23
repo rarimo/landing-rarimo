@@ -106,10 +106,12 @@
     "third-block-name": "The Block",
     "fourth-title": "Rarimo: an interoperability protocol for the decentralized social identity",
     "fourth-block-name": "Radix DLT",
-    "five-title": "Purchase NFT on one network, Pay on another",
-    "six-title": "What is Interoperability, and why is it so important?",
-    "seven-title": "VeradiVerdict - Introduction to Rarimo",
-    "eighth-title": "Self-sovereign identities (SSI) and blockchain"
+    "five-title": "What is Interoperability, and why is it so important?",
+    "five-block-name": "Blog",
+    "six-title": "VeradiVerdict - Introduction to Rarimo",
+    "six-block-name": "Newsletter",
+    "seven-block-name": "Blog",
+    "seven-title": "Self-sovereign identities (SSI) and blockchain"
 },
   "subscribe-section": {
     "title": "Subscribe to our newsletter",
