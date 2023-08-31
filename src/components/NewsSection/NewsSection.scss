@@ -138,14 +138,6 @@
   margin-top: to-rem(48);
 }
 
-.news-section__swiper-pagination-btn{
-  &-next, &-prev{
-    width: to-rem(40);
-    align-items: end;
-    justify-content: center;
-    display: flex;
-  }
-}
 
 .news-section__swiper-pagination-bullet-wrapper{
   display: flex;
@@ -163,8 +155,5 @@
 
 .active-bullet{
   background: #ffffff;
-}
-.news-section__swiper-pagination-btn-icon-prev{
-  transform: rotate(180deg);
 }
 

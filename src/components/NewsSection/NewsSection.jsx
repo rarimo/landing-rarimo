@@ -127,19 +127,6 @@ const NewsSection = () => {
           ))}
         </swiper-container>
         <div className="news-section__swiper-pagination">
-          <button
-            className="news-section__swiper-pagination-btn-prev"
-            onClick={prevSlide}
-          >
-            <svg
-              className="news-section__swiper-pagination-btn-icon-prev"
-              height="24"
-              width="24"
-              color={activeSlide === 0 ? 'gray' : '#FFFFFF'}
-            >
-              <use href="/icons/sprite.svg#icon-arrow-right-min"></use>
-            </svg>
-          </button>
           <div className="news-section__swiper-pagination-bullet-wrapper">
             {[...Array(getAmountBullets()).keys()].map(el => (
               <div
@@ -152,21 +139,6 @@ const NewsSection = () => {
               />
             ))}
           </div>
-          <button
-            className="news-section__swiper-pagination-btn-next"
-            onClick={nextSlide}
-          >
-            <svg
-              className="news-section__swiper-pagination-btn-icon-next"
-              height="24"
-              width="24"
-              color={
-                activeSlide === getAmountBullets() - 1 ? 'gray' : '#FFFFFF'
-              }
-            >
-              <use href="/icons/sprite.svg#icon-arrow-right-min"></use>
-            </svg>
-          </button>
         </div>
       </div>
     </section>
