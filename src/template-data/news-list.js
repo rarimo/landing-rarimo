@@ -1,5 +1,10 @@
 export const newsList = [
   {
+    blockName: 'news-section.eighth-block-name',
+    textKey: 'news-section.eighth-title',
+    link: 'https://www.theblock.co/post/246627/proof-of-humanity-plug-in-for-crypto-apps-launched-by-rarimo',
+  },
+  {
     blockName: 'news-section.first-block-name',
     textKey: 'news-section.first-title',
     link: 'https://blockworks.co/news/rarimo-polygon-id-ethereum',
