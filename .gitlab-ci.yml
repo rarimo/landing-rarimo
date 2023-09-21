@@ -1,7 +1,24 @@
-image: node:18
+default:
+  image:
+    name: "tokend/werf:0.0.15"
+    entrypoint: [""]
+  services:
+    - name: docker:20-dind
+      alias: docker
+      # in our experience although you'd assume this would be sufficient, this did
+      # nothing to prevent connection errors without `DOCKER_TLS_CERTDIR` being set
+      # to an empty string, and I would call that beyond mildly infuriating.
+      command: ["--tls=false"]
+  tags:
+    - "tokend"
 
 variables:
   DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
+  IMAGE_NAME_TAG: $REGISTRY:$CI_COMMIT_TAG
+  WERF_BUILDAH_MODE: auto
+  WERF_ENABLE_PROCESS_EXTERMINATOR: 1
   DOMAIN: rarimo.com
   GITHUB_REF: $CI_COMMIT_SHA
   DH_IMAGE_NAME: $CI_PROJECT_ROOT_NAMESPACE/$CI_PROJECT_NAME
@@ -38,19 +55,14 @@ Build and Publish:
   stage: build-and-publish
   tags:
     - tokend
-  services:
-    - docker:18-dind
-  image:
-    name: 'registry.gitlab.com/tokend/devops/werf-dind:1a7ff15973f6624280eac8f3d65a89fde0800e87'
-    entrypoint: ['']
   variables:
     #WERF_ADD_CUSTOM_TAG: $CI_COMMIT_SHA
     WERF_ADD_CUSTOM_TAG_1: '%image%-$CI_COMMIT_SHA'
   <<: *before_script_templ
   script:
     #- echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
-    - type werf && source $(werf ci-env gitlab --as-file)
-    - werf build --dev
+    - . $(werf ci-env gitlab --as-file)
+    - werf export frontend --tag $IMAGE_NAME
   except: [schedules]
   interruptible: true
 
@@ -62,19 +74,14 @@ Build and Publish Tag:
     refs:
       - tags
       - main
-  services:
-    - docker:18-dind
-  image:
-    name: 'registry.gitlab.com/tokend/devops/werf-dind:1a7ff15973f6624280eac8f3d65a89fde0800e87'
-    entrypoint: ['']
   variables:
     #WERF_ADD_CUSTOM_TAG: $CI_COMMIT_TAG
     WERF_ADD_CUSTOM_TAG_1: '%image%-$CI_COMMIT_TAG'
   <<: *before_script_templ
   script:
     #- echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
-    - type werf && source $(werf ci-env gitlab --as-file)
-    - werf build --dev
+    - . $(werf ci-env gitlab --as-file)
+    - werf export frontend --tag $IMAGE_NAME_TAG
   except: [schedules]
   interruptible: true
 
@@ -118,19 +125,10 @@ Deploy to Production:
 
 Cleanup:
   stage: cleanup
-  tags:
-    - tokend
-  services:
-    - docker:18-dind
-  image:
-    name: 'registry.gitlab.com/tokend/devops/werf-dind:1a7ff15973f6624280eac8f3d65a89fde0800e87'
-    entrypoint: ['']
   <<: *before_script_templ
   script:
-    - type multiwerf && . $(multiwerf use 1.1 stable --as-file)
     - type werf && source $(werf ci-env gitlab --as-file)
-    - docker login -u nobody -p ${WERF_IMAGES_CLEANUP_PASSWORD}
-      ${WERF_IMAGES_REPO}
-    - werf cleanup --dev
+    - docker login -u nobody -p ${WERF_IMAGES_CLEANUP_PASSWORD} ${WERF_IMAGES_REPO}
+    - werf cleanup
   only: [schedules]
   interruptible: true
