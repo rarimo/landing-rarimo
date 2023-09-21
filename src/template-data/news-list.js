@@ -1,5 +1,10 @@
 export const newsList = [
   {
+    blockName: 'news-section.ninth-block-name',
+    textKey: 'news-section.ninth-title',
+    link: 'https://www.bloomberg.com/press-releases/2023-09-18/rarimo-foundation-launches-metamask-snap-rarime-enabling-cryptocurrencies-and-identity-credentials-to-be-stored-and-managed',
+  },
+  {
     blockName: 'news-section.eighth-block-name',
     textKey: 'news-section.eighth-title',
     link: 'https://www.theblock.co/post/246627/proof-of-humanity-plug-in-for-crypto-apps-launched-by-rarimo',
