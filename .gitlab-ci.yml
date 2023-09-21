@@ -73,7 +73,6 @@ Build and Publish Tag:
   only:
     refs:
       - tags
-      - main
   variables:
     #WERF_ADD_CUSTOM_TAG: $CI_COMMIT_TAG
     WERF_ADD_CUSTOM_TAG_1: '%image%-$CI_COMMIT_TAG'
