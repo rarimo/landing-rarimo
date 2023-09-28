@@ -5,7 +5,7 @@ export const checkAnchors = hash => {
     case '#' + COMPONENT_NODE_IDS.application:
       return COMPONENT_NODE_IDS.application;
     case '#' + COMPONENT_NODE_IDS.communitySection:
-      return COMPONENT_NODE_IDS.application;
+      return COMPONENT_NODE_IDS.communitySection;
     case '#' + COMPONENT_NODE_IDS.useCasesSection:
       return COMPONENT_NODE_IDS.useCasesSection;
     case '#' + COMPONENT_NODE_IDS.heroSection:
