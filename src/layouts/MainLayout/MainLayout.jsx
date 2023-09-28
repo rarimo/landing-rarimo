@@ -7,6 +7,7 @@ import AppFooter from '@/components/AppFooter';
 import RouteTransition from '@/components/RouteTransition';
 import useNavigation from '@/hooks/useNavigation';
 import { checkAnchors } from '@/js';
+import { CONFIG } from "@/config";
 
 const MainLayout = () => {
   const { t } = useTranslation();
@@ -15,7 +16,9 @@ const MainLayout = () => {
 
   useEffect(() => {
     if (location.hash) {
-      handleNavClick({ hash: true, path: checkAnchors(location.hash) });
+      setTimeout(() => {
+        handleNavClick({ hash: true, path: checkAnchors(location.hash) });
+      }, CONFIG.initLoaderDelay);
     }
   }, []);
   return (
