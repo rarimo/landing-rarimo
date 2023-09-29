@@ -5,12 +5,19 @@ import HowRarimoWorksSection from '@/components/HowRarimoWorksSection';
 import NewsSection from '@/components/NewsSection';
 import SubscribeSection from '@/components/SubscribeSection';
 import UseCasesSection from '@/components/UseCasesSection';
+import useAppContext from '@/hooks/useAppContext';
 
 const HomePage = () => {
+  const { needSkipAnimation } = useAppContext();
+
   return (
     <>
       <HomeHeroSection />
-      <HowRarimoWorksSection />
+      {!needSkipAnimation ? (
+        <HowRarimoWorksSection />
+      ) : (
+        <div className="how-rarimo-works-section__content" />
+      )}
       <UseCasesSection />
       <BackersSection />
       <NewsSection />
