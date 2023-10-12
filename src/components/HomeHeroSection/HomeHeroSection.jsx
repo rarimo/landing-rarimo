@@ -40,10 +40,17 @@ const HomeHeroSection = () => {
           <div className="home-hero-section__links-wrapper" data-aos="fade-up">
             <AppButton
               className="home-hero-section__link"
-              href={CONFIG.whitepaperLink}
-              scheme={APP_BUTTON_SCHEMES.secondary}
-              textKey="home-hero-section.whitepaper-link"
-            />
+              href={CONFIG.docsOverviewLink}
+            >
+              <span>{t('home-hero-section.getting-started-link')}</span>
+              <svg
+                className="home-hero-section__link-icon"
+                height="13"
+                width="13"
+              >
+                <use href="/icons/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </AppButton>
           </div>
         </div>
         <div className="home-hero-section__blockchains-wrapper">

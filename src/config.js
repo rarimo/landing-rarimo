@@ -5,6 +5,7 @@ export const CONFIG = {
   twitterLink: 'https://twitter.com/Rarimo_protocol',
   telegramLink: 'https://t.me/+m_vvj8nFk5g4NTgy',
   docsLink: 'https://docs.rarimo.com',
+  docsOverviewLink: 'https://docs.rarimo.com/overview',
   whitepaperLink: 'https://docs.rarimo.com/whitepaper',
   nftCheckoutDemoLink: 'https://nft-checkout.rarimo.com',
   supportMailLink: 'mailto: support@rarimo.com',
