@@ -1,173 +1,35 @@
 import './HowRarimoWorksSection.scss';
 
-import useResizeObserver from '@react-hook/resize-observer';
 import lottie from 'lottie-web';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useIntersection } from 'react-use';
 
 import BaseCard from '@/components/BaseCard';
 import { CONFIG } from '@/config';
-import { TOUCH_EVENTS } from '@/const';
-import { fillFramesRange, getIsInertialScrolling } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
-const LAST_STEP_FRAME = 95;
-
-const STEP_FRAMES = [
-  fillFramesRange(25),
-  fillFramesRange(55),
-  fillFramesRange(LAST_STEP_FRAME),
-];
-
-// const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-
-const touches = {
-  [TOUCH_EVENTS.touchstart]: { x: -1, y: -1 },
-  [TOUCH_EVENTS.touchmove]: { x: -1, y: -1 },
-};
+const LAST_STEP_FRAME = 70;
+const MAX_SCROLL_RATIO = 2.6;
+const AMOUNT_SLIDES = 3;
+const SCROLL_SPEED = 4.4;
+const SLIDE_HEIGHT = 600;
+const LOCK_UP = 0.7;
+const TRANSITION = 'opacity 0.8s ease';
+const HEIGHT_RATIO = 3.6;
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
-  const { isDesktop, isDesktopRef, needSkipAnimationRef } = useAppContext();
+  const { isDesktop } = useAppContext();
 
   const sectionRef = useRef(null);
-  const swiperRef = useRef(null);
-  const lottieWrapperRef = useRef(null);
   const lottieRef = useRef(null);
+  const containerRef = useRef(null);
   const animationRef = useRef(null);
 
-  const [, setIsStickySection, isStickySectionRef] = useStateRef(false);
-  const [, setIsAnimationInProgress, isAnimationInProgressRef] =
-    useStateRef(false);
-  const [animationStep, setAnimationStep, animationStepRef] = useStateRef(0);
-  const [, setIsFirstStep, isFirstStepRef] = useStateRef(true);
-  const [, setIsLastStep, isLastStepRef] = useStateRef(false);
-
-  const [observerParams, setObserverParams] = useState({
-    threshold: 0.25,
-  });
-
-  const sectionObserver = useIntersection(sectionRef, observerParams);
-
-  const nextSlide = useCallback(() => {
-    if (isLastStepRef.current) {
-      setIsStickySection(false);
-      window.scrollTo({
-        top: sectionRef.current?.nextSibling?.offsetTop,
-        behavior: 'smooth',
-      });
-      return;
-    }
-    animationRef.current?.setDirection(1);
-    setAnimationStep(prev => (prev + 1 > 2 ? 2 : prev + 1));
-  }, []);
-
-  const prevSlide = useCallback(() => {
-    if (isFirstStepRef.current) {
-      setIsStickySection(false);
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-      return;
-    }
-
-    animationRef.current?.setDirection(-1);
-    setAnimationStep(prev => (prev - 1 < 0 ? 0 : prev - 1));
-  }, []);
-
-  const wheelHandler = useCallback(event => {
-    if (!isDesktop) return;
-    event.preventDefault();
-
-    const isInertialScrolling = getIsInertialScrolling(event);
-
-    if (
-      isInertialScrolling ||
-      !isStickySectionRef.current ||
-      isAnimationInProgressRef.current
-    )
-      return;
-
-    if (event.wheelDeltaY < 0) {
-      nextSlide();
-      return;
-    }
-
-    if (event.wheelDeltaY > 0) {
-      prevSlide();
-    }
-  }, []);
-
-  const touchHandler = useCallback(event => {
-    if (!isDesktop) return;
-
-    event.preventDefault();
-
-    if (
-      !isStickySectionRef.current ||
-      isAnimationInProgressRef.current ||
-      !event?.touches
-    )
-      return;
-
-    const touch = event.touches[0];
-    switch (event.type) {
-      case TOUCH_EVENTS.touchstart:
-      case TOUCH_EVENTS.touchmove:
-        touches[event.type].x = touch.pageX;
-        touches[event.type].y = touch.pageY;
-        break;
-      case TOUCH_EVENTS.touchend:
-        if (touches.touchstart.y > touches.touchmove.y) {
-          nextSlide();
-        } else {
-          prevSlide();
-        }
-    }
-  }, []);
-
-  // const preventDefaultForScrollKeys = useCallback(event => {
-  //   if (keys[event.keyCode]) {
-  //     preventDefault(event);
-  //     return false;
-  //   }
-  // }, []);
-
-  const disableScroll = useCallback(() => {
-    if (!isDesktop) return;
-
-    window.addEventListener('wheel', wheelHandler, { passive: false });
-    window.addEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
-      passive: false,
-    });
-    window.addEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
-      passive: false,
-    });
-    window.addEventListener(TOUCH_EVENTS.touchend, touchHandler, {
-      passive: false,
-    });
-    // window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-  }, []);
-
-  const enableScroll = useCallback(() => {
-    if (!isDesktop) return;
-    window.removeEventListener('wheel', wheelHandler, { passive: false });
-    window.removeEventListener(TOUCH_EVENTS.touchstart, touchHandler, {
-      passive: false,
-    });
-    window.removeEventListener(TOUCH_EVENTS.touchmove, touchHandler, {
-      passive: false,
-    });
-    window.removeEventListener(TOUCH_EVENTS.touchend, touchHandler, {
-      passive: false,
-    });
-    // window.removeEventListener('keydown',
-    // preventDefaultForScrollKeys, false);
-  }, []);
+  const [containerHeight, setContainerHeight] = useState(0);
+  const [animationScrollRatio, setAnimationScrollRatio] = useStateRef(0);
 
   const initAnimation = useCallback(() => {
     if (animationRef.current) {
@@ -184,20 +46,9 @@ const HowRarimoWorksSection = () => {
 
     animationRef.current = lottie.loadAnimation(params);
     animationRef.current.setSpeed(1.5);
-    animationRef.current.addEventListener('drawnFrame', frameEvent => {
-      const currentFrame = Math.ceil(frameEvent.currentTime);
-      const isFrameInRange =
-        STEP_FRAMES[animationStepRef.current]?.includes(currentFrame);
-
-      if (isFrameInRange) {
-        animationRef.current.pause();
-        setIsAnimationInProgress(false);
-      }
-    });
 
     animationRef.current.addEventListener('complete', () => {
       animationRef.current.pause();
-      setIsAnimationInProgress(false);
     });
   }, []);
 
@@ -205,89 +56,37 @@ const HowRarimoWorksSection = () => {
     animationRef.current?.destroy();
   };
 
-  const changeObserverParams = () => {
-    if (!isDesktop) return;
-    const { clientHeight } = sectionRef.current;
-    const threshold = (window.screen.availHeight * 0.75) / clientHeight;
-    setObserverParams({ threshold });
+  const scrollHandler = () => {
+    const scrollHeight = containerHeight * AMOUNT_SLIDES;
+    const delta = window.scrollY - sectionRef.current.offsetTop;
+    if (delta < 0 || delta > scrollHeight) return;
+
+    animationRef.current.goToAndStop(
+      Math.min(
+        Math.ceil((delta / scrollHeight) * LAST_STEP_FRAME),
+        LAST_STEP_FRAME,
+      ),
+      true,
+    );
+
+    let ratio = Math.min(
+      (delta / scrollHeight) * SCROLL_SPEED - LOCK_UP,
+      MAX_SCROLL_RATIO,
+    );
+    if (ratio >= 1 && ratio <= 1 + LOCK_UP) return;
+    if (ratio > 1 + LOCK_UP) {
+      ratio = ratio - LOCK_UP;
+      setAnimationScrollRatio(prevStep => {
+        if (prevStep === ratio) return prevStep;
+        return ratio;
+      });
+      return;
+    }
+    setAnimationScrollRatio(prevStep => {
+      if (prevStep === ratio) return prevStep;
+      return ratio;
+    });
   };
-
-  useResizeObserver(document.documentElement, () => {
-    changeObserverParams();
-  });
-
-  useEffect(() => {
-    const params = {
-      longSwipes: false,
-      allowTouchMove: false,
-      grabCursor: false,
-      resistance: false,
-      speed: 1000,
-      mousewheel: {
-        thresholdDelta: 4,
-      },
-      effect: 'creative',
-      creativeEffect: {
-        limitProgress: 2,
-        prev: {
-          translate: [0, '-106%', 1],
-        },
-        next: {
-          translate: [0, '4vh', 0],
-          scale: 0.95,
-          opacity: 0.95,
-        },
-      },
-      on: {
-        slideChangeTransitionStart({ activeIndex }) {
-          const isFirstStep = activeIndex === 0;
-          const isLastStep = activeIndex === 2;
-          setIsFirstStep(isFirstStep);
-          setIsLastStep(isLastStep);
-
-          sectionRef.current.scrollIntoView({
-            block: isLastStep ? 'end' : isFirstStep ? 'start' : 'center',
-            behavior: 'smooth',
-          });
-        },
-        slideChangeTransitionEnd() {
-          if (!isDesktopRef.current) {
-            setIsAnimationInProgress(false);
-          }
-        },
-      },
-    };
-
-    const paramsMobile = {
-      slidesPerView: 'auto',
-      pagination: true,
-      autoHeight: true,
-      grabCursor: true,
-      resistanceRatio: 0.5,
-      spaceBetween: 8,
-      mousewheelForceToAxis: true,
-      edgeSwipeDetection: true,
-      autoplay: false,
-      freeMode: false,
-      lazyLoadingInPrevNext: true,
-      cssMode: true,
-      effect: 'coverflow',
-      coverflowEffect: {
-        rotate: 5,
-        scale: 0.98,
-      },
-    };
-
-    Object.assign(swiperRef.current, isDesktop ? params : paramsMobile);
-
-    swiperRef.current.initialize();
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      enableScroll();
-    };
-  }, []);
 
   useEffect(() => {
     if (isDesktop) {
@@ -302,105 +101,57 @@ const HowRarimoWorksSection = () => {
   }, [isDesktop]);
 
   useEffect(() => {
-    if (!isDesktop) return;
-    if (!sectionObserver || needSkipAnimationRef.current) return;
-
-    if (sectionObserver.isIntersecting) {
-      if (sectionObserver.boundingClientRect.top > 0) {
-        if (isDesktop) {
-          setIsAnimationInProgress(true);
-          swiperRef.current?.swiper.slideTo(animationStep);
-          animationRef.current?.setDirection(1);
-          animationRef.current?.play();
-        } else {
-          setIsAnimationInProgress(false);
-        }
-
-        window.scrollTo({
-          top: sectionRef.current.offsetTop + 200,
-          behavior: 'smooth',
-        });
-      } else {
-        const { offsetTop, clientHeight } = sectionRef.current;
-        window.scrollTo({
-          top: offsetTop + clientHeight / 2,
-          behavior: 'smooth',
-        });
-      }
-
-      setTimeout(() => {
-        setIsStickySection(true);
-        disableScroll();
-      }, CONFIG.htmlScrollingTime);
-      return;
-    }
-
-    if (!sectionObserver.isIntersecting) {
-      if (sectionObserver.boundingClientRect.top > 0 && isDesktop) {
-        animationRef.current?.setDirection(-1);
-        animationRef.current?.play();
-      }
-
-      setIsStickySection(false);
-      enableScroll();
-    }
-  }, [Boolean(sectionObserver?.isIntersecting)]);
-
-  useEffect(() => {
-    if (!isDesktop) return;
-    if (!sectionObserver) return;
-
-    if (!sectionObserver.isIntersecting) {
-      const isAboveSection = sectionObserver.boundingClientRect.top > 0;
-      swiperRef.current?.swiper.setProgress(isAboveSection ? 0 : 1, 0);
-      animationRef.current?.goToAndStop(
-        isAboveSection ? 0 : LAST_STEP_FRAME,
-        true,
-      );
-
-      if (isAboveSection) {
-        setAnimationStep(0);
-        animationRef.current.setDirection(1);
-        animationRef.current?.play();
-        setIsAnimationInProgress(true);
-        swiperRef.current?.swiper.slideTo(animationStep);
-      }
-    }
-  }, [Boolean(sectionObserver?.isIntersecting)]);
-
-  useEffect(() => {
-    setIsAnimationInProgress(true);
-    swiperRef.current?.swiper.slideTo(animationStep);
-    animationRef.current?.play();
-  }, [animationStep]);
-
-  useEffect(() => {
-    changeObserverParams();
+    setContainerHeight(containerRef.current?.offsetHeight);
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, [containerHeight]);
+
   return (
-    <section ref={sectionRef} className="how-rarimo-works-section">
+    <section
+      ref={sectionRef}
+      className="how-rarimo-works-section"
+      style={{ height: containerHeight * HEIGHT_RATIO }}
+    >
       <div className="how-rarimo-works-section__content container">
-        <swiper-container
-          ref={swiperRef}
-          class="how-rarimo-works-section__swiper-container"
-          init="false"
+        <div
+          ref={containerRef}
+          className="how-rarimo-works-section__swiper-container"
         >
-          <div slot="container-end">
-            {isDesktop && (
+          {isDesktop && (
+            <div className="how-rarimo-works-section__lottie-wrapper">
               <div
-                ref={lottieWrapperRef}
-                className="how-rarimo-works-section__lottie-wrapper"
-              >
-                <div
-                  ref={lottieRef}
-                  className="how-rarimo-works-section__lottie"
-                ></div>
-              </div>
-            )}
-          </div>
-          <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--first">
-            <div className="swiper-slide-transform" style={{ height: '100%' }}>
+                ref={lottieRef}
+                className="how-rarimo-works-section__lottie"
+              />
+            </div>
+          )}
+          <div
+            style={{
+              transform: `translateY(-${
+                animationScrollRatio >= 0
+                  ? animationScrollRatio * SLIDE_HEIGHT
+                  : 0
+              }px)`,
+              transition: 'transform 0.1s ease',
+              height: '3000px',
+            }}
+          >
+            <div
+              className="how-rarimo-works-section__slide how-rarimo-works-section__slide--first"
+              style={{
+                opacity:
+                  animationScrollRatio <= 0
+                    ? animationScrollRatio + 1 + LOCK_UP
+                    : 1 - animationScrollRatio,
+                transition: TRANSITION,
+              }}
+            >
               <BaseCard
                 className="how-rarimo-works-section__card"
                 isSection={true}
@@ -436,10 +187,16 @@ const HowRarimoWorksSection = () => {
                 </div>
               </BaseCard>
             </div>
-          </swiper-slide>
-
-          <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--second">
-            <div className="swiper-slide-transform" style={{ height: '100%' }}>
+            <div
+              className="how-rarimo-works-section__slide how-rarimo-works-section__slide--second"
+              style={{
+                opacity:
+                  animationScrollRatio < 1
+                    ? animationScrollRatio
+                    : 1 - (animationScrollRatio - 1),
+                transition: TRANSITION,
+              }}
+            >
               <BaseCard
                 className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
                 isSection={true}
@@ -481,9 +238,13 @@ const HowRarimoWorksSection = () => {
                 </div>
               </BaseCard>
             </div>
-          </swiper-slide>
-          <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--third">
-            <div className="swiper-slide-transform" style={{ height: '100%' }}>
+            <div
+              className="how-rarimo-works-section__slide how-rarimo-works-section__slide--third"
+              style={{
+                opacity: animationScrollRatio - 1,
+                transition: TRANSITION,
+              }}
+            >
               <BaseCard
                 className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
                 isSection={true}
@@ -525,8 +286,8 @@ const HowRarimoWorksSection = () => {
                 </div>
               </BaseCard>
             </div>
-          </swiper-slide>
-        </swiper-container>
+          </div>
+        </div>
       </div>
     </section>
   );
