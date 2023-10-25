@@ -113,7 +113,7 @@ const HowRarimoWorksSection = () => {
       window.removeEventListener('scroll', () => {});
     };
   }, [containerHeight]);
-  console.log(animationScrollRatio);
+
   return (
     <section
       ref={sectionRef}
