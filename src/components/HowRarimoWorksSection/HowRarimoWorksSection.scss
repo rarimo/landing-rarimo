@@ -57,7 +57,8 @@
 .how-rarimo-works-section__slide {
   z-index: var(--z-card-top) !important;
   overflow: visible !important;
-  height: 100%!important;
+  //height: 100%!important;
+  height: to-rem(580);
 
   &--second {
     z-index: var(--z-card-middle) !important;
@@ -83,6 +84,8 @@
     transition: opacity var(--fast-transition-duration) linear;
     will-change: opacity;
     pointer-events: none;
+    background-image: url("/static/img/how-rarimo-works/how-rarimo-works.png");
+    background-size: 100% 100%;
   }
 
   @include respond-above(xlarge) {
