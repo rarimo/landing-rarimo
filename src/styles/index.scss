@@ -9,8 +9,7 @@
 
 // Components
 @import './components/scrollbar';
-// does not work with gsap
-// @import './components/fade-shift-transition';
+ @import './components/fade-shift-transition';
 
 // Modules
 $aos-distance: 1em;
