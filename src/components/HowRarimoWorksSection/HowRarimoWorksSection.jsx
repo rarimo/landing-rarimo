@@ -16,6 +16,8 @@ const AMOUNT_SLIDES = 3;
 const SCROLL_SPEED = 4.4;
 const SLIDE_HEIGHT = 600;
 const LOCK_UP = 0.7;
+const TRANSITION = 'opacity 0.8s ease';
+const HEIGHT_RATIO = 3.6;
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
@@ -27,7 +29,6 @@ const HowRarimoWorksSection = () => {
   const animationRef = useRef(null);
 
   const [containerHeight, setContainerHeight] = useState(0);
-  const [, setIsAnimationInProgress] = useStateRef(false);
   const [animationScrollRatio, setAnimationScrollRatio] = useStateRef(0);
 
   const initAnimation = useCallback(() => {
@@ -48,12 +49,43 @@ const HowRarimoWorksSection = () => {
 
     animationRef.current.addEventListener('complete', () => {
       animationRef.current.pause();
-      setIsAnimationInProgress(false);
     });
   }, []);
 
   const destroyAnimation = () => {
     animationRef.current?.destroy();
+  };
+
+  const scrollHandler = () => {
+    const scrollHeight = containerHeight * AMOUNT_SLIDES;
+    const delta = window.scrollY - sectionRef.current.offsetTop;
+    if (delta < 0 || delta > scrollHeight) return;
+
+    animationRef.current.goToAndStop(
+      Math.min(
+        Math.ceil((delta / scrollHeight) * LAST_STEP_FRAME),
+        LAST_STEP_FRAME,
+      ),
+      true,
+    );
+
+    let ratio = Math.min(
+      (delta / scrollHeight) * SCROLL_SPEED - LOCK_UP,
+      MAX_SCROLL_RATIO,
+    );
+    if (ratio >= 1 && ratio <= 1 + LOCK_UP) return;
+    if (ratio > 1 + LOCK_UP) {
+      ratio = ratio - LOCK_UP;
+      setAnimationScrollRatio(prevStep => {
+        if (prevStep === ratio) return prevStep;
+        return ratio;
+      });
+      return;
+    }
+    setAnimationScrollRatio(prevStep => {
+      if (prevStep === ratio) return prevStep;
+      return ratio;
+    });
   };
 
   useEffect(() => {
@@ -73,44 +105,10 @@ const HowRarimoWorksSection = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener(
-      'scroll',
-      () => {
-        const scrollHeight = containerHeight * AMOUNT_SLIDES;
-        const delta = window.scrollY - sectionRef.current.offsetTop;
-        if (delta < 0 || delta > scrollHeight) return;
-
-        animationRef.current.goToAndStop(
-          Math.min(
-            Math.ceil((delta / scrollHeight) * LAST_STEP_FRAME),
-            LAST_STEP_FRAME,
-          ),
-          true,
-        );
-
-        let ratio = Math.min(
-          (delta / scrollHeight) * SCROLL_SPEED - LOCK_UP,
-          MAX_SCROLL_RATIO,
-        );
-        if (ratio >= 1 && ratio <= 1 + LOCK_UP) return;
-        if (ratio > 1 + LOCK_UP) {
-          ratio = ratio - LOCK_UP;
-          setAnimationScrollRatio(prevStep => {
-            if (prevStep === ratio) return prevStep;
-            return ratio;
-          });
-          return;
-        }
-        setAnimationScrollRatio(prevStep => {
-          if (prevStep === ratio) return prevStep;
-          return ratio;
-        });
-      },
-      { passive: true },
-    );
+    window.addEventListener('scroll', scrollHandler, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', () => {});
+      window.removeEventListener('scroll', scrollHandler);
     };
   }, [containerHeight]);
 
@@ -118,7 +116,7 @@ const HowRarimoWorksSection = () => {
     <section
       ref={sectionRef}
       className="how-rarimo-works-section"
-      style={{ height: containerHeight * 3.6 }}
+      style={{ height: containerHeight * HEIGHT_RATIO }}
     >
       <div className="how-rarimo-works-section__content container">
         <div
@@ -151,7 +149,7 @@ const HowRarimoWorksSection = () => {
                   animationScrollRatio <= 0
                     ? animationScrollRatio + 1 + LOCK_UP
                     : 1 - animationScrollRatio,
-                transition: 'opacity 0.8s ease',
+                transition: TRANSITION,
               }}
             >
               <BaseCard
@@ -196,7 +194,7 @@ const HowRarimoWorksSection = () => {
                   animationScrollRatio < 1
                     ? animationScrollRatio
                     : 1 - (animationScrollRatio - 1),
-                transition: 'opacity 0.8s ease',
+                transition: TRANSITION,
               }}
             >
               <BaseCard
@@ -244,7 +242,7 @@ const HowRarimoWorksSection = () => {
               className="how-rarimo-works-section__slide how-rarimo-works-section__slide--third"
               style={{
                 opacity: animationScrollRatio - 1,
-                transition: 'opacity 0.8s ease',
+                transition: TRANSITION,
               }}
             >
               <BaseCard
