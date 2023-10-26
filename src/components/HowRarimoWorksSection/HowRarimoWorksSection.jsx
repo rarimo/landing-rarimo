@@ -18,6 +18,25 @@ const SLIDE_HEIGHT = 600;
 const LOCK_UP = 0.7;
 const TRANSITION = 'opacity 0.8s ease';
 const HEIGHT_RATIO = 3.6;
+const paramsMobile = {
+  slidesPerView: 'auto',
+  pagination: true,
+  autoHeight: true,
+  grabCursor: true,
+  resistanceRatio: 0.5,
+  spaceBetween: 8,
+  mousewheelForceToAxis: true,
+  edgeSwipeDetection: true,
+  autoplay: false,
+  freeMode: false,
+  lazyLoadingInPrevNext: true,
+  cssMode: true,
+  effect: 'coverflow',
+  coverflowEffect: {
+    rotate: 5,
+    scale: 0.98,
+  },
+};
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
@@ -115,25 +134,6 @@ const HowRarimoWorksSection = () => {
 
   useEffect(() => {
     if (isDesktop) return;
-    const paramsMobile = {
-      slidesPerView: 'auto',
-      pagination: true,
-      autoHeight: true,
-      grabCursor: true,
-      resistanceRatio: 0.5,
-      spaceBetween: 8,
-      mousewheelForceToAxis: true,
-      edgeSwipeDetection: true,
-      autoplay: false,
-      freeMode: false,
-      lazyLoadingInPrevNext: true,
-      cssMode: true,
-      effect: 'coverflow',
-      coverflowEffect: {
-        rotate: 5,
-        scale: 0.98,
-      },
-    };
 
     Object.assign(swiperRef.current, paramsMobile);
 
