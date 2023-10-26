@@ -18,12 +18,32 @@ const SLIDE_HEIGHT = 600;
 const LOCK_UP = 0.7;
 const TRANSITION = 'opacity 0.8s ease';
 const HEIGHT_RATIO = 3.6;
+const paramsMobile = {
+  slidesPerView: 'auto',
+  pagination: true,
+  autoHeight: true,
+  grabCursor: true,
+  resistanceRatio: 0.5,
+  spaceBetween: 8,
+  mousewheelForceToAxis: true,
+  edgeSwipeDetection: true,
+  autoplay: false,
+  freeMode: false,
+  lazyLoadingInPrevNext: true,
+  cssMode: true,
+  effect: 'coverflow',
+  coverflowEffect: {
+    rotate: 5,
+    scale: 0.98,
+  },
+};
 
 const HowRarimoWorksSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
 
   const sectionRef = useRef(null);
+  const swiperRef = useRef(null);
   const lottieRef = useRef(null);
   const containerRef = useRef(null);
   const animationRef = useRef(null);
@@ -112,46 +132,196 @@ const HowRarimoWorksSection = () => {
     };
   }, [containerHeight]);
 
+  useEffect(() => {
+    if (isDesktop) return;
+
+    Object.assign(swiperRef.current, paramsMobile);
+
+    swiperRef.current.initialize();
+  }, [isDesktop, swiperRef.current]);
+
   return (
     <section
       ref={sectionRef}
       className="how-rarimo-works-section"
-      style={{ height: containerHeight * HEIGHT_RATIO }}
+      style={{ height: isDesktop ? containerHeight * HEIGHT_RATIO : 'auto' }}
     >
       <div className="how-rarimo-works-section__content container">
-        <div
-          ref={containerRef}
-          className="how-rarimo-works-section__swiper-container"
-        >
-          {isDesktop && (
+        {isDesktop ? (
+          <div
+            ref={containerRef}
+            className="how-rarimo-works-section__swiper-container"
+          >
             <div className="how-rarimo-works-section__lottie-wrapper">
               <div
                 ref={lottieRef}
                 className="how-rarimo-works-section__lottie"
               />
             </div>
-          )}
-          <div
-            style={{
-              transform: `translateY(-${
-                animationScrollRatio >= 0
-                  ? animationScrollRatio * SLIDE_HEIGHT
-                  : 0
-              }px)`,
-              transition: 'transform 0.1s ease',
-              height: '3000px',
-            }}
-          >
             <div
-              className="how-rarimo-works-section__slide how-rarimo-works-section__slide--first"
               style={{
-                opacity:
-                  animationScrollRatio <= 0
-                    ? animationScrollRatio + 1 + LOCK_UP
-                    : 1 - animationScrollRatio,
-                transition: TRANSITION,
+                transform: `translateY(-${
+                  animationScrollRatio >= 0
+                    ? animationScrollRatio * SLIDE_HEIGHT
+                    : 0
+                }px)`,
+                transition: 'transform 0.1s ease',
+                height: '3000px',
               }}
             >
+              <div
+                className="how-rarimo-works-section__slide how-rarimo-works-section__slide--first"
+                style={{
+                  opacity:
+                    animationScrollRatio <= 0
+                      ? animationScrollRatio + 1 + LOCK_UP
+                      : 1 - animationScrollRatio,
+                  transition: TRANSITION,
+                }}
+              >
+                <BaseCard
+                  className="how-rarimo-works-section__card"
+                  isSection={true}
+                >
+                  <div className="how-rarimo-works-section__card-content">
+                    <h5 className="how-rarimo-works-section__subtitle">
+                      {t('how-rarimo-works-section.main.subtitle')}
+                    </h5>
+
+                    <h2 className="how-rarimo-works-section__title">
+                      {t('how-rarimo-works-section.main.title')}
+                    </h2>
+                    <p className="how-rarimo-works-section__description">
+                      {t('how-rarimo-works-section.main.description')}
+                    </p>
+                    <ul className="how-rarimo-works-section__list">
+                      {howRarimoWorksSectionList.main.map((item, index) => (
+                        <li key={index}>
+                          <h6 className="how-rarimo-works-section__list-item-title">
+                            <span>{t(item.titleKey)}</span>
+                            <div className="how-rarimo-works-section__list-item-icon">
+                              <svg height="24" width="24">
+                                <use href={item.icon}></use>
+                              </svg>
+                            </div>
+                          </h6>
+                          <p className="how-rarimo-works-section__list-item-description">
+                            {t(item.textKey)}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </BaseCard>
+              </div>
+              <div
+                className="how-rarimo-works-section__slide how-rarimo-works-section__slide--second"
+                style={{
+                  opacity:
+                    animationScrollRatio < 1
+                      ? animationScrollRatio
+                      : 1 - (animationScrollRatio - 1),
+                  transition: TRANSITION,
+                }}
+              >
+                <BaseCard
+                  className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
+                  isSection={true}
+                >
+                  <div className="how-rarimo-works-section__card-content">
+                    <div className="how-rarimo-works-section__subtitle-wrapper">
+                      <h5 className="how-rarimo-works-section__protocol-subtitle">
+                        {t('how-rarimo-works-section.protocol-subtitle')}
+                      </h5>
+                      <a
+                        className="how-rarimo-works-section__docs-link"
+                        href={CONFIG.docsLink}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                      >
+                        {t('how-rarimo-works-section.docs-link')}
+                      </a>
+                    </div>
+
+                    <h2 className="how-rarimo-works-section__title">
+                      {t('how-rarimo-works-section.identity.title')}
+                    </h2>
+                    <p className="how-rarimo-works-section__description">
+                      {t('how-rarimo-works-section.identity.description')}
+                    </p>
+                    <ul className="how-rarimo-works-section__protocol-list">
+                      {howRarimoWorksSectionList.identity.map((item, index) => (
+                        <li
+                          className="how-rarimo-works-section__protocol-list-item"
+                          key={index}
+                        >
+                          <span className="how-rarimo-works-section__protocol-accent-text">
+                            {t(item.accentTextKey)}
+                          </span>
+                          <span>{t(item.textKey)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </BaseCard>
+              </div>
+              <div
+                className="how-rarimo-works-section__slide how-rarimo-works-section__slide--third"
+                style={{
+                  opacity: animationScrollRatio - 1,
+                  transition: TRANSITION,
+                }}
+              >
+                <BaseCard
+                  className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
+                  isSection={true}
+                >
+                  <div className="how-rarimo-works-section__card-content">
+                    <div className="how-rarimo-works-section__subtitle-wrapper">
+                      <h5 className="how-rarimo-works-section__protocol-subtitle">
+                        {t('how-rarimo-works-section.protocol-subtitle')}
+                      </h5>
+                      <a
+                        className="how-rarimo-works-section__docs-link"
+                        href={CONFIG.docsLink}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                      >
+                        {t('how-rarimo-works-section.docs-link')}
+                      </a>
+                    </div>
+
+                    <h2 className="how-rarimo-works-section__title">
+                      {t('how-rarimo-works-section.bridging.title')}
+                    </h2>
+                    <p className="how-rarimo-works-section__description">
+                      {t('how-rarimo-works-section.bridging.description')}
+                    </p>
+                    <ul className="how-rarimo-works-section__protocol-list">
+                      {howRarimoWorksSectionList.bridging.map((item, index) => (
+                        <li
+                          className="how-rarimo-works-section__protocol-list-item"
+                          key={index}
+                        >
+                          <span className="how-rarimo-works-section__protocol-accent-text">
+                            {t(item.accentTextKey)}
+                          </span>
+                          <span>{t(item.textKey)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </BaseCard>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <swiper-container
+            ref={swiperRef}
+            class="how-rarimo-works-section__swiper-container"
+            init="false"
+          >
+            <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--first">
               <BaseCard
                 className="how-rarimo-works-section__card"
                 isSection={true}
@@ -186,17 +356,9 @@ const HowRarimoWorksSection = () => {
                   </ul>
                 </div>
               </BaseCard>
-            </div>
-            <div
-              className="how-rarimo-works-section__slide how-rarimo-works-section__slide--second"
-              style={{
-                opacity:
-                  animationScrollRatio < 1
-                    ? animationScrollRatio
-                    : 1 - (animationScrollRatio - 1),
-                transition: TRANSITION,
-              }}
-            >
+            </swiper-slide>
+
+            <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--second">
               <BaseCard
                 className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--identity"
                 isSection={true}
@@ -237,14 +399,8 @@ const HowRarimoWorksSection = () => {
                   </ul>
                 </div>
               </BaseCard>
-            </div>
-            <div
-              className="how-rarimo-works-section__slide how-rarimo-works-section__slide--third"
-              style={{
-                opacity: animationScrollRatio - 1,
-                transition: TRANSITION,
-              }}
-            >
+            </swiper-slide>
+            <swiper-slide class="how-rarimo-works-section__slide how-rarimo-works-section__slide--third">
               <BaseCard
                 className="how-rarimo-works-section__card how-rarimo-works-section__card--protocol how-rarimo-works-section--bridging"
                 isSection={true}
@@ -285,9 +441,9 @@ const HowRarimoWorksSection = () => {
                   </ul>
                 </div>
               </BaseCard>
-            </div>
-          </div>
-        </div>
+            </swiper-slide>
+          </swiper-container>
+        )}
       </div>
     </section>
   );
