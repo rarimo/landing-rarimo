@@ -1,7 +1,7 @@
 import './HowRarimoWorksSection.scss';
 
 import lottie from 'lottie-web';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import BaseCard from '@/components/BaseCard';
@@ -50,6 +50,16 @@ const HowRarimoWorksSection = () => {
 
   const [containerHeight, setContainerHeight] = useState(0);
   const [animationScrollRatio, setAnimationScrollRatio] = useStateRef(0);
+
+  const isSafari = useMemo(() => {
+    return (
+      navigator.vendor &&
+      navigator.vendor.indexOf('Apple') > -1 &&
+      navigator.userAgent &&
+      navigator.userAgent.indexOf('CriOS') === -1 &&
+      navigator.userAgent.indexOf('FxiOS') === -1
+    );
+  }, []);
 
   const initAnimation = useCallback(() => {
     if (animationRef.current) {
@@ -160,12 +170,12 @@ const HowRarimoWorksSection = () => {
             </div>
             <div
               style={{
-                transform: `translateY(-${
+                transform: `translate3d(0,-${
                   animationScrollRatio >= 0
                     ? animationScrollRatio * SLIDE_HEIGHT
                     : 0
-                }px)`,
-                transition: 'transform 0.1s ease',
+                }px, 0)`,
+                transition: isSafari ? 'initial' : 'transform 0.1s ease',
                 height: '3000px',
               }}
             >
