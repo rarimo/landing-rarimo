@@ -11,11 +11,11 @@ import useStateRef from '@/hooks/useStateRef';
 import { howRarimoWorksSectionList } from '@/template-data';
 
 const LAST_STEP_FRAME = 70;
-const MAX_SCROLL_RATIO = 2.6;
+const MAX_SCROLL_RATIO = 2.65;
 const AMOUNT_SLIDES = 3;
 const SCROLL_SPEED = 4.4;
-const SLIDE_HEIGHT = 600;
 const LOCK_UP = 0.7;
+const SLIDE_HEIGHT_VH = 80;
 const TRANSITION = 'opacity 0.8s ease';
 const HEIGHT_RATIO = 3.6;
 const paramsMobile = {
@@ -50,6 +50,11 @@ const HowRarimoWorksSection = () => {
 
   const [containerHeight, setContainerHeight] = useState(0);
   const [animationScrollRatio, setAnimationScrollRatio] = useStateRef(0);
+
+  const screenHeight = window.innerHeight;
+  const slideHeight = useMemo(() => {
+    return (screenHeight / 100) * SLIDE_HEIGHT_VH;
+  }, []);
 
   const isSafari = useMemo(() => {
     return (
@@ -172,7 +177,7 @@ const HowRarimoWorksSection = () => {
               style={{
                 transform: `translate3d(0,-${
                   animationScrollRatio >= 0
-                    ? animationScrollRatio * SLIDE_HEIGHT
+                    ? animationScrollRatio * slideHeight
                     : 0
                 }px, 0)`,
                 transition: isSafari ? 'initial' : 'transform 0.1s ease',

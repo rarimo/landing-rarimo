@@ -47,7 +47,7 @@
   @include respond-above(medium) {
     overflow: visible;
     top: calc(var(--app-bar-height) + vh(3));
-    height: vh(77);
+    height: 77vh;
     width: 100%;
     margin-left: unset;
   }
@@ -57,7 +57,7 @@
 .how-rarimo-works-section__slide {
   z-index: var(--z-card-top) !important;
   overflow: visible !important;
-  height: to-rem(580);
+  height: vh(77);
 
   &--second {
     z-index: var(--z-card-middle) !important;
