@@ -47,7 +47,7 @@
   @include respond-above(medium) {
     overflow: visible;
     top: calc(var(--app-bar-height) + vh(3));
-    height: 77vh;
+    height: vh(77);
     width: 100%;
     margin-left: unset;
   }
