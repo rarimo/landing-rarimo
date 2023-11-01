@@ -57,7 +57,7 @@
 .how-rarimo-works-section__slide {
   z-index: var(--z-card-top) !important;
   overflow: visible !important;
-  height: to-rem(580);
+  height: vh(77);
 
   &--second {
     z-index: var(--z-card-middle) !important;
