@@ -52,9 +52,10 @@ const HowRarimoWorksSection = () => {
   const [animationScrollRatio, setAnimationScrollRatio] = useStateRef(0);
 
   const screenHeight = window.innerHeight;
+
   const slideHeight = useMemo(() => {
     return (screenHeight / 100) * SLIDE_HEIGHT_VH;
-  }, []);
+  }, [screenHeight]);
 
   const isSafari = useMemo(() => {
     return (
