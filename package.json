@@ -1,7 +1,7 @@
 {
-  "name": "rarimo-web-lending",
+  "name": "landing-rarimo",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "",
   "keywords": [
     "rarimo",
@@ -10,8 +10,8 @@
   "gitHooks": {
     "pre-commit": "yarn lint"
   },
-  "author": "Oleksandr Kropivnyi <kropivnyy@gmail.com>",
-  "license": "ISC",
+  "author": "Zero Block Global Foundation",
+  "license": "MIT",
   "scripts": {
     "start": "vite",
     "build": "vite build",
