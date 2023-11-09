@@ -3,7 +3,8 @@ export const CONFIG = {
   htmlScrollingTime: 250,
   discordLink: 'https://discord.gg/Bzjm5MDXrU',
   twitterLink: 'https://twitter.com/Rarimo_protocol',
-  telegramLink: 'https://t.me/+m_vvj8nFk5g4NTgy',
+  telegramLink:
+    'https://telegram.me/collablandbot?start=VFBDI1RFTCNDT01NIy0xMDAyMDg2MjkwNjk3',
   docsLink: 'https://docs.rarimo.com',
   docsOverviewLink: 'https://docs.rarimo.com/overview',
   whitepaperLink: 'https://docs.rarimo.com/whitepaper',
