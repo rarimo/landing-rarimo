@@ -1,4 +1,5 @@
 .partners-list {
+  margin-top: to-rem(72);
   color: var(--col-primary-grey);
 }
 
@@ -9,6 +10,7 @@
   font-weight: 400;
   color: inherit;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .partners-list__list {
