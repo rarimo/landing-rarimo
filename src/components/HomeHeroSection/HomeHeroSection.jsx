@@ -11,8 +11,6 @@ import { COMPONENT_NODE_IDS } from '@/const';
 import useAppContext from '@/hooks/useAppContext';
 import { supportedBlockchainsList } from '@/template-data';
 
-const HomeHeroDecor = lazy(() => import('@/components/HomeHeroDecor'));
-
 const HomeHeroSection = () => {
   const { t } = useTranslation();
   const { isDesktop } = useAppContext();
