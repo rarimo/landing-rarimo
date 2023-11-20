@@ -127,6 +127,7 @@
 .home-hero-section__description {
   max-width: to-rem(810);
   font-size: to-rem(16);
+  text-align: center;
 
   @include respond-above(medium) {
     letter-spacing: 0.02em;
