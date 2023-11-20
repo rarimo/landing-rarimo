@@ -15,10 +15,11 @@
 
   @include respond-above(medium) {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     padding-top: max(vh(22), to-rem(160));
-    padding-bottom: max(vh(20), to-rem(160));
+    padding-bottom: max(vh(25), to-rem(190));
+    flex-direction: column;
   }
 }
 
@@ -67,43 +68,67 @@
 
 .home-hero-section__subtitle {
   display: flex;
+  justify-content: center;
   order: -1;
   margin-bottom: to-rem(16);
   font-family: var(--secondary-font-family);
   font-weight: 700;
   text-transform: uppercase;
+  font-size: to-rem(30);
+  margin-left: auto;
+  margin-right: auto;
+
+  --divider-width: #{to-rem(48)};
+
+
+  &::before {
+    margin-right: to-rem(32);
+    margin-top: auto;
+    margin-bottom: auto;
+    width: var(--divider-width);
+    height: to-rem(1);
+    transform: translateY(-50%);
+    background: linear-gradient(270deg, var(--col-total-white) 0%, var(--col-total-black) 100%);
+    content: '';
+  }
+
+  &::after {
+    margin-left: to-rem(32);
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 50%;
+    right: 0;
+    width: var(--divider-width);
+    height: to-rem(1);
+    transform: translateY(-50%);
+    background: linear-gradient(270deg, var(--col-total-black) 0%, var(--col-total-white) 100%);
+    content: '';
+  }
 
   @include respond-to(medium) {
     font-size: to-rem(14);
+
+    &::before {
+      margin-right: to-rem(4);
+    }
+
+    &::after {
+      margin-left: to-rem(4);
+    }
   }
 
   @include respond-above(medium) {
-    --divider-width: #{to-rem(48)};
-
     position: relative;
     margin-bottom: max(vh(3), to-rem(24));
-    padding-left: calc(var(--divider-width) + #{to-rem(32)});
 
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: var(--divider-width);
-      height: to-rem(1);
-      transform: translateY(-50%);
-      background-color: currentColor;
-      content: '';
-    }
   }
 }
 
 .home-hero-section__description {
-  max-width: to-rem(610);
-  margin-bottom: to-rem(32);
+  max-width: to-rem(810);
   font-size: to-rem(16);
 
   @include respond-above(medium) {
-    margin-bottom: max(vh(10), to-rem(76));
     letter-spacing: 0.02em;
   }
 
@@ -112,12 +137,19 @@
   }
 }
 
+.home-hero-section__description-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: to-rem(32) 0;
+
+}
+
 .home-hero-section__links-wrapper {
   width: 100%;
 
   @include respond-above(medium) {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 

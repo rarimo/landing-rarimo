@@ -21,10 +21,7 @@ function clampBuilder(minWidthPx, maxWidthPx, minFontSizePx, maxFontSizePx) {
 
 export const defineDesktopFontSizes = () => {
   root.style.setProperty('--p-size-medium', clampBuilder(1024, 1400, 11, 13));
-  root.style.setProperty(
-    '--h1-size-medium',
-    clampBuilder(1024, 1400, 100, 120),
-  );
+  root.style.setProperty('--h1-size-medium', clampBuilder(1024, 1400, 55, 75));
   root.style.setProperty('--h2-size-medium', clampBuilder(1024, 1400, 34, 38));
   root.style.setProperty('--h3-size-medium', clampBuilder(1024, 1400, 28, 32));
   root.style.setProperty('--h4-size-medium', clampBuilder(1024, 1400, 24, 32));
