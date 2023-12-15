@@ -4,12 +4,12 @@
   },
   "app-bar": {
     "discord": "Discord",
-    "twitter": "Twitter",
+    "twitter": "X",
     "telegram": "Telegram"
   },
   "app-sidebar": {
     "discord": "Discord",
-    "twitter": "Twitter",
+    "twitter": "X",
     "telegram": "Telegram",
     "join-testnet-link": "Join Testnet",
     "whitepaper-link": "Whitepaper"
@@ -19,7 +19,7 @@
     "nav-title": "Navigation",
     "follow-us-title": "Follow Us",
     "discord": "Discord",
-    "twitter": "Twitter",
+    "twitter": "X",
     "telegram": "Telegram"
   },
   "navigation": {
