@@ -28,10 +28,8 @@
     "support": "Support"
   },
   "home-hero-section": {
-    "title-part-1": "Universal Access & ",
-    "title-part-2": "Verification",
-    "subtitle": "A digital identity layer for",
-    "description": "Rarimo unlocks seamless portability by connecting dApps to a range of issuers and standards, and builds in privacy with Zero-Knowledge technology",
+    "title": "Privacy First Social Protocol",
+    "description": "Rarimo seamlessly combines various identity standards and allows the formation of private but verifiable history of their use and relations",
     "getting-started-link": "Getting Started",
     "blockchains-title": "Supported blockchains"
   },

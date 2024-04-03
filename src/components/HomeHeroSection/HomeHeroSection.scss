@@ -53,6 +53,7 @@
 }
 
 .home-hero-section__title {
+  margin-top: to-rem(16);
   margin-bottom: to-rem(16);
   text-transform: uppercase;
 
@@ -125,16 +126,18 @@
 }
 
 .home-hero-section__description {
-  max-width: to-rem(810);
   font-size: to-rem(16);
   text-align: center;
 
   @include respond-above(medium) {
+    max-width: to-rem(520);
+    font-size: to-rem(20);
     letter-spacing: 0.02em;
   }
 
-  @include respond-above(large) {
-    font-size: to-rem(20);
+  @include respond-above(xlarge) {
+    max-width: to-rem(600);
+    font-size: to-rem(24);
   }
 }
 
@@ -147,6 +150,7 @@
 
 .home-hero-section__links-wrapper {
   width: 100%;
+  margin-top: to-rem(32);
 
   @include respond-above(medium) {
     display: flex;

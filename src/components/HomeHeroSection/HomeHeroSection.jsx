@@ -21,13 +21,9 @@ const HomeHeroSection = () => {
         <div className="home-hero-section__hero-wrapper">
           <h1 className="home-hero-section__title">
             <div className="home-hero-section__title-part">
-              <span>{t('home-hero-section.title-part-1')}</span>
-              <span>{t('home-hero-section.title-part-2')}</span>
+              {t('home-hero-section.title')}
             </div>
           </h1>
-          <h5 className="home-hero-section__subtitle" data-aos="fade-up">
-            {t('home-hero-section.subtitle')}
-          </h5>
           <div className="home-hero-section__description-wrapper">
             <p className="home-hero-section__description" data-aos="fade-up">
               {t('home-hero-section.description')}
