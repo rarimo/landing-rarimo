@@ -12,6 +12,8 @@
 
   --col-white-alpha: rgba(#{$col-total-white-rgb}, 84%);
   --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 10%);
+  --col-white-bg-alpha: rgba(#{$col-total-white-rgb}, 5%);
+  --col-white-text-alpha: rgba(#{$col-total-white-rgb}, 50%);
   --col-black-alpha: rgba(#{$col-black-wash-rgb}, 70%);
   --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 10%);
   --col-primary-black: #{$col-black-wash};
@@ -73,7 +75,7 @@
   /* stylelint-enable max-line-length */
 
   --p-size: #{to-rem(14)};
-  --h1-size: #{to-rem(37)};
+  --h1-size: #{to-rem(32)};
   --h2-size: #{to-rem(32)};
   --h3-size: #{to-rem(24)};
   --h4-size: #{to-rem(32)};
@@ -91,7 +93,7 @@
 
   @include respond-above(xlarge) {
     --p-size: #{to-rem(14)};
-    --h1-size: #{to-rem(85)};
+    --h1-size: #{to-rem(76)};
     --h2-size: #{to-rem(48)};
     --h3-size: #{to-rem(40)};
     --h4-size: #{to-rem(32)};
@@ -113,7 +115,7 @@
 
   // Base
   --container-max-width: 100%;
-  --container-side-padding: #{to-rem(20)};
+  --container-side-padding: #{to-rem(24)};
   --primary-bg-rect-size: #{to-rem(50)};
   --bg-rect-border-size: #{to-rem(1)};
   --primary-border-radius: #{to-rem(4)};

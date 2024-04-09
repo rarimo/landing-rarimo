@@ -1,11 +1,8 @@
 .use-cases-section {
-  padding-top: to-rem(52);
-  padding-bottom: to-rem(52);
-
+  margin-top: to-rem(84);
+  
   @include respond-above(medium) {
-    margin-top: min(vh(25), to-rem(250));
-    padding-top: max(vh(9), to-rem(52));
-    padding-bottom: max(vh(9), to-rem(52));
+    margin-top: to-rem(124);
   }
 }
 

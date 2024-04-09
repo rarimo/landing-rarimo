@@ -1,35 +1,27 @@
 import './HomeHeroSection.scss';
 
-import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
-import PartnersList from '@/components/PartnersList';
+import AppButton from '@/components/AppButton';
 import SpotlightBg from '@/components/SpotlightBg';
 import { CONFIG } from '@/config';
 import { COMPONENT_NODE_IDS } from '@/const';
-import useAppContext from '@/hooks/useAppContext';
-import { supportedBlockchainsList } from '@/template-data';
+
+import BackersSection from '../BackersSection';
 
 const HomeHeroSection = () => {
   const { t } = useTranslation();
-  const { isDesktop } = useAppContext();
 
   return (
     <section id={COMPONENT_NODE_IDS.heroSection} className="home-hero-section">
       <div className="home-hero-section__content container">
         <div className="home-hero-section__hero-wrapper">
           <h1 className="home-hero-section__title">
-            <div className="home-hero-section__title-part">
-              {t('home-hero-section.title')}
-            </div>
+            {t('home-hero-section.title')}
           </h1>
-          <div className="home-hero-section__description-wrapper">
-            <p className="home-hero-section__description" data-aos="fade-up">
-              {t('home-hero-section.description')}
-            </p>
-          </div>
-
+          <p className="home-hero-section__description" data-aos="fade-up">
+            {t('home-hero-section.description')}
+          </p>
           <div className="home-hero-section__links-wrapper" data-aos="fade-up">
             <AppButton
               className="home-hero-section__link"
@@ -46,18 +38,9 @@ const HomeHeroSection = () => {
             </AppButton>
           </div>
         </div>
-        <div className="home-hero-section__blockchains-wrapper">
-          {/* {isDesktop && (
-            <div className="home-hero-section__lottie-wrapper">
-              <div ref={lottieRef} className="home-hero-section__lottie" />
-            </div>
-          )} */}
 
-          <PartnersList
-            titleKey="home-hero-section.blockchains-title"
-            items={supportedBlockchainsList}
-            data-aos="fade-up"
-          />
+        <div className="home-hero-section__backers-wrapper">
+          <BackersSection />
         </div>
       </div>
       <SpotlightBg />

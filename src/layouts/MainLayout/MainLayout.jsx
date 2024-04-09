@@ -5,9 +5,9 @@ import { Outlet, useLocation } from 'react-router-dom';
 import AppBar from '@/components/AppBar';
 import AppFooter from '@/components/AppFooter';
 import RouteTransition from '@/components/RouteTransition';
+import { CONFIG } from '@/config';
 import useNavigation from '@/hooks/useNavigation';
 import { checkAnchors } from '@/js';
-import { CONFIG } from "@/config";
 
 const MainLayout = () => {
   const { t } = useTranslation();

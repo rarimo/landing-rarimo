@@ -23,9 +23,10 @@
     "telegram": "Telegram"
   },
   "navigation": {
-    "use-cases": "Use Cases",
-    "documentation": "Documentation",
-    "support": "Support"
+    "home": "Home",
+    "protocol": "Protocol",
+    "solutions": "Solutions",
+    "community": "Community"
   },
   "home-hero-section": {
     "title": "Privacy First Social Protocol",

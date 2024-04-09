@@ -1,20 +1,22 @@
-import { CONFIG } from '@/config';
-import { COMPONENT_NODE_IDS, ROUTES_PATHS } from '@/const';
+import { COMPONENT_NODE_IDS } from '@/const';
 
 export const navigation = [
   {
-    textKey: 'navigation.use-cases',
-    path: COMPONENT_NODE_IDS.useCasesSection,
+    textKey: 'navigation.home',
+    path: COMPONENT_NODE_IDS.heroSection,
     hash: true,
-    includeRoutes: [ROUTES_PATHS.home],
   },
   {
-    textKey: 'navigation.documentation',
-    path: CONFIG.docsLink,
-    external: true,
+    textKey: 'navigation.protocol',
+    path: COMPONENT_NODE_IDS.protocolSection,
   },
   {
-    textKey: 'navigation.support',
+    textKey: 'navigation.solutions',
+    path: COMPONENT_NODE_IDS.solutionsSection,
+    hash: true,
+  },
+  {
+    textKey: 'navigation.community',
     path: COMPONENT_NODE_IDS.communitySection,
     hash: true,
   },
