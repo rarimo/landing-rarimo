@@ -16,15 +16,6 @@ const NewsSection = () => {
   const { isDesktop } = useAppContext();
   const swiperRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const nextSlide = () => {
-    swiperRef.current?.swiper.slideNext();
-    setActiveSlide(swiperRef.current?.swiper.activeIndex);
-  };
-
-  const prevSlide = () => {
-    swiperRef.current?.swiper.slidePrev();
-    setActiveSlide(swiperRef.current?.swiper.activeIndex);
-  };
 
   const getAmountBullets = () => {
     if (!swiperRef.current) {
@@ -63,7 +54,7 @@ const NewsSection = () => {
 
   return (
     <section className="news-section">
-      <div className="container">
+      <div className="container news-section__container">
         <div className="news-section__title-wrapper" data-aos="fade-up">
           <h5 className="news-section__title">{t('news-section.title')}</h5>
           <a
@@ -73,20 +64,13 @@ const NewsSection = () => {
             rel="nofollow noopener noreferrer"
           >
             {t('news-section.view-all-link')}
-            <svg
-              className="news-section__view-all-link-icon"
-              height="20"
-              width="20"
-            >
-              <use href="/icons/sprite.svg#icon-arrow-right"></use>
-            </svg>
           </a>
         </div>
         <swiper-container
           ref={swiperRef}
           class="news-section__list"
           slides-per-view="auto"
-          space-between="32"
+          space-between="24"
           mousewheel-force-to-axis="true"
           autoplay="false"
           resistance-ratio="0.5"
@@ -112,34 +96,34 @@ const NewsSection = () => {
                 target="_blank"
                 rel="nofollow noopener noreferrer"
               >
-                <div className="news-section__item-title-wrapper">
-                  {item.blockName && (
-                    <span className="news-section__item-block-name">
-                      {t(item.blockName)}
-                    </span>
-                  )}
-                  <h5 className="news-section__item-title">
-                    {t(item.textKey)}
-                  </h5>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="news-section__item-image"
+                />
+                <div className="news-section__item-main">
+                  <p className="news-section__item-title">{item.title}</p>
                 </div>
               </a>
             </swiper-slide>
           ))}
         </swiper-container>
-        <div className="news-section__swiper-pagination">
-          <div className="news-section__swiper-pagination-bullet-wrapper">
-            {[...Array(getAmountBullets()).keys()].map(el => (
-              <div
-                key={el}
-                className={
-                  activeSlide === el
-                    ? 'active-bullet news-section__swiper-pagination-bullet'
-                    : 'news-section__swiper-pagination-bullet'
-                }
-              />
-            ))}
+        {getAmountBullets() > 1 && (
+          <div className="news-section__swiper-pagination">
+            <div className="news-section__swiper-pagination-bullet-wrapper">
+              {[...Array(getAmountBullets()).keys()].map(el => (
+                <div
+                  key={el}
+                  className={
+                    activeSlide === el
+                      ? 'active-bullet news-section__swiper-pagination-bullet'
+                      : 'news-section__swiper-pagination-bullet'
+                  }
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
