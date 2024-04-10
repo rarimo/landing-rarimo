@@ -55,75 +55,77 @@ const NewsSection = () => {
   return (
     <section className="news-section">
       <div className="container news-section__container">
-        <div className="news-section__title-wrapper" data-aos="fade-up">
-          <h5 className="news-section__title">{t('news-section.title')}</h5>
-          <a
-            className="news-section__view-all-link"
-            href={CONFIG.mediumLink}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          >
-            {t('news-section.view-all-link')}
-          </a>
-        </div>
-        <swiper-container
-          ref={swiperRef}
-          class="news-section__list"
-          slides-per-view="auto"
-          space-between="24"
-          mousewheel-force-to-axis="true"
-          autoplay="false"
-          resistance-ratio="0.5"
-          grab-cursor="true"
-          free-mode={isDesktop}
-          edge-swipe-detection="true"
-          breakpoints-1280-slides-per-view="4"
-          breakpoints-1280-enabled="false"
-          a11y-slide-role="listitem"
-          a11y-container-role-description-message="Last news list"
-          a11y-item-role-description-message="Actual news"
-        >
-          {newsList.map((item, index) => (
-            <swiper-slide
-              key={index}
-              class="news-section__item"
-              data-aos="fade-up"
-              data-aos-delay={getShiftedDelay(index, 100)}
+        <div className="news-section__wrapper">
+          <div className="news-section__title-wrapper" data-aos="fade-up">
+            <h5 className="news-section__title">{t('news-section.title')}</h5>
+            <a
+              className="news-section__view-all-link"
+              href={CONFIG.mediumLink}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
             >
-              <a
-                className="news-section__item-link"
-                href={item.link}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="news-section__item-image"
-                />
-                <div className="news-section__item-main">
-                  <p className="news-section__item-title">{item.title}</p>
-                </div>
-              </a>
-            </swiper-slide>
-          ))}
-        </swiper-container>
-        {getAmountBullets() > 1 && (
-          <div className="news-section__swiper-pagination">
-            <div className="news-section__swiper-pagination-bullet-wrapper">
-              {[...Array(getAmountBullets()).keys()].map(el => (
-                <div
-                  key={el}
-                  className={
-                    activeSlide === el
-                      ? 'active-bullet news-section__swiper-pagination-bullet'
-                      : 'news-section__swiper-pagination-bullet'
-                  }
-                />
-              ))}
-            </div>
+              {t('news-section.view-all-link')}
+            </a>
           </div>
-        )}
+          <swiper-container
+            ref={swiperRef}
+            class="news-section__list"
+            slides-per-view="auto"
+            space-between="24"
+            mousewheel-force-to-axis="true"
+            autoplay="false"
+            resistance-ratio="0.5"
+            grab-cursor="true"
+            free-mode={isDesktop}
+            edge-swipe-detection="true"
+            breakpoints-1280-slides-per-view="4"
+            breakpoints-1280-enabled="false"
+            a11y-slide-role="listitem"
+            a11y-container-role-description-message="Last news list"
+            a11y-item-role-description-message="Actual news"
+          >
+            {newsList.map((item, index) => (
+              <swiper-slide
+                key={index}
+                class="news-section__item"
+                data-aos="fade-up"
+                data-aos-delay={getShiftedDelay(index, 100)}
+              >
+                <a
+                  className="news-section__item-link"
+                  href={item.link}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="news-section__item-image"
+                  />
+                  <div className="news-section__item-main">
+                    <p className="news-section__item-title">{item.title}</p>
+                  </div>
+                </a>
+              </swiper-slide>
+            ))}
+          </swiper-container>
+          {getAmountBullets() > 1 && (
+            <div className="news-section__swiper-pagination">
+              <div className="news-section__swiper-pagination-bullet-wrapper">
+                {[...Array(getAmountBullets()).keys()].map(el => (
+                  <div
+                    key={el}
+                    className={
+                      activeSlide === el
+                        ? 'active-bullet news-section__swiper-pagination-bullet'
+                        : 'news-section__swiper-pagination-bullet'
+                    }
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

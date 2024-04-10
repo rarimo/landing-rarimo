@@ -14,6 +14,7 @@
   --col-white-min-alpha: rgba(#{$col-total-white-rgb}, 10%);
   --col-white-bg-alpha: rgba(#{$col-total-white-rgb}, 5%);
   --col-white-text-alpha: rgba(#{$col-total-white-rgb}, 50%);
+  --col-white-text-alpha-sm: rgba(#{$col-total-white-rgb}, 40%);
   --col-black-alpha: rgba(#{$col-black-wash-rgb}, 70%);
   --col-black-min-alpha: rgba(#{$col-total-black-rgb}, 10%);
   --col-primary-black: #{$col-black-wash};
@@ -76,7 +77,7 @@
 
   --p-size: #{to-rem(14)};
   --h1-size: #{to-rem(32)};
-  --h2-size: #{to-rem(32)};
+  --h2-size: #{to-rem(24)};
   --h3-size: #{to-rem(24)};
   --h4-size: #{to-rem(32)};
   --h5-size: #{to-rem(16)};
