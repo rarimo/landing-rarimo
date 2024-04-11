@@ -32,8 +32,8 @@ const ProtocolSection = () => {
               className="protocol-section__img"
               src={
                 isDesktop
-                  ? '/img/home/protocol.png'
-                  : '/img/home/protocol-mobile.png'
+                  ? '/img/home/protocol.webp'
+                  : '/img/home/protocol-mobile.webp'
               }
               alt="Protocol Layer"
             />

@@ -2,7 +2,7 @@ import { CONFIG } from '@/config';
 
 export const solutionsList = [
   {
-    img: '/img/solutions/passports-mask.png',
+    img: '/img/solutions/passports-mask.webp',
     modifier: 'passports',
     titleKey: 'solutions-section.passports-title',
     path: CONFIG.docsLink,
@@ -10,42 +10,42 @@ export const solutionsList = [
     external: true,
   },
   {
-    img: '/img/solutions/rarime-app-mask.png',
+    img: '/img/solutions/rarime-app-mask.webp',
     modifier: 'rarime-app',
     titleKey: 'solutions-section.rarime-app-title',
     path: CONFIG.rarimeAppDocsLink,
     external: true,
   },
   {
-    img: '/img/solutions/freedom-tool-mask.png',
+    img: '/img/solutions/freedom-tool-mask.webp',
     modifier: 'freedom-tool',
     titleKey: 'solutions-section.freedom-tool-title',
     path: CONFIG.docsLink,
     external: true,
   },
   {
-    img: '/img/solutions/snap-mask.png',
+    img: '/img/solutions/snap-mask.webp',
     modifier: 'snap',
     titleKey: 'solutions-section.snap-title',
     path: CONFIG.snapDocsLink,
     external: true,
   },
   {
-    img: '/img/solutions/explorer-mask.png',
+    img: '/img/solutions/explorer-mask.webp',
     modifier: 'explorer',
     titleKey: 'solutions-section.explorer-title',
     path: CONFIG.scanLink,
     external: true,
   },
   {
-    img: '/img/solutions/scaling-mask.png',
+    img: '/img/solutions/scaling-mask.webp',
     modifier: 'scaling',
     titleKey: 'solutions-section.scaling-title',
     path: CONFIG.docsLink,
     external: true,
   },
   {
-    img: '/img/solutions/poh-mask.png',
+    img: '/img/solutions/poh-mask.webp',
     modifier: 'poh',
     titleKey: 'solutions-section.poh-title',
     path: CONFIG.pohLink,

@@ -46,7 +46,7 @@ const ConfidentialIdentitySection = () => {
             <div className="confidential-identity-section__block-img-wrp">
               <img
                 className="confidential-identity-section__block-img"
-                src="/img/home/confidential-identity.png"
+                src="/img/home/confidential-identity.webp"
                 alt="Confidential Identity"
               />
             </div>

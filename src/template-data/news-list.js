@@ -9,7 +9,7 @@ export const newsList = [
     title:
       'Polygon ID Comes to Ethereum Following Rarimo Integration | The Crypto Times',
     link: 'https://www.cryptotimes.io/2023/07/24/polygon-id-comes-to-ethereum-following-rarimo-integration/',
-    image: '/img/news/polygon-id.jpeg',
+    image: '/img/news/polygon-id.webp',
   },
   {
     title: 'Self-sovereign identity is not enough - Blockworks',
@@ -19,7 +19,7 @@ export const newsList = [
   {
     title: 'RariMe: Bringing Your Web3 Identity to Metamask with Ceramic',
     link: 'https://blog.ceramic.network/rarime-bringing-your-web3-identity-to-metamask-with-ceramic/',
-    image: '/img/news/rarime.png',
+    image: '/img/news/rarime.webp',
   },
   {
     title:
@@ -31,7 +31,7 @@ export const newsList = [
     title:
       "Proof of humanity' plug-in for crypto apps launched by Rarimo | The Block",
     link: 'https://www.theblock.co/post/246627/proof-of-humanity-plug-in-for-crypto-apps-launched-by-rarimo',
-    image: '/img/news/poh.jpeg',
+    image: '/img/news/poh.webp',
   },
   {
     title:
