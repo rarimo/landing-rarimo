@@ -3,8 +3,8 @@ import ConfidentialIdentitySection from '@/components/ConfidentialIdentitySectio
 import HomeHeroSection from '@/components/HomeHeroSection';
 import NewsSection from '@/components/NewsSection';
 import ProtocolSection from '@/components/ProtocolSection';
+import SolutionsSection from '@/components/SolutionsSection';
 import SubscribeSection from '@/components/SubscribeSection';
-import UseCasesSection from '@/components/UseCasesSection';
 
 const HomePage = () => {
   return (
@@ -13,7 +13,7 @@ const HomePage = () => {
       <NewsSection />
       <ConfidentialIdentitySection />
       <ProtocolSection />
-      <UseCasesSection />
+      <SolutionsSection />
       <CommunitySection />
       <SubscribeSection />
     </>

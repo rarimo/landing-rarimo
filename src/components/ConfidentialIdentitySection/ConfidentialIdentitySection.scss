@@ -21,28 +21,10 @@
 }
 
 .confidential-identity-section__block {
-  position: relative;
-  background-color:  #141414;
-  border: 1px solid var(--col-white-min-alpha);
   padding: to-rem(24);
 
   @include respond-above(medium) {
     padding: to-rem(32) to-rem(32) to-rem(20) to-rem(32);
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      117.02% 117.02% at 50% -17.02%,
-      rgba(var(--col-le-max-rgb), 0.06) 0%,
-      rgba(var(--col-le-max-rgb), 0) 100%
-    );
   }
 
   &:nth-child(3) {

@@ -9,6 +9,7 @@ export const navigation = [
   {
     textKey: 'navigation.protocol',
     path: COMPONENT_NODE_IDS.protocolSection,
+    hash: true,
   },
   {
     textKey: 'navigation.solutions',

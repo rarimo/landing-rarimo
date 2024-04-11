@@ -1,12 +1,18 @@
 import './ProtocolSection.scss';
 
+import { COMPONENT_NODE_IDS } from '@/const';
 import useAppContext from '@/hooks/useAppContext';
+
+import GlowingCard from '../GlowingCard';
 
 const ProtocolSection = () => {
   const { isDesktop } = useAppContext();
 
   return (
-    <section className="protocol-section">
+    <section
+      id={COMPONENT_NODE_IDS.protocolSection}
+      className="protocol-section"
+    >
       <div className="container">
         <div className="protocol-section__title-wrp" data-aos="fade-up">
           <h2 className="protocol-section__title">Protocol layer</h2>
@@ -17,7 +23,7 @@ const ProtocolSection = () => {
           </p>
         </div>
 
-        <div className="protocol-section__content" data-aos="fade-up">
+        <GlowingCard className="protocol-section__content" data-aos="fade-up">
           <div className="protocol-section__img-wrp">
             <img
               className="protocol-section__img"
@@ -48,7 +54,7 @@ const ProtocolSection = () => {
               </span>
             </div>
           </div>
-        </div>
+        </GlowingCard>
       </div>
     </section>
   );

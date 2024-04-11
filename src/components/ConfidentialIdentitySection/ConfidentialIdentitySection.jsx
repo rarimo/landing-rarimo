@@ -1,5 +1,7 @@
 import './ConfidentialIdentitySection.scss';
 
+import GlowingCard from '../GlowingCard';
+
 const ConfidentialIdentitySection = () => {
   return (
     <section className="confidential-identity-section">
@@ -8,7 +10,7 @@ const ConfidentialIdentitySection = () => {
           How Confidential identity works
         </h2>
         <div className="confidential-identity-section__content">
-          <div
+          <GlowingCard
             className="confidential-identity-section__block"
             data-aos="fade-up"
           >
@@ -30,8 +32,8 @@ const ConfidentialIdentitySection = () => {
               </span>
               confidential graph.
             </p>
-          </div>
-          <div
+          </GlowingCard>
+          <GlowingCard
             className="confidential-identity-section__block"
             data-aos="fade-up"
             data-aos-delay={100}
@@ -50,8 +52,8 @@ const ConfidentialIdentitySection = () => {
               </span>
               invisible to the public.
             </p>
-          </div>
-          <div
+          </GlowingCard>
+          <GlowingCard
             className="confidential-identity-section__block confidential-identity-section__block--img"
             data-aos="fade-up"
             data-aos-delay={200}
@@ -66,7 +68,7 @@ const ConfidentialIdentitySection = () => {
                 alt="Confidential Identity"
               />
             </div>
-          </div>
+          </GlowingCard>
         </div>
       </div>
     </section>

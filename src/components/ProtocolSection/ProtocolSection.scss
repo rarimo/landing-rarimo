@@ -17,28 +17,10 @@
 
 .protocol-section__content {
   margin-top: to-rem(32);
-  position: relative;
-  background-color:  #141414;
-  border: 1px solid var(--col-white-bg-alpha);
   padding: to-rem(32) to-rem(18) to-rem(24);
   display: flex;
   flex-direction: column;
   gap: to-rem(6);
-
-  &::before {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      117.02% 117.02% at 50% -17.02%,
-      rgba(var(--col-le-max-rgb), 0.06) 0%,
-      rgba(var(--col-le-max-rgb), 0) 100%
-    );
-  }
   
   @include respond-above(medium) {
     margin-top: to-rem(72);
