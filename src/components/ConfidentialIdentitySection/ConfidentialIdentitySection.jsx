@@ -36,7 +36,6 @@ const ConfidentialIdentitySection = () => {
           <GlowingCard
             className="confidential-identity-section__block"
             data-aos="fade-up"
-            data-aos-delay={100}
           >
             <svg className="confidential-identity-section__block-icon">
               <use href="/icons/sprite.svg#icon-incognito"></use>
@@ -56,7 +55,6 @@ const ConfidentialIdentitySection = () => {
           <GlowingCard
             className="confidential-identity-section__block confidential-identity-section__block--img"
             data-aos="fade-up"
-            data-aos-delay={200}
           >
             <p className="confidential-identity-section__block-img-text">
               What you can prove

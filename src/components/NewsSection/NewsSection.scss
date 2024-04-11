@@ -20,7 +20,7 @@
 
 .news-section__controls {
   display: flex;
-  gap: to-rem(16);
+  gap: to-rem(20);
 }
 
 .news-section__control {
@@ -35,8 +35,8 @@
 }
 
 .news-section__control-icon {
-  width: to-rem(20);
-  height: to-rem(20);
+  width: to-rem(16);
+  height: to-rem(16);
 
   &--prev {
     transform: rotate(180deg);

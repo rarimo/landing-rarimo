@@ -56,8 +56,10 @@ const SubscribeSection = () => {
 
   return (
     <form className="subscribe-form" onSubmit={handleSubmit}>
-      {isSuccess ? (
-        <h6>{t('subscribe-section.success-msg')}</h6>
+      {!isSuccess ? (
+        <h6 className="subscribe-form__success-msg">
+          {t('subscribe-section.success-msg')}
+        </h6>
       ) : (
         <TextField
           name="email"

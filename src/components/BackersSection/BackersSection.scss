@@ -12,27 +12,26 @@
 .backers-section__title {
   margin-bottom: to-rem(24);
   text-transform: uppercase;
+  font-size: to-rem(12);
+  line-height: to-rem(16);
+  letter-spacing: 0.04em;
+  font-weight: 700;
   color: var(--col-primary-grey);
 }
 
 .backers-section__list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: to-rem(48);
-}
-
-.backers-section__list-item {
-  height: 100%;
-  display: flex;
-  align-items: center;
-
-  &--opacity {
-    opacity: 0.4;
+  row-gap: to-rem(24);
+  column-gap: to-rem(48);
+  
+  @include respond-above(medium) {
+    padding: 0 to-rem(148);
   }
 }
 
-.backers-section__item-image {
-  object-fit: contain;
+.backers-section__item {
+  height: var(--backer-logo-height);
 }

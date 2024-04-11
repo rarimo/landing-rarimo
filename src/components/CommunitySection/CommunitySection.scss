@@ -130,3 +130,14 @@
     }
   }
 }
+
+.community-section__list-item-description {
+  font-size: to-rem(12);
+  line-height: to-rem(16);
+  color: var(--col-white-text-alpha);
+
+  @include respond-above(medium) {
+    font-size: to-rem(14);
+    line-height: to-rem(20);
+  }
+}
