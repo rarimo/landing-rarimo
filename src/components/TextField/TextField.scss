@@ -15,16 +15,10 @@
   padding: 0 to-rem(16);
   border: to-rem(1) solid rgba(var(--col-total-white-rgb), 20%);
   background-color: transparent;
-  transform: translateY(40%);
-  transition: transform var(--slide-transition),
-    border-color var(--hover-transition);
+  transition: border-color var(--hover-transition);
 
   &:focus-within {
     border-color: rgba(var(--col-total-white-rgb), 50%);
-  }
-
-  .text-field--invalid & {
-    transform: translateY(0);
   }
 }
 
@@ -55,11 +49,9 @@
   display: flex;
   align-items: center;
   flex: 1 0 auto;
-  padding: to-rem(8);
   margin-top: to-rem(4);
   opacity: 0;
-  background-color: var(--col-error);
-  color: var(--col-white-alpha);
+  color: var(--col-error);
   font-size: to-rem(14);
   hyphens: auto;
   overflow-wrap: break-word;

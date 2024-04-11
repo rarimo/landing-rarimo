@@ -5,7 +5,6 @@ import CommunitySection from '@/components/CommunitySection';
 import NftCheckoutBlockAnimationSection from '@/components/NftCheckoutBlockAnimationSection';
 import NftCheckoutHeroSection from '@/components/NftCheckoutHeroSection';
 import NftCheckoutStepsSection from '@/components/NftCheckoutStepsSection';
-import SubscribeSection from '@/components/SubscribeSection';
 import useAppContext from '@/hooks/useAppContext';
 
 const NftCheckoutPage = () => {
@@ -23,7 +22,6 @@ const NftCheckoutPage = () => {
       </div>
       <AdvantagesSection />
       <CommunitySection />
-      <SubscribeSection />
     </>
   );
 };

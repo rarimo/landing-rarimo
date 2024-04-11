@@ -12,7 +12,12 @@
   font-size: to-rem(14);
   line-height: to-rem(20);
   letter-spacing: -0.01em;
-  max-width: to-rem(600);
+  max-width: to-rem(520);
+
+  @include respond-above(medium) {
+    font-size: to-rem(18);
+    line-height: to-rem(24);
+  }
 }
 
 .solutions-section__content {

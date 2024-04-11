@@ -4,7 +4,6 @@ import HomeHeroSection from '@/components/HomeHeroSection';
 import NewsSection from '@/components/NewsSection';
 import ProtocolSection from '@/components/ProtocolSection';
 import SolutionsSection from '@/components/SolutionsSection';
-import SubscribeSection from '@/components/SubscribeSection';
 
 const HomePage = () => {
   return (
@@ -15,7 +14,6 @@ const HomePage = () => {
       <ProtocolSection />
       <SolutionsSection />
       <CommunitySection />
-      <SubscribeSection />
     </>
   );
 };
