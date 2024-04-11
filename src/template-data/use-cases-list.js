@@ -2,7 +2,7 @@ import { CONFIG } from '@/config';
 
 export const useCasesList = [
   {
-    img: '/img/home/passport2-mask.png',
+    img: '/img/home/passports-mask.png',
     modifier: 'passports',
     titleKey: 'use-cases-section.passports-title',
     path: CONFIG.docsLink,

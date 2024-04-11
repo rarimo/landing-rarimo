@@ -1,15 +1,11 @@
 import './NewsSection.scss';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { CONFIG } from '@/config';
 import { getShiftedDelay } from '@/helpers';
 import useAppContext from '@/hooks/useAppContext';
 import { newsList } from '@/template-data';
-
-const DEFAULT_MOBILE_BULLETS = 7;
-const DEFAULT_DESKTOP_BULLETS = 4;
 
 const NewsSection = () => {
   const { t } = useTranslation();
@@ -17,18 +13,16 @@ const NewsSection = () => {
   const swiperRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const getAmountBullets = () => {
-    if (!swiperRef.current) {
-      return isDesktop ? DEFAULT_DESKTOP_BULLETS : DEFAULT_MOBILE_BULLETS;
-    }
-    return (
-      swiperRef.current?.swiper.slides.length -
-      Math.round(
-        swiperRef.current?.swiper.width /
-          swiperRef.current?.swiper.slidesSizesGrid[0],
-      ) +
-      1
-    );
+  const slidesPreView = useMemo(() => (isDesktop ? 3 : 1), [isDesktop]);
+
+  const nextSlide = () => {
+    swiperRef.current?.swiper.slideNext();
+    setActiveSlide(swiperRef.current?.swiper.activeIndex);
+  };
+
+  const prevSlide = () => {
+    swiperRef.current?.swiper.slidePrev();
+    setActiveSlide(swiperRef.current?.swiper.activeIndex);
   };
 
   const handleScroll = () => {
@@ -58,14 +52,26 @@ const NewsSection = () => {
         <div className="news-section__wrapper">
           <div className="news-section__title-wrapper" data-aos="fade-up">
             <h5 className="news-section__title">{t('news-section.title')}</h5>
-            <a
-              className="news-section__view-all-link"
-              href={CONFIG.mediumLink}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              {t('news-section.view-all-link')}
-            </a>
+            <div className="news-section__controls">
+              <button
+                className="news-section__control"
+                disabled={activeSlide === 0}
+                onClick={prevSlide}
+              >
+                <svg className="news-section__control-icon news-section__control-icon--prev">
+                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                </svg>
+              </button>
+              <button
+                className="news-section__control"
+                disabled={activeSlide === newsList.length - slidesPreView}
+                onClick={nextSlide}
+              >
+                <svg className="news-section__control-icon">
+                  <use href="/icons/sprite.svg#icon-arrow-right"></use>
+                </svg>
+              </button>
+            </div>
           </div>
           <swiper-container
             ref={swiperRef}
@@ -109,22 +115,6 @@ const NewsSection = () => {
               </swiper-slide>
             ))}
           </swiper-container>
-          {getAmountBullets() > 1 && (
-            <div className="news-section__swiper-pagination">
-              <div className="news-section__swiper-pagination-bullet-wrapper">
-                {[...Array(getAmountBullets()).keys()].map(el => (
-                  <div
-                    key={el}
-                    className={
-                      activeSlide === el
-                        ? 'active-bullet news-section__swiper-pagination-bullet'
-                        : 'news-section__swiper-pagination-bullet'
-                    }
-                  />
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </section>
