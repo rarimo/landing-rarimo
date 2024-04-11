@@ -12,7 +12,6 @@ import BurgerButton from '@/components/BurgerButton';
 import MainOverlay from '@/components/MainOverlay';
 import Portal from '@/components/Portal';
 import { CONFIG } from '@/config';
-import { ROUTES_PATHS } from '@/const';
 import useNavigation from '@/hooks/useNavigation';
 import useRouteLocation from '@/hooks/useRouteLocation';
 import { navigation } from '@/template-data';

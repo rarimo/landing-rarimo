@@ -1,37 +1,38 @@
 export const backersList = [
   {
-    image: '/img/backers/greycroft.webp',
-    width: 124,
-    height: 27,
-    withOpacity: false,
-  },
-  {
     image: '/img/backers/pantera.webp',
-    width: 208,
-    height: 16,
-    withOpacity: false,
+    height: 10,
   },
   {
-    image: '/img/backers/eniac.webp',
-    width: 80,
-    height: 26,
-    withOpacity: false,
+    image: '/img/backers/pareto.webp',
+    height: 10,
+  },
+  {
+    image: '/img/backers/greycroft.webp',
+    height: 15,
   },
   {
     image: '/img/backers/hyper.webp',
-    width: 119,
-    height: 48,
-  },
-  {
-    image: '/img/backers/circle.webp',
-    width: 132,
-    height: 40,
-    withOpacity: false,
+    height: 12,
   },
   {
     image: '/img/backers/protocol-labs.webp',
-    width: 214,
-    height: 32,
-    withOpacity: false,
+    height: 19,
+  },
+  {
+    image: '/img/backers/circle.webp',
+    height: 19,
+  },
+  {
+    image: '/img/backers/visary.webp',
+    height: 20,
+  },
+  {
+    image: '/img/backers/slow-ventures.webp',
+    height: 19,
+  },
+  {
+    image: '/img/backers/mvp-ventures.webp',
+    height: 14,
   },
 ];

@@ -1,0 +1,14 @@
+.subscribe-form {
+  width: 100%;
+}
+
+.subscribe-form__btn {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.subscribe-form__success-msg {
+  font-size: to-rem(14);
+  color: var(--col-white-text-alpha);
+}

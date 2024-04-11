@@ -26,8 +26,6 @@ body {
   transition-property: color, background-color;
   transition-duration: var(--medium-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
-
-  @include noise-bg;
 }
 
 body,
@@ -101,11 +99,10 @@ h6 {
 }
 
 h1 {
-  margin-left: -0.03em;
-  font-family: var(--secondary-font-family);
+  font-family: var(--primary-font-family);
   font-size: var(--h1-size);
-  line-height: 1.1;
-  font-weight: 600;
+  line-height: 1.25;
+  font-weight: 700;
 }
 
 h2 {

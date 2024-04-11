@@ -1,48 +1,42 @@
 export const newsList = [
   {
-    blockName: 'news-section.ninth-block-name',
-    textKey: 'news-section.ninth-title',
-    link: 'https://www.bloomberg.com/press-releases/2023-09-18/rarimo-foundation-launches-metamask-snap-rarime-enabling-cryptocurrencies-and-identity-credentials-to-be-stored-and-managed',
+    title:
+      'Rarimo introduces ZK-based voting tool for secure, anonymous participation - Blockworks',
+    link: 'https://blockworks.co/news/decentralizing-social-identity-zk-voting',
+    image: '/img/news/voting.webp',
   },
   {
-    blockName: 'news-section.eighth-block-name',
-    textKey: 'news-section.eighth-title',
+    title:
+      'Polygon ID Comes to Ethereum Following Rarimo Integration | The Crypto Times',
+    link: 'https://www.cryptotimes.io/2023/07/24/polygon-id-comes-to-ethereum-following-rarimo-integration/',
+    image: '/img/news/polygon-id.webp',
+  },
+  {
+    title: 'Self-sovereign identity is not enough - Blockworks',
+    link: 'https://blockworks.co/news/identity-eu-citizens-privacy-surveillance',
+    image: '/img/news/identity.webp',
+  },
+  {
+    title: 'RariMe: Bringing Your Web3 Identity to Metamask with Ceramic',
+    link: 'https://blog.ceramic.network/rarime-bringing-your-web3-identity-to-metamask-with-ceramic/',
+    image: '/img/news/rarime.webp',
+  },
+  {
+    title:
+      'Integrating Worldcoin & expanding PoH to Discord | by Rarimo | Nov, 2023',
+    link: 'https://rarimo.medium.com/integrating-worldcoin-expanding-poh-to-discord-eb0a9f9303ac',
+    image: '/img/news/worldcoin.webp',
+  },
+  {
+    title:
+      "Proof of humanity' plug-in for crypto apps launched by Rarimo | The Block",
     link: 'https://www.theblock.co/post/246627/proof-of-humanity-plug-in-for-crypto-apps-launched-by-rarimo',
+    image: '/img/news/poh.webp',
   },
   {
-    blockName: 'news-section.first-block-name',
-    textKey: 'news-section.first-title',
-    link: 'https://blockworks.co/news/rarimo-polygon-id-ethereum',
+    title:
+      'Russian Opposition use Rarimo’s Freedom Tool to launch surveillance-free voting app',
+    link: 'https://medium.com/@rarimo/russian-opposition-use-rarimos-freedom-tool-to-launch-surveillance-free-voting-app-0d73ebea5e8a',
+    image: '/img/news/freedom-tool.webp',
   },
-  {
-    blockName: 'news-section.second-block-name',
-    textKey: 'news-section.second-title',
-    link: 'https://cointelegraph.com/news/nft-marketplace-enables-cross-chain-purchases-on-multiple-networks',
-  },
-  {
-    blockName: 'news-section.third-block-name',
-    textKey: 'news-section.third-title',
-    link: 'https://www.theblock.co/post/239028/ai-blockchain-synergy-may-hold-the-answer-to-protecting-drakes-voice',
-  },
-  {
-    blockName: 'news-section.fourth-block-name',
-    textKey: 'news-section.fourth-title',
-    link: 'https://www.youtube.com/watch?v=y-ymBN8P9Nc',
-  },
-  {
-    blockName: 'news-section.five-block-name',
-    textKey: 'news-section.five-title',
-    link: 'https://rarimo.medium.com/what-is-interoperability-and-why-is-it-so-important-6b421bdaab09',
-  },
-  {
-    blockName: 'news-section.six-block-name',
-    textKey: 'news-section.six-title',
-    link: 'https://www.veradiverdict.com/p/rarimoo',
-  },
-  {
-    blockName: 'news-section.seven-block-name',
-    textKey: 'news-section.seven-title',
-    link: 'https://rarimo.notion.site/Self-sovereign-identities-SSI-982f1b0989774289af73d54b8a76e426',
-  },
-
 ];

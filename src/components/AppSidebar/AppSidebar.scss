@@ -47,11 +47,9 @@
 .app-sidebar__navigation {
   margin-bottom: to-rem(24);
   color: var(--primary-text-color);
-  font-family: var(--secondary-font-family);
-  font-size: to-rem(32);
-  line-height: 1.46;
-  font-weight: 500;
-  text-transform: capitalize;
+  font-family: var(--primary-font-family);
+  font-size: to-rem(24);
+  font-weight: 400;
   text-align: center;
 }
 
@@ -72,7 +70,7 @@
 .app-sidebar__divider {
   height: to-rem(1);
   width: 100%;
-  margin-bottom: to-rem(24);
+  margin: to-rem(48) 0;
   background-color: var(--col-white-alpha);
   opacity: 0.1;
 }

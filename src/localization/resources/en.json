@@ -16,22 +16,41 @@
   },
   "app-footer": {
     "description": "An interoperability protocol for the next generation of multi-chain assets & identities",
+    "logo-text": "Privacy first social protocol",
     "nav-title": "Navigation",
     "follow-us-title": "Follow Us",
     "discord": "Discord",
     "twitter": "X",
-    "telegram": "Telegram"
+    "telegram": "Telegram",
+    "newsletter-title": "Newsletter"
   },
   "navigation": {
-    "use-cases": "Use Cases",
-    "documentation": "Documentation",
-    "support": "Support"
+    "home": "Home",
+    "protocol": "Protocol",
+    "solutions": "Solutions",
+    "community": "Community"
   },
   "home-hero-section": {
     "title": "Privacy First Social Protocol",
     "description": "Rarimo seamlessly combines various identity standards and allows the formation of private but verifiable history of their use and relations",
     "getting-started-link": "Getting Started",
     "blockchains-title": "Supported blockchains"
+  },
+  "confidential-identity-section": {
+    "title": "How Confidential Identity Works",
+    "graph-block": "Rarimo <strong>allows users to bring and attach any type of</strong> identifier <strong>or</strong> action <strong>to their</strong> confidential graph.",
+    "verify-block": "Users can verify <strong>hidden relationships</strong> and <strong>actions</strong> invisible to the public.",
+    "prove-msg": "What you can prove"
+  },
+  "protocol-section": {
+    "title": "Protocol layer",
+    "description": "The protocol acts as an identity state broadcasting network, bridging Identity authentication and private social graph interactions across blockchains",
+    "decentralized-item-txt": "Decentralized",
+    "pos-item-txt": "POS with Instant finality",
+    "privacy-item-txt": "Privacy via Zero Knowledge Proofs",
+    "efficiency-item-txt": "Efficiency through",
+    "aggregation-item-txt": "Identity state aggregation",
+    "replication-item-txt": "On-demand replication"
   },
   "how-rarimo-works-section": {
     "main": {
@@ -70,24 +89,16 @@
     "protocol-subtitle": "Sub protocols",
     "docs-link": "Documentation"
   },
-  "use-cases-section": {
-    "title": "Featured use cases",
-    "share-text": "Are you building something new?",
-    "share-link": "Share now",
-    "mints-title": "Multi-chain mints",
-    "mints-text": "Issue non-fungible tokens (NFTs) or SBTs on any chain",
-    "gaming-profiles-title": "Gaming profiles",
-    "gaming-profiles-text": "Build out player profile that can be used by third-party dApps",
-    "ssi-title": "Self-sovereign identities (SSI)",
-    "ssi-text": "Use data in the web3 world using ZK-proofs for identity verification",
-    "nft-checkout-title": "NFT Checkout",
-    "nft-checkout-text": "Allow users to purchase NFTs with ANY crypto on any chain with a single signature",
-    "token-agnostic-title": "Token-agnostic payments",
-    "token-agnostic-text": "Users can pay for transactions with their preferred tokens",
-    "social-graphs-title": "Social Graphs",
-    "social-graphs-text": "A cost-efficient way to propagate social graph state between different chains",
-    "name-servers-title": "Name Servers",
-    "name-servers-text": "Issue credentials for the users and build their social identity"
+  "solutions-section": {
+    "title": "Solutions",
+    "description": "Enabling experiences beyond the capabilities of the traditional web.",
+    "passports-title": "Converting Biometric Passports",
+    "rarime-app-title": "Rarime App",
+    "freedom-tool-title": "Freedom Tool",
+    "snap-title": "RariMe Snap for MetaMask",
+    "explorer-title": "Rarimo Explorer",
+    "scaling-title": "Scaling Across EVM",
+    "poh-title": "Proof of Humanity Aggregation"
   },
   "backers-section": {
     "title": "Backers"

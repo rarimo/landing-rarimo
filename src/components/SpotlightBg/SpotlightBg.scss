@@ -10,8 +10,6 @@
   &.spotlight-bg__bg-rect-backdrop {
     @extend %absolute-fullscreen;
 
-    @include bg-rect;
-
     z-index: var(--z-hidden);
   }
 }

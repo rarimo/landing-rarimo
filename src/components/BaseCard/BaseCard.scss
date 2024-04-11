@@ -36,8 +36,6 @@
     rgba(var(--col-primary-black-rgb), 100%) 100%
   );
 
-  @include noise-bg;
-
   .base-card--is-section & {
     padding: to-rem(40) to-rem(20);
     background-image: linear-gradient(

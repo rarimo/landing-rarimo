@@ -33,10 +33,6 @@
 
 .app-bar__container {
   height: 100%;
-
-  .app-bar--filled & {
-    @include noise-bg;
-  }
 }
 
 .app-bar__content {
@@ -93,23 +89,24 @@
 .app-bar__link {
   display: flex;
   align-items: center;
-  color: var(--primary-text-color);
-  transition-property: color;
-  transition-duration: var(--medium-transition-duration);
-  transition-timing-function: var(--hover-transition-timing-function);
+  background-color: var(--col-white-bg-alpha);
+  padding: to-rem(12);
+  color: var(--col-white-alpha);
+  transition: all var(--hover-transition);
 
   @include hover {
-    color: var(--primary-title-color);
+    background-color: var(--col-white-min-alpha);
+    color: var(--col-total-white);
   }
 
   &:not(:last-child) {
-    margin-right: to-rem(24);
+    margin-right: to-rem(16);
   }
 }
 
 .app-bar__link-icon {
-  margin-left: to-rem(8);
-  transform: rotate(-45deg);
+  width: to-rem(16);
+  height: to-rem(16);
 }
 
 .app-bar__sidebar-btn {

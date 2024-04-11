@@ -1,21 +1,19 @@
-import BackersSection from '@/components/BackersSection';
 import CommunitySection from '@/components/CommunitySection';
+import ConfidentialIdentitySection from '@/components/ConfidentialIdentitySection';
 import HomeHeroSection from '@/components/HomeHeroSection';
-import HowRarimoWorksSection from '@/components/HowRarimoWorksSection';
 import NewsSection from '@/components/NewsSection';
-import SubscribeSection from '@/components/SubscribeSection';
-import UseCasesSection from '@/components/UseCasesSection';
+import ProtocolSection from '@/components/ProtocolSection';
+import SolutionsSection from '@/components/SolutionsSection';
 
 const HomePage = () => {
   return (
     <>
       <HomeHeroSection />
-      <HowRarimoWorksSection />
-      <UseCasesSection />
-      <BackersSection />
       <NewsSection />
+      <ConfidentialIdentitySection />
+      <ProtocolSection />
+      <SolutionsSection />
       <CommunitySection />
-      <SubscribeSection />
     </>
   );
 };
