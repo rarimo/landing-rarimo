@@ -38,9 +38,7 @@ const AppFooter = () => {
                 <use href="/icons/sprite.svg#icon-app-logo"></use>
               </svg>
             </Link>
-            <p className="app-footer__logo-text">
-              Privacy first social protocol
-            </p>
+            <p className="app-footer__logo-text">{t('app-footer.logo-text')}</p>
           </div>
           <span>&copy; {new Date().getFullYear()}</span>
         </div>
@@ -122,7 +120,9 @@ const AppFooter = () => {
             </li>
           </ul>
           <div className="app-footer__links-list">
-            <p className="app-footer__list-title">Newsletter</p>
+            <p className="app-footer__list-title">
+              {t('app-footer.newsletter-title')}
+            </p>
             <SubscribeForm />
           </div>
         </div>

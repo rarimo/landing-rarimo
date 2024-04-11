@@ -1,11 +1,14 @@
 import './ProtocolSection.scss';
 
+import { useTranslation } from 'react-i18next';
+
 import { COMPONENT_NODE_IDS } from '@/const';
 import useAppContext from '@/hooks/useAppContext';
 
 import GlowingCard from '../GlowingCard';
 
 const ProtocolSection = () => {
+  const { t } = useTranslation();
   const { isDesktop } = useAppContext();
 
   return (
@@ -15,11 +18,11 @@ const ProtocolSection = () => {
     >
       <div className="container">
         <div className="protocol-section__title-wrp" data-aos="fade-up">
-          <h2 className="protocol-section__title">Protocol layer</h2>
+          <h2 className="protocol-section__title">
+            {t('protocol-section.title')}
+          </h2>
           <p className="protocol-section__text">
-            The protocol acts as an identity state broadcasting network,
-            bridging Identity authentication and private social graph
-            interactions across blockchains
+            {t('protocol-section.description')}
           </p>
         </div>
 
@@ -36,21 +39,23 @@ const ProtocolSection = () => {
             />
           </div>
           <div className="protocol-section__list">
-            <p className="protocol-section__list-item">Decentralized</p>
             <p className="protocol-section__list-item">
-              POS with Instant finality
+              {t('protocol-section.decentralized-item-txt')}
             </p>
             <p className="protocol-section__list-item">
-              Privacy via Zero Knowledge Proofs
+              {t('protocol-section.pos-item-txt')}
+            </p>
+            <p className="protocol-section__list-item">
+              {t('protocol-section.privacy-item-txt')}
             </p>
             <div className="protocol-section__list-item protocol-section__list-item--large">
-              <span>Efficiency through</span>
+              <span>{t('protocol-section.efficiency-item-txt')}</span>
               <div className="protocol-section__list-item-line" />
               <span className="protocol-section__list-sub-item">
-                Identity state aggregation
+                {t('protocol-section.aggregation-item-txt')}
               </span>
               <span className="protocol-section__list-sub-item">
-                On-demand replication
+                {t('protocol-section.replication-item-txt')}
               </span>
             </div>
           </div>

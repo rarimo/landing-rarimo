@@ -51,10 +51,11 @@
     font-size: to-rem(24);
     line-height: to-rem(32);
   }
-}
 
-.confidential-identity-section__block-text--accent {
-  color: var(--col-le-max);
+  & > strong {
+    color: var(--col-le-max);
+    font-weight: 600;
+  }
 }
 
 .confidential-identity-section__block--img {

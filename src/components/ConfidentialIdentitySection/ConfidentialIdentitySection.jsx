@@ -1,13 +1,17 @@
 import './ConfidentialIdentitySection.scss';
 
+import { Trans, useTranslation } from 'react-i18next';
+
 import GlowingCard from '../GlowingCard';
 
 const ConfidentialIdentitySection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="confidential-identity-section">
       <div className="container">
         <h2 className="confidential-identity-section__title" data-aos="fade-up">
-          How Confidential identity works
+          {t('confidential-identity-section.title')}
         </h2>
         <div className="confidential-identity-section__content">
           <GlowingCard
@@ -18,19 +22,7 @@ const ConfidentialIdentitySection = () => {
               <use href="/icons/sprite.svg#icon-stacks"></use>
             </svg>
             <p className="confidential-identity-section__block-text">
-              Rarimo{' '}
-              <span className="confidential-identity-section__block-text--accent">
-                allows users to bring and attach any type of{' '}
-              </span>
-              identifier{' '}
-              <span className="confidential-identity-section__block-text--accent">
-                or{' '}
-              </span>
-              action{' '}
-              <span className="confidential-identity-section__block-text--accent">
-                to their{' '}
-              </span>
-              confidential graph.
+              <Trans i18nKey="confidential-identity-section.graph-block" />
             </p>
           </GlowingCard>
           <GlowingCard
@@ -41,15 +33,7 @@ const ConfidentialIdentitySection = () => {
               <use href="/icons/sprite.svg#icon-incognito"></use>
             </svg>
             <p className="confidential-identity-section__block-text">
-              Users can verify{' '}
-              <span className="confidential-identity-section__block-text--accent">
-                hidden relationships{' '}
-              </span>
-              and{' '}
-              <span className="confidential-identity-section__block-text--accent">
-                actions{' '}
-              </span>
-              invisible to the public.
+              <Trans i18nKey="confidential-identity-section.verify-block" />
             </p>
           </GlowingCard>
           <GlowingCard
@@ -57,7 +41,7 @@ const ConfidentialIdentitySection = () => {
             data-aos="fade-up"
           >
             <p className="confidential-identity-section__block-img-text">
-              What you can prove
+              {t('confidential-identity-section.prove-msg')}
             </p>
             <div className="confidential-identity-section__block-img-wrp">
               <img
