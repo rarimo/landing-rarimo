@@ -56,7 +56,7 @@ const SubscribeSection = () => {
 
   return (
     <form className="subscribe-form" onSubmit={handleSubmit}>
-      {!isSuccess ? (
+      {isSuccess ? (
         <h6 className="subscribe-form__success-msg">
           {t('subscribe-section.success-msg')}
         </h6>
