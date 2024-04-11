@@ -4,8 +4,6 @@
     rgba(var(--col-primary-black-rgb), 0%),
     var(--col-primary-black) 100%
   );
-
-  @include noise-bg;
 }
 
 .home-hero-section__content {

@@ -133,7 +133,7 @@
       position: absolute;
       top: to-rem(220);
       right: 0;
-      background-image: url('/img/app-bar/sidebar-btn-bg.jpg');
+      background-color: var(--col-le-max);
       background-size: 100%;
       background-blend-mode: overlay;
       filter: brightness(0.9);

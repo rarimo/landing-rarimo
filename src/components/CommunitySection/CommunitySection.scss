@@ -32,6 +32,11 @@
 
 .community-section__link {
   margin-top: to-rem(32);
+  min-height: to-rem(48);
+
+  @include respond-above(medium) {
+    min-height: to-rem(56);
+  }
 }
 
 .community-section__link-icon {
