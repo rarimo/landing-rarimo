@@ -7,8 +7,8 @@ export const newsList = [
   },
   {
     title:
-      'Polygon ID Comes to Ethereum Following Rarimo Integration | The Crypto Times',
-    link: 'https://www.cryptotimes.io/2023/07/24/polygon-id-comes-to-ethereum-following-rarimo-integration/',
+      'Polygon ID comes to Ethereum thanks to Rarimo integration, more chains to come',
+    link: 'https://blockworks.co/news/rarimo-polygon-id-ethereum',
     image: '/img/news/polygon-id.webp',
   },
   {

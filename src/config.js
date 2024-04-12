@@ -8,8 +8,12 @@ export const CONFIG = {
   docsLink: 'https://docs.rarimo.com',
   docsOverviewLink: 'https://docs.rarimo.com/overview',
   whitepaperLink: 'https://docs.rarimo.com/whitepaper',
+  passportsDocsLink: 'https://docs.rarimo.com/ecosystem/freedom-tool/',
+  scalingDocsLink:
+    'https://docs.rarimo.com/ecosystem/worldcoin-state-replication/',
   snapDocsLink: 'https://docs.rarimo.com/products/rarime/#rarime-snap',
   rarimeAppDocsLink: 'https://docs.rarimo.com/products/rarime/#rarime-app',
+  freedomToolLink: 'http://freedomtool.org/',
   nftCheckoutDemoLink: 'https://nft-checkout.rarimo.com',
   supportMailLink: 'mailto: support@rarimo.com',
   scanLink: 'https://scan.rarimo.com',

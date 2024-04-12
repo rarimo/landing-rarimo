@@ -5,7 +5,7 @@ export const solutionsList = [
     img: '/img/solutions/passports-mask.webp',
     modifier: 'passports',
     titleKey: 'solutions-section.passports-title',
-    path: CONFIG.docsLink,
+    path: CONFIG.passportsDocsLink,
     isBig: true,
     external: true,
   },
@@ -20,7 +20,7 @@ export const solutionsList = [
     img: '/img/solutions/freedom-tool-mask.webp',
     modifier: 'freedom-tool',
     titleKey: 'solutions-section.freedom-tool-title',
-    path: CONFIG.docsLink,
+    path: CONFIG.freedomToolLink,
     external: true,
   },
   {
@@ -41,7 +41,7 @@ export const solutionsList = [
     img: '/img/solutions/scaling-mask.webp',
     modifier: 'scaling',
     titleKey: 'solutions-section.scaling-title',
-    path: CONFIG.docsLink,
+    path: CONFIG.scalingDocsLink,
     external: true,
   },
   {
