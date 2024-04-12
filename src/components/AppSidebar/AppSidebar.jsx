@@ -7,7 +7,6 @@ import cn from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import AppButton, { APP_BUTTON_SCHEMES } from '@/components/AppButton';
 import BurgerButton from '@/components/BurgerButton';
 import MainOverlay from '@/components/MainOverlay';
 import Portal from '@/components/Portal';
@@ -107,14 +106,6 @@ const AppSidebar = ({ isVisible, toggleVisibility }) => {
             </a>
           </div>
         </div>
-        <footer className="app-sidebar__footer">
-          <AppButton
-            className="app-sidebar__footer-link"
-            href={CONFIG.whitepaperLink}
-            scheme={APP_BUTTON_SCHEMES.secondary}
-            textKey="app-sidebar.whitepaper-link"
-          />
-        </footer>
       </aside>
     </Portal>
   );

@@ -40,7 +40,7 @@ const CommunitySection = () => {
 
       <ul className="community-section__list">
         {communitySectionList.map((item, index) => (
-          <li className="comunity-section__list-item" key={index}>
+          <li className="community-section__list-item" key={index}>
             <a
               className={cn([
                 'community-section__list-item-link',

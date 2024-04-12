@@ -73,8 +73,8 @@ const SolutionsSection = () => {
             edge-swipe-detection="true"
             pagination="true"
             a11y-slide-role="listitem"
-            a11y-container-role-description-message="Use cases list"
-            item-role-description-message="Use case"
+            a11y-container-role-description-message="Solutions list"
+            item-role-description-message="Solution"
             data-aos="fade-up"
           >
             {solutionsList.map(solution => (

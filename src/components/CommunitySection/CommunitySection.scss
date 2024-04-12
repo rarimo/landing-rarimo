@@ -14,7 +14,11 @@
 }
 
 .community-section__title {
-  max-width: to-rem(300);
+  max-width: to-rem(200);
+
+  @include respond-above(medium) {
+    max-width: to-rem(300);
+  }
 }
 
 .community-section__text {
@@ -54,15 +58,6 @@
     margin-top: to-rem(72);
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-.comunity-section__list-item {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  background-color: var(--primary-bg-color);
-  border: to-rem(1) solid var(--primary-border-color);
-  overflow: hidden;
 }
 
 .community-section__list-item-link {

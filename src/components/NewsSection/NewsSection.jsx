@@ -84,8 +84,6 @@ const NewsSection = () => {
             grab-cursor="true"
             free-mode={isDesktop}
             edge-swipe-detection="true"
-            breakpoints-1280-slides-per-view="4"
-            breakpoints-1280-enabled="false"
             a11y-slide-role="listitem"
             a11y-container-role-description-message="Last news list"
             a11y-item-role-description-message="Actual news"
