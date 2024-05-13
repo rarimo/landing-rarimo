@@ -1,6 +1,12 @@
 export const newsList = [
   {
     title:
+      'Exiled Russian Opposition Leader Launches Blockchain-Based Referendum on Vladimir Putin’s Election Win',
+    link: 'https://www.coindesk.com/policy/2024/05/10/exiled-russian-opposition-leader-launches-blockchain-based-referendum-on-vladimir-putins-election-win/',
+    image: '/img/news/referendum.webp',
+  },
+  {
+    title:
       'Rarimo introduces ZK-based voting tool for secure, anonymous participation - Blockworks',
     link: 'https://blockworks.co/news/decentralizing-social-identity-zk-voting',
     image: '/img/news/voting.webp',
