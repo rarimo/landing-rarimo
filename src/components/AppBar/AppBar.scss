@@ -4,7 +4,7 @@
   top: 0;
   right: 0;
   left: 0;
-  height: var(--app-bar-height);
+  height: calc(var(--app-bar-height) + var(--announcement-height));
   background-color: transparent;
   overflow: hidden;
   transition-property: background-color, transform;
@@ -14,6 +14,7 @@
 
   &.app-bar--filled {
     background-color: var(--primary-bg-color);
+    transform: translateY(calc(-1 * var(--announcement-height)));
   }
 
   &.app-bar--hidden {
@@ -32,7 +33,7 @@
 }
 
 .app-bar__container {
-  height: 100%;
+  height: var(--app-bar-height);
 }
 
 .app-bar__content {

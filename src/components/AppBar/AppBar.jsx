@@ -14,6 +14,8 @@ import useNavigation from '@/hooks/useNavigation';
 import useRouteLocation from '@/hooks/useRouteLocation';
 import { navigation } from '@/template-data';
 
+import Announcement from '../Announcement';
+
 const AppSidebar = lazy(() => import('@/components/AppSidebar'));
 const BurgerButton = lazy(() => import('@/components/BurgerButton'));
 
@@ -83,6 +85,7 @@ const AppBar = () => {
         },
       ])}
     >
+      <Announcement />
       <div className="app-bar__container">
         <div className="app-bar__content container">
           <Link className="app-bar__logo" to={ROUTES_PATHS.home}>
