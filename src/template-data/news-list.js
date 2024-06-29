@@ -1,8 +1,13 @@
 export const newsList = [
   {
+    title: "Rarimo's Worldcoin Alternative RariMe Goes Live",
+    link: 'https://www.coindesk.com/policy/2024/06/27/rarimos-worldcoin-alternative-rarime-goes-live/?utm_medium=social&utm_content=editorial&utm_campaign=coindesk_main&utm_source=twitter&utm_term=organic',
+    image: '/img/news/rarime-coindesk.webp',
+  },
+  {
     title:
-      'Exiled Russian Opposition Leader Launches Blockchain-Based Referendum on Vladimir Putin’s Election Win',
-    link: 'https://www.coindesk.com/policy/2024/05/10/exiled-russian-opposition-leader-launches-blockchain-based-referendum-on-vladimir-putins-election-win/',
+      "Former Pussy Riot lawyer launches blockchain-powered referendum to challenge Putin's inauguration",
+    link: 'https://www.theblock.co/post/293528/former-pussy-riot-lawyer-launches-blockchain-powered-referendum-to-challenge-putins-inauguration',
     image: '/img/news/referendum.webp',
   },
   {
