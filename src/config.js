@@ -6,7 +6,7 @@ export const CONFIG = {
   telegramLink:
     'https://telegram.me/collablandbot?start=VFBDI1RFTCNDT01NIy0xMDAyMDg2MjkwNjk3',
   docsLink: 'https://docs.rarimo.com',
-  docsOverviewLink: 'https://docs.rarimo.com/overview',
+  docsOverviewLink: 'https://docs.rarimo.com',
   whitepaperLink: 'https://docs.rarimo.com/whitepaper',
   passportsDocsLink: 'https://docs.rarimo.com/ecosystem/freedom-tool/',
   scalingDocsLink:
@@ -25,8 +25,4 @@ export const CONFIG = {
   // Use cases
   nftCheckoutDocsLink:
     'https://docs.rarimo.com/overview/applications/settlement-integration',
-  crosschainProofsDocsLink:
-    'https://docs.rarimo.com/overview/applications/cross-chain-proofs',
-  multichainMintingDocsLink:
-    'https://docs.rarimo.com/overview/applications/cross-chain-minting',
 };

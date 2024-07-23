@@ -3,7 +3,7 @@ import './Announcement.scss';
 const LAUNCH_DATE = new Date('2024-06-27');
 const DAYS_LEFT = Math.ceil((LAUNCH_DATE - new Date()) / (1000 * 60 * 60 * 24));
 const ANNOUNCEMENT_MESSAGE =
-  DAYS_LEFT === 0
+  DAYS_LEFT <= 0
     ? 'RariMe app launched!'
     : `RariMe app launching in ${DAYS_LEFT} ${
         DAYS_LEFT === 1 ? 'day' : 'days'
