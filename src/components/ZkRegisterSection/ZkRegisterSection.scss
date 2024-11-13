@@ -22,12 +22,9 @@
 
 .zk-register-section__content {
   margin-top: to-rem(32);
-  min-height: to-rem(420);
-  display: flex;
-  flex-direction: column-reverse;
-  gap: to-rem(32);
 
   @include respond-above(medium) {
+    min-height: to-rem(420);
     margin-top: to-rem(72);
     display: grid;
     grid-template-columns: 3fr 2fr;

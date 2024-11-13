@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { COMPONENT_NODE_IDS } from '@/const';
+import useAppContext from '@/hooks/useAppContext';
 
 import AppAccordion from '../AppAccordion';
 import AppButton from '../AppButton';
@@ -20,6 +21,7 @@ const ZkRegisterSection = () => {
   const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
+  const { isDesktop } = useAppContext();
 
   const accordions = useMemo(
     () => [
@@ -136,21 +138,23 @@ const ZkRegisterSection = () => {
             </li>
           ))}
         </ul>
-        <GlowingCard
-          className="zk-register-section__image-wrapper"
-          data-aos="fade-up"
-        >
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image.src}
-              alt={image.alt}
-              className={cn({
-                visible: index === imageIndex,
-              })}
-            />
-          ))}
-        </GlowingCard>
+        {isDesktop && (
+          <GlowingCard
+            className="zk-register-section__image-wrapper"
+            data-aos="fade-up"
+          >
+            {images.map((image, index) => (
+              <img
+                key={index}
+                src={image.src}
+                alt={image.alt}
+                className={cn({
+                  visible: index === imageIndex,
+                })}
+              />
+            ))}
+          </GlowingCard>
+        )}
       </div>
     </section>
   );

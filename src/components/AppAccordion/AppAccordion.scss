@@ -16,12 +16,13 @@
   @include respond-above(medium) {
     margin-bottom: to-rem(37);
     --accordion-title-font-size: #{to-rem(24)};
-    --accordion-content-font-size: #{to-rem(20)};
+    --accordion-content-font-size: #{to-rem(18)};
   }
 
   .app-accordion__title {
     color: var(--accordion-title-color);
     font-size: var(--accordion-title-font-size);
+    font-weight: 600;
   }
 
   .app-accordion__line {
