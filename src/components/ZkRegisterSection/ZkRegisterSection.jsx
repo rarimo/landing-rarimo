@@ -32,7 +32,9 @@ const ZkRegisterSection = () => {
             <p>{t('zk-register-section.accordion-description-1')}</p>
             <AppButton
               className="zk-register-section__link"
-              href="https://docs.rarimo.com/zk-passport/"
+              // TODO: uncomment when the link is ready
+              // href="https://docs.rarimo.com/zk-passport/"
+              href="https://docs.rarimo.com/"
             >
               <span>{t('zk-register-section.accordion-cta-1')}</span>
               <svg
@@ -62,7 +64,9 @@ const ZkRegisterSection = () => {
             </p>
             <AppButton
               className="zk-register-section__link"
-              href="https://docs.rarimo.com/zk-reputation/"
+              // TODO: uncomment when the link is ready
+              // href="https://docs.rarimo.com/zk-reputation/"
+              href="https://docs.rarimo.com/"
             >
               <span>{t('zk-register-section.accordion-cta-2')}</span>
               <svg
