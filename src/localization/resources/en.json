@@ -31,26 +31,26 @@
     "community": "Community"
   },
   "home-hero-section": {
-    "title": "Privacy First (ZK) Social Protocol",
-    "description": "Rarimo unlocks a new generation of social apps, where users go incognito without losing historical actions, networks, and identities",
+    "title": "Permissionless (zk) Registries",
+    "description": "Unlocking a new generation of social apps, where users stay private without losing historical actions, networks, and identities",
     "getting-started-link": "Getting Started",
     "blockchains-title": "Supported blockchains"
   },
-  "confidential-identity-section": {
-    "title": "How incognito mode works",
-    "graph-block": "Rarimo <strong>allows users to bring and attach any type of</strong> identifier <strong>or</strong> action <strong>to their</strong> confidential graph.",
-    "verify-block": "Users can verify <strong>hidden relationships</strong> and <strong>actions</strong> invisible to the public.",
-    "prove-msg": "What you can prove"
+  "zk-register-section": {
+    "title": "ZK registries",
+    "accordion-title-1": "ZK passport",
+    "accordion-description-1": "Allows users to self-issue their identities based on national IDs and verify their attributes confidentially",
+    "accordion-cta-1": "START BUILDING",
+    "accordion-title-2": "ZK reputation",
+    "accordion-description-2": "Users can verify <highlight>hidden relationships</highlight> and <highlight>actions</highlight> invisible to the public",
+    "accordion-cta-2": "START BUILDING",
+    "accordion-title-3": "Launch a custom ZK registry",
+    "accordion-description-3": "Launch your permissionless zk registry",
+    "accordion-cta-3": "Coming soon"
   },
-  "protocol-section": {
-    "title": "Protocol layer",
-    "description": "The protocol aggregates social statements and enables on-demand verification across connected networks",
-    "decentralized-item-txt": "Decentralized",
-    "pos-item-txt": "POS with Instant finality",
-    "privacy-item-txt": "Privacy via Zero Knowledge Proofs",
-    "efficiency-item-txt": "Efficiency through",
-    "aggregation-item-txt": "Identity state aggregation",
-    "replication-item-txt": "On-demand replication"
+  "rollup-section": {
+    "title": "L2 rollup",
+    "description": "ZK registry as a rollup"
   },
   "how-rarimo-works-section": {
     "main": {
@@ -124,7 +124,7 @@
     "eighth-title": "Proof of humanity’ plug-in for crypto apps launched by Rarimo",
     "ninth-block-name": "Bloomberg",
     "ninth-title": "Enabling identity management on MetaMask wallet"
-},
+  },
   "subscribe-section": {
     "title": "Subscribe to our newsletter",
     "description": "Stay up-to-date about new features and supported apps",

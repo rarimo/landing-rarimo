@@ -21,6 +21,9 @@
 
 .home-hero-section__hero-wrapper {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home-hero-section__title {
@@ -37,7 +40,7 @@
   font-size: to-rem(16);
 
   @include respond-above(medium) {
-    max-width: to-rem(720);
+    max-width: to-rem(770);
     font-size: to-rem(20);
     letter-spacing: 0.02em;
   }

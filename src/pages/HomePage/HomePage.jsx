@@ -1,17 +1,17 @@
 import CommunitySection from '@/components/CommunitySection';
-import ConfidentialIdentitySection from '@/components/ConfidentialIdentitySection';
 import HomeHeroSection from '@/components/HomeHeroSection';
 import NewsSection from '@/components/NewsSection';
-import ProtocolSection from '@/components/ProtocolSection';
+import RollupSection from '@/components/RollupSection';
 import SolutionsSection from '@/components/SolutionsSection';
+import ZkRegisterSection from '@/components/ZkRegisterSection';
 
 const HomePage = () => {
   return (
     <>
       <HomeHeroSection />
       <NewsSection />
-      <ConfidentialIdentitySection />
-      <ProtocolSection />
+      <ZkRegisterSection />
+      <RollupSection />
       <SolutionsSection />
       <CommunitySection />
     </>

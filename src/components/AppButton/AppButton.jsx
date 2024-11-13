@@ -18,11 +18,12 @@ const AppButton = ({
   scheme = APP_BUTTON_SCHEMES.primary,
   children,
   onClick,
+  disabled = false,
   ...rest
 }) => {
   const { t } = useTranslation();
 
-  if (routePath) {
+  if (routePath && !disabled) {
     return (
       <Link
         className={cn(['app-button', `app-button--${scheme}`, className])}
@@ -35,7 +36,7 @@ const AppButton = ({
     );
   }
 
-  if (href) {
+  if (href && !disabled) {
     return (
       <a
         className={cn(['app-button', `app-button--${scheme}`, className])}
@@ -52,6 +53,7 @@ const AppButton = ({
 
   return (
     <button
+      disabled={disabled}
       className={cn(['app-button', `app-button--${scheme}`, className])}
       type="button"
       onClick={onClick}
