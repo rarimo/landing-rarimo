@@ -31,7 +31,7 @@
     "community": "Community"
   },
   "home-hero-section": {
-    "title": "Permissionless (zk) Registries",
+    "title": "Permissionless (ZK) Registries",
     "description": "Unlocking a new generation of social apps, where users stay private without losing historical actions, networks, and identities",
     "getting-started-link": "Getting Started",
     "blockchains-title": "Supported blockchains"
@@ -45,7 +45,7 @@
     "accordion-description-2": "Users can verify <highlight>hidden relationships</highlight> and <highlight>actions</highlight> invisible to the public",
     "accordion-cta-2": "START BUILDING",
     "accordion-title-3": "Launch a custom ZK registry",
-    "accordion-description-3": "Launch your permissionless zk registry",
+    "accordion-description-3": "Launch your permissionless ZK registry",
     "accordion-cta-3": "Coming soon"
   },
   "rollup-section": {

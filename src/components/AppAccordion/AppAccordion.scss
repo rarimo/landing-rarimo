@@ -43,10 +43,6 @@
       background-color: var(--accordion-line-color);
       transition: all var(--medium-transition-duration)
         var(--slide-transition-timing-function);
-
-      @include respond-above(medium) {
-        margin-left: to-rem(5);
-      }
     }
   }
 
