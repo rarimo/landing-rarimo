@@ -5,10 +5,10 @@
   overflow: hidden;
   margin-bottom: to-rem(16);
 
-  --accordion-title-color: var(--col-white-text-alpha);
+  --accordion-title-color: var(--col-white-alpha);
   --accordion-line-color: var(--col-white-bg-alpha);
   --accordion-icon-rotate: 0deg;
-  --accordion-content-color: var(--col-total-white);
+  --accordion-content-color: var(--col-white-alpha);
   --accordion-title-font-size: var(--h5-size);
   --accordion-content-font-size: #{to-rem(14)};
   --after-width: 0%;
@@ -71,9 +71,9 @@
   }
 
   &--opened {
-    --accordion-title-color: var(--col-total-white);
+    --accordion-title-color: var(--col-white-alpha);
     --accordion-icon-rotate: 180deg;
-    --after-width: 100%;
+    --after-width: 50%;
 
     .app-accordion__inner {
       padding: to-rem(5) 0;
