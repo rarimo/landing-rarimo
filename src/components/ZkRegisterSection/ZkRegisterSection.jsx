@@ -96,11 +96,14 @@ const ZkRegisterSection = () => {
   const updateActiveIndex = index => {
     setActiveIndex(-1);
     // To prevent delay when all closed and expanding one of them
-    activeIndex === -1
-      ? setActiveIndex(index)
-      : setTimeout(() => {
-          setActiveIndex(activeIndex === index ? -1 : index);
-        }, 300);
+    if (activeIndex === -1) {
+      setActiveIndex(index);
+      return;
+    }
+
+    setTimeout(() => {
+      setActiveIndex(activeIndex === index ? -1 : index);
+    }, 300);
   };
 
   useEffect(() => {
