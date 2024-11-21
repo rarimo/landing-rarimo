@@ -31,7 +31,10 @@
     "community": "Community"
   },
   "home-hero-section": {
-    "title": "Permissionless (ZK) Registries",
+    "title-main": "Future of Identity is",
+    "title-highlight-1": "On-chain",
+    "title-highlight-2": "Permissionless",
+    "title-highlight-3": "Censorship free",
     "description": "Unlocking a new generation of social apps, where users stay private without losing historical actions, networks, and identities",
     "getting-started-link": "Getting Started",
     "blockchains-title": "Supported blockchains"

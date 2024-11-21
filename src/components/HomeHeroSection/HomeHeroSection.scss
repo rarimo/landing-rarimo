@@ -27,12 +27,30 @@
 }
 
 .home-hero-section__title {
-  margin-top: to-rem(16);
+  margin-top: to-rem(48);
   margin-bottom: to-rem(16);
+  max-width: to-rem(330);
   text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
 
   @include respond-above(medium) {
-    max-width: to-rem(760);
+    max-width: to-rem(920);
+    margin-top: to-rem(16);
+  }
+}
+
+.home-hero-section__title-highlight {
+  position: relative;
+  height: to-rem(40);
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: var(--col-primary-accent-main);
+
+  @include respond-above(medium) {
+    height: to-rem(94);
   }
 }
 
