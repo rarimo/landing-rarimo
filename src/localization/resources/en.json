@@ -42,7 +42,7 @@
   "zk-register-section": {
     "title": "ZK registries",
     "accordion-title-1": "ZK passport",
-    "accordion-description-1": "Allows users to self-issue their identities based on national IDs and verify their attributes confidentially",
+    "accordion-description-1": "Allow users to verify their identities based on national IDs",
     "accordion-cta-1": "START BUILDING",
     "accordion-title-2": "ZK reputation",
     "accordion-description-2": "Users can verify <highlight>hidden relationships</highlight> and <highlight>actions</highlight> invisible to the public",
