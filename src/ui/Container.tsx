@@ -9,7 +9,7 @@ const Container = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
         <div
           {...rest}
           ref={ref}
-          className={cn('size-full rounded-lg', className)}
+          className={cn('size-full rounded-3xl', className)}
         />
       </div>
     )

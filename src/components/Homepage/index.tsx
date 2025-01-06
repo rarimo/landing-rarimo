@@ -10,7 +10,9 @@ export default function Homepage() {
   const [activeLink, setActiveLink] = useState<Anchors>(Anchors.Hero)
 
   return (
-    <div className={'flex size-full gap-12 overflow-hidden'}>
+    <div
+      className={'flex size-full gap-12 overflow-hidden bg-backgroundPrimary'}
+    >
       <div className='p-8 pr-0'>
         <HomeSidebar activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>

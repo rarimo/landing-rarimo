@@ -1,8 +1,8 @@
-import { Noto_Sans_Georgian } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 import { PRIMARY_FONT_VARIABLE } from './config'
 
-const primaryFont = Noto_Sans_Georgian({
+const primaryFont = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   // HACK: "Font loader values must be explicitly written literals"

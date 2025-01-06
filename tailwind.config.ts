@@ -1,14 +1,12 @@
-import type { Config } from 'tailwindcss'
+import { Config } from 'tailwindcss'
+import plugin from 'tailwindcss/plugin'
 
 import {
-  animation,
-  borderRadius,
   colors,
+  cssVars,
   fontFamily,
-  fontSize,
-  keyframes,
-  screens,
-  spacing,
+  gradients,
+  typography,
 } from './src/theme/config'
 
 const config: Config = {
@@ -17,14 +15,28 @@ const config: Config = {
     extend: {
       colors,
       fontFamily,
-      fontSize,
-      borderRadius,
-      screens,
-      spacing,
-      keyframes,
-      animation,
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addBase }) =>
+      addBase({
+        ':root': {
+          ...cssVars.light,
+        },
+        '.dark:root': {
+          ...cssVars.dark,
+        },
+      }),
+    ),
+
+    plugin(({ addUtilities }) => {
+      addUtilities(gradients)
+    }),
+
+    plugin(({ addUtilities }) => {
+      addUtilities(typography)
+    }),
+  ],
 }
+
 export default config

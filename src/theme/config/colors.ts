@@ -1,9 +1,176 @@
-import { ThemeConfig } from 'tailwindcss/types/config'
+import kebabCase from 'lodash/kebabCase'
+import type { ThemeConfig } from 'tailwindcss/types/config'
 
-export const colors: ThemeConfig['colors'] = {
-  baseBlack: 'var(--base-black)',
-  baseWhite: 'var(--base-white)',
+const getRgba = (hex: string, opacity: number) => {
+  const hexValue = hex.replace('#', '')
+  const r = parseInt(hexValue.substring(0, 2), 16)
+  const g = parseInt(hexValue.substring(2, 4), 16)
+  const b = parseInt(hexValue.substring(4, 6), 16)
+  return `rgba(${r}, ${g}, ${b}, ${opacity})`
+}
 
+export const lightPalette = {
+  primaryDarker: '#53CD6A',
+  primaryDark: '#69DE7F',
+  primaryMain: '#82ED96',
+  primaryLight: getRgba('#82ED96', 0.12),
+  primaryLighter: getRgba('#82ED96', 0.06),
+
+  secondaryDarker: '#A45CD1',
+  secondaryDark: '#B876E1',
+  secondaryMain: '#CD90F3',
+  secondaryLight: getRgba('#CD90F3', 0.12),
+  secondaryLighter: getRgba('#CD90F3', 0.06),
+
+  successDarker: '#0F8F6F',
+  successDark: '#0AA17B',
+  successMain: '#00B487',
+  successLight: getRgba('#00B487', 0.12),
+  successLighter: getRgba('#00B487', 0.06),
+
+  errorDarker: '#C83733',
+  errorDark: '#DD3B36',
+  errorMain: '#F23F3A',
+  errorLight: getRgba('#F23F3A', 0.12),
+  errorLighter: getRgba('#F23F3A', 0.06),
+
+  warningDarker: '#C09027',
+  warningDark: '#E1AC3B',
+  warningMain: '#FFC548',
+  warningLight: getRgba('#FFC548', 0.12),
+  warningLighter: getRgba('#FFC548', 0.06),
+
+  infoDarker: '#3494BE',
+  infoDark: '#3B9FCB',
+  infoMain: '#3DA7D5',
+  infoLight: getRgba('#3DA7D5', 0.12),
+  infoLighter: getRgba('#3DA7D5', 0.06),
+
+  textPrimary: '#282828',
+  textSecondary: getRgba('#282828', 0.56),
+  textPlaceholder: getRgba('#282828', 0.44),
+  textDisabled: getRgba('#282828', 0.28),
+
+  componentPrimary: getRgba('#282828', 0.05),
+  componentHovered: getRgba('#282828', 0.1),
+  componentPressed: getRgba('#282828', 0.15),
+  componentSelected: getRgba('#282828', 0.05),
+  componentDisabled: getRgba('#282828', 0.05),
+
+  backgroundPrimary: '#ffffff',
+  backgroundContainer: '#FAFAFA',
+  backgroundPure: '#ffffff',
+  backgroundSurface1: '#ffffff',
+  backgroundSurface2: '#ffffff',
+
+  baseBlack: '#282828',
+  baseWhite: '#ffffff',
+  baseBackground: getRgba('#112A0A', 0.28),
+
+  invertedDark: '#282828',
+  invertedLight: '#FFFFFF',
+
+  additionalGradient1:
+    'linear-gradient(87.63deg, #45C45C -1.41%, #39CDA0 113.73%);',
+  additionalGradient2:
+    'linear-gradient(87.63deg, #82ED95 -1.41%, #82EDC0 113.73%);',
+  additionalGradient3:
+    'linear-gradient(87.63deg, #AC95DC -1.41%, #CD90F3 113.73%);',
+  additionalGradient4:
+    'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
+}
+
+export type BaseTheme = typeof lightPalette
+
+export const darkPalette: BaseTheme = {
+  primaryDarker: '#53CD6A',
+  primaryDark: '#69DE7F',
+  primaryMain: '#82ED96',
+  primaryLight: getRgba('#82ED96', 0.12),
+  primaryLighter: getRgba('#82ED96', 0.06),
+
+  secondaryDarker: '#A45CD1',
+  secondaryDark: '#B876E1',
+  secondaryMain: '#CD90F3',
+  secondaryLight: getRgba('#CD90F3', 0.12),
+  secondaryLighter: getRgba('#CD90F3', 0.06),
+
+  successDarker: '#0F8F6F',
+  successDark: '#0AA17B',
+  successMain: '#00B487',
+  successLight: getRgba('#00B487', 0.12),
+  successLighter: getRgba('#00B487', 0.06),
+
+  errorDarker: '#C83733',
+  errorDark: '#DD3B36',
+  errorMain: '#F23F3A',
+  errorLight: getRgba('#F23F3A', 0.12),
+  errorLighter: getRgba('#F23F3A', 0.06),
+
+  warningDarker: '#C09027',
+  warningDark: '#E1AC3B',
+  warningMain: '#FFC548',
+  warningLight: getRgba('#FFC548', 0.12),
+  warningLighter: getRgba('#FFC548', 0.06),
+
+  infoDarker: '#3494BE',
+  infoDark: '#3B9FCB',
+  infoMain: '#3DA7D5',
+  infoLight: getRgba('#3DA7D5', 0.12),
+  infoLighter: getRgba('#3DA7D5', 0.06),
+
+  textPrimary: '#282828',
+  textSecondary: getRgba('#282828', 0.56),
+  textPlaceholder: getRgba('#282828', 0.44),
+  textDisabled: getRgba('#282828', 0.28),
+
+  componentPrimary: getRgba('#282828', 0.05),
+  componentHovered: getRgba('#282828', 0.1),
+  componentPressed: getRgba('#282828', 0.15),
+  componentSelected: getRgba('#282828', 0.05),
+  componentDisabled: getRgba('#282828', 0.05),
+
+  backgroundPrimary: '#ffffff',
+  backgroundContainer: '#FAFAFA',
+  backgroundPure: '#ffffff',
+  backgroundSurface1: '#ffffff',
+  backgroundSurface2: '#ffffff',
+
+  baseBlack: '#282828',
+  baseWhite: '#ffffff',
+  baseBackground: getRgba('#112A0A', 0.28),
+
+  invertedDark: '#282828',
+  invertedLight: '#FFFFFF',
+
+  additionalGradient1:
+    'linear-gradient(87.63deg, #45C45C -1.41%, #39CDA0 113.73%);',
+  additionalGradient2:
+    'linear-gradient(87.63deg, #82ED95 -1.41%, #82EDC0 113.73%);',
+  additionalGradient3:
+    'linear-gradient(87.63deg, #AC95DC -1.41%, #CD90F3 113.73%);',
+  additionalGradient4:
+    'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
+}
+
+export const cssVars = {
+  light: Object.entries(lightPalette).reduce(
+    (acc, [key, value]) => ({
+      ...acc,
+      [`--${kebabCase(key)}`]: value,
+    }),
+    {} as Record<string, string>,
+  ),
+  dark: Object.entries(darkPalette).reduce(
+    (acc, [key, value]) => ({
+      ...acc,
+      [`--${kebabCase(key)}`]: value,
+    }),
+    {} as Record<string, string>,
+  ),
+}
+
+export const colorsScheme: BaseTheme = {
   primaryDarker: 'var(--primary-darker)',
   primaryDark: 'var(--primary-dark)',
   primaryMain: 'var(--primary-main)',
@@ -34,6 +201,12 @@ export const colors: ThemeConfig['colors'] = {
   warningLight: 'var(--warning-light)',
   warningLighter: 'var(--warning-lighter)',
 
+  infoDarker: 'var(--info-darker)',
+  infoDark: 'var(--info-dark)',
+  infoMain: 'var(--info-main)',
+  infoLight: 'var(--info-light)',
+  infoLighter: 'var(--info-lighter)',
+
   textPrimary: 'var(--text-primary)',
   textSecondary: 'var(--text-secondary)',
   textPlaceholder: 'var(--text-placeholder)',
@@ -48,8 +221,20 @@ export const colors: ThemeConfig['colors'] = {
   backgroundPrimary: 'var(--background-primary)',
   backgroundContainer: 'var(--background-container)',
   backgroundPure: 'var(--background-pure)',
+  backgroundSurface1: 'var(--background-surface-1)',
+  backgroundSurface2: 'var(--background-surface-2)',
 
-  additionalLayerBorder: 'var(--additional-layer-border)',
-  additionalPureDark: 'var(--additional-pure-dark)',
-  additionalInverted: 'var(--additional-inverted)',
+  baseBlack: 'var(--base-black)',
+  baseWhite: 'var(--base-white)',
+  baseBackground: 'var(--base-background)',
+
+  invertedDark: 'var(--inverted-dark)',
+  invertedLight: 'var(--inverted-light)',
+
+  additionalGradient1: 'var(--additional-gradient-1)',
+  additionalGradient2: 'var(--additional-gradient-2)',
+  additionalGradient3: 'var(--additional-gradient-3)',
+  additionalGradient4: 'var(--additional-gradient-4)',
 }
+
+export const colors: ThemeConfig['colors'] = colorsScheme

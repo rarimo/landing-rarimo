@@ -30,7 +30,7 @@ export async function generateMetadata() {
       description: t('metadata.twitter.description'),
       card: 'summary_large_image',
       images: t('metadata.twitter.images'),
-      site: t('metadata.openGraph.site'),
+      site: t('metadata.twitter.site'),
     },
   }
 }

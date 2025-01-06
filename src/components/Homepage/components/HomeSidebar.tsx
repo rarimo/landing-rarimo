@@ -33,14 +33,18 @@ export default function HomeSidebar({
           }}
         />
 
-        <UiHorizontalDivider className={'my-5 bg-red-600'} />
+        <UiHorizontalDivider className={'my-5 w-3 bg-componentPrimary'} />
 
         <div className='flex flex-col gap-5'>
-          <ExtIconLink href={'#'}>Learning hub</ExtIconLink>
-          <ExtIconLink href={'#'}>Documentation</ExtIconLink>
+          <ExtIconLink href={'#'} className={'text-textSecondary'}>
+            Learning hub
+          </ExtIconLink>
+          <ExtIconLink href={'#'} className={'text-textSecondary'}>
+            Documentation
+          </ExtIconLink>
         </div>
 
-        <div className='mt-auto h-[150px] w-full bg-red-600'></div>
+        <div className='mt-auto h-[150px] w-full bg-componentPrimary'></div>
       </nav>
     </aside>
   )
@@ -67,21 +71,21 @@ function AnchorsList({
       />
       <AnchorNavItem
         title='Ecosystem'
-        href={`#${Anchors.Description}`}
-        isActive={activeLink === Anchors.Description}
-        onClick={() => setActiveLink(Anchors.Description)}
+        href={`#${Anchors.Ecosystem}`}
+        isActive={activeLink === Anchors.Ecosystem}
+        onClick={() => setActiveLink(Anchors.Ecosystem)}
       />
       <AnchorNavItem
         title='L2: ZK Registries'
-        href={`#${Anchors.Abilities}`}
-        isActive={activeLink === Anchors.Abilities}
-        onClick={() => setActiveLink(Anchors.Abilities)}
+        href={`#${Anchors.ZkRegistries}`}
+        isActive={activeLink === Anchors.ZkRegistries}
+        onClick={() => setActiveLink(Anchors.ZkRegistries)}
       />
       <AnchorNavItem
         title='Community'
-        href={`#${Anchors.Safety}`}
-        isActive={activeLink === Anchors.Safety}
-        onClick={() => setActiveLink(Anchors.Safety)}
+        href={`#${Anchors.Community}`}
+        isActive={activeLink === Anchors.Community}
+        onClick={() => setActiveLink(Anchors.Community)}
       />
     </div>
   )
@@ -100,8 +104,8 @@ function AnchorNavItem({ title, href, isActive, onClick }: AnchorNavItemProps) {
       href={href}
       onClick={onClick}
       className={cn(
-        'text-text-primary line-clamp-1 text-sm font-semibold',
-        isActive && 'text-accent-primary',
+        'line-clamp-1 text-textSecondary',
+        isActive && 'text-textPrimary',
       )}
     >
       {title}
