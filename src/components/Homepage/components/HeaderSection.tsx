@@ -9,7 +9,7 @@ import { Anchors } from '@/enums'
 import { useTranslation } from '@/hooks/useTranslation'
 import { locales } from '@/i18n'
 import { cn } from '@/theme/utils'
-import { CircledBadge, Container, UiCollapse } from '@/ui'
+import { CircledBadge, UiCollapse, UiContainer } from '@/ui'
 
 export default function HeaderSection({
   activeLink = Anchors.Hero,
@@ -42,7 +42,7 @@ export default function HeaderSection({
 
   return (
     <header className='sticky top-0 z-10 bg-backgroundPrimary py-8 sm:relative'>
-      <Container
+      <UiContainer
         className='flex items-center justify-between gap-8 sm:flex-row'
         data-aos='fade-up'
       >
@@ -87,7 +87,7 @@ export default function HeaderSection({
         </div>
 
         <div className='hidden md:block'>{langSwitcherComponent}</div>
-      </Container>
+      </UiContainer>
     </header>
   )
 }

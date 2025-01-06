@@ -4,7 +4,7 @@ import { AnimationProps, motion, useAnimation, useScroll } from 'motion/react'
 import { ReactElement, useRef, useState } from 'react'
 
 import { cn } from '@/theme/utils'
-import { Container } from '@/ui'
+import { UiContainer } from '@/ui'
 
 const INITIAL_CARD_1 = { x: 0, y: 0, rotate: -15 }
 const INITIAL_CARD_3 = { x: 0, y: 0, rotate: 15 }
@@ -119,7 +119,7 @@ export default function EcosystemSection() {
   }
 
   return (
-    <Container
+    <UiContainer
       ref={ref}
       className={cn(
         'relative flex items-center justify-center overflow-hidden bg-backgroundContainer',
@@ -182,7 +182,7 @@ export default function EcosystemSection() {
           </span>
         </EcosystemCard>
       </div>
-    </Container>
+    </UiContainer>
   )
 }
 

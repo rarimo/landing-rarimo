@@ -2,13 +2,13 @@ import { HTMLAttributes, PropsWithChildren } from 'react'
 
 import { useTranslation } from '@/hooks/useTranslation'
 import { cn } from '@/theme/utils'
-import { Container } from '@/ui'
+import { UiContainer } from '@/ui'
 
 export default function AbilitiesSection() {
   const { t } = useTranslation()
 
   return (
-    <Container data-aos='fade-up'>
+    <UiContainer data-aos='fade-up'>
       <span
         className='text-h5 text-textPrimary'
         data-aos='fade-up'
@@ -88,7 +88,7 @@ export default function AbilitiesSection() {
           </AbilityCard>
         </div>
       </div>
-    </Container>
+    </UiContainer>
   )
 }
 

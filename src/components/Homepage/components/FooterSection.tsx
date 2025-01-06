@@ -1,11 +1,11 @@
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import { Config } from '@/config'
 import { cn } from '@/theme/utils'
-import { Container } from '@/ui'
+import { UiContainer } from '@/ui'
 
 export default function FooterSection() {
   return (
-    <Container
+    <UiContainer
       className='flex flex-col items-center justify-between gap-8 py-8 sm:flex-row'
       data-aos='fade-up'
       data-aos-delay='100'
@@ -53,6 +53,6 @@ export default function FooterSection() {
           />
         </a>
       </div>
-    </Container>
+    </UiContainer>
   )
 }

@@ -4,13 +4,13 @@ import { PropsWithChildren, useState } from 'react'
 
 import { useTranslation } from '@/hooks/useTranslation'
 import { cn } from '@/theme/utils'
-import { CircledBadge, Container, UiCollapse } from '@/ui'
+import { CircledBadge, UiCollapse, UiContainer } from '@/ui'
 
 export default function SafetySection() {
   const { t } = useTranslation()
 
   return (
-    <Container className='flex flex-col gap-15' data-aos='fade-up'>
+    <UiContainer className='gap-15 flex flex-col' data-aos='fade-up'>
       <span
         className='text-h5 text-textPrimary'
         data-aos='fade-up'
@@ -69,7 +69,7 @@ export default function SafetySection() {
           alt='safety'
         />
       </div>
-    </Container>
+    </UiContainer>
   )
 }
 
@@ -96,7 +96,7 @@ function Accordion({
         </CircledBadge>
         <span
           className={cn(
-            'flex-1 text-left text-subtitle2 text-textSecondary',
+            'text-subtitle2 flex-1 text-left text-textSecondary',
             isOpen && 'text-primaryMain',
           )}
         >

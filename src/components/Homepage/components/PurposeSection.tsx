@@ -1,14 +1,14 @@
-import { Container } from '@/ui'
+import { UiContainer } from '@/ui'
 
 export default function PurposeSection() {
   return (
-    <Container className='flex flex-col gap-15 text-center'>
-      <span className='text-h6 text-textPrimary md:text-h5'>მიზანი</span>
+    <UiContainer className='gap-15 flex flex-col text-center'>
+      <span className='text-h6 md:text-h5 text-textPrimary'>მიზანი</span>
 
-      <p className='text-h5 text-primaryMain md:text-h4'>
+      <p className='text-h5 md:text-h4 text-primaryMain'>
         წინა რეფორმებმა საქართველოში მსოფლიო ყურადღება მიიპყრო. ახლა კი დროა
         გადავიდეთ ახალ ეტაპზე რომელიც გლობალურ მასშტაბზე იმუშავებს.
       </p>
-    </Container>
+    </UiContainer>
   )
 }

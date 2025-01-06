@@ -70,6 +70,7 @@ export const lightPalette = {
   invertedDark: '#282828',
   invertedLight: '#FFFFFF',
 
+  additionalOpacited: getRgba('#FFFFFF', 0.7),
   additionalGradient1:
     'linear-gradient(87.63deg, #45C45C -1.41%, #39CDA0 113.73%);',
   additionalGradient2:
@@ -143,6 +144,7 @@ export const darkPalette: BaseTheme = {
   invertedDark: '#282828',
   invertedLight: '#FFFFFF',
 
+  additionalOpacited: getRgba('#000000', 0.7),
   additionalGradient1:
     'linear-gradient(87.63deg, #45C45C -1.41%, #39CDA0 113.73%);',
   additionalGradient2:
@@ -231,6 +233,7 @@ export const colorsScheme: BaseTheme = {
   invertedDark: 'var(--inverted-dark)',
   invertedLight: 'var(--inverted-light)',
 
+  additionalOpacited: 'var(--additional-opacited)',
   additionalGradient1: 'var(--additional-gradient-1)',
   additionalGradient2: 'var(--additional-gradient-2)',
   additionalGradient3: 'var(--additional-gradient-3)',

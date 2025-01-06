@@ -3,19 +3,17 @@
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { useTranslation } from '@/hooks/useTranslation'
 import { cn } from '@/theme/utils'
-import { Container } from '@/ui'
+import { UiContainer } from '@/ui'
 
 export default function HeroSection() {
   const { t } = useTranslation()
 
   return (
-    <Container
+    <UiContainer
       className={cn(
-        'flex flex-col items-center bg-backgroundContainer',
+        'flex flex-col items-center bg-backgroundContainer p-[72px]',
         'bg-[url(/images/bg-sharped-blurred.png)] bg-[length:680px_570px] bg-right-top bg-no-repeat',
-        'items-start',
-        'justify-end',
-        'p-[72px]',
+        'items-start justify-end',
       )}
     >
       <div
@@ -54,6 +52,6 @@ export default function HeroSection() {
           </span>
         </h1>
       </div>
-    </Container>
+    </UiContainer>
   )
 }

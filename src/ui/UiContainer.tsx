@@ -2,10 +2,10 @@ import { forwardRef, HTMLAttributes } from 'react'
 
 import { cn } from '@/theme/utils'
 
-const Container = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+const UiContainer = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...rest }, ref) => {
     return (
-      <div className={cn('h-dvh w-full', 'p-2', 'md:p-8 md:pl-0')}>
+      <div className={cn('h-dvh', 'p-2', 'md:p-8 md:pl-0')}>
         <div
           {...rest}
           ref={ref}
@@ -16,4 +16,4 @@ const Container = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   },
 )
 
-export default Container
+export default UiContainer

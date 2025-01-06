@@ -1,14 +1,14 @@
 import { useTranslation } from '@/hooks/useTranslation'
-import { Container } from '@/ui'
+import { UiContainer } from '@/ui'
 
 export default function TextDescriptionSection() {
   const { t } = useTranslation()
 
   return (
-    <Container>
+    <UiContainer>
       <div className='flex flex-row flex-wrap gap-8 lg:max-w-[85%] lg:gap-12'>
         <p
-          className='block text-h5 text-textPrimary lg:text-h4'
+          className='text-h5 lg:text-h4 block text-textPrimary'
           data-aos='fade-up'
           data-aos-delay='150'
         >
@@ -30,6 +30,6 @@ export default function TextDescriptionSection() {
           {t('text-description-section.text-2')}
         </p>
       </div>
-    </Container>
+    </UiContainer>
   )
 }
