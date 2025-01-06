@@ -1,0 +1,12 @@
+build/*.js
+dist/*.js
+config/*.js
+playground
+*.schema.js
+index.html
+*.md
+static/env.js
+.next/
+node_modules/
+coverage/
+__snapshots__/
