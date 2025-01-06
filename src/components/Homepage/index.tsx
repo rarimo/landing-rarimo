@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 
+import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import HomeSidebar from '@/components/Homepage/components/HomeSidebar'
 import { Anchors } from '@/enums'
@@ -12,19 +13,22 @@ export default function Homepage() {
 
   return (
     <div
-      className={'flex size-full gap-12 overflow-hidden bg-backgroundPrimary'}
+      className={cn(
+        'flex gap-12 bg-backgroundPrimary',
+        // 'size-full overflow-hidden',
+      )}
     >
-      <div className={cn('hidden p-8 pr-0', 'md:flex')}>
+      <div
+        className={cn('hidden p-8 pr-0', 'md:flex', 'sticky top-0', 'h-dvh')}
+      >
         <HomeSidebar activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
 
-      <main className='relative size-full flex-1 overflow-y-auto overflow-x-hidden'>
-        <div className='absolute flex w-full flex-col'>
-          <HeroSection />
-          <HeroSection />
-          <HeroSection />
-          <HeroSection />
-        </div>
+      <main className={cn('relative flex-1')}>
+        <HeroSection />
+        <EcosystemSection />
+        <HeroSection />
+        <HeroSection />
       </main>
     </div>
   )
