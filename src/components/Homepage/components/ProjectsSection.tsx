@@ -8,7 +8,7 @@ import {
 import { cn } from '@/theme/utils'
 import { UiContainer, UiHorizontalDivider } from '@/ui'
 
-export default function RegistrySection() {
+export default function ProjectsSection() {
   return (
     <UiContainer
       className={cn(
@@ -46,12 +46,12 @@ export default function RegistrySection() {
         </div>
       </div>
 
-      <RegistrySectionCarousel />
+      <ProjectsSectionCarousel />
     </UiContainer>
   )
 }
 
-function RegistrySectionCarousel() {
+function ProjectsSectionCarousel() {
   const projects = [
     {
       title: 'RariMe',
@@ -121,7 +121,7 @@ function RegistrySectionCarousel() {
       <div className={'absolute flex gap-4 px-[72px]'}>
         {projects.map((el, idx) => {
           return (
-            <RegistrySectionProjectCard
+            <ProjectsSectionProjectCard
               key={idx}
               title={el.title}
               desc={el.desc}
@@ -134,7 +134,7 @@ function RegistrySectionCarousel() {
   )
 }
 
-function RegistrySectionProjectCard({
+function ProjectsSectionProjectCard({
   imgUrl,
   title,
   desc,

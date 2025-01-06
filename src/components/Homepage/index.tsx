@@ -5,7 +5,8 @@ import { useState } from 'react'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import HomeSidebar from '@/components/Homepage/components/HomeSidebar'
-import RegistrySection from '@/components/Homepage/components/RegistrySection'
+import ProjectsSection from '@/components/Homepage/components/ProjectsSection'
+import RegistriesSection from '@/components/Homepage/components/RegistriesSection'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 
@@ -23,8 +24,8 @@ export default function Homepage() {
       <main className={cn('relative flex flex-1 flex-col')}>
         <HeroSection />
         <EcosystemSection />
-        <RegistrySection />
-        <HeroSection />
+        <ProjectsSection />
+        <RegistriesSection />
       </main>
     </div>
   )
