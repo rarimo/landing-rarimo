@@ -5,11 +5,13 @@ import { cn } from '@/theme/utils'
 const Container = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...rest }, ref) => {
     return (
-      <div
-        {...rest}
-        ref={ref}
-        className={cn('mx-auto w-full max-w-[1128px] px-5 xl:px-0', className)}
-      />
+      <div className={cn('h-dvh w-full p-8 pl-0')}>
+        <div
+          {...rest}
+          ref={ref}
+          className={cn('size-full rounded-lg', className)}
+        />
+      </div>
     )
   },
 )

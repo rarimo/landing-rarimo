@@ -2,10 +2,9 @@
 
 import { PropsWithChildren, useState } from 'react'
 
-import CaretDown from '@/assets/icons/caret-down-icon.svg'
 import { useTranslation } from '@/hooks/useTranslation'
 import { cn } from '@/theme/utils'
-import { CircledBadge, Container, HorizontalDivider, UiCollapse } from '@/ui'
+import { CircledBadge, Container, UiCollapse } from '@/ui'
 
 export default function SafetySection() {
   const { t } = useTranslation()
@@ -34,7 +33,7 @@ export default function SafetySection() {
               {t('safety-section.accordion-1.description')}
             </p>
           </Accordion>
-          <HorizontalDivider />
+          {/*<HorizontalDivider />*/}
           <Accordion title={t('safety-section.accordion-2.title')}>
             <p className='text-body3 text-textPrimary'>
               {t('safety-section.accordion-2.description')}{' '}
@@ -48,7 +47,7 @@ export default function SafetySection() {
               </a>
             </p>
           </Accordion>
-          <HorizontalDivider />
+          {/*<HorizontalDivider />*/}
           <Accordion title={t('safety-section.accordion-3.title')}>
             <p className='text-body3 text-textPrimary'>
               {t('safety-section.accordion-3.description')}{' '}
@@ -93,7 +92,7 @@ function Accordion({
         <CircledBadge
           className={cn(isOpen && 'rotate-180 bg-primaryMain text-baseWhite')}
         >
-          <CaretDown />
+          {/*<CaretDown />*/}
         </CircledBadge>
         <span
           className={cn(

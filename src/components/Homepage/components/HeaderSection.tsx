@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { ForwardedRef, useEffect, useMemo, useState } from 'react'
 
 import LogoIcon from '@/assets/icons/logo-icon.svg'
-import MenuIcon from '@/assets/icons/menu-icon.svg'
 import { Anchors } from '@/enums'
 import { useTranslation } from '@/hooks/useTranslation'
 import { locales } from '@/i18n'
@@ -71,7 +70,7 @@ export default function HeaderSection({
             }}
           >
             <CircledBadge className='size-10'>
-              <MenuIcon className='size-5' />
+              {/*<MenuIcon className='size-5' />*/}
             </CircledBadge>
           </button>
 

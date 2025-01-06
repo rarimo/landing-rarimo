@@ -1,5 +1,4 @@
 import LogoIcon from '@/assets/icons/logo-icon.svg'
-import LogoSymbolIcon from '@/assets/icons/logo-symbol-icon.svg'
 import { Config } from '@/config'
 import { cn } from '@/theme/utils'
 import { Container } from '@/ui'
@@ -12,7 +11,7 @@ export default function FooterSection() {
       data-aos-delay='100'
     >
       <div className='block sm:hidden' data-aos='fade-up' data-aos-delay='300'>
-        <LogoSymbolIcon />
+        {/*<LogoSymbolIcon />*/}
       </div>
       <div className='hidden sm:block'>
         <LogoIcon />

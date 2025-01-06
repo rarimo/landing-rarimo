@@ -2,57 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-// Colors
-:root {
-  --base-black: #000000;
-  --base-white: #ffffff;
-
-  --primary-darker: #0a4c3d;
-  --primary-dark: #0d5847;
-  --primary-main: #136854;
-  --primary-light: #b4efe1;
-  --primary-lighter: #dafef5;
-
-  --secondary-darker: #c897e6;
-  --secondary-dark: #d9aef3;
-  --secondary-main: #e7c1fe;
-  --secondary-light: #f5e3ff;
-  --secondary-lighter: #faf2ff;
-
-  --success-darker: #268764;
-  --success-dark: #2fa77b;
-  --success-main: #38c793;
-  --success-light: #c7efe1;
-  --success-lighter: #ebf9f4;
-
-  --error-darker: #98132c;
-  --error-dark: #bb1837;
-  --error-main: #df1c41;
-  --error-light: #f9d2d9;
-  --error-lighter: #fdeff2;
-
-  --warning-darker: #a4541e;
-  --warning-dark: #ca6725;
-  --warning-main: #f17b2c;
-  --warning-light: rgba(241, 123, 44, 0.1);
-  --warning-lighter: rgba(241, 123, 44, 0.05);
-
-  --text-primary: #000000;
-  --text-secondary: rgba(0, 0, 0, 0.56);
-  --text-placeholder: rgba(0, 0, 0, 0.44);
-  --text-disabled: rgba(0, 0, 0, 0.28);
-
-  --component-primary: rgba(0, 0, 0, 0.05);
-  --component-hovered: rgba(0, 0, 0, 0.1);
-  --component-pressed: rgba(0, 0, 0, 0.15);
-  --component-selected: rgba(0, 0, 0, 0.05);
-  --component-disabled: rgba(0, 0, 0, 0.05);
-
-  --background-primary: #f5f6f6;
-  --background-container: #ffffff;
-  --background-pure: #ffffff;
-
-  --additional-layer-border: #ffffff;
-  --additional-pure-dark: #000000;
-  --additional-inverted: #ffffff;
+html, body {
+  @apply size-full;
 }

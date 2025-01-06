@@ -4,7 +4,6 @@ import '@splidejs/splide/css'
 import { Splide } from '@splidejs/splide'
 import { useEffect, useRef, useState } from 'react'
 
-import ArrowRightIcon from '@/assets/icons/arrow-right-icon.svg'
 import { cn } from '@/theme/utils'
 
 const steps = [
@@ -78,7 +77,7 @@ export default function PassportDemo({ isOpen }: { isOpen: boolean }) {
             onClick={() => splide.current?.go('-1')}
             className='text-text-primary disabled:text-text-secondary'
           >
-            <ArrowRightIcon className='h-5 rotate-180' />
+            {/*<ArrowRightIcon className='h-5 rotate-180' />*/}
           </button>
           <div className='flex gap-2'>
             {steps.map((_, index) => (
@@ -99,7 +98,7 @@ export default function PassportDemo({ isOpen }: { isOpen: boolean }) {
             className='text-text-primary disabled:text-text-secondary'
             onClick={() => splide.current?.go('+1')}
           >
-            <ArrowRightIcon className='h-5' />
+            {/*<ArrowRightIcon className='h-5' />*/}
           </button>
         </div>
       </div>
