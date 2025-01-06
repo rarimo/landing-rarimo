@@ -11,6 +11,7 @@ export default function RegistriesSection() {
       className={cn(
         'relative flex flex-col overflow-hidden bg-backgroundContainer p-[72px]',
       )}
+      isFullHeight={false}
     >
       <div className='flex items-center justify-between'>
         <div className='flex flex-col gap-4'>

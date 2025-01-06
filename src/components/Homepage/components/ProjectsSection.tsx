@@ -15,6 +15,7 @@ export default function ProjectsSection() {
         'relative flex flex-col overflow-hidden bg-backgroundContainer p-[72px] px-0',
         'bg-[url(/images/sharped-blurred-bg-2.png)] bg-[length:680px_570px] bg-right-bottom bg-no-repeat',
       )}
+      isFullHeight={false}
     >
       <div className='flex-1 px-[72px]'>
         <span className='text-textSecondary typography-h1'>

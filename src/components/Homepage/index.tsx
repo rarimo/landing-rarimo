@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 
+import CommunitySection from '@/components/Homepage/components/CommunitySection'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import HomeSidebar from '@/components/Homepage/components/HomeSidebar'
@@ -26,6 +27,7 @@ export default function Homepage() {
         <EcosystemSection />
         <ProjectsSection />
         <RegistriesSection />
+        <CommunitySection />
       </main>
     </div>
   )
