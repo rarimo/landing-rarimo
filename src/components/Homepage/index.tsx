@@ -6,6 +6,7 @@ import CommunitySection from '@/components/Homepage/components/CommunitySection'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import HomeSidebar from '@/components/Homepage/components/HomeSidebar'
+import NewsSection from '@/components/Homepage/components/NewsSection'
 import ProjectsSection from '@/components/Homepage/components/ProjectsSection'
 import RegistriesSection from '@/components/Homepage/components/RegistriesSection'
 import { Anchors } from '@/enums'
@@ -28,6 +29,7 @@ export default function Homepage() {
         <ProjectsSection />
         <RegistriesSection />
         <CommunitySection />
+        <NewsSection />
       </main>
     </div>
   )
