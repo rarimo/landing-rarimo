@@ -1,6 +1,7 @@
 import { HTMLAttributes } from 'react'
 
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
+import UnderlineIcon from '@/assets/icons/underline-icon.svg'
 import {
   ArrowIconButtonLeft,
   ArrowIconButtonRight,
@@ -34,9 +35,14 @@ export default function ProjectsSection() {
       </div>
 
       <div className='mb-[40px] mt-auto flex items-center gap-5 px-[72px]'>
-        <span className={cn('text-textPrimary typography-h3', 'typography-h2')}>
-          100,000+
-        </span>
+        <div className='relative'>
+          <span
+            className={cn('text-textPrimary typography-h3', 'typography-h2')}
+          >
+            100,000+
+          </span>
+          <UnderlineIcon className='absolute left-1/2 top-full w-full -translate-x-1/2' />
+        </div>
         <span
           className={cn(
             'text-textSecondary typography-subtitle3',

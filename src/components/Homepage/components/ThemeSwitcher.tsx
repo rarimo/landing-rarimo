@@ -31,21 +31,23 @@ export default function ThemeSwitcher() {
   }
 
   return (
-    <div
-      className='relative flex h-[36px] w-[140px] items-center justify-center rounded-full bg-componentPrimary'
-      onClick={isAnimated ? animateToInitial : animateTo}
-    >
+    <div className='relative flex h-[36px] w-[140px] items-center justify-center rounded-full bg-componentPrimary'>
       <ThemeSwitcherThumbBackdrop
         animate={thumbControls}
         initial={INITIAL_THUMB}
       />
 
       <ThemeSwitcherThumb>
-        <SunLineIcon />
+        <SunLineIcon className='text-textPrimary' />
       </ThemeSwitcherThumb>
       <ThemeSwitcherThumb>
-        <MoonLineIcon />
+        <MoonLineIcon className='text-textPrimary' />
       </ThemeSwitcherThumb>
+
+      <button
+        className='absolute left-0 top-0 z-40 size-full'
+        onClick={isAnimated ? animateToInitial : animateTo}
+      />
     </div>
   )
 }

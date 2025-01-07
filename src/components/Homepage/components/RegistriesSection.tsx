@@ -32,7 +32,7 @@ export default function RegistriesSection() {
                 Built as
               </span>
               <div className='flex items-center gap-1'>
-                <EthIcon />
+                <EthIcon className='text-textPrimary' />
                 <Link
                   href={'#'}
                   className='text-textPrimary underline typography-body2'

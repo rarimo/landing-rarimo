@@ -1,13 +1,10 @@
 'use client'
 
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
-import { useTranslation } from '@/hooks/useTranslation'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
 export default function HeroSection() {
-  const { t } = useTranslation()
-
   return (
     <UiContainer
       className={cn(
@@ -35,7 +32,12 @@ export default function HeroSection() {
           <ArrowRightSLineIcon />
         </div>
         <h1 className={cn('flex flex-col')}>
-          <span className={cn('typography-display4', 'md:typography-display2')}>
+          <span
+            className={cn(
+              'text-textPrimary typography-display4',
+              'md:typography-display2',
+            )}
+          >
             Your
           </span>
           <span className='flex gap-2'>
@@ -48,7 +50,7 @@ export default function HeroSection() {
               Device
             </span>
 
-            <span className='gradient1 h-full w-[4px]' />
+            <span className='gradient1 h-full w-1' />
           </span>
         </h1>
       </div>
