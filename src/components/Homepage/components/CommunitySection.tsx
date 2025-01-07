@@ -18,10 +18,16 @@ export default function CommunitySection() {
       isFullHeight={false}
     >
       <div className='mb-[72px] mt-auto flex items-center gap-5 px-[72px]'>
-        <span className='text-textPrimary typography-h2'>Community</span>
-        <span className='text-textSecondary typography-h2'>Backers</span>
+        <span className={cn('text-textPrimary typography-h3', 'typography-h2')}>
+          Community
+        </span>
+        <span
+          className={cn('text-textSecondary typography-h3', 'typography-h2')}
+        >
+          Backers
+        </span>
 
-        <div className='ml-auto flex items-center gap-4'>
+        <div className={cn('ml-auto hidden items-center gap-4', 'md:flex')}>
           <ArrowIconButtonLeft isDisabled>
             <ArrowRightSLineIcon className={'rotate-180 text-textDisabled'} />
           </ArrowIconButtonLeft>

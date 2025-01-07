@@ -16,7 +16,12 @@ export default function RegistriesSection() {
           'relative flex flex-col overflow-hidden rounded-3xl bg-backgroundPure p-[72px]',
         )}
       >
-        <div className='flex items-center justify-between'>
+        <div
+          className={cn(
+            'flex flex-col items-start justify-between gap-5',
+            'md:flex-row md:items-center',
+          )}
+        >
           <div className='flex flex-col gap-4'>
             <span className='text-textPrimary typography-h2'>
               Rarimo L2: ZK registries
@@ -39,14 +44,17 @@ export default function RegistriesSection() {
           </div>
 
           <UiButton
-            className={'rounded-full bg-textPrimary text-invertedLight'}
+            className={cn(
+              'w-full rounded-full bg-textPrimary text-invertedLight',
+              'md:w-auto',
+            )}
             color={'text'}
           >
             Start building
           </UiButton>
         </div>
 
-        <div className='mt-[72px] flex gap-4'>
+        <div className={cn('mt-[72px] flex flex-col gap-4', 'md:flex-row')}>
           <RegistryCard
             imgUrl='/images/registry-1.png'
             title={'ZK Passports'}

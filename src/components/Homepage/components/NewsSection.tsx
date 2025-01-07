@@ -22,7 +22,7 @@ export default function NewsSection() {
         <div className='mb-[72px] mt-auto flex items-center gap-5 px-[72px]'>
           <span className='text-textPrimary typography-h2'>News and blogs</span>
 
-          <div className='ml-auto flex items-center gap-4'>
+          <div className={cn('ml- hidden items-center gap-4', 'md:flex')}>
             <ArrowIconButtonLeft isDisabled>
               <ArrowRightSLineIcon className={'rotate-180 text-textDisabled'} />
             </ArrowIconButtonLeft>
@@ -109,7 +109,7 @@ function NewsSectionItemCard({
     <div
       {...rest}
       className={cn(
-        'flex flex-col gap-6 p-6',
+        'flex flex-col gap-6',
         'relative h-[260px] w-[320px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
         className,
       )}

@@ -18,7 +18,9 @@ export default function ProjectsSection() {
       isFullHeight={false}
     >
       <div className='flex-1 px-[72px]'>
-        <span className='text-textSecondary typography-h1'>
+        <span
+          className={cn('text-textSecondary typography-h2', 'md:typography-h1')}
+        >
           Unlocking a new generation of social apps, where users stay{' '}
           <span className='text-textPrimary'>private</span> without losing{' '}
           <span className='text-textPrimary'>historical</span>{' '}
@@ -32,12 +34,19 @@ export default function ProjectsSection() {
       </div>
 
       <div className='mb-[40px] mt-auto flex items-center gap-5 px-[72px]'>
-        <span className='text-textPrimary typography-subtitle2'>100,000+</span>
-        <span className='text-textSecondary typography-subtitle2'>
+        <span className={cn('text-textPrimary typography-h3', 'typography-h2')}>
+          100,000+
+        </span>
+        <span
+          className={cn(
+            'text-textSecondary typography-subtitle3',
+            'typography-subtitle2',
+          )}
+        >
           Active users
         </span>
 
-        <div className='ml-auto flex items-center gap-4'>
+        <div className={cn('ml-auto hidden items-center gap-4', 'md:flex')}>
           <ArrowIconButtonLeft isDisabled>
             <ArrowRightSLineIcon className={'rotate-180 text-textDisabled'} />
           </ArrowIconButtonLeft>
