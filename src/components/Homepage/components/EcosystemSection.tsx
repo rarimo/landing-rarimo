@@ -1,6 +1,6 @@
 'use client'
 
-import { AnimationProps, motion, useAnimation, useScroll } from 'motion/react'
+import { AnimationProps, motion, useScroll } from 'motion/react'
 import { ReactElement, useRef, useState } from 'react'
 
 import { cn } from '@/theme/utils'
@@ -22,99 +22,11 @@ export default function EcosystemSection() {
     offset: ['end end', 'start start'],
   })
 
-  const card1Controls = useAnimation()
-  const card3Controls = useAnimation()
-
-  const ecosystem1CardControls = useAnimation()
-  const ecosystem2CardControls = useAnimation()
-  const ecosystem3CardControls = useAnimation()
-  const ecosystem4CardControls = useAnimation()
-  const ecosystem5CardControls = useAnimation()
-  const ecosystem6CardControls = useAnimation()
-
   const animateTo = async () => {
-    await Promise.all([
-      card1Controls.start({
-        x: 300,
-        y: 150,
-        rotate: 0,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-      card3Controls.start({
-        x: -300,
-        y: -150,
-        rotate: 0,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-
-      ecosystem1CardControls.start({
-        x: 100,
-        y: -190,
-      }),
-      ecosystem2CardControls.start({
-        x: 350,
-        y: -250,
-        scale: 0.8,
-      }),
-      ecosystem3CardControls.start({
-        x: 300,
-        y: -90,
-        scale: 0.8,
-      }),
-
-      ecosystem4CardControls.start({
-        x: -300,
-        y: 150,
-        scale: 0.6,
-      }),
-      ecosystem5CardControls.start({
-        x: -170,
-        y: 250,
-      }),
-      ecosystem6CardControls.start({
-        x: 50,
-        y: 290,
-      }),
-    ])
     setIsAnimated(true)
   }
 
   const animateToInitial = async () => {
-    await Promise.all([
-      card1Controls.start({
-        ...INITIAL_CARD_1,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-      card3Controls.start({
-        ...INITIAL_CARD_3,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-
-      ecosystem1CardControls.start({
-        ...INITIAL_EXAMPLE_CARD,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-      ecosystem2CardControls.start({
-        ...INITIAL_EXAMPLE_CARD,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-      ecosystem3CardControls.start({
-        ...INITIAL_EXAMPLE_CARD,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-      ecosystem4CardControls.start({
-        ...INITIAL_EXAMPLE_CARD,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-      ecosystem5CardControls.start({
-        ...INITIAL_EXAMPLE_CARD,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-      ecosystem6CardControls.start({
-        ...INITIAL_EXAMPLE_CARD,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-    ])
     setIsAnimated(false)
   }
 
@@ -128,39 +40,108 @@ export default function EcosystemSection() {
     >
       <div className='absolute left-1/2 top-1/2 size-[240px] -translate-x-1/2 -translate-y-1/2'>
         <EcosystemExampleCard
-          animate={ecosystem1CardControls}
+          animate={
+            isAnimated
+              ? {
+                  x: 100,
+                  y: -190,
+                }
+              : INITIAL_EXAMPLE_CARD
+          }
+          transition={{ duration: 0.75, type: 'spring' }}
           src={'/images/ecosystem-example.png'}
-          initial={INITIAL_EXAMPLE_CARD}
         />
         <EcosystemExampleCard
-          animate={ecosystem2CardControls}
+          animate={
+            isAnimated
+              ? {
+                  x: 350,
+                  y: -250,
+                  scale: 0.8,
+                }
+              : INITIAL_EXAMPLE_CARD
+          }
+          transition={{
+            duration: 0.75,
+            type: 'spring',
+          }}
           src={'/images/ecosystem-example.png'}
-          initial={INITIAL_EXAMPLE_CARD}
         />
         <EcosystemExampleCard
-          animate={ecosystem3CardControls}
+          animate={
+            isAnimated
+              ? {
+                  x: 300,
+                  y: -90,
+                  scale: 0.8,
+                }
+              : INITIAL_EXAMPLE_CARD
+          }
           src={'/images/ecosystem-example.png'}
-          initial={INITIAL_EXAMPLE_CARD}
+          transition={{
+            duration: 0.75,
+            type: 'spring',
+          }}
         />
         <EcosystemExampleCard
-          animate={ecosystem4CardControls}
+          animate={
+            isAnimated
+              ? {
+                  x: -300,
+                  y: 150,
+                  scale: 0.6,
+                }
+              : INITIAL_EXAMPLE_CARD
+          }
           src={'/images/ecosystem-example.png'}
-          initial={INITIAL_EXAMPLE_CARD}
+          transition={{
+            duration: 0.75,
+            type: 'spring',
+          }}
         />
         <EcosystemExampleCard
-          animate={ecosystem5CardControls}
+          animate={
+            isAnimated
+              ? {
+                  x: -170,
+                  y: 250,
+                }
+              : INITIAL_EXAMPLE_CARD
+          }
           src={'/images/ecosystem-example.png'}
-          initial={INITIAL_EXAMPLE_CARD}
+          transition={{
+            duration: 0.75,
+            type: 'spring',
+          }}
         />
         <EcosystemExampleCard
-          animate={ecosystem6CardControls}
+          animate={
+            isAnimated
+              ? {
+                  x: 50,
+                  y: 290,
+                }
+              : INITIAL_EXAMPLE_CARD
+          }
           src={'/images/ecosystem-example.png'}
-          initial={INITIAL_EXAMPLE_CARD}
+          transition={{
+            duration: 0.75,
+            type: 'spring',
+          }}
         />
 
         <EcosystemCard
           initial={INITIAL_CARD_1}
-          animate={card1Controls}
+          transition={{ duration: 0.75, type: 'spring' }}
+          animate={
+            isAnimated
+              ? {
+                  x: 300,
+                  y: 150,
+                  rotate: 0,
+                }
+              : INITIAL_CARD_1
+          }
           className={'gradient3'}
         >
           <span className='text-baseBlack typography-h2'>
@@ -174,7 +155,16 @@ export default function EcosystemSection() {
         </EcosystemCard>
         <EcosystemCard
           initial={INITIAL_CARD_3}
-          animate={card3Controls}
+          animate={
+            isAnimated
+              ? {
+                  x: -300,
+                  y: -150,
+                  rotate: 0,
+                }
+              : INITIAL_CARD_3
+          }
+          transition={{ duration: 0.75, type: 'spring' }}
           className={'gradient4'}
         >
           <span className='text-baseWhite typography-h2'>

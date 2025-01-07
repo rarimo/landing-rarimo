@@ -23,7 +23,7 @@ const config: Config = {
         ':root': {
           ...cssVars.light,
         },
-        '.dark:root': {
+        "[data-theme='dark']:root": {
           ...cssVars.dark,
         },
       }),

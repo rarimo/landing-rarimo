@@ -1,40 +1,20 @@
-import { AnimationProps, motion, useAnimation } from 'motion/react'
-import { PropsWithChildren, useState } from 'react'
+import { AnimationProps, motion } from 'motion/react'
+import { useTheme } from 'next-themes'
+import { PropsWithChildren } from 'react'
 
 import MoonLineIcon from '@/assets/icons/moon-line-icon.svg'
 import SunLineIcon from '@/assets/icons/sun-line-icon.svg'
 
 const INITIAL_THUMB = { x: 0, y: 0 }
+const ANIMATED_THUMB = { x: '105%' }
 
 export default function ThemeSwitcher() {
-  const [isAnimated, setIsAnimated] = useState(false)
-  const thumbControls = useAnimation()
-
-  const animateTo = async () => {
-    await Promise.all([
-      thumbControls.start({
-        x: '105%',
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-    ])
-    setIsAnimated(true)
-  }
-
-  const animateToInitial = async () => {
-    await Promise.all([
-      thumbControls.start({
-        ...INITIAL_THUMB,
-        transition: { type: 'spring', duration: 0.75 },
-      }),
-    ])
-    setIsAnimated(false)
-  }
+  const { theme, setTheme } = useTheme()
 
   return (
-    <div className='relative flex h-[36px] w-[140px] items-center justify-center rounded-full bg-componentPrimary'>
+    <div className='relative flex h-[36px] w-[140px] items-center justify-center overflow-hidden rounded-full bg-componentPrimary'>
       <ThemeSwitcherThumbBackdrop
-        animate={thumbControls}
-        initial={INITIAL_THUMB}
+        animate={theme === 'dark' ? ANIMATED_THUMB : INITIAL_THUMB}
       />
 
       <ThemeSwitcherThumb>
@@ -46,7 +26,7 @@ export default function ThemeSwitcher() {
 
       <button
         className='absolute left-0 top-0 z-40 size-full'
-        onClick={isAnimated ? animateToInitial : animateTo}
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       />
     </div>
   )

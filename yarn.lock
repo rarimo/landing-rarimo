@@ -4966,6 +4966,7 @@ __metadata:
     motion: "npm:^11.16.0"
     next: "npm:14.2.3"
     next-intl: "npm:^3.17.2"
+    next-themes: "npm:^0.4.4"
     postcss: "npm:^8"
     prettier: "npm:^3.2.5"
     prettier-plugin-tailwindcss: "npm:^0.5.14"
@@ -5411,6 +5412,16 @@ __metadata:
     next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 10c0/bf1ad2cbb78d6c5ac801cea9400b14fa80d7431802f7b714977e275599d3e9bef0fdf199af1187e1d77cbf810a262a7700987a7e5a88eea6877797d596d0738c
+  languageName: node
+  linkType: hard
+
+"next-themes@npm:^0.4.4":
+  version: 0.4.4
+  resolution: "next-themes@npm:0.4.4"
+  peerDependencies:
+    react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+  checksum: 10c0/45d82f968ccfc90f6e6e3cdb95962132f6d1e19eaf614c4e824fc5d079ec522dd50cc196c58da2f000d755b81dbb0caf378c4f512a9e6b6c0a0daa3f99f1a2c7
   languageName: node
   linkType: hard
 

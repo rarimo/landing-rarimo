@@ -1,6 +1,7 @@
 import '@/theme/styles.scss'
 
 import { getTranslations } from 'next-intl/server'
+import { ThemeProvider } from 'next-themes'
 import { ReactNode } from 'react'
 
 import AosInit from '@/common/AosInit'
@@ -47,6 +48,7 @@ export default async function RootLayout({
         appFontClassName,
         'bg-background-container scroll-pt-20 scroll-smooth font-primary',
       )}
+      suppressHydrationWarning
     >
       <head>
         <script
@@ -60,7 +62,7 @@ export default async function RootLayout({
       </head>
       <body>
         <AosInit />
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )
