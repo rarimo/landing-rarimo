@@ -1,11 +1,13 @@
 import type { HTMLAttributes } from 'react'
 
+import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
+import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
+import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
+import ThemeSwitcher from '@/components/Homepage/components/ThemeSwitcher'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
-import { UiHorizontalDivider } from '@/ui'
-
-import ExtIconLink from '../../../ui/ExtIconLink'
+import { ExtIconLink, UiHorizontalDivider } from '@/ui'
 
 type HomeSidebarProps = {
   activeLink: Anchors
@@ -43,9 +45,21 @@ export default function HomeSidebar({
             Documentation
           </ExtIconLink>
         </div>
-
-        <div className='mt-auto h-[150px] w-full bg-componentPrimary'></div>
       </nav>
+
+      <div className='mt-auto flex flex-col gap-6'>
+        <div className='flex items-center gap-4'>
+          <DiscordLineIcon className={'text-textSecondary'} />
+          <TelegramLineIcon className={'text-textSecondary'} />
+          <TwitterXFillIcon className={'text-textSecondary'} />
+        </div>
+
+        <span className='text-textSecondary typography-body3'>
+          Permissionless (ZK) Registries
+        </span>
+
+        <ThemeSwitcher />
+      </div>
     </aside>
   )
 }
