@@ -1,5 +1,5 @@
 export enum Anchors {
-  Hero = 'hero',
+  Home = 'home',
   Ecosystem = 'ecosystem',
   ZkRegistries = 'zk-registries',
   Community = 'community',

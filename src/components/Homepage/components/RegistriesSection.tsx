@@ -2,18 +2,20 @@ import Link from 'next/link'
 import { HTMLAttributes } from 'react'
 
 import EthIcon from '@/assets/icons/eth-icon.svg'
+import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 import { UiButton, UiContainer } from '@/ui'
 
 export default function RegistriesSection() {
   return (
     <UiContainer
+      id={Anchors.ZkRegistries}
       className={cn('bg-backgroundContainer p-2')}
       isFullHeight={false}
     >
       <div
         className={cn(
-          'relative flex flex-col overflow-hidden rounded-3xl bg-backgroundPure p-[72px]',
+          'relative flex flex-col overflow-hidden rounded-3xl bg-backgroundPure px-6 py-10 md:px-[64px] md:py-[64px]',
         )}
       >
         <div
@@ -23,7 +25,7 @@ export default function RegistriesSection() {
           )}
         >
           <div className='flex flex-col gap-4'>
-            <span className='text-textPrimary typography-h2'>
+            <span className='text-textPrimary typography-h3 md:typography-h2'>
               Rarimo L2: ZK registries
             </span>
 
@@ -49,29 +51,35 @@ export default function RegistriesSection() {
               'md:w-auto',
             )}
             color={'text'}
+            // TODO: mobile - size medium
           >
             Start building
           </UiButton>
         </div>
-
-        <div className={cn('mt-[72px] flex flex-col gap-4', 'md:flex-row')}>
-          <RegistryCard
-            imgUrl='/images/registry-1.png'
-            title={'ZK Passports'}
-            desc={'90% global passport registry with uniqueness proofs'}
-          />
-          <RegistryCard
-            imgUrl='/images/registry-2.png'
-            title={'ZK Reputation'}
-            desc={'Managing user leveling & permissions in privacy mode'}
-          />
-          <RegistryCard
-            imgUrl='/images/registry-3.png'
-            title={'Social accounts'}
-            desc={
-              'Registry of verified social handles compatible with any ZKTLS service'
-            }
-          />
+        <div
+          className={cn(
+            'relative mt-[48px] h-full max-h-full min-h-[424px] overflow-x-auto md:mt-[72px]',
+          )}
+        >
+          <div className='absolute flex gap-4'>
+            <RegistryCard
+              imgUrl='/images/registry-1.svg'
+              title={'ZK Passports'}
+              desc={'90% global passport registry with uniqueness proofs'}
+            />
+            <RegistryCard
+              imgUrl='/images/registry-2.svg'
+              title={'ZK Reputation'}
+              desc={'Managing user leveling & permissions in privacy mode'}
+            />
+            <RegistryCard
+              imgUrl='/images/registry-3.svg'
+              title={'Social accounts'}
+              desc={
+                'Registry of verified social handles compatible with any ZKTLS service'
+              }
+            />
+          </div>
         </div>
       </div>
     </UiContainer>
@@ -88,14 +96,12 @@ function RegistryCard({
   desc: string
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className='flex flex-1 flex-col items-center rounded-3xl bg-componentPrimary p-[40px] pt-4 text-center backdrop-blur-[60px]'>
-      <img
-        className='my-auto max-h-[250px] max-w-[250px]'
-        src={imgUrl}
-        alt={title}
-      />
-      <span className='mt-6 text-textPrimary typography-h4'>{title}</span>
-      <span className='mt-2 text-textSecondary typography-body3'>{desc}</span>
+    <div className='flex w-full min-w-[300px] max-w-full flex-col items-center gap-[60px] overflow-hidden rounded-3xl border border-componentPrimary bg-backgroundContainer p-[40px] pt-4 text-center backdrop-blur-[60px]'>
+      <img className='my-auto' src={imgUrl} alt={title} />
+      <div className='flex flex-col gap-2'>
+        <span className='text-textPrimary typography-h4'>{title}</span>
+        <span className='text-textSecondary typography-body3'>{desc}</span>
+      </div>
     </div>
   )
 }

@@ -9,7 +9,7 @@ const UiContainer = forwardRef<
   } & HTMLAttributes<HTMLDivElement>
 >(({ isFullHeight = true, className, ...rest }, ref) => {
   return (
-    <div className={cn(isFullHeight && 'h-dvh', 'p-2', 'md:p-8 md:pl-0')}>
+    <div className={cn(isFullHeight && 'h-dvh', 'p-2', 'md:p-8')}>
       <div
         {...rest}
         ref={ref}

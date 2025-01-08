@@ -4,25 +4,29 @@ import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import {
   ArrowIconButtonLeft,
   ArrowIconButtonRight,
-} from '@/components/Homepage/components/ArrowIconButtons'
+} from '@/common/ArrowIconButtons'
+import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
 export default function CommunitySection() {
   return (
     <UiContainer
+      id={Anchors.Community}
       className={cn(
-        'relative flex flex-col overflow-hidden bg-backgroundContainer py-[72px]',
+        'relative flex flex-col overflow-hidden bg-backgroundContainer py-[48px] md:py-[72px]',
         'bg-[url(/images/sharped-blurred-bg-2.png)] bg-[length:680px_570px] bg-right-bottom bg-no-repeat',
       )}
       isFullHeight={false}
     >
-      <div className='mb-[72px] mt-auto flex items-center gap-5 px-[72px]'>
-        <span className={cn('text-textPrimary typography-h3', 'typography-h2')}>
+      <div className='mb-[72px] mt-auto flex items-center gap-5 px-[32px] md:px-[72px]'>
+        <span
+          className={cn('text-textPrimary typography-h3', 'md:typography-h2')}
+        >
           Community
         </span>
         <span
-          className={cn('text-textSecondary typography-h3', 'typography-h2')}
+          className={cn('text-textSecondary typography-h3', 'md:typography-h2')}
         >
           Backers
         </span>
@@ -103,7 +107,7 @@ function CommunitySectionCarousel() {
 
   return (
     <div className='relative h-[260px] w-full max-w-full overflow-auto'>
-      <div className={'absolute flex gap-4 px-[72px]'}>
+      <div className={'absolute flex gap-4 px-[32px] md:px-[72px]'}>
         {community.map((el, idx) => {
           return (
             <CommunitySectionItemCard
@@ -137,7 +141,7 @@ function CommunitySectionItemCard({
     <div
       {...rest}
       className={cn(
-        'flex flex-col',
+        'flex flex-col gap-6',
         'relative h-[260px] w-[320px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
         'p-6',
         className,
@@ -146,14 +150,14 @@ function CommunitySectionItemCard({
       <div className='flex items-center gap-4'>
         <img className='mb-auto size-12' src={imgUrl} alt={name} />
         <div className='flex flex-1 flex-col gap-1'>
-          <span className='text-textPrimary typography-body3'>{name}</span>
+          <span className='text-textPrimary typography-overline1'>{name}</span>
           <span className='text-textSecondary typography-body4'>
             {position}
           </span>
         </div>
       </div>
 
-      <span className='mt-2 text-textSecondary typography-body3'>{desc}</span>
+      <span className='text-textSecondary typography-body3'>{desc}</span>
     </div>
   )
 }

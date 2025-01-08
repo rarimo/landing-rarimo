@@ -3,6 +3,7 @@
 import { AnimationProps, motion, useScroll } from 'motion/react'
 import { ReactElement, useRef, useState } from 'react'
 
+import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
@@ -32,6 +33,7 @@ export default function EcosystemSection() {
 
   return (
     <UiContainer
+      id={Anchors.Ecosystem}
       ref={ref}
       className={cn(
         'relative flex items-center justify-center overflow-hidden bg-backgroundContainer',
@@ -144,12 +146,16 @@ export default function EcosystemSection() {
           }
           className={'gradient3'}
         >
-          <span className='text-baseBlack typography-h2'>
+          <span
+            className={cn('text-baseBlack typography-h4', 'md:typography-h2')}
+          >
             Self Issuance & Recovery
           </span>
         </EcosystemCard>
         <EcosystemCard className={'gradient1'}>
-          <span className='text-baseBlack typography-h2'>
+          <span
+            className={cn('text-baseBlack typography-h4', 'md:typography-h2')}
+          >
             Shared privacy layer
           </span>
         </EcosystemCard>
@@ -167,7 +173,9 @@ export default function EcosystemSection() {
           transition={{ duration: 0.75, type: 'spring' }}
           className={'gradient4'}
         >
-          <span className='text-baseWhite typography-h2'>
+          <span
+            className={cn('text-baseWhite typography-h4', 'md:typography-h2')}
+          >
             Secured by Ethereum and Rarimo Layer 2
           </span>
         </EcosystemCard>
@@ -187,7 +195,7 @@ function EcosystemCard({
     <motion.div
       {...rest}
       className={cn(
-        'absolute size-[240px] rounded-[40px] px-[30px] py-[40px]',
+        'absolute rounded-[40px] px-[30px] py-[40px] sm:size-[164px] md:size-[240px]',
         className,
       )}
     />

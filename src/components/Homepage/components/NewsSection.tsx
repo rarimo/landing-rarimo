@@ -4,7 +4,7 @@ import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import {
   ArrowIconButtonLeft,
   ArrowIconButtonRight,
-} from '@/components/Homepage/components/ArrowIconButtons'
+} from '@/common/ArrowIconButtons'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
@@ -16,17 +16,21 @@ export default function NewsSection() {
     >
       <div
         className={cn(
-          'relative flex flex-col overflow-hidden rounded-3xl bg-backgroundPure py-[72px]',
+          'flex flex-col gap-12',
+          'relative  overflow-hidden rounded-3xl bg-backgroundPure',
+          'py-10 md:gap-[72px] md:py-[64px]',
         )}
       >
-        <div className='mb-[72px] mt-auto flex items-center gap-5 px-[72px]'>
-          <span className='text-textPrimary typography-h2'>News and blogs</span>
+        <div className='mt-auto flex items-center justify-between gap-5 px-6 md:px-[64px]'>
+          <span className='text-textPrimary typography-h3 md:typography-h2'>
+            News and blogs
+          </span>
 
-          <div className={cn('ml- hidden items-center gap-4', 'md:flex')}>
-            <ArrowIconButtonLeft isDisabled>
-              <ArrowRightSLineIcon className={'rotate-180 text-textDisabled'} />
+          <div className={cn('hidden items-center gap-4', 'md:flex')}>
+            <ArrowIconButtonLeft>
+              <ArrowRightSLineIcon />
             </ArrowIconButtonLeft>
-            <ArrowIconButtonRight>
+            <ArrowIconButtonRight className={cn('bg-componentPrimary')}>
               <ArrowRightSLineIcon />
             </ArrowIconButtonRight>
           </div>
@@ -85,7 +89,7 @@ function NewsSectionCarousel() {
 
   return (
     <div className='relative h-[260px] w-full max-w-full overflow-auto'>
-      <div className={'absolute flex gap-4 px-[72px]'}>
+      <div className={'absolute flex gap-4 px-6 md:px-[64px]'}>
         {community.map((el, idx) => {
           return (
             <NewsSectionItemCard key={idx} desc={el.desc} imgUrl={el.imgUrl} />
@@ -114,12 +118,7 @@ function NewsSectionItemCard({
         className,
       )}
     >
-      <img
-        className='mb-auto aspect-video w-full rounded-lg'
-        src={imgUrl}
-        alt={desc}
-      />
-
+      <img className='aspect-video w-full rounded-lg' src={imgUrl} alt={desc} />
       <span className='text-textPrimary typography-subtitle4'>{desc}</span>
     </div>
   )

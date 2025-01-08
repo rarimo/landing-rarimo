@@ -5,5 +5,5 @@ export default function UiHorizontalDivider({
 }: {
   className?: string
 }) {
-  return <div className={cn('h-0.5 w-full bg-componentPrimary', className)} />
+  return <div className={cn('h-[1px] w-full bg-componentPrimary', className)} />
 }

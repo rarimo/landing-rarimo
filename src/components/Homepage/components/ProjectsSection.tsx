@@ -5,7 +5,7 @@ import UnderlineIcon from '@/assets/icons/underline-icon.svg'
 import {
   ArrowIconButtonLeft,
   ArrowIconButtonRight,
-} from '@/components/Homepage/components/ArrowIconButtons'
+} from '@/common/ArrowIconButtons'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiHorizontalDivider } from '@/ui'
 
@@ -13,12 +13,13 @@ export default function ProjectsSection() {
   return (
     <UiContainer
       className={cn(
-        'relative flex flex-col overflow-hidden bg-backgroundContainer p-[72px] px-0',
+        'relative flex flex-col overflow-hidden bg-backgroundContainer',
+        'p-[48px] px-0 md:p-[72px] md:px-0',
         'bg-[url(/images/sharped-blurred-bg-2.png)] bg-[length:680px_570px] bg-right-bottom bg-no-repeat',
       )}
       isFullHeight={false}
     >
-      <div className='flex-1 px-[72px]'>
+      <div className='flex-1 px-[32px] md:px-[72px]'>
         <span
           className={cn('text-textSecondary typography-h2', 'md:typography-h1')}
         >
@@ -30,11 +31,11 @@ export default function ProjectsSection() {
         </span>
 
         <UiHorizontalDivider
-          className={'mb-[40px] mt-[72px] bg-componentPrimary'}
+          className={'mb-[40px] mt-12 bg-componentPrimary md:mt-[72px]'}
         />
       </div>
 
-      <div className='mb-[40px] mt-auto flex items-center gap-5 px-[72px]'>
+      <div className='mb-[40px] mt-auto flex items-center gap-5 px-[32px] md:px-[72px]'>
         <div className='relative'>
           <span
             className={cn('text-textPrimary typography-h3', 'typography-h2')}
@@ -134,7 +135,7 @@ function ProjectsSectionCarousel() {
 
   return (
     <div className='relative h-[215px] w-full max-w-full overflow-auto'>
-      <div className={'absolute flex gap-4 px-[72px]'}>
+      <div className={'absolute flex gap-4 px-[32px] md:px-[72px]'}>
         {projects.map((el, idx) => {
           return (
             <ProjectsSectionProjectCard

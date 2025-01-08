@@ -7,6 +7,7 @@ import {
   fontFamily,
   gradients,
   typography,
+  screens,
 } from './src/theme/config'
 
 const config: Config = {
@@ -15,6 +16,7 @@ const config: Config = {
     extend: {
       colors,
       fontFamily,
+      screens,
     },
   },
   plugins: [

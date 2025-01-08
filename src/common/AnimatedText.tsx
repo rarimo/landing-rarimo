@@ -72,7 +72,7 @@ export default function AnimatedText({
     <div
       ref={containerEl}
       className={cn(
-        'flex w-full flex-wrap items-start gap-[0.15em] text-h4',
+        'text-h4 flex w-full flex-wrap items-start gap-[0.15em]',
         className,
       )}
       {...rest}

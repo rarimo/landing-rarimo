@@ -1,10 +1,12 @@
+import Link from 'next/link'
 import type { HTMLAttributes } from 'react'
 
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
-import ThemeSwitcher from '@/components/Homepage/components/ThemeSwitcher'
+import ThemeSwitcher from '@/common/ThemeSwitcher'
+import { Config } from '@/config'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 import { ExtIconLink, UiHorizontalDivider } from '@/ui'
@@ -38,10 +40,18 @@ export default function HomeSidebar({
         <UiHorizontalDivider className={'my-5 w-3 bg-componentPrimary'} />
 
         <div className='flex flex-col gap-5'>
-          <ExtIconLink href={'#'} className={'text-textSecondary'}>
+          <ExtIconLink
+            href={Config.learningHubLink}
+            target='_blank'
+            className={'text-textSecondary'}
+          >
             Learning hub
           </ExtIconLink>
-          <ExtIconLink href={'#'} className={'text-textSecondary'}>
+          <ExtIconLink
+            href={Config.documentationLink}
+            target='_blank'
+            className={'text-textSecondary'}
+          >
             Documentation
           </ExtIconLink>
         </div>
@@ -49,9 +59,15 @@ export default function HomeSidebar({
 
       <div className='mt-auto flex flex-col gap-6'>
         <div className='flex items-center gap-4'>
-          <DiscordLineIcon className={'text-textSecondary'} />
-          <TelegramLineIcon className={'text-textSecondary'} />
-          <TwitterXFillIcon className={'text-textSecondary'} />
+          <Link href={Config.xLink} target='_blank'>
+            <TwitterXFillIcon className={'text-textSecondary'} />
+          </Link>
+          <Link href={Config.telegramLink} target='_blank'>
+            <TelegramLineIcon className={'text-textSecondary'} />
+          </Link>
+          <Link href={Config.discordLink} target='_blank'>
+            <DiscordLineIcon className={'text-textSecondary'} />
+          </Link>
         </div>
 
         <span className='text-textSecondary typography-body3'>
@@ -69,7 +85,7 @@ type AnchorsListProps = {
   setActiveLink: (link: Anchors) => void
 } & HTMLAttributes<HTMLDivElement>
 
-function AnchorsList({
+export function AnchorsList({
   activeLink,
   setActiveLink,
   className,
@@ -78,10 +94,10 @@ function AnchorsList({
   return (
     <div {...rest} className={cn('flex flex-col gap-5', className)}>
       <AnchorNavItem
-        title='Hero'
-        href={`#${Anchors.Hero}`}
-        isActive={activeLink === Anchors.Hero}
-        onClick={() => setActiveLink(Anchors.Hero)}
+        title='Home'
+        href={`#${Anchors.Home}`}
+        isActive={activeLink === Anchors.Home}
+        onClick={() => setActiveLink(Anchors.Home)}
       />
       <AnchorNavItem
         title='Ecosystem'

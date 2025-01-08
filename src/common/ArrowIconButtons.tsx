@@ -8,7 +8,11 @@ export function ArrowIconButtonLeft({
   ...rest
 }: ComponentProps<typeof ArrowIconButton>) {
   return (
-    <ArrowIconButton {...rest} isDisabled={isDisabled}>
+    <ArrowIconButton
+      {...rest}
+      isDisabled={isDisabled}
+      className={rest.className}
+    >
       <ArrowRightSLineIcon
         className={cn(
           'rotate-180 text-textPrimary',

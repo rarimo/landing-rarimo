@@ -25,7 +25,7 @@ export const typography: CSSRuleObject = {
   '.typography-display4': {
     'font-size': '80px',
     'line-height': '76px',
-    fontWeight: '700',
+    fontWeight: '500',
   },
 
   '.typography-h1': {
