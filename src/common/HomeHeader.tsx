@@ -49,7 +49,7 @@ export default function HomeHeader({
       <UiCollapse
         isOpen={isMenuOpen}
         duration={0.3}
-        className='z-100 absolute left-0 top-[100%] w-full overflow-hidden bg-backgroundSurface1 rounded-b-[16px]'
+        className='z-100 absolute left-0 top-[100%] w-full overflow-hidden rounded-b-[16px] bg-backgroundSurface1'
       >
         <div ref={menuRef} className='flex flex-col gap-8 px-5 py-8'>
           <nav className='flex flex-col'>

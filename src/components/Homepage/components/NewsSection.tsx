@@ -114,7 +114,7 @@ function NewsSectionItemCard({
       {...rest}
       className={cn(
         'flex flex-col gap-6',
-        'relative h-[260px] w-[320px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
+        'relative h-[260px] w-[320px] rounded-[20px] backdrop-blur-[24px]',
         className,
       )}
     >

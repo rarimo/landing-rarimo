@@ -58,10 +58,10 @@ export default function RegistriesSection() {
         </div>
         <div
           className={cn(
-            'relative mt-[48px] h-full max-h-full min-h-[424px] overflow-x-auto md:mt-[72px]',
+            'relative mt-12 min-h-[424px] overflow-x-auto md:mt-[72px]',
           )}
         >
-          <div className='absolute flex gap-4'>
+          <div className='absolute flex h-full gap-4'>
             <RegistryCard
               imgUrl='/images/registry-1.svg'
               title={'ZK Passports'}
@@ -96,7 +96,7 @@ function RegistryCard({
   desc: string
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className='flex w-full min-w-[300px] max-w-full flex-col items-center gap-[60px] overflow-hidden rounded-3xl border border-componentPrimary bg-backgroundContainer p-[40px] pt-4 text-center backdrop-blur-[60px]'>
+    <div className='flex w-full min-w-[300px] max-w-full flex-col items-center gap-[60px] overflow-hidden rounded-3xl border border-componentPrimary bg-backgroundContainer p-10 pt-4 text-center backdrop-blur-[24px]'>
       <img className='my-auto' src={imgUrl} alt={title} />
       <div className='flex flex-col gap-2'>
         <span className='text-textPrimary typography-h4'>{title}</span>

@@ -23,14 +23,14 @@ export default function Homepage() {
       )}
     >
       <div
-        className={cn('hidden p-12 pr-0', 'lg:flex', 'sticky top-0', 'h-dvh')}
+        className={cn('hidden p-12 pr-0', 'lg:flex', 'fixed top-0', 'h-dvh')}
       >
         <HomeSidebar activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
       <div className={cn('flex', 'lg:hidden')}>
         <HomeHeader activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
-      <main className={cn('relative flex flex-1 flex-col')}>
+      <main className={cn('relative flex flex-1 flex-col lg:ml-[248px]')}>
         <HeroSection />
         <EcosystemSection />
         <ProjectsSection />
