@@ -12,7 +12,7 @@ import ThemeSwitcher from '@/common/ThemeSwitcher'
 import { Config } from '@/config'
 import { Anchors } from '@/enums'
 import { useClickOutside } from '@/hooks'
-import { ExtIconLink, UiHorizontalDivider } from '@/ui'
+import { ExtIconLink, UiCollapse, UiHorizontalDivider } from '@/ui'
 import UiIconButton from '@/ui/UiIconButton'
 
 type HomeHeaderProps = {
@@ -31,23 +31,27 @@ export default function HomeHeader({
 
   return (
     <header className='relative z-10 flex w-full'>
-      <nav className='relative flex w-full items-center justify-between px-5 pb-2 pt-5'>
+      {isMenuOpen && (
+        <div className='fixed inset-0 bg-baseBlack opacity-50 transition-opacity'></div>
+      )}
+
+      <div
+        className={`relative flex w-full items-center justify-between px-5 pb-2 pt-5 transition-all ${
+          isMenuOpen ? 'bg-backgroundSurface1' : ''
+        }`}
+      >
         <LogoIcon />
         <UiIconButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <CloseFillIcon /> : <Menu2FillIcon />}
         </UiIconButton>
-      </nav>
+      </div>
 
-      <div
-        ref={menuRef}
-        className={`
-          z-100 absolute left-0 top-[100%] w-full overflow-hidden
-          rounded-b-[16px] bg-backgroundSurface1
-          transition-[max-height]
-          ${isMenuOpen ? 'max-h-screen' : 'max-h-0'}
-        `}
+      <UiCollapse
+        isOpen={isMenuOpen}
+        duration={0.3}
+        className='z-100 absolute left-0 top-[100%] w-full overflow-hidden bg-backgroundSurface1 rounded-b-[16px]'
       >
-        <div className='flex flex-col gap-8 px-5 py-8'>
+        <div ref={menuRef} className='flex flex-col gap-8 px-5 py-8'>
           <nav className='flex flex-col'>
             <AnchorsList
               className=''
@@ -99,7 +103,7 @@ export default function HomeHeader({
             <ThemeSwitcher />
           </div>
         </div>
-      </div>
+      </UiCollapse>
     </header>
   )
 }
