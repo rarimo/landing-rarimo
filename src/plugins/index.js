@@ -1,3 +1,0 @@
-import './swiper';
-
-export default {};

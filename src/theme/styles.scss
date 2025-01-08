@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply size-full overflow-x-hidden;
+}
+
+.gradient1 {
+  @apply bg-gradient-to-r from-[#45C45C] to-[#39CDA0];
+}
+
+.gradient2 {
+    @apply bg-gradient-to-r from-[#82ED95] to-[#82EDC0];
+}
+
+.gradient3 {
+    @apply bg-gradient-to-r from-[#AC95DC] to-[#CD90F3];
+}
+
+.gradient4 {
+  @apply bg-gradient-to-r from-[#383838] to-[#282828];
+}
