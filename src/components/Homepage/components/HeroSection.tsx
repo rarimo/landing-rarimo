@@ -27,7 +27,6 @@ export default function HeroSection() {
       backSpeed: 60,
       loop: true,
       backDelay: 500,
-      smartBackspace: false,
       autoInsertCss: true,
       contentType: 'html',
       cursorChar: ' ',
@@ -43,6 +42,7 @@ export default function HeroSection() {
         'flex flex-col items-center bg-backgroundContainer pb-[52px] md:p-[72px]',
         'bg-[url(/images/bg-sharped-blurred.png)] bg-[length:680px_570px] bg-right-top bg-no-repeat',
         'items-start justify-end',
+        'scroll-mt-2 md:scroll-mt-8',
       )}
     >
       <div

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html, body {
-  @apply size-full overflow-x-hidden;
+  @apply size-full overflow-x-hidden scroll-smooth;
 }
 
 .gradient1 {

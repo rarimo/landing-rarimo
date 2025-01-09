@@ -46,7 +46,7 @@ export default async function RootLayout({
       lang='en'
       className={cn(
         appFontClassName,
-        'bg-background-container scroll-pt-20 scroll-smooth font-primary',
+        'bg-background-container scroll-pt-20 font-primary',
       )}
       suppressHydrationWarning
     >

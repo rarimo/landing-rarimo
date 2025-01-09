@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { HTMLAttributes } from 'react'
+import { HTMLAttributes, useRef } from 'react';
 
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
@@ -30,7 +30,6 @@ export default function HomeSidebar({
 
       <nav className='flex flex-1 flex-col'>
         <AnchorsList
-          className=''
           activeLink={activeLink}
           setActiveLink={link => {
             setActiveLink(link)
@@ -91,32 +90,24 @@ export function AnchorsList({
   className,
   ...rest
 }: AnchorsListProps) {
+  const sectionAnchors = [
+    { title: 'Home', anchor: Anchors.Home },
+    { title: 'Ecosystem', anchor: Anchors.Ecosystem },
+    { title: 'L2: ZK Registries', anchor: Anchors.ZkRegistries },
+    { title: 'Community', anchor: Anchors.Community },
+  ]
+
   return (
     <div {...rest} className={cn('flex flex-col gap-5', className)}>
-      <AnchorNavItem
-        title='Home'
-        href={`#${Anchors.Home}`}
-        isActive={activeLink === Anchors.Home}
-        onClick={() => setActiveLink(Anchors.Home)}
-      />
-      <AnchorNavItem
-        title='Ecosystem'
-        href={`#${Anchors.Ecosystem}`}
-        isActive={activeLink === Anchors.Ecosystem}
-        onClick={() => setActiveLink(Anchors.Ecosystem)}
-      />
-      <AnchorNavItem
-        title='L2: ZK Registries'
-        href={`#${Anchors.ZkRegistries}`}
-        isActive={activeLink === Anchors.ZkRegistries}
-        onClick={() => setActiveLink(Anchors.ZkRegistries)}
-      />
-      <AnchorNavItem
-        title='Community'
-        href={`#${Anchors.Community}`}
-        isActive={activeLink === Anchors.Community}
-        onClick={() => setActiveLink(Anchors.Community)}
-      />
+      {sectionAnchors.map(({ title, anchor }) => (
+        <AnchorNavItem
+          key={anchor}
+          title={title}
+          href={`#${anchor}`}
+          isActive={activeLink === anchor}
+          onClick={() => setActiveLink(anchor)}
+        />
+      ))}
     </div>
   )
 }
