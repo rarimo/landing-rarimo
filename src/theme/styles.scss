@@ -11,13 +11,17 @@ html, body {
 }
 
 .gradient2 {
-    @apply bg-gradient-to-r from-[#82ED95] to-[#82EDC0];
+  @apply bg-gradient-to-r from-[#82ED95] to-[#82EDC0];
 }
 
 .gradient3 {
-    @apply bg-gradient-to-r from-[#AC95DC] to-[#CD90F3];
+  @apply bg-gradient-to-r from-[#AC95DC] to-[#CD90F3];
 }
 
 .gradient4 {
   @apply bg-gradient-to-r from-[#383838] to-[#282828];
+}
+
+.typed-cursor {
+  @apply inline-block gradient1 h-[40%] w-1 ml-1;
 }
