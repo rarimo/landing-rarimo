@@ -46,20 +46,21 @@ export default function EcosystemSection() {
             isAnimated
               ? {
                   x: 100,
-                  y: -190,
+                  y: -200,
+                  scale: 0.98,
                 }
               : INITIAL_EXAMPLE_CARD
           }
           transition={{ duration: 0.75, type: 'spring' }}
-          src={'/images/ecosystem-example.png'}
+          src={'/images/ecosystem/ecosystem-2.png'}
         />
         <EcosystemExampleCard
           animate={
             isAnimated
               ? {
-                  x: 350,
+                  x: 380,
                   y: -250,
-                  scale: 0.8,
+                  scale: 0.74,
                 }
               : INITIAL_EXAMPLE_CARD
           }
@@ -67,19 +68,19 @@ export default function EcosystemSection() {
             duration: 0.75,
             type: 'spring',
           }}
-          src={'/images/ecosystem-example.png'}
+          src={'/images/ecosystem/ecosystem-1.png'}
         />
         <EcosystemExampleCard
           animate={
             isAnimated
               ? {
-                  x: 300,
-                  y: -90,
-                  scale: 0.8,
+                  x: 330,
+                  y: -35,
+                  scale: 0.72,
                 }
               : INITIAL_EXAMPLE_CARD
           }
-          src={'/images/ecosystem-example.png'}
+          src={'/images/ecosystem/ecosystem-3.png'}
           transition={{
             duration: 0.75,
             type: 'spring',
@@ -89,13 +90,13 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: -300,
+                  x: -390,
                   y: 150,
-                  scale: 0.6,
+                  scale: 0.61,
                 }
               : INITIAL_EXAMPLE_CARD
           }
-          src={'/images/ecosystem-example.png'}
+          src={'/images/ecosystem/ecosystem-4.png'}
           transition={{
             duration: 0.75,
             type: 'spring',
@@ -105,12 +106,13 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: -170,
-                  y: 250,
+                  x: -220,
+                  y: 205,
+                  scale: 0.99,
                 }
               : INITIAL_EXAMPLE_CARD
           }
-          src={'/images/ecosystem-example.png'}
+          src={'/images/ecosystem/ecosystem-5.png'}
           transition={{
             duration: 0.75,
             type: 'spring',
@@ -120,12 +122,13 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: 50,
-                  y: 290,
+                  x: 10,
+                  y: 320,
+                  scale: 0.72,
                 }
               : INITIAL_EXAMPLE_CARD
           }
-          src={'/images/ecosystem-example.png'}
+          src={'/images/ecosystem/ecosystem-6.png'}
           transition={{
             duration: 0.75,
             type: 'spring',
@@ -147,14 +150,20 @@ export default function EcosystemSection() {
           className={'gradient3'}
         >
           <span
-            className={cn('text-baseBlack typography-h4', 'md:typography-h2')}
+            className={cn(
+              'text-baseBlack opacity-80 typography-h4',
+              'md:typography-h2',
+            )}
           >
             Self Issuance & Recovery
           </span>
         </EcosystemCard>
         <EcosystemCard className={'gradient1'}>
           <span
-            className={cn('text-baseBlack typography-h4', 'md:typography-h2')}
+            className={cn(
+              'text-baseBlack opacity-80 typography-h4',
+              'md:typography-h2',
+            )}
           >
             Shared privacy layer
           </span>
@@ -174,7 +183,10 @@ export default function EcosystemSection() {
           className={'gradient4'}
         >
           <span
-            className={cn('text-baseWhite typography-h4', 'md:typography-h2')}
+            className={cn(
+              'text-baseWhite opacity-80 typography-h4',
+              'md:typography-h2',
+            )}
           >
             Secured by Ethereum and Rarimo Layer 2
           </span>
