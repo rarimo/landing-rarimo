@@ -17,18 +17,12 @@ export default function HeroSection() {
     if (!typoRef.current) return
 
     const typed = new Typed(typoRef.current, {
-      strings: [
-        `<span class='text-textPrimary typography-display4 md:typography-display2'>Your</span><br>
-         <span class='gradient1 bg-clip-text text-transparent typography-display3 md:typography-display1'>Device</span>`,
-        `<span class='text-textPrimary typography-display4 md:typography-display2'>Your</span><br>
-         <span class='gradient1 bg-clip-text text-transparent typography-display3 md:typography-display1'>Identity</span>`,
-      ],
-      typeSpeed: 90,
-      backSpeed: 60,
+      strings: ['Device', 'Identity'],
+      typeSpeed: 120,
+      backSpeed: 100,
       loop: true,
       backDelay: 500,
       autoInsertCss: true,
-      contentType: 'html',
       cursorChar: ' ',
     })
 
@@ -66,7 +60,14 @@ export default function HeroSection() {
           <ArrowRightSLineIcon />
         </Link>
         <h1 className='h-[174px] md:h-[256px]'>
-          <span ref={typoRef}></span>
+          <span className='text-textPrimary typography-display4 md:typography-display2'>
+            Your
+          </span>
+          <br />
+          <span
+            className='gradient1 bg-clip-text text-transparent typography-display3 md:typography-display1'
+            ref={typoRef}
+          ></span>
         </h1>
       </div>
     </UiContainer>

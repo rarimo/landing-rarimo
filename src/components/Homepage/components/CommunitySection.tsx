@@ -1,25 +1,37 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, useCallback, useRef, useState } from 'react'
+import { Mousewheel } from 'swiper/modules'
+import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 
+import { communities } from '@/assets/data/communities'
+import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
-import {
-  ArrowIconButtonLeft,
-  ArrowIconButtonRight,
-} from '@/common/ArrowIconButtons'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
-import { UiContainer } from '@/ui'
+import { UiContainer, UiIconButton } from '@/ui'
 
 export default function CommunitySection() {
+  const swiperRef = useRef<SwiperRef | null>(null)
+  const [isLastSlide, setIsLastSlide] = useState(false)
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  const handlePrevSlide = useCallback(() => {
+    swiperRef.current?.swiper.slidePrev()
+  }, [swiperRef])
+
+  const handleNextSlide = useCallback(() => {
+    swiperRef.current?.swiper.slideNext()
+  }, [swiperRef])
+
   return (
     <UiContainer
       id={Anchors.Community}
       className={cn(
-        'relative flex flex-col overflow-hidden bg-backgroundContainer py-[48px] md:py-[72px]',
+        'relative flex flex-col overflow-hidden bg-backgroundContainer py-12 md:py-[72px]',
         'bg-[url(/images/sharped-blurred-bg-2.png)] bg-[length:680px_570px] bg-right-bottom bg-no-repeat',
       )}
       isFullHeight={false}
     >
-      <div className='mb-[72px] mt-auto flex items-center gap-5 px-[32px] md:px-[72px]'>
+      <div className='mb-[72px] mt-auto flex items-center gap-5 px-8 md:px-[72px]'>
         <span
           className={cn('text-textPrimary typography-h3', 'md:typography-h2')}
         >
@@ -32,99 +44,54 @@ export default function CommunitySection() {
         </span>
 
         <div className={cn('ml-auto hidden items-center gap-4', 'md:flex')}>
-          <ArrowIconButtonLeft isDisabled>
-            <ArrowRightSLineIcon className={'rotate-180 text-textDisabled'} />
-          </ArrowIconButtonLeft>
-          <ArrowIconButtonRight>
+          <UiIconButton
+            size='large'
+            disabled={activeSlide === 0}
+            onClick={handlePrevSlide}
+          >
+            <ArrowLeftSLineIcon />
+          </UiIconButton>
+          <UiIconButton
+            size='large'
+            disabled={isLastSlide}
+            onClick={handleNextSlide}
+          >
             <ArrowRightSLineIcon />
-          </ArrowIconButtonRight>
+          </UiIconButton>
         </div>
       </div>
 
-      <CommunitySectionCarousel />
+      <div>
+        <Swiper
+          ref={swiperRef}
+          modules={[Mousewheel]}
+          slidesPerView='auto'
+          slidesOffsetBefore={64}
+          slidesOffsetAfter={64}
+          mousewheel={{ forceToAxis: true }}
+          spaceBetween={16}
+          resistanceRatio={0.5}
+          grabCursor
+          freeMode
+          edgeSwipeDetection
+          onSlideChange={() => {
+            if (!swiperRef.current) return
+            setIsLastSlide(swiperRef.current.swiper.isEnd)
+            setActiveSlide(swiperRef.current.swiper.activeIndex)
+          }}
+        >
+          {communities.map((communityBacker, idx) => (
+            <SwiperSlide className='w-fit' key={idx}>
+              <CommunitySliderCard key={idx} {...communityBacker} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </UiContainer>
   )
 }
 
-function CommunitySectionCarousel() {
-  const community = [
-    {
-      name: 'Vitalik Buterin',
-      position: 'Ethereum Co-Founder',
-      imgUrl: '/images/community-buterin.png',
-      desc: 'Zero-knowledge cryptography holds tremendous potential for solving digital identity. I’m proud to support the Rarimo team as they tackle this critical need with innovative products like Freedom Tool and the ZK Identity Registry. ',
-    },
-    {
-      name: 'Brian Retford',
-      position: 'RiscZero Co-Founder',
-      imgUrl: '/images/community-george.png',
-      desc: 'It’s more important today than it ever has been that there be open, decentralized and transparent identity protocol that enables credible anonymous and pseudonymous online actions. Rarimo is building this and I’m proud to support them',
-    },
-    {
-      name: 'Stefan George',
-      position: 'Gnosis Co-Founder',
-      imgUrl: '/images/community-retford.png',
-      desc: 'The Rarimo team has proven to apply ZK technologies to solve real world problems successfully while protecting user privacy. I am exited to see their solutions like zkPassport being applied on a global scale.',
-    },
-
-    {
-      name: 'Vitalik Buterin',
-      position: 'Ethereum Co-Founder',
-      imgUrl: '/images/community-buterin.png',
-      desc: 'Zero-knowledge cryptography holds tremendous potential for solving digital identity. I’m proud to support the Rarimo team as they tackle this critical need with innovative products like Freedom Tool and the ZK Identity Registry. ',
-    },
-    {
-      name: 'Brian Retford',
-      position: 'RiscZero Co-Founder',
-      imgUrl: '/images/community-george.png',
-      desc: 'It’s more important today than it ever has been that there be open, decentralized and transparent identity protocol that enables credible anonymous and pseudonymous online actions. Rarimo is building this and I’m proud to support them',
-    },
-    {
-      name: 'Stefan George',
-      position: 'Gnosis Co-Founder',
-      imgUrl: '/images/community-retford.png',
-      desc: 'The Rarimo team has proven to apply ZK technologies to solve real world problems successfully while protecting user privacy. I am exited to see their solutions like zkPassport being applied on a global scale.',
-    },
-    {
-      name: 'Vitalik Buterin',
-      position: 'Ethereum Co-Founder',
-      imgUrl: '/images/community-buterin.png',
-      desc: 'Zero-knowledge cryptography holds tremendous potential for solving digital identity. I’m proud to support the Rarimo team as they tackle this critical need with innovative products like Freedom Tool and the ZK Identity Registry. ',
-    },
-    {
-      name: 'Brian Retford',
-      position: 'RiscZero Co-Founder',
-      imgUrl: '/images/community-george.png',
-      desc: 'It’s more important today than it ever has been that there be open, decentralized and transparent identity protocol that enables credible anonymous and pseudonymous online actions. Rarimo is building this and I’m proud to support them',
-    },
-    {
-      name: 'Stefan George',
-      position: 'Gnosis Co-Founder',
-      imgUrl: '/images/community-retford.png',
-      desc: 'The Rarimo team has proven to apply ZK technologies to solve real world problems successfully while protecting user privacy. I am exited to see their solutions like zkPassport being applied on a global scale.',
-    },
-  ]
-
-  return (
-    <div className='relative h-[260px] w-full max-w-full overflow-auto'>
-      <div className={'absolute flex gap-4 px-[32px] md:px-[72px]'}>
-        {community.map((el, idx) => {
-          return (
-            <CommunitySectionItemCard
-              key={idx}
-              name={el.name}
-              position={el.position}
-              desc={el.desc}
-              imgUrl={el.imgUrl}
-            />
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-function CommunitySectionItemCard({
+function CommunitySliderCard({
   imgUrl,
   name,
   position,

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { HTMLAttributes, useRef } from 'react';
+import { HTMLAttributes } from 'react'
 
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'

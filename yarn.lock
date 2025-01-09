@@ -4976,6 +4976,7 @@ __metadata:
     react-qrcode-logo: "npm:^3.0.0"
     react-use: "npm:^17.5.0"
     sass: "npm:^1.75.0"
+    swiper: "npm:^11.2.0"
     tailwind-merge: "npm:^2.3.0"
     tailwind-variants: "npm:^0.3.0"
     tailwindcss: "npm:^3.4.1"
@@ -6834,6 +6835,13 @@ __metadata:
   bin:
     svgo: ./bin/svgo
   checksum: 10c0/a6badbd3d1d6dbb177f872787699ab34320b990d12e20798ecae915f0008796a0f3c69164f1485c9def399e0ce0a5683eb4a8045e51a5e1c364bb13a0d9f79e1
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^11.2.0":
+  version: 11.2.0
+  resolution: "swiper@npm:11.2.0"
+  checksum: 10c0/88092316a95026875d84f85be76d9fb3634015186401e9099995bf673cf9d10d35e227b073ed15de898eac391f12b98c22092f6c755f33b4f129e824a80a11ff
   languageName: node
   linkType: hard
 

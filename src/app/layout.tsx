@@ -1,3 +1,4 @@
+import 'swiper/css'
 import '@/theme/styles.scss'
 
 import { getTranslations } from 'next-intl/server'

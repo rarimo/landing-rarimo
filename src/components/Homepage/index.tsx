@@ -30,7 +30,11 @@ export default function Homepage() {
       <div className={cn('flex', 'lg:hidden')}>
         <HomeHeader activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
-      <main className={cn('relative flex flex-1 flex-col lg:ml-[248px]')}>
+      <main
+        className={cn(
+          'relative flex flex-1 flex-col overflow-hidden lg:ml-[248px]',
+        )}
+      >
         <HeroSection />
         <EcosystemSection />
         <ProjectsSection />

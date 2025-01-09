@@ -30,6 +30,7 @@
     "react-qrcode-logo": "^3.0.0",
     "react-use": "^17.5.0",
     "sass": "^1.75.0",
+    "swiper": "^11.2.0",
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.3.0",
     "tailwindcss-animate": "^1.0.7",
