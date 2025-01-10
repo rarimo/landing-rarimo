@@ -18,10 +18,11 @@ export default function HeroSection() {
 
     const typed = new Typed(typoRef.current, {
       strings: ['Device', 'Identity'],
-      typeSpeed: 120,
-      backSpeed: 100,
+      typeSpeed: 180,
+      backSpeed: 120,
       loop: true,
-      backDelay: 500,
+      startDelay: 1200,
+      backDelay: 1000,
       autoInsertCss: true,
       cursorChar: ' ',
     })

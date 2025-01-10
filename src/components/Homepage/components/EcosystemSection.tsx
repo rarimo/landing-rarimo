@@ -1,8 +1,9 @@
 'use client'
 
-import { AnimationProps, motion, useScroll } from 'motion/react'
-import { ReactElement, useRef, useState } from 'react'
+import { AnimationProps, motion, Transition } from 'motion/react'
+import { ReactElement, useState } from 'react'
 
+import IntersectionAnchor from '@/common/IntersectionAnchor'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
@@ -15,33 +16,17 @@ const INITIAL_EXAMPLE_CARD = { x: 50, y: 50 }
 export default function EcosystemSection() {
   const [isAnimated, setIsAnimated] = useState(false)
 
-  const ref = useRef(null)
-
-  // eslint-disable-next-line no-empty-pattern
-  const {} = useScroll({
-    target: ref,
-    offset: ['end end', 'start start'],
-  })
-
-  const animateTo = async () => {
-    setIsAnimated(true)
-  }
-
-  const animateToInitial = async () => {
-    setIsAnimated(false)
-  }
+  // TODO: add mobile adaptation
 
   return (
     <UiContainer
       id={Anchors.Ecosystem}
-      ref={ref}
       className={cn(
         'relative flex items-center justify-center overflow-hidden bg-backgroundContainer',
       )}
-      onClick={isAnimated ? animateToInitial : animateTo}
     >
       <div className='absolute left-1/2 top-1/2 size-[240px] -translate-x-1/2 -translate-y-1/2'>
-        <EcosystemExampleCard
+        <EcosystemImageCard
           animate={
             isAnimated
               ? {
@@ -51,10 +36,9 @@ export default function EcosystemSection() {
                 }
               : INITIAL_EXAMPLE_CARD
           }
-          transition={{ duration: 0.75, type: 'spring' }}
           src={'/images/ecosystem/ecosystem-2.png'}
         />
-        <EcosystemExampleCard
+        <EcosystemImageCard
           animate={
             isAnimated
               ? {
@@ -64,13 +48,9 @@ export default function EcosystemSection() {
                 }
               : INITIAL_EXAMPLE_CARD
           }
-          transition={{
-            duration: 0.75,
-            type: 'spring',
-          }}
           src={'/images/ecosystem/ecosystem-1.png'}
         />
-        <EcosystemExampleCard
+        <EcosystemImageCard
           animate={
             isAnimated
               ? {
@@ -81,12 +61,8 @@ export default function EcosystemSection() {
               : INITIAL_EXAMPLE_CARD
           }
           src={'/images/ecosystem/ecosystem-3.png'}
-          transition={{
-            duration: 0.75,
-            type: 'spring',
-          }}
         />
-        <EcosystemExampleCard
+        <EcosystemImageCard
           animate={
             isAnimated
               ? {
@@ -97,12 +73,8 @@ export default function EcosystemSection() {
               : INITIAL_EXAMPLE_CARD
           }
           src={'/images/ecosystem/ecosystem-4.png'}
-          transition={{
-            duration: 0.75,
-            type: 'spring',
-          }}
         />
-        <EcosystemExampleCard
+        <EcosystemImageCard
           animate={
             isAnimated
               ? {
@@ -113,12 +85,8 @@ export default function EcosystemSection() {
               : INITIAL_EXAMPLE_CARD
           }
           src={'/images/ecosystem/ecosystem-5.png'}
-          transition={{
-            duration: 0.75,
-            type: 'spring',
-          }}
         />
-        <EcosystemExampleCard
+        <EcosystemImageCard
           animate={
             isAnimated
               ? {
@@ -129,15 +97,10 @@ export default function EcosystemSection() {
               : INITIAL_EXAMPLE_CARD
           }
           src={'/images/ecosystem/ecosystem-6.png'}
-          transition={{
-            duration: 0.75,
-            type: 'spring',
-          }}
         />
 
-        <EcosystemCard
+        <EcosystemStackCard
           initial={INITIAL_CARD_1}
-          transition={{ duration: 0.75, type: 'spring' }}
           animate={
             isAnimated
               ? {
@@ -157,8 +120,8 @@ export default function EcosystemSection() {
           >
             Self Issuance & Recovery
           </span>
-        </EcosystemCard>
-        <EcosystemCard className={'gradient1'}>
+        </EcosystemStackCard>
+        <EcosystemStackCard className={'gradient1'}>
           <span
             className={cn(
               'text-baseBlack opacity-80 typography-h4',
@@ -167,8 +130,8 @@ export default function EcosystemSection() {
           >
             Shared privacy layer
           </span>
-        </EcosystemCard>
-        <EcosystemCard
+        </EcosystemStackCard>
+        <EcosystemStackCard
           initial={INITIAL_CARD_3}
           animate={
             isAnimated
@@ -179,7 +142,6 @@ export default function EcosystemSection() {
                 }
               : INITIAL_CARD_3
           }
-          transition={{ duration: 0.75, type: 'spring' }}
           className={'gradient4'}
         >
           <span
@@ -190,22 +152,31 @@ export default function EcosystemSection() {
           >
             Secured by Ethereum and Rarimo Layer 2
           </span>
-        </EcosystemCard>
+        </EcosystemStackCard>
       </div>
+      <IntersectionAnchor
+        enterThreshold={0.9}
+        exitThreshold={0.3}
+        onIntersect={() => setIsAnimated(true)}
+        onExit={() => setIsAnimated(false)}
+      />
     </UiContainer>
   )
 }
 
-function EcosystemCard({
+function EcosystemStackCard({
   className,
+  transition = { duration: 1.2, type: 'spring' },
   ...rest
 }: {
   children?: ReactElement
   className?: string
+  transition?: Transition
 } & AnimationProps) {
   return (
     <motion.div
       {...rest}
+      transition={transition}
       className={cn(
         'absolute rounded-[40px] px-[30px] py-[40px] sm:size-[164px] md:size-[240px]',
         className,
@@ -214,16 +185,19 @@ function EcosystemCard({
   )
 }
 
-function EcosystemExampleCard({
+function EcosystemImageCard({
   className,
+  transition = { duration: 1.2, type: 'spring' },
   ...rest
 }: {
   src: string
   className?: string
+  transition?: Transition
 } & AnimationProps) {
   return (
     <motion.img
       {...rest}
+      transition={transition}
       className={cn('absolute size-[140px] rounded-[20px]', className)}
     />
   )
