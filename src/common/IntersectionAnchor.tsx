@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
 
 interface Props {
@@ -19,8 +21,10 @@ export default function IntersectionAnchor({
   const [isIntersecting, setIsIntersecting] = useState(false)
   const [intersectionRatio, setIntersectionRatio] = useState(0)
 
-  const observer = useRef(
-    new IntersectionObserver(
+  useEffect(() => {
+    if (!anchorEl.current) return
+
+    const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting)
         setIntersectionRatio(entry.intersectionRatio)
@@ -29,15 +33,12 @@ export default function IntersectionAnchor({
         threshold: [exitThreshold, enterThreshold],
         ...options,
       },
-    ),
-  )
+    )
 
-  useEffect(() => {
-    if (!anchorEl?.current) return
+    observer.observe(anchorEl.current)
 
-    observer.current.observe(anchorEl.current)
+    return () => observer.disconnect()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    return () => observer.current.disconnect()
   }, [])
 
   useEffect(() => {

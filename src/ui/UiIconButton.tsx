@@ -1,3 +1,5 @@
+'use client'
+
 import { VariantProps } from 'class-variance-authority'
 import { forwardRef, useMemo, useState } from 'react'
 import { tv } from 'tailwind-variants'

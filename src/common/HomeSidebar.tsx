@@ -16,7 +16,7 @@ type HomeSidebarProps = {
   setActiveLink: (link: Anchors) => void
 } & HTMLAttributes<HTMLDivElement>
 
-export default function HomeSidebar({
+export function HomeSidebar({
   activeLink,
   setActiveLink,
   className,
