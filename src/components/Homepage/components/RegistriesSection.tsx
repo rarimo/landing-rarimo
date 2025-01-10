@@ -97,7 +97,7 @@ function RegistryCard({
 } & HTMLAttributes<HTMLDivElement>) {
   return (
     <div className='flex w-full min-w-[300px] max-w-full flex-col items-center gap-[60px] overflow-hidden rounded-3xl border border-componentPrimary bg-backgroundContainer p-10 pt-4 text-center backdrop-blur-[24px]'>
-      <img className='my-auto' src={imgUrl} alt={title} />
+      <img className='my-auto aspect-video' src={imgUrl} alt={title} />
       <div className='flex flex-col gap-2'>
         <span className='text-textPrimary typography-h4'>{title}</span>
         <span className='text-textSecondary typography-body3'>{desc}</span>

@@ -5,7 +5,7 @@ import { getTranslations } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
 import { ReactNode } from 'react'
 
-import AosInit from '@/common/AosInit'
+import { AosInit } from '@/common'
 import { locales } from '@/i18n'
 import { appFontClassName } from '@/theme/fonts'
 import { cn } from '@/theme/utils'

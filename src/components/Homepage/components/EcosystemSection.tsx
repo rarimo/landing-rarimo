@@ -3,7 +3,7 @@
 import { AnimationProps, motion, Transition } from 'motion/react'
 import { ReactElement, useState } from 'react'
 
-import IntersectionAnchor from '@/common/IntersectionAnchor'
+import { IntersectionAnchor } from '@/common'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
