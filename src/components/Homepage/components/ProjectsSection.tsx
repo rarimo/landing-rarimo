@@ -81,6 +81,7 @@ export default function ProjectsSection() {
         <div className={cn('ml-auto hidden items-center gap-4', 'md:flex')}>
           <UiIconButton
             size='large'
+            color='white'
             disabled={activeSlide === 0}
             onClick={handlePrevSlide}
           >
@@ -88,6 +89,7 @@ export default function ProjectsSection() {
           </UiIconButton>
           <UiIconButton
             size='large'
+            color='white'
             disabled={isLastSlide}
             onClick={handleNextSlide}
           >

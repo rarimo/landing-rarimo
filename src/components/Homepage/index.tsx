@@ -3,12 +3,12 @@
 import { useState } from 'react'
 
 import { HomeHeader, HomeSidebar } from '@/common'
-import TestimonialsSection from '@/components/Homepage/components/TestimonialsSection'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import NewsSection from '@/components/Homepage/components/NewsSection'
 import ProjectsSection from '@/components/Homepage/components/ProjectsSection'
 import RegistriesSection from '@/components/Homepage/components/RegistriesSection'
+import TestimonialsSection from '@/components/Homepage/components/TestimonialsSection'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 

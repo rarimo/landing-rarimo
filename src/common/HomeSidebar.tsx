@@ -42,14 +42,14 @@ export function HomeSidebar({
           <ExtIconLink
             href={Config.learningHubLink}
             target='_blank'
-            className={'text-textSecondary'}
+            className={'text-textSecondary hover:opacity-85'}
           >
             Learning hub
           </ExtIconLink>
           <ExtIconLink
             href={Config.documentationLink}
             target='_blank'
-            className={'text-textSecondary'}
+            className={'text-textSecondary hover:opacity-85'}
           >
             Documentation
           </ExtIconLink>
@@ -59,13 +59,19 @@ export function HomeSidebar({
       <div className='mt-auto flex flex-col gap-6'>
         <div className='flex items-center gap-4'>
           <Link href={Config.xLink} target='_blank'>
-            <TwitterXFillIcon className={'text-textSecondary'} />
+            <TwitterXFillIcon
+              className={'text-textSecondary hover:opacity-85'}
+            />
           </Link>
           <Link href={Config.telegramLink} target='_blank'>
-            <TelegramLineIcon className={'text-textSecondary'} />
+            <TelegramLineIcon
+              className={'text-textSecondary hover:opacity-85'}
+            />
           </Link>
           <Link href={Config.discordLink} target='_blank'>
-            <DiscordLineIcon className={'text-textSecondary'} />
+            <DiscordLineIcon
+              className={'text-textSecondary hover:opacity-85'}
+            />
           </Link>
         </div>
 
@@ -127,6 +133,7 @@ function AnchorNavItem({ title, href, isActive, onClick }: AnchorNavItemProps) {
       className={cn(
         'line-clamp-1 text-textSecondary',
         isActive && 'text-textPrimary',
+        'hover:opacity-85',
       )}
     >
       {title}

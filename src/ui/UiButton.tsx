@@ -24,17 +24,17 @@ const buttonBaseTv = tv({
     size: {
       small: {
         container: cn('h-[32px] px-[16px] rounded-[1000px] gap-2'),
-        text: cn('typography-bodySmall'),
+        text: cn('typography-buttonSmall'),
         icon: cn('size-[16px]'),
       },
       medium: {
         container: cn('h-[40px] px-[24px] rounded-[1000px] gap-4'),
-        text: cn('typography-bodyMedium'),
+        text: cn('typography-buttonMedium'),
         icon: cn('size-[20px]'),
       },
       large: {
         container: cn('h-[56px] px-[32px] rounded-full gap-6'),
-        text: cn('typography-bodyLarge'),
+        text: cn('typography-buttonLarge'),
         icon: cn('size-[20px]'),
       },
     },
@@ -465,7 +465,7 @@ const UiButton = forwardRef<PressableRef, Props>(
 
     return (
       <button
-        {...rest}
+        onClick={rest.onClick}
         ref={ref}
         onTouchStart={event => {
           setIsPressed(true)
@@ -476,7 +476,9 @@ const UiButton = forwardRef<PressableRef, Props>(
           rest?.onTouchEnd?.(event)
         }}
       >
-        <div className={cn(baseStyles.container())}>{btnContent}</div>
+        <div className={cn(baseStyles.container(), rest.className)}>
+          {btnContent}
+        </div>
       </button>
     )
   },

@@ -1,62 +1,132 @@
 'use client'
 
 import { VariantProps } from 'class-variance-authority'
-import { forwardRef, useMemo, useState } from 'react'
+import { forwardRef, useMemo } from 'react'
 import { tv } from 'tailwind-variants'
 
 import { cn } from '@/theme/utils'
 
 const iconButtonTv = tv({
   slots: {
-    container: cn('flex items-center justify-center rounded-full'),
-    icon: cn('text-textPrimary'),
+    container: cn(
+      'flex items-center justify-center rounded-full',
+      'transition-colors duration-300',
+    ),
+    icon: cn('flex items-center justify-center'),
   },
 
   variants: {
     size: {
+      xsmall: {
+        container: cn('w-6 h-6'),
+        icon: cn('w-[16px] h-[16px]'),
+      },
       small: {
         container: cn('w-8 h-8'),
-        icon: cn('size-[20px]'),
+        icon: cn('width-[20px] height-[20px]'),
       },
       medium: {
         container: cn('w-10 h-10'),
-        icon: cn('size-[20px]'),
+        icon: cn('width-[20px] height-[20px]'),
       },
       large: {
         container: cn('w-12 h-12'),
-        icon: cn('size-[24px]'),
+        icon: cn('width-[24px] height-[24px]'),
+      },
+    },
+
+    variant: {
+      filled: {},
+      outlined: {
+        container: cn('border border-solid border-transparent bg-transparent'),
+      },
+      simple: {
+        container: cn('bg-transparent'),
       },
     },
 
     color: {
-      default: {
-        container: cn('bg-componentPrimary text-textPrimary'),
-      },
+      primary: {},
+      white: {},
     },
 
     disabled: {
       true: {},
     },
-    pressed: {
-      true: {},
-    },
   },
 
   compoundVariants: [
-    // pressed
+    // filled-primary
     {
-      pressed: true,
-      class: {
-        container: cn('bg-componentHovered text-textPrimary'),
-      },
-    },
-    // disabled
-    {
-      disabled: true,
+      variant: 'filled',
+      color: 'primary',
       class: {
         container: cn(
-          'bg-componentDisabled text-textDisabled cursor-not-allowed',
+          'bg-componentPrimary',
+          'hover:bg-componentHovered active:bg-componentPressed',
         ),
+      },
+    },
+    {
+      variant: 'filled',
+      color: 'white',
+      class: {
+        container: cn('bg-backgroundSurface1'),
+      },
+    },
+    {
+      variant: 'filled',
+      disabled: true,
+      class: {
+        container: cn('bg-componentDisabled'),
+        icon: cn('text-textDisabled'),
+      },
+    },
+    {
+      variant: 'filled',
+      color: 'white',
+      disabled: true,
+      class: {
+        container: cn('bg-transparent'),
+        icon: cn('text-textDisabled'),
+      },
+    },
+
+    // outlined-primary
+    {
+      variant: 'outlined',
+      color: 'primary',
+      class: {
+        container: cn(
+          'border-componentPrimary',
+          'hover:border-componentHovered active:border-componentPressed',
+        ),
+      },
+    },
+    {
+      variant: 'outlined',
+      disabled: true,
+      class: {
+        container: cn('border-componentDisabled'),
+        icon: cn('text-textDisabled'),
+      },
+    },
+    // simple-primary
+    {
+      variant: 'simple',
+      color: 'primary',
+      class: {
+        container: cn(
+          'bg-transparent',
+          // 'hover:bg-componentHovered active:bg-componentPressed',
+        ),
+        icon: cn('text-textPrimary'),
+      },
+    },
+    {
+      variant: 'simple',
+      disabled: true,
+      class: {
         icon: cn('text-textDisabled'),
       },
     },
@@ -64,16 +134,20 @@ const iconButtonTv = tv({
 
   defaultVariants: {
     size: 'medium',
-    color: 'default',
+    color: 'primary',
+    variant: 'filled',
   },
 })
 
 type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof iconButtonTv>
+  VariantProps<typeof iconButtonTv> & {
+    iconClassName?: string
+  }
 
 const UiIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     {
+      variant,
       size,
       color,
       disabled,
@@ -82,40 +156,35 @@ const UiIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       onMouseUp,
       onTouchStart,
       onTouchEnd,
+      iconClassName,
       ...rest
     },
     ref,
   ) => {
-    const [isPressed, setIsPressed] = useState(false)
-
     const baseStyles = useMemo(
       () =>
         iconButtonTv({
+          variant,
           size,
           color,
           disabled,
-          pressed: isPressed,
         }),
-      [size, color, disabled, isPressed],
+      [size, color, disabled, variant],
     )
 
     const handleMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
-      setIsPressed(true)
       onMouseDown?.(event)
     }
 
     const handleMouseUp = (event: React.MouseEvent<HTMLButtonElement>) => {
-      setIsPressed(false)
       onMouseUp?.(event)
     }
 
     const handleTouchStart = (event: React.TouchEvent<HTMLButtonElement>) => {
-      setIsPressed(true)
       onTouchStart?.(event)
     }
 
     const handleTouchEnd = (event: React.TouchEvent<HTMLButtonElement>) => {
-      setIsPressed(false)
       onTouchEnd?.(event)
     }
 
@@ -128,10 +197,10 @@ const UiIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         onMouseUp={handleMouseUp}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className={cn(baseStyles.container())}
+        className={cn(baseStyles.container(), rest.className)}
+        aria-hidden='true'
       >
-        {children}
-        {/*<div className={cn(baseStyles.icon())}></div>*/}
+        <span className={cn(baseStyles.icon(), iconClassName)}>{children}</span>
       </button>
     )
   },

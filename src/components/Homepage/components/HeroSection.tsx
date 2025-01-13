@@ -6,13 +6,13 @@ import { QRCode } from 'react-qrcode-logo'
 import Typed from 'typed.js'
 
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
-// import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
+import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
 import RarimoIcon from '@/assets/icons/rarimo-icon.svg'
 import { Config } from '@/config'
 import { Anchors } from '@/enums'
 import { isAndroid, isIos, isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
-import { UiButton, UiContainer, UiGradientDecor } from '@/ui'
+import { UiButton, UiContainer, UiGradientDecor, UiIconButton } from '@/ui'
 
 export default function HeroSection() {
   const typoRef = useRef<HTMLHeadingElement>(null)
@@ -61,6 +61,7 @@ export default function HeroSection() {
           className={cn(
             'flex items-center gap-2 self-center rounded-full bg-backgroundSurface1 px-3 py-2',
             'md:self-start',
+            'hover:bg-componentPrimary',
           )}
         >
           <span className='text-textPrimary typography-caption1'>
@@ -99,12 +100,21 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         'flex flex-col gap-2',
         'rounded-2xl bg-backgroundSurface1 p-4',
         'absolute bottom-2 right-2',
+        'shadow-[0px_4px_4px_0px_#0000000D,0px_2px_2px_0px_#0000000D,0px_1px_1px_0px_#0000000D,0px_0px_0px_0.33px_#0000000D]',
       )}
     >
-      {/*<UiIconButton className='' onClick={onBlockClose}>*/}
-      {/*  <CloseFillIcon size={16} />*/}
-      {/*</UiIconButton>*/}
-      <span className='text-center typography-caption2'>Download the app</span>
+      <UiIconButton
+        className='absolute right-1 top-1'
+        iconClassName='text-textSecondary'
+        variant='simple'
+        size='xsmall'
+        onClick={onBlockClose}
+      >
+        <CloseFillIcon />
+      </UiIconButton>
+      <span className='text-center typography-caption2'>
+        Download the <br /> app
+      </span>
       <QRCode value={Config.universityLink} size={105} />
     </div>
   )
@@ -131,11 +141,18 @@ function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         'flex justify-between',
         'rounded-2xl bg-backgroundSurface1 p-4',
         'absolute bottom-3 left-3 right-3 z-20',
+        'shadow-[0px_4px_4px_0px_#0000000D,0px_2px_2px_0px_#0000000D,0px_1px_1px_0px_#0000000D,0px_0px_0px_0.33px_#0000000D]',
       )}
     >
-      {/*<UiIconButton className='' onClick={onBlockClose}>*/}
-      {/*  <CloseFillIcon size={16} />*/}
-      {/*</UiIconButton>*/}
+      <UiIconButton
+        className='absolute right-0.5 top-0'
+        iconClassName='text-textSecondary'
+        variant='simple'
+        size='xsmall'
+        onClick={onBlockClose}
+      >
+        <CloseFillIcon />
+      </UiIconButton>
       <div className='flex gap-2'>
         <RarimoIcon />
         <div className='flex flex-col'>
@@ -145,7 +162,11 @@ function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
           </span>
         </div>
       </div>
-      <UiButton size='small' onClick={handleDownloadLink}>
+      <UiButton
+        className='bg-invertedDark'
+        size='small'
+        onClick={handleDownloadLink}
+      >
         Download
       </UiButton>
     </div>

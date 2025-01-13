@@ -42,7 +42,7 @@ export default function HomeHeader({
         }`}
       >
         <LogoIcon />
-        <UiIconButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <UiIconButton size='small' onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <CloseFillIcon /> : <Menu2FillIcon />}
         </UiIconButton>
       </div>

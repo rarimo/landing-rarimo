@@ -25,11 +25,12 @@ enum TestimonialTabs {
 }
 
 export default function TestimonialsSection() {
+  const isMdDown = isMediumScreen()
+
   const swiperRef = useRef<SwiperRef | null>(null)
   const [isLastSlide, setIsLastSlide] = useState(false)
   const [activeSlide, setActiveSlide] = useState(0)
   const [activeTab, setActiveTab] = useState(TestimonialTabs.Community)
-  const isMdDown = isMediumScreen()
 
   const handlePrevSlide = useCallback(() => {
     swiperRef.current?.swiper.slidePrev()
@@ -70,6 +71,7 @@ export default function TestimonialsSection() {
         <div className={cn('ml-auto hidden items-center gap-4', 'md:flex')}>
           <UiIconButton
             size='large'
+            color='white'
             disabled={activeSlide === 0}
             onClick={handlePrevSlide}
           >
@@ -77,6 +79,7 @@ export default function TestimonialsSection() {
           </UiIconButton>
           <UiIconButton
             size='large'
+            color='white'
             disabled={isLastSlide}
             onClick={handleNextSlide}
           >

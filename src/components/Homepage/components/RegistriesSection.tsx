@@ -1,5 +1,7 @@
+'use client'
+
 import Link from 'next/link'
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 
 import EthIcon from '@/assets/icons/eth-icon.svg'
 import { Anchors } from '@/enums'
@@ -9,6 +11,15 @@ import { UiButton, UiContainer, UiGradientDecor } from '@/ui'
 
 export default function RegistriesSection() {
   const isMdDown = isMediumScreen()
+
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerWidth, setContainerWidth] = useState(1000)
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setContainerWidth(containerRef.current.offsetWidth)
+    }
+  }, [])
 
   return (
     <UiContainer
@@ -60,6 +71,7 @@ export default function RegistriesSection() {
           </UiButton>
         </div>
         <div
+          ref={containerRef}
           className={cn(
             'relative mt-12 min-h-[424px] overflow-x-auto md:mt-[72px]',
           )}
@@ -69,13 +81,19 @@ export default function RegistriesSection() {
               imgUrl='/images/registry-1.svg'
               title={'ZK Passports'}
               desc={'90% global passport registry with uniqueness proofs'}
-              gradientClassName='-bottom-[320px] left-0 h-[414px] w-[984px]'
+              gradientClassName={cn(
+                '-bottom-[320px] left-0 h-[414px]',
+                `w-[${containerWidth}px]`,
+              )}
             />
             <RegistryCard
               imgUrl='/images/registry-2.svg'
               title={'ZK Reputation'}
               desc={'Managing user leveling & permissions in privacy mode'}
-              gradientClassName='-bottom-[320px] -left-[331px] h-[414px] w-[984px]'
+              gradientClassName={cn(
+                '-bottom-[320px] -left-[331px] h-[414px]',
+                `w-[${containerWidth}px]`,
+              )}
             />
             <RegistryCard
               imgUrl='/images/registry-3.svg'
@@ -83,7 +101,10 @@ export default function RegistriesSection() {
               desc={
                 'Registry of verified social handles compatible with any ZKTLS service'
               }
-              gradientClassName='-bottom-[320px] -left-[662px] h-[414px] w-[984px]'
+              gradientClassName={cn(
+                '-bottom-[320px] -left-[331px] h-[414px]',
+                `w-[${containerWidth}px]`,
+              )}
             />
           </div>
         </div>
