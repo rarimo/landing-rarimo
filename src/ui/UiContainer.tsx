@@ -1,6 +1,7 @@
 import { forwardRef, HTMLAttributes } from 'react'
 
 import { cn } from '@/theme/utils'
+import { UiGradientDecor } from '@/ui/index'
 
 const UiContainer = forwardRef<
   HTMLDivElement,
@@ -19,7 +20,7 @@ const UiContainer = forwardRef<
       <div
         {...rest}
         ref={ref}
-        className={cn('size-full rounded-3xl', className)}
+        className={cn('z-10 size-full rounded-3xl', className)}
       />
     </div>
   )

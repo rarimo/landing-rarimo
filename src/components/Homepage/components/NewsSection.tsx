@@ -5,6 +5,7 @@ import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 import { news } from '@/assets/data/news'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
+import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiIconButton } from '@/ui'
 
@@ -12,6 +13,7 @@ export default function NewsSection() {
   const swiperRef = useRef<SwiperRef | null>(null)
   const [isLastSlide, setIsLastSlide] = useState(false)
   const [activeSlide, setActiveSlide] = useState(0)
+  const isMdDown = isMediumScreen()
 
   const handlePrevSlide = useCallback(() => {
     swiperRef.current?.swiper.slidePrev()
@@ -61,8 +63,8 @@ export default function NewsSection() {
             ref={swiperRef}
             modules={[Mousewheel]}
             slidesPerView='auto'
-            slidesOffsetBefore={64}
-            slidesOffsetAfter={64}
+            slidesOffsetBefore={isMdDown ? 24 : 72}
+            slidesOffsetAfter={isMdDown ? 24 : 72}
             mousewheel={{ forceToAxis: true }}
             spaceBetween={16}
             resistanceRatio={0.5}

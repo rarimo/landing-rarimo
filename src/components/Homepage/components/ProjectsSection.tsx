@@ -6,13 +6,20 @@ import { projects } from '@/assets/data/projects'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
+import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
-import { UiContainer, UiHorizontalDivider, UiIconButton } from '@/ui'
+import {
+  UiContainer,
+  UiGradientDecor,
+  UiHorizontalDivider,
+  UiIconButton,
+} from '@/ui'
 
 export default function ProjectsSection() {
   const swiperRef = useRef<SwiperRef | null>(null)
   const [isLastSlide, setIsLastSlide] = useState(false)
   const [activeSlide, setActiveSlide] = useState(0)
+  const isMdDown = isMediumScreen()
 
   const handlePrevSlide = useCallback(() => {
     swiperRef.current?.swiper.slidePrev()
@@ -27,11 +34,12 @@ export default function ProjectsSection() {
       className={cn(
         'relative flex flex-col overflow-hidden bg-backgroundContainer',
         'p-12 px-0 md:p-[72px] md:px-0',
-        'bg-[url(/images/sharped-blurred-bg-2.png)] bg-[length:680px_570px] bg-right-bottom bg-no-repeat',
+        'relative overflow-hidden',
       )}
       isFullHeight={false}
     >
-      <div className='flex-1 px-8 md:px-[72px]'>
+      <UiGradientDecor gradientClassName='-right-[35px] -bottom-[270px] rotate-[60deg] h-[715px] w-[407px] opacity-80' />
+      <div className='z-10 flex-1 px-8 md:px-[72px]'>
         <div className='max-w-full md:max-w-[85%]'>
           <span
             className={cn(
@@ -52,7 +60,7 @@ export default function ProjectsSection() {
         />
       </div>
 
-      <div className='mb-10 mt-auto flex items-center gap-5 px-8 md:px-[72px]'>
+      <div className='z-10 mb-10 mt-auto flex items-center gap-5 px-8 md:px-[72px]'>
         <div className='relative'>
           <span
             className={cn('text-textPrimary typography-h3', 'typography-h2')}
@@ -93,8 +101,8 @@ export default function ProjectsSection() {
           ref={swiperRef}
           modules={[Mousewheel]}
           slidesPerView='auto'
-          slidesOffsetBefore={72}
-          slidesOffsetAfter={72}
+          slidesOffsetBefore={isMdDown ? 32 : 72}
+          slidesOffsetAfter={isMdDown ? 32 : 72}
           mousewheel={{ forceToAxis: true }}
           spaceBetween={16}
           resistanceRatio={0.5}

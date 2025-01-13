@@ -11,4 +11,12 @@ export const gradients = {
   '.additional-gradient4': {
     background: 'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
   },
+  '.background-gradient': {
+    background:
+      'linear-gradient(259.67deg, #A5E87D 7.71%, #95F1CD 42.6%, var(--gradient-end) 91.86%)',
+  },
+  '.background-mask-gradient': {
+    background: 'var(--background-mask-gradient)',
+    opacity: 'var(--background-mask-opacity)',
+  },
 }

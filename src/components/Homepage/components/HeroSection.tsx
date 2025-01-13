@@ -8,7 +8,7 @@ import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { Config } from '@/config'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
-import { UiContainer } from '@/ui'
+import { UiContainer, UiGradientDecor } from '@/ui'
 
 export default function HeroSection() {
   const typoRef = useRef<HTMLHeadingElement>(null)
@@ -35,15 +35,17 @@ export default function HeroSection() {
       id={Anchors.Home}
       className={cn(
         'flex flex-col items-center bg-backgroundContainer pb-[52px] md:p-[72px]',
-        'bg-[url(/images/bg-sharped-blurred.png)] bg-[length:680px_570px] bg-right-top bg-no-repeat',
         'items-start justify-end',
         'scroll-mt-2 md:scroll-mt-8',
+        'relative overflow-hidden',
       )}
     >
+      <UiGradientDecor gradientClassName='-right-[65px] -top-[83px] -rotate-[10deg] h-[570px] w-[680px]' />
       <div
         className={cn(
           'flex flex-col items-center gap-8 self-center text-center',
           'md:items-start md:self-start md:text-left',
+          'z-10',
         )}
       >
         <Link

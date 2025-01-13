@@ -3,10 +3,13 @@ import { HTMLAttributes } from 'react'
 
 import EthIcon from '@/assets/icons/eth-icon.svg'
 import { Anchors } from '@/enums'
+import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
-import { UiButton, UiContainer } from '@/ui'
+import { UiButton, UiContainer, UiGradientDecor } from '@/ui'
 
 export default function RegistriesSection() {
+  const isMdDown = isMediumScreen()
+
   return (
     <UiContainer
       id={Anchors.ZkRegistries}
@@ -51,7 +54,7 @@ export default function RegistriesSection() {
               'md:w-auto',
             )}
             color={'text'}
-            // TODO: mobile - size medium
+            size={isMdDown ? 'medium' : 'large'}
           >
             Start building
           </UiButton>
@@ -66,11 +69,13 @@ export default function RegistriesSection() {
               imgUrl='/images/registry-1.svg'
               title={'ZK Passports'}
               desc={'90% global passport registry with uniqueness proofs'}
+              gradientClassName='-bottom-[320px] left-0 h-[414px] w-[984px]'
             />
             <RegistryCard
               imgUrl='/images/registry-2.svg'
               title={'ZK Reputation'}
               desc={'Managing user leveling & permissions in privacy mode'}
+              gradientClassName='-bottom-[320px] -left-[331px] h-[414px] w-[984px]'
             />
             <RegistryCard
               imgUrl='/images/registry-3.svg'
@@ -78,6 +83,7 @@ export default function RegistriesSection() {
               desc={
                 'Registry of verified social handles compatible with any ZKTLS service'
               }
+              gradientClassName='-bottom-[320px] -left-[662px] h-[414px] w-[984px]'
             />
           </div>
         </div>
@@ -90,18 +96,30 @@ function RegistryCard({
   imgUrl,
   title,
   desc,
+  gradientClassName,
 }: {
   imgUrl: string
   title: string
   desc: string
+  gradientClassName?: string
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className='flex w-full min-w-[300px] max-w-full flex-col items-center gap-[60px] overflow-hidden rounded-3xl border border-componentPrimary bg-backgroundContainer p-10 pt-4 text-center backdrop-blur-[24px]'>
-      <img className='my-auto aspect-video' src={imgUrl} alt={title} />
-      <div className='flex flex-col gap-2'>
+    <div
+      className={cn(
+        'flex flex-col justify-center',
+        'h-424 h-full w-full min-w-[300px]',
+        'rounded-[24px] border-2 border-componentPrimary',
+        'px-10 pb-10',
+        'relative overflow-hidden',
+      )}
+    >
+      <img className='z-10 mx-auto my-auto' src={imgUrl} alt={title} />
+      <div className='z-10 flex flex-col gap-2 text-center'>
         <span className='text-textPrimary typography-h4'>{title}</span>
         <span className='text-textSecondary typography-body3'>{desc}</span>
       </div>
+
+      <UiGradientDecor gradientClassName={gradientClassName} />
     </div>
   )
 }

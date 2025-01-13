@@ -6,8 +6,8 @@ import {
   cssVars,
   fontFamily,
   gradients,
-  typography,
   screens,
+  typography,
 } from './src/theme/config'
 
 const config: Config = {

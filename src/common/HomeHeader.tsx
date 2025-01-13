@@ -31,7 +31,7 @@ export default function HomeHeader({
   useClickOutside(menuRef, () => setIsMenuOpen(false))
 
   return (
-    <header className='relative z-10 flex w-full'>
+    <header className='relative z-50 flex w-full'>
       {isMenuOpen && (
         <div className='fixed inset-0 bg-baseBlack opacity-50 transition-opacity'></div>
       )}

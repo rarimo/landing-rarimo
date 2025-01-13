@@ -6,13 +6,16 @@ import { communities } from '@/assets/data/communities'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { Anchors } from '@/enums'
+import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiIconButton } from '@/ui'
+import UiGradientDecor from '@/ui/UiGradientDecor'
 
 export default function CommunitySection() {
   const swiperRef = useRef<SwiperRef | null>(null)
   const [isLastSlide, setIsLastSlide] = useState(false)
   const [activeSlide, setActiveSlide] = useState(0)
+  const isMdDown = isMediumScreen()
 
   const handlePrevSlide = useCallback(() => {
     swiperRef.current?.swiper.slidePrev()
@@ -27,11 +30,11 @@ export default function CommunitySection() {
       id={Anchors.Community}
       className={cn(
         'relative flex flex-col overflow-hidden bg-backgroundContainer py-12 md:py-[72px]',
-        'bg-[url(/images/sharped-blurred-bg-2.png)] bg-[length:680px_570px] bg-right-bottom bg-no-repeat',
       )}
       isFullHeight={false}
     >
-      <div className='mb-[72px] mt-auto flex items-center gap-5 px-8 md:px-[72px]'>
+      <UiGradientDecor gradientClassName='right-[95px] -bottom-[210px] rotate-[70deg] h-[670px] w-[323px] opacity-80' />
+      <div className='z-10 mb-[72px] mt-auto flex items-center gap-5 px-8 md:px-[72px]'>
         <span
           className={cn('text-textPrimary typography-h3', 'md:typography-h2')}
         >
@@ -66,8 +69,8 @@ export default function CommunitySection() {
           ref={swiperRef}
           modules={[Mousewheel]}
           slidesPerView='auto'
-          slidesOffsetBefore={64}
-          slidesOffsetAfter={64}
+          slidesOffsetBefore={isMdDown ? 32 : 72}
+          slidesOffsetAfter={isMdDown ? 32 : 72}
           mousewheel={{ forceToAxis: true }}
           spaceBetween={16}
           resistanceRatio={0.5}

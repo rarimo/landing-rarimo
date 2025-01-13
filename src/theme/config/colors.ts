@@ -79,6 +79,12 @@ export const lightPalette = {
     'linear-gradient(87.63deg, #AC95DC -1.41%, #CD90F3 113.73%);',
   additionalGradient4:
     'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
+
+  gradientEnd: '#FFFFFF',
+
+  backgroundMaskGradient:
+    'linear-gradient(244.19deg, #000000 1.57%, rgba(102, 102, 102, 0) 99.44%)',
+  backgroundMaskOpacity: '1',
 }
 
 export type BaseTheme = typeof lightPalette
@@ -153,6 +159,12 @@ export const darkPalette: BaseTheme = {
     'linear-gradient(87.63deg, #AC95DC -1.41%, #CD90F3 113.73%);',
   additionalGradient4:
     'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
+
+  gradientEnd: '#0D0D0D',
+
+  backgroundMaskGradient:
+    'linear-gradient(112.57deg, rgba(0, 0, 0, 0) 0%, #666666 98.71%);',
+  backgroundMaskOpacity: 'none',
 }
 
 export const cssVars = {
@@ -238,6 +250,11 @@ export const colorsScheme: BaseTheme = {
   additionalGradient2: 'var(--additional-gradient-2)',
   additionalGradient3: 'var(--additional-gradient-3)',
   additionalGradient4: 'var(--additional-gradient-4)',
+
+  gradientEnd: 'var(--gradient-end)',
+
+  backgroundMaskGradient: 'var(--background-mask-gradient)',
+  backgroundMaskOpacity: 'var(--background-mask-opacity)',
 }
 
 export const colors: ThemeConfig['colors'] = colorsScheme
