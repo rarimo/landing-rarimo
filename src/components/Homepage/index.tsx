@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 import { HomeHeader, HomeSidebar } from '@/common'
-import CommunitySection from '@/components/Homepage/components/CommunitySection'
+import TestimonialsSection from '@/components/Homepage/components/TestimonialsSection'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import NewsSection from '@/components/Homepage/components/NewsSection'
@@ -38,7 +38,7 @@ export default function Homepage() {
         <EcosystemSection />
         <ProjectsSection />
         <RegistriesSection />
-        <CommunitySection />
+        <TestimonialsSection />
         <NewsSection />
       </main>
     </div>

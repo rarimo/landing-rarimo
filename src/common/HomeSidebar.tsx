@@ -94,7 +94,7 @@ export function AnchorsList({
     { title: 'Home', anchor: Anchors.Home },
     { title: 'Ecosystem', anchor: Anchors.Ecosystem },
     { title: 'L2: ZK Registries', anchor: Anchors.ZkRegistries },
-    { title: 'Community', anchor: Anchors.Community },
+    { title: 'Testimonials', anchor: Anchors.Testimonials },
   ]
 
   return (
