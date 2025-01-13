@@ -1,17 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { QRCode } from 'react-qrcode-logo'
 import Typed from 'typed.js'
 
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
+// import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
+import RarimoIcon from '@/assets/icons/rarimo-icon.svg'
 import { Config } from '@/config'
 import { Anchors } from '@/enums'
+import { isAndroid, isIos, isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
-import { UiContainer, UiGradientDecor } from '@/ui'
+import { UiButton, UiContainer, UiGradientDecor } from '@/ui'
 
 export default function HeroSection() {
   const typoRef = useRef<HTMLHeadingElement>(null)
+
+  const [isQRCodeShown, setIsQRCodeShown] = useState(true)
+  const isMdDown = isMediumScreen()
 
   useEffect(() => {
     if (!typoRef.current) return
@@ -34,7 +41,7 @@ export default function HeroSection() {
     <UiContainer
       id={Anchors.Home}
       className={cn(
-        'flex flex-col items-center bg-backgroundContainer pb-[52px] md:p-[72px]',
+        'flex flex-col items-center bg-backgroundContainer pb-[132px] md:p-[72px]',
         'items-start justify-end',
         'scroll-mt-2 md:scroll-mt-8',
         'relative overflow-hidden',
@@ -73,6 +80,74 @@ export default function HeroSection() {
           ></span>
         </h1>
       </div>
+      <div className='z-10'>
+        {!isMdDown && isQRCodeShown && (
+          <DesktopQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
+        )}
+        {isMdDown && isQRCodeShown && (
+          <MobileQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
+        )}
+      </div>
     </UiContainer>
+  )
+}
+
+function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
+  return (
+    <div
+      className={cn(
+        'flex flex-col gap-2',
+        'rounded-2xl bg-backgroundSurface1 p-4',
+        'absolute bottom-2 right-2',
+      )}
+    >
+      {/*<UiIconButton className='' onClick={onBlockClose}>*/}
+      {/*  <CloseFillIcon size={16} />*/}
+      {/*</UiIconButton>*/}
+      <span className='text-center typography-caption2'>Download the app</span>
+      <QRCode value={Config.universityLink} size={105} />
+    </div>
+  )
+}
+
+function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
+  const handleDownloadLink = useCallback(() => {
+    if (isIos()) {
+      window.open(Config.appStoreLink, '_blank')
+
+      return
+    }
+
+    if (isAndroid()) {
+      window.open(Config.googlePlayLink, '_blank')
+
+      return
+    }
+  }, [])
+
+  return (
+    <div
+      className={cn(
+        'flex justify-between',
+        'rounded-2xl bg-backgroundSurface1 p-4',
+        'absolute bottom-3 left-3 right-3 z-20',
+      )}
+    >
+      {/*<UiIconButton className='' onClick={onBlockClose}>*/}
+      {/*  <CloseFillIcon size={16} />*/}
+      {/*</UiIconButton>*/}
+      <div className='flex gap-2'>
+        <RarimoIcon />
+        <div className='flex flex-col'>
+          <span className='typography-h6'>RariMe</span>
+          <span className='text-textSecondary typography-body4'>
+            Go Incognito
+          </span>
+        </div>
+      </div>
+      <UiButton size='small' onClick={handleDownloadLink}>
+        Download
+      </UiButton>
+    </div>
   )
 }

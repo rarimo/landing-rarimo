@@ -55,7 +55,6 @@ export default function HomeHeader({
         <div ref={menuRef} className='flex flex-col gap-8 px-5 py-8'>
           <nav className='flex flex-col'>
             <AnchorsList
-              className=''
               activeLink={activeLink}
               setActiveLink={link => {
                 setActiveLink(link)
