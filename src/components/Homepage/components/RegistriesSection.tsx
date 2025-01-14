@@ -3,6 +3,7 @@ import { useTheme } from 'next-themes'
 import { HTMLAttributes } from 'react'
 
 import EthIcon from '@/assets/icons/eth-icon.svg'
+import ClientOnly from '@/common/ClientOnly'
 import { Config } from '@/config'
 import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
@@ -41,7 +42,8 @@ export default function RegistriesSection() {
               <div className='flex items-center gap-1'>
                 <EthIcon className='text-textPrimary' />
                 <Link
-                  href={'#'}
+                  href={Config.ercLink}
+                  target='_blank'
                   className='text-textPrimary underline typography-body2'
                 >
                   ERC 7812
@@ -132,22 +134,30 @@ function RegistryCard({
     theme === 'dark' ? darkThemeImageUrl : lightThemeImageUrl
 
   return (
-    <div
-      className={cn(
-        'flex flex-col justify-center',
-        'h-424 h-full w-full min-w-[300px] max-w-[400px]',
-        'rounded-[24px] border-2 border-componentPrimary',
-        'px-10 pb-10',
-        'relative overflow-hidden',
-      )}
-    >
-      <img className='z-10 mx-auto my-auto' src={currentImageUrl} alt={title} />
-      <div className='z-10 flex flex-col gap-2 text-center'>
-        <span className='text-textPrimary typography-h4'>{title}</span>
-        <span className='text-textSecondary typography-body3'>{desc}</span>
-      </div>
+    <ClientOnly>
+      {() => (
+        <div
+          className={cn(
+            'flex flex-col justify-center',
+            'h-424 h-full w-full min-w-[300px] max-w-[400px]',
+            'rounded-[24px] border-2 border-componentPrimary',
+            'px-10 pb-10',
+            'relative overflow-hidden',
+          )}
+        >
+          <img
+            className='z-10 mx-auto my-auto'
+            src={currentImageUrl}
+            alt={title}
+          />
+          <div className='z-10 flex flex-col gap-2 text-center'>
+            <span className='text-textPrimary typography-h4'>{title}</span>
+            <span className='text-textSecondary typography-body3'>{desc}</span>
+          </div>
 
-      <UiGradientDecor gradientClassName={gradientClassName} />
-    </div>
+          <UiGradientDecor gradientClassName={gradientClassName} />
+        </div>
+      )}
+    </ClientOnly>
   )
 }

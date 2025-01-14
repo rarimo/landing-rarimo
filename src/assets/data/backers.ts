@@ -30,7 +30,7 @@ export const backers = [
     height: 27,
   },
   {
-    image: '/images/backers/eniac.png',
+    image: '/images/backers/eniac-ventures.png',
     title: 'Eniac',
     width: 81,
     height: 26,
