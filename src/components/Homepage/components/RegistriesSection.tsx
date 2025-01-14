@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
 import { HTMLAttributes } from 'react'
 
 import EthIcon from '@/assets/icons/eth-icon.svg'
@@ -6,11 +7,9 @@ import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiButton, UiContainer, UiGradientDecor } from '@/ui'
-import { useTheme } from 'next-themes'
 
 export default function RegistriesSection() {
   const isMdDown = isMediumScreen()
-  const { theme } = useTheme()
 
   return (
     <UiContainer

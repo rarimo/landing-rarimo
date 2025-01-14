@@ -58,6 +58,7 @@ export default function HomeHeader({
               activeLink={activeLink}
               setActiveLink={link => {
                 setActiveLink(link)
+                setIsMenuOpen(false)
               }}
             />
 

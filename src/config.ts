@@ -13,7 +13,7 @@ export const Config = {
     'https://mirror.xyz/0x90699B5A52BccbdFe73d5c9F3d039a33fb2D1AF6',
   documentationLink: 'https://docs.rarimo.com/',
 
-  universityLink: '',
+  universityLink: 'https://rarime.com/',
   appStoreLink: 'https://apps.apple.com/app/rarime/id6503300598',
   googlePlayLink:
     'https://play.google.com/store/apps/details?id=com.rarilabs.rarime',

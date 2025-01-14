@@ -23,3 +23,7 @@ export function isSmallScreen() {
 export function isMediumScreen() {
   return typeof window !== 'undefined' && window.innerWidth < 600
 }
+
+export function isLargeScreen() {
+  return typeof window !== 'undefined' && window.innerWidth < 1200
+}

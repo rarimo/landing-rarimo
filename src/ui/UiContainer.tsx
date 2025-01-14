@@ -1,7 +1,6 @@
 import { forwardRef, HTMLAttributes } from 'react'
 
 import { cn } from '@/theme/utils'
-import { UiGradientDecor } from '@/ui/index'
 
 const UiContainer = forwardRef<
   HTMLDivElement,

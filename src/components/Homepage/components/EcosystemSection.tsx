@@ -5,18 +5,18 @@ import { ReactElement, useState } from 'react'
 
 import { IntersectionAnchor } from '@/common'
 import { Anchors } from '@/enums'
+import { isLargeScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
 const INITIAL_CARD_1 = { x: 0, y: 0, rotate: -15 }
 const INITIAL_CARD_3 = { x: 0, y: 0, rotate: 15 }
 
-const INITIAL_EXAMPLE_CARD = { x: 50, y: 50 }
+const INITIAL_EXAMPLE_CARD = { x: 50, y: 50, hidden: true }
 
 export default function EcosystemSection() {
-  const [isAnimated, setIsAnimated] = useState(false)
-
-  // TODO: add mobile adaptation
+  const [isAnimated, setIsAnimated] = useState(true)
+  const isLgDown = isLargeScreen()
 
   return (
     <UiContainer
@@ -25,26 +25,22 @@ export default function EcosystemSection() {
         'relative flex items-center justify-center overflow-hidden bg-backgroundContainer',
       )}
     >
-      <div className='absolute left-1/2 top-1/2 size-[240px] -translate-x-1/2 -translate-y-1/2'>
+      <motion.div
+        initial={false}
+        whileInView='visible'
+        viewport={{ amount: 0.2 }}
+        className={cn(
+          'absolute left-1/2 top-1/2 size-[172px] -translate-x-1/2 -translate-y-1/2',
+          'lg:size-[240px]',
+        )}
+      >
         <EcosystemImageCard
           animate={
             isAnimated
               ? {
-                  x: 100,
-                  y: -200,
-                  scale: 0.98,
-                }
-              : INITIAL_EXAMPLE_CARD
-          }
-          src={'/images/ecosystem/ecosystem-2.png'}
-        />
-        <EcosystemImageCard
-          animate={
-            isAnimated
-              ? {
-                  x: 380,
-                  y: -250,
-                  scale: 0.74,
+                  x: isLgDown ? 145 : 380,
+                  y: isLgDown ? -85 : -250,
+                  scale: isLgDown ? 0.74 : 0.74,
                 }
               : INITIAL_EXAMPLE_CARD
           }
@@ -54,9 +50,21 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: 330,
-                  y: -35,
-                  scale: 0.72,
+                  x: isLgDown ? 110 : 100,
+                  y: isLgDown ? -170 : -200,
+                  scale: isLgDown ? 0.99 : 0.98,
+                }
+              : INITIAL_EXAMPLE_CARD
+          }
+          src={'/images/ecosystem/ecosystem-2.png'}
+        />
+        <EcosystemImageCard
+          animate={
+            isAnimated
+              ? {
+                  x: isLgDown ? 185 : 330,
+                  y: isLgDown ? 20 : -35,
+                  scale: isLgDown ? 0.72 : 0.72,
                 }
               : INITIAL_EXAMPLE_CARD
           }
@@ -66,9 +74,9 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: -390,
-                  y: 150,
-                  scale: 0.61,
+                  x: isLgDown ? -90 : -350,
+                  y: isLgDown ? 5 : 150,
+                  scale: isLgDown ? 0.62 : 0.61,
                 }
               : INITIAL_EXAMPLE_CARD
           }
@@ -78,9 +86,9 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: -220,
-                  y: 205,
-                  scale: 0.99,
+                  x: isLgDown ? -88 : -180,
+                  y: isLgDown ? 145 : 205,
+                  scale: isLgDown ? 0.99 : 0.99,
                 }
               : INITIAL_EXAMPLE_CARD
           }
@@ -90,9 +98,9 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: 10,
-                  y: 320,
-                  scale: 0.72,
+                  x: isLgDown ? -10 : 10,
+                  y: isLgDown ? 230 : 320,
+                  scale: isLgDown ? 0.72 : 0.72,
                 }
               : INITIAL_EXAMPLE_CARD
           }
@@ -104,8 +112,8 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: 300,
-                  y: 150,
+                  x: isLgDown ? 86 : 300,
+                  y: isLgDown ? 200 : 150,
                   rotate: 0,
                 }
               : INITIAL_CARD_1
@@ -114,8 +122,8 @@ export default function EcosystemSection() {
         >
           <span
             className={cn(
-              'text-baseBlack opacity-80 typography-h4',
-              'md:typography-h2',
+              'text-baseBlack opacity-80 typography-h3',
+              'lg:typography-h2',
             )}
           >
             Self Issuance & Recovery
@@ -124,8 +132,8 @@ export default function EcosystemSection() {
         <EcosystemStackCard className={'gradient1'}>
           <span
             className={cn(
-              'text-baseBlack opacity-80 typography-h4',
-              'md:typography-h2',
+              'text-baseBlack opacity-80 typography-h3',
+              'lg:typography-h2',
             )}
           >
             Shared privacy layer
@@ -136,8 +144,8 @@ export default function EcosystemSection() {
           animate={
             isAnimated
               ? {
-                  x: -300,
-                  y: -150,
+                  x: isLgDown ? -86 : -300,
+                  y: isLgDown ? -200 : -150,
                   rotate: 0,
                 }
               : INITIAL_CARD_3
@@ -146,16 +154,16 @@ export default function EcosystemSection() {
         >
           <span
             className={cn(
-              'text-baseWhite opacity-80 typography-h4',
-              'md:typography-h2',
+              'text-baseWhite opacity-80 typography-h3',
+              'lg:typography-h2',
             )}
           >
-            Secured by Ethereum and Rarimo Layer 2
+            Secured by Ethereum Rarimo
           </span>
         </EcosystemStackCard>
-      </div>
+      </motion.div>
       <IntersectionAnchor
-        enterThreshold={0.9}
+        enterThreshold={0.7}
         exitThreshold={0.3}
         onIntersect={() => setIsAnimated(true)}
         onExit={() => setIsAnimated(false)}
@@ -166,7 +174,7 @@ export default function EcosystemSection() {
 
 function EcosystemStackCard({
   className,
-  transition = { duration: 1.2, type: 'spring' },
+  transition = { duration: 1, type: 'spring' },
   ...rest
 }: {
   children?: ReactElement
@@ -178,7 +186,8 @@ function EcosystemStackCard({
       {...rest}
       transition={transition}
       className={cn(
-        'absolute rounded-[40px] px-[30px] py-[40px] sm:size-[164px] md:size-[240px]',
+        'absolute size-[172px] rounded-[29px] px-[21px] py-[29px]',
+        'lg:size-[240px] lg:rounded-[40px] lg:px-[30px] lg:py-[40px]',
         className,
       )}
     />
@@ -198,7 +207,11 @@ function EcosystemImageCard({
     <motion.img
       {...rest}
       transition={transition}
-      className={cn('absolute size-[140px] rounded-[20px]', className)}
+      className={cn(
+        'absolute size-[70px] rounded-[10px]',
+        'lg:size-[140px] lg:rounded-[20px]',
+        className,
+      )}
     />
   )
 }
