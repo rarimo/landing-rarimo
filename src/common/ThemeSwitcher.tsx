@@ -4,6 +4,7 @@ import { PropsWithChildren } from 'react'
 
 import MoonLineIcon from '@/assets/icons/moon-line-icon.svg'
 import SunLineIcon from '@/assets/icons/sun-line-icon.svg'
+import ClientOnly from '@/common/ClientOnly'
 
 const INITIAL_THUMB = { x: 0, y: 0 }
 const ANIMATED_THUMB = { x: '105%' }
@@ -12,23 +13,27 @@ export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className='relative flex h-[36px] w-[140px] items-center justify-center overflow-hidden rounded-full bg-componentPrimary'>
-      <ThemeSwitcherThumbBackdrop
-        animate={theme === 'dark' ? ANIMATED_THUMB : INITIAL_THUMB}
-      />
+    <ClientOnly>
+      {() => (
+        <div className='relative flex h-[36px] w-[140px] items-center justify-center overflow-hidden rounded-full bg-componentPrimary'>
+          <ThemeSwitcherThumbBackdrop
+            animate={theme === 'dark' ? ANIMATED_THUMB : INITIAL_THUMB}
+          />
 
-      <ThemeSwitcherThumb>
-        <SunLineIcon className='text-textPrimary' />
-      </ThemeSwitcherThumb>
-      <ThemeSwitcherThumb>
-        <MoonLineIcon className='text-textPrimary' />
-      </ThemeSwitcherThumb>
+          <ThemeSwitcherThumb>
+            <SunLineIcon className='text-textPrimary' />
+          </ThemeSwitcherThumb>
+          <ThemeSwitcherThumb>
+            <MoonLineIcon className='text-textPrimary' />
+          </ThemeSwitcherThumb>
 
-      <button
-        className='absolute left-0 top-0 z-40 size-full'
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      />
-    </div>
+          <button
+            className='absolute left-0 top-0 z-40 size-full'
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          />
+        </div>
+      )}
+    </ClientOnly>
   )
 }
 

@@ -5,7 +5,7 @@ import { getTranslations } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
 import { ReactNode } from 'react'
 
-import { AosInit } from '@/common'
+import AosInit from '@/common/AosInit'
 import { locales } from '@/i18n'
 import { appFontClassName } from '@/theme/fonts'
 import { cn } from '@/theme/utils'
@@ -57,8 +57,17 @@ export default async function RootLayout({
             __html: `history.scrollRestoration = "manual"`,
           }}
         />
-        <link href='/favicon/favicon-dark.png' rel='icon' />
-        <link href='/favicon/favicon-dark.png' rel='icon' type='image/x-icon' />
+        <link
+          href='/favicon/favicon-light.png'
+          rel='icon'
+          media='(prefers-color-scheme: light)'
+        />
+        <link
+          type='image/x-icon'
+          href='/favicon/favicon-dark.png'
+          rel='icon'
+          media='(prefers-color-scheme: dark)'
+        />
         <link rel='apple-touch-icon' href='/favicon/favicon-dark.png' />
       </head>
       <body>

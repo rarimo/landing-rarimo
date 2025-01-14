@@ -12,7 +12,7 @@ export default function UiGradientDecor({
   maskStyle?: CSSProperties
 }) {
   return (
-    <div className={cn(containerClassName)}>
+    <div className={cn('overflow-hidden', containerClassName)}>
       <div
         className={cn(
           'rounded-[50%] blur-[70px] background-gradient',

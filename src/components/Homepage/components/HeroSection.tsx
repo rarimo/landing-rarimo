@@ -165,6 +165,7 @@ function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         className='bg-invertedDark'
         size='small'
         onClick={handleDownloadLink}
+        textClassName='text-invertedLight'
       >
         Download
       </UiButton>

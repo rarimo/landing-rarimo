@@ -3,6 +3,7 @@ import { useTheme } from 'next-themes'
 import { HTMLAttributes } from 'react'
 
 import EthIcon from '@/assets/icons/eth-icon.svg'
+import { Config } from '@/config'
 import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
@@ -56,6 +57,13 @@ export default function RegistriesSection() {
             )}
             color={'text'}
             size={isMdDown ? 'medium' : 'large'}
+            onClick={() =>
+              window.open(
+                Config.zkRegistriesLink,
+                '_blank',
+                'noopener noreferrer',
+              )
+            }
           >
             Start building
           </UiButton>
@@ -127,7 +135,7 @@ function RegistryCard({
     <div
       className={cn(
         'flex flex-col justify-center',
-        'h-424 h-full w-full min-w-[300px]',
+        'h-424 h-full w-full min-w-[300px] max-w-[400px]',
         'rounded-[24px] border-2 border-componentPrimary',
         'px-10 pb-10',
         'relative overflow-hidden',

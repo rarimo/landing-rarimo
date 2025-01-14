@@ -431,12 +431,16 @@ type Props = Omit<HTMLAttributes<HTMLButtonElement>, 'children'> & {
   title?: string
 
   children?: string | ReactElement | ReactNode
+  textClassName?: string
 } & VariantProps<typeof buttonBaseTv>
 
 type PressableRef = HTMLButtonElement
 
 const UiButton = forwardRef<PressableRef, Props>(
-  ({ title, size, variant, color, children, ...rest }: Props, ref) => {
+  (
+    { title, size, variant, color, children, textClassName, ...rest }: Props,
+    ref,
+  ) => {
     const [isPressed, setIsPressed] = useState(false)
 
     const baseStyles = useMemo(
@@ -458,10 +462,12 @@ const UiButton = forwardRef<PressableRef, Props>(
 
       return (
         (children || title) && (
-          <span className={cn(baseStyles.text())}>{children || title}</span>
+          <span className={cn(baseStyles.text(), textClassName)}>
+            {children || title}
+          </span>
         )
       )
-    }, [baseStyles, children, title])
+    }, [baseStyles, children, textClassName, title])
 
     return (
       <button

@@ -1,7 +1,7 @@
 export const Config = {
   heroSectionLink:
     'https://mirror.xyz/0x90699B5A52BccbdFe73d5c9F3d039a33fb2D1AF6',
-  zkRegistriesLink: '',
+  zkRegistriesLink: 'https://docs.rarimo.com/',
   ercLink:
     'https://ethereum-magicians.org/t/erc-7812-zk-identity-registry/21624',
   discordLink: 'https://discord.gg/Bzjm5MDXrU',

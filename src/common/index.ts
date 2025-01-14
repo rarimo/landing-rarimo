@@ -1,8 +1,0 @@
-export { default as AnimatedNumber } from './AnimatedNumber'
-export { default as AnimatedText } from './AnimatedText'
-export { default as AosInit } from './AosInit'
-export { default as ClientOnly } from './ClientOnly'
-export { default as HomeHeader } from './HomeHeader'
-export * from './HomeSidebar'
-export { default as IntersectionAnchor } from './IntersectionAnchor'
-export { default as ThemeSwitcher } from './ThemeSwitcher'

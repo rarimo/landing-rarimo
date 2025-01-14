@@ -93,17 +93,18 @@ export default function TestimonialsSection() {
           ref={swiperRef}
           modules={[Mousewheel]}
           slidesPerView='auto'
-          slidesOffsetBefore={isMdDown ? 32 : 72}
-          slidesOffsetAfter={isMdDown ? 32 : 72}
+          slidesOffsetBefore={isMdDown ? 32 : 64}
+          slidesOffsetAfter={isMdDown ? 32 : 64}
           mousewheel={{ forceToAxis: true }}
           spaceBetween={16}
           resistanceRatio={0.5}
           grabCursor
           freeMode
           edgeSwipeDetection
+          onReachEnd={() => setIsLastSlide(true)}
+          onFromEdge={() => setIsLastSlide(false)}
           onSlideChange={() => {
             if (!swiperRef.current) return
-            setIsLastSlide(swiperRef.current.swiper.isEnd)
             setActiveSlide(swiperRef.current.swiper.activeIndex)
           }}
         >
@@ -172,8 +173,9 @@ function CommunitySliderCard({
       {...rest}
       className={cn(
         'flex flex-col gap-6',
-        'relative h-[260px] w-[320px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
+        'relative h-[280px] w-[272px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
         'p-6',
+        'md:h-[260px] md:w-[320px]',
         className,
       )}
     >
@@ -210,8 +212,9 @@ function BackersSliderCard({
       {...rest}
       className={cn(
         'flex flex-col justify-between',
-        'relative h-[260px] w-[320px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
+        'relative h-[280px] w-[272px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
         'p-6',
+        'md:h-[260px] md:w-[320px]',
         className,
       )}
     >

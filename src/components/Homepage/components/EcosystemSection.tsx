@@ -3,7 +3,7 @@
 import { AnimationProps, motion, Transition } from 'motion/react'
 import { ReactElement, useState } from 'react'
 
-import { IntersectionAnchor } from '@/common'
+import IntersectionAnchor from '@/common/IntersectionAnchor'
 import { Anchors } from '@/enums'
 import { isLargeScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
@@ -25,10 +25,7 @@ export default function EcosystemSection() {
         'relative flex items-center justify-center overflow-hidden bg-backgroundContainer',
       )}
     >
-      <motion.div
-        initial={false}
-        whileInView='visible'
-        viewport={{ amount: 0.2 }}
+      <div
         className={cn(
           'absolute left-1/2 top-1/2 size-[172px] -translate-x-1/2 -translate-y-1/2',
           'lg:size-[240px]',
@@ -161,7 +158,7 @@ export default function EcosystemSection() {
             Secured by Ethereum Rarimo
           </span>
         </EcosystemStackCard>
-      </motion.div>
+      </div>
       <IntersectionAnchor
         enterThreshold={0.7}
         exitThreshold={0.3}

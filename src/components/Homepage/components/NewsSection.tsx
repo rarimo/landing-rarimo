@@ -31,8 +31,8 @@ export default function NewsSection() {
       <div
         className={cn(
           'flex flex-col gap-12',
-          'relative overflow-hidden rounded-3xl bg-backgroundPure',
-          'py-10 md:gap-[72px] md:py-[64px]',
+          'relative overflow-hidden rounded-3xl bg-backgroundPure py-10',
+          'md:gap-[72px] md:py-[64px]',
         )}
       >
         <div className='mt-auto flex items-center justify-between gap-5 px-6 md:px-[64px]'>
@@ -63,17 +63,18 @@ export default function NewsSection() {
             ref={swiperRef}
             modules={[Mousewheel]}
             slidesPerView='auto'
-            slidesOffsetBefore={isMdDown ? 24 : 72}
-            slidesOffsetAfter={isMdDown ? 24 : 72}
+            slidesOffsetBefore={isMdDown ? 24 : 64}
+            slidesOffsetAfter={isMdDown ? 24 : 64}
             mousewheel={{ forceToAxis: true }}
             spaceBetween={16}
             resistanceRatio={0.5}
             grabCursor
             freeMode
             edgeSwipeDetection
+            onReachEnd={() => setIsLastSlide(true)}
+            onFromEdge={() => setIsLastSlide(false)}
             onSlideChange={() => {
               if (!swiperRef.current) return
-              setIsLastSlide(swiperRef.current.swiper.isEnd)
               setActiveSlide(swiperRef.current.swiper.activeIndex)
             }}
           >
@@ -106,7 +107,7 @@ function NewsSectionItemCard({
         {...rest}
         className={cn(
           'flex flex-col gap-6',
-          'relative h-[260px] w-[320px] rounded-[20px] backdrop-blur-[24px]',
+          'relative h-[260px] w-[272px] rounded-[20px] backdrop-blur-[24px] md:w-[320px]',
           className,
         )}
       >

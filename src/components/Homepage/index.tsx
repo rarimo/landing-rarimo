@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 
-import { HomeHeader, HomeSidebar } from '@/common'
+import HomeHeader from '@/common/HomeHeader'
+import { HomeSidebar } from '@/common/HomeSidebar'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import NewsSection from '@/components/Homepage/components/NewsSection'
