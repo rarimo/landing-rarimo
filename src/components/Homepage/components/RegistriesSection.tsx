@@ -1,25 +1,16 @@
-'use client'
-
 import Link from 'next/link'
-import { HTMLAttributes, useEffect, useRef, useState } from 'react'
+import { HTMLAttributes } from 'react'
 
 import EthIcon from '@/assets/icons/eth-icon.svg'
 import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiButton, UiContainer, UiGradientDecor } from '@/ui'
+import { useTheme } from 'next-themes'
 
 export default function RegistriesSection() {
   const isMdDown = isMediumScreen()
-
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [containerWidth, setContainerWidth] = useState(1000)
-
-  useEffect(() => {
-    if (containerRef.current) {
-      setContainerWidth(containerRef.current.offsetWidth)
-    }
-  }, [])
+  const { theme } = useTheme()
 
   return (
     <UiContainer
@@ -71,39 +62,41 @@ export default function RegistriesSection() {
           </UiButton>
         </div>
         <div
-          ref={containerRef}
           className={cn(
             'relative mt-12 min-h-[424px] overflow-x-auto md:mt-[72px]',
           )}
         >
           <div className='absolute flex h-full gap-4'>
             <RegistryCard
-              imgUrl='/images/registry-1.svg'
+              lightThemeImageUrl='/images/registries/registry-1-light.svg'
+              darkThemeImageUrl='/images/registries/registry-1-dark.svg'
               title={'ZK Passports'}
               desc={'90% global passport registry with uniqueness proofs'}
               gradientClassName={cn(
                 '-bottom-[320px] left-0 h-[414px]',
-                `w-[${containerWidth}px]`,
+                `w-[991px]`,
               )}
             />
             <RegistryCard
-              imgUrl='/images/registry-2.svg'
+              lightThemeImageUrl='/images/registries/registry-2-light.svg'
+              darkThemeImageUrl='/images/registries/registry-2-dark.svg'
               title={'ZK Reputation'}
               desc={'Managing user leveling & permissions in privacy mode'}
               gradientClassName={cn(
                 '-bottom-[320px] -left-[331px] h-[414px]',
-                `w-[${containerWidth}px]`,
+                `w-[991px]`,
               )}
             />
             <RegistryCard
-              imgUrl='/images/registry-3.svg'
+              lightThemeImageUrl='/images/registries/registry-3-light.svg'
+              darkThemeImageUrl='/images/registries/registry-3-dark.svg'
               title={'Social accounts'}
               desc={
                 'Registry of verified social handles compatible with any ZKTLS service'
               }
               gradientClassName={cn(
                 '-bottom-[320px] -left-[331px] h-[414px]',
-                `w-[${containerWidth}px]`,
+                `w-[991px]`,
               )}
             />
           </div>
@@ -114,16 +107,23 @@ export default function RegistriesSection() {
 }
 
 function RegistryCard({
-  imgUrl,
+  lightThemeImageUrl,
+  darkThemeImageUrl,
   title,
   desc,
   gradientClassName,
 }: {
-  imgUrl: string
+  lightThemeImageUrl: string
+  darkThemeImageUrl: string
   title: string
   desc: string
   gradientClassName?: string
 } & HTMLAttributes<HTMLDivElement>) {
+  const { theme } = useTheme()
+
+  const currentImageUrl =
+    theme === 'dark' ? darkThemeImageUrl : lightThemeImageUrl
+
   return (
     <div
       className={cn(
@@ -134,7 +134,7 @@ function RegistryCard({
         'relative overflow-hidden',
       )}
     >
-      <img className='z-10 mx-auto my-auto' src={imgUrl} alt={title} />
+      <img className='z-10 mx-auto my-auto' src={currentImageUrl} alt={title} />
       <div className='z-10 flex flex-col gap-2 text-center'>
         <span className='text-textPrimary typography-h4'>{title}</span>
         <span className='text-textSecondary typography-body3'>{desc}</span>
