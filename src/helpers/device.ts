@@ -27,3 +27,7 @@ export function isMediumScreen() {
 export function isLargeScreen() {
   return typeof window !== 'undefined' && window.innerWidth < 1200
 }
+
+export function isDesktop() {
+  return typeof window !== 'undefined' && window.innerWidth >= 1200
+}

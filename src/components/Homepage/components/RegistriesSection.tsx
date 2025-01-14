@@ -21,13 +21,15 @@ export default function RegistriesSection() {
     >
       <div
         className={cn(
-          'relative flex flex-col overflow-hidden rounded-3xl bg-backgroundPure px-6 py-10 md:px-[64px] md:py-[64px]',
+          'relative flex flex-col gap-12 overflow-hidden',
+          'rounded-3xl bg-backgroundPure py-10',
+          'md:gap-[72px] md:py-[64px]',
         )}
       >
         <div
           className={cn(
-            'flex flex-col items-start justify-between gap-5',
-            'md:flex-row md:items-center',
+            'flex flex-col items-start justify-between gap-5 px-6',
+            'md:flex-row md:items-center md:px-[64px]',
           )}
         >
           <div className='flex flex-col gap-4'>
@@ -70,45 +72,41 @@ export default function RegistriesSection() {
             Start building
           </UiButton>
         </div>
+
         <div
           className={cn(
-            'relative mt-12 min-h-[424px] overflow-x-auto md:mt-[72px]',
+            'hide-scrollbar flex gap-4  overflow-x-scroll px-6',
+            'md:px-[64px]',
+            'lg:overflow-x-hidden',
           )}
         >
-          <div className='absolute flex h-full gap-4'>
-            <RegistryCard
-              lightThemeImageUrl='/images/registries/registry-1-light.svg'
-              darkThemeImageUrl='/images/registries/registry-1-dark.svg'
-              title={'ZK Passports'}
-              desc={'90% global passport registry with uniqueness proofs'}
-              gradientClassName={cn(
-                '-bottom-[320px] left-0 h-[414px]',
-                `w-[991px]`,
-              )}
-            />
-            <RegistryCard
-              lightThemeImageUrl='/images/registries/registry-2-light.svg'
-              darkThemeImageUrl='/images/registries/registry-2-dark.svg'
-              title={'ZK Reputation'}
-              desc={'Managing user leveling & permissions in privacy mode'}
-              gradientClassName={cn(
-                '-bottom-[320px] -left-[331px] h-[414px]',
-                `w-[991px]`,
-              )}
-            />
-            <RegistryCard
-              lightThemeImageUrl='/images/registries/registry-3-light.svg'
-              darkThemeImageUrl='/images/registries/registry-3-dark.svg'
-              title={'Social accounts'}
-              desc={
-                'Registry of verified social handles compatible with any ZKTLS service'
-              }
-              gradientClassName={cn(
-                '-bottom-[320px] -left-[331px] h-[414px]',
-                `w-[991px]`,
-              )}
-            />
-          </div>
+          <RegistryCard
+            lightThemeImageUrl='/images/registries/registry-1-light.svg'
+            darkThemeImageUrl='/images/registries/registry-1-dark.svg'
+            title={'ZK Passports'}
+            desc={'90% global passport registry with uniqueness proofs'}
+            gradientClassName={cn('-bottom-[320px] left-0 h-[414px] w-[991px]')}
+          />
+          <RegistryCard
+            lightThemeImageUrl='/images/registries/registry-2-light.svg'
+            darkThemeImageUrl='/images/registries/registry-2-dark.svg'
+            title={'ZK Reputation'}
+            desc={'Managing user leveling & permissions in privacy mode'}
+            gradientClassName={cn(
+              '-bottom-[320px] -left-[331px] h-[414px] w-[991px]',
+            )}
+          />
+          <RegistryCard
+            lightThemeImageUrl='/images/registries/registry-3-light.svg'
+            darkThemeImageUrl='/images/registries/registry-3-dark.svg'
+            title={'Social accounts'}
+            desc={
+              'Registry of verified social handles compatible with any ZKTLS service'
+            }
+            gradientClassName={cn(
+              '-bottom-[320px] -left-[662px] h-[414px] w-[991px]',
+            )}
+          />
         </div>
       </div>
     </UiContainer>
@@ -139,7 +137,7 @@ function RegistryCard({
         <div
           className={cn(
             'flex flex-col justify-center',
-            'h-424 h-full w-full min-w-[300px] max-w-[400px]',
+            'h-[424px] w-full min-w-[300px]',
             'rounded-[24px] border-2 border-componentPrimary',
             'px-10 pb-10',
             'relative overflow-hidden',
