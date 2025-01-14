@@ -43,7 +43,6 @@ export default function HeroSection() {
       className={cn(
         'flex flex-col items-center bg-backgroundContainer pb-[132px] md:p-[72px]',
         'items-start justify-end',
-        'scroll-mt-2 md:scroll-mt-8',
         'relative overflow-hidden',
       )}
     >

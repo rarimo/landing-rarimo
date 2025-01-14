@@ -31,7 +31,7 @@ export default function NewsSection() {
       <div
         className={cn(
           'flex flex-col gap-12',
-          'relative  overflow-hidden rounded-3xl bg-backgroundPure',
+          'relative overflow-hidden rounded-3xl bg-backgroundPure',
           'py-10 md:gap-[72px] md:py-[64px]',
         )}
       >
