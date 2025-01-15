@@ -78,7 +78,10 @@ const iconButtonTv = tv({
       variant: 'filled',
       disabled: true,
       class: {
-        container: cn('bg-componentDisabled'),
+        container: cn(
+          'bg-transparent',
+          'hover:bg-transparent active:bg-transparent',
+        ),
         icon: cn('text-textDisabled'),
       },
     },

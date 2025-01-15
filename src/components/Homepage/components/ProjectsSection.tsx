@@ -1,11 +1,11 @@
 import { HTMLAttributes, useCallback, useRef, useState } from 'react'
-import { Mousewheel } from 'swiper/modules'
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
+import { SwiperRef, SwiperSlide } from 'swiper/react'
 
 import { projectsList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
+import { AppSwiper } from '@/common/AppSwiper'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiHorizontalDivider, UiIconButton } from '@/ui'
@@ -102,32 +102,24 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      <div>
-        <Swiper
-          ref={swiperRef}
-          modules={[Mousewheel]}
-          slidesPerView='auto'
-          slidesOffsetBefore={isMdDown ? 32 : 72}
-          slidesOffsetAfter={isMdDown ? 32 : 72}
-          mousewheel={{ forceToAxis: true }}
-          spaceBetween={16}
-          resistanceRatio={0.5}
-          grabCursor
-          freeMode
-          edgeSwipeDetection
-          onSlideChange={() => {
-            if (!swiperRef.current) return
-            setIsLastSlide(swiperRef.current.swiper.isEnd)
-            setActiveSlide(swiperRef.current.swiper.activeIndex)
-          }}
-        >
-          {projectsList.map((project, idx) => (
-            <SwiperSlide className='w-fit' key={idx}>
-              <ProjectSliderCard {...project} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      <AppSwiper
+        ref={swiperRef}
+        slidesOffsetBefore={isMdDown ? 32 : 72}
+        slidesOffsetAfter={isMdDown ? 32 : 72}
+        onReachEnd={() => setIsLastSlide(true)}
+        onFromEdge={() => setIsLastSlide(false)}
+        onSlideChange={() => {
+          if (!swiperRef.current) return
+          setIsLastSlide(swiperRef.current.swiper.isEnd)
+          setActiveSlide(swiperRef.current.swiper.activeIndex)
+        }}
+      >
+        {projectsList.map((project, idx) => (
+          <SwiperSlide className='w-fit' key={idx}>
+            <ProjectSliderCard {...project} />
+          </SwiperSlide>
+        ))}
+      </AppSwiper>
     </UiContainer>
   )
 }

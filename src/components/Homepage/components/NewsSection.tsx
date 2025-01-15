@@ -1,10 +1,10 @@
 import { HTMLAttributes, useCallback, useRef, useState } from 'react'
-import { Mousewheel } from 'swiper/modules'
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
+import { SwiperRef, SwiperSlide } from 'swiper/react'
 
 import { newsList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
+import { AppSwiper } from '@/common/AppSwiper'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiIconButton } from '@/ui'
@@ -66,33 +66,23 @@ export default function NewsSection() {
           </div>
         </div>
 
-        <div>
-          <Swiper
-            ref={swiperRef}
-            modules={[Mousewheel]}
-            slidesPerView='auto'
-            slidesOffsetBefore={isMdDown ? 24 : 64}
-            slidesOffsetAfter={isMdDown ? 24 : 64}
-            mousewheel={{ forceToAxis: true }}
-            spaceBetween={16}
-            resistanceRatio={0.5}
-            grabCursor
-            freeMode
-            edgeSwipeDetection
-            onReachEnd={() => setIsLastSlide(true)}
-            onFromEdge={() => setIsLastSlide(false)}
-            onSlideChange={() => {
-              if (!swiperRef.current) return
-              setActiveSlide(swiperRef.current.swiper.activeIndex)
-            }}
-          >
-            {newsList.map((newsItem, idx) => (
-              <SwiperSlide className='w-fit' key={idx}>
-                <NewsSectionItemCard {...newsItem} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <AppSwiper
+          ref={swiperRef}
+          slidesOffsetBefore={isMdDown ? 24 : 64}
+          slidesOffsetAfter={isMdDown ? 24 : 64}
+          onReachEnd={() => setIsLastSlide(true)}
+          onFromEdge={() => setIsLastSlide(false)}
+          onSlideChange={() => {
+            if (!swiperRef.current) return
+            setActiveSlide(swiperRef.current.swiper.activeIndex)
+          }}
+        >
+          {newsList.map((newsItem, idx) => (
+            <SwiperSlide className='w-fit' key={idx}>
+              <NewsSectionItemCard {...newsItem} />
+            </SwiperSlide>
+          ))}
+        </AppSwiper>
       </div>
     </UiContainer>
   )
