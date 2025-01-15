@@ -133,7 +133,8 @@ function RegistryCard({
             'h-[424px] w-full min-w-[300px] max-w-min',
             'rounded-[24px] border-2 border-componentPrimary bg-backgroundContainer',
             'relative overflow-hidden',
-            'md:min-w-0 md:max-w-[324px]',
+            'md:min-w-[324px] md:max-w-min',
+            'lg:min-w-0 lg:max-w-full',
           )}
         >
           <img className='z-10 my-auto' src={currentImageUrl} alt={title} />
