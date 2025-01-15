@@ -11,7 +11,7 @@ import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
 import { AnchorsList } from '@/common/HomeSidebar'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
-import { Config } from '@/config'
+import { config } from '@/config'
 import { Anchors } from '@/enums'
 import { useClickOutside } from '@/hooks'
 import { ExtIconLink, UiCollapse, UiHorizontalDivider } from '@/ui'
@@ -67,14 +67,14 @@ export default function HomeHeader({
 
             <div className='flex flex-col gap-5'>
               <ExtIconLink
-                href={Config.learningHubLink}
+                href={config.learningHubLink}
                 target='_blank'
                 className={'text-textSecondary'}
               >
                 Learning hub
               </ExtIconLink>
               <ExtIconLink
-                href={Config.documentationLink}
+                href={config.documentationLink}
                 target='_blank'
                 className={'text-textSecondary'}
               >
@@ -87,13 +87,13 @@ export default function HomeHeader({
 
           <div className='mt-auto flex flex-col gap-6'>
             <div className='flex items-center gap-4'>
-              <Link href={Config.xLink} target='_blank'>
+              <Link href={config.xLink} target='_blank'>
                 <TwitterXFillIcon className={'text-textSecondary'} />
               </Link>
-              <Link href={Config.telegramLink} target='_blank'>
+              <Link href={config.telegramLink} target='_blank'>
                 <TelegramLineIcon className={'text-textSecondary'} />
               </Link>
-              <Link href={Config.discordLink} target='_blank'>
+              <Link href={config.discordLink} target='_blank'>
                 <DiscordLineIcon className={'text-textSecondary'} />
               </Link>
             </div>

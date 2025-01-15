@@ -31,11 +31,18 @@ export default function CommunitySection() {
   const [activeTab, setActiveTab] = useState(TestimonialTabs.Community)
 
   const handlePrevSlide = useCallback(() => {
-    swiperRef.current?.swiper.slidePrev()
+    if (!swiperRef.current) return
+    const swiper = swiperRef.current.swiper
+    const newIndex = Math.max(swiper.activeIndex - 2, 0)
+    swiper.slideTo(newIndex)
   }, [swiperRef])
 
   const handleNextSlide = useCallback(() => {
-    swiperRef.current?.swiper.slideNext()
+    if (!swiperRef.current) return
+    const swiper = swiperRef.current.swiper
+    const totalSlides = swiper.slides.length
+    const newIndex = Math.min(swiper.activeIndex + 2, totalSlides - 1)
+    swiper.slideTo(newIndex)
   }, [swiperRef])
 
   useEffect(() => {

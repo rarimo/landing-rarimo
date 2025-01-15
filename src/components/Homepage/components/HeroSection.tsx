@@ -1,5 +1,7 @@
 'use client'
 
+import { AnimatePresence } from 'framer-motion'
+import { motion } from 'motion/react'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { QRCode } from 'react-qrcode-logo'
@@ -8,11 +10,17 @@ import Typed from 'typed.js'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
 import RarimoIcon from '@/assets/icons/rarimo-icon.svg'
-import { Config } from '@/config'
+import { config } from '@/config'
 import { Anchors } from '@/enums'
 import { isAndroid, isIos, isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiButton, UiContainer, UiIconButton } from '@/ui'
+
+const CLOSE_DOWNLOAD_BLOCK_ANIMATION = {
+  initial: { opacity: 1, scale: 1 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.95 },
+}
 
 export default function HeroSection() {
   const typoRef = useRef<HTMLHeadingElement>(null)
@@ -25,11 +33,11 @@ export default function HeroSection() {
 
     const typed = new Typed(typoRef.current, {
       strings: ['Device', 'Identity'],
-      typeSpeed: 180,
-      backSpeed: 120,
+      typeSpeed: 120,
+      backSpeed: 80,
       loop: true,
-      startDelay: 1200,
-      backDelay: 1000,
+      startDelay: 1000,
+      backDelay: 800,
       autoInsertCss: true,
       cursorChar: ' ',
     })
@@ -59,11 +67,12 @@ export default function HeroSection() {
         )}
       >
         <Link
-          href={Config.heroSectionLink}
+          href={config.heroSectionLink}
           target='_blank'
           className={cn(
             'flex items-center gap-2 self-center rounded-full bg-backgroundSurface1 px-3 py-2',
             'md:self-start',
+            'transition duration-300',
             'hover:bg-componentPrimary',
           )}
         >
@@ -93,12 +102,14 @@ export default function HeroSection() {
         </h1>
       </div>
       <div className='z-10'>
-        {!isMdDown && isQRCodeShown && (
-          <DesktopQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
-        )}
-        {isMdDown && isQRCodeShown && (
-          <MobileQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
-        )}
+        <AnimatePresence>
+          {!isMdDown && isQRCodeShown && (
+            <DesktopQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
+          )}
+          {isMdDown && isQRCodeShown && (
+            <MobileQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
+          )}
+        </AnimatePresence>
       </div>
     </UiContainer>
   )
@@ -106,7 +117,12 @@ export default function HeroSection() {
 
 function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
   return (
-    <div
+    <motion.div
+      variants={CLOSE_DOWNLOAD_BLOCK_ANIMATION}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+      transition={{ duration: 0.3 }}
       className={cn(
         'flex flex-col gap-2',
         'rounded-2xl bg-backgroundSurface1 p-4',
@@ -118,7 +134,7 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
     >
       <UiIconButton
         className='absolute right-1 top-1'
-        iconClassName='text-textSecondary'
+        iconClassName='text-textSecondary hover:text-textPrimary transition duration-300'
         variant='simple'
         size='xsmall'
         onClick={onBlockClose}
@@ -128,28 +144,33 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
       <span className='text-center typography-caption2'>
         Download the <br /> app
       </span>
-      <QRCode value={Config.universityLink} size={105} />
-    </div>
+      <QRCode value={config.universityLink} size={105} />
+    </motion.div>
   )
 }
 
 function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
   const handleDownloadLink = useCallback(() => {
     if (isIos()) {
-      window.open(Config.appStoreLink, '_blank')
+      window.open(config.appStoreLink, '_blank')
 
       return
     }
 
     if (isAndroid()) {
-      window.open(Config.googlePlayLink, '_blank')
+      window.open(config.googlePlayLink, '_blank')
 
       return
     }
   }, [])
 
   return (
-    <div
+    <motion.div
+      variants={CLOSE_DOWNLOAD_BLOCK_ANIMATION}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+      transition={{ duration: 0.3 }}
       className={cn(
         'flex justify-between',
         'rounded-2xl bg-backgroundSurface1 p-4',
@@ -185,6 +206,6 @@ function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
       >
         Download
       </UiButton>
-    </div>
+    </motion.div>
   )
 }

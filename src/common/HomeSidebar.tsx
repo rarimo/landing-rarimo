@@ -6,7 +6,7 @@ import LogoIcon from '@/assets/icons/logo-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
-import { Config } from '@/config'
+import { config } from '@/config'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 import { ExtIconLink, UiHorizontalDivider } from '@/ui'
@@ -22,6 +22,9 @@ export function HomeSidebar({
   className,
   ...rest
 }: HomeSidebarProps) {
+  const linkStyle =
+    'text-textSecondary transition duration-300 hover:text-textPrimary'
+
   return (
     <aside {...rest} className={cn('flex size-full flex-col', className)}>
       <div className='mb-14 max-w-[105px]'>
@@ -40,16 +43,16 @@ export function HomeSidebar({
 
         <div className='flex flex-col gap-5'>
           <ExtIconLink
-            href={Config.learningHubLink}
+            href={config.learningHubLink}
             target='_blank'
-            className={'text-textSecondary'}
+            className={linkStyle}
           >
             Learning hub
           </ExtIconLink>
           <ExtIconLink
-            href={Config.documentationLink}
+            href={config.documentationLink}
             target='_blank'
-            className={'text-textSecondary'}
+            className={linkStyle}
           >
             Documentation
           </ExtIconLink>
@@ -58,14 +61,14 @@ export function HomeSidebar({
 
       <div className='mt-auto flex flex-col gap-6'>
         <div className='flex items-center gap-4'>
-          <Link href={Config.xLink} target='_blank'>
-            <TwitterXFillIcon className={'text-textSecondary'} />
+          <Link href={config.xLink} target='_blank'>
+            <TwitterXFillIcon className={linkStyle} />
           </Link>
-          <Link href={Config.telegramLink} target='_blank'>
-            <TelegramLineIcon className={'text-textSecondary'} />
+          <Link href={config.telegramLink} target='_blank'>
+            <TelegramLineIcon className={linkStyle} />
           </Link>
-          <Link href={Config.discordLink} target='_blank'>
-            <DiscordLineIcon className={'text-textSecondary'} />
+          <Link href={config.discordLink} target='_blank'>
+            <DiscordLineIcon className={linkStyle} />
           </Link>
         </div>
 
@@ -127,6 +130,7 @@ function AnchorNavItem({ title, href, isActive, onClick }: AnchorNavItemProps) {
       className={cn(
         'line-clamp-1 text-textSecondary',
         isActive && 'text-textPrimary',
+        'transition duration-300 hover:text-textPrimary',
       )}
     >
       {title}

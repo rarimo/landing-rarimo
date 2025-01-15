@@ -25,9 +25,9 @@ const UiContainer = forwardRef<
     return (
       <div
         className={cn(
-          isFullHeight && 'h-[calc(100vh-68px)] md:h-dvh',
-          'p-2',
-          'md:p-8',
+          isFullHeight && 'h-[calc(100vh-68px)] md:h-dvh md:px-8 md:py-8',
+          !isFullHeight && 'md:px-8 md:py-4',
+          'px-2 py-3',
         )}
       >
         <div

@@ -1,4 +1,4 @@
-export const Config = {
+export const config = {
   heroSectionLink:
     'https://mirror.xyz/0x90699B5A52BccbdFe73d5c9F3d039a33fb2D1AF6',
   zkRegistriesLink: 'https://docs.rarimo.com/',

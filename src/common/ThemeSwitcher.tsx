@@ -1,11 +1,12 @@
 import { AnimationProps, motion } from 'motion/react'
 import { useTheme } from 'next-themes'
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, useMemo } from 'react'
 
 import MoonLineIcon from '@/assets/icons/moon-line-icon.svg'
 import SunLineIcon from '@/assets/icons/sun-line-icon.svg'
 import ClientOnly from '@/common/ClientOnly'
 import { Theme } from '@/enums/theme'
+import { cn } from '@/theme/utils'
 
 const INITIAL_THUMB = { x: 0, y: 0 }
 const ANIMATED_THUMB = { x: '105%' }
@@ -13,24 +14,34 @@ const ANIMATED_THUMB = { x: '105%' }
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
 
+  const isDarkTheme = useMemo(() => theme === Theme.Dark, [theme])
+
   return (
     <ClientOnly>
       {() => (
         <div className='relative flex h-[36px] w-[140px] items-center justify-center overflow-hidden rounded-full bg-componentPrimary'>
           <ThemeSwitcherThumbBackdrop
-            animate={theme === Theme.Dark ? ANIMATED_THUMB : INITIAL_THUMB}
+            animate={isDarkTheme ? ANIMATED_THUMB : INITIAL_THUMB}
           />
 
           <ThemeSwitcherThumb>
-            <SunLineIcon className='text-textPrimary' />
+            <SunLineIcon
+              className={
+                isDarkTheme ? 'text-textSecondary' : 'text-textPrimary'
+              }
+            />
           </ThemeSwitcherThumb>
           <ThemeSwitcherThumb>
-            <MoonLineIcon className='text-textPrimary' />
+            <MoonLineIcon
+              className={
+                isDarkTheme ? 'text-textPrimary' : 'text-textSecondary'
+              }
+            />
           </ThemeSwitcherThumb>
 
           <button
             className='absolute left-0 top-0 z-40 size-full'
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
           />
         </div>
       )}
@@ -40,7 +51,7 @@ export default function ThemeSwitcher() {
 
 function ThemeSwitcherThumb({ children }: PropsWithChildren) {
   return (
-    <div className='z-20 h-[32px] w-[66px] rounded-full px-[25px] py-2'>
+    <div className={cn('z-20 h-[32px] w-[66px] rounded-full px-[25px] py-2')}>
       {children}
     </div>
   )

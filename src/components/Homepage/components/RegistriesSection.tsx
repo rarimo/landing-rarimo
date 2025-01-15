@@ -7,7 +7,7 @@ import { registriesList } from '@/assets/data'
 import EthIcon from '@/assets/icons/eth-icon.svg'
 import { AppSwiper } from '@/common/AppSwiper'
 import ClientOnly from '@/common/ClientOnly'
-import { Config } from '@/config'
+import { config } from '@/config'
 import { Anchors, Theme } from '@/enums'
 import { isLargeScreen, isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
@@ -51,7 +51,7 @@ export default function RegistriesSection() {
               <div className='flex items-center gap-1'>
                 <EthIcon className='text-textPrimary' />
                 <Link
-                  href={Config.ercLink}
+                  href={config.ercLink}
                   target='_blank'
                   className='text-textPrimary underline typography-body2'
                 >
@@ -66,11 +66,11 @@ export default function RegistriesSection() {
               'w-full rounded-full bg-textPrimary text-invertedLight',
               'md:w-auto',
             )}
-            color={'text'}
+            color='text'
             size={isMdDown ? 'medium' : 'large'}
             onClick={() =>
               window.open(
-                Config.zkRegistriesLink,
+                config.zkRegistriesLink,
                 '_blank',
                 'noopener noreferrer',
               )
