@@ -1,17 +1,23 @@
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
-import { HTMLAttributes } from 'react'
+import React, { HTMLAttributes, useRef } from 'react'
+import { SwiperRef, SwiperSlide } from 'swiper/react'
 
+import { registriesList } from '@/assets/data'
 import EthIcon from '@/assets/icons/eth-icon.svg'
+import { AppSwiper } from '@/common/AppSwiper'
 import ClientOnly from '@/common/ClientOnly'
 import { Config } from '@/config'
 import { Anchors, Theme } from '@/enums'
-import { isMediumScreen } from '@/helpers'
+import { isLargeScreen, isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiButton, UiContainer, UiGradientDecor } from '@/ui'
 
 export default function RegistriesSection() {
   const isMdDown = isMediumScreen()
+  const isLgDown = isLargeScreen()
+
+  const swiperRef = useRef<SwiperRef | null>(null)
 
   return (
     <UiContainer
@@ -74,41 +80,27 @@ export default function RegistriesSection() {
           </UiButton>
         </div>
 
-        <div
-          className={cn(
-            'hide-scrollbar flex gap-4  overflow-x-scroll px-6',
-            'md:px-16',
-            'lg:overflow-x-hidden',
-          )}
-        >
-          <RegistryCard
-            lightThemeImageUrl='/images/registries/registry-1-light.svg'
-            darkThemeImageUrl='/images/registries/registry-1-dark.svg'
-            title={'ZK Passports'}
-            description={'90% global passport registry with uniqueness proofs'}
-            gradientClassName={cn('-bottom-[320px] left-0 h-[414px] w-[991px]')}
-          />
-          <RegistryCard
-            lightThemeImageUrl='/images/registries/registry-2-light.svg'
-            darkThemeImageUrl='/images/registries/registry-2-dark.svg'
-            title={'ZK Reputation'}
-            description={'Managing user leveling & permissions in privacy mode'}
-            gradientClassName={cn(
-              '-bottom-[320px] -left-[331px] h-[414px] w-[991px]',
-            )}
-          />
-          <RegistryCard
-            lightThemeImageUrl='/images/registries/registry-3-light.svg'
-            darkThemeImageUrl='/images/registries/registry-3-dark.svg'
-            title={'Social accounts'}
-            description={
-              'Registry of verified social handles compatible with any ZKTLS service'
-            }
-            gradientClassName={cn(
-              '-bottom-[320px] -left-[662px] h-[414px] w-[991px] mix',
-            )}
-          />
-        </div>
+        {isLgDown ? (
+          <AppSwiper
+            ref={swiperRef}
+            slidesPerView='auto'
+            slidesOffsetBefore={isMdDown ? 24 : 64}
+            slidesOffsetAfter={isMdDown ? 24 : 64}
+            freeMode={false}
+          >
+            {registriesList.map((registry, index) => (
+              <SwiperSlide className='w-fit' key={index}>
+                <RegistryCard {...registry} />
+              </SwiperSlide>
+            ))}
+          </AppSwiper>
+        ) : (
+          <div className='flex gap-4 px-16'>
+            {registriesList.map((registry, index) => (
+              <RegistryCard key={index} {...registry} />
+            ))}
+          </div>
+        )}
       </div>
     </UiContainer>
   )
@@ -137,18 +129,19 @@ function RegistryCard({
       {() => (
         <div
           className={cn(
-            'flex flex-col justify-center px-10 pb-10',
-            'h-[424px] w-full min-w-[300px]',
+            'flex flex-col items-center justify-center pb-8',
+            'h-[424px] w-full min-w-[300px] max-w-min',
             'rounded-[24px] border-2 border-componentPrimary bg-backgroundContainer',
             'relative overflow-hidden',
+            'md:min-w-0 md:max-w-[324px]',
           )}
         >
-          <img
-            className='z-10 mx-auto my-auto'
-            src={currentImageUrl}
-            alt={title}
-          />
-          <div className='z-10 flex flex-col gap-2 text-center'>
+          <img className='z-10 my-auto' src={currentImageUrl} alt={title} />
+          <div
+            className={cn(
+              'z-10 flex w-full max-w-[90%] flex-col gap-2 text-center',
+            )}
+          >
             <span className='text-textPrimary typography-h4'>{title}</span>
             <span className='text-textSecondary typography-body3'>
               {description}
