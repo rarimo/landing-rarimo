@@ -2,7 +2,7 @@ import { HTMLAttributes, useCallback, useRef, useState } from 'react'
 import { Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 
-import { projects } from '@/assets/data/projects'
+import { projectsList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
@@ -39,8 +39,8 @@ export default function ProjectsSection() {
       isFullHeight={false}
     >
       <UiGradientDecor gradientClassName='-right-[35px] -bottom-[270px] rotate-[60deg] h-[715px] w-[407px] opacity-80' />
-      <div className='z-10 flex-1 px-8 md:px-[72px]'>
-        <div className='max-w-full md:max-w-[85%]'>
+      <div className={cn('px-8, z-10 flex-1', 'md:px-[72px]')}>
+        <div className={cn('max-w-full', 'md:max-w-[85%]')}>
           <span
             className={cn(
               'text-textSecondary typography-h2',
@@ -56,14 +56,19 @@ export default function ProjectsSection() {
         </div>
 
         <UiHorizontalDivider
-          className={'mb-10 mt-12 bg-componentPrimary md:mt-[72px]'}
+          className={cn('mb-10 mt-12 bg-componentPrimary', 'md:mt-[72px]')}
         />
       </div>
 
-      <div className='z-10 mb-10 mt-auto flex items-center gap-5 px-8 md:px-[72px]'>
+      <div
+        className={cn(
+          'z-10 mb-10 mt-auto flex items-center gap-5 px-8',
+          'md:px-[72px]',
+        )}
+      >
         <div className='relative'>
           <span
-            className={cn('text-textPrimary typography-h3', 'typography-h2')}
+            className={cn('text-textPrimary typography-h3', 'md:typography-h2')}
           >
             100,000+
           </span>
@@ -72,7 +77,7 @@ export default function ProjectsSection() {
         <span
           className={cn(
             'text-textSecondary typography-subtitle3',
-            'typography-subtitle2',
+            'md:typography-subtitle2',
           )}
         >
           Active users
@@ -117,7 +122,7 @@ export default function ProjectsSection() {
             setActiveSlide(swiperRef.current.swiper.activeIndex)
           }}
         >
-          {projects.map((project, idx) => (
+          {projectsList.map((project, idx) => (
             <SwiperSlide className='w-fit' key={idx}>
               <ProjectSliderCard {...project} />
             </SwiperSlide>
@@ -129,30 +134,31 @@ export default function ProjectsSection() {
 }
 
 function ProjectSliderCard({
-  imgUrl,
+  imageUrl,
   title,
-  desc,
+  description,
   className,
   ...rest
 }: {
-  imgUrl: string
+  imageUrl: string
   title: string
-  desc: string
+  description: string
 } & HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       {...rest}
       className={cn(
-        'flex flex-col',
-        'relative h-[215px] w-[275px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
-        'p-6',
+        'flex flex-col p-6',
+        'relative h-[215px] w-[275px] rounded-[20px]',
+        'bg-additionalOpacited backdrop-blur-[24px]',
         className,
       )}
     >
-      <img className='mb-auto size-12' src={imgUrl} alt={title} />
-
+      <img className='mb-auto size-12' src={imageUrl} alt={title} />
       <span className='text-textPrimary typography-h4'>{title}</span>
-      <span className='mt-2 text-textSecondary typography-body3'>{desc}</span>
+      <span className='mt-2 text-textSecondary typography-body3'>
+        {description}
+      </span>
     </div>
   )
 }

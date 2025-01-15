@@ -39,7 +39,7 @@ export default function HomeHeader({
 
       <div
         className={`relative flex w-full items-center justify-between px-5 pb-2 pt-5 transition-all ${
-          isMenuOpen ? 'bg-backgroundSurface1' : ''
+          isMenuOpen ? 'bg-backgroundSurface1' : 'bg-transparent'
         }`}
       >
         <LogoIcon />

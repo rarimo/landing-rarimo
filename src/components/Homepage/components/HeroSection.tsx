@@ -41,9 +41,10 @@ export default function HeroSection() {
     <UiContainer
       id={Anchors.Home}
       className={cn(
-        'flex flex-col items-center bg-backgroundContainer pb-[132px] md:p-[72px]',
+        'flex flex-col items-center bg-backgroundContainer pb-[132px]',
         'items-start justify-end',
         'relative overflow-hidden',
+        'md:p-[72px]',
       )}
     >
       <UiGradientDecor gradientClassName='-right-[65px] -top-[83px] -rotate-[10deg] h-[570px] w-[680px]' />
@@ -70,12 +71,20 @@ export default function HeroSection() {
           <ArrowRightSLineIcon />
         </Link>
         <h1 className='h-[174px] md:h-[256px]'>
-          <span className='text-textPrimary typography-display4 md:typography-display2'>
+          <span
+            className={cn(
+              'text-textPrimary typography-display4',
+              'md:typography-display2',
+            )}
+          >
             Your
           </span>
           <br />
           <span
-            className='gradient1 bg-clip-text text-transparent typography-display3 md:typography-display1'
+            className={cn(
+              'gradient1 bg-clip-text text-transparent typography-display3',
+              'md:typography-display1',
+            )}
             ref={typoRef}
           ></span>
         </h1>

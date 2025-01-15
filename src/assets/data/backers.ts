@@ -1,4 +1,4 @@
-export const backers = [
+export const backersList = [
   {
     image: '/images/backers/pantera.png',
     title: 'Pantera',

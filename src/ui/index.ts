@@ -1,7 +1,4 @@
-export { default as CircledBadge } from './CircledBadge'
-export { default as Divider } from './Divider'
 export { default as ExtIconLink } from './ExtIconLink'
-export { default as Modal } from './Modal'
 export { default as UiButton } from './UiButton'
 export { default as UiCollapse } from './UiCollapse'
 export { default as UiContainer } from './UiContainer'

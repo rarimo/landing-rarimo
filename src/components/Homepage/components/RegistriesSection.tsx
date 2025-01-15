@@ -5,7 +5,7 @@ import { HTMLAttributes } from 'react'
 import EthIcon from '@/assets/icons/eth-icon.svg'
 import ClientOnly from '@/common/ClientOnly'
 import { Config } from '@/config'
-import { Anchors } from '@/enums'
+import { Anchors, Theme } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiButton, UiContainer, UiGradientDecor } from '@/ui'
@@ -29,7 +29,7 @@ export default function RegistriesSection() {
         <div
           className={cn(
             'flex flex-col items-start justify-between gap-5 px-6',
-            'md:flex-row md:items-center md:px-[64px]',
+            'md:flex-row md:items-center md:px-16',
           )}
         >
           <div className='flex flex-col gap-4'>
@@ -76,7 +76,7 @@ export default function RegistriesSection() {
         <div
           className={cn(
             'hide-scrollbar flex gap-4  overflow-x-scroll px-6',
-            'md:px-[64px]',
+            'md:px-16',
             'lg:overflow-x-hidden',
           )}
         >
@@ -84,14 +84,14 @@ export default function RegistriesSection() {
             lightThemeImageUrl='/images/registries/registry-1-light.svg'
             darkThemeImageUrl='/images/registries/registry-1-dark.svg'
             title={'ZK Passports'}
-            desc={'90% global passport registry with uniqueness proofs'}
+            description={'90% global passport registry with uniqueness proofs'}
             gradientClassName={cn('-bottom-[320px] left-0 h-[414px] w-[991px]')}
           />
           <RegistryCard
             lightThemeImageUrl='/images/registries/registry-2-light.svg'
             darkThemeImageUrl='/images/registries/registry-2-dark.svg'
             title={'ZK Reputation'}
-            desc={'Managing user leveling & permissions in privacy mode'}
+            description={'Managing user leveling & permissions in privacy mode'}
             gradientClassName={cn(
               '-bottom-[320px] -left-[331px] h-[414px] w-[991px]',
             )}
@@ -100,7 +100,7 @@ export default function RegistriesSection() {
             lightThemeImageUrl='/images/registries/registry-3-light.svg'
             darkThemeImageUrl='/images/registries/registry-3-dark.svg'
             title={'Social accounts'}
-            desc={
+            description={
               'Registry of verified social handles compatible with any ZKTLS service'
             }
             gradientClassName={cn(
@@ -117,29 +117,28 @@ function RegistryCard({
   lightThemeImageUrl,
   darkThemeImageUrl,
   title,
-  desc,
+  description,
   gradientClassName,
 }: {
   lightThemeImageUrl: string
   darkThemeImageUrl: string
   title: string
-  desc: string
+  description: string
   gradientClassName?: string
 } & HTMLAttributes<HTMLDivElement>) {
   const { theme } = useTheme()
 
   const currentImageUrl =
-    theme === 'dark' ? darkThemeImageUrl : lightThemeImageUrl
+    theme === Theme.Dark ? darkThemeImageUrl : lightThemeImageUrl
 
   return (
     <ClientOnly>
       {() => (
         <div
           className={cn(
-            'flex flex-col justify-center',
+            'flex flex-col justify-center px-10 pb-10',
             'h-[424px] w-full min-w-[300px]',
             'rounded-[24px] border-2 border-componentPrimary',
-            'px-10 pb-10',
             'relative overflow-hidden',
           )}
         >
@@ -150,7 +149,9 @@ function RegistryCard({
           />
           <div className='z-10 flex flex-col gap-2 text-center'>
             <span className='text-textPrimary typography-h4'>{title}</span>
-            <span className='text-textSecondary typography-body3'>{desc}</span>
+            <span className='text-textSecondary typography-body3'>
+              {description}
+            </span>
           </div>
 
           <UiGradientDecor gradientClassName={gradientClassName} />

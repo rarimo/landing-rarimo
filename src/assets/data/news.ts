@@ -1,4 +1,4 @@
-export const news = [
+export const newsList = [
   {
     title: "Rarimo's Worldcoin Alternative RariMe Goes Live",
     link: 'https://www.coindesk.com/policy/2024/06/27/rarimos-worldcoin-alternative-rarime-goes-live/?utm_medium=social&utm_content=editorial&utm_campaign=coindesk_main&utm_source=twitter&utm_term=organic',

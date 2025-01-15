@@ -5,6 +5,7 @@ import { PropsWithChildren } from 'react'
 import MoonLineIcon from '@/assets/icons/moon-line-icon.svg'
 import SunLineIcon from '@/assets/icons/sun-line-icon.svg'
 import ClientOnly from '@/common/ClientOnly'
+import { Theme } from '@/enums/theme'
 
 const INITIAL_THUMB = { x: 0, y: 0 }
 const ANIMATED_THUMB = { x: '105%' }
@@ -17,7 +18,7 @@ export default function ThemeSwitcher() {
       {() => (
         <div className='relative flex h-[36px] w-[140px] items-center justify-center overflow-hidden rounded-full bg-componentPrimary'>
           <ThemeSwitcherThumbBackdrop
-            animate={theme === 'dark' ? ANIMATED_THUMB : INITIAL_THUMB}
+            animate={theme === Theme.Dark ? ANIMATED_THUMB : INITIAL_THUMB}
           />
 
           <ThemeSwitcherThumb>

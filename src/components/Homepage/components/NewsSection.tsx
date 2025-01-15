@@ -2,7 +2,7 @@ import { HTMLAttributes, useCallback, useRef, useState } from 'react'
 import { Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 
-import { news } from '@/assets/data/news'
+import { newsList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { isMediumScreen } from '@/helpers'
@@ -35,8 +35,15 @@ export default function NewsSection() {
           'md:gap-[72px] md:py-[64px]',
         )}
       >
-        <div className='mt-auto flex items-center justify-between gap-5 px-6 md:px-[64px]'>
-          <span className='text-textPrimary typography-h3 md:typography-h2'>
+        <div
+          className={cn(
+            'mt-auto flex items-center justify-between gap-5 px-6',
+            'md:px-16',
+          )}
+        >
+          <span
+            className={cn('text-textPrimary typography-h3', 'md:typography-h2')}
+          >
             News and blogs
           </span>
 
@@ -78,7 +85,7 @@ export default function NewsSection() {
               setActiveSlide(swiperRef.current.swiper.activeIndex)
             }}
           >
-            {news.map((newsItem, idx) => (
+            {newsList.map((newsItem, idx) => (
               <SwiperSlide className='w-fit' key={idx}>
                 <NewsSectionItemCard {...newsItem} />
               </SwiperSlide>
@@ -107,7 +114,8 @@ function NewsSectionItemCard({
         {...rest}
         className={cn(
           'flex flex-col gap-6',
-          'relative h-[260px] w-[272px] rounded-[20px] backdrop-blur-[24px] md:w-[320px]',
+          'relative h-[260px] w-[272px] rounded-[20px] backdrop-blur-[24px]',
+          'md:w-[320px]',
           className,
         )}
       >

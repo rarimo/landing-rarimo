@@ -19,12 +19,11 @@ export default function Homepage() {
   return (
     <div
       className={cn(
-        'flex flex-col overflow-hidden bg-backgroundPrimary lg:flex-row lg:gap-12',
+        'flex flex-col overflow-hidden bg-backgroundPrimary',
+        'lg:flex-row lg:gap-12',
       )}
     >
-      <div
-        className={cn('hidden p-12 pr-0', 'lg:flex', 'fixed top-0', 'h-dvh')}
-      >
+      <div className={cn('fixed top-0 hidden h-dvh p-12 pr-0', 'lg:flex')}>
         <HomeSidebar activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
       <div className={cn('flex', 'lg:hidden')}>
@@ -32,7 +31,8 @@ export default function Homepage() {
       </div>
       <main
         className={cn(
-          'relative flex flex-1 flex-col overflow-hidden lg:ml-[248px]',
+          'relative flex flex-1 flex-col overflow-hidden',
+          'lg:ml-[248px]',
         )}
       >
         <HeroSection />

@@ -9,15 +9,13 @@ import {
 import { Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 
-import { backers } from '@/assets/data/backers'
-import { communities } from '@/assets/data/communities'
+import { backersList, communitiesList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
-import { UiContainer, UiIconButton } from '@/ui'
-import UiGradientDecor from '@/ui/UiGradientDecor'
+import { UiContainer, UiGradientDecor, UiIconButton } from '@/ui'
 
 enum TestimonialTabs {
   Community = 'community',
@@ -47,14 +45,20 @@ export default function TestimonialsSection() {
 
   return (
     <UiContainer
-      id={Anchors.Testimonials}
+      id={Anchors.Community}
       className={cn(
-        'relative flex flex-col overflow-hidden bg-backgroundContainer py-12 md:py-[72px]',
+        'relative flex flex-col overflow-hidden bg-backgroundContainer py-12',
+        'md:py-[72px]',
       )}
       isFullHeight={false}
     >
       <UiGradientDecor gradientClassName='right-[95px] -bottom-[210px] rotate-[70deg] h-[670px] w-[323px] opacity-80' />
-      <div className='z-10 mb-[72px] mt-auto flex items-center gap-5 px-8 md:px-[72px]'>
+      <div
+        className={cn(
+          'z-10 mb-[72px] mt-auto flex items-center gap-5 px-8',
+          'md:px-[72px]',
+        )}
+      >
         <TestimonialsTabButton
           isActive={activeTab === TestimonialTabs.Community}
           onClick={() => setActiveTab(TestimonialTabs.Community)}
@@ -109,12 +113,12 @@ export default function TestimonialsSection() {
           }}
         >
           {activeTab === TestimonialTabs.Community
-            ? communities.map((community, idx) => (
+            ? communitiesList.map((community, idx) => (
                 <SwiperSlide className='w-fit' key={idx}>
                   <CommunitySliderCard {...community} />
                 </SwiperSlide>
               ))
-            : backers.map((backer, idx) => (
+            : backersList.map((backer, idx) => (
                 <SwiperSlide className='w-fit' key={idx}>
                   <BackersSliderCard {...backer} />
                 </SwiperSlide>
@@ -156,31 +160,30 @@ function TestimonialsTabButton({
 }
 
 function CommunitySliderCard({
-  imgUrl,
+  imageUrl,
   name,
   position,
-  desc,
+  description,
   className,
   ...rest
 }: {
-  imgUrl: string
+  imageUrl: string
   name: string
   position: string
-  desc: string
+  description: string
 } & HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       {...rest}
       className={cn(
-        'flex flex-col gap-6',
+        'flex flex-col gap-6 p-6',
         'relative h-[280px] w-[272px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
-        'p-6',
         'md:h-[260px] md:w-[320px]',
         className,
       )}
     >
       <div className='flex items-center gap-4'>
-        <img className='mb-auto size-12' src={imgUrl} alt={name} />
+        <img className='mb-auto size-12' src={imageUrl} alt={name} />
         <div className='flex flex-1 flex-col gap-1'>
           <span className='text-textPrimary typography-overline1'>{name}</span>
           <span className='text-textSecondary typography-body4'>
@@ -189,7 +192,7 @@ function CommunitySliderCard({
         </div>
       </div>
 
-      <span className='text-textSecondary typography-body3'>{desc}</span>
+      <span className='text-textSecondary typography-body3'>{description}</span>
     </div>
   )
 }
@@ -211,9 +214,8 @@ function BackersSliderCard({
     <div
       {...rest}
       className={cn(
-        'flex flex-col justify-between',
+        'flex flex-col justify-between p-6',
         'relative h-[280px] w-[272px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
-        'p-6',
         'md:h-[260px] md:w-[320px]',
         className,
       )}
