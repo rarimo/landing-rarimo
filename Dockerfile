@@ -1,12 +1,14 @@
-FROM node:18 as builder
+FROM node:18-alpine as builder
 
-WORKDIR /app
-COPY package.json yarn.lock ./
+WORKDIR /build
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn .yarn
+RUN yarn set version 4.3.1
 RUN yarn install
 
 COPY . .
 RUN yarn build
 
-FROM nginx:stable-alpine
+FROM nginx:1.20.2-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /build/out /usr/share/nginx/html
