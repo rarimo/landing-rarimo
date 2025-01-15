@@ -1,7 +1,6 @@
 'use client'
 
-import { AnimatePresence } from 'framer-motion'
-import { motion } from 'motion/react'
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { QRCode } from 'react-qrcode-logo'

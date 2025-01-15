@@ -22,8 +22,9 @@ export default function EcosystemSection() {
     <UiContainer
       id={Anchors.Ecosystem}
       className={cn(
-        'relative flex items-center justify-center overflow-hidden bg-backgroundContainer',
+        'relative flex items-center justify-center overflow-hidden bg-backgroundContainer pt-0',
       )}
+      fullHeightContainerClassName='md:pt-0 md:pb-4'
     >
       <div
         className={cn(
