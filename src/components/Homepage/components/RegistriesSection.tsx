@@ -105,7 +105,7 @@ export default function RegistriesSection() {
               'Registry of verified social handles compatible with any ZKTLS service'
             }
             gradientClassName={cn(
-              '-bottom-[320px] -left-[662px] h-[414px] w-[991px]',
+              '-bottom-[320px] -left-[662px] h-[414px] w-[991px] mix',
             )}
           />
         </div>
@@ -139,7 +139,7 @@ function RegistryCard({
           className={cn(
             'flex flex-col justify-center px-10 pb-10',
             'h-[424px] w-full min-w-[300px]',
-            'rounded-[24px] border-2 border-componentPrimary',
+            'rounded-[24px] border-2 border-componentPrimary bg-backgroundContainer',
             'relative overflow-hidden',
           )}
         >
