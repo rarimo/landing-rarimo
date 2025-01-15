@@ -12,7 +12,7 @@ import { Config } from '@/config'
 import { Anchors } from '@/enums'
 import { isAndroid, isIos, isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
-import { UiButton, UiContainer, UiGradientDecor, UiIconButton } from '@/ui'
+import { UiButton, UiContainer, UiIconButton } from '@/ui'
 
 export default function HeroSection() {
   const typoRef = useRef<HTMLHeadingElement>(null)
@@ -46,13 +46,16 @@ export default function HeroSection() {
         'relative overflow-hidden',
         'md:p-[72px]',
       )}
+      showGradientDecor
+      gradientDecorClassName={cn(
+        '-right-[65px] -top-[83px] -rotate-[10deg] h-[570px] w-[680px]',
+      )}
+      data-aos='fade-up'
     >
-      <UiGradientDecor gradientClassName='-right-[65px] -top-[83px] -rotate-[10deg] h-[570px] w-[680px]' />
       <div
         className={cn(
-          'flex flex-col items-center gap-8 self-center text-center',
+          'z-10 flex flex-col items-center gap-8 self-center text-center',
           'md:items-start md:self-start md:text-left',
-          'z-10',
         )}
       >
         <Link
@@ -110,6 +113,8 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         'absolute bottom-2 right-2',
         'shadow-[0px_4px_4px_0px_#0000000D,0px_2px_2px_0px_#0000000D,0px_1px_1px_0px_#0000000D,0px_0px_0px_0.33px_#0000000D]',
       )}
+      data-aos='fade-up'
+      data-aos-delay='400'
     >
       <UiIconButton
         className='absolute right-1 top-1'
@@ -151,6 +156,8 @@ function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         'absolute bottom-3 left-3 right-3 z-20',
         'shadow-[0px_4px_4px_0px_#0000000D,0px_2px_2px_0px_#0000000D,0px_1px_1px_0px_#0000000D,0px_0px_0px_0.33px_#0000000D]',
       )}
+      data-aos='fade-up'
+      data-aos-delay='400'
     >
       <UiIconButton
         className='absolute right-0.5 top-0'

@@ -27,6 +27,7 @@ export default function NewsSection() {
     <UiContainer
       className={cn('bg-backgroundContainer p-2')}
       isFullHeight={false}
+      data-aos='fade-up'
     >
       <div
         className={cn(

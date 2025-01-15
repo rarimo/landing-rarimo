@@ -4,12 +4,12 @@ import { useState } from 'react'
 
 import HomeHeader from '@/common/HomeHeader'
 import { HomeSidebar } from '@/common/HomeSidebar'
+import CommunitySection from '@/components/Homepage/components/CommunitySection'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import NewsSection from '@/components/Homepage/components/NewsSection'
 import ProjectsSection from '@/components/Homepage/components/ProjectsSection'
 import RegistriesSection from '@/components/Homepage/components/RegistriesSection'
-import TestimonialsSection from '@/components/Homepage/components/TestimonialsSection'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 
@@ -39,7 +39,7 @@ export default function Homepage() {
         <EcosystemSection />
         <ProjectsSection />
         <RegistriesSection />
-        <TestimonialsSection />
+        <CommunitySection />
         <NewsSection />
       </main>
     </div>

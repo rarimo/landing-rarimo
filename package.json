@@ -14,6 +14,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@uidotdev/usehooks": "^2.4.1",
     "aos": "^2.3.4",
     "class-variance-authority": "^0.7.0",

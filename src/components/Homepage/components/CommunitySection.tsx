@@ -15,14 +15,14 @@ import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
-import { UiContainer, UiGradientDecor, UiIconButton } from '@/ui'
+import { UiContainer, UiIconButton } from '@/ui'
 
 enum TestimonialTabs {
   Community = 'community',
   Backers = 'backers',
 }
 
-export default function TestimonialsSection() {
+export default function CommunitySection() {
   const isMdDown = isMediumScreen()
 
   const swiperRef = useRef<SwiperRef | null>(null)
@@ -51,8 +51,12 @@ export default function TestimonialsSection() {
         'md:py-[72px]',
       )}
       isFullHeight={false}
+      showGradientDecor
+      gradientDecorClassName={cn(
+        'right-[95px] -bottom-[210px] rotate-[70deg] h-[670px] w-[323px] opacity-80',
+      )}
+      data-aos='fade-up'
     >
-      <UiGradientDecor gradientClassName='right-[95px] -bottom-[210px] rotate-[70deg] h-[670px] w-[323px] opacity-80' />
       <div
         className={cn(
           'z-10 mb-[72px] mt-auto flex items-center gap-5 px-8',
@@ -192,7 +196,9 @@ function CommunitySliderCard({
         </div>
       </div>
 
-      <span className='text-textSecondary typography-body3'>{description}</span>
+      <span className='line-clamp-[8] text-textSecondary typography-body3'>
+        {description}
+      </span>
     </div>
   )
 }

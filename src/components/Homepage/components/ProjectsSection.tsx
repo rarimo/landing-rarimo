@@ -8,12 +8,7 @@ import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
-import {
-  UiContainer,
-  UiGradientDecor,
-  UiHorizontalDivider,
-  UiIconButton,
-} from '@/ui'
+import { UiContainer, UiHorizontalDivider, UiIconButton } from '@/ui'
 
 export default function ProjectsSection() {
   const swiperRef = useRef<SwiperRef | null>(null)
@@ -37,9 +32,13 @@ export default function ProjectsSection() {
         'relative overflow-hidden',
       )}
       isFullHeight={false}
+      showGradientDecor
+      gradientDecorClassName={cn(
+        '-right-[35px] -bottom-[270px] rotate-[60deg] h-[715px] w-[407px] opacity-80',
+      )}
+      data-aos='fade-up'
     >
-      <UiGradientDecor gradientClassName='-right-[35px] -bottom-[270px] rotate-[60deg] h-[715px] w-[407px] opacity-80' />
-      <div className={cn('px-8, z-10 flex-1', 'md:px-[72px]')}>
+      <div className={cn('z-10 flex-1 px-8', 'md:px-[72px]')}>
         <div className={cn('max-w-full', 'md:max-w-[85%]')}>
           <span
             className={cn(

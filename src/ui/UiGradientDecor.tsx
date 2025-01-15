@@ -6,6 +6,7 @@ export default function UiGradientDecor({
   containerClassName,
   gradientClassName,
   maskStyle,
+  ...rest
 }: {
   containerClassName?: string
   gradientClassName?: string
@@ -19,6 +20,7 @@ export default function UiGradientDecor({
           'absolute',
           gradientClassName,
         )}
+        {...rest}
       />
       <div
         className={cn(

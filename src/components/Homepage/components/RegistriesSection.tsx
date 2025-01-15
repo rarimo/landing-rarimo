@@ -18,6 +18,7 @@ export default function RegistriesSection() {
       id={Anchors.ZkRegistries}
       className={cn('bg-backgroundContainer p-2')}
       isFullHeight={false}
+      data-aos='fade-up'
     >
       <div
         className={cn(
