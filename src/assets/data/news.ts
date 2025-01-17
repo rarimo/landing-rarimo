@@ -1,5 +1,45 @@
 export const newsList = [
   {
+    title:
+      'Rarimo secures $2.5m for ZK identity protocol with backing from Vitalik Buterin',
+    link: 'https://crypto.news/rarimo-secures-2-5m-for-zk-identity-protocol-with-backing-from-vitalik-buterin/',
+    image: '/images/news/vision-round.webp',
+  },
+  {
+    title:
+      'Vitalik Buterin Talks About Rarimo’s Zero-Knowledge Proof Voting Tool',
+    link: 'https://beincrypto.com/vitalik-buterin-rarimo-zero-knowledge-proof-voting-tool/',
+    image: '/images/news/zkp-voting-tool.webp',
+  },
+  {
+    title: 'Blockchain voting from Iranians Vote and Freedom Tool',
+    link: 'https://appdevelopermagazine.com/blockchain-voting-from-iranians-vote-and-freedom-tool/',
+    image: '/images/news/iranians-vote.webp',
+  },
+  {
+    title:
+      'Zero-Knowledge Tech Can Define Future but Has to Win Over Skeptical Public',
+    link: 'https://www.newsweek.com/zero-knowledge-tech-can-define-future-has-win-over-skeptical-public-1995187',
+    image: '/images/news/zk-define-future.webp',
+  },
+  {
+    title: 'Proof of personhood panel',
+    link: 'https://app.devcon.org/schedule/GVML7H',
+    image: '/images/news/personhood-panel.webp',
+  },
+  {
+    title:
+      'How a Georgian opposition party is putting blockchain on the ballot, with a plan to reshape the state and boost voter engagement',
+    link: 'https://digitalfrontier.com/articles/digital-democracy-Georgia-election-blockchain-unm',
+    image: '/images/news/georgia-election-blockchain.webp',
+  },
+  {
+    title:
+      'Georgia opposition debuts civil blockchain project ahead of critical elections',
+    link: 'https://cointelegraph.com/news/georgia-opposition-blockchain-elections',
+    image: '/images/news/georgia-opposition-debuts.webp',
+  },
+  {
     title: "Rarimo's Worldcoin Alternative RariMe Goes Live",
     link: 'https://www.coindesk.com/policy/2024/06/27/rarimos-worldcoin-alternative-rarime-goes-live/?utm_medium=social&utm_content=editorial&utm_campaign=coindesk_main&utm_source=twitter&utm_term=organic',
     image: '/images/news/rarime-coindesk.webp',

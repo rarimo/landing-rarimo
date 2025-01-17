@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 import HomeHeader from '@/common/HomeHeader'
 import { HomeSidebar } from '@/common/HomeSidebar'
+import QRCodeBlock from '@/common/QRCodeBlock'
 import CommunitySection from '@/components/Homepage/components/CommunitySection'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
@@ -41,6 +42,7 @@ export default function Homepage() {
         <RegistriesSection />
         <CommunitySection />
         <NewsSection />
+        <QRCodeBlock />
       </main>
     </div>
   )

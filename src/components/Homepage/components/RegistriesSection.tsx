@@ -89,7 +89,7 @@ export default function RegistriesSection() {
             freeMode={false}
           >
             {registriesList.map((registry, index) => (
-              <SwiperSlide className='w-fit' key={index}>
+              <SwiperSlide className='w-fit min-w-[300px] flex-1' key={index}>
                 <RegistryCard {...registry} />
               </SwiperSlide>
             ))}
@@ -97,7 +97,9 @@ export default function RegistriesSection() {
         ) : (
           <div className='flex gap-4 px-16'>
             {registriesList.map((registry, index) => (
-              <RegistryCard key={index} {...registry} />
+              <div key={index} className='flex-1'>
+                <RegistryCard {...registry} />
+              </div>
             ))}
           </div>
         )}
@@ -112,12 +114,14 @@ function RegistryCard({
   title,
   description,
   gradientClassName,
+  link,
 }: {
   lightThemeImageUrl: string
   darkThemeImageUrl: string
   title: string
   description: string
   gradientClassName?: string
+  link: string
 } & HTMLAttributes<HTMLDivElement>) {
   const { theme } = useTheme()
 
@@ -127,30 +131,35 @@ function RegistryCard({
   return (
     <ClientOnly>
       {() => (
-        <div
-          className={cn(
-            'flex flex-col items-center justify-center pb-8',
-            'h-[424px] w-full min-w-[300px] max-w-min',
-            'rounded-[24px] border-2 border-componentPrimary bg-backgroundContainer',
-            'relative overflow-hidden',
-            'md:min-w-[324px] md:max-w-min',
-            'lg:min-w-0 lg:max-w-full',
-          )}
-        >
-          <img className='z-10 my-auto' src={currentImageUrl} alt={title} />
+        <a href={link} target='_blank' rel='noopener noreferrer'>
           <div
             className={cn(
-              'z-10 flex w-full max-w-[90%] flex-col gap-2 text-center',
+              'flex flex-col items-center justify-center pb-8',
+              'h-[424px] w-full',
+              'rounded-[24px] border-2 border-componentPrimary bg-backgroundContainer',
+              'relative overflow-hidden',
+              'md:min-w-none md:max-w-none',
             )}
           >
-            <span className='text-textPrimary typography-h4'>{title}</span>
-            <span className='text-textSecondary typography-body3'>
-              {description}
-            </span>
-          </div>
+            <img
+              className='z-10 my-auto px-3'
+              src={currentImageUrl}
+              alt={title}
+            />
+            <div
+              className={cn(
+                'z-10 flex w-full max-w-[90%] flex-col gap-2 text-center',
+              )}
+            >
+              <span className='text-textPrimary typography-h4'>{title}</span>
+              <span className='text-textSecondary typography-body3'>
+                {description}
+              </span>
+            </div>
 
-          <UiGradientDecor gradientClassName={gradientClassName} />
-        </div>
+            <UiGradientDecor gradientClassName={gradientClassName} />
+          </div>
+        </a>
       )}
     </ClientOnly>
   )
