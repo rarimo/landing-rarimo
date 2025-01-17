@@ -1,5 +1,5 @@
 import { forwardRef, ReactNode } from 'react'
-import { Mousewheel } from 'swiper/modules'
+import { FreeMode, Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperProps, SwiperRef } from 'swiper/react'
 
 export interface AppSwiperProps extends SwiperProps {
@@ -21,11 +21,12 @@ export const AppSwiper = forwardRef<SwiperRef, AppSwiperProps>(
       <div>
         <Swiper
           ref={ref}
-          modules={[Mousewheel]}
+          modules={[Mousewheel, FreeMode]}
           slidesPerView='auto'
           slidesOffsetBefore={slidesOffsetBefore}
           slidesOffsetAfter={slidesOffsetAfter}
           mousewheel={{ forceToAxis: true }}
+          autoplay={false}
           spaceBetween={spaceBetween}
           resistanceRatio={0.5}
           grabCursor

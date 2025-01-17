@@ -3,6 +3,7 @@ import '@/theme/styles.scss'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
+import { ThemeProvider } from 'next-themes'
 import { ReactNode } from 'react'
 
 import AosInit from '@/common/AosInit'
@@ -66,9 +67,11 @@ export default async function RootLayout({
   const messages = await getMessages(locale)
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <AosInit />
-      {children}
-    </NextIntlClientProvider>
+    <ThemeProvider attribute='class' defaultTheme='system'>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <AosInit />
+        {children}
+      </NextIntlClientProvider>
+    </ThemeProvider>
   )
 }

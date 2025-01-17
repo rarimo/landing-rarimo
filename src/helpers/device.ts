@@ -17,7 +17,7 @@ export function isAndroid() {
 }
 
 export function isSmallScreen() {
-  return typeof window !== 'undefined' && window.innerWidth < 1024
+  return typeof window !== 'undefined' && window.innerWidth < 480
 }
 
 export function isMediumScreen() {

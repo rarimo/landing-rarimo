@@ -5,6 +5,7 @@ import { projectsList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
+import AnimatedNumber from '@/common/AnimatedNumbers'
 import { AppSwiper } from '@/common/AppSwiper'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
@@ -73,11 +74,23 @@ export default function ProjectsSection() {
         )}
       >
         <div className='relative'>
-          <span
-            className={cn('text-textPrimary typography-h3', 'md:typography-h2')}
+          <div
+            className={cn(
+              'text-textPrimary typography-h3 md:typography-h2',
+              'inline-block',
+              'min-w-[7.2ch]',
+            )}
           >
-            100,000+
-          </span>
+            <AnimatedNumber duration={2000} value={100000} />
+            <span
+              className={cn(
+                'text-textPrimary typography-h3',
+                'md:typography-h2',
+              )}
+            >
+              +
+            </span>
+          </div>
           <UnderlineIcon className='absolute left-1/2 top-full w-full -translate-x-1/2' />
         </div>
         <span
@@ -135,28 +148,32 @@ function ProjectSliderCard({
   imageUrl,
   title,
   description,
+  link,
   className,
   ...rest
 }: {
   imageUrl: string
   title: string
   description: string
+  link: string
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      {...rest}
-      className={cn(
-        'flex flex-col p-6',
-        'relative h-[215px] w-[275px] rounded-[20px]',
-        'bg-additionalOpacited backdrop-blur-[24px]',
-        className,
-      )}
-    >
-      <img className='mb-auto size-12' src={imageUrl} alt={title} />
-      <span className='text-textPrimary typography-h4'>{title}</span>
-      <span className='mt-2 text-textSecondary typography-body3'>
-        {description}
-      </span>
-    </div>
+    <a href={link} target='_blank' rel='noreferrer noopener'>
+      <div
+        {...rest}
+        className={cn(
+          'flex flex-col p-6',
+          'relative h-[215px] w-[275px] rounded-[20px]',
+          'bg-additionalOpacited backdrop-blur-[24px]',
+          className,
+        )}
+      >
+        <img className='mb-auto size-12' src={imageUrl} alt={title} />
+        <span className='text-textPrimary typography-h4'>{title}</span>
+        <span className='mt-2 text-textSecondary typography-body3'>
+          {description}
+        </span>
+      </div>
+    </a>
   )
 }

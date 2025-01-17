@@ -1,5 +1,12 @@
 export const communitiesList = [
   {
+    name: 'Vitalik Buterin',
+    position: 'Ethereum Co-Founder',
+    imageUrl: '/images/community/vitalik-buterin.png',
+    description:
+      'Zero-knowledge cryptography holds tremendous potential for solving digital identity. I’m proud to support the Rarimo team as they tackle this critical need with innovative products like Freedom Tool and the ZK Identity Registry.',
+  },
+  {
     name: 'Brian Retford',
     position: 'RiscZero Co-Founder',
     imageUrl: '/images/community/brian-retford.png',
@@ -12,13 +19,6 @@ export const communitiesList = [
     imageUrl: '/images/community/stefan-george.png',
     description:
       'The Rarimo team has proven to apply ZK technologies to solve real world problems successfully while protecting user privacy. I am exited to see their solutions like zkPassport being applied on a global scale.',
-  },
-  {
-    name: 'Vitalik Buterin',
-    position: 'Ethereum Co-Founder',
-    imageUrl: '/images/community/vitalik-buterin.png',
-    description:
-      'Zero-knowledge cryptography holds tremendous potential for solving digital identity. I’m proud to support the Rarimo team as they tackle this critical need with innovative products like Freedom Tool and the ZK Identity Registry.',
   },
   {
     name: 'Alex Pruden',

@@ -432,13 +432,23 @@ type Props = Omit<HTMLAttributes<HTMLButtonElement>, 'children'> & {
 
   children?: string | ReactElement | ReactNode
   textClassName?: string
+  containerClassName?: string
 } & VariantProps<typeof buttonBaseTv>
 
 type PressableRef = HTMLButtonElement
 
 const UiButton = forwardRef<PressableRef, Props>(
   (
-    { title, size, variant, color, children, textClassName, ...rest }: Props,
+    {
+      title,
+      size,
+      variant,
+      color,
+      children,
+      textClassName,
+      containerClassName,
+      ...rest
+    }: Props,
     ref,
   ) => {
     const [isPressed, setIsPressed] = useState(false)
@@ -471,6 +481,7 @@ const UiButton = forwardRef<PressableRef, Props>(
 
     return (
       <button
+        {...rest}
         onClick={rest.onClick}
         ref={ref}
         onTouchStart={event => {
@@ -482,7 +493,7 @@ const UiButton = forwardRef<PressableRef, Props>(
           rest?.onTouchEnd?.(event)
         }}
       >
-        <div className={cn(baseStyles.container(), rest.className)}>
+        <div className={cn(baseStyles.container(), containerClassName)}>
           {btnContent}
         </div>
       </button>
