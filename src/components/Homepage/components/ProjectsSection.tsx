@@ -4,6 +4,7 @@ import { SwiperRef, SwiperSlide } from 'swiper/react'
 import { projectsList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
+import ExternalLinkIcon from '@/assets/icons/external-link-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
 import AnimatedNumber from '@/common/AnimatedNumbers'
 import { AppSwiper } from '@/common/AppSwiper'
@@ -81,7 +82,7 @@ export default function ProjectsSection() {
               'min-w-[7.2ch]',
             )}
           >
-            <AnimatedNumber duration={2000} value={100000} />
+            <AnimatedNumber duration={1500} value={100000} />
             <span
               className={cn(
                 'text-textPrimary typography-h3',
@@ -162,14 +163,23 @@ function ProjectSliderCard({
       <div
         {...rest}
         className={cn(
-          'flex flex-col p-6',
+          'group flex flex-col p-6',
           'relative h-[215px] w-[275px] rounded-[20px]',
           'bg-additionalOpacited backdrop-blur-[24px]',
           className,
         )}
       >
         <img className='mb-auto size-12' src={imageUrl} alt={title} />
-        <span className='text-textPrimary typography-h4'>{title}</span>
+        <div className='flex items-center gap-2'>
+          <span className='text-textPrimary typography-h4'>{title}</span>
+          <ExternalLinkIcon
+            className={cn(
+              'text-textSecondary',
+              'opacity-0 transition duration-300',
+              'group-hover:opacity-100',
+            )}
+          />
+        </div>
         <span className='mt-2 text-textSecondary typography-body3'>
           {description}
         </span>
