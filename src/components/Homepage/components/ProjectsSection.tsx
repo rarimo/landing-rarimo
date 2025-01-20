@@ -82,7 +82,7 @@ export default function ProjectsSection() {
               'min-w-[7.2ch]',
             )}
           >
-            <AnimatedNumber duration={2000} value={100000} />
+            <AnimatedNumber duration={1500} value={100000} />
             <span
               className={cn(
                 'text-textPrimary typography-h3',
