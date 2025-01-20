@@ -22,7 +22,6 @@ export const registriesList = [
     description:
       'Registry of verified social handles compatible with any ZKTLS service',
     gradientClassName: '-bottom-[320px] -left-[662px] h-[414px] w-[991px]',
-    // TODO: add link from X
-    link: '',
+    link: 'https://docs.rarimo.com/zksocials/',
   },
 ]

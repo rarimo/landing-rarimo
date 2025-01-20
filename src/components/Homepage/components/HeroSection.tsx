@@ -43,7 +43,7 @@ export default function HeroSection() {
       gradientDecorClassName={cn(
         '-right-[65px] -top-[83px] -rotate-[10deg] h-[570px] w-[680px]',
       )}
-      fullHeightContainerClassName={cn('h-[calc(100vh-68px)]')}
+      fullHeightContainerClassName={cn('h-[calc(100dvh-68px)]')}
       data-aos='fade-up'
     >
       <div
