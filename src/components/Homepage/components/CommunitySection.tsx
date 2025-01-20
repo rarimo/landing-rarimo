@@ -12,6 +12,7 @@ import { backersList, communitiesList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { AppSwiper } from '@/common/AppSwiper'
+import ClientOnly from '@/common/ClientOnly'
 import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
@@ -142,21 +143,30 @@ function TestimonialsTabButton({
 } & HTMLAttributes<HTMLButtonElement> &
   PropsWithChildren) {
   return (
-    <button
-      {...rest}
-      disabled={isDisabled}
-      className={cn('flex items-center justify-center', className)}
-    >
-      <span
-        className={cn(
-          'typography-h3',
-          'md:typography-h2',
-          isActive ? 'text-secondary' : 'text-textSecondary',
-        )}
-      >
-        {children}
-      </span>
-    </button>
+    <ClientOnly>
+      {() => (
+        <button
+          {...rest}
+          disabled={isDisabled}
+          className={cn('flex items-center justify-center', className)}
+        >
+          <div className='relative flex flex-col gap-0.5'>
+            <span
+              className={cn(
+                'transition duration-300 typography-h3',
+                'md:typography-h2',
+                isActive ? 'text-secondary' : 'text-textSecondary',
+              )}
+            >
+              {children}
+            </span>
+            {isActive && (
+              <hr className='gradient1 absolute -bottom-2 h-0.5 w-full border-t-0' />
+            )}
+          </div>
+        </button>
+      )}
+    </ClientOnly>
   )
 }
 

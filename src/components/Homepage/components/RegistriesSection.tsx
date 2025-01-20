@@ -136,7 +136,7 @@ function RegistryCard({
             className={cn(
               'flex flex-col items-center justify-center pb-8',
               'h-[424px] w-full',
-              'rounded-[24px] border-2 border-componentPrimary bg-backgroundContainer',
+              'rounded-[24px] border border-componentPrimary bg-backgroundContainer',
               'relative overflow-hidden',
               'md:min-w-none md:max-w-none',
             )}
@@ -148,11 +148,11 @@ function RegistryCard({
             />
             <div
               className={cn(
-                'z-10 flex w-full max-w-[90%] flex-col gap-2 text-center',
+                'z-10 flex w-full flex-col items-center gap-2 text-center',
               )}
             >
               <span className='text-textPrimary typography-h4'>{title}</span>
-              <span className='text-textSecondary typography-body3'>
+              <span className='max-w-[75%] text-textSecondary typography-body3'>
                 {description}
               </span>
             </div>

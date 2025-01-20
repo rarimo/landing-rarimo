@@ -26,8 +26,8 @@ export const backersList = [
   {
     image: '/images/backers/greycroft.png',
     title: 'Greycroft',
-    width: 124,
-    height: 27,
+    width: 122,
+    height: 26,
   },
   {
     image: '/images/backers/eniac-ventures.png',

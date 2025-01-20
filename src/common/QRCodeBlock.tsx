@@ -51,7 +51,7 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
       initial='initial'
       animate='animate'
       exit='exit'
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.3 }}
       className={cn(
         'flex flex-col items-center justify-center',
         'rounded-2xl bg-backgroundSurface1 p-1.5',

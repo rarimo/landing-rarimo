@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useIntersectionObserver } from '@uidotdev/usehooks'
+import { PropsWithChildren, useEffect, useState } from 'react'
 
 import HomeHeader from '@/common/HomeHeader'
 import { HomeSidebar } from '@/common/HomeSidebar'
@@ -36,14 +37,81 @@ export default function Homepage() {
           'lg:ml-[248px]',
         )}
       >
-        <HeroSection />
-        <EcosystemSection />
+        <IntersectionComponent
+          id={Anchors.Home}
+          onIntersect={() => {
+            if (activeLink === Anchors.Home) return
+
+            setActiveLink(Anchors.Home)
+          }}
+        >
+          <HeroSection />
+        </IntersectionComponent>
+
+        <IntersectionComponent
+          id={Anchors.Ecosystem}
+          onIntersect={() => {
+            if (activeLink === Anchors.Ecosystem) return
+
+            setActiveLink(Anchors.Ecosystem)
+          }}
+        >
+          <EcosystemSection />
+        </IntersectionComponent>
+
         <ProjectsSection />
-        <RegistriesSection />
-        <CommunitySection />
+        <IntersectionComponent
+          id={Anchors.ZkRegistries}
+          onIntersect={() => {
+            if (activeLink === Anchors.ZkRegistries) return
+
+            setActiveLink(Anchors.ZkRegistries)
+          }}
+        >
+          <RegistriesSection />
+        </IntersectionComponent>
+        <IntersectionComponent
+          id={Anchors.Community}
+          onIntersect={() => {
+            if (activeLink === Anchors.Community) return
+
+            setActiveLink(Anchors.Community)
+          }}
+        >
+          <CommunitySection />
+        </IntersectionComponent>
         <NewsSection />
         <QRCodeBlock />
       </main>
+    </div>
+  )
+}
+
+function IntersectionComponent({
+  children,
+  onIntersect,
+  id,
+}: PropsWithChildren<{
+  onIntersect: () => void
+  id?: string
+}>) {
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0.9,
+    root: null,
+    rootMargin: '0px',
+  })
+
+  useEffect(() => {
+    if (!entry?.isIntersecting) return
+
+    onIntersect()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entry?.isIntersecting])
+
+  return (
+    <div id={id} ref={ref} className='scroll-mt-5'>
+      {children}
     </div>
   )
 }

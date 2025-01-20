@@ -33,6 +33,7 @@ export const AppSwiper = forwardRef<SwiperRef, AppSwiperProps>(
           freeMode
           edgeSwipeDetection
           {...props}
+          className='no-scrollbar md:overflow-x-scroll'
         >
           {children}
         </Swiper>

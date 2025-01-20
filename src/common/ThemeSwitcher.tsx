@@ -12,9 +12,12 @@ const INITIAL_THUMB = { x: 0, y: 0 }
 const ANIMATED_THUMB = { x: '105%' }
 
 export default function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
-  const isDarkTheme = useMemo(() => theme === Theme.Dark, [theme])
+  const isDarkTheme = useMemo(
+    () => resolvedTheme === Theme.Dark,
+    [resolvedTheme],
+  )
 
   return (
     <ClientOnly>
@@ -41,7 +44,7 @@ export default function ThemeSwitcher() {
 
           <button
             className='absolute left-0 top-0 z-40 size-full'
-            onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
+            onClick={() => setTheme(isDarkTheme ? Theme.Light : Theme.Dark)}
           />
         </div>
       )}
