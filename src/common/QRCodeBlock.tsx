@@ -5,6 +5,7 @@ import { QRCode } from 'react-qrcode-logo'
 
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
 import RarimoIcon from '@/assets/icons/rarimo-icon.svg'
+import ClientOnly from '@/common/ClientOnly'
 import { config } from '@/config'
 import { Theme } from '@/enums'
 import { isAndroid, isIos, isMediumScreen } from '@/helpers'
@@ -12,7 +13,7 @@ import { cn } from '@/theme/utils'
 import { UiButton, UiIconButton } from '@/ui'
 
 const CLOSE_DOWNLOAD_BLOCK_ANIMATION = {
-  initial: { opacity: 1, scale: 1 },
+  initial: { opacity: 0, scale: 1 },
   animate: { opacity: 1, scale: 1 },
   exit: { opacity: 0, scale: 0.95 },
 }
@@ -22,16 +23,22 @@ export default function QRCodeBlock() {
   const isMdDown = isMediumScreen()
 
   return (
-    <div className='z-10'>
-      <AnimatePresence>
-        {!isMdDown && isQRCodeShown && (
-          <DesktopQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
-        )}
-        {isMdDown && isQRCodeShown && (
-          <MobileQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
-        )}
-      </AnimatePresence>
-    </div>
+    <ClientOnly>
+      {() => (
+        <div className='z-10'>
+          <AnimatePresence>
+            {!isMdDown && isQRCodeShown && (
+              <DesktopQRCodeBlock
+                onBlockClose={() => setIsQRCodeShown(false)}
+              />
+            )}
+            {isMdDown && isQRCodeShown && (
+              <MobileQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
+            )}
+          </AnimatePresence>
+        </div>
+      )}
+    </ClientOnly>
   )
 }
 
@@ -44,15 +51,13 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
       initial='initial'
       animate='animate'
       exit='exit'
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 1 }}
       className={cn(
         'flex flex-col items-center justify-center',
         'rounded-2xl bg-backgroundSurface1 p-1.5',
         'fixed bottom-10 right-10',
         'shadow-[0px_4px_4px_0px_#0000000D,0px_2px_2px_0px_#0000000D,0px_1px_1px_0px_#0000000D,0px_0px_0px_0.33px_#0000000D]',
       )}
-      data-aos='fade-up'
-      data-aos-delay='400'
     >
       <UiIconButton
         className='absolute right-1 top-1'
@@ -64,7 +69,7 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         <CloseFillIcon />
       </UiIconButton>
       <span className='px-3 pt-3 text-center typography-caption2'>
-        Download the <br /> app
+        Download the <br /> RariMe app
       </span>
       <QRCode
         value={config.universityLink}
@@ -107,8 +112,6 @@ function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         'fixed bottom-3 left-3 right-3 z-20',
         'shadow-[0px_4px_4px_0px_#0000000D,0px_2px_2px_0px_#0000000D,0px_1px_1px_0px_#0000000D,0px_0px_0px_0.33px_#0000000D]',
       )}
-      data-aos='fade-up'
-      data-aos-delay='400'
     >
       <UiIconButton
         className='absolute right-0.5 top-0'
@@ -119,7 +122,7 @@ function MobileQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
       >
         <CloseFillIcon />
       </UiIconButton>
-      <div className='flex gap-2'>
+      <div className='flex items-center gap-2'>
         <RarimoIcon />
         <div className='flex flex-col'>
           <span className='typography-h6'>RariMe</span>

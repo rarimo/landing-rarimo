@@ -12,6 +12,11 @@ export const newsList = [
     image: '/images/news/zkp-voting-tool.webp',
   },
   {
+    title: "Rarimo's Worldcoin Alternative RariMe Goes Live",
+    link: 'https://www.coindesk.com/policy/2024/06/27/rarimos-worldcoin-alternative-rarime-goes-live/?utm_medium=social&utm_content=editorial&utm_campaign=coindesk_main&utm_source=twitter&utm_term=organic',
+    image: '/images/news/rarime-coindesk.webp',
+  },
+  {
     title: 'Blockchain voting from Iranians Vote and Freedom Tool',
     link: 'https://appdevelopermagazine.com/blockchain-voting-from-iranians-vote-and-freedom-tool/',
     image: '/images/news/iranians-vote.webp',
@@ -38,11 +43,6 @@ export const newsList = [
       'Georgia opposition debuts civil blockchain project ahead of critical elections',
     link: 'https://cointelegraph.com/news/georgia-opposition-blockchain-elections',
     image: '/images/news/georgia-opposition-debuts.webp',
-  },
-  {
-    title: "Rarimo's Worldcoin Alternative RariMe Goes Live",
-    link: 'https://www.coindesk.com/policy/2024/06/27/rarimos-worldcoin-alternative-rarime-goes-live/?utm_medium=social&utm_content=editorial&utm_campaign=coindesk_main&utm_source=twitter&utm_term=organic',
-    image: '/images/news/rarime-coindesk.webp',
   },
   {
     title:
