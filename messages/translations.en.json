@@ -9,14 +9,14 @@
       "type": "website",
       "url": "https://rarimo.com/",
       "siteName": "Rarimo – Permissionless (ZK) Registries",
-      "images": "https://rarimo.com/images/og-img.jpg"
+      "images": "https://rarimo.com/images/og-img.png"
     },
 
     "twitter": {
       "title": "Rarimo – Permissionless (ZK) Registries",
       "description": "Unlocking a new generation of social apps, where users stay private without losing historical actions, networks, and identities",
       "card": "summary_large_image",
-      "images": "https://rarimo.com/images/og-img.jpg",
+      "images": "https://rarimo.com/images/og-img.png",
       "site": "rarimo.com"
     }
   }
