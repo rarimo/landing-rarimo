@@ -42,7 +42,9 @@ export default function HomeHeader({
           isMenuOpen ? 'bg-backgroundSurface1' : 'bg-transparent'
         }`}
       >
-        <LogoIcon />
+        <a href='/'>
+          <LogoIcon />
+        </a>
         <UiIconButton size='small' onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <CloseFillIcon /> : <Menu2FillIcon />}
         </UiIconButton>

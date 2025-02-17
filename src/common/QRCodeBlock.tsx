@@ -45,6 +45,8 @@ export default function QRCodeBlock() {
 function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
   const { theme } = useTheme()
 
+  const isDarkTheme = theme === Theme.Dark || theme === Theme.System
+
   return (
     <motion.div
       variants={CLOSE_DOWNLOAD_BLOCK_ANIMATION}
@@ -77,8 +79,8 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         enableCORS
         qrStyle='dots'
         eyeRadius={10}
-        bgColor={theme === Theme.Dark ? '#292929' : 'white'}
-        fgColor={theme === Theme.Dark ? 'white' : 'black'}
+        bgColor={isDarkTheme ? '#292929' : 'white'}
+        fgColor={isDarkTheme ? 'white' : 'black'}
       />
     </motion.div>
   )
