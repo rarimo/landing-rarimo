@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { QRCode } from 'react-qrcode-logo'
 
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
@@ -9,6 +9,7 @@ import ClientOnly from '@/common/ClientOnly'
 import { config } from '@/config'
 import { Theme } from '@/enums'
 import { isAndroid, isIos, isMediumScreen } from '@/helpers'
+import { darkPalette, lightPalette } from '@/theme/config'
 import { cn } from '@/theme/utils'
 import { UiButton, UiIconButton } from '@/ui'
 
@@ -43,7 +44,12 @@ export default function QRCodeBlock() {
 }
 
 function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
+
+  const palette = useMemo(
+    () => (resolvedTheme === Theme.Dark ? darkPalette : lightPalette),
+    [resolvedTheme],
+  )
 
   return (
     <motion.div
@@ -77,8 +83,8 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         enableCORS
         qrStyle='dots'
         eyeRadius={10}
-        bgColor={theme === Theme.Dark ? '#292929' : 'white'}
-        fgColor={theme === Theme.Dark ? 'white' : 'black'}
+        bgColor={palette.backgroundSurface1}
+        fgColor={palette.invertedDark}
       />
     </motion.div>
   )

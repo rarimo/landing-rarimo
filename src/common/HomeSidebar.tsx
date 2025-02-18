@@ -28,7 +28,9 @@ export function HomeSidebar({
   return (
     <aside {...rest} className={cn('flex size-full flex-col', className)}>
       <div className='mb-14 max-w-[105px]'>
-        <LogoIcon />
+        <a href='/'>
+          <LogoIcon />
+        </a>
       </div>
 
       <nav className='flex flex-1 flex-col'>
