@@ -46,12 +46,10 @@ export default function QRCodeBlock() {
 function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
   const { resolvedTheme } = useTheme()
 
-  const isDarkTheme = useMemo(
-    () => resolvedTheme === Theme.Dark,
+  const palette = useMemo(
+    () => (resolvedTheme === Theme.Dark ? darkPalette : lightPalette),
     [resolvedTheme],
   )
-
-  const palette = isDarkTheme ? darkPalette : lightPalette
 
   return (
     <motion.div
