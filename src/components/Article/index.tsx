@@ -64,7 +64,7 @@ export default async function Article({ params }: { params: { id: string } }) {
   return (
     <div
       className={cn(
-        'mx-auto flex max-w-[1136px] flex-col',
+        'mx-auto flex w-full max-w-[1136px] flex-col',
         'px-4 md:px-6 lg:px-0',
       )}
     >

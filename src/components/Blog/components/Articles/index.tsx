@@ -22,14 +22,45 @@ export default async function Articles({
     [QueryFilters.Sort]?: SortOptions
   }
 
-  const response = await fetch(`${config.blogApiUrl}/posts`)
+  const queryFilters = new URLSearchParams()
 
-  const articles = await response.json()
+  if (filters[QueryFilters.Category]) {
+    queryFilters.append(
+      `filters[${QueryFilters.Category}]`,
+      filters[QueryFilters.Category],
+    )
+  }
+
+  if (filters[QueryFilters.Search]) {
+    queryFilters.append(
+      `filters[${QueryFilters.Search}][$containsi]`,
+      filters[QueryFilters.Search],
+    )
+  }
+
+  if (filters[QueryFilters.Sort]) {
+    queryFilters.append(QueryFilters.Sort, filters[QueryFilters.Sort])
+  }
+
+  const response = await fetch(
+    `${config.blogApiUrl}/posts?${queryFilters.toString()}`,
+  )
+
+  const { data: articles } = await response.json()
 
   return (
     <div className='flex flex-col'>
       <Filters className='mt-10' />
-      <List className='mt-10' articles={articles.data} />
+
+      {articles?.length ? (
+        <List className='mt-10' articles={articles} />
+      ) : (
+        <div className='my-14 flex'>
+          <span className='mx-auto text-center text-textPrimary typography-h4'>
+            No articles found
+          </span>
+        </div>
+      )}
 
       <button className='mx-auto mt-14 flex items-center gap-1'>
         <span className='text-textSecondary typography-buttonMedium'>

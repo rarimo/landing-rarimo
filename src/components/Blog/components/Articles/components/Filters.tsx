@@ -20,6 +20,26 @@ import {
 
 type Props = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
+const localizeCategory = (category: Categories): string => {
+  return (
+    {
+      [Categories.All]: 'All',
+      [Categories.Blog]: 'Blog',
+      [Categories.Videos]: 'Videos',
+    }[category] ?? ''
+  )
+}
+
+const localizeSortBy = (sortBy: SortOptions): string => {
+  return (
+    {
+      [SortOptions.Date]: 'Date',
+      [SortOptions.Newest]: 'Newest',
+      [SortOptions.Popularity]: 'Popularity',
+    }[sortBy] ?? ''
+  )
+}
+
 export default function Filters({ className, ...rest }: Props) {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -68,7 +88,7 @@ export default function Filters({ className, ...rest }: Props) {
             )}
             onClick={() => navigateWithSanitizedSearchParams(el, sortedBy)}
           >
-            {el}
+            {localizeCategory(el)}
           </button>
         ))}
       </div>
@@ -95,7 +115,7 @@ export default function Filters({ className, ...rest }: Props) {
                     value={el}
                     className='hover:cursor-pointer hover:bg-componentHovered'
                   >
-                    {el}
+                    {localizeSortBy(el)}
                   </UiSelectItem>
                 ))}
               </UiSelectGroup>

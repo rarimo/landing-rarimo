@@ -1,17 +1,17 @@
 export enum Categories {
   All = 'all',
-  Videos = 'videos',
-  Blog = 'blog',
+  Videos = 'video',
+  Blog = 'article',
 }
 
 export enum SortOptions {
-  Date = 'date',
+  Date = 'date:asc',
   Popularity = 'popularity',
-  Newest = 'newest',
+  Newest = 'date:desc',
 }
 
 export enum QueryFilters {
-  Category = 'category',
-  Search = 'search',
+  Category = 'type',
+  Search = 'title',
   Sort = 'sort',
 }

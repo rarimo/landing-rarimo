@@ -2,7 +2,7 @@
 
 import { Search } from 'lucide-react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { HTMLAttributes, useMemo, useRef, useState } from 'react'
 
 import LogoIcon from '@/assets/icons/logo-icon.svg'
@@ -14,6 +14,7 @@ type Props = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
 export default function BlogNavbar({ className, ...rest }: Props) {
   const searchParams = useSearchParams()
+  const router = useRouter()
 
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -46,6 +47,13 @@ export default function BlogNavbar({ className, ...rest }: Props) {
                 'w-full flex-1 bg-transparent typography-body3',
                 'outline-0 focus:outline-0',
               )}
+              onKeyDown={e => {
+                if (e.key === 'Enter') {
+                  e.preventDefault()
+                  router.push(`/blog?${sanitizedSearchParams.toString()}`)
+                  searchInputRef.current?.blur()
+                }
+              }}
               placeholder='name, title, desc, ...'
             />
             {searchQuery ? (
