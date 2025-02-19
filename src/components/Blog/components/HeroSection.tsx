@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'react'
 
+import SubscribeInput from '@/common/SubscribeInput'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
@@ -34,15 +35,7 @@ export default function HeroSection({ className, ...rest }: Props) {
         Learn about <br /> Rarimo
       </h2>
 
-      <div className='mt-8 flex w-full max-w-[413px] items-center overflow-hidden rounded-[32px] bg-backgroundSurface1 shadow-[0px_0px_0px_0.5px_#0000001A,0px_2px_2px_0px_#0000000A,0px_4px_4px_0px_#0000000A]'>
-        <input
-          className='line-clamp-1 flex-1 bg-transparent px-4 py-3 outline-0 typography-body3'
-          placeholder={'Enter email and subscribe'}
-        />
-        <button className='px-4 py-3 text-textPrimary typography-buttonMedium'>
-          Subscribe
-        </button>
-      </div>
+      <SubscribeInput />
     </UiContainer>
   )
 }
