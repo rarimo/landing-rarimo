@@ -6,7 +6,11 @@ import Articles from './components/Articles'
 import HeroSection from './components/HeroSection'
 import Navbar from './components/Navbar'
 
-export default function Blog() {
+export default function Blog({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
   return (
     <div className={cn('flex flex-col overflow-hidden bg-backgroundPrimary')}>
       <div
@@ -18,7 +22,7 @@ export default function Blog() {
         <Navbar />
 
         <HeroSection className='px-0 py-0 md:px-0 md:py-0' />
-        <Articles />
+        <Articles searchParams={searchParams} />
 
         <UiHorizontalDivider className='mb-12 mt-14' />
 

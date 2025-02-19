@@ -1,29 +1,30 @@
 'use client'
 
 import { Search } from 'lucide-react'
-import { HTMLAttributes, useRef, useState } from 'react'
+import Link from 'next/link'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { HTMLAttributes, useMemo, useRef, useState } from 'react'
 
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
+import { QueryFilters } from '@/components/Blog/constants'
 import { cn } from '@/theme/utils'
 
 type Props = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
 export default function Navbar({ className, ...rest }: Props) {
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const [searchQuery, setSearchQuery] = useState('')
 
   const searchInputRef = useRef<HTMLInputElement>(null)
 
-  const handleSearchBtnClick = () => {
-    if (!searchQuery) {
-      searchInputRef.current?.focus()
-
-      return
-    }
-
-    // fetch
-    alert('fetch')
-  }
+  const sanitizedSearchParams = useMemo(() => {
+    const params = new URLSearchParams(searchParams)
+    params.set(QueryFilters.Search, searchQuery)
+    return params
+  }, [searchParams, searchQuery])
 
   return (
     <div {...rest} className={cn('flex items-center py-8', className)}>
@@ -46,15 +47,29 @@ export default function Navbar({ className, ...rest }: Props) {
               )}
               placeholder='name, title, desc, ...'
             />
-            <button
-              className={cn(
-                'ml-auto flex size-[36px] items-center justify-center',
-                'outline-0 active:outline-0',
-              )}
-              onClick={handleSearchBtnClick}
-            >
-              <Search className='size-3.5 flex-1' />
-            </button>
+            {searchQuery ? (
+              <Link
+                className={cn(
+                  'ml-auto flex size-[36px] items-center justify-center',
+                  'outline-0 active:outline-0',
+                )}
+                href={`${pathname}?${sanitizedSearchParams.toString()}`}
+              >
+                <Search className='size-3.5 flex-1' />
+              </Link>
+            ) : (
+              <button
+                className={cn(
+                  'ml-auto flex size-[36px] items-center justify-center',
+                  'outline-0 active:outline-0',
+                )}
+                onClick={() => {
+                  searchInputRef.current?.focus()
+                }}
+              >
+                <Search className='size-3.5 flex-1' />
+              </button>
+            )}
           </div>
         </div>
 

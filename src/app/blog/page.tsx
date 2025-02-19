@@ -4,7 +4,11 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import Blog from '@/components/Blog'
 import { locales } from '@/i18n'
 
-export default async function BlogPage() {
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
   unstable_setRequestLocale(locales[0])
 
   const messages = await (
@@ -13,7 +17,7 @@ export default async function BlogPage() {
 
   return (
     <NextIntlClientProvider locale={locales[0]} messages={messages}>
-      <Blog />
+      <Blog searchParams={searchParams} />
     </NextIntlClientProvider>
   )
 }
