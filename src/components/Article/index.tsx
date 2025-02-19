@@ -2,8 +2,8 @@ import { time } from '@distributedlab/tools'
 import { Calendar } from 'lucide-react'
 
 import SubscribeInput from '@/common/SubscribeInput'
-import Footer from '@/components/Blog/components/Footer'
-import Navbar from '@/components/Blog/components/Navbar'
+import BlogFooter from '@/components/Blog/components/BlogFooter'
+import BlogNavbar from '@/components/Blog/components/BlogNavbar'
 import { config } from '@/config'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
@@ -68,7 +68,7 @@ export default async function Article({ params }: { params: { id: string } }) {
         'px-4 md:px-6 lg:px-0',
       )}
     >
-      <Navbar />
+      <BlogNavbar />
 
       <UiHorizontalDivider className='mb-6' />
 
@@ -147,7 +147,7 @@ export default async function Article({ params }: { params: { id: string } }) {
 
       <SubscribeInput className='mx-auto mb-12' />
 
-      <Footer />
+      <BlogFooter />
     </div>
   )
 }

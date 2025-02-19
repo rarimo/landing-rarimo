@@ -24,7 +24,7 @@ export default function Item({
   ...rest
 }: Props) {
   return (
-    <div {...rest} className={cn('flex flex-col gap-6', className)}>
+    <div {...rest} className={cn('relative flex flex-col gap-6', className)}>
       <img
         className='aspect-[362/186] rounded-2xl object-cover object-center'
         src={imgUrl}

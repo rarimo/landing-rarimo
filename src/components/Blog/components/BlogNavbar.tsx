@@ -2,7 +2,7 @@
 
 import { Search } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { HTMLAttributes, useMemo, useRef, useState } from 'react'
 
 import LogoIcon from '@/assets/icons/logo-icon.svg'
@@ -12,8 +12,7 @@ import { cn } from '@/theme/utils'
 
 type Props = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
-export default function Navbar({ className, ...rest }: Props) {
-  const pathname = usePathname()
+export default function BlogNavbar({ className, ...rest }: Props) {
   const searchParams = useSearchParams()
 
   const [searchQuery, setSearchQuery] = useState('')
@@ -55,7 +54,7 @@ export default function Navbar({ className, ...rest }: Props) {
                   'ml-auto flex size-[36px] items-center justify-center',
                   'outline-0 active:outline-0',
                 )}
-                href={`${pathname}?${sanitizedSearchParams.toString()}`}
+                href={`/blog?${sanitizedSearchParams.toString()}`}
               >
                 <Search className='size-3.5 flex-1' />
               </Link>

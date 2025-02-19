@@ -5,7 +5,7 @@ import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
 import { config } from '@/config'
 
-export default function Footer() {
+export default function BlogFooter() {
   const linkStyle =
     'text-textSecondary transition duration-300 hover:text-textPrimary'
 

@@ -1,12 +1,12 @@
 import { Suspense } from 'react'
 
-import Footer from '@/components/Blog/components/Footer'
+import BlogFooter from '@/components/Blog/components/BlogFooter'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
 
 import Articles from './components/Articles'
+import BlogNavbar from './components/BlogNavbar'
 import HeroSection from './components/HeroSection'
-import Navbar from './components/Navbar'
 
 export default function Blog({
   searchParams,
@@ -22,7 +22,7 @@ export default function Blog({
         )}
       >
         <Suspense>
-          <Navbar />
+          <BlogNavbar />
         </Suspense>
 
         <HeroSection className='px-0 py-0 md:px-0 md:py-0' />
@@ -33,7 +33,7 @@ export default function Blog({
 
         <UiHorizontalDivider className='mb-12 mt-14' />
 
-        <Footer />
+        <BlogFooter />
       </div>
     </div>
   )
