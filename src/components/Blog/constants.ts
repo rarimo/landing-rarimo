@@ -6,7 +6,6 @@ export enum Categories {
 
 export enum SortOptions {
   Date = 'date:asc',
-  Popularity = 'popularity',
   Newest = 'date:desc',
 }
 
