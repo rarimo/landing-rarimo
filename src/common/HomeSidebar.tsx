@@ -58,6 +58,9 @@ export function HomeSidebar({
           >
             Documentation
           </ExtIconLink>
+          <ExtIconLink href={'/blog'} className={linkStyle}>
+            Blog
+          </ExtIconLink>
         </div>
       </nav>
 

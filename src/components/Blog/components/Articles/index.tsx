@@ -15,6 +15,7 @@ export default async function Articles({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const filters = (await searchParams) as {
     [QueryFilters.Category]?: Categories
     [QueryFilters.Search]?: string

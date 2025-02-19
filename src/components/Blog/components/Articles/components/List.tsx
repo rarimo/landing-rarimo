@@ -28,6 +28,7 @@ export default function List({ articles, className, ...rest }: Props) {
         <Item
           key={idx}
           className={cn('w-full', 'sm:w-[45%]', 'lg:w-[31%]')}
+          id={el.documentId}
           title={el.title}
           desc={el.shortDescription}
           imgUrl={el.coverImage}

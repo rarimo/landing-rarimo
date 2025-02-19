@@ -1,10 +1,12 @@
 import { time } from '@distributedlab/tools'
 import { Calendar } from 'lucide-react'
+import Link from 'next/link'
 import type { HTMLAttributes } from 'react'
 
 import { cn } from '@/theme/utils'
 
 type Props = {
+  id: string
   imgUrl: string
   title: string
   desc: string
@@ -12,6 +14,7 @@ type Props = {
 } & Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
 export default function Item({
+  id,
   imgUrl,
   title,
   desc,
@@ -40,6 +43,11 @@ export default function Item({
           {desc}
         </span>
       </div>
+
+      <Link
+        href={`/blog/${id}`}
+        className='absolute bottom-0 left-0 right-0 top-0'
+      />
     </div>
   )
 }

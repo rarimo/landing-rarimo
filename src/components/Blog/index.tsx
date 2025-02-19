@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import Footer from '@/components/Blog/components/Footer'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
@@ -19,10 +21,15 @@ export default function Blog({
           'px-4 md:px-6 lg:px-0',
         )}
       >
-        <Navbar />
+        <Suspense>
+          <Navbar />
+        </Suspense>
 
         <HeroSection className='px-0 py-0 md:px-0 md:py-0' />
-        <Articles searchParams={searchParams} />
+
+        <Suspense>
+          <Articles searchParams={searchParams} />
+        </Suspense>
 
         <UiHorizontalDivider className='mb-12 mt-14' />
 

@@ -28,7 +28,9 @@ export default function Navbar({ className, ...rest }: Props) {
 
   return (
     <div {...rest} className={cn('flex items-center py-8', className)}>
-      <LogoIcon />
+      <Link href={'/'}>
+        <LogoIcon />
+      </Link>
 
       <div className='ml-auto flex items-center gap-4'>
         <div
