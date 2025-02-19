@@ -18,9 +18,9 @@ export default function HeroSection({ className, ...rest }: Props) {
         'md:h-[338px] h-[338px] w-full',
         className,
       )}
-      className={
-        'flex flex-col items-center justify-center bg-backgroundContainer'
-      }
+      className={cn(
+        'flex flex-col items-center justify-center bg-backgroundContainer',
+      )}
     >
       <span
         className={cn(

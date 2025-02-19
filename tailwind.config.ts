@@ -1,5 +1,6 @@
 import { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
+import TailwindAnimatePlugin from 'tailwindcss-animate'
 
 import {
   colors,
@@ -39,6 +40,8 @@ const config: Config = {
     plugin(({ addUtilities }) => {
       addUtilities(typography)
     }),
+
+    TailwindAnimatePlugin,
   ],
 }
 
