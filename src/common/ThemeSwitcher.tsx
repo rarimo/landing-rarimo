@@ -1,3 +1,5 @@
+'use client'
+
 import { AnimationProps, motion } from 'motion/react'
 import { useTheme } from 'next-themes'
 import { PropsWithChildren, useMemo } from 'react'
