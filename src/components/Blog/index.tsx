@@ -1,3 +1,4 @@
+import Footer from '@/components/Blog/components/Footer'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
 
@@ -19,7 +20,9 @@ export default function Blog() {
         <HeroSection className='px-0 py-0 md:px-0 md:py-0' />
         <Articles />
 
-        <UiHorizontalDivider className='mt-14' />
+        <UiHorizontalDivider className='mb-12 mt-14' />
+
+        <Footer />
       </div>
     </div>
   )
