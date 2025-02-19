@@ -27,6 +27,7 @@ export default function UiGradientDecor({
           'absolute inset-0',
           'mix-blend-overlay dark:mix-blend-soft-light',
           'background-mask-gradient',
+          'pointer-events-none',
         )}
         style={{
           maskImage: 'url("/images/background-mask.png")',
