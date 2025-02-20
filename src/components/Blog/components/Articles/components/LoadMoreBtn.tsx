@@ -2,7 +2,6 @@
 
 import { ChevronDown } from 'lucide-react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
 
 import {
   DEFAULT_PAGINATION_LIMIT,
