@@ -7,10 +7,12 @@ EXPOSE 3000
 FROM base as builder
 WORKDIR /app
 COPY . .
+RUN yarn install
 RUN yarn build
 
 FROM base as production
 WORKDIR /app
+CMD yarn install
 ENV NODE_ENV=production
 RUN yarn ci
 RUN addgroup -g 1001 -S nodejs
