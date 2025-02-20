@@ -1,5 +1,10 @@
 'use client'
 
+/**
+ * inspired by:
+ * https://ui.shadcn.com/docs/components/select
+ */
+
 import * as SelectPrimitive from '@radix-ui/react-select'
 import { Check, ChevronDown, ChevronUp } from 'lucide-react'
 import * as React from 'react'
