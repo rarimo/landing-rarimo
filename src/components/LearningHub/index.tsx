@@ -1,14 +1,14 @@
 import { Suspense } from 'react'
 
-import BlogFooter from '@/components/Blog/components/BlogFooter'
+import LearningHubFooter from '@/components/LearningHub/components/LearningHubFooter'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
 
-import Articles from './components/Articles'
-import BlogNavbar from './components/BlogNavbar'
 import HeroSection from './components/HeroSection'
+import LearningHubNavbar from './components/LearningHubNavbar'
+import LearningHubPosts from './components/LearningHubPosts'
 
-export default function Blog({
+export default function LearningHub({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -16,7 +16,7 @@ export default function Blog({
   return (
     <div className={cn('flex flex-col overflow-hidden bg-backgroundPrimary')}>
       <Suspense>
-        <BlogNavbar />
+        <LearningHubNavbar />
       </Suspense>
 
       <div
@@ -28,12 +28,12 @@ export default function Blog({
         <HeroSection className='mt-6 px-0 py-0 md:px-0 md:py-0' />
 
         <Suspense>
-          <Articles searchParams={searchParams} />
+          <LearningHubPosts searchParams={searchParams} />
         </Suspense>
 
         <UiHorizontalDivider className='mb-12 mt-14' />
 
-        <BlogFooter />
+        <LearningHubFooter />
       </div>
     </div>
   )

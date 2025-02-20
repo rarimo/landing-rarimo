@@ -1,13 +1,13 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
-import Article from '@/components/Article'
+import LearningHub from '@/components/LearningHub'
 import { locales } from '@/i18n'
 
-export default async function ArticlePage({
-  params,
+export default async function LearningHubPage({
+  searchParams,
 }: {
-  params: { id: string }
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   unstable_setRequestLocale(locales[0])
 
@@ -17,7 +17,7 @@ export default async function ArticlePage({
 
   return (
     <NextIntlClientProvider locale={locales[0]} messages={messages}>
-      <Article params={params} />
+      <LearningHub searchParams={searchParams} />
     </NextIntlClientProvider>
   )
 }

@@ -16,5 +16,5 @@ export const config = {
   googlePlayLink:
     'https://play.google.com/store/apps/details?id=com.rarilabs.rarime',
 
-  blogApiUrl: 'https://hub.rarimo.com/api',
+  learningHubApiUrl: 'https://hub.rarimo.com/api',
 }

@@ -1,22 +1,22 @@
 import { time } from '@distributedlab/tools'
 import type { HTMLAttributes } from 'react'
 
-import { ArticleCard } from '@/components/Blog/types'
+import { LearningHubListPost } from '@/components/LearningHub/types'
 import { cn } from '@/theme/utils'
 
 import Item from './Item'
 
 type Props = {
-  articles: ArticleCard[]
+  posts: LearningHubListPost[]
 } & Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
-export default function List({ articles, className, ...rest }: Props) {
+export default function List({ posts, className, ...rest }: Props) {
   return (
     <div
       {...rest}
       className={cn('flex flex-wrap justify-between gap-6', className)}
     >
-      {articles.map((el, idx) => (
+      {posts.map((el, idx) => (
         <Item
           key={idx}
           className={cn('w-full', 'sm:w-[45%]', 'lg:w-[31%]')}

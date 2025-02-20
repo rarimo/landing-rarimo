@@ -45,7 +45,11 @@ export function HomeSidebar({
         <UiHorizontalDivider className={'my-5 w-3 bg-componentPrimary'} />
 
         <div className='flex flex-col gap-5'>
-          <NavItem href={'/blog'} title={'Learning hub'} isActive={false} />
+          <NavItem
+            href={'/learning-hub'}
+            title={'Learning hub'}
+            isActive={false}
+          />
           <ExtIconLink
             href={config.documentationLink}
             target='_blank'
@@ -91,7 +95,6 @@ export function AnchorsList({
   ...rest
 }: AnchorsListProps) {
   const pathname = usePathname()
-  console.log('pathname', pathname)
 
   const isHomepage = pathname === '/'
 

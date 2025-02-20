@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import {
   DEFAULT_PAGINATION_LIMIT,
   QueryFilters,
-} from '@/components/Blog/constants'
+} from '@/components/LearningHub/constants'
 
 export default function LoadMoreButton() {
   const router = useRouter()

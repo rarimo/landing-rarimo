@@ -1,6 +1,6 @@
-import { Categories } from '@/components/Blog/constants'
+import { Categories } from '@/components/LearningHub/constants'
 
-export type ArticleCard = {
+export type LearningHubListPost = {
   id: number
   attributes: {
     title: string
@@ -12,7 +12,7 @@ export type ArticleCard = {
   }
 }
 
-export type SingleArticle = {
+export type LearningHubPost = {
   id: number
   attributes: {
     title: string

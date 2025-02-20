@@ -3,15 +3,15 @@ import {
   DEFAULT_PAGINATION_LIMIT,
   QueryFilters,
   SortOptions,
-} from '@/components/Blog/constants'
-import { ArticleCard } from '@/components/Blog/types'
+} from '@/components/LearningHub/constants'
+import { LearningHubListPost } from '@/components/LearningHub/types'
 import { config } from '@/config'
 
-import BlogFilters from './components/BlogFilters'
+import LearningHubFilters from './components/LearningHubFilters'
 import List from './components/List'
 import LoadMoreButton from './components/LoadMoreButton'
 
-export default async function Articles({
+export default async function LearningHubPosts({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -23,8 +23,8 @@ export default async function Articles({
     [QueryFilters.Pagination]?: number
   }
 
-  const loadArticles = async (): Promise<{
-    data: ArticleCard[]
+  const loadPosts = async (): Promise<{
+    data: LearningHubListPost[]
     meta: { pagination: { start: 0; limit: 2; total: 6 } }
   }> => {
     const queryFilters = new URLSearchParams()
@@ -54,28 +54,28 @@ export default async function Articles({
     )
 
     const response = await fetch(
-      `${config.blogApiUrl}/posts?${queryFilters.toString()}`,
+      `${config.learningHubApiUrl}/posts?${queryFilters.toString()}`,
     )
 
     return response.json()
   }
 
-  const { data: articles, meta } = await loadArticles()
+  const { data: posts, meta } = await loadPosts()
 
   return (
     <div className='flex flex-col'>
-      <BlogFilters className='mt-10' />
+      <LearningHubFilters className='mt-10' />
 
-      {articles?.length ? (
-        <List className='mt-10' articles={articles} />
+      {posts?.length ? (
+        <List className='mt-10' posts={posts} />
       ) : (
         <div className='my-14 flex'>
           <span className='mx-auto text-center text-textPrimary typography-h4'>
-            No articles found
+            No posts found
           </span>
         </div>
       )}
-      {articles.length < meta.pagination.total && <LoadMoreButton />}
+      {posts.length < meta.pagination.total && <LoadMoreButton />}
     </div>
   )
 }

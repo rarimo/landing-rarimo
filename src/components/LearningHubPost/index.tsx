@@ -4,9 +4,9 @@ import { ArrowLeft, Calendar } from 'lucide-react'
 import Link from 'next/link'
 
 import SubscribeForm from '@/common/SubscribeForm'
-import BlogFooter from '@/components/Blog/components/BlogFooter'
-import BlogNavbar from '@/components/Blog/components/BlogNavbar'
-import { SingleArticle } from '@/components/Blog/types'
+import LearningHubFooter from '@/components/LearningHub/components/LearningHubFooter'
+import LearningHubNavbar from '@/components/LearningHub/components/LearningHubNavbar'
+import { LearningHubPost } from '@/components/LearningHub/types'
 import { config } from '@/config'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
@@ -17,20 +17,24 @@ const createMarkup = (htmlString: string) => {
   return { __html: safeHTML }
 }
 
-export default async function Article({ params }: { params: { id: string } }) {
-  const response = await fetch(`${config.blogApiUrl}/posts/${params.id}`)
+export default async function LearningHubPostPage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const response = await fetch(`${config.learningHubApiUrl}/posts/${params.id}`)
 
   if (!response.ok) {
     return <div>Error</div>
   }
 
-  const { data: article } = (await response.json()) as {
-    data: SingleArticle
+  const { data: post } = (await response.json()) as {
+    data: LearningHubPost
   }
 
   return (
     <>
-      <BlogNavbar />
+      <LearningHubNavbar />
       <div
         className={cn(
           'mx-auto flex w-full max-w-[1136px] flex-col',
@@ -42,7 +46,7 @@ export default async function Article({ params }: { params: { id: string } }) {
         <div className='relative flex w-full flex-col'>
           {/*TODO: navigate back with same parameters*/}
           <Link
-            href={'/blog'}
+            href={'/learning-hub'}
             className={cn('p-4', 'md:absolute md:left-0 md:top-0 md:p-0')}
           >
             <ArrowLeft className='size-4 text-textSecondary' />
@@ -50,40 +54,40 @@ export default async function Article({ params }: { params: { id: string } }) {
 
           <div className='mx-auto flex w-full max-w-[671px] flex-col overflow-hidden'>
             <img
-              src={article.attributes.coverImage}
-              alt={article.attributes.title}
+              src={post.attributes.coverImage}
+              alt={post.attributes.title}
               className='aspect-[671/336] rounded-2xl'
             />
 
             <h2 className='mt-6 text-textPrimary typography-h2'>
-              {article.attributes.title}
+              {post.attributes.title}
             </h2>
             <div className='mb-3 mt-4 flex items-center gap-2'>
               <Calendar className={'size-4 text-textSecondary'} />
               <span className='text-textSecondary typography-subtitle5'>
-                {time(article.attributes.date).format('MMM DD, YYYY')}
+                {time(post.attributes.date).format('MMM DD, YYYY')}
               </span>
             </div>
 
             <div
-              id='article-content'
+              id='post-content'
               className='mt-5 w-full max-w-full overflow-hidden'
-              dangerouslySetInnerHTML={createMarkup(article.attributes.content)}
+              dangerouslySetInnerHTML={createMarkup(post.attributes.content)}
             />
 
             <div className='mt-10 flex items-center gap-4 rounded-xl bg-componentPrimary p-4'>
               <img
                 className='aspect-square size-12 rounded-full object-cover object-center'
-                src={article.attributes.author.data.attributes.avatar}
-                alt={article.attributes.author.data.attributes.name}
+                src={post.attributes.author.data.attributes.avatar}
+                alt={post.attributes.author.data.attributes.name}
               />
 
               <div className='flex flex-col'>
                 <span className='text-textPrimary typography-subtitle3'>
-                  {article.attributes.author.data.attributes.name}
+                  {post.attributes.author.data.attributes.name}
                 </span>
                 <span className='text-textSecondary typography-body3'>
-                  {article.attributes.author.data.attributes.description}
+                  {post.attributes.author.data.attributes.description}
                 </span>
               </div>
             </div>
@@ -93,7 +97,7 @@ export default async function Article({ params }: { params: { id: string } }) {
 
           <SubscribeForm className='mx-auto mb-12' />
 
-          <BlogFooter />
+          <LearningHubFooter />
         </div>
       </div>
     </>

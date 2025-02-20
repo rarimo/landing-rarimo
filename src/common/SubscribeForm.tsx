@@ -14,7 +14,7 @@ export default function SubscribeForm({ className, ...rest }: Props) {
       )}
     >
       <input
-        className='line-clamp-1 flex-1 bg-transparent px-4 py-3 outline-0 typography-body3'
+        className='line-clamp-1 min-w-0 flex-1 bg-transparent px-4 py-3 outline-0 typography-body3'
         placeholder={'Enter email and subscribe'}
       />
       <button className='px-4 py-3 text-textPrimary typography-buttonMedium'>

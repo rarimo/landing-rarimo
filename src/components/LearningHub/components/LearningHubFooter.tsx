@@ -5,7 +5,7 @@ import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
 import { config } from '@/config'
 
-export default function BlogFooter() {
+export default function LearningHubFooter() {
   const linkClasses =
     'text-textSecondary transition duration-300 hover:text-textPrimary'
 

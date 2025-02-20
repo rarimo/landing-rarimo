@@ -7,7 +7,7 @@ import {
   Categories,
   QueryFilters,
   SortOptions,
-} from '@/components/Blog/constants'
+} from '@/components/LearningHub/constants'
 import { cn } from '@/theme/utils'
 import {
   UiSelect,
@@ -39,7 +39,7 @@ const localizeSortBy = (sortBy: SortOptions): string => {
   )
 }
 
-export default function BlogFilters({ className, ...rest }: Props) {
+export default function LearningHubFilters({ className, ...rest }: Props) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()

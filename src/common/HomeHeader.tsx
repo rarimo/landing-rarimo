@@ -68,9 +68,9 @@ export default function HomeHeader({
 
             <div className='flex flex-col gap-5'>
               <NavItem
-                href={'/blog'}
+                href={'/learning-hub'}
                 title={'Learning hub'}
-                isActive={pathname === '/blog'}
+                isActive={pathname === '/learning-hub'}
               />
               <ExtIconLink
                 href={config.documentationLink}

@@ -8,12 +8,12 @@ import { HTMLAttributes, useMemo, useRef, useState } from 'react'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import HomeHeader from '@/common/HomeHeader'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
-import { QueryFilters } from '@/components/Blog/constants'
+import { QueryFilters } from '@/components/LearningHub/constants'
 import { cn } from '@/theme/utils'
 
 type Props = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
-export default function BlogNavbar({ className, ...rest }: Props) {
+export default function LearningHubNavbar({ className, ...rest }: Props) {
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -64,7 +64,9 @@ export default function BlogNavbar({ className, ...rest }: Props) {
               onKeyDown={e => {
                 if (e.key === 'Enter') {
                   e.preventDefault()
-                  router.push(`/blog?${sanitizedSearchParams.toString()}`)
+                  router.push(
+                    `/learning-hub?${sanitizedSearchParams.toString()}`,
+                  )
                   searchInputRef.current?.blur()
                 }
               }}
@@ -76,7 +78,7 @@ export default function BlogNavbar({ className, ...rest }: Props) {
                   'ml-auto flex size-[36px] items-center justify-center',
                   'outline-0 active:outline-0',
                 )}
-                href={`/blog?${sanitizedSearchParams.toString()}`}
+                href={`/learning-hub?${sanitizedSearchParams.toString()}`}
               >
                 <Search className='size-3.5 flex-1' />
               </Link>
