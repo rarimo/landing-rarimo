@@ -20,6 +20,8 @@ RUN adduser -S nextjs -u 1001
 USER nextjs
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/.yarn ./.yarn
+COPY --from=builder /app/yarnrc.yml ./yarnrc.yml
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/public ./public
 CMD yarn start
