@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { HTMLAttributes, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useRef, useState } from 'react'
 
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
@@ -9,23 +10,21 @@ import LogoIcon from '@/assets/icons/logo-icon.svg'
 import Menu2FillIcon from '@/assets/icons/menu-2-fill-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
-import { AnchorsList, NavItem } from '@/common/HomeSidebar'
+import { AnchorsList, AnchorsListProps, NavItem } from '@/common/HomeSidebar'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
 import { config } from '@/config'
-import { Anchors } from '@/enums'
 import { useClickOutside } from '@/hooks'
 import { ExtIconLink, UiCollapse, UiHorizontalDivider } from '@/ui'
 import UiIconButton from '@/ui/UiIconButton'
 
-type HomeHeaderProps = {
-  activeLink: Anchors
-  setActiveLink: (link: Anchors) => void
-} & HTMLAttributes<HTMLDivElement>
+type HomeHeaderProps = AnchorsListProps
 
 export default function HomeHeader({
   activeLink,
   setActiveLink,
 }: HomeHeaderProps) {
+  const pathname = usePathname()
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -60,7 +59,7 @@ export default function HomeHeader({
             <AnchorsList
               activeLink={activeLink}
               setActiveLink={link => {
-                setActiveLink(link)
+                setActiveLink?.(link)
                 setIsMenuOpen(false)
               }}
             />
@@ -68,7 +67,11 @@ export default function HomeHeader({
             <UiHorizontalDivider className={'my-5 w-3 bg-componentPrimary'} />
 
             <div className='flex flex-col gap-5'>
-              <NavItem href={'/blog'} title={'Learning hub'} isActive={false} />
+              <NavItem
+                href={'/blog'}
+                title={'Learning hub'}
+                isActive={pathname === '/blog'}
+              />
               <ExtIconLink
                 href={config.documentationLink}
                 target='_blank'

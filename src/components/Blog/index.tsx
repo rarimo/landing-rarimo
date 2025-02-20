@@ -15,17 +15,17 @@ export default function Blog({
 }) {
   return (
     <div className={cn('flex flex-col overflow-hidden bg-backgroundPrimary')}>
+      <Suspense>
+        <BlogNavbar />
+      </Suspense>
+
       <div
         className={cn(
           'mx-auto flex w-full max-w-[1136px] flex-col',
           'px-4 md:px-6 lg:px-0',
         )}
       >
-        <Suspense>
-          <BlogNavbar />
-        </Suspense>
-
-        <HeroSection className='px-0 py-0 md:px-0 md:py-0' />
+        <HeroSection className='mt-6 px-0 py-0 md:px-0 md:py-0' />
 
         <Suspense>
           <Articles searchParams={searchParams} />

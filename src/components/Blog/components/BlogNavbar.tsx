@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { HTMLAttributes, useMemo, useRef, useState } from 'react'
 
 import LogoIcon from '@/assets/icons/logo-icon.svg'
+import HomeHeader from '@/common/HomeHeader'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
 import { QueryFilters } from '@/components/Blog/constants'
 import { cn } from '@/theme/utils'
@@ -27,12 +28,23 @@ export default function BlogNavbar({ className, ...rest }: Props) {
   }, [searchParams, searchQuery])
 
   return (
-    <div {...rest} className={cn('flex items-center py-8', className)}>
-      <Link href={'/'}>
+    <div
+      {...rest}
+      className={cn(
+        'mx-auto w-full max-w-[1136px]',
+        'flex items-center',
+        'sm:px-6 sm:pt-8 lg:px-0',
+        className,
+      )}
+    >
+      <Link href={'/'} className={cn('hidden', 'sm:flex')}>
         <LogoIcon />
       </Link>
+      <div className={cn('flex w-full', 'sm:hidden')}>
+        <HomeHeader />
+      </div>
 
-      <div className='ml-auto flex items-center gap-4'>
+      <div className={cn('ml-auto hidden items-center gap-4', 'sm:flex')}>
         <div
           className={cn(
             'relative hidden min-h-[36px] w-[36px] min-w-[36px] overflow-hidden rounded-full bg-componentPrimary transition-all',

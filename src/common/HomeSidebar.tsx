@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { AnchorHTMLAttributes, DetailedHTMLProps, HTMLAttributes } from 'react'
 
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
@@ -78,9 +79,9 @@ export function HomeSidebar({
   )
 }
 
-type AnchorsListProps = {
-  activeLink: Anchors
-  setActiveLink: (link: Anchors) => void
+export type AnchorsListProps = {
+  activeLink?: Anchors
+  setActiveLink?: (link: Anchors) => void
 } & HTMLAttributes<HTMLDivElement>
 
 export function AnchorsList({
@@ -89,6 +90,11 @@ export function AnchorsList({
   className,
   ...rest
 }: AnchorsListProps) {
+  const pathname = usePathname()
+  console.log('pathname', pathname)
+
+  const isHomepage = pathname === '/'
+
   const sectionAnchors = [
     { title: 'Home', anchor: Anchors.Home },
     { title: 'Ecosystem', anchor: Anchors.Ecosystem },
@@ -102,9 +108,9 @@ export function AnchorsList({
         <AnchorNavItem
           key={anchor}
           title={title}
-          href={`#${anchor}`}
+          href={`${isHomepage ? '' : '/'}#${anchor}`}
           isActive={activeLink === anchor}
-          onClick={() => setActiveLink(anchor)}
+          onClick={() => setActiveLink?.(anchor)}
         />
       ))}
     </div>
