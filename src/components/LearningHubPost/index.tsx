@@ -32,8 +32,6 @@ export default async function LearningHubPostPage({
     data: LearningHubPost
   }
 
-  console.log(post)
-
   return (
     <>
       <LearningHubNavbar />
