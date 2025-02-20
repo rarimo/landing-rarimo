@@ -4,7 +4,7 @@ import { cn } from '@/theme/utils'
 
 type Props = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
-export default function SubscribeInput({ className, ...rest }: Props) {
+export default function SubscribeForm({ className, ...rest }: Props) {
   return (
     <div
       {...rest}

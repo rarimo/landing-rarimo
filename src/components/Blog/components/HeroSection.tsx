@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react'
 
-import SubscribeInput from '@/common/SubscribeInput'
+import SubscribeForm from '@/common/SubscribeForm'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
@@ -35,7 +35,7 @@ export default function HeroSection({ className, ...rest }: Props) {
         Learn about <br /> Rarimo
       </h2>
 
-      <SubscribeInput />
+      <SubscribeForm />
     </UiContainer>
   )
 }

@@ -8,7 +8,7 @@ import {
   QueryFilters,
 } from '@/components/Blog/constants'
 
-export default function LoadMoreBtn({ isShown = true }: { isShown?: boolean }) {
+export default function LoadMoreButton() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()
@@ -16,7 +16,7 @@ export default function LoadMoreBtn({ isShown = true }: { isShown?: boolean }) {
   const currentLimit =
     searchParams.get(QueryFilters.Pagination) ?? DEFAULT_PAGINATION_LIMIT
 
-  const loadMore = async () => {
+  const handleClick = () => {
     const params = new URLSearchParams(searchParams)
 
     params.set(
@@ -26,12 +26,10 @@ export default function LoadMoreBtn({ isShown = true }: { isShown?: boolean }) {
     router.push(`${pathname}?${params.toString()}`)
   }
 
-  if (!isShown) return null
-
   return (
     <button
       className='mx-auto mt-14 flex items-center gap-1'
-      onClick={loadMore}
+      onClick={handleClick}
     >
       <span className='text-textSecondary typography-buttonMedium'>
         Show more

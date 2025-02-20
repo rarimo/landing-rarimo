@@ -9,7 +9,7 @@ import LogoIcon from '@/assets/icons/logo-icon.svg'
 import Menu2FillIcon from '@/assets/icons/menu-2-fill-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
-import { AnchorsList } from '@/common/HomeSidebar'
+import { AnchorsList, NavItem } from '@/common/HomeSidebar'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
 import { config } from '@/config'
 import { Anchors } from '@/enums'
@@ -68,13 +68,7 @@ export default function HomeHeader({
             <UiHorizontalDivider className={'my-5 w-3 bg-componentPrimary'} />
 
             <div className='flex flex-col gap-5'>
-              <ExtIconLink
-                href={config.learningHubLink}
-                target='_blank'
-                className={'text-textSecondary'}
-              >
-                Learning hub
-              </ExtIconLink>
+              <NavItem href={'/blog'} title={'Learning hub'} isActive={false} />
               <ExtIconLink
                 href={config.documentationLink}
                 target='_blank'

@@ -9,14 +9,13 @@ import { config } from '@/config'
 
 import BlogFilters from './components/BlogFilters'
 import List from './components/List'
-import LoadMoreBtn from './components/LoadMoreBtn'
+import LoadMoreButton from './components/LoadMoreButton'
 
 export default async function Articles({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const filters = (await searchParams) as {
     [QueryFilters.Category]?: Categories
     [QueryFilters.Search]?: string
@@ -76,7 +75,7 @@ export default async function Articles({
           </span>
         </div>
       )}
-      <LoadMoreBtn isShown={articles.length < meta.pagination.total} />
+      {articles.length < meta.pagination.total && <LoadMoreButton />}
     </div>
   )
 }

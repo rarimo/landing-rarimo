@@ -126,7 +126,7 @@ export const darkPalette: BaseTheme = {
   infoLight: getRgba('#4CB0DB', 0.12),
   infoLighter: getRgba('#4CB0DB', 0.06),
 
-  textPrimary: '#ffffff',
+  textPrimary: getRgba('#ffffff', 0.9),
   textSecondary: getRgba('#ffffff', 0.56),
   textPlaceholder: getRgba('#ffffff', 0.44),
   textDisabled: getRgba('#ffffff', 0.28),

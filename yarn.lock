@@ -5760,7 +5760,6 @@ __metadata:
     autoprefixer: "npm:^10.4.19"
     class-variance-authority: "npm:^0.7.0"
     clsx: "npm:^2.1.1"
-    dompurify: "npm:^3.2.4"
     eslint: "npm:^8"
     eslint-config-next: "npm:14.2.3"
     eslint-config-prettier: "npm:^9.1.0"

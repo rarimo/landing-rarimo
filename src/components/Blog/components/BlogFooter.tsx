@@ -6,20 +6,20 @@ import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
 import { config } from '@/config'
 
 export default function BlogFooter() {
-  const linkStyle =
+  const linkClasses =
     'text-textSecondary transition duration-300 hover:text-textPrimary'
 
   return (
     <div className='flex flex-col items-center gap-6 pb-12 text-center'>
       <div className='flex items-center gap-4'>
         <Link href={config.xLink} target='_blank'>
-          <TwitterXFillIcon className={linkStyle} />
+          <TwitterXFillIcon className={linkClasses} />
         </Link>
         <Link href={config.telegramLink} target='_blank'>
-          <TelegramLineIcon className={linkStyle} />
+          <TelegramLineIcon className={linkClasses} />
         </Link>
         <Link href={config.discordLink} target='_blank'>
-          <DiscordLineIcon className={linkStyle} />
+          <DiscordLineIcon className={linkClasses} />
         </Link>
       </div>
 

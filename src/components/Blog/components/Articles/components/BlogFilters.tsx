@@ -76,13 +76,20 @@ export default function BlogFilters({ className, ...rest }: Props) {
   )
 
   return (
-    <div {...rest} className={cn('flex items-center', className)}>
+    <div
+      {...rest}
+      className={cn(
+        'flex flex-col items-center gap-4',
+        'sm:flex-row',
+        className,
+      )}
+    >
       <div className={'flex items-center gap-4'}>
         {Object.values(Categories).map((el, idx) => (
           <button
             key={idx}
             className={cn(
-              'rounded-full px-4 py-2 transition-colors typography-buttonLarge',
+              'rounded-full px-4 py-2 text-textPrimary transition-colors typography-buttonLarge',
               activeCategory === el && 'bg-componentPrimary',
             )}
             onClick={() => navigateWithSanitizedSearchParams(el, sortedBy)}
@@ -92,7 +99,7 @@ export default function BlogFilters({ className, ...rest }: Props) {
         ))}
       </div>
 
-      <div className='ml-auto'>
+      <div className={cn('sm:ml-auto')}>
         <div className='flex items-center'>
           <span className='whitespace-nowrap text-textSecondary typography-buttonMedium'>
             Sort by:

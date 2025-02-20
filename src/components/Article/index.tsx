@@ -3,7 +3,7 @@ import DOMPurify from 'isomorphic-dompurify'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import Link from 'next/link'
 
-import SubscribeInput from '@/common/SubscribeInput'
+import SubscribeForm from '@/common/SubscribeForm'
 import BlogFooter from '@/components/Blog/components/BlogFooter'
 import BlogNavbar from '@/components/Blog/components/BlogNavbar'
 import { SingleArticle } from '@/components/Blog/types'
@@ -48,7 +48,7 @@ export default async function Article({ params }: { params: { id: string } }) {
           <ArrowLeft className='size-4 text-textSecondary' />
         </Link>
 
-        <div className='mx-auto flex max-w-[671px] flex-col'>
+        <div className='mx-auto flex w-full max-w-[671px] flex-col overflow-hidden'>
           <img
             src={article.attributes.coverImage}
             alt={article.attributes.title}
@@ -67,7 +67,7 @@ export default async function Article({ params }: { params: { id: string } }) {
 
           <div
             id='article-content'
-            className='mt-5'
+            className='mt-5 w-full max-w-full overflow-hidden'
             dangerouslySetInnerHTML={createMarkup(article.attributes.content)}
           />
 
@@ -91,7 +91,7 @@ export default async function Article({ params }: { params: { id: string } }) {
 
         <UiHorizontalDivider className='my-12' />
 
-        <SubscribeInput className='mx-auto mb-12' />
+        <SubscribeForm className='mx-auto mb-12' />
 
         <BlogFooter />
       </div>
