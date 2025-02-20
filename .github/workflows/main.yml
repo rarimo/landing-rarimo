@@ -3,6 +3,7 @@ on:
     branches:
       - 'main'
       - 'devops/ci'
+      - 'feature/blog'
 
 jobs:
   converge:
