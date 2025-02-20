@@ -25,6 +25,7 @@ export default function List({ posts, className, ...rest }: Props) {
           desc={el.attributes.shortDescription}
           imgUrl={el.attributes.coverImage}
           date={time(el.attributes.date).timestamp}
+          type={el.attributes.type}
         />
       ))}
     </div>

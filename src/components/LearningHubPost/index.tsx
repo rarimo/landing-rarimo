@@ -32,6 +32,8 @@ export default async function LearningHubPostPage({
     data: LearningHubPost
   }
 
+  console.log(post)
+
   return (
     <>
       <LearningHubNavbar />
@@ -53,11 +55,36 @@ export default async function LearningHubPostPage({
           </Link>
 
           <div className='mx-auto flex w-full max-w-[671px] flex-col overflow-hidden'>
-            <img
-              src={post.attributes.coverImage}
-              alt={post.attributes.title}
-              className='aspect-[671/336] rounded-2xl'
-            />
+            {post.attributes.videoUrl ? (
+              <>
+                {post.attributes.videoUrl.includes('youtube.com') ||
+                post.attributes.videoUrl.includes('youtu.be') ? (
+                  <iframe
+                    className='aspect-[671/336] rounded-2xl'
+                    title='Embedded video'
+                    src={`https://www.youtube.com/embed/${new URL(post.attributes.videoUrl).searchParams.get('v') || post.attributes.videoUrl.split('/').pop()}`}
+                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                    allowFullScreen
+                  />
+                ) : (
+                  <video
+                    className='aspect-[671/336] rounded-2xl'
+                    controls
+                    poster={post.attributes.coverImage}
+                  >
+                    <source src={post.attributes.videoUrl} type='video/mp4' />
+                    <track kind='captions' src='' label='captions' default />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+              </>
+            ) : (
+              <img
+                src={post.attributes.coverImage}
+                alt={post.attributes.title}
+                className='aspect-[671/336] rounded-2xl'
+              />
+            )}
 
             <h2 className='mt-6 text-textPrimary typography-h2'>
               {post.attributes.title}
