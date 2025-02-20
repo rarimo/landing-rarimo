@@ -13,4 +13,7 @@ export enum QueryFilters {
   Category = 'type',
   Search = 'title',
   Sort = 'sort',
+  Pagination = 'pagination',
 }
+
+export const DEFAULT_PAGINATION_LIMIT = 2

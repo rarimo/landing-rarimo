@@ -18,6 +18,5 @@ export const config = {
   googlePlayLink:
     'https://play.google.com/store/apps/details?id=com.rarilabs.rarime',
 
-  // blogApiUrl: 'https://hub.rarimo.com/api',
-  blogApiUrl: 'https://cf80-185-46-150-242.ngrok-free.app/api',
+  blogApiUrl: 'https://hub.rarimo.com/api',
 }

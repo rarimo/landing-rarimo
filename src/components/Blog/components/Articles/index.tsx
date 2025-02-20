@@ -1,14 +1,15 @@
-import { ChevronDown } from 'lucide-react'
-
 import {
   Categories,
+  DEFAULT_PAGINATION_LIMIT,
   QueryFilters,
   SortOptions,
 } from '@/components/Blog/constants'
+import { ArticleCard } from '@/components/Blog/types'
 import { config } from '@/config'
 
-import Filters from './components/Filters'
+import BlogFilters from './components/BlogFilters'
 import List from './components/List'
+import LoadMoreBtn from './components/LoadMoreBtn'
 
 export default async function Articles({
   searchParams,
@@ -20,37 +21,51 @@ export default async function Articles({
     [QueryFilters.Category]?: Categories
     [QueryFilters.Search]?: string
     [QueryFilters.Sort]?: SortOptions
+    [QueryFilters.Pagination]?: number
   }
 
-  const queryFilters = new URLSearchParams()
+  const loadArticles = async (): Promise<{
+    data: ArticleCard[]
+    meta: { pagination: { start: 0; limit: 2; total: 6 } }
+  }> => {
+    const queryFilters = new URLSearchParams()
 
-  if (filters[QueryFilters.Category]) {
+    if (filters[QueryFilters.Category]) {
+      queryFilters.append(
+        `filters[${QueryFilters.Category}]`,
+        filters[QueryFilters.Category],
+      )
+    }
+
+    if (filters[QueryFilters.Search]) {
+      queryFilters.append(
+        `filters[${QueryFilters.Search}][$containsi]`,
+        filters[QueryFilters.Search],
+      )
+    }
+
+    if (filters[QueryFilters.Sort]) {
+      queryFilters.append(QueryFilters.Sort, filters[QueryFilters.Sort])
+    }
+
+    queryFilters.append(`pagination[start]`, '0')
     queryFilters.append(
-      `filters[${QueryFilters.Category}]`,
-      filters[QueryFilters.Category],
+      `pagination[limit]`,
+      String(filters[QueryFilters.Pagination] ?? DEFAULT_PAGINATION_LIMIT),
     )
-  }
 
-  if (filters[QueryFilters.Search]) {
-    queryFilters.append(
-      `filters[${QueryFilters.Search}][$containsi]`,
-      filters[QueryFilters.Search],
+    const response = await fetch(
+      `${config.blogApiUrl}/posts?${queryFilters.toString()}`,
     )
+
+    return response.json()
   }
 
-  if (filters[QueryFilters.Sort]) {
-    queryFilters.append(QueryFilters.Sort, filters[QueryFilters.Sort])
-  }
-
-  const response = await fetch(
-    `${config.blogApiUrl}/posts?${queryFilters.toString()}`,
-  )
-
-  const { data: articles } = await response.json()
+  const { data: articles, meta } = await loadArticles()
 
   return (
     <div className='flex flex-col'>
-      <Filters className='mt-10' />
+      <BlogFilters className='mt-10' />
 
       {articles?.length ? (
         <List className='mt-10' articles={articles} />
@@ -61,13 +76,7 @@ export default async function Articles({
           </span>
         </div>
       )}
-
-      <button className='mx-auto mt-14 flex items-center gap-1'>
-        <span className='text-textSecondary typography-buttonMedium'>
-          Show more
-        </span>
-        <ChevronDown className={'size-4 text-textSecondary'} />
-      </button>
+      <LoadMoreBtn isShown={articles.length < meta.pagination.total} />
     </div>
   )
 }

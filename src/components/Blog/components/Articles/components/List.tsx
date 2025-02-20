@@ -1,23 +1,13 @@
 import { time } from '@distributedlab/tools'
 import type { HTMLAttributes } from 'react'
 
-import { Categories } from '@/components/Blog/constants'
+import { ArticleCard } from '@/components/Blog/types'
 import { cn } from '@/theme/utils'
 
 import Item from './Item'
 
 type Props = {
-  articles: {
-    id: number
-    attributes: {
-      title: string
-      shortDescription: string
-      date: string
-      type: Categories
-      videoUrl?: string
-      coverImage: string
-    }
-  }[]
+  articles: ArticleCard[]
 } & Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
 export default function List({ articles, className, ...rest }: Props) {

@@ -44,22 +44,18 @@ export function HomeSidebar({
         <UiHorizontalDivider className={'my-5 w-3 bg-componentPrimary'} />
 
         <div className='flex flex-col gap-5'>
-          <ExtIconLink
-            href={config.learningHubLink}
-            target='_blank'
-            className={linkStyle}
-          >
-            Learning hub
-          </ExtIconLink>
+          <AnchorNavItem
+            href={'/blog'}
+            title={'Learning hub'}
+            isActive={false}
+            onClick={() => {}}
+          />
           <ExtIconLink
             href={config.documentationLink}
             target='_blank'
             className={linkStyle}
           >
             Documentation
-          </ExtIconLink>
-          <ExtIconLink href={'/blog'} className={linkStyle}>
-            Blog
           </ExtIconLink>
         </div>
       </nav>

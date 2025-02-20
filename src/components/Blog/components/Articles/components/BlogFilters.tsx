@@ -35,12 +35,11 @@ const localizeSortBy = (sortBy: SortOptions): string => {
     {
       [SortOptions.Date]: 'Date',
       [SortOptions.Newest]: 'Newest',
-      [SortOptions.Popularity]: 'Popularity',
     }[sortBy] ?? ''
   )
 }
 
-export default function Filters({ className, ...rest }: Props) {
+export default function BlogFilters({ className, ...rest }: Props) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()
@@ -107,7 +106,7 @@ export default function Filters({ className, ...rest }: Props) {
             <UiSelectTrigger className='flex min-w-[54px] items-center gap-2'>
               <UiSelectValue placeholder='Sort by:' />
             </UiSelectTrigger>
-            <UiSelectContent className='bg-backgroundPrimary'>
+            <UiSelectContent className='border-componentPrimary bg-backgroundPrimary'>
               <UiSelectGroup>
                 {Object.values(SortOptions).map((el, idx) => (
                   <UiSelectItem

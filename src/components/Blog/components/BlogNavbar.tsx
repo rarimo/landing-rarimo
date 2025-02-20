@@ -36,7 +36,9 @@ export default function BlogNavbar({ className, ...rest }: Props) {
         <div
           className={cn(
             'relative hidden min-h-[36px] w-[36px] min-w-[36px] overflow-hidden rounded-full bg-componentPrimary transition-all',
-            'hover:w-[200px] has-[:active]:w-[200px] has-[:focus]:w-[200px] sm:flex',
+            'hover:w-[200px] has-[:active]:w-[200px] has-[:focus]:w-[200px]',
+            // TODO: uncomment once ready
+            // 'sm:flex',
           )}
         >
           <div className='absolute right-0 flex items-center justify-end pl-3'>

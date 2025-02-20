@@ -6,32 +6,10 @@ import Link from 'next/link'
 import SubscribeInput from '@/common/SubscribeInput'
 import BlogFooter from '@/components/Blog/components/BlogFooter'
 import BlogNavbar from '@/components/Blog/components/BlogNavbar'
+import { SingleArticle } from '@/components/Blog/types'
 import { config } from '@/config'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
-
-type Article = {
-  id: 1
-  attributes: {
-    title: string
-    shortDescription: string
-    date: string
-    type: string
-    videoUrl?: string
-    content: string
-    coverImage: string
-    author: {
-      data: {
-        id: number
-        attributes: {
-          name: string
-          description: string
-          avatar: string
-        }
-      }
-    }
-  }
-}
 
 const createMarkup = (htmlString: string) => {
   const safeHTML = DOMPurify.sanitize(htmlString)
@@ -47,7 +25,7 @@ export default async function Article({ params }: { params: { id: string } }) {
   }
 
   const { data: article } = (await response.json()) as {
-    data: Article
+    data: SingleArticle
   }
 
   return (
