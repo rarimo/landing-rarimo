@@ -12,18 +12,17 @@ RUN yarn build
 
 FROM base as production
 WORKDIR /app
-CMD yarn install
 ENV NODE_ENV=production
-RUN yarn ci
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
-USER nextjs
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.yarn ./.yarn
 COPY --from=builder /app/yarnrc.yml ./yarnrc.yml
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/public ./public
+RUN yarn install --immutable
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+USER nextjs
 CMD yarn start
 
 FROM base as dev
