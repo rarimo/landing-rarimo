@@ -17,4 +17,5 @@ export const config = {
     'https://play.google.com/store/apps/details?id=com.rarilabs.rarime',
 
   learningHubApiUrl: 'https://hub.rarimo.com/api',
+  learningHubApiCacheInvalidateDur: 60 * 60,
 }

@@ -55,6 +55,7 @@ export default async function LearningHubPosts({
 
     const response = await fetch(
       `${config.learningHubApiUrl}/posts?${queryFilters.toString()}`,
+      { next: { revalidate: config.learningHubApiCacheInvalidateDur } },
     )
 
     return response.json()
@@ -64,12 +65,21 @@ export default async function LearningHubPosts({
 
   return (
     <div className='flex flex-col'>
-      <LearningHubFilters className='mt-10' />
+      <LearningHubFilters
+        className='mt-10'
+        data-aos='fade-up'
+        data-aos-delay='700'
+      />
 
       {posts?.length ? (
-        <List className='mt-10' posts={posts} />
+        <List
+          className='mt-10'
+          posts={posts}
+          data-aos='fade-up'
+          data-aos-delay='900'
+        />
       ) : (
-        <div className='my-14 flex'>
+        <div className='my-14 flex' data-aos='fade-up' data-aos-delay='900'>
           <span className='mx-auto text-center text-textPrimary typography-h4'>
             No posts found
           </span>

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { AnchorHTMLAttributes, DetailedHTMLProps, HTMLAttributes } from 'react'
 
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
@@ -94,10 +93,6 @@ export function AnchorsList({
   className,
   ...rest
 }: AnchorsListProps) {
-  const pathname = usePathname()
-
-  const isHomepage = pathname === '/'
-
   const sectionAnchors = [
     { title: 'Home', anchor: Anchors.Home },
     { title: 'Ecosystem', anchor: Anchors.Ecosystem },
@@ -111,7 +106,7 @@ export function AnchorsList({
         <AnchorNavItem
           key={anchor}
           title={title}
-          href={`${isHomepage ? '' : '/'}#${anchor}`}
+          href={`/#${anchor}`}
           isActive={activeLink === anchor}
           onClick={() => setActiveLink?.(anchor)}
         />

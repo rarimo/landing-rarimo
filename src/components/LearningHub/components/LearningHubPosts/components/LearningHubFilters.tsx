@@ -24,8 +24,8 @@ const localizeCategory = (category: Categories): string => {
   return (
     {
       [Categories.All]: 'All',
-      [Categories.Blog]: 'Blog',
       [Categories.Videos]: 'Videos',
+      [Categories.Blog]: 'Blog',
     }[category] ?? ''
   )
 }
@@ -33,8 +33,8 @@ const localizeCategory = (category: Categories): string => {
 const localizeSortBy = (sortBy: SortOptions): string => {
   return (
     {
-      [SortOptions.Date]: 'Date',
       [SortOptions.Newest]: 'Newest',
+      [SortOptions.Oldest]: 'Oldest',
     }[sortBy] ?? ''
   )
 }
@@ -49,7 +49,7 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
   )
 
   const [sortedBy, setSortedBy] = useState(
-    searchParams.get(QueryFilters.Sort) || SortOptions.Date,
+    searchParams.get(QueryFilters.Sort) || SortOptions.Newest,
   )
 
   const navigateWithSanitizedSearchParams = useCallback(
@@ -64,7 +64,7 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
       }
 
       setSortedBy(sort)
-      if (sort !== SortOptions.Date) {
+      if (sort !== SortOptions.Oldest) {
         params.set(QueryFilters.Sort, sort)
       } else {
         params.delete(QueryFilters.Sort)
@@ -89,8 +89,8 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
           <button
             key={idx}
             className={cn(
-              'rounded-full px-4 py-2 text-textPrimary transition-colors typography-buttonLarge',
-              activeCategory === el && 'bg-componentPrimary',
+              'rounded-full px-4 py-2 text-textSecondary transition-colors typography-buttonLarge',
+              activeCategory === el && 'bg-componentPrimary text-textPrimary',
             )}
             onClick={() => navigateWithSanitizedSearchParams(el, sortedBy)}
           >

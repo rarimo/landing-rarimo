@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'react'
 
-import SubscribeForm from '@/common/SubscribeForm'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
@@ -34,8 +33,6 @@ export default function HeroSection({ className, ...rest }: Props) {
       <h2 className='mt-1 text-center text-textPrimary typography-h1'>
         Learn about <br /> Rarimo
       </h2>
-
-      <SubscribeForm />
     </UiContainer>
   )
 }
