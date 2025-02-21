@@ -3,7 +3,6 @@ on:
     branches:
       - 'main'
       - 'devops/ci'
-      - 'feature/blog'
 
 jobs:
   converge:
@@ -20,7 +19,7 @@ jobs:
         # This is where you will update the personal access token to GITHUB_TOKEN
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-      
+
       - name: Cache layers
         uses: actions/cache@v3
         with:
