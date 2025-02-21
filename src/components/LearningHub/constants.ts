@@ -5,8 +5,8 @@ export enum Categories {
 }
 
 export enum SortOptions {
-  Oldest = 'date:asc',
-  Newest = 'date:desc',
+  Oldest = '[date]=asc',
+  Newest = '[date]=desc',
 }
 
 export enum QueryFilters {
