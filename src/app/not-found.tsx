@@ -22,17 +22,18 @@ export default function NotFound() {
             404
           </h1>
           <p className='mb-4 text-3xl font-bold tracking-tight text-textPrimary md:text-4xl'>
-            Something's missing.
+            {"Something's missing."}
           </p>
           <p className='mb-4 text-lg font-light text-textSecondary'>
-            Sorry, we can't find that page. You'll find lots to explore on the
-            home page.
+            {
+              "Sorry, we can't find that page. You'll find lots to explore on the home page."
+            }
           </p>
           <Link
             href='/'
             className='my-4 inline-flex rounded-lg bg-componentPrimary px-5 py-2.5 text-center text-sm font-medium text-textPrimary hover:ring-textPrimary focus:outline-none focus:ring-4'
           >
-            Back to Homepage
+            {'Back to Homepage'}
           </Link>
         </div>
       </div>
