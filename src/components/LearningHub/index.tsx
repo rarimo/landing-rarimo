@@ -28,7 +28,6 @@ export default function LearningHub({
         <HeroSection
           className='mt-6 px-0 py-0 md:px-0 md:py-0'
           data-aos='fade-in'
-          data-aos-delay='500'
         />
 
         <Suspense>

@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'motion/react'
+
 import {
   Categories,
   DEFAULT_PAGINATION_LIMIT,
@@ -65,26 +67,19 @@ export default async function LearningHubPosts({
 
   return (
     <div className='flex flex-col'>
-      <LearningHubFilters
-        className='mt-10'
-        data-aos='fade-up'
-        data-aos-delay='700'
-      />
+      <LearningHubFilters className='mt-10' data-aos='fade-up' />
 
-      {posts?.length ? (
-        <List
-          className='mt-10'
-          posts={posts}
-          data-aos='fade-up'
-          data-aos-delay='900'
-        />
-      ) : (
-        <div className='my-14 flex' data-aos='fade-up' data-aos-delay='900'>
-          <span className='mx-auto text-center text-textPrimary typography-h4'>
-            No posts found
-          </span>
-        </div>
-      )}
+      <AnimatePresence>
+        {posts?.length ? (
+          <List className='mt-10' posts={posts} data-aos='fade-up' />
+        ) : (
+          <div className='my-14 flex' data-aos='fade-up'>
+            <span className='mx-auto text-center text-textPrimary typography-h4'>
+              No posts found
+            </span>
+          </div>
+        )}
+      </AnimatePresence>
       {posts.length < meta.pagination.total && <LoadMoreButton />}
     </div>
   )

@@ -5,6 +5,7 @@ import type { HTMLAttributes } from 'react'
 
 import { Categories } from '@/components/LearningHub/constants'
 import { LearningHubListPost } from '@/components/LearningHub/types'
+import { slugify } from '@/helpers/slug'
 import { cn } from '@/theme/utils'
 
 type Props = {
@@ -14,7 +15,7 @@ type Props = {
   desc: string
   date: number
   type: LearningHubListPost['attributes']['type']
-} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>
+} & Omit<HTMLAttributes<HTMLAnchorElement>, 'children'>
 
 export default function Item({
   id,
@@ -28,10 +29,14 @@ export default function Item({
   ...rest
 }: Props) {
   return (
-    <div {...rest} className={cn('relative flex flex-col gap-6', className)}>
+    <Link
+      href={`/learning-hub/${slugify(title)}-${id}`}
+      className={cn('group relative flex flex-col gap-6', className)}
+      {...rest}
+    >
       <div className='relative w-full overflow-hidden rounded-2xl'>
         <img
-          className='aspect-[362/186] object-cover object-center'
+          className='aspect-[362/186] object-cover object-center transition-all duration-300 group-hover:scale-110 group-hover:brightness-75'
           src={imgUrl}
           alt={title}
         />
@@ -54,11 +59,6 @@ export default function Item({
           {desc}
         </span>
       </div>
-
-      <Link
-        href={`/learning-hub/${id}`}
-        className='absolute bottom-0 left-0 right-0 top-0'
-      />
-    </div>
+    </Link>
   )
 }

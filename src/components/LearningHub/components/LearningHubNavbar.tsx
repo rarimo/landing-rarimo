@@ -38,7 +38,7 @@ export default function LearningHubNavbar({ className, ...rest }: Props) {
       )}
     >
       <Link href={'/'} className={cn('hidden', 'sm:flex')}>
-        <LogoIcon data-aos='fade-down' />
+        <LogoIcon data-aos='fade-in' />
       </Link>
       <div className={cn('flex w-full', 'sm:hidden')}>
         <HomeHeader />
@@ -98,7 +98,7 @@ export default function LearningHubNavbar({ className, ...rest }: Props) {
           </div>
         </div>
 
-        <div data-aos='fade-down'>
+        <div data-aos='fade-in'>
           <ThemeSwitcher />
         </div>
       </div>

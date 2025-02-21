@@ -89,7 +89,7 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
           <button
             key={idx}
             className={cn(
-              'rounded-full px-4 py-2 text-textSecondary transition-colors typography-buttonLarge',
+              'rounded-full px-4 py-2 text-textSecondary transition-colors duration-200 typography-buttonLarge hover:bg-componentPrimary',
               activeCategory === el && 'bg-componentPrimary text-textPrimary',
             )}
             onClick={() => navigateWithSanitizedSearchParams(el, sortedBy)}
@@ -102,7 +102,7 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
       <div className={cn('sm:ml-auto')}>
         <div className='flex items-center'>
           <span className='whitespace-nowrap text-textSecondary typography-buttonMedium'>
-            Sort by:
+            Sort:
           </span>
           <UiSelect
             value={sortedBy}
@@ -111,15 +111,15 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
             }}
           >
             <UiSelectTrigger className='flex min-w-[54px] items-center gap-2'>
-              <UiSelectValue placeholder='Sort by:' />
+              <UiSelectValue placeholder='Sort:' />
             </UiSelectTrigger>
-            <UiSelectContent className='border-componentPrimary bg-backgroundPrimary'>
+            <UiSelectContent className='rounded-lg border-componentPrimary bg-backgroundPrimary'>
               <UiSelectGroup>
                 {Object.values(SortOptions).map((el, idx) => (
                   <UiSelectItem
                     key={idx}
                     value={el}
-                    className='hover:cursor-pointer hover:bg-componentHovered'
+                    className='cursor-pointer rounded-md hover:bg-componentPrimary'
                   >
                     {localizeSortBy(el)}
                   </UiSelectItem>

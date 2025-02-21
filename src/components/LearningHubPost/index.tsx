@@ -21,10 +21,10 @@ export default async function LearningHubPostPage({
 }: {
   params: { id: string }
 }) {
-  const response = await fetch(
-    `${config.learningHubApiUrl}/posts/${params.id}`,
-    { next: { revalidate: config.learningHubApiCacheInvalidateDur } },
-  )
+  const postId = params.id.split('-').pop()
+  const response = await fetch(`${config.learningHubApiUrl}/posts/${postId}`, {
+    next: { revalidate: config.learningHubApiCacheInvalidateDur },
+  })
 
   if (!response.ok) {
     return <div>Error</div>
@@ -50,7 +50,7 @@ export default async function LearningHubPostPage({
           <Link
             href={'/learning-hub'}
             className={cn('p-4', 'md:absolute md:left-0 md:top-0 md:p-0')}
-            data-aos='fade-right'
+            data-aos='fade-in'
           >
             <ArrowLeft className='size-4 text-textSecondary' />
           </Link>
@@ -67,7 +67,6 @@ export default async function LearningHubPostPage({
                     allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                     allowFullScreen
                     data-aos='fade-up'
-                    data-aos-delay='600'
                   />
                 ) : (
                   <video
@@ -87,21 +86,18 @@ export default async function LearningHubPostPage({
                 alt={post.attributes.title}
                 className='aspect-[671/336] rounded-2xl'
                 data-aos='fade-up'
-                data-aos-delay='600'
               />
             )}
 
             <h2
               className='mt-6 text-textPrimary typography-h2'
               data-aos='fade-up'
-              data-aos-delay='800'
             >
               {post.attributes.title}
             </h2>
             <div
               className='mb-3 mt-4 flex items-center gap-2'
               data-aos='fade-up'
-              data-aos-delay='1000'
             >
               <Calendar className={'size-4 text-textSecondary'} />
               <span className='text-textSecondary typography-subtitle5'>
@@ -114,12 +110,11 @@ export default async function LearningHubPostPage({
               className='mt-5 w-full max-w-full overflow-hidden'
               dangerouslySetInnerHTML={createMarkup(post.attributes.content)}
               data-aos='fade-up'
-              data-aos-delay='1200'
             />
 
             <div
               className='mt-10 flex items-center gap-4 rounded-xl bg-componentPrimary p-4'
-              data-aos='fade-up'
+              data-aos='fade-in'
             >
               <img
                 className='aspect-square size-12 rounded-full object-cover object-center'
@@ -127,7 +122,7 @@ export default async function LearningHubPostPage({
                 alt={post.attributes.author.data.attributes.name}
               />
 
-              <div className='flex flex-col' data-aos='fade-up'>
+              <div className='flex flex-col' data-aos='fade-in'>
                 <span className='text-textPrimary typography-subtitle3'>
                   {post.attributes.author.data.attributes.name}
                 </span>
