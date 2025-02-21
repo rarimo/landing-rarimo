@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { HTMLAttributes } from 'react'
+import { AnchorHTMLAttributes, DetailedHTMLProps, HTMLAttributes } from 'react'
 
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
@@ -44,13 +44,11 @@ export function HomeSidebar({
         <UiHorizontalDivider className={'my-5 w-3 bg-componentPrimary'} />
 
         <div className='flex flex-col gap-5'>
-          <ExtIconLink
-            href={config.learningHubLink}
-            target='_blank'
-            className={linkStyle}
-          >
-            Learning hub
-          </ExtIconLink>
+          <NavItem
+            href={'/learning-hub'}
+            title={'Learning hub'}
+            isActive={false}
+          />
           <ExtIconLink
             href={config.documentationLink}
             target='_blank'
@@ -84,9 +82,9 @@ export function HomeSidebar({
   )
 }
 
-type AnchorsListProps = {
-  activeLink: Anchors
-  setActiveLink: (link: Anchors) => void
+export type AnchorsListProps = {
+  activeLink?: Anchors
+  setActiveLink?: (link: Anchors) => void
 } & HTMLAttributes<HTMLDivElement>
 
 export function AnchorsList({
@@ -108,9 +106,9 @@ export function AnchorsList({
         <AnchorNavItem
           key={anchor}
           title={title}
-          href={`#${anchor}`}
+          href={`/#${anchor}`}
           isActive={activeLink === anchor}
-          onClick={() => setActiveLink(anchor)}
+          onClick={() => setActiveLink?.(anchor)}
         />
       ))}
     </div>
@@ -118,17 +116,34 @@ export function AnchorsList({
 }
 
 type AnchorNavItemProps = {
+  onClick: () => void
+} & NavItemProps
+
+export function AnchorNavItem({
+  title,
+  href,
+  isActive,
+  onClick,
+}: AnchorNavItemProps) {
+  return (
+    <NavItem href={href} title={title} onClick={onClick} isActive={isActive} />
+  )
+}
+
+type NavItemProps = {
   title: string
   href: string
   isActive: boolean
-  onClick: () => void
-}
+} & DetailedHTMLProps<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>
 
-function AnchorNavItem({ title, href, isActive, onClick }: AnchorNavItemProps) {
+export function NavItem({ title, href, isActive, ...rest }: NavItemProps) {
   return (
     <a
+      {...rest}
       href={href}
-      onClick={onClick}
       className={cn(
         'line-clamp-1 text-textSecondary',
         isActive && 'text-textPrimary',
