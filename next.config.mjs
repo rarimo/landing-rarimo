@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin()
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  output: 'standalone',
   webpack(config) {
     const svgIconsRegex = /assets\/icons\/.+\.svg$/
     const fileLoaderRule = config.module.rules.find(rule =>

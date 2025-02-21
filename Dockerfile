@@ -9,7 +9,8 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* .yarn/ .yarnrc.yml package-lock.json* pnpm-lock.yaml* .npmrc* ./
+COPY package.json yarn.lock* .yarnrc.yml package-lock.json* pnpm-lock.yaml* .npmrc* ./
+COPY .yarn/ .yarn/
 RUN \
   if [ -f yarn.lock ]; then yarn --immutable; \
   elif [ -f package-lock.json ]; then npm ci; \
