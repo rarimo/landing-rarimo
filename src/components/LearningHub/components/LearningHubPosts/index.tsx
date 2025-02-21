@@ -50,8 +50,6 @@ export default async function LearningHubPosts({
     const sortOption = sortFilter.split('=')
     const sortKey = `${QueryFilters.Sort}${sortOption[0]}`
 
-    console.log(sortKey, sortOption[1])
-
     queryFilters.append(sortKey, sortOption[1])
 
     queryFilters.append(`pagination[start]`, '0')
@@ -59,10 +57,6 @@ export default async function LearningHubPosts({
       `pagination[limit]`,
       String(filters[QueryFilters.Pagination] ?? DEFAULT_PAGINATION_LIMIT),
     )
-
-    console.log('\n\n')
-    console.log(`${config.learningHubApiUrl}/posts?${queryFilters.toString()}`)
-    console.log('\n\n')
 
     const response = await fetch(
       `${config.learningHubApiUrl}/posts?${queryFilters.toString()}`,
