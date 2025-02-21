@@ -16,23 +16,31 @@ const createMarkup = (htmlString: string) => {
   return { __html: safeHTML }
 }
 
-export default async function LearningHubPostPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const postId = params.id.split('-').pop()
-  const response = await fetch(`${config.learningHubApiUrl}/posts/${postId}`, {
-    next: { revalidate: config.learningHubApiCacheInvalidateDur },
-  })
+export type LearningHubPostPageProps = {
+  params: { id: string; locale: string }
+}
 
-  if (!response.ok) {
-    return <div>Error</div>
-  }
+export const getPostId = (id: string) => id.split('-').pop()
+
+export const resolvingPost = async (id: string) => {
+  const response = await fetch(
+    `${config.learningHubApiUrl}/posts/${getPostId(id)}`,
+    {
+      next: { revalidate: config.learningHubApiCacheInvalidateDur },
+    },
+  )
 
   const { data: post } = (await response.json()) as {
     data: LearningHubPost
   }
+
+  return post
+}
+
+export default async function LearningHubPostPage({
+  params,
+}: LearningHubPostPageProps) {
+  const post = await resolvingPost(params.id)
 
   return (
     <>

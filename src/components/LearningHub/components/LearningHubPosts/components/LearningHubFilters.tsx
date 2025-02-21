@@ -64,7 +64,7 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
       }
 
       setSortedBy(sort)
-      if (sort !== SortOptions.Oldest) {
+      if (sort !== SortOptions.Newest) {
         params.set(QueryFilters.Sort, sort)
       } else {
         params.delete(QueryFilters.Sort)

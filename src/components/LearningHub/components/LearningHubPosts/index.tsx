@@ -45,15 +45,24 @@ export default async function LearningHubPosts({
       )
     }
 
-    if (filters[QueryFilters.Sort]) {
-      queryFilters.append(QueryFilters.Sort, filters[QueryFilters.Sort])
-    }
+    const sortFilter = filters[QueryFilters.Sort] ?? SortOptions.Newest
+
+    const sortOption = sortFilter.split('=')
+    const sortKey = `${QueryFilters.Sort}${sortOption[0]}`
+
+    console.log(sortKey, sortOption[1])
+
+    queryFilters.append(sortKey, sortOption[1])
 
     queryFilters.append(`pagination[start]`, '0')
     queryFilters.append(
       `pagination[limit]`,
       String(filters[QueryFilters.Pagination] ?? DEFAULT_PAGINATION_LIMIT),
     )
+
+    console.log('\n\n')
+    console.log(`${config.learningHubApiUrl}/posts?${queryFilters.toString()}`)
+    console.log('\n\n')
 
     const response = await fetch(
       `${config.learningHubApiUrl}/posts?${queryFilters.toString()}`,
@@ -80,7 +89,7 @@ export default async function LearningHubPosts({
           </div>
         )}
       </AnimatePresence>
-      {posts.length < meta.pagination.total && <LoadMoreButton />}
+      {posts?.length < meta?.pagination.total && <LoadMoreButton />}
     </div>
   )
 }
