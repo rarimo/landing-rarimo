@@ -1,5 +1,3 @@
-import { Suspense } from 'react'
-
 import LearningHubFooter from '@/components/LearningHub/components/LearningHubFooter'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
@@ -8,16 +6,16 @@ import HeroSection from './components/HeroSection'
 import LearningHubNavbar from './components/LearningHubNavbar'
 import LearningHubPosts from './components/LearningHubPosts'
 
-export default function LearningHub({
+export default async function LearningHub({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
+  const awaitedSearchParams = await searchParams
+
   return (
     <div className={cn('flex flex-col overflow-hidden bg-backgroundPrimary')}>
-      <Suspense>
-        <LearningHubNavbar />
-      </Suspense>
+      <LearningHubNavbar searchParams={awaitedSearchParams} />
 
       <div
         className={cn(
@@ -30,9 +28,7 @@ export default function LearningHub({
           data-aos='fade-in'
         />
 
-        <Suspense>
-          <LearningHubPosts searchParams={searchParams} />
-        </Suspense>
+        <LearningHubPosts searchParams={searchParams} />
 
         <UiHorizontalDivider className='mb-12 mt-14' />
 

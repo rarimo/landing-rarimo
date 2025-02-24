@@ -2,8 +2,8 @@
 
 import { Search } from 'lucide-react'
 import Link from 'next/link'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { HTMLAttributes, useMemo, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useMemo, useRef, useState } from 'react'
 
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import HomeHeader from '@/common/HomeHeader'
@@ -11,10 +11,11 @@ import ThemeSwitcher from '@/common/ThemeSwitcher'
 import { QueryFilters } from '@/components/LearningHub/constants'
 import { cn } from '@/theme/utils'
 
-type Props = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
-
-export default function LearningHubNavbar({ className, ...rest }: Props) {
-  const searchParams = useSearchParams()
+export default function LearningHubNavbar({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined }
+}) {
   const router = useRouter()
 
   const [searchQuery, setSearchQuery] = useState('')
@@ -22,19 +23,17 @@ export default function LearningHubNavbar({ className, ...rest }: Props) {
   const searchInputRef = useRef<HTMLInputElement>(null)
 
   const sanitizedSearchParams = useMemo(() => {
-    const params = new URLSearchParams(searchParams)
+    const params = new URLSearchParams(searchParams as Record<string, string>)
     params.set(QueryFilters.Search, searchQuery)
     return params
   }, [searchParams, searchQuery])
 
   return (
     <div
-      {...rest}
       className={cn(
         'mx-auto w-full max-w-[1136px]',
         'flex items-center',
         'sm:px-6 sm:pt-8 lg:px-0',
-        className,
       )}
     >
       <Link href={'/'} className={cn('hidden', 'sm:flex')}>
