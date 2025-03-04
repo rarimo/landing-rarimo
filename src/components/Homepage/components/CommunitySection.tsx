@@ -13,6 +13,7 @@ import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { AppSwiper } from '@/common/AppSwiper'
 import ClientOnly from '@/common/ClientOnly'
+import SpotlightCard from '@/common/SpotlightCard'
 import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
@@ -184,29 +185,24 @@ function CommunitySliderCard({
   description: string
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      {...rest}
-      className={cn(
-        'flex flex-col gap-6 p-6',
-        'relative h-[280px] w-[272px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
-        'md:h-[260px] md:w-[320px]',
-        className,
-      )}
-    >
-      <div className='flex items-center gap-4'>
-        <img className='mb-auto size-12' src={imageUrl} alt={name} />
-        <div className='flex flex-1 flex-col gap-1'>
-          <span className='text-textPrimary typography-overline1'>{name}</span>
-          <span className='text-textSecondary typography-body4'>
-            {position}
-          </span>
+    <SpotlightCard className='h-[260px] p-6' {...rest}>
+      <div className={cn('flex w-[272px] flex-col gap-6', className)}>
+        <div className='flex items-center gap-4'>
+          <img className='mb-auto size-12' src={imageUrl} alt={name} />
+          <div className='flex flex-1 flex-col gap-1'>
+            <span className='text-textPrimary typography-overline1'>
+              {name}
+            </span>
+            <span className='text-textSecondary typography-body4'>
+              {position}
+            </span>
+          </div>
         </div>
+        <span className='line-clamp-[8] text-textSecondary typography-body3'>
+          {description}
+        </span>
       </div>
-
-      <span className='line-clamp-[8] text-textSecondary typography-body3'>
-        {description}
-      </span>
-    </div>
+    </SpotlightCard>
   )
 }
 
