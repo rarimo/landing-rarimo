@@ -16,20 +16,22 @@ export default function LoadMoreButton() {
   const currentLimit =
     searchParams.get(QueryFilters.Pagination) ?? DEFAULT_PAGINATION_LIMIT
 
-  const handleClick = () => {
+  const showMore = () => {
     const params = new URLSearchParams(searchParams)
 
     params.set(
       QueryFilters.Pagination,
       `${Number(currentLimit) + DEFAULT_PAGINATION_LIMIT}`,
     )
-    router.push(`${pathname}?${params.toString()}`)
+    router.push(`${pathname}?${params.toString()}`, {
+      scroll: false,
+    })
   }
 
   return (
     <button
       className='mx-auto mt-14 flex items-center gap-1'
-      onClick={handleClick}
+      onClick={showMore}
     >
       <span className='text-textSecondary typography-buttonMedium'>
         Show more

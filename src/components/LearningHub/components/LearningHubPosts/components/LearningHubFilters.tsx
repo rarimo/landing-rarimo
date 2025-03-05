@@ -71,7 +71,9 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
         params.delete(QueryFilters.Sort)
       }
 
-      router.push(`${pathname}?${params.toString()}`)
+      router.push(`${pathname}?${params.toString()}`, {
+        scroll: false,
+      })
     },
     [pathname, router, searchParams],
   )
