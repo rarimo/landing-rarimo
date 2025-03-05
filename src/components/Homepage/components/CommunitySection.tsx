@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import {
   HTMLAttributes,
   PropsWithChildren,
@@ -13,6 +14,8 @@ import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { AppSwiper } from '@/common/AppSwiper'
 import ClientOnly from '@/common/ClientOnly'
+import SliderMotionCard from '@/common/SliderMotionCard'
+import SpotlightCard from '@/common/SpotlightCard'
 import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
@@ -77,6 +80,7 @@ export default function CommunitySection() {
         >
           Community
         </TestimonialsTabButton>
+
         <TestimonialsTabButton
           isActive={activeTab === TestimonialTabs.Backers}
           onClick={() => setActiveTab(TestimonialTabs.Backers)}
@@ -118,12 +122,12 @@ export default function CommunitySection() {
         {activeTab === TestimonialTabs.Community
           ? communitiesList.map((community, idx) => (
               <SwiperSlide className='w-fit' key={idx}>
-                <CommunitySliderCard {...community} />
+                <CommunitySliderCard {...community} idx={idx} />
               </SwiperSlide>
             ))
           : backersList.map((backer, idx) => (
               <SwiperSlide className='w-fit' key={idx}>
-                <BackersSliderCard {...backer} />
+                <BackersSliderCard {...backer} idx={idx} />
               </SwiperSlide>
             ))}
       </AppSwiper>
@@ -161,7 +165,10 @@ function TestimonialsTabButton({
               {children}
             </span>
             {isActive && (
-              <hr className='gradient1 absolute -bottom-2 h-0.5 w-full border-t-0' />
+              <motion.div
+                layoutId='underline'
+                className='gradient1 absolute -bottom-2 h-0.5 w-full border-t-0'
+              />
             )}
           </div>
         </button>
@@ -176,37 +183,36 @@ function CommunitySliderCard({
   position,
   description,
   className,
+  idx,
   ...rest
 }: {
   imageUrl: string
   name: string
   position: string
   description: string
+  idx: number
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      {...rest}
-      className={cn(
-        'flex flex-col gap-6 p-6',
-        'relative h-[280px] w-[272px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
-        'md:h-[260px] md:w-[320px]',
-        className,
-      )}
-    >
-      <div className='flex items-center gap-4'>
-        <img className='mb-auto size-12' src={imageUrl} alt={name} />
-        <div className='flex flex-1 flex-col gap-1'>
-          <span className='text-textPrimary typography-overline1'>{name}</span>
-          <span className='text-textSecondary typography-body4'>
-            {position}
+    <SliderMotionCard idx={idx}>
+      <SpotlightCard className='h-[260px] p-6' {...rest}>
+        <div className={cn('flex w-[272px] flex-col gap-6', className)}>
+          <div className='flex items-center gap-4'>
+            <img className='mb-auto size-12' src={imageUrl} alt={name} />
+            <div className='flex flex-1 flex-col gap-1'>
+              <span className='text-textPrimary typography-overline1'>
+                {name}
+              </span>
+              <span className='text-textSecondary typography-body4'>
+                {position}
+              </span>
+            </div>
+          </div>
+          <span className='line-clamp-[8] text-textSecondary typography-body3'>
+            {description}
           </span>
         </div>
-      </div>
-
-      <span className='line-clamp-[8] text-textSecondary typography-body3'>
-        {description}
-      </span>
-    </div>
+      </SpotlightCard>
+    </SliderMotionCard>
   )
 }
 
@@ -216,25 +222,29 @@ function BackersSliderCard({
   width,
   height,
   className,
+  idx,
   ...rest
 }: {
   image: string
   title: string
   width: number
   height: number
+  idx: number
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      {...rest}
-      className={cn(
-        'flex flex-col justify-between p-6',
-        'relative h-[280px] w-[272px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
-        'md:h-[260px] md:w-[320px]',
-        className,
-      )}
-    >
-      <img width={width} height={height} src={image} alt={title} />
-      <span className='typography-subtitle3'>{title}</span>
-    </div>
+    <SliderMotionCard idx={idx}>
+      <SpotlightCard
+        {...rest}
+        className={cn(
+          'flex flex-col justify-between p-6',
+          'relative h-[280px] w-[272px] rounded-[20px] bg-additionalOpacited backdrop-blur-[24px]',
+          'md:h-[260px] md:w-[320px]',
+          className,
+        )}
+      >
+        <img width={width} height={height} src={image} alt={title} />
+        <span className='typography-subtitle3'>{title}</span>
+      </SpotlightCard>
+    </SliderMotionCard>
   )
 }

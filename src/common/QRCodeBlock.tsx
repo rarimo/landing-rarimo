@@ -1,6 +1,8 @@
+'use client'
+
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { QRCode } from 'react-qrcode-logo'
 
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
@@ -14,24 +16,36 @@ import { cn } from '@/theme/utils'
 import { UiButton, UiIconButton } from '@/ui'
 
 const CLOSE_DOWNLOAD_BLOCK_ANIMATION = {
-  initial: { opacity: 0, scale: 1 },
-  animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 0.95 },
+  initial: { opacity: 0, y: 15 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 15 },
+  transition: {
+    initial: { duration: 0.6, type: 'tween' },
+    animate: { duration: 0.4, type: 'tween' },
+    exit: { duration: 0.8, type: 'tween' },
+  },
 }
-
 export default function QRCodeBlock() {
-  const [isQRCodeShown, setIsQRCodeShown] = useState(true)
+  const [isQRCodeShown, setIsQRCodeShown] = useState(false)
   const isMdDown = isMediumScreen()
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsQRCodeShown(true)
+    }, 1_500)
+  }, [])
 
   return (
     <ClientOnly>
       {() => (
         <div className='z-10'>
-          <AnimatePresence>
+          <AnimatePresence mode='sync'>
             {!isMdDown && isQRCodeShown && (
-              <DesktopQRCodeBlock
-                onBlockClose={() => setIsQRCodeShown(false)}
-              />
+              <motion.div>
+                <DesktopQRCodeBlock
+                  onBlockClose={() => setIsQRCodeShown(false)}
+                />
+              </motion.div>
             )}
             {isMdDown && isQRCodeShown && (
               <MobileQRCodeBlock onBlockClose={() => setIsQRCodeShown(false)} />
@@ -57,7 +71,6 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
       initial='initial'
       animate='animate'
       exit='exit'
-      transition={{ duration: 0.3 }}
       className={cn(
         'flex flex-col items-center justify-center',
         'rounded-2xl bg-backgroundSurface1 p-1.5',

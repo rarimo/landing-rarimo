@@ -1,17 +1,20 @@
 'use client'
 
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
 import { useEffect, useRef } from 'react'
 import Typed from 'typed.js'
 
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
+import Aurora from '@/common/Aurora'
 import { config } from '@/config'
-import { Anchors } from '@/enums'
+import { Anchors, Theme } from '@/enums'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
 export default function HeroSection() {
   const typoRef = useRef<HTMLHeadingElement>(null)
+  const { theme } = useTheme()
 
   useEffect(() => {
     if (!typoRef.current) return
@@ -40,12 +43,10 @@ export default function HeroSection() {
         'md:p-[72px]',
       )}
       showGradientDecor
-      gradientDecorClassName={cn(
-        '-right-[65px] -top-[83px] -rotate-[10deg] h-[570px] w-[680px]',
-      )}
       fullHeightContainerClassName={cn('h-[calc(100svh-60px)]')}
       data-aos='fade-up'
     >
+      <Aurora isDarkMode={theme === Theme.Dark} />
       <div
         className={cn(
           'z-10 flex flex-col items-center gap-8 self-center text-center',

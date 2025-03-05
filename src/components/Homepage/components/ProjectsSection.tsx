@@ -8,6 +8,8 @@ import ExternalLinkIcon from '@/assets/icons/external-link-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
 import AnimatedNumber from '@/common/AnimatedNumbers'
 import { AppSwiper } from '@/common/AppSwiper'
+import SliderMotionCard from '@/common/SliderMotionCard'
+import SpotlightCard from '@/common/SpotlightCard'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiHorizontalDivider, UiIconButton } from '@/ui'
@@ -137,7 +139,7 @@ export default function ProjectsSection() {
       >
         {projectsList.map((project, idx) => (
           <SwiperSlide className='w-fit' key={idx}>
-            <ProjectSliderCard {...project} />
+            <ProjectSliderCard {...project} idx={idx} />
           </SwiperSlide>
         ))}
       </AppSwiper>
@@ -151,39 +153,44 @@ function ProjectSliderCard({
   description,
   link,
   className,
+  idx,
   ...rest
 }: {
   imageUrl: string
   title: string
   description: string
   link: string
+  idx: number
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <a href={link} target='_blank' rel='noreferrer noopener'>
-      <div
-        {...rest}
-        className={cn(
-          'group flex flex-col p-6',
-          'relative h-[215px] w-[275px] rounded-[20px]',
-          'bg-additionalOpacited backdrop-blur-[24px]',
-          className,
-        )}
-      >
-        <img className='mb-auto size-12' src={imageUrl} alt={title} />
-        <div className='flex items-center gap-2'>
-          <span className='text-textPrimary typography-h4'>{title}</span>
-          <ExternalLinkIcon
+    <SliderMotionCard idx={idx}>
+      <SpotlightCard className='relative h-[215px] w-[275px] p-6' {...rest}>
+        <a href={link} target='_blank' rel='noreferrer noopener'>
+          <div
+            {...rest}
             className={cn(
-              'text-textSecondary',
-              'opacity-0 transition duration-300',
-              'group-hover:opacity-100',
+              'group flex flex-col',
+              'h-full rounded-[20px]',
+              className,
             )}
-          />
-        </div>
-        <span className='mt-2 text-textSecondary typography-body3'>
-          {description}
-        </span>
-      </div>
-    </a>
+          >
+            <img className='mb-auto size-12' src={imageUrl} alt={title} />
+            <div className='flex items-center gap-2'>
+              <span className='text-textPrimary typography-h4'>{title}</span>
+              <ExternalLinkIcon
+                className={cn(
+                  'text-textSecondary',
+                  'opacity-0 transition duration-300',
+                  'group-hover:opacity-100',
+                )}
+              />
+            </div>
+            <span className='mt-2 text-textSecondary typography-body3'>
+              {description}
+            </span>
+          </div>
+        </a>
+      </SpotlightCard>
+    </SliderMotionCard>
   )
 }

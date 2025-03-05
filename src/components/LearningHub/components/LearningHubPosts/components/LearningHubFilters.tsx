@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { type HTMLAttributes, useCallback, useState } from 'react'
 
@@ -70,7 +71,9 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
         params.delete(QueryFilters.Sort)
       }
 
-      router.push(`${pathname}?${params.toString()}`)
+      router.push(`${pathname}?${params.toString()}`, {
+        scroll: false,
+      })
     },
     [pathname, router, searchParams],
   )
@@ -89,12 +92,17 @@ export default function LearningHubFilters({ className, ...rest }: Props) {
           <button
             key={idx}
             className={cn(
-              'rounded-full px-4 py-2 text-textSecondary transition-colors duration-200 typography-buttonLarge hover:bg-componentPrimary',
-              activeCategory === el && 'bg-componentPrimary text-textPrimary',
+              'relative px-4 py-2 text-textSecondary transition-colors duration-200 typography-buttonLarge',
             )}
             onClick={() => navigateWithSanitizedSearchParams(el, sortedBy)}
           >
             {localizeCategory(el)}
+            {activeCategory === el && (
+              <motion.div
+                className='absolute inset-0 rounded-full bg-componentPrimary text-textPrimary'
+                layoutId='learning-navbar'
+              />
+            )}
           </button>
         ))}
       </div>
