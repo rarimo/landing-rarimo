@@ -185,7 +185,7 @@ export default function Aurora(props: AuroraProps) {
     let animateId = 0
     const update = (t: number) => {
       animateId = requestAnimationFrame(update)
-      const { time = t * 0.01, speed = 0.6 } = propsRef.current
+      const { time = t * 0.01, speed = 0.8 } = propsRef.current
       if (program) {
         program.uniforms.uTime.value = time * speed * 0.1
         program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0

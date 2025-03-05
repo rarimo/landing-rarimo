@@ -42,6 +42,7 @@ export default function HeroSection() {
         'relative overflow-hidden',
         'md:p-[72px]',
       )}
+      showGradientDecor
       fullHeightContainerClassName={cn('h-[calc(100svh-60px)]')}
       data-aos='fade-up'
     >
