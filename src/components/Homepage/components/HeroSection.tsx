@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
 import Typed from 'typed.js'
 
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
-import Aurora from '@/common/Aurora/Aurora'
+import Aurora from '@/common/Aurora'
 import { config } from '@/config'
 import { Anchors, Theme } from '@/enums'
 import { cn } from '@/theme/utils'

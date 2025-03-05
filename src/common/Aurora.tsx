@@ -8,7 +8,7 @@ void main() {
 }
 `
 
-const _getFragmentShader = (isDark: boolean) => `#version 300 es
+const getFragmentShader = (isDark: boolean) => `#version 300 es
 precision highp float;
 
 uniform float uTime;
@@ -116,7 +116,7 @@ export default function Aurora(props: AuroraProps) {
   const {
     colorStops = ['#47E7A7', '#2BDC5D', '#47E7A7'],
     amplitude = 1.0,
-    blend = 0.75,
+    blend = 0.73,
     isDarkMode = false,
   } = props
   const propsRef = useRef<AuroraProps>(props)
@@ -169,7 +169,7 @@ export default function Aurora(props: AuroraProps) {
 
     program = new Program(gl, {
       vertex: VERT,
-      fragment: _getFragmentShader(isDarkMode),
+      fragment: getFragmentShader(isDarkMode),
       uniforms: {
         uTime: { value: 0 },
         uAmplitude: { value: amplitude },
