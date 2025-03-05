@@ -1203,7 +1203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.8.4":
   version: 7.26.9
   resolution: "@babel/runtime@npm:7.26.9"
   dependencies:
@@ -1445,31 +1445,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/fontawesome-common-types@npm:6.7.2"
-  checksum: 10c0/0785df560542d9c08a0ba07bb7a39902274a3cd65c018672eb2520a99efccce18bdb7f7f4b1c6089763bc5627bf0f0837c3af963a8427eaeb535bd57c820a723
-  languageName: node
-  linkType: hard
-
-"@fortawesome/fontawesome-svg-core@npm:^6.5.2":
-  version: 6.7.2
-  resolution: "@fortawesome/fontawesome-svg-core@npm:6.7.2"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10c0/9e4e2992b341d2d11cd6ab8cf001e2cb9be4266ce200b307d15c0618e7d2cf11c1c4c67a1f95f3cc70feed2380fa66672132c32078674d5f9cb2cb0b7703f3ac
-  languageName: node
-  linkType: hard
-
-"@fortawesome/free-brands-svg-icons@npm:^6.5.2":
-  version: 6.7.2
-  resolution: "@fortawesome/free-brands-svg-icons@npm:6.7.2"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10c0/054af882f3416d4a04dfe0f8db8f1ac645d07709a019e95368ae796c1aeee5929dfaf023e5568438a600e1bc1496e6e7270659d2be91b50531fdbd724034b22c
-  languageName: node
-  linkType: hard
-
 "@fortawesome/react-fontawesome@npm:^0.2.0":
   version: 0.2.2
   resolution: "@fortawesome/react-fontawesome@npm:0.2.2"
@@ -1527,13 +1502,6 @@ __metadata:
   dependencies:
     minipass: "npm:^7.0.4"
   checksum: 10c0/c25b6dc1598790d5b55c0947a9b7d111cfa92594db5296c3b907e2f533c033666f692a3939eadac17b1c7c40d362d0b0635dc874cbfe3e70db7c2b07cc97a5d2
-  languageName: node
-  linkType: hard
-
-"@jkroso/type@npm:1":
-  version: 1.1.1
-  resolution: "@jkroso/type@npm:1.1.1"
-  checksum: 10c0/6acc1f9449667103b064e6891c5156c1651229abac95f88625c3fcfa83e4ebfc1dbfb85e3e8a5f541ce412d520f0d1c405d3910bce61b9584f676b3cfd7e3609
   languageName: node
   linkType: hard
 
@@ -2295,20 +2263,6 @@ __metadata:
   version: 1.10.5
   resolution: "@rushstack/eslint-patch@npm:1.10.5"
   checksum: 10c0/ea66e8be3a78a48d06e8ff33221cef5749386589236bbcd24013577d2b4e1035e3dc919740c6e0f16d44c1e0b62d06d00898508fc74cc2adb0ac6b667aa5a8e4
-  languageName: node
-  linkType: hard
-
-"@splidejs/splide-extension-auto-scroll@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "@splidejs/splide-extension-auto-scroll@npm:0.5.3"
-  checksum: 10c0/2b33ac342ea69fa79f3f6b40577bb03de8cb087012efdc1a801bef802584b7c7591685b1758c91ee5a6a204479ee40bcb6801f8bfcbbd34fd7f744897e0db5aa
-  languageName: node
-  linkType: hard
-
-"@splidejs/splide@npm:^4.1.4":
-  version: 4.1.4
-  resolution: "@splidejs/splide@npm:4.1.4"
-  checksum: 10c0/2dc36e0ce13d049b6ff6e2dcd02cf100ad5df014cd7e751e34f941d54f73a9af948b0912f977aaf896a05ac4f0388fc0a2404cf79d970ac632d207f9dbe03044
   languageName: node
   linkType: hard
 
@@ -3655,24 +3609,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deep-freeze@npm:0.0.1":
-  version: 0.0.1
-  resolution: "deep-freeze@npm:0.0.1"
-  checksum: 10c0/b32c878395df6ca0e07d065750e14bc1651ec76e99490bca25e5844f7321676d7045d4eb4123892a0d4f08c38e4b7fa46d6e834782c095723447c0ee2ad0340b
-  languageName: node
-  linkType: hard
-
 "deep-is@npm:^0.1.3":
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
   checksum: 10c0/7f0ee496e0dff14a573dc6127f14c95061b448b87b995fc96c017ce0a1e66af1675e73f1d6064407975bc4ea6ab679497a29fff7b5b9c4e99cb10797c1ad0b4c
-  languageName: node
-  linkType: hard
-
-"deepmerge@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "deepmerge@npm:2.2.1"
-  checksum: 10c0/4379288cabd817587cee92a095ea65d18317b45e48010a2e0d87982b5f432239a144f9c8ebd4ab090cc21f0cb47e51ebfe32921f329b3b3084a2711d5d63e450
   languageName: node
   linkType: hard
 
@@ -3898,15 +3838,6 @@ __metadata:
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
   checksum: 10c0/285325677bf00e30845e330eec32894f5105529db97496ee3f598478e50f008c5352a41a30e5e72ec9de8a542b5a570b85699cd63bd2bc646dbcb9f311d83bc4
-  languageName: node
-  linkType: hard
-
-"equals@npm:^1.0.5":
-  version: 1.1.0
-  resolution: "equals@npm:1.1.0"
-  dependencies:
-    "@jkroso/type": "npm:1"
-  checksum: 10c0/479a9ba81122e1545eb3d2939fb6774cdc2a834b52da9e49fec063269543bf55eb76fd721b8b03fc500569f1798eab034177fac97d285b0c951c206a8bbc2d23
   languageName: node
   linkType: hard
 
@@ -4887,13 +4818,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gsap@npm:^3.11.5":
-  version: 3.12.7
-  resolution: "gsap@npm:3.12.7"
-  checksum: 10c0/48691602da4c0aaa61a8fe7426e5e2f873e9edb4b7e732b90928c815a47dd1e94d05174bd6f04e73a11184cb0df8c0d2b98d58cd1cbd2df01e33769f6aa8ff11
-  languageName: node
-  linkType: hard
-
 "has-bigints@npm:^1.0.2":
   version: 1.1.0
   resolution: "has-bigints@npm:1.1.0"
@@ -5620,12 +5544,8 @@ __metadata:
   resolution: "landing-rarimo@workspace:."
   dependencies:
     "@distributedlab/tools": "npm:^1.0.0-rc.17"
-    "@fortawesome/fontawesome-svg-core": "npm:^6.5.2"
-    "@fortawesome/free-brands-svg-icons": "npm:^6.5.2"
     "@fortawesome/react-fontawesome": "npm:^0.2.0"
     "@radix-ui/react-select": "npm:^2.1.6"
-    "@splidejs/splide": "npm:^4.1.4"
-    "@splidejs/splide-extension-auto-scroll": "npm:^0.5.3"
     "@svgr/webpack": "npm:^8.1.0"
     "@tailwindcss/line-clamp": "npm:^0.4.4"
     "@types/aos": "npm:^3.0.7"
@@ -5652,7 +5572,6 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-simple-import-sort: "npm:^12.1.0"
     framer-motion: "npm:^12.4.10"
-    gsap: "npm:^3.11.5"
     isomorphic-dompurify: "npm:^2.22.0"
     lodash: "npm:^4.17.21"
     lucide-react: "npm:^0.475.0"
@@ -5664,12 +5583,11 @@ __metadata:
     postcss: "npm:^8"
     prettier: "npm:^3.2.5"
     prettier-plugin-tailwindcss: "npm:^0.5.14"
-    pure-react-carousel: "npm:^1.32.0"
     react: "npm:^18"
     react-dom: "npm:^18"
     react-qrcode-logo: "npm:^3.0.0"
     react-use: "npm:^17.5.0"
-    sass: "npm:^1.75.0"
+    sass: "npm:^1.85.1"
     swiper: "npm:^11.2.0"
     tailwind-merge: "npm:^2.3.0"
     tailwind-variants: "npm:^0.3.0"
@@ -6800,7 +6718,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -6822,22 +6740,6 @@ __metadata:
   version: 2.3.1
   resolution: "punycode@npm:2.3.1"
   checksum: 10c0/14f76a8206bc3464f794fb2e3d3cc665ae416c01893ad7a02b23766eb07159144ee612ad67af5e84fa4479ccfe67678c4feb126b0485651b302babf66f04f9e9
-  languageName: node
-  linkType: hard
-
-"pure-react-carousel@npm:^1.32.0":
-  version: 1.32.0
-  resolution: "pure-react-carousel@npm:1.32.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.5.5"
-    deep-freeze: "npm:0.0.1"
-    deepmerge: "npm:^2.2.1"
-    equals: "npm:^1.0.5"
-    prop-types: "npm:^15.6.2"
-  peerDependencies:
-    react: 15.x || 16.x || 17.x || 18.x
-    react-dom: 15.x || 16.x || 17.x || 18.x
-  checksum: 10c0/4e83914e7be39820206842069c5ee92f9bbfdd862271f6e6785802ef73e064152bf05b711d48a52453766890841f09dca9d41f88170ffea45c2523089ff581b3
   languageName: node
   linkType: hard
 
@@ -7276,7 +7178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.75.0":
+"sass@npm:^1.85.1":
   version: 1.85.1
   resolution: "sass@npm:1.85.1"
   dependencies:
