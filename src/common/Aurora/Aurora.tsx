@@ -91,7 +91,7 @@ void main() {
   height = exp(height);
   height = (uv.y * 2.0 - height + 0.2);
 
-  float intensity = ${isDark ? '0.4 * height' : 'clamp(0.3 * height, 0.0, 0.8)'};
+  float intensity = ${isDark ? '0.4 * height' : 'clamp(0.2 * height, 0.0, 0.8)'};
 
   float midPoint = 0.25;
   float auroraAlpha = smoothstep(midPoint - uBlend * 0.4, midPoint + uBlend * 0.5, intensity);
@@ -116,7 +116,7 @@ export default function Aurora(props: AuroraProps) {
   const {
     colorStops = ['#47E7A7', '#2BDC5D', '#47E7A7'],
     amplitude = 1.0,
-    blend = 0.73,
+    blend = 0.75,
     isDarkMode = false,
   } = props
   const propsRef = useRef<AuroraProps>(props)
