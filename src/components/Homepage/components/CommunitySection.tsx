@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import {
   HTMLAttributes,
   PropsWithChildren,
@@ -78,6 +79,7 @@ export default function CommunitySection() {
         >
           Community
         </TestimonialsTabButton>
+
         <TestimonialsTabButton
           isActive={activeTab === TestimonialTabs.Backers}
           onClick={() => setActiveTab(TestimonialTabs.Backers)}
@@ -162,7 +164,10 @@ function TestimonialsTabButton({
               {children}
             </span>
             {isActive && (
-              <hr className='gradient1 absolute -bottom-2 h-0.5 w-full border-t-0' />
+              <motion.div
+                layoutId='underline'
+                className='gradient1 absolute -bottom-2 h-0.5 w-full border-t-0'
+              />
             )}
           </div>
         </button>
