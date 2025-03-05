@@ -80,7 +80,7 @@ export const lightPalette = {
   additionalGradient4:
     'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
 
-  additionalLight: getRgba('#B8F2D5', 0.4),
+  additionalLight: getRgba('#8DFFED', 0.1),
 
   gradientEnd: '#FFFFFF',
 

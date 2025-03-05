@@ -5,6 +5,7 @@ import { newsList } from '@/assets/data'
 import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import { AppSwiper } from '@/common/AppSwiper'
+import SliderMotionCard from '@/common/SliderMotionCard'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiIconButton } from '@/ui'
@@ -86,7 +87,7 @@ export default function NewsSection() {
         >
           {newsList.map((newsItem, idx) => (
             <SwiperSlide className='w-fit' key={idx}>
-              <NewsSectionItemCard {...newsItem} />
+              <NewsSectionItemCard {...newsItem} idx={idx} />
             </SwiperSlide>
           ))}
         </AppSwiper>
@@ -100,32 +101,36 @@ function NewsSectionItemCard({
   link,
   image,
   className,
+  idx,
   ...rest
 }: {
   title: string
   link: string
   image: string
+  idx: number
 } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <a href={link} target='_blank' rel='nofollow noopener noreferrer'>
-      <div
-        {...rest}
-        className={cn(
-          'flex flex-col gap-6',
-          'relative h-[260px] w-[272px] rounded-[20px] backdrop-blur-[24px]',
-          'md:w-[320px]',
-          className,
-        )}
-      >
-        <img
-          className='aspect-video w-full rounded-lg'
-          src={image}
-          alt={title}
-        />
-        <span className='line-clamp-2 text-textPrimary typography-subtitle4'>
-          {title}
-        </span>
-      </div>
-    </a>
+    <SliderMotionCard idx={idx}>
+      <a href={link} target='_blank' rel='nofollow noopener noreferrer'>
+        <div
+          {...rest}
+          className={cn(
+            'flex flex-col gap-6',
+            'relative h-[260px] w-[272px] rounded-[20px] backdrop-blur-[24px]',
+            'md:w-[320px]',
+            className,
+          )}
+        >
+          <img
+            className='aspect-video w-full rounded-lg'
+            src={image}
+            alt={title}
+          />
+          <span className='line-clamp-2 text-textPrimary typography-subtitle4'>
+            {title}
+          </span>
+        </div>
+      </a>
+    </SliderMotionCard>
   )
 }
