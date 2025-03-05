@@ -1,3 +1,5 @@
+// Inspired by https://www.reactbits.dev/backgrounds/aurora
+
 import { Color, Mesh, Program, Renderer, Triangle } from 'ogl'
 import { useEffect, useRef } from 'react'
 

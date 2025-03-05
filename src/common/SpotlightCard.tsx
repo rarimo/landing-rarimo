@@ -1,3 +1,5 @@
+// Credits: https://www.reactbits.dev/components/spotlight-card
+
 import { useTheme } from 'next-themes'
 import React, { useRef, useState } from 'react'
 
@@ -11,13 +13,13 @@ interface Position {
 
 interface SpotlightCardProps extends React.PropsWithChildren {
   className?: string
-  spotlightColors?: `rgba(${number}, ${number}, ${number}, ${number})`
+  spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`
 }
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = '',
-  spotlightColors,
+  spotlightColor,
 }) => {
   const divRef = useRef<HTMLDivElement>(null)
 
@@ -27,7 +29,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
   const { theme } = useTheme()
 
   const _spotlightColor =
-    spotlightColors ||
+    spotlightColor ||
     (theme === Theme.Dark
       ? darkPalette.additionalLight
       : lightPalette.additionalLight)
@@ -65,7 +67,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`borde relative overflow-hidden rounded-3xl bg-additionalOpacited ${className}`}
+      className={`relative overflow-hidden rounded-3xl bg-additionalOpacited ${className}`}
     >
       <div
         className='pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out'
