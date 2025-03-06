@@ -6,8 +6,7 @@ export const config = {
     'https://ethereum-magicians.org/t/erc-7812-zk-identity-registry/21624',
   discordLink: 'https://discord.gg/Bzjm5MDXrU',
   xLink: 'https://twitter.com/Rarimo_protocol',
-  telegramLink:
-    'https://telegram.me/collablandbot?start=VFBDI1RFTCNDT01NIy0xMDAyMDg2MjkwNjk3',
+  telegramLink: 'https://t.me/+pWugh5xgDiE3Y2Jk',
 
   documentationLink: 'https://docs.rarimo.com/',
 
