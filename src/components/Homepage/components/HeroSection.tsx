@@ -9,6 +9,7 @@ import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import Aurora from '@/common/Aurora'
 import { config } from '@/config'
 import { Anchors, Theme } from '@/enums'
+import { isDesktop } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
 
@@ -42,7 +43,7 @@ export default function HeroSection() {
         'relative overflow-hidden',
         'md:p-[72px]',
       )}
-      showGradientDecor
+      showGradientDecor={isDesktop()}
       fullHeightContainerClassName={cn('h-[calc(100svh-60px)]')}
       data-aos='fade-up'
     >
