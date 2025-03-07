@@ -15,6 +15,5 @@ export const config = {
   googlePlayLink:
     'https://play.google.com/store/apps/details?id=com.rarilabs.rarime',
 
-  learningHubApiUrl: 'https://hub.rarimo.com/api',
-  learningHubApiCacheInvalidateDur: 60,
+  GoogleAnalyticsId: process.env.GAID as string,
 }
