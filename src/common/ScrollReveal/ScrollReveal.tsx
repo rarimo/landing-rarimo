@@ -44,7 +44,6 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     let lastIndex = 0
 
     let match
-    // Loop through the text and find all matches of the regex pattern
     while ((match = regex.exec(text)) !== null) {
       if (match.index > lastIndex) {
         const preText = text.slice(lastIndex, match.index)
