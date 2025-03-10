@@ -6,9 +6,9 @@ import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import ExternalLinkIcon from '@/assets/icons/external-link-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
-import AnimatedNumber from '@/common/AnimatedNumbers'
 import { AppSwiper } from '@/common/AppSwiper'
-import ScrollReveal from '@/common/ScrollReveal/ScrollReveal'
+import CountUp from '@/common/CountUp'
+import ScrollReveal from '@/common/ScrollReveal'
 import SliderMotionCard from '@/common/SliderMotionCard'
 import SpotlightCard from '@/common/SpotlightCard'
 import { isMediumScreen } from '@/helpers'
@@ -81,7 +81,7 @@ export default function ProjectsSection() {
               'min-w-[7.2ch]',
             )}
           >
-            <AnimatedNumber duration={1500} value={100000} />
+            <CountUp separator=',' duration={0.5} to={100_000} />
             <span
               className={cn(
                 'text-textPrimary typography-h3',
