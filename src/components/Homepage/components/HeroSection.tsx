@@ -45,7 +45,7 @@ export default function HeroSection() {
       )}
       showGradientDecor={isDesktop()}
       fullHeightContainerClassName={cn('h-[calc(100svh-60px)]')}
-      data-aos='fade-up'
+      data-aos='fade'
     >
       <Aurora isDarkMode={theme === Theme.Dark} />
       <div

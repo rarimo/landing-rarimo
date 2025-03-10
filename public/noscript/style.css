@@ -9,7 +9,11 @@
   color: #202124;
   padding: 0 10px;
   text-align: center;
-  font: 1rem 'Izmir', 'Helvetica Neue', 'Arial', sans-serif;
+  font:
+    1rem 'Izmir',
+    'Helvetica Neue',
+    'Arial',
+    sans-serif;
 }
 
 .noscript__title {
