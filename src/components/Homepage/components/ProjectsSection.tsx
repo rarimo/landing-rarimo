@@ -6,8 +6,9 @@ import ArrowLeftSLineIcon from '@/assets/icons/arrow-left-s-line-icon.svg'
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
 import ExternalLinkIcon from '@/assets/icons/external-link-icon.svg'
 import UnderlineIcon from '@/assets/icons/underline-icon.svg'
-import AnimatedNumber from '@/common/AnimatedNumbers'
 import { AppSwiper } from '@/common/AppSwiper'
+import CountUp from '@/common/CountUp'
+import ScrollReveal from '@/common/ScrollReveal'
 import SliderMotionCard from '@/common/SliderMotionCard'
 import SpotlightCard from '@/common/SpotlightCard'
 import { isMediumScreen } from '@/helpers'
@@ -47,24 +48,20 @@ export default function ProjectsSection() {
       gradientDecorClassName={cn(
         '-right-[35px] -bottom-[270px] rotate-[60deg] h-[715px] w-[407px] opacity-80',
       )}
-      data-aos='fade-up'
     >
       <div className={cn('z-10 flex-1 px-8', 'md:px-[72px]')}>
-        <div className={cn('max-w-full', 'md:max-w-[85%]')}>
-          <span
-            className={cn(
-              'text-textSecondary typography-h2',
-              'md:typography-h1',
-            )}
-          >
-            Unlocking a new generation of social apps, where users stay{' '}
-            <span className='text-textPrimary'>private</span> without losing{' '}
-            <span className='text-textPrimary'>historical</span>{' '}
-            <span className='text-textPrimary'>actions</span> and{' '}
-            <span className='text-textPrimary'>identities</span>
-          </span>
-        </div>
-
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={3}
+          blurStrength={5}
+          containerClassName={cn('max-w-full', 'md:max-w-[85%]')}
+          textClassName={cn('text-textSecondary', 'md:typography-h1')}
+        >
+          Unlocking a new generation of social apps, where users stay
+          [private][text-textPrimary] without losing [historical
+          actions][text-textPrimary] and [identities][text-textPrimary]
+        </ScrollReveal>
         <UiHorizontalDivider
           className={cn('mb-10 mt-12 bg-componentPrimary', 'md:mt-[72px]')}
         />
@@ -84,7 +81,7 @@ export default function ProjectsSection() {
               'min-w-[7.2ch]',
             )}
           >
-            <AnimatedNumber duration={1500} value={100000} />
+            <CountUp separator=',' duration={0.5} to={100_000} />
             <span
               className={cn(
                 'text-textPrimary typography-h3',

@@ -31,3 +31,10 @@ export function isLargeScreen() {
 export function isDesktop() {
   return typeof window !== 'undefined' && window.innerWidth >= 1200
 }
+
+export function isSafari() {
+  return (
+    typeof window !== 'undefined' &&
+    /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+  )
+}

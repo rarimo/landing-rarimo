@@ -4830,6 +4830,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gsap@npm:^3.12.5":
+  version: 3.12.7
+  resolution: "gsap@npm:3.12.7"
+  checksum: 10c0/48691602da4c0aaa61a8fe7426e5e2f873e9edb4b7e732b90928c815a47dd1e94d05174bd6f04e73a11184cb0df8c0d2b98d58cd1cbd2df01e33769f6aa8ff11
+  languageName: node
+  linkType: hard
+
 "has-bigints@npm:^1.0.2":
   version: 1.1.0
   resolution: "has-bigints@npm:1.1.0"
@@ -5585,6 +5592,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-simple-import-sort: "npm:^12.1.0"
     framer-motion: "npm:^12.4.10"
+    gsap: "npm:^3.12.5"
     isomorphic-dompurify: "npm:^2.22.0"
     lodash: "npm:^4.17.21"
     lucide-react: "npm:^0.475.0"

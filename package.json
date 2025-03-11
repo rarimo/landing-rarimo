@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.10",
+    "gsap": "^3.12.5",
     "isomorphic-dompurify": "^2.22.0",
     "lodash": "^4.17.21",
     "lucide-react": "^0.475.0",
