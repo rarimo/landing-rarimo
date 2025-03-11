@@ -50,7 +50,23 @@ export default function HomeHeader({
           <LogoIcon />
         </a>
         <UiIconButton size='small' onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <CloseFillIcon /> : <Menu2FillIcon />}
+          {isMenuOpen ? (
+            <motion.div
+              initial={{ rotate: 0 }}
+              animate={{ rotate: 180 }}
+              transition={{ duration: 0.3 }}
+            >
+              <CloseFillIcon />
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ rotate: 180 }}
+              animate={{ rotate: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Menu2FillIcon />
+            </motion.div>
+          )}
         </UiIconButton>
       </div>
 
