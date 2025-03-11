@@ -12,8 +12,15 @@
   }
 }
 
-html, body {
-  @apply size-full scroll-smooth;
+html,
+body {
+  @apply size-full;
+}
+
+@screen lg {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .gradient1 {
@@ -33,7 +40,7 @@ html, body {
 }
 
 .typed-cursor {
-  @apply inline-block gradient1 h-[40%] w-1 ml-1;
+  @apply gradient1 ml-1 inline-block h-[40%] w-1;
 }
 
 #post-content {
@@ -50,11 +57,11 @@ html, body {
   }
 
   ul {
-    @apply list-disc list-inside mt-4;
+    @apply mt-4 list-inside list-disc;
   }
 
   ol {
-    @apply list-decimal list-inside mt-4;
+    @apply mt-4 list-inside list-decimal;
   }
 
   a {
@@ -62,26 +69,26 @@ html, body {
   }
 
   h1 {
-    @apply typography-h1 text-textPrimary mt-6;
+    @apply mt-6 text-textPrimary typography-h1;
   }
   h2 {
-    @apply typography-h2 text-textPrimary mt-6;
+    @apply mt-6 text-textPrimary typography-h2;
   }
   h3 {
-    @apply typography-h3 text-textPrimary mt-6;
+    @apply mt-6 text-textPrimary typography-h3;
   }
   h4 {
-    @apply typography-h4 text-textPrimary mt-6;
+    @apply mt-6 text-textPrimary typography-h4;
   }
   h5 {
-    @apply typography-h5 text-textPrimary mt-6;
+    @apply mt-6 text-textPrimary typography-h5;
   }
   h6 {
-    @apply typography-h6 text-textPrimary mt-6;
+    @apply mt-6 text-textPrimary typography-h6;
   }
 
   blockquote {
-    @apply p-4 my-4 border-s-4 border-componentPrimary bg-backgroundContainer;
+    @apply my-4 border-s-4 border-componentPrimary bg-backgroundContainer p-4;
   }
 
   hr {
@@ -89,10 +96,10 @@ html, body {
   }
 
   pre {
-    @apply whitespace-pre mt-4;
+    @apply mt-4 whitespace-pre;
   }
 
   code {
-    @apply block whitespace-pre overflow-x-scroll bg-backgroundContainer rounded-xl p-4 my-4;
+    @apply my-4 block overflow-x-scroll whitespace-pre rounded-xl bg-backgroundContainer p-4;
   }
 }

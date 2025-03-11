@@ -21,14 +21,14 @@ export default function Homepage() {
   return (
     <div
       className={cn(
-        'flex flex-col overflow-hidden bg-backgroundPrimary',
-        'lg:flex-row lg:gap-12',
+        'flex flex-col bg-backgroundPrimary',
+        'relative lg:flex-row lg:gap-12',
       )}
     >
       <div className={cn('fixed top-0 hidden h-dvh p-12 pr-0', 'lg:flex')}>
         <HomeSidebar activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
-      <div className={cn('flex', 'lg:hidden')}>
+      <div className='center sticky top-0 z-[50] bg-backgroundPure pb-3 lg:hidden'>
         <HomeHeader activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
       <main
@@ -110,7 +110,7 @@ function IntersectionComponent({
   }, [entry?.isIntersecting])
 
   return (
-    <div id={id} ref={ref} className='scroll-mt-5'>
+    <div id={id} ref={ref}>
       {children}
     </div>
   )
