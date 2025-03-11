@@ -1,40 +1,43 @@
-const MOBILE_REGEX =
-  /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini|Windows Phone/i
+'use client'
+
+const isClient = typeof window !== 'undefined'
 
 export function isMobile() {
   return (
-    typeof window !== 'undefined' &&
-    MOBILE_REGEX.test(window.navigator.userAgent)
+    isClient &&
+    /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
+      window.navigator.userAgent,
+    )
   )
 }
 
 export function isIos() {
-  return /iPhone|iPad|iPod/i.test(navigator.userAgent)
+  return isClient && /iPhone|iPad|iPod/i.test(window.navigator.userAgent)
 }
 
 export function isAndroid() {
-  return /Android/i.test(navigator.userAgent)
+  return isClient && /Android/i.test(window.navigator.userAgent)
 }
 
 export function isSmallScreen() {
-  return typeof window !== 'undefined' && window.innerWidth < 480
+  return isClient && window.innerWidth < 480
 }
 
 export function isMediumScreen() {
-  return typeof window !== 'undefined' && window.innerWidth < 600
+  return isClient && window.innerWidth < 600
 }
 
 export function isLargeScreen() {
-  return typeof window !== 'undefined' && window.innerWidth < 1200
+  return isClient && window.innerWidth < 1200
 }
 
 export function isDesktop() {
-  return typeof window !== 'undefined' && window.innerWidth >= 1200
+  return isClient && window.innerWidth >= 1200
 }
 
 export function isSafari() {
   return (
-    typeof window !== 'undefined' &&
-    /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+    isClient &&
+    /^((?!chrome|android).)*safari/i.test(window.navigator.userAgent)
   )
 }

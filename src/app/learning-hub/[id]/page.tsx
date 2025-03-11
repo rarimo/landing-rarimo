@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import LearningHubPost, {
   getPostId,
@@ -8,7 +8,7 @@ import LearningHubPost, {
   resolvingPost,
 } from '@/components/LearningHubPost'
 import { config } from '@/config'
-import { locales } from '@/i18n'
+import { locales } from '@/i18n/request'
 
 export async function generateMetadata(
   { params }: LearningHubPostPageProps,
@@ -48,7 +48,7 @@ export async function generateMetadata(
 export default async function LearningHubPostPage({
   params,
 }: LearningHubPostPageProps) {
-  unstable_setRequestLocale(locales[0])
+  setRequestLocale(locales[0])
 
   const messages = await (
     await import(`@/../messages/translations.${locales[0]}.json`)

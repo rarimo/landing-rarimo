@@ -8,7 +8,7 @@ import { ReactNode } from 'react'
 
 import AosInit from '@/common/AosInit'
 import { config } from '@/config'
-import { locales } from '@/i18n'
+import { locales } from '@/i18n/request'
 import { appFontClassName } from '@/theme/fonts'
 import { cn } from '@/theme/utils'
 
