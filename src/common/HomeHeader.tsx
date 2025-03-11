@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useRef, useState } from 'react'
@@ -12,7 +13,7 @@ import { AnchorsList, AnchorsListProps, NavItem } from '@/common/HomeSidebar'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
 import { config } from '@/config'
 import { useClickOutside } from '@/hooks'
-import { ExtIconLink, UiCollapse, UiHorizontalDivider } from '@/ui'
+import { ExtIconLink, UiHorizontalDivider } from '@/ui'
 import UiIconButton from '@/ui/UiIconButton'
 
 type HomeHeaderProps = AnchorsListProps
@@ -22,7 +23,6 @@ export default function HomeHeader({
   setActiveLink,
 }: HomeHeaderProps) {
   const pathname = usePathname()
-
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -30,14 +30,21 @@ export default function HomeHeader({
 
   return (
     <header className='relative z-50 flex w-full'>
-      {isMenuOpen && (
-        <div className='fixed inset-0 bg-baseBlack opacity-50 transition-opacity'></div>
-      )}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          ...(isMenuOpen
+            ? { opacity: 0.5, display: 'block' }
+            : { opacity: 0, display: 'none' }),
+        }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+        className='fixed inset-0 bg-baseBlack'
+      ></motion.div>
 
       <div
-        className={`relative flex w-full items-center justify-between px-5 pb-2 pt-5 transition-all ${
-          isMenuOpen ? 'bg-backgroundSurface1' : 'bg-transparent'
-        }`}
+        className={
+          'relative flex w-full items-center justify-between bg-backgroundSurface1 px-5 pb-2 pt-5 transition-all'
+        }
       >
         <a href='/'>
           <LogoIcon />
@@ -47,9 +54,12 @@ export default function HomeHeader({
         </UiIconButton>
       </div>
 
-      <UiCollapse
-        isOpen={isMenuOpen}
-        duration={0.3}
+      <motion.div
+        initial={{ height: 0 }}
+        animate={{
+          height: isMenuOpen ? 'auto' : 15,
+        }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         className='z-100 absolute left-0 top-[100%] w-full overflow-hidden rounded-b-[16px] bg-backgroundSurface1'
       >
         <div ref={menuRef} className='flex flex-col gap-8 px-5 py-8'>
@@ -82,7 +92,12 @@ export default function HomeHeader({
 
           <UiHorizontalDivider className='w-full bg-componentPrimary' />
 
-          <div className='mt-auto flex flex-col gap-6'>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isMenuOpen ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className='mt-auto flex flex-col gap-6'
+          >
             <div className='flex items-center gap-4'>
               <Link href={config.xLink} target='_blank'>
                 <TwitterXFillIcon className={'text-textSecondary'} />
@@ -100,9 +115,9 @@ export default function HomeHeader({
             </span>
 
             <ThemeSwitcher />
-          </div>
+          </motion.div>
         </div>
-      </UiCollapse>
+      </motion.div>
     </header>
   )
 }
