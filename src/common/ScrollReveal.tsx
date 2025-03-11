@@ -66,7 +66,6 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
       if (match.index > lastIndex) {
         const preText = text.slice(lastIndex, match.index)
-        // Accumulate the processed text before the match
         parts = [...parts, ...processTextWithSpaces(preText)] as ReactNode[]
       }
 
@@ -83,7 +82,6 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
     if (lastIndex < text.length) {
       const remainingText = text.slice(lastIndex)
-      // Accumulate the remaining text after the last match
       parts = [...parts, ...processTextWithSpaces(remainingText)] as ReactNode[]
     }
 
