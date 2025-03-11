@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
@@ -24,9 +24,25 @@ export default function HomeHeader({
 }: HomeHeaderProps) {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolling, setScrolling] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
   useClickOutside(menuRef, () => setIsMenuOpen(false))
+
+  useEffect(() => {
+    const controller = new AbortController()
+    const { signal } = controller
+
+    const handleScroll = () => {
+      setScrolling(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll, { signal })
+
+    return () => {
+      controller.abort()
+    }
+  }, [])
 
   return (
     <header className='relative z-50 flex w-full'>
@@ -39,35 +55,53 @@ export default function HomeHeader({
         }}
         transition={{ duration: 0.3, delay: 0.3 }}
         className='fixed inset-0 bg-baseBlack'
-      ></motion.div>
+      />
 
       <div
-        className={
-          'relative flex w-full items-center justify-between bg-backgroundSurface1 px-5 py-5 transition-all'
-        }
+        className={`relative flex w-full items-center justify-between bg-backgroundPure ${
+          scrolling ? 'px-5 py-4' : 'px-5 py-5'
+        } transition-all`}
       >
         <a href='/'>
-          <LogoIcon />
+          <motion.div
+            initial={{ scale: 1 }}
+            animate={{
+              scale: scrolling ? 0.85 : 1,
+              x: scrolling ? -10 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <LogoIcon />
+          </motion.div>
         </a>
-        <UiIconButton size='small' onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? (
-            <motion.div
-              initial={{ rotate: 0 }}
-              animate={{ rotate: 180 }}
-              transition={{ duration: 0.3 }}
-            >
-              <CloseFillIcon />
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ rotate: 180 }}
-              animate={{ rotate: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Menu2FillIcon />
-            </motion.div>
-          )}
-        </UiIconButton>
+        <motion.div
+          initial={{ scale: 1 }}
+          animate={{ scale: scrolling ? 0.95 : 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <UiIconButton
+            size='medium'
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <motion.div
+                initial={{ rotate: 0 }}
+                animate={{ rotate: 180 }}
+                transition={{ duration: 0.3 }}
+              >
+                <CloseFillIcon />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ rotate: 180 }}
+                animate={{ rotate: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Menu2FillIcon />
+              </motion.div>
+            )}
+          </UiIconButton>
+        </motion.div>
       </div>
 
       <motion.div
@@ -76,7 +110,7 @@ export default function HomeHeader({
           height: isMenuOpen ? 'auto' : 0,
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className='z-100 absolute left-0 top-[100%] w-full overflow-hidden rounded-b-[16px] bg-backgroundSurface1'
+        className='z-100 absolute left-0 top-[100%] w-full overflow-hidden rounded-b-[16px] bg-backgroundPure'
       >
         <div ref={menuRef} className='flex flex-col gap-8 px-5 py-8'>
           <nav className='flex flex-col'>
