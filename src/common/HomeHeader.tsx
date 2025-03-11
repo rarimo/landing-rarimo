@@ -43,7 +43,7 @@ export default function HomeHeader({
 
       <div
         className={
-          'relative flex w-full items-center justify-between bg-backgroundSurface1 px-5 pb-2 pt-5 transition-all'
+          'relative flex w-full items-center justify-between bg-backgroundSurface1 px-5 py-5 transition-all'
         }
       >
         <a href='/'>
@@ -57,7 +57,7 @@ export default function HomeHeader({
       <motion.div
         initial={{ height: 0 }}
         animate={{
-          height: isMenuOpen ? 'auto' : 15,
+          height: isMenuOpen ? 'auto' : 0,
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className='z-100 absolute left-0 top-[100%] w-full overflow-hidden rounded-b-[16px] bg-backgroundSurface1'

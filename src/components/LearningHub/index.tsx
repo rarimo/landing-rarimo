@@ -14,8 +14,14 @@ export default async function LearningHub({
   const awaitedSearchParams = await searchParams
 
   return (
-    <div className={cn('flex flex-col overflow-hidden bg-backgroundPrimary')}>
-      <LearningHubNavbar searchParams={awaitedSearchParams} />
+    <div
+      className={cn(
+        'relative flex flex-col bg-backgroundPrimary lg:overflow-hidden',
+      )}
+    >
+      <div className='center border-r-lg sticky top-0 z-[50] bg-backgroundPure'>
+        <LearningHubNavbar searchParams={awaitedSearchParams} />
+      </div>
 
       <div
         className={cn(

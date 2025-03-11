@@ -28,7 +28,7 @@ export default function Homepage() {
       <div className={cn('fixed top-0 hidden h-dvh p-12 pr-0', 'lg:flex')}>
         <HomeSidebar activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
-      <div className='center sticky top-0 z-[50] bg-backgroundPure pb-3 lg:hidden'>
+      <div className='center border-r-lg sticky top-0 z-[50] bg-backgroundPure lg:hidden'>
         <HomeHeader activeLink={activeLink} setActiveLink={setActiveLink} />
       </div>
       <main
