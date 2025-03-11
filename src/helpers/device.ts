@@ -35,7 +35,6 @@ export function isDesktop() {
 export function isSafari() {
   return (
     typeof window !== 'undefined' &&
-    /Safari/i.test(navigator.userAgent) &&
-    !/Chrome/i.test(navigator.userAgent)
+    /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
   )
 }

@@ -33,6 +33,21 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 }) => {
   const containerRef = useRef<HTMLHeadingElement>(null)
 
+  const processTextWithSpaces = (textToProcess: string): ReactNode[] => {
+    const wordsWithSpaces = textToProcess.split(/(\s+)/) // Split the text into words and spaces
+    return wordsWithSpaces.map((word, i) => {
+      if (word.trim()) {
+        return (
+          <span key={`${word}-${i}`} className='word inline-block'>
+            {word}
+          </span>
+        )
+      }
+      // If it's just a space, return the space as it is
+      return word
+    })
+  }
+
   // Allow highlighting portions of text
   // and applying a className in the format [some text][classNameWithoutDot].
   // See example in ProjectSection.
@@ -42,56 +57,34 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     // Define a regular expression to match patterns like [text][className]
     const regex = /\[([^\]]*)\]\[([^\]]*)\]/g
 
-    const parts = []
+    let parts: ReactNode[] = []
     let lastIndex = 0
 
     let match
     while ((match = regex.exec(text)) !== null) {
+      const [fullMatch, word, className] = match
+
       if (match.index > lastIndex) {
         const preText = text.slice(lastIndex, match.index)
-
-        // Split the text into words and spaces
-        const wordsWithSpaces = preText.split(/(\s+)/)
-        wordsWithSpaces.forEach((word, i) => {
-          if (word.trim()) {
-            parts.push(
-              <span key={`${word}-${i}`} className='word inline-block'>
-                {word}
-              </span>,
-            )
-            return
-          }
-          // If it's just a space, push the space as it is
-          parts.push(word)
-        })
+        // Accumulate the processed text before the match
+        parts = [...parts, ...processTextWithSpaces(preText)] as ReactNode[]
       }
 
-      // process the matched pattern [text][className]
+      // Add the matched pattern [text][className] to the parts
       parts.push(
-        <span key={match[0]} className={match[2] + ' word'}>
-          {match[1]}
+        <span key={fullMatch} className={`${className} word`}>
+          {word}
         </span>,
       )
 
-      // searching for matches in the remaining text
+      // Searching for matches in the remaining text
       lastIndex = regex.lastIndex
     }
 
     if (lastIndex < text.length) {
       const remainingText = text.slice(lastIndex)
-      const wordsWithSpaces = remainingText.split(/(\s+)/) // Split the remaining text into words and spaces
-      wordsWithSpaces.forEach((word, i) => {
-        if (word.trim()) {
-          parts.push(
-            <span key={`${word}-${i}`} className='word inline-block'>
-              {word}
-            </span>,
-          )
-          return
-        }
-        // If it's just a space, push the space as it is
-        parts.push(word)
-      })
+      // Accumulate the remaining text after the last match
+      parts = [...parts, ...processTextWithSpaces(remainingText)] as ReactNode[]
     }
 
     return parts
