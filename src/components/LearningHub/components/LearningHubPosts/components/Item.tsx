@@ -39,7 +39,7 @@ export default function Item({
     >
       <div className='relative aspect-[362/186] w-full overflow-hidden rounded-2xl'>
         {isLoading && (
-          <div className='absolute inset-0 animate-pulse bg-backgroundSurface1' />
+          <div className='absolute inset-0 animate-pulse bg-componentPrimary' />
         )}
         <Image
           src={imgUrl}
