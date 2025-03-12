@@ -33,7 +33,7 @@ export default function LearningHubNavbar({
       className={cn(
         'mx-auto w-full max-w-[1136px]',
         'flex items-center',
-        'sm:px-6 sm:pt-8 lg:px-0',
+        'sm:px-6 sm:py-4 lg:px-0 lg:pb-0',
       )}
     >
       <Link href={'/'} className={cn('hidden', 'sm:flex')}>
@@ -46,10 +46,8 @@ export default function LearningHubNavbar({
       <div className={cn('ml-auto hidden items-center gap-4', 'sm:flex')}>
         <div
           className={cn(
-            'relative hidden min-h-[36px] w-[36px] min-w-[36px] overflow-hidden rounded-full bg-componentPrimary transition-all',
+            'relative hidden min-h-[36px] w-[36px] min-w-[36px] rounded-full bg-componentPrimary transition-all',
             'hover:w-[200px] has-[:active]:w-[200px] has-[:focus]:w-[200px]',
-            // TODO: uncomment once ready
-            // 'sm:flex',
           )}
         >
           <div className='absolute right-0 flex items-center justify-end pl-3'>

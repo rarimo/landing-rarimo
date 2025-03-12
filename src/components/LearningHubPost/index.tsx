@@ -1,6 +1,7 @@
 import { time } from '@distributedlab/tools'
 import DOMPurify from 'isomorphic-dompurify'
 import { ArrowLeft, Calendar } from 'lucide-react'
+import { headers } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -53,6 +54,17 @@ export default async function LearningHubPostPage({
   try {
     const post = await resolvingPost(params.id)
 
+    const referer = headers().get('referer')
+    const host = headers().get('host')
+    const currentUrl = host
+      ? new URL(`/learning-hub/${params.id}`, `https://${host}`).toString()
+      : `/learning-hub/${params.id}`
+
+    const backUrl =
+      referer && referer.includes('/learning-hub') && referer !== currentUrl
+        ? referer
+        : '/learning-hub'
+
     return (
       <>
         <LearningHubNavbar />
@@ -65,9 +77,8 @@ export default async function LearningHubPostPage({
           <UiHorizontalDivider className='my-6' />
 
           <div className='relative flex w-full flex-col'>
-            {/*TODO: navigate back with same parameters*/}
             <Link
-              href={'/learning-hub'}
+              href={backUrl}
               className={cn('p-4', 'md:absolute md:left-0 md:top-0 md:p-0')}
               data-aos='fade-in'
             >
@@ -104,19 +115,19 @@ export default async function LearningHubPostPage({
                   src={post.attributes.coverImage}
                   alt={post.attributes.title}
                   className='aspect-[671/336] rounded-2xl'
-                  data-aos='fade-up'
+                  data-aos='fade'
                 />
               )}
 
               <h2
                 className='mt-6 text-textPrimary typography-h2'
-                data-aos='fade-up'
+                data-aos='fade'
               >
                 {post.attributes.title}
               </h2>
               <div
                 className='mb-3 mt-4 flex items-center gap-2'
-                data-aos='fade-up'
+                data-aos='fade'
               >
                 <Calendar className={'size-4 text-textSecondary'} />
                 <span className='text-textSecondary typography-subtitle5'>
@@ -128,7 +139,7 @@ export default async function LearningHubPostPage({
                 id='post-content'
                 className='mt-5 w-full max-w-full overflow-hidden'
                 dangerouslySetInnerHTML={createMarkup(post.attributes.content)}
-                data-aos='fade-up'
+                data-aos='fade'
               />
 
               <div

@@ -1,8 +1,7 @@
-'use client'
-
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
 import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
@@ -14,7 +13,7 @@ import { AnchorsList, AnchorsListProps, NavItem } from '@/common/HomeSidebar'
 import ThemeSwitcher from '@/common/ThemeSwitcher'
 import { config } from '@/config'
 import { useClickOutside } from '@/hooks'
-import { ExtIconLink, UiCollapse, UiHorizontalDivider } from '@/ui'
+import { ExtIconLink, UiHorizontalDivider } from '@/ui'
 import UiIconButton from '@/ui/UiIconButton'
 
 type HomeHeaderProps = AnchorsListProps
@@ -24,35 +23,112 @@ export default function HomeHeader({
   setActiveLink,
 }: HomeHeaderProps) {
   const pathname = usePathname()
-
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolledDown, setIsScrolledDown] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
   useClickOutside(menuRef, () => setIsMenuOpen(false))
 
+  useEffect(() => {
+    const controller = new AbortController()
+    const { signal } = controller
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        setIsScrolledDown(window.scrollY > 50)
+      },
+      { signal },
+    )
+    window.addEventListener(
+      'resize',
+      () => {
+        setIsMenuOpen(false)
+      },
+      { signal },
+    )
+
+    return () => {
+      controller.abort()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMenuOpen])
+
   return (
     <header className='relative z-50 flex w-full'>
-      {isMenuOpen && (
-        <div className='fixed inset-0 bg-baseBlack opacity-50 transition-opacity'></div>
-      )}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          ...(isMenuOpen
+            ? { opacity: 0.5, display: 'block' }
+            : { opacity: 0, display: 'none' }),
+        }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+        className='fixed inset-0 bg-baseBlack'
+      />
 
       <div
-        className={`relative flex w-full items-center justify-between px-5 pb-2 pt-5 transition-all ${
-          isMenuOpen ? 'bg-backgroundSurface1' : 'bg-transparent'
-        }`}
+        className={`relative flex w-full items-center justify-between bg-backgroundPure px-5 ${
+          isScrolledDown ? 'py-4' : 'py-5'
+        } transition-all`}
       >
         <a href='/'>
-          <LogoIcon />
+          <motion.div
+            initial={{ scale: 1 }}
+            animate={{
+              scale: isScrolledDown ? 0.85 : 1,
+              x: isScrolledDown ? -10 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <LogoIcon />
+          </motion.div>
         </a>
-        <UiIconButton size='small' onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <CloseFillIcon /> : <Menu2FillIcon />}
-        </UiIconButton>
+        <motion.div
+          initial={{ scale: 1 }}
+          animate={{ scale: isScrolledDown ? 0.95 : 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <UiIconButton
+            size='medium'
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <motion.div
+                initial={{ rotate: 0 }}
+                animate={{ rotate: 180 }}
+                transition={{ duration: 0.3 }}
+              >
+                <CloseFillIcon />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ rotate: 180 }}
+                animate={{ rotate: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Menu2FillIcon />
+              </motion.div>
+            )}
+          </UiIconButton>
+        </motion.div>
       </div>
 
-      <UiCollapse
-        isOpen={isMenuOpen}
-        duration={0.3}
-        className='z-100 absolute left-0 top-[100%] w-full overflow-hidden rounded-b-[16px] bg-backgroundSurface1'
+      <motion.div
+        initial={{ height: 0 }}
+        animate={{
+          height: isMenuOpen ? 'auto' : 0,
+        }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className='z-100 absolute left-0 top-[100%] w-full overflow-hidden rounded-b-[16px] bg-backgroundPure'
       >
         <div ref={menuRef} className='flex flex-col gap-8 px-5 py-8'>
           <nav className='flex flex-col'>
@@ -84,7 +160,12 @@ export default function HomeHeader({
 
           <UiHorizontalDivider className='w-full bg-componentPrimary' />
 
-          <div className='mt-auto flex flex-col gap-6'>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isMenuOpen ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className='mt-auto flex flex-col gap-6'
+          >
             <div className='flex items-center gap-4'>
               <Link href={config.xLink} target='_blank'>
                 <TwitterXFillIcon className={'text-textSecondary'} />
@@ -102,9 +183,9 @@ export default function HomeHeader({
             </span>
 
             <ThemeSwitcher />
-          </div>
+          </motion.div>
         </div>
-      </UiCollapse>
+      </motion.div>
     </header>
   )
 }
