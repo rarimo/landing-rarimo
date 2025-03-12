@@ -1,6 +1,5 @@
 'use client'
 
-import clsx from 'clsx'
 import { ArrowLeft } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
@@ -20,7 +19,7 @@ export default function BackLink({ referer }: { referer: string | null }) {
 
   return (
     <button
-      className={clsx('p-4', 'md:absolute md:left-0 md:top-0 md:p-0')}
+      className={'p-4 md:absolute md:left-0 md:top-0 md:p-0'}
       data-aos='fade-in'
       onClick={goBack}
     >

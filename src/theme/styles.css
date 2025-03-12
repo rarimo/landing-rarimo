@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+html,
+body {
+  @apply size-full;
+}
+
+@screen lg {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+.gradient1 {
+  @apply bg-gradient-to-r from-[#45C45C] to-[#39CDA0];
+}
+
+.gradient2 {
+  @apply bg-gradient-to-r from-[#82ED95] to-[#82EDC0];
+}
+
+.gradient3 {
+  @apply bg-gradient-to-r from-[#AC95DC] to-[#CD90F3];
+}
+
+.gradient4 {
+  @apply bg-gradient-to-r from-[#383838] to-[#282828];
+}
+
+.typed-cursor {
+  @apply gradient1 ml-1 inline-block h-[40%] w-1;
+}
+
+#post-content p {
+  @apply mt-4 whitespace-pre-line text-textPrimary typography-body2;
+}
+#post-content span {
+  @apply mt-4 whitespace-pre-line text-textPrimary typography-body2;
+}
+#post-content img {
+  @apply mt-6 h-auto w-full rounded-xl;
+}
+#post-content ul {
+  @apply mt-4 list-inside list-disc;
+}
+#post-content ol {
+  @apply mt-4 list-inside list-decimal;
+}
+#post-content a {
+  @apply underline;
+}
+#post-content h1 {
+  @apply mt-6 text-textPrimary typography-h1;
+}
+#post-content h2 {
+  @apply mt-6 text-textPrimary typography-h2;
+}
+#post-content h3 {
+  @apply mt-6 text-textPrimary typography-h3;
+}
+#post-content h4 {
+  @apply mt-6 text-textPrimary typography-h4;
+}
+#post-content h5 {
+  @apply mt-6 text-textPrimary typography-h5;
+}
+#post-content h6 {
+  @apply mt-6 text-textPrimary typography-h6;
+}
+#post-content blockquote {
+  @apply my-4 border-s-4 border-componentPrimary bg-backgroundContainer p-4;
+}
+#post-content hr {
+  @apply my-12 border-s-4 border-componentPrimary;
+}
+#post-content pre {
+  @apply mt-4 whitespace-pre;
+}
+#post-content code {
+  @apply my-4 block overflow-x-scroll whitespace-pre rounded-xl bg-backgroundContainer p-4;
+}/*# sourceMappingURL=styles.css.map */
