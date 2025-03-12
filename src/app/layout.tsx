@@ -3,8 +3,9 @@ import '@/theme/styles.scss'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { getTranslations } from 'next-intl/server'
+import { ScrollRestorer } from 'next-scroll-restorer'
 import { ThemeProvider } from 'next-themes'
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
 
 import AosInit from '@/common/AosInit'
 import { config } from '@/config'
@@ -77,6 +78,9 @@ export default async function RootLayout({
         <AosInit />
         <GoogleAnalytics gaId={config.GoogleAnalyticsId} />
         <ThemeProvider>{children}</ThemeProvider>
+        <Suspense>
+          <ScrollRestorer />
+        </Suspense>
       </body>
     </html>
   )

@@ -5599,6 +5599,7 @@ __metadata:
     motion: "npm:^11.16.0"
     next: "npm:14.2.3"
     next-intl: "npm:^3.17.2"
+    next-scroll-restorer: "npm:^0.9.9"
     next-themes: "npm:^0.4.4"
     ogl: "npm:^1.0.11"
     postcss: "npm:^8"
@@ -6084,6 +6085,16 @@ __metadata:
     next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || >=19.0.0-rc <19.0.0 || ^19.0.0
   checksum: 10c0/dec9014a9df7049a9f5b4cf60503c217e4e8b40f895951d7294cdfe34d23a00034e42b234b856e04e5c6aecd7a6ee0ebd85d92934dbaf4ed7098dfdc2c181002
+  languageName: node
+  linkType: hard
+
+"next-scroll-restorer@npm:^0.9.9":
+  version: 0.9.9
+  resolution: "next-scroll-restorer@npm:0.9.9"
+  peerDependencies:
+    next: ^14.0 || ^15.0
+    react: ^18.0 || ^19.0
+  checksum: 10c0/f006804f7661a0a1f9ba01ca6a53d42f9c606da7d4c5ca464db8904462b84b4e4f3ce35dc875f4ea0928b5b5fcb2030bb151b66bea5c899d6ad54bd0be35b2b6
   languageName: node
   linkType: hard
 

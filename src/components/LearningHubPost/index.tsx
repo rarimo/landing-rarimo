@@ -1,8 +1,7 @@
 import { time } from '@distributedlab/tools'
 import DOMPurify from 'isomorphic-dompurify'
-import { ArrowLeft, Calendar } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 import { headers } from 'next/headers'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import LearningHubFooter from '@/components/LearningHub/components/LearningHubFooter'
@@ -11,6 +10,8 @@ import { LearningHubPost } from '@/components/LearningHub/types'
 import { config } from '@/config'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
+
+import BackLink from './components/Back'
 
 const createMarkup = (htmlString: string) => {
   const safeHTML = DOMPurify.sanitize(htmlString)
@@ -53,17 +54,7 @@ export default async function LearningHubPostPage({
 }: LearningHubPostPageProps) {
   try {
     const post = await resolvingPost(params.id)
-
     const referer = headers().get('referer')
-    const host = headers().get('host')
-    const currentUrl = host
-      ? new URL(`/learning-hub/${params.id}`, `https://${host}`).toString()
-      : `/learning-hub/${params.id}`
-
-    const backUrl =
-      referer && referer.includes('/learning-hub') && referer !== currentUrl
-        ? referer
-        : '/learning-hub'
 
     return (
       <>
@@ -77,13 +68,7 @@ export default async function LearningHubPostPage({
           <UiHorizontalDivider className='my-6' />
 
           <div className='relative flex w-full flex-col'>
-            <Link
-              href={backUrl}
-              className={cn('p-4', 'md:absolute md:left-0 md:top-0 md:p-0')}
-              data-aos='fade-in'
-            >
-              <ArrowLeft className='size-4 text-textSecondary' />
-            </Link>
+            <BackLink referer={referer} />
 
             <div className='mx-auto flex w-full max-w-[671px] flex-col overflow-hidden'>
               {post.attributes.videoUrl ? (
