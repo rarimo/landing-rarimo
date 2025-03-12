@@ -12,8 +12,12 @@ import { config } from '@/config'
 import { cn } from '@/theme/utils'
 import { UiHorizontalDivider } from '@/ui'
 
+import TwitterWidget from './TwitterWidget'
+
 const createMarkup = (htmlString: string) => {
-  const safeHTML = DOMPurify.sanitize(htmlString)
+  const safeHTML = DOMPurify.sanitize(htmlString, {
+    ADD_TAGS: ['iframe'],
+  })
 
   return { __html: safeHTML }
 }
@@ -118,6 +122,7 @@ export default async function LearningHubPostPage({
                   data-aos='fade'
                 />
               )}
+              <TwitterWidget />
 
               <h2
                 className='mt-6 text-textPrimary typography-h2'
