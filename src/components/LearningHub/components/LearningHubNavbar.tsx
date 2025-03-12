@@ -33,7 +33,7 @@ export default function LearningHubNavbar({
       className={cn(
         'mx-auto w-full max-w-[1136px]',
         'flex items-center',
-        'sm:px-6 sm:pt-8 lg:px-0',
+        'sm:px-6 sm:py-4 lg:px-0 lg:pb-0',
       )}
     >
       <Link href={'/'} className={cn('hidden', 'sm:flex')}>

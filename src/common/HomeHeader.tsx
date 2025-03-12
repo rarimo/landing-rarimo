@@ -24,7 +24,7 @@ export default function HomeHeader({
 }: HomeHeaderProps) {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolling, setScrolling] = useState(false)
+  const [isScrolledDown, setIsScrolledDown] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
   useClickOutside(menuRef, () => setIsMenuOpen(false))
@@ -36,7 +36,7 @@ export default function HomeHeader({
     window.addEventListener(
       'scroll',
       () => {
-        setScrolling(window.scrollY > 50)
+        setIsScrolledDown(window.scrollY > 50)
       },
       { signal },
     )
@@ -76,16 +76,16 @@ export default function HomeHeader({
       />
 
       <div
-        className={`relative flex w-full items-center justify-between bg-backgroundPure ${
-          scrolling ? 'px-5 py-4' : 'px-5 py-5'
+        className={`relative flex w-full items-center justify-between bg-backgroundPure px-5 ${
+          isScrolledDown ? 'py-4' : 'py-5'
         } transition-all`}
       >
         <a href='/'>
           <motion.div
             initial={{ scale: 1 }}
             animate={{
-              scale: scrolling ? 0.85 : 1,
-              x: scrolling ? -10 : 0,
+              scale: isScrolledDown ? 0.85 : 1,
+              x: isScrolledDown ? -10 : 0,
             }}
             transition={{ duration: 0.3 }}
           >
@@ -94,7 +94,7 @@ export default function HomeHeader({
         </a>
         <motion.div
           initial={{ scale: 1 }}
-          animate={{ scale: scrolling ? 0.95 : 1 }}
+          animate={{ scale: isScrolledDown ? 0.95 : 1 }}
           transition={{ duration: 0.3 }}
         >
           <UiIconButton
