@@ -87,7 +87,7 @@ body {
     @apply mt-6 text-textPrimary typography-h6;
   }
 
-  blockquote {
+  blockquote:not(.twitter-tweet) {
     @apply my-4 border-s-4 border-componentPrimary bg-backgroundContainer p-4;
   }
 
@@ -101,5 +101,17 @@ body {
 
   code {
     @apply my-4 block overflow-x-scroll whitespace-pre rounded-xl bg-backgroundContainer p-4;
+  }
+
+  iframe {
+    @apply my-4 w-full aspect-video;
+  }
+
+  .twitter-tweet {
+    @apply my-4 mx-auto;
+
+    & > iframe {
+      @apply rounded-xl;
+    }
   }
 }
