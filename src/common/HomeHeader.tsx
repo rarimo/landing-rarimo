@@ -37,12 +37,26 @@ export default function HomeHeader({
       setScrolling(window.scrollY > 50)
     }
 
+    const handleResize = () => {
+      setIsMenuOpen(false)
+    }
+
     window.addEventListener('scroll', handleScroll, { signal })
+    window.addEventListener('resize', handleResize, { signal })
 
     return () => {
       controller.abort()
     }
   }, [])
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMenuOpen])
 
   return (
     <header className='relative z-50 flex w-full'>
