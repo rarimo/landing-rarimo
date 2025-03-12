@@ -33,16 +33,20 @@ export default function HomeHeader({
     const controller = new AbortController()
     const { signal } = controller
 
-    const handleScroll = () => {
-      setScrolling(window.scrollY > 50)
-    }
-
-    const handleResize = () => {
-      setIsMenuOpen(false)
-    }
-
-    window.addEventListener('scroll', handleScroll, { signal })
-    window.addEventListener('resize', handleResize, { signal })
+    window.addEventListener(
+      'scroll',
+      () => {
+        setScrolling(window.scrollY > 50)
+      },
+      { signal },
+    )
+    window.addEventListener(
+      'resize',
+      () => {
+        setIsMenuOpen(false)
+      },
+      { signal },
+    )
 
     return () => {
       controller.abort()
