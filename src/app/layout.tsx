@@ -21,7 +21,7 @@ export async function generateMetadata() {
     description: t('metadata.description'),
 
     openGraph: {
-      title: t('metadata.openGraph.description'),
+      title: t('metadata.openGraph.title'),
       description: t('metadata.openGraph.description'),
       type: 'website',
       url: t('metadata.openGraph.url'),
