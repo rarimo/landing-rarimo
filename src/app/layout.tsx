@@ -1,13 +1,11 @@
 import 'swiper/css'
 import '@/theme/styles.scss'
 
-import { GoogleAnalytics } from '@next/third-parties/google'
 import { getTranslations } from 'next-intl/server'
 import { ThemeProvider } from 'next-themes'
 import { ReactNode } from 'react'
 
 import AosInit from '@/common/AosInit'
-import { config } from '@/config'
 import { locales } from '@/i18n/request'
 import { appFontClassName } from '@/theme/fonts'
 import { cn } from '@/theme/utils'
@@ -75,7 +73,6 @@ export default async function RootLayout({
       </head>
       <body>
         <AosInit />
-        <GoogleAnalytics gaId={config.GoogleAnalyticsId} />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

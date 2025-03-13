@@ -18,5 +18,6 @@ export const config = {
   learningHubApiUrl: 'https://hub.rarimo.com/api',
   learningHubApiCacheInvalidateDur: 60,
 
-  GoogleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID as string,
+  gaIdRarimo: process.env.NEXT_PUBLIC_GA_ID_RARIMO as string,
+  gaIdHub: process.env.NEXT_PUBLIC_GA_ID_HUB as string,
 }
