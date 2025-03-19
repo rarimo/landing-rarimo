@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { AnchorHTMLAttributes, DetailedHTMLProps, HTMLAttributes } from 'react'
 
-import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
@@ -66,9 +65,6 @@ export function HomeSidebar({
           </Link>
           <Link href={config.telegramLink} target='_blank'>
             <TelegramLineIcon className={linkStyle} />
-          </Link>
-          <Link href={config.discordLink} target='_blank'>
-            <DiscordLineIcon className={linkStyle} />
           </Link>
         </div>
 

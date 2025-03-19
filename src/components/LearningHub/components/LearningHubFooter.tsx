@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
 import { config } from '@/config'
@@ -17,9 +16,6 @@ export default function LearningHubFooter() {
         </Link>
         <Link href={config.telegramLink} target='_blank'>
           <TelegramLineIcon className={linkClasses} />
-        </Link>
-        <Link href={config.discordLink} target='_blank'>
-          <DiscordLineIcon className={linkClasses} />
         </Link>
       </div>
 

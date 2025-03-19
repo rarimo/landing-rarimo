@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
-import DiscordLineIcon from '@/assets/icons/discord-line-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import Menu2FillIcon from '@/assets/icons/menu-2-fill-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
@@ -172,9 +171,6 @@ export default function HomeHeader({
               </Link>
               <Link href={config.telegramLink} target='_blank'>
                 <TelegramLineIcon className={'text-textSecondary'} />
-              </Link>
-              <Link href={config.discordLink} target='_blank'>
-                <DiscordLineIcon className={'text-textSecondary'} />
               </Link>
             </div>
 

@@ -4,7 +4,6 @@ export const config = {
   zkRegistriesLink: 'https://docs.rarimo.com/',
   ercLink:
     'https://ethereum-magicians.org/t/erc-7812-zk-identity-registry/21624',
-  discordLink: 'https://discord.gg/Bzjm5MDXrU',
   xLink: 'https://twitter.com/Rarimo_protocol',
   telegramLink: 'https://t.me/+pWugh5xgDiE3Y2Jk',
 
