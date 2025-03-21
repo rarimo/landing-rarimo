@@ -91,7 +91,7 @@ function DesktopQRCodeBlock({ onBlockClose }: { onBlockClose: () => void }) {
         Download the <br /> RariMe app
       </span>
       <QRCode
-        value={config.universityLink}
+        value={config.rarimeLink}
         size={105}
         enableCORS
         qrStyle='dots'

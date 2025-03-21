@@ -3,7 +3,7 @@ export const projectsList = [
     title: 'RariMe',
     description: 'Self-recoverable identity and crypto wallet',
     imageUrl: '/images/projects/rarime-icon.png',
-    link: 'https://rarime.com/',
+    link: 'https://rarime.onelink.me/Hwry/ref',
   },
   {
     title: 'Freedomtool',
