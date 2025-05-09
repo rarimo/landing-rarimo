@@ -121,20 +121,20 @@ export default function EcosystemSection() {
           <span
             className={cn(
               'text-baseBlack opacity-80 typography-h4',
-              'lg:typography-h2',
+              'lg:typography-h3',
             )}
           >
-            Self Issuance & Recovery
+            Censorship resistance
           </span>
         </EcosystemStackCard>
-        <EcosystemStackCard className={'gradient1'}>
+        <EcosystemStackCard className={'gradient2'}>
           <span
             className={cn(
               'text-baseBlack opacity-80 typography-h4',
-              'lg:typography-h2',
+              'lg:typography-h3',
             )}
           >
-            Shared privacy layer
+            Unprecedented Privacy
           </span>
         </EcosystemStackCard>
         <EcosystemStackCard
@@ -153,10 +153,12 @@ export default function EcosystemSection() {
           <span
             className={cn(
               'text-baseWhite opacity-80 typography-h4',
-              'lg:typography-h2',
+              'lg:typography-h3',
             )}
           >
-            Secured by Ethereum and Rarimo Layer 2
+            Secured by Ethereum
+            <br />
+            and Rarimo Layer 2
           </span>
         </EcosystemStackCard>
       </div>
