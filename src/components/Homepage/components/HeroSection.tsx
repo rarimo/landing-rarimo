@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react'
 import Typed from 'typed.js'
 
 import ArrowRightSLineIcon from '@/assets/icons/arrow-right-s-line-icon.svg'
+import EthIcon from '@/assets/icons/eth-icon.svg'
 import Aurora from '@/common/Aurora'
 import { config } from '@/config'
 import { Anchors, Theme } from '@/enums'
@@ -21,7 +22,7 @@ export default function HeroSection() {
     if (!typoRef.current) return
 
     const typed = new Typed(typoRef.current, {
-      strings: ['Device', 'Identity'],
+      strings: ['your rules'],
       typeSpeed: 120,
       backSpeed: 80,
       loop: true,
@@ -70,24 +71,38 @@ export default function HeroSection() {
           <div className='h-[70%] w-[1px] bg-componentPrimary' />
           <ArrowRightSLineIcon />
         </Link>
-        <h1 className='h-[174px] md:h-[256px]'>
+        <h1 className='h-[200px] md:h-[256px]'>
           <span
             className={cn(
               'text-textPrimary typography-display4',
               'md:typography-display2',
             )}
           >
-            Your
+            Your identity
           </span>
           <br />
           <span
             className={cn(
-              'gradient1 bg-clip-text text-transparent typography-display3',
+              'gradient1 bg-clip-text text-transparent typography-display4',
               'md:typography-display1',
             )}
             ref={typoRef}
           ></span>
         </h1>
+        <br />
+        <div className='flex items-center gap-2 lg:h-[0px]'>
+          <span className='text-textSecondary typography-body2'>Built as</span>
+          <div className='flex items-center gap-1'>
+            <EthIcon className='text-textPrimary' />
+            <Link
+              href={config.ercLink}
+              target='_blank'
+              className='text-textPrimary underline typography-body2'
+            >
+              ERC 7812
+            </Link>
+          </div>
+        </div>
       </div>
     </UiContainer>
   )
