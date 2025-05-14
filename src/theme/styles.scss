@@ -39,6 +39,10 @@ body {
   @apply bg-gradient-to-r from-[#383838] to-[#282828];
 }
 
+.gradient5 {
+  @apply bg-gradient-to-r from-[#EAEC9B] to-[#C1F0A5];
+}
+
 .typed-cursor {
   @apply gradient1 ml-1 inline-block h-[40%] w-1;
 }
@@ -104,11 +108,11 @@ body {
   }
 
   iframe {
-    @apply my-4 w-full aspect-video;
+    @apply my-4 aspect-video w-full;
   }
 
   .twitter-tweet {
-    @apply my-4 mx-auto;
+    @apply mx-auto my-4;
 
     & > iframe {
       @apply rounded-xl;
