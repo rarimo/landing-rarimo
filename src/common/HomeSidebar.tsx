@@ -92,6 +92,8 @@ export function AnchorsList({
   const sectionAnchors = [
     { title: 'Home', anchor: Anchors.Home },
     { title: 'Ecosystem', anchor: Anchors.Ecosystem },
+    { title: 'zkAI', anchor: Anchors.ZkAI },
+    { title: 'ZK Passport', anchor: Anchors.ZkPassport },
     { title: 'L2: ZK Registries', anchor: Anchors.ZkRegistries },
     { title: 'Community', anchor: Anchors.Community },
   ]
