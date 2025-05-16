@@ -16,8 +16,7 @@ export default function UiGradientDecor({
     <div className={cn('overflow-hidden', containerClassName)}>
       <div
         className={cn(
-          'rounded-[50%] blur-[70px] background-gradient',
-          'absolute',
+          'absolute rounded-[50%] blur-[70px] background-gradient',
           gradientClassName,
         )}
         {...rest}

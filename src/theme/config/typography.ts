@@ -1,9 +1,8 @@
-import defaultTheme from 'tailwindcss/defaultTheme'
 import type { CSSRuleObject, ThemeConfig } from 'tailwindcss/types/config'
 
 export const PRIMARY_FONT_VARIABLE = '--font-primary' as const
 export const fontFamily: ThemeConfig['fontFamily'] = {
-  primary: `var(${PRIMARY_FONT_VARIABLE}, ${defaultTheme.fontFamily.sans})`,
+  primary: `var(${PRIMARY_FONT_VARIABLE}`,
 }
 
 export const typography: CSSRuleObject = {
@@ -13,7 +12,7 @@ export const typography: CSSRuleObject = {
     fontWeight: '700',
   },
   '.typography-display2': {
-    'font-size': '140px',
+    'font-size': '120px',
     'line-height': '120px',
     fontWeight: '500',
   },
