@@ -1,8 +1,18 @@
+import { useTheme } from 'next-themes'
+import { useMemo } from 'react'
+
 import Lock2FillIcon from '@/assets/icons/lock-2-fill-icon.svg'
-import { Anchors } from '@/enums'
+import { Anchors, Theme } from '@/enums'
 import { UiContainer } from '@/ui'
 
 export default function ZkPassportSection() {
+  const { resolvedTheme } = useTheme()
+
+  const isDarkTheme = useMemo(
+    () => resolvedTheme === Theme.Dark,
+    [resolvedTheme],
+  )
+
   const renderPrivacy = () => {
     return (
       <div className='mb-[12px] flex w-full flex-col items-center gap-[8px] lg:w-fit lg:items-start'>
@@ -22,7 +32,7 @@ export default function ZkPassportSection() {
   return (
     <UiContainer
       id={Anchors.ZkPassport}
-      className='bg-backgroundContainer p-10 md:p-20 md:pt-[80px]'
+      className='bg-backgroundContainer p-5 md:p-20 md:pt-[80px]'
       fullHeightContainerClassName='md:pt-0 md:pb-8'
       showGradientDecor
       isFullHeight={false}
@@ -50,32 +60,15 @@ export default function ZkPassportSection() {
           </div>
 
           <div className='flex flex-col gap-[8px]'>
-            <div className='relative mt-[40px] flex  items-center justify-center rounded-b-[8px] rounded-t-[40px] bg-additionalOpacited px-[40px] py-[26px] md:min-w-[565px] lg:mt-0'>
+            <div className='mt-[40px] flex  items-center justify-center rounded-b-[8px] rounded-t-[40px] bg-additionalOpacited p-[15px] md:max-w-[565px] lg:mt-0'>
               <img
                 alt='passport'
-                className='z-10 block aspect-[0.6] max-w-[150px] lg:max-w-[236px]'
-                src='images/zkPassport/passport.png'
+                src={
+                  isDarkTheme
+                    ? 'images/zkPassport/passport-dark.png'
+                    : 'images/zkPassport/passport-light.png'
+                }
               />
-              <div className='absolute flex w-full flex-col items-center gap-[70px]'>
-                <div className='flex w-[87%] items-center gap-[15px]'>
-                  <p className='text-textPlaceholder typography-caption1'>
-                    Citizenship
-                  </p>
-                  <div className='h-[30px] w-full justify-between bg-[repeating-linear-gradient(90deg,theme(colors.textPlaceholder),theme(colors.textPlaceholder)_5px,transparent_5px,transparent_10px)]'></div>
-                  <p className='text-textPlaceholder typography-caption1'>
-                    Uniqueness
-                  </p>
-                </div>
-                <div className='flex w-[67%] items-center gap-[15px]'>
-                  <p className='text-textPlaceholder typography-caption1'>
-                    Name
-                  </p>
-                  <div className='h-[30px] w-full justify-between bg-[repeating-linear-gradient(90deg,theme(colors.textPlaceholder),theme(colors.textPlaceholder)_5px,transparent_5px,transparent_10px)]'></div>
-                  <p className='text-textPlaceholder typography-caption1'>
-                    Age
-                  </p>
-                </div>
-              </div>
             </div>
             <div>
               <p className='mx-auto rounded-b-[40px] rounded-t-[8px] bg-additionalOpacited px-[42px] py-[42px] text-center typography-body1'>

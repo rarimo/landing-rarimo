@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
+import { useTheme } from 'next-themes'
+import { useMemo, useState } from 'react'
 
 import ArrowLeftSLine from '@/assets/icons/arrow-left-s-line-icon.svg'
 import Lock2FillIcon from '@/assets/icons/lock-2-fill-icon.svg'
-import { Anchors } from '@/enums'
+import { Anchors, Theme } from '@/enums'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiIconButton } from '@/ui'
 
@@ -67,10 +68,17 @@ const wrapperVariants = {
 
 export default function ZkAISection() {
   const [isOpen, setIsOpen] = useState(false)
+  const { resolvedTheme } = useTheme()
+
+  const isDarkTheme = useMemo(
+    () => resolvedTheme === Theme.Dark,
+    [resolvedTheme],
+  )
+
   return (
     <UiContainer
       id={Anchors.ZkAI}
-      className='bg-backgroundContainer p-10 md:px-20 md:pt-[50px]'
+      className='bg-backgroundContainer p-5 md:px-20 md:pt-[50px]'
       fullHeightContainerClassName='md:pt-0 md:pb-8'
       showGradientDecor
       isFullHeight={false}
@@ -110,17 +118,21 @@ export default function ZkAISection() {
                 <div className='flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
                   <img
                     className='ratio-[1.8] max-h-[164px]'
-                    src='images/zkAi/watermarking.png'
+                    src={
+                      isDarkTheme
+                        ? 'images/zkAi/watermarking-dark.png'
+                        : 'images/zkAi/watermarking-light.png'
+                    }
                     alt='Interactive watermarks'
                   />
                 </div>
               </div>
-              <div className='h-[230px] rounded-b-[32px] border border-backgroundPrimary bg-additionalOpacited px-[32px] pt-[24px] lg:h-[209px]'>
+              <div className='h-[250px] rounded-b-[32px] border border-backgroundPrimary bg-additionalOpacited px-[32px] pt-[24px] lg:h-[209px]'>
                 <div className='flex flex-col gap-[8px]'>
                   <h3 className='text-textPrimary typography-h3'>
                     Interactive watermarks
                   </h3>
-                  <p className='max-w-[274px] text-textSecondary typography-body3'>
+                  <p className='text-textSecondary typography-body3 md:max-w-[274px]'>
                     Tamper-proof watermarking with tolerance to partial output
                     modification
                   </p>
@@ -142,7 +154,11 @@ export default function ZkAISection() {
                 <div className='relative flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
                   <img
                     className='ratio-[1.8] absolute bottom-0 max-h-[200px] lg:max-h-[240px]'
-                    src='images/zkAi/digital-likeness.png'
+                    src={
+                      isDarkTheme
+                        ? 'images/zkAi/digital-likeness-dark.png'
+                        : 'images/zkAi/digital-likeness-light.png'
+                    }
                     alt='Interactive watermarks'
                   />
                 </div>
@@ -171,7 +187,9 @@ export default function ZkAISection() {
 
           <div className='flex flex-col'>
             <div
-              className={cn('mx-auto mt-[32px] flex items-center gap-[12px]')}
+              className={cn(
+                'mx-auto mt-[16px] flex items-center gap-[12px] md:mt-[32px]',
+              )}
             >
               <UiIconButton
                 className={cn(
