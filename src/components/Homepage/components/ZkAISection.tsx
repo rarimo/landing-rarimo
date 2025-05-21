@@ -120,7 +120,11 @@ export default function ZkAISection() {
                 <div className='relative flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
                   <img
                     className='ratio-[1.8] absolute bottom-0 max-h-[200px] lg:max-h-[227px]'
-                    src='/images/zkAI/self-recovery.png'
+                    src={
+                      isDarkTheme
+                        ? '/images/zkAI/self-recovery-dark.png'
+                        : '/images/zkAI/self-recovery-light.png'
+                    }
                     alt='Self recovery'
                   />
                 </div>
