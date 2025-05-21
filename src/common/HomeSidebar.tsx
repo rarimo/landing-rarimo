@@ -94,7 +94,6 @@ export function AnchorsList({
     { title: 'Ecosystem', anchor: Anchors.Ecosystem },
     { title: 'zk Image Recoginition', anchor: Anchors.ZkAI },
     { title: 'ZK Passport', anchor: Anchors.ZkPassport },
-    { title: 'L2: ZK Registries', anchor: Anchors.ZkRegistries },
     { title: 'Community', anchor: Anchors.Community },
   ]
 

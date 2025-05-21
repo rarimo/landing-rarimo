@@ -11,7 +11,6 @@ import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
 import NewsSection from '@/components/Homepage/components/NewsSection'
 import ProjectsSection from '@/components/Homepage/components/ProjectsSection'
-import RegistriesSection from '@/components/Homepage/components/RegistriesSection'
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 
@@ -85,16 +84,7 @@ export default function Homepage() {
         </IntersectionComponent>
 
         <ProjectsSection />
-        <IntersectionComponent
-          id={Anchors.ZkRegistries}
-          onIntersect={() => {
-            if (activeLink === Anchors.ZkRegistries) return
 
-            setActiveLink(Anchors.ZkRegistries)
-          }}
-        >
-          <RegistriesSection />
-        </IntersectionComponent>
         <IntersectionComponent
           id={Anchors.Community}
           onIntersect={() => {

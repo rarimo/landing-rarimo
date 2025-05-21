@@ -3,6 +3,5 @@ export enum Anchors {
   ZkAI = 'zk-ai',
   ZkPassport = 'zk-passport',
   Ecosystem = 'ecosystem',
-  ZkRegistries = 'zk-registries',
   Community = 'community',
 }

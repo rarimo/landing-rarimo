@@ -22,8 +22,8 @@ export const typography: CSSRuleObject = {
     fontWeight: '700',
   },
   '.typography-display4': {
-    'font-size': '80px',
-    'line-height': '76px',
+    'font-size': '48px',
+    'line-height': '56px',
     fontWeight: '500',
   },
 

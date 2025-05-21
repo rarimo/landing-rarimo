@@ -71,7 +71,7 @@ export default function HeroSection() {
           <div className='h-[70%] w-[1px] bg-componentPrimary' />
           <ArrowRightSLineIcon />
         </Link>
-        <h1 className='h-[200px] md:h-[256px]'>
+        <h1 className='h-[90px] md:h-[256px]'>
           <span
             className={cn(
               'text-textPrimary typography-display4',
@@ -91,7 +91,7 @@ export default function HeroSection() {
         </h1>
         <br />
         <div className='flex items-center gap-2 lg:h-[0px]'>
-          <span className='text-textSecondary typography-body2'>Built as</span>
+          <span className='text-textSecondary typography-body2'>Based on</span>
           <div className='flex items-center gap-1'>
             <EthIcon className='text-textPrimary' />
             <Link
