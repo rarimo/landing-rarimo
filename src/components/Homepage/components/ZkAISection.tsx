@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
 import ArrowLeftSLine from '@/assets/icons/arrow-left-s-line-icon.svg'
 import Lock2FillIcon from '@/assets/icons/lock-2-fill-icon.svg'
-import { Anchors, Theme } from '@/enums'
+import { Anchors } from '@/enums'
+import { useThemedImage } from '@/hooks'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiIconButton } from '@/ui'
 
@@ -68,12 +68,14 @@ const wrapperVariants = {
 
 export default function ZkAISection() {
   const [isOpen, setIsOpen] = useState(false)
-  const { resolvedTheme } = useTheme()
-
-  const isDarkTheme = useMemo(
-    () => resolvedTheme === Theme.Dark,
-    [resolvedTheme],
-  )
+  const selfRecoverySrc = useThemedImage({
+    light: '/images/zkAI/self-recovery-light.png',
+    dark: '/images/zkAI/self-recovery-dark.png',
+  })
+  const digitalLikenessSrc = useThemedImage({
+    light: '/images/zkAI/digital-likeness-light.png',
+    dark: '/images/zkAI/digital-likeness-dark.png',
+  })
 
   return (
     <UiContainer
@@ -99,13 +101,13 @@ export default function ZkAISection() {
             <a
               href='https://docs.rarimo.com/zkml-bionetta/tutorial-creating-a-zkml-model/'
               target='_blank'
-              className='flex h-[48px] items-center justify-center rounded-full bg-textPrimary px-[24px] text-invertedLight'
+              className='flex h-[48px] items-center justify-center rounded-full bg-textPrimary px-[24px] text-invertedLight typography-buttonLarge'
             >
-              Start Integrating
+              Build in
             </a>
             <a
               target='_blank'
-              className='flex h-[48px] items-center justify-center rounded-full bg-invertedLight px-[24px] text-invertedDark'
+              className='flex h-[48px] items-center justify-center rounded-full bg-invertedLight px-[24px] text-invertedDark typography-buttonLarge'
               href='https://docs.rarimo.com/zkml-bionetta/'
             >
               Learn more: zkML Bionetta 🌿
@@ -120,11 +122,7 @@ export default function ZkAISection() {
                 <div className='relative flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
                   <img
                     className='ratio-[1.8] absolute bottom-0 max-h-[200px] lg:max-h-[227px]'
-                    src={
-                      isDarkTheme
-                        ? '/images/zkAI/self-recovery-dark.png'
-                        : '/images/zkAI/self-recovery-light.png'
-                    }
+                    src={selfRecoverySrc}
                     alt='Self recovery'
                   />
                 </div>
@@ -156,12 +154,8 @@ export default function ZkAISection() {
                 <div className='relative flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
                   <img
                     className='absolute bottom-0 max-h-[200px] lg:max-h-[240px]'
-                    src={
-                      isDarkTheme
-                        ? '/images/zkAI/digital-likeness-dark.png'
-                        : '/images/zkAI/digital-likeness-light.png'
-                    }
-                    alt='Interactive watermarks'
+                    src={digitalLikenessSrc}
+                    alt='Digital likeness'
                   />
                 </div>
               </div>

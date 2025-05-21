@@ -1,17 +1,13 @@
-import { useTheme } from 'next-themes'
-import { useMemo } from 'react'
-
 import Lock2FillIcon from '@/assets/icons/lock-2-fill-icon.svg'
-import { Anchors, Theme } from '@/enums'
+import { Anchors } from '@/enums'
+import { useThemedImage } from '@/hooks'
 import { UiContainer } from '@/ui'
 
 export default function ZkPassportSection() {
-  const { resolvedTheme } = useTheme()
-
-  const isDarkTheme = useMemo(
-    () => resolvedTheme === Theme.Dark,
-    [resolvedTheme],
-  )
+  const passportImageSrc = useThemedImage({
+    light: 'images/zkPassport/passport-light.png',
+    dark: 'images/zkPassport/passport-dark.png',
+  })
 
   const renderPrivacy = () => {
     return (
@@ -50,9 +46,9 @@ export default function ZkPassportSection() {
               <a
                 href='https://docs.rarimo.com/'
                 target='_blank'
-                className='mt-[20px] flex h-[48px] items-center justify-center rounded-full bg-textPrimary px-[24px] text-invertedLight md:mt-[40px] md:w-fit'
+                className='mt-[20px] flex h-[48px] items-center justify-center rounded-full bg-textPrimary px-[24px] text-invertedLight typography-buttonLarge md:mt-[40px] md:w-fit'
               >
-                Start Integrating
+                Build in
               </a>
             </div>
 
@@ -61,14 +57,7 @@ export default function ZkPassportSection() {
 
           <div className='flex flex-col gap-[8px]'>
             <div className='mt-[40px] flex  items-center justify-center rounded-b-[8px] rounded-t-[40px] bg-additionalOpacited p-[15px] md:max-w-[565px] lg:mt-0'>
-              <img
-                alt='passport'
-                src={
-                  isDarkTheme
-                    ? 'images/zkPassport/passport-dark.png'
-                    : 'images/zkPassport/passport-light.png'
-                }
-              />
+              <img src={passportImageSrc} alt='passport' />
             </div>
             <div>
               <p className='mx-auto rounded-b-[40px] rounded-t-[8px] bg-additionalOpacited px-[42px] py-[42px] text-center typography-body1'>

@@ -2,7 +2,7 @@ import type { CSSRuleObject, ThemeConfig } from 'tailwindcss/types/config'
 
 export const PRIMARY_FONT_VARIABLE = '--font-primary' as const
 export const fontFamily: ThemeConfig['fontFamily'] = {
-  primary: `var(${PRIMARY_FONT_VARIABLE}`,
+  primary: `var(${PRIMARY_FONT_VARIABLE})`,
 }
 
 export const typography: CSSRuleObject = {
