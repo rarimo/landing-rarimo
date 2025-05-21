@@ -79,6 +79,7 @@ export const lightPalette = {
     'linear-gradient(87.63deg, #AC95DC -1.41%, #CD90F3 113.73%);',
   additionalGradient4:
     'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
+  additionalGradient5: 'linear-gradient(87.63deg, #EAEC9B -10%, #C1F0A5 50%);',
 
   additionalLight: getRgba('#8DFFED', 0.1),
 
@@ -161,7 +162,7 @@ export const darkPalette: BaseTheme = {
     'linear-gradient(87.63deg, #AC95DC -1.41%, #CD90F3 113.73%);',
   additionalGradient4:
     'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
-
+  additionalGradient5: 'linear-gradient(87.63deg, #EAEC9B -80%, #C1F0A5 50%);',
   additionalLight: getRgba('#ffffff', 0.15),
 
   gradientEnd: '#0D0D0D',
@@ -254,6 +255,7 @@ export const colorsScheme: BaseTheme = {
   additionalGradient2: 'var(--additional-gradient-2)',
   additionalGradient3: 'var(--additional-gradient-3)',
   additionalGradient4: 'var(--additional-gradient-4)',
+  additionalGradient5: 'var(--additional-gradient-5)',
 
   additionalLight: 'var(--additional-light)',
 

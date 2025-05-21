@@ -15,6 +15,9 @@ import RegistriesSection from '@/components/Homepage/components/RegistriesSectio
 import { Anchors } from '@/enums'
 import { cn } from '@/theme/utils'
 
+import ZkAISection from './components/ZkAISection'
+import ZkPassportSection from './components/ZkPassportSection'
+
 export default function Homepage() {
   const [activeLink, setActiveLink] = useState<Anchors>(Anchors.Home)
 
@@ -46,6 +49,28 @@ export default function Homepage() {
           }}
         >
           <HeroSection />
+        </IntersectionComponent>
+
+        <IntersectionComponent
+          id={Anchors.ZkAI}
+          onIntersect={() => {
+            if (activeLink === Anchors.ZkAI) return
+
+            setActiveLink(Anchors.ZkAI)
+          }}
+        >
+          <ZkAISection />
+        </IntersectionComponent>
+
+        <IntersectionComponent
+          id={Anchors.ZkPassport}
+          onIntersect={() => {
+            if (activeLink === Anchors.ZkPassport) return
+
+            setActiveLink(Anchors.ZkPassport)
+          }}
+        >
+          <ZkPassportSection />
         </IntersectionComponent>
 
         <IntersectionComponent

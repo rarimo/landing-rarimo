@@ -11,6 +11,9 @@ export const gradients = {
   '.additional-gradient4': {
     background: 'linear-gradient(87.63deg, #383838 -1.41%, #282828 113.73%);',
   },
+  '.additional-gradient5': {
+    background: 'linear-gradient(87.63deg, #EAEC9B -50%, #C1F0A5 50%);',
+  },
   '.background-gradient': {
     background:
       'linear-gradient(259.67deg, #A5E87D 7.71%, #95F1CD 42.6%, var(--gradient-end) 91.86%)',
