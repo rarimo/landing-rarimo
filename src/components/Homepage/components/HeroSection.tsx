@@ -22,7 +22,7 @@ export default function HeroSection() {
     if (!typoRef.current) return
 
     const typed = new Typed(typoRef.current, {
-      strings: ['your rules'],
+      strings: ['an alignment'],
       typeSpeed: 120,
       backSpeed: 80,
       loop: true,
@@ -78,7 +78,7 @@ export default function HeroSection() {
               'md:typography-display2',
             )}
           >
-            Your identity
+            Building
           </span>
           <br />
           <span

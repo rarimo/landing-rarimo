@@ -121,7 +121,7 @@ export default function EcosystemSection() {
           <span
             className={cn(
               'text-baseBlack opacity-80 typography-h4',
-              'lg:typography-h3',
+              'lg:typography-h2',
             )}
           >
             Censorship resistance
@@ -131,10 +131,10 @@ export default function EcosystemSection() {
           <span
             className={cn(
               'text-baseBlack opacity-80 typography-h4',
-              'lg:typography-h3',
+              'lg:typography-h2',
             )}
           >
-            Unprecedented Privacy
+            Ultimate Privacy
           </span>
         </EcosystemStackCard>
         <EcosystemStackCard
@@ -153,7 +153,7 @@ export default function EcosystemSection() {
           <span
             className={cn(
               'text-baseWhite opacity-80 typography-h4',
-              'lg:typography-h3',
+              'lg:typography-h2',
             )}
           >
             Secured by Ethereum

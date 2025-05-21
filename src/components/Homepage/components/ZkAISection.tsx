@@ -15,14 +15,14 @@ const solutions: { title: string; description: string }[] = [
       'Instantly verify that a real, live human is behind the screen',
   },
   {
-    title: 'Account recovery',
-    description:
-      'No seed phrase, no cloud backup, restore access to a wallet using zk registries',
-  },
-  {
-    title: 'Objects as keys',
+    title: 'Object as keys',
     description:
       'Turn anything into a private access key - just scan, prove, and unlock with zero knowledge',
+  },
+  {
+    title: 'Interactive watermarks',
+    description:
+      'Tamper-proof watermarking with tolerance to partial output modification',
   },
 ]
 
@@ -88,14 +88,16 @@ export default function ZkAISection() {
       <div className='relative'>
         <div className='flex w-full flex-col md:flex-row md:items-center md:justify-between'>
           <div className='flex flex-col gap-4'>
-            <h2 className='text-textPrimary typography-h2'>zkAI</h2>
+            <h2 className='max-w-[300px] text-textPrimary typography-h2'>
+              zk-Image recognition
+            </h2>
             <p className='text-textSecondary typography-subtitle3'>
-              Tools for the AI models
+              Identity building blocks that empower users
             </p>
           </div>
           <div className='mt-[20px] flex flex-col gap-[16px] md:mt-0 md:flex-row md:gap-[12px]'>
             <a
-              href='https://docs.rarimo.com/'
+              href='https://docs.rarimo.com/zkml-bionetta/tutorial-creating-a-zkml-model/'
               target='_blank'
               className='flex h-[48px] items-center justify-center rounded-full bg-textPrimary px-[24px] text-invertedLight'
             >
@@ -104,7 +106,7 @@ export default function ZkAISection() {
             <a
               target='_blank'
               className='flex h-[48px] items-center justify-center rounded-full bg-invertedLight px-[24px] text-invertedDark'
-              href='https://rarimo.com/learning-hub/bionetta-ultimate-client-side-zkml-technical-overview-62'
+              href='https://docs.rarimo.com/zkml-bionetta/'
             >
               Learn more: zkML Bionetta 🌿
             </a>
@@ -115,34 +117,30 @@ export default function ZkAISection() {
           <div className='flex flex-col gap-[7px] lg:flex-row'>
             <div className='relative w-full'>
               <div className='flex flex-col'>
-                <div className='flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
+                <div className='relative flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
                   <img
-                    className='ratio-[1.8] max-h-[164px]'
-                    src={
-                      isDarkTheme
-                        ? 'images/zkAi/watermarking-dark.png'
-                        : 'images/zkAi/watermarking-light.png'
-                    }
-                    alt='Interactive watermarks'
+                    className='ratio-[1.8] absolute bottom-0 max-h-[200px] lg:max-h-[227px]'
+                    src='/images/zkAI/self-recovery.png'
+                    alt='Self recovery'
                   />
                 </div>
               </div>
               <div className='h-[250px] rounded-b-[32px] border border-backgroundPrimary bg-additionalOpacited px-[32px] pt-[24px] lg:h-[209px]'>
                 <div className='flex flex-col gap-[8px]'>
                   <h3 className='text-textPrimary typography-h3'>
-                    Interactive watermarks
+                    Self recovery
                   </h3>
-                  <p className='text-textSecondary typography-body3 md:max-w-[274px]'>
-                    Tamper-proof watermarking with tolerance to partial output
-                    modification
+                  <p className='text-textSecondary typography-body3 md:max-w-[365px]'>
+                    No seed phrase, no cloud backup, restore access to the keys
+                    autonomously using just an image
                   </p>
                 </div>
                 <div className='gradient5 absolute bottom-[21px] left-[30px] right-[30px] mt-[24px] rounded-[10px] p-[1px]'>
                   <div className='back flex h-full w-full items-center gap-[8px] rounded-[10px] bg-backgroundPrimary p-[12px]'>
                     <Lock2FillIcon className='center flex h-[20px] w-[20px] shrink-0 justify-center' />
-                    <p className='text-textSecondary typography-body3'>
-                      Cryptographically tied to your model and prompt, making it
-                      impossible to forge
+                    <p className='max-w-[450px] text-textSecondary typography-body3'>
+                      Generated on-device and cryptographically bound to the
+                      recovery object only you know
                     </p>
                   </div>
                 </div>
@@ -153,11 +151,11 @@ export default function ZkAISection() {
               <div className='flex flex-col'>
                 <div className='relative flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
                   <img
-                    className='ratio-[1.8] absolute bottom-0 max-h-[200px] lg:max-h-[240px]'
+                    className='absolute bottom-0 max-h-[200px] lg:max-h-[240px]'
                     src={
                       isDarkTheme
-                        ? 'images/zkAi/digital-likeness-dark.png'
-                        : 'images/zkAi/digital-likeness-light.png'
+                        ? '/images/zkAI/digital-likeness-dark.png'
+                        : '/images/zkAI/digital-likeness-light.png'
                     }
                     alt='Interactive watermarks'
                   />
@@ -175,7 +173,7 @@ export default function ZkAISection() {
                 <div className='gradient5 absolute bottom-[21px] left-[30px] right-[30px] mt-[24px] rounded-[10px] p-[1px]'>
                   <div className='back flex h-full w-full items-center gap-[8px] rounded-[10px] bg-backgroundPrimary p-[12px]'>
                     <Lock2FillIcon className='center flex h-[20px] w-[20px] shrink-0 justify-center' />
-                    <p className='text-textSecondary typography-body3'>
+                    <p className='max-w-[450px] text-textSecondary typography-body3'>
                       Only a hashed vector with enforceable rules are used,
                       without raw biometrics
                     </p>

@@ -52,6 +52,17 @@ export default function Homepage() {
         </IntersectionComponent>
 
         <IntersectionComponent
+          id={Anchors.Ecosystem}
+          onIntersect={() => {
+            if (activeLink === Anchors.Ecosystem) return
+
+            setActiveLink(Anchors.Ecosystem)
+          }}
+        >
+          <EcosystemSection />
+        </IntersectionComponent>
+
+        <IntersectionComponent
           id={Anchors.ZkAI}
           onIntersect={() => {
             if (activeLink === Anchors.ZkAI) return
@@ -71,17 +82,6 @@ export default function Homepage() {
           }}
         >
           <ZkPassportSection />
-        </IntersectionComponent>
-
-        <IntersectionComponent
-          id={Anchors.Ecosystem}
-          onIntersect={() => {
-            if (activeLink === Anchors.Ecosystem) return
-
-            setActiveLink(Anchors.Ecosystem)
-          }}
-        >
-          <EcosystemSection />
         </IntersectionComponent>
 
         <ProjectsSection />
