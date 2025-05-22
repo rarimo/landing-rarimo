@@ -6,7 +6,7 @@ import Lock2FillIcon from '@/assets/icons/lock-2-fill-icon.svg'
 import { Anchors } from '@/enums'
 import { useThemedImage } from '@/hooks'
 import { cn } from '@/theme/utils'
-import { UiContainer, UiIconButton } from '@/ui'
+import { UiContainer } from '@/ui'
 
 const solutions: { title: string; description: string }[] = [
   {
@@ -182,24 +182,22 @@ export default function ZkAISection() {
           </div>
 
           <div className='flex flex-col'>
-            <div
+            <button
               className={cn(
                 'mx-auto mt-[16px] flex items-center gap-[12px] md:mt-[32px]',
               )}
+              onClick={() => setIsOpen(!isOpen)}
             >
-              <UiIconButton
+              <div
                 className={cn(
-                  'aspect-square h-[32px] w-[32px] rotate-[-90deg] bg-additionalOpacited transition-transform',
+                  'flex aspect-square h-[32px] w-[32px] rotate-[-90deg] items-center justify-center rounded-full bg-additionalOpacited transition-transform',
                   { 'rotate-[90deg]': isOpen },
                 )}
-                size='large'
-                color='white'
-                onClick={() => setIsOpen(prev => !prev)}
               >
                 <ArrowLeftSLine />
-              </UiIconButton>
+              </div>
               <p>Explore other solutions with zkML</p>
-            </div>
+            </button>
 
             <AnimatePresence initial={false}>
               {isOpen && (

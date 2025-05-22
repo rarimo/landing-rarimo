@@ -32,7 +32,7 @@ export default function ZkPassportSection() {
       fullHeightContainerClassName='md:pt-0 md:pb-8'
       showGradientDecor
       isFullHeight={false}
-      gradientDecorClassName='left-0 right-0 bottom-[-310px] rotate-[70deg] h-[800px] opacity-80 blur-[200px]'
+      gradientDecorClassName='left-0 right-0 bottom-[-310px] rotate-[70deg] h-[800px] w-[1000px] opacity-80 blur-[200px]'
       data-aos='fade-up'
     >
       <div className='relative'>
