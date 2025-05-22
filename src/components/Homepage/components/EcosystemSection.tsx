@@ -4,7 +4,6 @@ import { AnimationProps, motion, Transition } from 'motion/react'
 import { ReactElement, useState } from 'react'
 
 import IntersectionAnchor from '@/common/IntersectionAnchor'
-import { Anchors } from '@/enums'
 import { isLargeScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer } from '@/ui'
@@ -20,7 +19,6 @@ export default function EcosystemSection() {
 
   return (
     <UiContainer
-      id={Anchors.Ecosystem}
       className={cn(
         'relative flex items-center justify-center overflow-hidden bg-backgroundContainer pt-0',
       )}

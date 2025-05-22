@@ -11,6 +11,7 @@ import CountUp from '@/common/CountUp'
 import ScrollReveal from '@/common/ScrollReveal'
 import SliderMotionCard from '@/common/SliderMotionCard'
 import SpotlightCard from '@/common/SpotlightCard'
+import { Anchors } from '@/enums'
 import { isMediumScreen } from '@/helpers'
 import { cn } from '@/theme/utils'
 import { UiContainer, UiHorizontalDivider, UiIconButton } from '@/ui'
@@ -38,6 +39,7 @@ export default function ProjectsSection() {
 
   return (
     <UiContainer
+      id={Anchors.Ecosystem}
       className={cn(
         'relative flex flex-col overflow-hidden bg-backgroundContainer',
         'p-12 px-0 md:p-[72px] md:px-0',

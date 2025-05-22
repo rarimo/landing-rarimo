@@ -1,6 +1,6 @@
 export enum Anchors {
   Home = 'home',
-  ZkAI = 'zk-ai',
+  ZkImage = 'zk-image-recognition',
   ZkPassport = 'zk-passport',
   Ecosystem = 'ecosystem',
   Community = 'community',

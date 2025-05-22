@@ -39,7 +39,7 @@ export default function ZkPassportSection() {
         <div className='flex flex-col justify-between  lg:flex-row'>
           <div className='flex flex-col items-stretch justify-between'>
             <div className='flex max-w-[350px] flex-col gap-[16px] md:gap-[12px]'>
-              <h2 className='text-textPrimary typography-h2'>ZK Passport</h2>
+              <h2 className='text-textPrimary typography-h2'>zk Passport</h2>
               <p className='text-textSecondary typography-subtitle3'>
                 Allow users to Prove who they are – without revealing any data
               </p>

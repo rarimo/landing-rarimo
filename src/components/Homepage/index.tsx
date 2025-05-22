@@ -5,7 +5,6 @@ import { PropsWithChildren, useEffect, useState } from 'react'
 
 import HomeHeader from '@/common/HomeHeader'
 import { HomeSidebar } from '@/common/HomeSidebar'
-import QRCodeBlock from '@/common/QRCodeBlock'
 import CommunitySection from '@/components/Homepage/components/CommunitySection'
 import EcosystemSection from '@/components/Homepage/components/EcosystemSection'
 import HeroSection from '@/components/Homepage/components/HeroSection'
@@ -50,23 +49,14 @@ export default function Homepage() {
           <HeroSection />
         </IntersectionComponent>
 
-        <IntersectionComponent
-          id={Anchors.Ecosystem}
-          onIntersect={() => {
-            if (activeLink === Anchors.Ecosystem) return
-
-            setActiveLink(Anchors.Ecosystem)
-          }}
-        >
-          <EcosystemSection />
-        </IntersectionComponent>
+        <EcosystemSection />
 
         <IntersectionComponent
-          id={Anchors.ZkAI}
+          id={Anchors.ZkImage}
           onIntersect={() => {
-            if (activeLink === Anchors.ZkAI) return
+            if (activeLink === Anchors.ZkImage) return
 
-            setActiveLink(Anchors.ZkAI)
+            setActiveLink(Anchors.ZkImage)
           }}
         >
           <ZkAISection />
@@ -83,7 +73,16 @@ export default function Homepage() {
           <ZkPassportSection />
         </IntersectionComponent>
 
-        <ProjectsSection />
+        <IntersectionComponent
+          id={Anchors.Ecosystem}
+          onIntersect={() => {
+            if (activeLink === Anchors.Ecosystem) return
+
+            setActiveLink(Anchors.Ecosystem)
+          }}
+        >
+          <ProjectsSection />
+        </IntersectionComponent>
 
         <IntersectionComponent
           id={Anchors.Community}
@@ -96,7 +95,6 @@ export default function Homepage() {
           <CommunitySection />
         </IntersectionComponent>
         <NewsSection />
-        <QRCodeBlock />
       </main>
     </div>
   )
@@ -111,7 +109,7 @@ function IntersectionComponent({
   id?: string
 }>) {
   const [ref, entry] = useIntersectionObserver({
-    threshold: 0.9,
+    threshold: 0.7,
     root: null,
     rootMargin: '0px',
   })

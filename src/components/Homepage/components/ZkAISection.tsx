@@ -79,7 +79,7 @@ export default function ZkAISection() {
 
   return (
     <UiContainer
-      id={Anchors.ZkAI}
+      id={Anchors.ZkImage}
       className='bg-backgroundContainer p-5 md:px-20 md:py-10 md:pt-[50px]'
       fullHeightContainerClassName='md:pt-0 md:pb-8'
       showGradientDecor

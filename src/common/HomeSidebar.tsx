@@ -91,9 +91,9 @@ export function AnchorsList({
 }: AnchorsListProps) {
   const sectionAnchors = [
     { title: 'Home', anchor: Anchors.Home },
+    { title: 'zk-Image recognition', anchor: Anchors.ZkImage },
+    { title: 'zk Passport', anchor: Anchors.ZkPassport },
     { title: 'Ecosystem', anchor: Anchors.Ecosystem },
-    { title: 'zk Image Recoginition', anchor: Anchors.ZkAI },
-    { title: 'ZK Passport', anchor: Anchors.ZkPassport },
     { title: 'Community', anchor: Anchors.Community },
   ]
 
