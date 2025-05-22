@@ -1,6 +1,6 @@
 {
   "name": "landing-rarimo",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "private": true,
   "gitHooks": {
     "pre-push": "yarn lint && yarn type-check"
