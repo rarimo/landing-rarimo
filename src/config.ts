@@ -1,7 +1,6 @@
 export const config = {
   heroSectionLink:
     'https://mirror.xyz/0x90699B5A52BccbdFe73d5c9F3d039a33fb2D1AF6',
-  zkRegistriesLink: 'https://docs.rarimo.com/',
   ercLink: 'https://eips.ethereum.org/EIPS/eip-7812',
   xLink: 'https://twitter.com/Rarimo_protocol',
   telegramLink: 'https://t.me/+pWugh5xgDiE3Y2Jk',

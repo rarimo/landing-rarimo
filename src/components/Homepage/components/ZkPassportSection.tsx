@@ -44,7 +44,7 @@ export default function ZkPassportSection() {
                 Allow users to Prove who they are – without revealing any data
               </p>
               <a
-                href='https://docs.rarimo.com/'
+                href='https://docs.rarimo.com/zk-passport/'
                 target='_blank'
                 className='mt-[20px] flex h-[48px] items-center justify-center rounded-full bg-textPrimary px-[24px] text-invertedLight typography-buttonLarge md:mt-[40px] md:w-fit'
               >
