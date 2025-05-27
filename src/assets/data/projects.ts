@@ -15,7 +15,7 @@ export const projectsList = [
     title: 'Openion',
     description: 'Opinion markets: The Web3 era of social networks',
     imageUrl: '/images/projects/openion-icon.png',
-    link: 'https://openion.com/',
+    link: 'https://openion.io/',
   },
   {
     title: 'Agora',
