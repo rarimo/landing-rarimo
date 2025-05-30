@@ -68,9 +68,9 @@ const wrapperVariants = {
 
 export default function ZkAISection() {
   const [isOpen, setIsOpen] = useState(false)
-  const selfRecoverySrc = useThemedImage({
-    light: '/images/zkAI/self-recovery-light.png',
-    dark: '/images/zkAI/self-recovery-dark.png',
+  const seedlessRecoverySrc = useThemedImage({
+    light: '/images/zkAI/seedless-recovery-light.png',
+    dark: '/images/zkAI/seedless-recovery-dark.png',
   })
   const digitalLikenessSrc = useThemedImage({
     light: '/images/zkAI/digital-likeness-light.png',
@@ -122,15 +122,15 @@ export default function ZkAISection() {
                 <div className='relative flex h-[230px] items-center justify-center rounded-t-[32px] bg-backgroundPrimary lg:h-[289px]'>
                   <img
                     className='ratio-[1.8] absolute bottom-0 max-h-[200px] lg:max-h-[227px]'
-                    src={selfRecoverySrc}
-                    alt='Self recovery'
+                    src={seedlessRecoverySrc}
+                    alt='Seedless recovery'
                   />
                 </div>
               </div>
               <div className='h-[250px] rounded-b-[32px] border border-backgroundPrimary bg-additionalOpacited px-[32px] pt-[24px] lg:h-[209px]'>
                 <div className='flex flex-col gap-[8px]'>
                   <h3 className='text-textPrimary typography-h3'>
-                    Self recovery
+                    Seedless recovery
                   </h3>
                   <p className='text-textSecondary typography-body3 md:max-w-[365px]'>
                     No seed phrase, no cloud backup, restore access to the keys
