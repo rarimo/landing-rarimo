@@ -18,7 +18,7 @@ jobs:
         # This is where you will update the personal access token to GITHUB_TOKEN
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-        # cp .env-staging .env
+          cp .env-staging .env
 
       - name: Cache layers
         uses: actions/cache@v3
