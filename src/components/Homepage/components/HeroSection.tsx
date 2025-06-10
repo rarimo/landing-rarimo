@@ -22,7 +22,7 @@ export default function HeroSection() {
     if (!typoRef.current) return
 
     const typed = new Typed(typoRef.current, {
-      strings: ['alignment', 'a trust layer'],
+      strings: ['zk registries', 'a trust layer'],
       typeSpeed: 120,
       backSpeed: 80,
       loop: true,
