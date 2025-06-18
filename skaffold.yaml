@@ -2,4 +2,4 @@ apiVersion: skaffold/v2beta28
 kind: Config
 build:
   artifacts:
-  - image: rarimo.com
+    - image: rarimo.com
