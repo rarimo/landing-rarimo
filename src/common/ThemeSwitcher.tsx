@@ -22,35 +22,37 @@ export default function ThemeSwitcher() {
   )
 
   return (
-    <ClientOnly>
-      {() => (
-        <div className='relative flex h-[36px] w-[140px] items-center justify-center overflow-hidden rounded-full bg-componentPrimary'>
-          <ThemeSwitcherThumbBackdrop
-            animate={isDarkTheme ? ANIMATED_THUMB : INITIAL_THUMB}
-          />
-
-          <ThemeSwitcherThumb>
-            <SunLineIcon
-              className={
-                isDarkTheme ? 'text-textSecondary' : 'text-textPrimary'
-              }
+    <div className='h-[36px]'>
+      <ClientOnly>
+        {() => (
+          <div className='relative flex h-[36px] w-[140px] items-center justify-center overflow-hidden rounded-full bg-componentPrimary'>
+            <ThemeSwitcherThumbBackdrop
+              animate={isDarkTheme ? ANIMATED_THUMB : INITIAL_THUMB}
             />
-          </ThemeSwitcherThumb>
-          <ThemeSwitcherThumb>
-            <MoonLineIcon
-              className={
-                isDarkTheme ? 'text-textPrimary' : 'text-textSecondary'
-              }
-            />
-          </ThemeSwitcherThumb>
 
-          <button
-            className='absolute left-0 top-0 z-40 size-full'
-            onClick={() => setTheme(isDarkTheme ? Theme.Light : Theme.Dark)}
-          />
-        </div>
-      )}
-    </ClientOnly>
+            <ThemeSwitcherThumb>
+              <SunLineIcon
+                className={
+                  isDarkTheme ? 'text-textSecondary' : 'text-textPrimary'
+                }
+              />
+            </ThemeSwitcherThumb>
+            <ThemeSwitcherThumb>
+              <MoonLineIcon
+                className={
+                  isDarkTheme ? 'text-textPrimary' : 'text-textSecondary'
+                }
+              />
+            </ThemeSwitcherThumb>
+
+            <button
+              className='absolute left-0 top-0 z-40 size-full'
+              onClick={() => setTheme(isDarkTheme ? Theme.Light : Theme.Dark)}
+            />
+          </div>
+        )}
+      </ClientOnly>
+    </div>
   )
 }
 

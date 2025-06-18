@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { AnchorHTMLAttributes, DetailedHTMLProps, HTMLAttributes } from 'react'
 
+import GithubFillIcon from '@/assets/icons/github-fill-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
 import TwitterXFillIcon from '@/assets/icons/twitter-x-fill-icon.svg'
@@ -22,7 +23,7 @@ export function HomeSidebar({
   ...rest
 }: HomeSidebarProps) {
   const linkStyle =
-    'text-textSecondary transition duration-300 hover:text-textPrimary'
+    'w-5 text-textSecondary transition duration-300 hover:text-textPrimary'
 
   return (
     <aside {...rest} className={cn('flex size-full flex-col', className)}>
@@ -59,12 +60,15 @@ export function HomeSidebar({
       </nav>
 
       <div className='mt-auto flex flex-col gap-6'>
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-3'>
           <Link href={config.xLink} target='_blank'>
             <TwitterXFillIcon className={linkStyle} />
           </Link>
           <Link href={config.telegramLink} target='_blank'>
             <TelegramLineIcon className={linkStyle} />
+          </Link>
+          <Link href={config.githubLink} target='_blank'>
+            <GithubFillIcon className={linkStyle} />
           </Link>
         </div>
 

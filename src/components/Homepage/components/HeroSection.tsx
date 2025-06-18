@@ -71,11 +71,12 @@ export default function HeroSection() {
           <div className='h-[70%] w-[1px] bg-componentPrimary' />
           <ArrowRightSLineIcon />
         </Link>
-        <h1 className='h-[90px] md:h-[256px]'>
+        <h1 className='h-[90px] md:h-[220px] lg:h-[316px]'>
           <span
             className={cn(
               'text-textPrimary typography-display4',
-              'md:typography-display2',
+              'md:typography-display4',
+              'lg:typography-display2',
             )}
           >
             Building
@@ -84,12 +85,12 @@ export default function HeroSection() {
           <span
             className={cn(
               'gradient1 bg-clip-text text-transparent typography-display4',
-              'md:typography-display1',
+              'md:typography-display3',
+              'lg:typography-display1',
             )}
             ref={typoRef}
           ></span>
         </h1>
-        <br />
         <div className='flex items-center gap-2 lg:h-[0px]'>
           <span className='text-textSecondary typography-body2'>Based on</span>
           <div className='flex items-center gap-1'>

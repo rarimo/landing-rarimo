@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
 import CloseFillIcon from '@/assets/icons/close-fill-icon.svg'
+import GithubFillIcon from '@/assets/icons/github-fill-icon.svg'
 import LogoIcon from '@/assets/icons/logo-icon.svg'
 import Menu2FillIcon from '@/assets/icons/menu-2-fill-icon.svg'
 import TelegramLineIcon from '@/assets/icons/telegram-line-icon.svg'
@@ -167,10 +168,13 @@ export default function HomeHeader({
           >
             <div className='flex items-center gap-4'>
               <Link href={config.xLink} target='_blank'>
-                <TwitterXFillIcon className={'text-textSecondary'} />
+                <TwitterXFillIcon className={'w-5 text-textSecondary'} />
               </Link>
               <Link href={config.telegramLink} target='_blank'>
-                <TelegramLineIcon className={'text-textSecondary'} />
+                <TelegramLineIcon className={'w-5 text-textSecondary'} />
+              </Link>
+              <Link href={config.githubLink} target='_blank'>
+                <GithubFillIcon className={'w-5 text-textSecondary'} />
               </Link>
             </div>
 

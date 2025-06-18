@@ -1,9 +1,10 @@
 export const config = {
   heroSectionLink:
-    'https://mirror.xyz/0x90699B5A52BccbdFe73d5c9F3d039a33fb2D1AF6',
+    'https://mirror.xyz/0x90699B5A52BccbdFe73d5c9F3d039a33fb2D1AF6/u0oCz4_BPbCZPqDP47uauGboBX1ZWM-TL_0rv_1JnaU',
   ercLink: 'https://eips.ethereum.org/EIPS/eip-7812',
   xLink: 'https://twitter.com/Rarimo_protocol',
   telegramLink: 'https://t.me/+pWugh5xgDiE3Y2Jk',
+  githubLink: 'https://github.com/rarimo',
 
   documentationLink: 'https://docs.rarimo.com/',
 
