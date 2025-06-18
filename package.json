@@ -1,5 +1,5 @@
 {
-  "name": "landing-rarimo",
+  "name": "rarimo.com",
   "version": "2.2.6",
   "private": true,
   "gitHooks": {
@@ -72,5 +72,5 @@
     "typescript": "^5",
     "yorkie": "^2.0.0"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "yarn@4.7.0"
 }
