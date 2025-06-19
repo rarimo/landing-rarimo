@@ -1,6 +1,6 @@
 {
   "name": "rarimo.com",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "private": true,
   "gitHooks": {
     "pre-push": "yarn lint && yarn type-check"
