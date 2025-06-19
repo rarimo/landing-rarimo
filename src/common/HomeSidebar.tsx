@@ -23,7 +23,7 @@ export function HomeSidebar({
   ...rest
 }: HomeSidebarProps) {
   const linkStyle =
-    'w-5 text-textSecondary transition duration-300 hover:text-textPrimary'
+    'text-textSecondary transition duration-300 hover:text-textPrimary'
 
   return (
     <aside {...rest} className={cn('flex size-full flex-col', className)}>
@@ -61,14 +61,18 @@ export function HomeSidebar({
 
       <div className='mt-auto flex flex-col gap-6'>
         <div className='flex items-center gap-3'>
-          <Link href={config.xLink} target='_blank'>
-            <TwitterXFillIcon className={linkStyle} />
+          <Link href={config.xLink} target='_blank' className={linkStyle}>
+            <TwitterXFillIcon className='w-5' />
           </Link>
-          <Link href={config.telegramLink} target='_blank'>
-            <TelegramLineIcon className={linkStyle} />
+          <Link
+            href={config.telegramLink}
+            target='_blank'
+            className={linkStyle}
+          >
+            <TelegramLineIcon className='w-5' />
           </Link>
-          <Link href={config.githubLink} target='_blank'>
-            <GithubFillIcon className={linkStyle} />
+          <Link href={config.githubLink} target='_blank' className={linkStyle}>
+            <GithubFillIcon className='w-5' />
           </Link>
         </div>
 
