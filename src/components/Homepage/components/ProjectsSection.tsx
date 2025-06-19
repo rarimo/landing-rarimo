@@ -173,7 +173,11 @@ function ProjectSliderCard({
               className,
             )}
           >
-            <img className='mb-auto size-12' src={imageUrl} alt={title} />
+            <img
+              className='mb-auto size-12 rounded-2xl border-[1px] border-componentPrimary'
+              src={imageUrl}
+              alt={title}
+            />
             <div className='flex items-center gap-2'>
               <span className='text-textPrimary typography-h4'>{title}</span>
               <ExternalLinkIcon

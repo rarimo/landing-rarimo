@@ -12,6 +12,12 @@ export const projectsList = [
     link: 'https://freedomtool.org/',
   },
   {
+    title: 'Unforgettable.app',
+    description: 'Seed-less, self-controlled recovery for your wallet',
+    imageUrl: '/images/projects/unforgettable-app-icon.png',
+    link: 'https://unforgettable.app/',
+  },
+  {
     title: 'Openion',
     description: 'Opinion markets: The Web3 era of social networks',
     imageUrl: '/images/projects/openion-icon.png',
